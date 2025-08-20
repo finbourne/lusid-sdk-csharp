@@ -40,7 +40,7 @@ namespace Lusid.Sdk.Model
         /// <param name="cashOfferPrice">Price per share of the cash offer (required).</param>
         /// <param name="electionKey">Unique key associated to this election. (required).</param>
         /// <param name="isChosen">Is this the election that has been explicitly chosen from multiple options..</param>
-        /// <param name="isDefault">Is this election automatically applied in the absence of an election having been made.  May only be true for one election if multiple are provided..</param>
+        /// <param name="isDefault">Is this election automatically applied in the absence of an election having been made. May only be true for one election if multiple are provided..</param>
         public CashOfferElection(string cashOfferCurrency = default(string), decimal cashOfferPrice = default(decimal), string electionKey = default(string), bool isChosen = default(bool), bool isDefault = default(bool))
         {
             // to ensure "cashOfferCurrency" is required (not null)
@@ -89,9 +89,9 @@ namespace Lusid.Sdk.Model
         public bool IsChosen { get; set; }
 
         /// <summary>
-        /// Is this election automatically applied in the absence of an election having been made.  May only be true for one election if multiple are provided.
+        /// Is this election automatically applied in the absence of an election having been made. May only be true for one election if multiple are provided.
         /// </summary>
-        /// <value>Is this election automatically applied in the absence of an election having been made.  May only be true for one election if multiple are provided.</value>
+        /// <value>Is this election automatically applied in the absence of an election having been made. May only be true for one election if multiple are provided.</value>
         [DataMember(Name = "isDefault", EmitDefaultValue = true)]
         public bool IsDefault { get; set; }
 

@@ -35,7 +35,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] CreateAmortisationRuleSet: Create an amortisation rule set.
         /// </summary>
         /// <remarks>
-        /// Creates an amortisation rule set definition at the given effective time.  The user must be entitled to read any properties specified in each rule.
+        /// Creates an amortisation rule set definition at the given effective time. The user must be entitled to read any properties specified in each rule.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the rule set.</param>
@@ -49,7 +49,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] CreateAmortisationRuleSet: Create an amortisation rule set.
         /// </summary>
         /// <remarks>
-        /// Creates an amortisation rule set definition at the given effective time.  The user must be entitled to read any properties specified in each rule.
+        /// Creates an amortisation rule set definition at the given effective time. The user must be entitled to read any properties specified in each rule.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the rule set.</param>
@@ -62,7 +62,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] DeleteAmortisationRuleset: Delete an amortisation rule set.
         /// </summary>
         /// <remarks>
-        /// Deletes the rule set perpetually, including its rules.    The rule set will remain viewable at previous as at times, but it will no longer be considered applicable.    This cannot be undone.
+        /// Deletes the rule set perpetually, including its rules.  The rule set will remain viewable at previous as at times, but it will no longer be considered applicable.  This cannot be undone.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The rule set scope.</param>
@@ -76,7 +76,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] DeleteAmortisationRuleset: Delete an amortisation rule set.
         /// </summary>
         /// <remarks>
-        /// Deletes the rule set perpetually, including its rules.    The rule set will remain viewable at previous as at times, but it will no longer be considered applicable.    This cannot be undone.
+        /// Deletes the rule set perpetually, including its rules.  The rule set will remain viewable at previous as at times, but it will no longer be considered applicable.  This cannot be undone.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The rule set scope.</param>
@@ -94,8 +94,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The rule set scope.</param>
         /// <param name="code">The rule set code.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definition.  Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not  specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definition. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>AmortisationRuleSet</returns>
@@ -110,8 +110,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The rule set scope.</param>
         /// <param name="code">The rule set code.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definition.  Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not  specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definition. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AmortisationRuleSet</returns>
@@ -123,11 +123,11 @@ namespace Lusid.Sdk.Api
         /// Retrieves all amortisation rule sets at the given effective and as at times
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions.  Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not  specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing AmortisationRuleSets; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing AmortisationRuleSets; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.             For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -141,11 +141,11 @@ namespace Lusid.Sdk.Api
         /// Retrieves all amortisation rule sets at the given effective and as at times
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions.  Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not  specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing AmortisationRuleSets; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing AmortisationRuleSets; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.             For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -222,7 +222,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] CreateAmortisationRuleSet: Create an amortisation rule set.
         /// </summary>
         /// <remarks>
-        /// Creates an amortisation rule set definition at the given effective time.  The user must be entitled to read any properties specified in each rule.
+        /// Creates an amortisation rule set definition at the given effective time. The user must be entitled to read any properties specified in each rule.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the rule set.</param>
@@ -237,7 +237,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] CreateAmortisationRuleSet: Create an amortisation rule set.
         /// </summary>
         /// <remarks>
-        /// Creates an amortisation rule set definition at the given effective time.  The user must be entitled to read any properties specified in each rule.
+        /// Creates an amortisation rule set definition at the given effective time. The user must be entitled to read any properties specified in each rule.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the rule set.</param>
@@ -251,7 +251,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] DeleteAmortisationRuleset: Delete an amortisation rule set.
         /// </summary>
         /// <remarks>
-        /// Deletes the rule set perpetually, including its rules.    The rule set will remain viewable at previous as at times, but it will no longer be considered applicable.    This cannot be undone.
+        /// Deletes the rule set perpetually, including its rules.  The rule set will remain viewable at previous as at times, but it will no longer be considered applicable.  This cannot be undone.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The rule set scope.</param>
@@ -266,7 +266,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] DeleteAmortisationRuleset: Delete an amortisation rule set.
         /// </summary>
         /// <remarks>
-        /// Deletes the rule set perpetually, including its rules.    The rule set will remain viewable at previous as at times, but it will no longer be considered applicable.    This cannot be undone.
+        /// Deletes the rule set perpetually, including its rules.  The rule set will remain viewable at previous as at times, but it will no longer be considered applicable.  This cannot be undone.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The rule set scope.</param>
@@ -285,8 +285,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The rule set scope.</param>
         /// <param name="code">The rule set code.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definition.  Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not  specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definition. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -302,8 +302,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The rule set scope.</param>
         /// <param name="code">The rule set code.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definition.  Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not  specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definition. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -316,11 +316,11 @@ namespace Lusid.Sdk.Api
         /// Retrieves all amortisation rule sets at the given effective and as at times
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions.  Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not  specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing AmortisationRuleSets; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing AmortisationRuleSets; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.             For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -335,11 +335,11 @@ namespace Lusid.Sdk.Api
         /// Retrieves all amortisation rule sets at the given effective and as at times
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions.  Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not  specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing AmortisationRuleSets; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing AmortisationRuleSets; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.             For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -532,7 +532,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateAmortisationRuleSet: Create an amortisation rule set. Creates an amortisation rule set definition at the given effective time.  The user must be entitled to read any properties specified in each rule.
+        /// [EXPERIMENTAL] CreateAmortisationRuleSet: Create an amortisation rule set. Creates an amortisation rule set definition at the given effective time. The user must be entitled to read any properties specified in each rule.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the rule set.</param>
@@ -547,7 +547,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateAmortisationRuleSet: Create an amortisation rule set. Creates an amortisation rule set definition at the given effective time.  The user must be entitled to read any properties specified in each rule.
+        /// [EXPERIMENTAL] CreateAmortisationRuleSet: Create an amortisation rule set. Creates an amortisation rule set definition at the given effective time. The user must be entitled to read any properties specified in each rule.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the rule set.</param>
@@ -645,7 +645,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateAmortisationRuleSet: Create an amortisation rule set. Creates an amortisation rule set definition at the given effective time.  The user must be entitled to read any properties specified in each rule.
+        /// [EXPERIMENTAL] CreateAmortisationRuleSet: Create an amortisation rule set. Creates an amortisation rule set definition at the given effective time. The user must be entitled to read any properties specified in each rule.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the rule set.</param>
@@ -661,7 +661,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateAmortisationRuleSet: Create an amortisation rule set. Creates an amortisation rule set definition at the given effective time.  The user must be entitled to read any properties specified in each rule.
+        /// [EXPERIMENTAL] CreateAmortisationRuleSet: Create an amortisation rule set. Creates an amortisation rule set definition at the given effective time. The user must be entitled to read any properties specified in each rule.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the rule set.</param>
@@ -762,7 +762,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteAmortisationRuleset: Delete an amortisation rule set. Deletes the rule set perpetually, including its rules.    The rule set will remain viewable at previous as at times, but it will no longer be considered applicable.    This cannot be undone.
+        /// [EXPERIMENTAL] DeleteAmortisationRuleset: Delete an amortisation rule set. Deletes the rule set perpetually, including its rules.  The rule set will remain viewable at previous as at times, but it will no longer be considered applicable.  This cannot be undone.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The rule set scope.</param>
@@ -777,7 +777,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteAmortisationRuleset: Delete an amortisation rule set. Deletes the rule set perpetually, including its rules.    The rule set will remain viewable at previous as at times, but it will no longer be considered applicable.    This cannot be undone.
+        /// [EXPERIMENTAL] DeleteAmortisationRuleset: Delete an amortisation rule set. Deletes the rule set perpetually, including its rules.  The rule set will remain viewable at previous as at times, but it will no longer be considered applicable.  This cannot be undone.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The rule set scope.</param>
@@ -871,7 +871,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteAmortisationRuleset: Delete an amortisation rule set. Deletes the rule set perpetually, including its rules.    The rule set will remain viewable at previous as at times, but it will no longer be considered applicable.    This cannot be undone.
+        /// [EXPERIMENTAL] DeleteAmortisationRuleset: Delete an amortisation rule set. Deletes the rule set perpetually, including its rules.  The rule set will remain viewable at previous as at times, but it will no longer be considered applicable.  This cannot be undone.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The rule set scope.</param>
@@ -887,7 +887,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteAmortisationRuleset: Delete an amortisation rule set. Deletes the rule set perpetually, including its rules.    The rule set will remain viewable at previous as at times, but it will no longer be considered applicable.    This cannot be undone.
+        /// [EXPERIMENTAL] DeleteAmortisationRuleset: Delete an amortisation rule set. Deletes the rule set perpetually, including its rules.  The rule set will remain viewable at previous as at times, but it will no longer be considered applicable.  This cannot be undone.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The rule set scope.</param>
@@ -989,8 +989,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The rule set scope.</param>
         /// <param name="code">The rule set code.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definition.  Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not  specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definition. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>AmortisationRuleSet</returns>
@@ -1006,8 +1006,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The rule set scope.</param>
         /// <param name="code">The rule set code.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definition.  Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not  specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definition. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AmortisationRuleSet</returns>
@@ -1110,8 +1110,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The rule set scope.</param>
         /// <param name="code">The rule set code.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definition.  Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not  specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definition. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1128,8 +1128,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The rule set scope.</param>
         /// <param name="code">The rule set code.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definition.  Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not  specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definition. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1233,11 +1233,11 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListAmortisationRuleSets: List amortisation rule sets. Retrieves all amortisation rule sets at the given effective and as at times
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions.  Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not  specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing AmortisationRuleSets; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing AmortisationRuleSets; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.             For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1252,11 +1252,11 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListAmortisationRuleSets: List amortisation rule sets. Retrieves all amortisation rule sets at the given effective and as at times
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions.  Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not  specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing AmortisationRuleSets; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing AmortisationRuleSets; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.             For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1360,11 +1360,11 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListAmortisationRuleSets: List amortisation rule sets. Retrieves all amortisation rule sets at the given effective and as at times
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions.  Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not  specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing AmortisationRuleSets; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing AmortisationRuleSets; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.             For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1380,11 +1380,11 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListAmortisationRuleSets: List amortisation rule sets. Retrieves all amortisation rule sets at the given effective and as at times
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions.  Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not  specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing AmortisationRuleSets; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing AmortisationRuleSets; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.             For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>

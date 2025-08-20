@@ -29,7 +29,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 DeletePerson: Delete person
 
-Delete a person. Deletion will be valid from the person's creation datetime.  This means that the person will no longer exist at any effective datetime from the asAt datetime of deletion.
+Delete a person. Deletion will be valid from the person's creation datetime. This means that the person will no longer exist at any effective datetime from the asAt datetime of deletion.
 
 ### Example
 ```csharp
@@ -72,7 +72,7 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PersonsApi>();
             var idTypeScope = "idTypeScope_example";  // string | The scope of the person identifier type.
             var idTypeCode = "idTypeCode_example";  // string | The code of the person identifier type.
-            var code = "code_example";  // string | Code of the person under specified identifier type scope and code. This together with defined              identifier type uniquely identifies the person to delete.
+            var code = "code_example";  // string | Code of the person under specified identifier type scope and code. This together with defined             identifier type uniquely identifies the person to delete.
 
             try
             {
@@ -120,7 +120,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **idTypeScope** | **string** | The scope of the person identifier type. |  |
 | **idTypeCode** | **string** | The code of the person identifier type. |  |
-| **code** | **string** | Code of the person under specified identifier type scope and code. This together with defined              identifier type uniquely identifies the person to delete. |  |
+| **code** | **string** | Code of the person under specified identifier type scope and code. This together with defined             identifier type uniquely identifies the person to delete. |  |
 
 ### Return type
 
@@ -147,7 +147,7 @@ catch (ApiException e)
 
 [EARLY ACCESS] DeletePersonAccessMetadata: Delete a Person Access Metadata entry
 
-Deletes the Person Access Metadata entry that exactly matches the provided identifier parts.    It is important to always check to verify success (or failure).
+Deletes the Person Access Metadata entry that exactly matches the provided identifier parts.  It is important to always check to verify success (or failure).
 
 ### Example
 ```csharp
@@ -314,9 +314,9 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PersonsApi>();
             var idTypeScope = "idTypeScope_example";  // string | Scope of the person identifier type.
             var idTypeCode = "idTypeCode_example";  // string | Code of the person identifier type.
-            var code = "code_example";  // string | Code of the person under specified identifier type's scope and code. This together with stated identifier type uniquely              identifies the person.
-            var propertyKeys = new List<string>(); // List<string> | The property keys of the identifiers to delete. These take the format              {domain}/{scope}/{code} e.g. \"Person/CompanyDetails/Role\". Each property must be from the \"Person\" domain. Identifiers or identifiers not specified in request will not be changed.
-            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to delete the identifiers. Defaults to the current LUSID system datetime if not specified.              Must not include an effective datetime if identifiers are perpetual. (optional) 
+            var code = "code_example";  // string | Code of the person under specified identifier type's scope and code. This together with stated identifier type uniquely             identifies the person.
+            var propertyKeys = new List<string>(); // List<string> | The property keys of the identifiers to delete. These take the format             {domain}/{scope}/{code} e.g. \"Person/CompanyDetails/Role\". Each property must be from the \"Person\" domain. Identifiers or identifiers not specified in request will not be changed.
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to delete the identifiers. Defaults to the current LUSID system datetime if not specified.             Must not include an effective datetime if identifiers are perpetual. (optional) 
 
             try
             {
@@ -364,9 +364,9 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **idTypeScope** | **string** | Scope of the person identifier type. |  |
 | **idTypeCode** | **string** | Code of the person identifier type. |  |
-| **code** | **string** | Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the person. |  |
-| **propertyKeys** | [**List&lt;string&gt;**](string.md) | The property keys of the identifiers to delete. These take the format              {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;. Each property must be from the \&quot;Person\&quot; domain. Identifiers or identifiers not specified in request will not be changed. |  |
-| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to delete the identifiers. Defaults to the current LUSID system datetime if not specified.              Must not include an effective datetime if identifiers are perpetual. | [optional]  |
+| **code** | **string** | Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely             identifies the person. |  |
+| **propertyKeys** | [**List&lt;string&gt;**](string.md) | The property keys of the identifiers to delete. These take the format             {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;. Each property must be from the \&quot;Person\&quot; domain. Identifiers or identifiers not specified in request will not be changed. |  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to delete the identifiers. Defaults to the current LUSID system datetime if not specified.             Must not include an effective datetime if identifiers are perpetual. | [optional]  |
 
 ### Return type
 
@@ -436,9 +436,9 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PersonsApi>();
             var idTypeScope = "idTypeScope_example";  // string | Scope of the person identifier type.
             var idTypeCode = "idTypeCode_example";  // string | Code of the person identifier type.
-            var code = "code_example";  // string | Code of the person under specified identifier type's scope and code. This together with stated identifier type uniquely              identifies the person.
-            var propertyKeys = new List<string>(); // List<string> | The property keys of the person's properties to delete. These take the format              {domain}/{scope}/{code} e.g. \"Person/CompanyDetails/Role\". Each property must be from the \"Person\" domain. Properties or identifiers not specified in request will not be changed.
-            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified 'effectiveAt' datetime. If the 'effectiveAt' is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual. (optional) 
+            var code = "code_example";  // string | Code of the person under specified identifier type's scope and code. This together with stated identifier type uniquely             identifies the person.
+            var propertyKeys = new List<string>(); // List<string> | The property keys of the person's properties to delete. These take the format             {domain}/{scope}/{code} e.g. \"Person/CompanyDetails/Role\". Each property must be from the \"Person\" domain. Properties or identifiers not specified in request will not be changed.
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to delete time-variant properties from.             The property must exist at the specified 'effectiveAt' datetime. If the 'effectiveAt' is not provided or is             before the time-variant property exists then a failure is returned. Do not specify this parameter if any of             the properties to delete are perpetual. (optional) 
 
             try
             {
@@ -486,9 +486,9 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **idTypeScope** | **string** | Scope of the person identifier type. |  |
 | **idTypeCode** | **string** | Code of the person identifier type. |  |
-| **code** | **string** | Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the person. |  |
-| **propertyKeys** | [**List&lt;string&gt;**](string.md) | The property keys of the person&#39;s properties to delete. These take the format              {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;. Each property must be from the \&quot;Person\&quot; domain. Properties or identifiers not specified in request will not be changed. |  |
-| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual. | [optional]  |
+| **code** | **string** | Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely             identifies the person. |  |
+| **propertyKeys** | [**List&lt;string&gt;**](string.md) | The property keys of the person&#39;s properties to delete. These take the format             {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;. Each property must be from the \&quot;Person\&quot; domain. Properties or identifiers not specified in request will not be changed. |  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to delete time-variant properties from.             The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is             before the time-variant property exists then a failure is returned. Do not specify this parameter if any of             the properties to delete are perpetual. | [optional]  |
 
 ### Return type
 
@@ -680,11 +680,11 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PersonsApi>();
             var idTypeScope = "idTypeScope_example";  // string | Scope of the person identifier type.
             var idTypeCode = "idTypeCode_example";  // string | Code of the person identifier type.
-            var code = "code_example";  // string | Code of the person under specified scope and code. This together with stated identifier type uniquely              identifies the person.
-            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the \"Person\" domain to decorate onto the person,               or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \"Person/ContactDetails/Address\". (optional) 
+            var code = "code_example";  // string | Code of the person under specified scope and code. This together with stated identifier type uniquely             identifies the person.
+            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the \"Person\" domain to decorate onto the person,              or from any domain that supports relationships to decorate onto related entities.             These take the format {domain}/{scope}/{code} e.g. \"Person/ContactDetails/Address\". (optional) 
             var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to retrieve the person. Defaults to the current LUSID system datetime if not specified. (optional) 
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the person. Defaults to return the latest version of the person if not specified. (optional) 
-            var relationshipDefinitionIds = new List<string>?(); // List<string>? | A list of relationship definitions that are used to decorate related entities              onto the person in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional) 
+            var relationshipDefinitionIds = new List<string>?(); // List<string>? | A list of relationship definitions that are used to decorate related entities             onto the person in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional) 
 
             try
             {
@@ -732,11 +732,11 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **idTypeScope** | **string** | Scope of the person identifier type. |  |
 | **idTypeCode** | **string** | Code of the person identifier type. |  |
-| **code** | **string** | Code of the person under specified scope and code. This together with stated identifier type uniquely              identifies the person. |  |
-| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the \&quot;Person\&quot; domain to decorate onto the person,               or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. | [optional]  |
+| **code** | **string** | Code of the person under specified scope and code. This together with stated identifier type uniquely             identifies the person. |  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the \&quot;Person\&quot; domain to decorate onto the person,              or from any domain that supports relationships to decorate onto related entities.             These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. | [optional]  |
 | **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to retrieve the person. Defaults to the current LUSID system datetime if not specified. | [optional]  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the person. Defaults to return the latest version of the person if not specified. | [optional]  |
-| **relationshipDefinitionIds** | [**List&lt;string&gt;?**](string.md) | A list of relationship definitions that are used to decorate related entities              onto the person in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. | [optional]  |
+| **relationshipDefinitionIds** | [**List&lt;string&gt;?**](string.md) | A list of relationship definitions that are used to decorate related entities             onto the person in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. | [optional]  |
 
 ### Return type
 
@@ -763,7 +763,7 @@ catch (ApiException e)
 
 [EARLY ACCESS] GetPersonAccessMetadataByKey: Get an entry identified by a metadataKey in the Access Metadata of a Person
 
-Get a specific Person Access Metadata by specifying the corresponding identifier parts and Person code                No matching will be performed through this endpoint. To retrieve an entry, it is necessary to specify, exactly, the identifier of the entry
+Get a specific Person Access Metadata by specifying the corresponding identifier parts and Person code              No matching will be performed through this endpoint. To retrieve an entry, it is necessary to specify, exactly, the identifier of the entry
 
 ### Example
 ```csharp
@@ -931,10 +931,10 @@ namespace Examples
             var idTypeScope = "idTypeScope_example";  // string | Scope of the person identifier type.
             var idTypeCode = "idTypeCode_example";  // string | Code of the person identifier type.
             var code = "code_example";  // string | Code of the person under specified identifier type's scope and code. This together with stated identifier type uniquely identifies the person.
-            var propertyKey = "propertyKey_example";  // string | The property key of the property that will have its history shown. These must be in the format {domain}/{scope}/{code} e.g. \"Person/CompanyDetails/Role\".              Each property must be from the \"Person\" domain.
+            var propertyKey = "propertyKey_example";  // string | The property key of the property that will have its history shown. These must be in the format {domain}/{scope}/{code} e.g. \"Person/CompanyDetails/Role\".             Each property must be from the \"Person\" domain.
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the person's property history. Defaults to return the current datetime if not supplied. (optional) 
             var filter = "filter_example";  // string? | Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
-            var page = "page_example";  // string? | The pagination token to use to continue listing properties from a previous call to get property time series.              This value is returned from the previous call. If a pagination token is provided the filter and asAt fields              must not have changed since the original request. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing properties from a previous call to get property time series.             This value is returned from the previous call. If a pagination token is provided the filter and asAt fields             must not have changed since the original request. (optional) 
             var limit = 56;  // int? | When paginating, limit the number of returned results to this many. (optional) 
 
             try
@@ -984,10 +984,10 @@ catch (ApiException e)
 | **idTypeScope** | **string** | Scope of the person identifier type. |  |
 | **idTypeCode** | **string** | Code of the person identifier type. |  |
 | **code** | **string** | Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely identifies the person. |  |
-| **propertyKey** | **string** | The property key of the property that will have its history shown. These must be in the format {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;.              Each property must be from the \&quot;Person\&quot; domain. |  |
+| **propertyKey** | **string** | The property key of the property that will have its history shown. These must be in the format {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;.             Each property must be from the \&quot;Person\&quot; domain. |  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to list the person&#39;s property history. Defaults to return the current datetime if not supplied. | [optional]  |
 | **filter** | **string?** | Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
-| **page** | **string?** | The pagination token to use to continue listing properties from a previous call to get property time series.              This value is returned from the previous call. If a pagination token is provided the filter and asAt fields              must not have changed since the original request. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing properties from a previous call to get property time series.             This value is returned from the previous call. If a pagination token is provided the filter and asAt fields             must not have changed since the original request. | [optional]  |
 | **limit** | **int?** | When paginating, limit the number of returned results to this many. | [optional]  |
 
 ### Return type
@@ -1058,11 +1058,11 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PersonsApi>();
             var idTypeScope = "idTypeScope_example";  // string | Scope of the person identifier type.
             var idTypeCode = "idTypeCode_example";  // string | Code of the person identifier type.
-            var code = "code_example";  // string | Code of the person under specified identifier type's scope and code. This together with stated identifier type uniquely              identifies the person.
+            var code = "code_example";  // string | Code of the person under specified identifier type's scope and code. This together with stated identifier type uniquely             identifies the person.
             var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to get relations. Defaults to the current LUSID system datetime if not specified. (optional) 
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the person's relations. Defaults to return the latest LUSID AsAt time if not specified. (optional) 
             var filter = "filter_example";  // string? | Expression to filter the relations. Users should provide null or empty string for this field until further notice. (optional) 
-            var identifierTypes = new List<string>?(); // List<string>? | Identifiers types (as property keys) used for referencing Persons or Legal Entities. These take the format              {domain}/{scope}/{code} e.g. \"Person/CompanyDetails/Role\". They must be from the \"Person\" or \"LegalEntity\" domain.              Only identifier types stated will be used to look up relevant entities in relations. If not applicable, provide an empty array. (optional) 
+            var identifierTypes = new List<string>?(); // List<string>? | Identifiers types (as property keys) used for referencing Persons or Legal Entities. These take the format             {domain}/{scope}/{code} e.g. \"Person/CompanyDetails/Role\". They must be from the \"Person\" or \"LegalEntity\" domain.             Only identifier types stated will be used to look up relevant entities in relations. If not applicable, provide an empty array. (optional) 
 
             try
             {
@@ -1110,11 +1110,11 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **idTypeScope** | **string** | Scope of the person identifier type. |  |
 | **idTypeCode** | **string** | Code of the person identifier type. |  |
-| **code** | **string** | Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the person. |  |
+| **code** | **string** | Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely             identifies the person. |  |
 | **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to get relations. Defaults to the current LUSID system datetime if not specified. | [optional]  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the person&#39;s relations. Defaults to return the latest LUSID AsAt time if not specified. | [optional]  |
 | **filter** | **string?** | Expression to filter the relations. Users should provide null or empty string for this field until further notice. | [optional]  |
-| **identifierTypes** | [**List&lt;string&gt;?**](string.md) | Identifiers types (as property keys) used for referencing Persons or Legal Entities. These take the format              {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;. They must be from the \&quot;Person\&quot; or \&quot;LegalEntity\&quot; domain.              Only identifier types stated will be used to look up relevant entities in relations. If not applicable, provide an empty array. | [optional]  |
+| **identifierTypes** | [**List&lt;string&gt;?**](string.md) | Identifiers types (as property keys) used for referencing Persons or Legal Entities. These take the format             {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;. They must be from the \&quot;Person\&quot; or \&quot;LegalEntity\&quot; domain.             Only identifier types stated will be used to look up relevant entities in relations. If not applicable, provide an empty array. | [optional]  |
 
 ### Return type
 
@@ -1184,11 +1184,11 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PersonsApi>();
             var idTypeScope = "idTypeScope_example";  // string | Scope of the person's identifier type.
             var idTypeCode = "idTypeCode_example";  // string | Code of the person's identifier type.
-            var code = "code_example";  // string | Code of the person under specified identifier type's scope and code. This together with stated identifier type uniquely              identifies the person.
+            var code = "code_example";  // string | Code of the person under specified identifier type's scope and code. This together with stated identifier type uniquely             identifies the person.
             var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to get relationships. Defaults to the current LUSID system datetime if not specified. (optional) 
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve relationships. Defaults to return the latest LUSID AsAt time if not specified. (optional) 
             var filter = "filter_example";  // string? | Expression to filter relationships. Users should provide null or empty string for this field until further notice. (optional) 
-            var identifierTypes = new List<string>?(); // List<string>? | Identifier types (as property keys) used for referencing Persons or Legal Entities.              These can be specified from the 'Person' or 'LegalEntity' domains and have the format {domain}/{scope}/{code}, for example              'Person/CompanyDetails/Role'. An Empty array may be used to return all related Entities. (optional) 
+            var identifierTypes = new List<string>?(); // List<string>? | Identifier types (as property keys) used for referencing Persons or Legal Entities.             These can be specified from the 'Person' or 'LegalEntity' domains and have the format {domain}/{scope}/{code}, for example             'Person/CompanyDetails/Role'. An Empty array may be used to return all related Entities. (optional) 
 
             try
             {
@@ -1236,11 +1236,11 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **idTypeScope** | **string** | Scope of the person&#39;s identifier type. |  |
 | **idTypeCode** | **string** | Code of the person&#39;s identifier type. |  |
-| **code** | **string** | Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the person. |  |
+| **code** | **string** | Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely             identifies the person. |  |
 | **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to get relationships. Defaults to the current LUSID system datetime if not specified. | [optional]  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve relationships. Defaults to return the latest LUSID AsAt time if not specified. | [optional]  |
 | **filter** | **string?** | Expression to filter relationships. Users should provide null or empty string for this field until further notice. | [optional]  |
-| **identifierTypes** | [**List&lt;string&gt;?**](string.md) | Identifier types (as property keys) used for referencing Persons or Legal Entities.              These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example              &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. | [optional]  |
+| **identifierTypes** | [**List&lt;string&gt;?**](string.md) | Identifier types (as property keys) used for referencing Persons or Legal Entities.             These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example             &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. | [optional]  |
 
 ### Return type
 
@@ -1308,13 +1308,13 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PersonsApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PersonsApi>();
-            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to list the people. Defaults to the current LUSID              system datetime if not specified. (optional) 
-            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the people. Defaults to return the latest version              of each people if not specified. (optional) 
-            var page = "page_example";  // string? | The pagination token to use to continue listing persons from a previous call to list persons. This              value is returned from the previous call. If a pagination token is provided the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional) 
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to list the people. Defaults to the current LUSID             system datetime if not specified. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the people. Defaults to return the latest version             of each people if not specified. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing persons from a previous call to list persons. This             value is returned from the previous call. If a pagination token is provided the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional) 
             var limit = 56;  // int? | When paginating, limit the number of returned results to this many. Defaults to 5000 if not specified. (optional) 
-            var filter = "filter_example";  // string? | Expression to filter the result set.               For example, to filter on the display name, use \"displayName eq 'John'\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
-            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the \"Person\" domain to decorate onto each person,               or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \"Person/ContactDetails/Address\". (optional) 
-            var relationshipDefinitionIds = new List<string>?(); // List<string>? | A list of relationship definitions that are used to decorate related entities              onto the persons in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the result set.              For example, to filter on the display name, use \"displayName eq 'John'\"             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the \"Person\" domain to decorate onto each person,              or from any domain that supports relationships to decorate onto related entities.             These take the format {domain}/{scope}/{code} e.g. \"Person/ContactDetails/Address\". (optional) 
+            var relationshipDefinitionIds = new List<string>?(); // List<string>? | A list of relationship definitions that are used to decorate related entities             onto the persons in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional) 
 
             try
             {
@@ -1360,13 +1360,13 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to list the people. Defaults to the current LUSID              system datetime if not specified. | [optional]  |
-| **asAt** | **DateTimeOffset?** | The asAt datetime at which to list the people. Defaults to return the latest version              of each people if not specified. | [optional]  |
-| **page** | **string?** | The pagination token to use to continue listing persons from a previous call to list persons. This              value is returned from the previous call. If a pagination token is provided the filter, effectiveAt              and asAt fields must not have changed since the original request. | [optional]  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to list the people. Defaults to the current LUSID             system datetime if not specified. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to list the people. Defaults to return the latest version             of each people if not specified. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing persons from a previous call to list persons. This             value is returned from the previous call. If a pagination token is provided the filter, effectiveAt             and asAt fields must not have changed since the original request. | [optional]  |
 | **limit** | **int?** | When paginating, limit the number of returned results to this many. Defaults to 5000 if not specified. | [optional]  |
-| **filter** | **string?** | Expression to filter the result set.               For example, to filter on the display name, use \&quot;displayName eq &#39;John&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
-| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the \&quot;Person\&quot; domain to decorate onto each person,               or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. | [optional]  |
-| **relationshipDefinitionIds** | [**List&lt;string&gt;?**](string.md) | A list of relationship definitions that are used to decorate related entities              onto the persons in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. | [optional]  |
+| **filter** | **string?** | Expression to filter the result set.              For example, to filter on the display name, use \&quot;displayName eq &#39;John&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the \&quot;Person\&quot; domain to decorate onto each person,              or from any domain that supports relationships to decorate onto related entities.             These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. | [optional]  |
+| **relationshipDefinitionIds** | [**List&lt;string&gt;?**](string.md) | A list of relationship definitions that are used to decorate related entities             onto the persons in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. | [optional]  |
 
 ### Return type
 
@@ -1436,13 +1436,13 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PersonsApi>();
             var idTypeScope = "idTypeScope_example";  // string | Scope of the person identifier type.
             var idTypeCode = "idTypeCode_example";  // string | Code of the person identifier type.
-            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to list the people. Defaults to the current LUSID              system datetime if not specified. (optional) 
-            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the people. Defaults to return the latest version              of each people if not specified. (optional) 
-            var page = "page_example";  // string? | The pagination token to use to continue listing persons from a previous call to list persons. This              value is returned from the previous call. If a pagination token is provided the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional) 
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to list the people. Defaults to the current LUSID             system datetime if not specified. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the people. Defaults to return the latest version             of each people if not specified. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing persons from a previous call to list persons. This             value is returned from the previous call. If a pagination token is provided the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional) 
             var limit = 56;  // int? | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional) 
-            var filter = "filter_example";  // string? | Expression to filter the result set.               For example, to filter on the LUPID, use \"lusidPersonId eq 'string'\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
-            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the \"Person\" domain to decorate onto each person,               or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \"Person/ContactDetails/Address\". (optional) 
-            var relationshipDefinitionIds = new List<string>?(); // List<string>? | A list of relationship definitions that are used to decorate related entities              onto the persons in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the result set.              For example, to filter on the LUPID, use \"lusidPersonId eq 'string'\"             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the \"Person\" domain to decorate onto each person,              or from any domain that supports relationships to decorate onto related entities.             These take the format {domain}/{scope}/{code} e.g. \"Person/ContactDetails/Address\". (optional) 
+            var relationshipDefinitionIds = new List<string>?(); // List<string>? | A list of relationship definitions that are used to decorate related entities             onto the persons in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional) 
 
             try
             {
@@ -1490,13 +1490,13 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **idTypeScope** | **string** | Scope of the person identifier type. |  |
 | **idTypeCode** | **string** | Code of the person identifier type. |  |
-| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to list the people. Defaults to the current LUSID              system datetime if not specified. | [optional]  |
-| **asAt** | **DateTimeOffset?** | The asAt datetime at which to list the people. Defaults to return the latest version              of each people if not specified. | [optional]  |
-| **page** | **string?** | The pagination token to use to continue listing persons from a previous call to list persons. This              value is returned from the previous call. If a pagination token is provided the filter, effectiveAt              and asAt fields must not have changed since the original request. | [optional]  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to list the people. Defaults to the current LUSID             system datetime if not specified. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to list the people. Defaults to return the latest version             of each people if not specified. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing persons from a previous call to list persons. This             value is returned from the previous call. If a pagination token is provided the filter, effectiveAt             and asAt fields must not have changed since the original request. | [optional]  |
 | **limit** | **int?** | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. | [optional]  |
-| **filter** | **string?** | Expression to filter the result set.               For example, to filter on the LUPID, use \&quot;lusidPersonId eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
-| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the \&quot;Person\&quot; domain to decorate onto each person,               or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. | [optional]  |
-| **relationshipDefinitionIds** | [**List&lt;string&gt;?**](string.md) | A list of relationship definitions that are used to decorate related entities              onto the persons in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. | [optional]  |
+| **filter** | **string?** | Expression to filter the result set.              For example, to filter on the LUPID, use \&quot;lusidPersonId eq &#39;string&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the \&quot;Person\&quot; domain to decorate onto each person,              or from any domain that supports relationships to decorate onto related entities.             These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. | [optional]  |
+| **relationshipDefinitionIds** | [**List&lt;string&gt;?**](string.md) | A list of relationship definitions that are used to decorate related entities             onto the persons in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. | [optional]  |
 
 ### Return type
 
@@ -1523,7 +1523,7 @@ catch (ApiException e)
 
 [EARLY ACCESS] PatchPersonAccessMetadata: Patch Access Metadata rules for a Person.
 
-Patch Person Access Metadata Rules in a single scope.  The behaviour is defined by the JSON Patch specification.                Currently only 'add' is a supported operation on the patch document.    Currently only valid metadata keys are supported paths on the patch document.                The response will return any affected Person Access Metadata rules or a failure message if unsuccessful.                It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
+Patch Person Access Metadata Rules in a single scope. The behaviour is defined by the JSON Patch specification.              Currently only 'add' is a supported operation on the patch document.  Currently only valid metadata keys are supported paths on the patch document.              The response will return any affected Person Access Metadata rules or a failure message if unsuccessful.              It is important to always check to verify success (or failure).              Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
 
 ### Example
 ```csharp
@@ -1690,7 +1690,7 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PersonsApi>();
             var idTypeScope = "idTypeScope_example";  // string | Scope of the person identifier type.
             var idTypeCode = "idTypeCode_example";  // string | Code of the person identifier type.
-            var code = "code_example";  // string | Code of the person under specified identifier type's scope and code. This together with stated identifier type uniquely              identifies the person.
+            var code = "code_example";  // string | Code of the person under specified identifier type's scope and code. This together with stated identifier type uniquely             identifies the person.
             var setPersonIdentifiersRequest = new SetPersonIdentifiersRequest(); // SetPersonIdentifiersRequest | Request containing identifiers to set for the person. Identifiers not specified in request will not be changed.
 
             try
@@ -1739,7 +1739,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **idTypeScope** | **string** | Scope of the person identifier type. |  |
 | **idTypeCode** | **string** | Code of the person identifier type. |  |
-| **code** | **string** | Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the person. |  |
+| **code** | **string** | Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely             identifies the person. |  |
 | **setPersonIdentifiersRequest** | [**SetPersonIdentifiersRequest**](SetPersonIdentifiersRequest.md) | Request containing identifiers to set for the person. Identifiers not specified in request will not be changed. |  |
 
 ### Return type
@@ -1810,7 +1810,7 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PersonsApi>();
             var idTypeScope = "idTypeScope_example";  // string | Scope of the person identifier type.
             var idTypeCode = "idTypeCode_example";  // string | Code of the person identifier type.
-            var code = "code_example";  // string | Code of the person under specified identifier type's scope and code. This together with stated identifier type uniquely              identifies the person.
+            var code = "code_example";  // string | Code of the person under specified identifier type's scope and code. This together with stated identifier type uniquely             identifies the person.
             var setPersonPropertiesRequest = new SetPersonPropertiesRequest(); // SetPersonPropertiesRequest | Request containing properties to set for the person. Properties not specified in request will not be changed.
 
             try
@@ -1859,7 +1859,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **idTypeScope** | **string** | Scope of the person identifier type. |  |
 | **idTypeCode** | **string** | Code of the person identifier type. |  |
-| **code** | **string** | Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the person. |  |
+| **code** | **string** | Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely             identifies the person. |  |
 | **setPersonPropertiesRequest** | [**SetPersonPropertiesRequest**](SetPersonPropertiesRequest.md) | Request containing properties to set for the person. Properties not specified in request will not be changed. |  |
 
 ### Return type
@@ -2001,7 +2001,7 @@ catch (ApiException e)
 
 [EARLY ACCESS] UpsertPersonAccessMetadata: Upsert a Person Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.
 
-Update or insert one Person Access Metadata entry in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted Person Access Metadata rule or failure message if unsuccessful.                It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
+Update or insert one Person Access Metadata entry in a single scope. An item will be updated if it already exists and inserted if it does not.              The response will return the successfully updated or inserted Person Access Metadata rule or failure message if unsuccessful.              It is important to always check to verify success (or failure).              Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
 
 ### Example
 ```csharp

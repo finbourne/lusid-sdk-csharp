@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// This request specifies target holdings. i.e. holding data that the  system should match. When processed by the movement  engine, it will create &#39;true-up&#39; adjustments on the fly.
+    /// This request specifies target holdings. i.e. holding data that the system should match. When processed by the movement engine, it will create &#39;true-up&#39; adjustments on the fly.
     /// </summary>
     [DataContract(Name = "AdjustHoldingForDateRequest")]
     public partial class AdjustHoldingForDateRequest : IEquatable<AdjustHoldingForDateRequest>, IValidatableObject

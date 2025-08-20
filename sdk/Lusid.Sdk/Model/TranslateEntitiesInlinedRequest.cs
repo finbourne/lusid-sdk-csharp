@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Request to translate financial entities with a given script body.  The output of the translation is validated against a schema specified in the request.
+    /// Request to translate financial entities with a given script body. The output of the translation is validated against a schema specified in the request.
     /// </summary>
     [DataContract(Name = "TranslateEntitiesInlinedRequest")]
     public partial class TranslateEntitiesInlinedRequest : IEquatable<TranslateEntitiesInlinedRequest>, IValidatableObject

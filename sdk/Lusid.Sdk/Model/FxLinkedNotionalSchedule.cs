@@ -24,7 +24,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Schedule for notional changes based on the change in FX rate.  Used in the representation of a resettable cross currency interest rate swap.
+    /// Schedule for notional changes based on the change in FX rate. Used in the representation of a resettable cross currency interest rate swap.
     /// </summary>
     [DataContract(Name = "FxLinkedNotionalSchedule")]
     [JsonConverter(typeof(JsonSubtypes), "ScheduleType")]

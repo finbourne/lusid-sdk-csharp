@@ -1,5 +1,5 @@
 # Lusid.Sdk.Model.DialectSchema
-A schema that a given document must obey. A representation of the validation of a particular Dialect,  in a given language.
+A schema that a given document must obey. A representation of the validation of a particular Dialect, in a given language.
 
 ## Properties
 

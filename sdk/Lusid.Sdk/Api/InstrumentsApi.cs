@@ -35,7 +35,7 @@ namespace Lusid.Sdk.Api
         /// BatchUpsertInstrumentProperties: Batch upsert instruments properties
         /// </summary>
         /// <remarks>
-        /// Create or update one or more properties for particular instruments.    Each instrument property is updated if it exists and created if it does not. For any failures, a reason  is provided.    Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// Create or update one or more properties for particular instruments.  Each instrument property is updated if it exists and created if it does not. For any failures, a reason is provided.  Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">A list of instruments and associated instrument properties to create or update.</param>
@@ -53,7 +53,7 @@ namespace Lusid.Sdk.Api
         /// BatchUpsertInstrumentProperties: Batch upsert instruments properties
         /// </summary>
         /// <remarks>
-        /// Create or update one or more properties for particular instruments.    Each instrument property is updated if it exists and created if it does not. For any failures, a reason  is provided.    Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// Create or update one or more properties for particular instruments.  Each instrument property is updated if it exists and created if it does not. For any failures, a reason is provided.  Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">A list of instruments and associated instrument properties to create or update.</param>
@@ -70,14 +70,14 @@ namespace Lusid.Sdk.Api
         /// CalculateSettlementDate: Get the settlement date for an instrument.
         /// </summary>
         /// <remarks>
-        /// Get the settlement date for a given trade date and instrument. The calculated settlement date will be in UTC.  If a cut label transaction date is provided, the settlement date will be calculated relative to the absolute UTC datetime.
+        /// Get the settlement date for a given trade date and instrument. The calculated settlement date will be in UTC. If a cut label transaction date is provided, the settlement date will be calculated relative to the absolute UTC datetime.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">An identifier type attached to the Instrument.</param>
         /// <param name="identifier">The identifier value.</param>
         /// <param name="transactionDate">The transaction date to calculate the settlement date from. This can be a UTC datetime offset or a cut label. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the related instrument and calendars for calculation. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the related instrument and calendars for calculation. Defaults to             returning the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>AddBusinessDaysToDateResponse</returns>
@@ -87,14 +87,14 @@ namespace Lusid.Sdk.Api
         /// CalculateSettlementDate: Get the settlement date for an instrument.
         /// </summary>
         /// <remarks>
-        /// Get the settlement date for a given trade date and instrument. The calculated settlement date will be in UTC.  If a cut label transaction date is provided, the settlement date will be calculated relative to the absolute UTC datetime.
+        /// Get the settlement date for a given trade date and instrument. The calculated settlement date will be in UTC. If a cut label transaction date is provided, the settlement date will be calculated relative to the absolute UTC datetime.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">An identifier type attached to the Instrument.</param>
         /// <param name="identifier">The identifier value.</param>
         /// <param name="transactionDate">The transaction date to calculate the settlement date from. This can be a UTC datetime offset or a cut label. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the related instrument and calendars for calculation. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the related instrument and calendars for calculation. Defaults to             returning the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AddBusinessDaysToDateResponse</returns>
@@ -103,7 +103,7 @@ namespace Lusid.Sdk.Api
         /// DeleteInstrument: Soft delete a single instrument
         /// </summary>
         /// <remarks>
-        /// Soft delete a particular instrument, as identified by a particular instrument identifier.                Once deleted, an instrument is marked as inactive and can no longer be referenced when creating or updating  transactions or holdings. You can still query existing transactions and holdings related to the  deleted instrument.
+        /// Soft delete a particular instrument, as identified by a particular instrument identifier.              Once deleted, an instrument is marked as inactive and can no longer be referenced when creating or updating transactions or holdings. You can still query existing transactions and holdings related to the deleted instrument.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
@@ -118,7 +118,7 @@ namespace Lusid.Sdk.Api
         /// DeleteInstrument: Soft delete a single instrument
         /// </summary>
         /// <remarks>
-        /// Soft delete a particular instrument, as identified by a particular instrument identifier.                Once deleted, an instrument is marked as inactive and can no longer be referenced when creating or updating  transactions or holdings. You can still query existing transactions and holdings related to the  deleted instrument.
+        /// Soft delete a particular instrument, as identified by a particular instrument identifier.              Once deleted, an instrument is marked as inactive and can no longer be referenced when creating or updating transactions or holdings. You can still query existing transactions and holdings related to the deleted instrument.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
@@ -132,13 +132,13 @@ namespace Lusid.Sdk.Api
         /// DeleteInstrumentProperties: Delete instrument properties
         /// </summary>
         /// <remarks>
-        /// Delete one or more properties from a particular instrument. If the properties are time-variant then an effective datetime from which  to delete properties must be specified. If the properties are perpetual then it is invalid to specify an effective datetime for deletion.
+        /// Delete one or more properties from a particular instrument. If the properties are time-variant then an effective datetime from which to delete properties must be specified. If the properties are perpetual then it is invalid to specify an effective datetime for deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
         /// <param name="requestBody">A list of property keys from the &#39;Instruments&#39; domain whose properties to delete.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.             The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is             before the time-variant property exists then a failure is returned. Do not specify this parameter if any of             the properties to delete are perpetual. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
@@ -151,13 +151,13 @@ namespace Lusid.Sdk.Api
         /// DeleteInstrumentProperties: Delete instrument properties
         /// </summary>
         /// <remarks>
-        /// Delete one or more properties from a particular instrument. If the properties are time-variant then an effective datetime from which  to delete properties must be specified. If the properties are perpetual then it is invalid to specify an effective datetime for deletion.
+        /// Delete one or more properties from a particular instrument. If the properties are time-variant then an effective datetime from which to delete properties must be specified. If the properties are perpetual then it is invalid to specify an effective datetime for deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
         /// <param name="requestBody">A list of property keys from the &#39;Instruments&#39; domain whose properties to delete.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.             The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is             before the time-variant property exists then a failure is returned. Do not specify this parameter if any of             the properties to delete are perpetual. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
@@ -169,7 +169,7 @@ namespace Lusid.Sdk.Api
         /// DeleteInstruments: Soft or hard delete multiple instruments
         /// </summary>
         /// <remarks>
-        /// Deletes a number of instruments identified by LusidInstrumentId.                Soft deletion marks the instrument as inactive so it can no longer be referenced when creating or updating transactions or holdings. You can still query existing transactions and holdings related to the inactive instrument.                In addition to the above behaviour, hard deletion: (i) completely removes all external identifiers from the instrument; (ii) marks the instrument as &#39;Deleted&#39;; (iii) prepends the instrument&#39;s name with &#39;DELETED &#39;; (iv) prevents the instrument from being returned in list instruments queries.                Following hard deletion, an instrument may only be retrieved by making a direct get instrument request for the LusidInstrumentId. Instrument deletion cannot be undone. Please note that currency instruments cannot currently be deleted.  The maximum number of instruments that this method can delete per request is 2,000.
+        /// Deletes a number of instruments identified by LusidInstrumentId.              Soft deletion marks the instrument as inactive so it can no longer be referenced when creating or updating transactions or holdings. You can still query existing transactions and holdings related to the inactive instrument.              In addition to the above behaviour, hard deletion: (i) completely removes all external identifiers from the instrument; (ii) marks the instrument as &#39;Deleted&#39;; (iii) prepends the instrument&#39;s name with &#39;DELETED &#39;; (iv) prevents the instrument from being returned in list instruments queries.              Following hard deletion, an instrument may only be retrieved by making a direct get instrument request for the LusidInstrumentId. Instrument deletion cannot be undone. Please note that currency instruments cannot currently be deleted.  The maximum number of instruments that this method can delete per request is 2,000.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The list of lusidInstrumentId&#39;s to delete.</param>
@@ -184,7 +184,7 @@ namespace Lusid.Sdk.Api
         /// DeleteInstruments: Soft or hard delete multiple instruments
         /// </summary>
         /// <remarks>
-        /// Deletes a number of instruments identified by LusidInstrumentId.                Soft deletion marks the instrument as inactive so it can no longer be referenced when creating or updating transactions or holdings. You can still query existing transactions and holdings related to the inactive instrument.                In addition to the above behaviour, hard deletion: (i) completely removes all external identifiers from the instrument; (ii) marks the instrument as &#39;Deleted&#39;; (iii) prepends the instrument&#39;s name with &#39;DELETED &#39;; (iv) prevents the instrument from being returned in list instruments queries.                Following hard deletion, an instrument may only be retrieved by making a direct get instrument request for the LusidInstrumentId. Instrument deletion cannot be undone. Please note that currency instruments cannot currently be deleted.  The maximum number of instruments that this method can delete per request is 2,000.
+        /// Deletes a number of instruments identified by LusidInstrumentId.              Soft deletion marks the instrument as inactive so it can no longer be referenced when creating or updating transactions or holdings. You can still query existing transactions and holdings related to the inactive instrument.              In addition to the above behaviour, hard deletion: (i) completely removes all external identifiers from the instrument; (ii) marks the instrument as &#39;Deleted&#39;; (iii) prepends the instrument&#39;s name with &#39;DELETED &#39;; (iv) prevents the instrument from being returned in list instruments queries.              Following hard deletion, an instrument may only be retrieved by making a direct get instrument request for the LusidInstrumentId. Instrument deletion cannot be undone. Please note that currency instruments cannot currently be deleted.  The maximum number of instruments that this method can delete per request is 2,000.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The list of lusidInstrumentId&#39;s to delete.</param>
@@ -220,16 +220,16 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of Dictionary&lt;string, List&lt;string&gt;&gt;</returns>
         Lusid.Sdk.Client.ApiResponse<Dictionary<string, List<string>>> GetAllPossibleFeaturesWithHttpInfo(string instrumentType, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// GetExistingInstrumentCapabilities: Retrieve capabilities of an existing instrument identified by LUID. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.  Given an lusid instrument id provides instrument capabilities, outlining features, and, given the model, the capabilities also include supported addresses as well as economic dependencies.
+        /// GetExistingInstrumentCapabilities: Retrieve capabilities of an existing instrument identified by LUID. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies. Given an lusid instrument id provides instrument capabilities, outlining features, and, given the model, the capabilities also include supported addresses as well as economic dependencies.
         /// </summary>
         /// <remarks>
-        /// Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
+        /// Returns instrument capabilities containing useful information about the instrument and the model. This includes - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifier">A lusid instrument id identifying the instrument.</param>
         /// <param name="model">A pricing model for the instrument. Defaults to Unknown if not specified. If not specified the SupportedAddresses and EconomicDependencies are not provided. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to             returning the latest version if not specified. (optional)</param>
         /// <param name="instrumentScope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="recipeScope">The scope in which the recipe lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="recipeCode">A unique identifier for an entity, used to obtain configuration recipe details. Default configuration recipe is used if not provided. (optional)</param>
@@ -239,16 +239,16 @@ namespace Lusid.Sdk.Api
         InstrumentCapabilities GetExistingInstrumentCapabilities(string identifier, string? model = default(string?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? instrumentScope = default(string?), string? recipeScope = default(string?), string? recipeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// GetExistingInstrumentCapabilities: Retrieve capabilities of an existing instrument identified by LUID. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.  Given an lusid instrument id provides instrument capabilities, outlining features, and, given the model, the capabilities also include supported addresses as well as economic dependencies.
+        /// GetExistingInstrumentCapabilities: Retrieve capabilities of an existing instrument identified by LUID. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies. Given an lusid instrument id provides instrument capabilities, outlining features, and, given the model, the capabilities also include supported addresses as well as economic dependencies.
         /// </summary>
         /// <remarks>
-        /// Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
+        /// Returns instrument capabilities containing useful information about the instrument and the model. This includes - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifier">A lusid instrument id identifying the instrument.</param>
         /// <param name="model">A pricing model for the instrument. Defaults to Unknown if not specified. If not specified the SupportedAddresses and EconomicDependencies are not provided. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to             returning the latest version if not specified. (optional)</param>
         /// <param name="instrumentScope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="recipeScope">The scope in which the recipe lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="recipeCode">A unique identifier for an entity, used to obtain configuration recipe details. Default configuration recipe is used if not provided. (optional)</param>
@@ -264,8 +264,8 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifier">A lusid instrument id identifying the instrument.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to             returning the latest version if not specified. (optional)</param>
         /// <param name="instrumentScope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="recipeScope">The scope in which the recipe lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="recipeCode">A unique identifier for an entity, used to obtain configuration recipe details. Default configuration recipe is used if not provided. (optional)</param>
@@ -282,8 +282,8 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifier">A lusid instrument id identifying the instrument.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to             returning the latest version if not specified. (optional)</param>
         /// <param name="instrumentScope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="recipeScope">The scope in which the recipe lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="recipeCode">A unique identifier for an entity, used to obtain configuration recipe details. Default configuration recipe is used if not provided. (optional)</param>
@@ -300,11 +300,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to use, for example &#39;Figi&#39;.</param>
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto              the instrument, or from any domain that supports relationships to decorate onto related entities.              These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to             returning the latest version if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto             the instrument, or from any domain that supports relationships to decorate onto related entities.             These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Instrument</returns>
@@ -319,11 +319,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to use, for example &#39;Figi&#39;.</param>
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto              the instrument, or from any domain that supports relationships to decorate onto related entities.              These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to             returning the latest version if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto             the instrument, or from any domain that supports relationships to decorate onto related entities.             These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Instrument</returns>
@@ -332,7 +332,7 @@ namespace Lusid.Sdk.Api
         /// GetInstrumentIdentifierTypes: Get instrument identifier types
         /// </summary>
         /// <remarks>
-        /// Retrieve a list of all valid instrument identifier types and whether they are unique or not.                An instrument must have a value for at least one unique identifier type (it can have more than one unique type and value).  In addition, a value is automatically generated for a LUSID Instrument ID (LUID) unique type by the system.                An instrument can have values for multiple non-unique identifier types (or it can have zero non-unique types and values).
+        /// Retrieve a list of all valid instrument identifier types and whether they are unique or not.              An instrument must have a value for at least one unique identifier type (it can have more than one unique type and value). In addition, a value is automatically generated for a LUSID Instrument ID (LUID) unique type by the system.              An instrument can have values for multiple non-unique identifier types (or it can have zero non-unique types and values).
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -344,7 +344,7 @@ namespace Lusid.Sdk.Api
         /// GetInstrumentIdentifierTypes: Get instrument identifier types
         /// </summary>
         /// <remarks>
-        /// Retrieve a list of all valid instrument identifier types and whether they are unique or not.                An instrument must have a value for at least one unique identifier type (it can have more than one unique type and value).  In addition, a value is automatically generated for a LUSID Instrument ID (LUID) unique type by the system.                An instrument can have values for multiple non-unique identifier types (or it can have zero non-unique types and values).
+        /// Retrieve a list of all valid instrument identifier types and whether they are unique or not.              An instrument must have a value for at least one unique identifier type (it can have more than one unique type and value). In addition, a value is automatically generated for a LUSID Instrument ID (LUID) unique type by the system.              An instrument can have values for multiple non-unique identifier types (or it can have zero non-unique types and values).
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -397,8 +397,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the instrument&#39;s properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the instrument&#39;s properties. Defaults to returning              the latest version of each property if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the instrument&#39;s properties.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the instrument&#39;s properties. Defaults to returning             the latest version of each property if not specified. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -414,8 +414,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the instrument&#39;s properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the instrument&#39;s properties. Defaults to returning              the latest version of each property if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the instrument&#39;s properties.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the instrument&#39;s properties. Defaults to returning             the latest version of each property if not specified. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -430,11 +430,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
-        /// <param name="propertyKey">The property key of a property from the &#39;Instrument&#39; domain whose history to retrieve.              This must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;.</param>
-        /// <param name="identifierEffectiveAt">The effective datetime used to resolve the instrument from the identifier.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the instrument&#39;s property history. Defaults to              returning the current datetime if not supplied. (optional)</param>
-        /// <param name="filter">Expression to filter the results. For more information about filtering,              see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing properties; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;filter&lt;/i&gt;, &lt;i&gt;effectiveAt&lt;/i&gt; and              &lt;i&gt;asAt&lt;/i&gt; fields must not have changed since the original request. For more information, see              https://support.lusid.com/knowledgebase/article/KA-01915. (optional)</param>
+        /// <param name="propertyKey">The property key of a property from the &#39;Instrument&#39; domain whose history to retrieve.             This must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;.</param>
+        /// <param name="identifierEffectiveAt">The effective datetime used to resolve the instrument from the identifier.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument&#39;s property history. Defaults to             returning the current datetime if not supplied. (optional)</param>
+        /// <param name="filter">Expression to filter the results. For more information about filtering,             see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing properties; this value is returned from             the previous call. If a pagination token is provided, the &lt;i&gt;filter&lt;/i&gt;, &lt;i&gt;effectiveAt&lt;/i&gt; and             &lt;i&gt;asAt&lt;/i&gt; fields must not have changed since the original request. For more information, see             https://support.lusid.com/knowledgebase/article/KA-01915. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -451,11 +451,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
-        /// <param name="propertyKey">The property key of a property from the &#39;Instrument&#39; domain whose history to retrieve.              This must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;.</param>
-        /// <param name="identifierEffectiveAt">The effective datetime used to resolve the instrument from the identifier.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the instrument&#39;s property history. Defaults to              returning the current datetime if not supplied. (optional)</param>
-        /// <param name="filter">Expression to filter the results. For more information about filtering,              see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing properties; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;filter&lt;/i&gt;, &lt;i&gt;effectiveAt&lt;/i&gt; and              &lt;i&gt;asAt&lt;/i&gt; fields must not have changed since the original request. For more information, see              https://support.lusid.com/knowledgebase/article/KA-01915. (optional)</param>
+        /// <param name="propertyKey">The property key of a property from the &#39;Instrument&#39; domain whose history to retrieve.             This must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;.</param>
+        /// <param name="identifierEffectiveAt">The effective datetime used to resolve the instrument from the identifier.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument&#39;s property history. Defaults to             returning the current datetime if not supplied. (optional)</param>
+        /// <param name="filter">Expression to filter the results. For more information about filtering,             see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing properties; this value is returned from             the previous call. If a pagination token is provided, the &lt;i&gt;filter&lt;/i&gt;, &lt;i&gt;effectiveAt&lt;/i&gt; and             &lt;i&gt;asAt&lt;/i&gt; fields must not have changed since the original request. For more information, see             https://support.lusid.com/knowledgebase/article/KA-01915. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -474,7 +474,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to get relationships. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve relationships. Defaults to return the latest LUSID AsAt time if not specified. (optional)</param>
         /// <param name="filter">Expression to filter relationships. Users should provide null or empty string for this field until further notice. (optional)</param>
-        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.              These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example              &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. (optional)</param>
+        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.             These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example             &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. (optional)</param>
         /// <param name="scope">The entity scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -493,7 +493,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to get relationships. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve relationships. Defaults to return the latest LUSID AsAt time if not specified. (optional)</param>
         /// <param name="filter">Expression to filter relationships. Users should provide null or empty string for this field until further notice. (optional)</param>
-        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.              These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example              &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. (optional)</param>
+        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.             These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example             &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. (optional)</param>
         /// <param name="scope">The entity scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -503,16 +503,16 @@ namespace Lusid.Sdk.Api
         /// GetInstruments: Get instruments
         /// </summary>
         /// <remarks>
-        /// Retrieve the definition of one or more instruments, as identified by a collection of unique identifiers.                Note that to retrieve all the instruments in the instrument master, use the List instruments endpoint instead.
+        /// Retrieve the definition of one or more instruments, as identified by a collection of unique identifiers.              Note that to retrieve all the instruments in the instrument master, use the List instruments endpoint instead.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to use, for example &#39;Figi&#39;.</param>
         /// <param name="requestBody">A list of one or more &lt;i&gt;identifierType&lt;/i&gt; values to use to identify instruments.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument definitions.               Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the instrument definitions.               Defaults to returning the latest version of each instrument definition if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto               each instrument, or from any domain that supports relationships to decorate onto related entities.               These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument definitions.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument definitions.              Defaults to returning the latest version of each instrument definition if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto              each instrument, or from any domain that supports relationships to decorate onto related entities.              These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>GetInstrumentsResponse</returns>
@@ -522,16 +522,16 @@ namespace Lusid.Sdk.Api
         /// GetInstruments: Get instruments
         /// </summary>
         /// <remarks>
-        /// Retrieve the definition of one or more instruments, as identified by a collection of unique identifiers.                Note that to retrieve all the instruments in the instrument master, use the List instruments endpoint instead.
+        /// Retrieve the definition of one or more instruments, as identified by a collection of unique identifiers.              Note that to retrieve all the instruments in the instrument master, use the List instruments endpoint instead.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to use, for example &#39;Figi&#39;.</param>
         /// <param name="requestBody">A list of one or more &lt;i&gt;identifierType&lt;/i&gt; values to use to identify instruments.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument definitions.               Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the instrument definitions.               Defaults to returning the latest version of each instrument definition if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto               each instrument, or from any domain that supports relationships to decorate onto related entities.               These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument definitions.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument definitions.              Defaults to returning the latest version of each instrument definition if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto              each instrument, or from any domain that supports relationships to decorate onto related entities.              These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GetInstrumentsResponse</returns>
@@ -545,8 +545,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the instrument&#39;s properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the instrument&#39;s properties. Defaults to returning              the latest version of each property if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the instrument&#39;s properties.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the instrument&#39;s properties. Defaults to returning             the latest version of each property if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing commands; this value is returned from the previous call. (optional)</param>
         /// <param name="limit">When paginating, limit the results per page to this number. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
@@ -564,8 +564,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the instrument&#39;s properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the instrument&#39;s properties. Defaults to returning              the latest version of each property if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the instrument&#39;s properties.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the instrument&#39;s properties. Defaults to returning             the latest version of each property if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing commands; this value is returned from the previous call. (optional)</param>
         /// <param name="limit">When paginating, limit the results per page to this number. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
@@ -577,18 +577,18 @@ namespace Lusid.Sdk.Api
         /// ListInstruments: List instruments
         /// </summary>
         /// <remarks>
-        /// List all the instruments in the instrument master.                To retrieve a particular set of instruments instead, use the Get instruments endpoint.  The maximum number of instruments that this method can list per request is 2,000.
+        /// List all the instruments in the instrument master.              To retrieve a particular set of instruments instead, use the Get instruments endpoint.  The maximum number of instruments that this method can list per request is 2,000.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to list instruments. Defaults to returning the latest               version of each instrument if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list instruments.               Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing instruments; this value is returned from               the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt;, &lt;i&gt;filter&lt;/i&gt;, &lt;i&gt;effectiveAt&lt;/i&gt; and               &lt;i&gt;asAt&lt;/i&gt; fields must not have changed since the original request.               For more information, see https://support.lusid.com/knowledgebase/article/KA-01915. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list instruments. Defaults to returning the latest              version of each instrument if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list instruments.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing instruments; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt;, &lt;i&gt;filter&lt;/i&gt;, &lt;i&gt;effectiveAt&lt;/i&gt; and              &lt;i&gt;asAt&lt;/i&gt; fields must not have changed since the original request.              For more information, see https://support.lusid.com/knowledgebase/article/KA-01915. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Defaults to filtering out inactive instruments               (that is, those that have been deleted). For more information about filtering results,               see https://support.lusid.com/knowledgebase/article/KA-01914. (optional, default to &quot;State eq &#39;Active&#39;&quot;)</param>
-        /// <param name="instrumentPropertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto               instruments, or from any domain that supports relationships to decorate onto related entities.               These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Defaults to filtering out inactive instruments              (that is, those that have been deleted). For more information about filtering results,              see https://support.lusid.com/knowledgebase/article/KA-01914. (optional, default to &quot;State eq &#39;Active&#39;&quot;)</param>
+        /// <param name="instrumentPropertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto              instruments, or from any domain that supports relationships to decorate onto related entities.              These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use. (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use. (optional)</param>
         /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
@@ -601,18 +601,18 @@ namespace Lusid.Sdk.Api
         /// ListInstruments: List instruments
         /// </summary>
         /// <remarks>
-        /// List all the instruments in the instrument master.                To retrieve a particular set of instruments instead, use the Get instruments endpoint.  The maximum number of instruments that this method can list per request is 2,000.
+        /// List all the instruments in the instrument master.              To retrieve a particular set of instruments instead, use the Get instruments endpoint.  The maximum number of instruments that this method can list per request is 2,000.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to list instruments. Defaults to returning the latest               version of each instrument if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list instruments.               Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing instruments; this value is returned from               the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt;, &lt;i&gt;filter&lt;/i&gt;, &lt;i&gt;effectiveAt&lt;/i&gt; and               &lt;i&gt;asAt&lt;/i&gt; fields must not have changed since the original request.               For more information, see https://support.lusid.com/knowledgebase/article/KA-01915. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list instruments. Defaults to returning the latest              version of each instrument if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list instruments.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing instruments; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt;, &lt;i&gt;filter&lt;/i&gt;, &lt;i&gt;effectiveAt&lt;/i&gt; and              &lt;i&gt;asAt&lt;/i&gt; fields must not have changed since the original request.              For more information, see https://support.lusid.com/knowledgebase/article/KA-01915. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Defaults to filtering out inactive instruments               (that is, those that have been deleted). For more information about filtering results,               see https://support.lusid.com/knowledgebase/article/KA-01914. (optional, default to &quot;State eq &#39;Active&#39;&quot;)</param>
-        /// <param name="instrumentPropertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto               instruments, or from any domain that supports relationships to decorate onto related entities.               These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Defaults to filtering out inactive instruments              (that is, those that have been deleted). For more information about filtering results,              see https://support.lusid.com/knowledgebase/article/KA-01914. (optional, default to &quot;State eq &#39;Active&#39;&quot;)</param>
+        /// <param name="instrumentPropertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto              instruments, or from any domain that supports relationships to decorate onto related entities.              These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use. (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use. (optional)</param>
         /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
@@ -624,7 +624,7 @@ namespace Lusid.Sdk.Api
         /// QueryInstrumentCapabilities: Query capabilities of a particular instrument in advance of creating it. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.
         /// </summary>
         /// <remarks>
-        /// Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
+        /// Returns instrument capabilities containing useful information about the instrument and the model. This includes - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="lusidInstrument">The definition of the instrument.</param>
@@ -638,7 +638,7 @@ namespace Lusid.Sdk.Api
         /// QueryInstrumentCapabilities: Query capabilities of a particular instrument in advance of creating it. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.
         /// </summary>
         /// <remarks>
-        /// Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
+        /// Returns instrument capabilities containing useful information about the instrument and the model. This includes - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="lusidInstrument">The definition of the instrument.</param>
@@ -651,12 +651,12 @@ namespace Lusid.Sdk.Api
         /// UpdateInstrumentIdentifier: Update instrument identifier
         /// </summary>
         /// <remarks>
-        /// Create, update or delete a particular instrument identifier for an instrument.                To delete the identifier, leave the value unspecified in the request. If not being deleted, the  identifier is updated if it exists and created if it does not.
+        /// Create, update or delete a particular instrument identifier for an instrument.              To delete the identifier, leave the value unspecified in the request. If not being deleted, the identifier is updated if it exists and created if it does not.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
-        /// <param name="updateInstrumentIdentifierRequest">The identifier to update or delete. This need not be the same value as the               &#39;identifier&#39; parameter used to retrieve the instrument.</param>
+        /// <param name="updateInstrumentIdentifierRequest">The identifier to update or delete. This need not be the same value as the              &#39;identifier&#39; parameter used to retrieve the instrument.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
@@ -669,12 +669,12 @@ namespace Lusid.Sdk.Api
         /// UpdateInstrumentIdentifier: Update instrument identifier
         /// </summary>
         /// <remarks>
-        /// Create, update or delete a particular instrument identifier for an instrument.                To delete the identifier, leave the value unspecified in the request. If not being deleted, the  identifier is updated if it exists and created if it does not.
+        /// Create, update or delete a particular instrument identifier for an instrument.              To delete the identifier, leave the value unspecified in the request. If not being deleted, the identifier is updated if it exists and created if it does not.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
-        /// <param name="updateInstrumentIdentifierRequest">The identifier to update or delete. This need not be the same value as the               &#39;identifier&#39; parameter used to retrieve the instrument.</param>
+        /// <param name="updateInstrumentIdentifierRequest">The identifier to update or delete. This need not be the same value as the              &#39;identifier&#39; parameter used to retrieve the instrument.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
@@ -686,7 +686,7 @@ namespace Lusid.Sdk.Api
         /// UpsertInstruments: Upsert instruments
         /// </summary>
         /// <remarks>
-        /// Create or update one or more instruments in the instrument master. An instrument is updated  if it already exists and created if it does not.                In the request, each instrument definition should be keyed by a unique correlation ID. This ID is ephemeral  and not stored by LUSID. It serves only to easily identify each instrument in the response.                Note that an instrument must have at least one unique identifier, which is a combination of a type  (such as &#39;Figi&#39;) and a value (such as &#39;BBG000BS1N49&#39;). In addition, a random value is automatically  generated for a LUSID Instrument ID (LUID) unique type by the system. For more information, see  https://support.lusid.com/knowledgebase/article/KA-01862.                The response returns both the collection of successfully created or updated instruments, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.  The maximum number of instruments that this method can upsert per request is 2,000.
+        /// Create or update one or more instruments in the instrument master. An instrument is updated if it already exists and created if it does not.              In the request, each instrument definition should be keyed by a unique correlation ID. This ID is ephemeral and not stored by LUSID. It serves only to easily identify each instrument in the response.              Note that an instrument must have at least one unique identifier, which is a combination of a type (such as &#39;Figi&#39;) and a value (such as &#39;BBG000BS1N49&#39;). In addition, a random value is automatically generated for a LUSID Instrument ID (LUID) unique type by the system. For more information, see https://support.lusid.com/knowledgebase/article/KA-01862.              The response returns both the collection of successfully created or updated instruments, as well as those that failed. For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.  The maximum number of instruments that this method can upsert per request is 2,000.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The definitions of the instruments to create or update.</param>
@@ -702,7 +702,7 @@ namespace Lusid.Sdk.Api
         /// UpsertInstruments: Upsert instruments
         /// </summary>
         /// <remarks>
-        /// Create or update one or more instruments in the instrument master. An instrument is updated  if it already exists and created if it does not.                In the request, each instrument definition should be keyed by a unique correlation ID. This ID is ephemeral  and not stored by LUSID. It serves only to easily identify each instrument in the response.                Note that an instrument must have at least one unique identifier, which is a combination of a type  (such as &#39;Figi&#39;) and a value (such as &#39;BBG000BS1N49&#39;). In addition, a random value is automatically  generated for a LUSID Instrument ID (LUID) unique type by the system. For more information, see  https://support.lusid.com/knowledgebase/article/KA-01862.                The response returns both the collection of successfully created or updated instruments, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.  The maximum number of instruments that this method can upsert per request is 2,000.
+        /// Create or update one or more instruments in the instrument master. An instrument is updated if it already exists and created if it does not.              In the request, each instrument definition should be keyed by a unique correlation ID. This ID is ephemeral and not stored by LUSID. It serves only to easily identify each instrument in the response.              Note that an instrument must have at least one unique identifier, which is a combination of a type (such as &#39;Figi&#39;) and a value (such as &#39;BBG000BS1N49&#39;). In addition, a random value is automatically generated for a LUSID Instrument ID (LUID) unique type by the system. For more information, see https://support.lusid.com/knowledgebase/article/KA-01862.              The response returns both the collection of successfully created or updated instruments, as well as those that failed. For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.  The maximum number of instruments that this method can upsert per request is 2,000.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The definitions of the instruments to create or update.</param>
@@ -717,7 +717,7 @@ namespace Lusid.Sdk.Api
         /// UpsertInstrumentsProperties: Upsert instruments properties
         /// </summary>
         /// <remarks>
-        /// Create or update one or more properties for particular instruments.                Each instrument property is updated if it exists and created if it does not. For any failures, a reason  is provided.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// Create or update one or more properties for particular instruments.              Each instrument property is updated if it exists and created if it does not. For any failures, a reason is provided.              Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertInstrumentPropertyRequest">A list of instruments and associated instrument properties to create or update.</param>
@@ -733,7 +733,7 @@ namespace Lusid.Sdk.Api
         /// UpsertInstrumentsProperties: Upsert instruments properties
         /// </summary>
         /// <remarks>
-        /// Create or update one or more properties for particular instruments.                Each instrument property is updated if it exists and created if it does not. For any failures, a reason  is provided.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// Create or update one or more properties for particular instruments.              Each instrument property is updated if it exists and created if it does not. For any failures, a reason is provided.              Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertInstrumentPropertyRequest">A list of instruments and associated instrument properties to create or update.</param>
@@ -757,7 +757,7 @@ namespace Lusid.Sdk.Api
         /// BatchUpsertInstrumentProperties: Batch upsert instruments properties
         /// </summary>
         /// <remarks>
-        /// Create or update one or more properties for particular instruments.    Each instrument property is updated if it exists and created if it does not. For any failures, a reason  is provided.    Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// Create or update one or more properties for particular instruments.  Each instrument property is updated if it exists and created if it does not. For any failures, a reason is provided.  Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">A list of instruments and associated instrument properties to create or update.</param>
@@ -776,7 +776,7 @@ namespace Lusid.Sdk.Api
         /// BatchUpsertInstrumentProperties: Batch upsert instruments properties
         /// </summary>
         /// <remarks>
-        /// Create or update one or more properties for particular instruments.    Each instrument property is updated if it exists and created if it does not. For any failures, a reason  is provided.    Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// Create or update one or more properties for particular instruments.  Each instrument property is updated if it exists and created if it does not. For any failures, a reason is provided.  Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">A list of instruments and associated instrument properties to create or update.</param>
@@ -794,14 +794,14 @@ namespace Lusid.Sdk.Api
         /// CalculateSettlementDate: Get the settlement date for an instrument.
         /// </summary>
         /// <remarks>
-        /// Get the settlement date for a given trade date and instrument. The calculated settlement date will be in UTC.  If a cut label transaction date is provided, the settlement date will be calculated relative to the absolute UTC datetime.
+        /// Get the settlement date for a given trade date and instrument. The calculated settlement date will be in UTC. If a cut label transaction date is provided, the settlement date will be calculated relative to the absolute UTC datetime.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">An identifier type attached to the Instrument.</param>
         /// <param name="identifier">The identifier value.</param>
         /// <param name="transactionDate">The transaction date to calculate the settlement date from. This can be a UTC datetime offset or a cut label. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the related instrument and calendars for calculation. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the related instrument and calendars for calculation. Defaults to             returning the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -812,14 +812,14 @@ namespace Lusid.Sdk.Api
         /// CalculateSettlementDate: Get the settlement date for an instrument.
         /// </summary>
         /// <remarks>
-        /// Get the settlement date for a given trade date and instrument. The calculated settlement date will be in UTC.  If a cut label transaction date is provided, the settlement date will be calculated relative to the absolute UTC datetime.
+        /// Get the settlement date for a given trade date and instrument. The calculated settlement date will be in UTC. If a cut label transaction date is provided, the settlement date will be calculated relative to the absolute UTC datetime.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">An identifier type attached to the Instrument.</param>
         /// <param name="identifier">The identifier value.</param>
         /// <param name="transactionDate">The transaction date to calculate the settlement date from. This can be a UTC datetime offset or a cut label. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the related instrument and calendars for calculation. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the related instrument and calendars for calculation. Defaults to             returning the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -829,7 +829,7 @@ namespace Lusid.Sdk.Api
         /// DeleteInstrument: Soft delete a single instrument
         /// </summary>
         /// <remarks>
-        /// Soft delete a particular instrument, as identified by a particular instrument identifier.                Once deleted, an instrument is marked as inactive and can no longer be referenced when creating or updating  transactions or holdings. You can still query existing transactions and holdings related to the  deleted instrument.
+        /// Soft delete a particular instrument, as identified by a particular instrument identifier.              Once deleted, an instrument is marked as inactive and can no longer be referenced when creating or updating transactions or holdings. You can still query existing transactions and holdings related to the deleted instrument.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
@@ -845,7 +845,7 @@ namespace Lusid.Sdk.Api
         /// DeleteInstrument: Soft delete a single instrument
         /// </summary>
         /// <remarks>
-        /// Soft delete a particular instrument, as identified by a particular instrument identifier.                Once deleted, an instrument is marked as inactive and can no longer be referenced when creating or updating  transactions or holdings. You can still query existing transactions and holdings related to the  deleted instrument.
+        /// Soft delete a particular instrument, as identified by a particular instrument identifier.              Once deleted, an instrument is marked as inactive and can no longer be referenced when creating or updating transactions or holdings. You can still query existing transactions and holdings related to the deleted instrument.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
@@ -860,13 +860,13 @@ namespace Lusid.Sdk.Api
         /// DeleteInstrumentProperties: Delete instrument properties
         /// </summary>
         /// <remarks>
-        /// Delete one or more properties from a particular instrument. If the properties are time-variant then an effective datetime from which  to delete properties must be specified. If the properties are perpetual then it is invalid to specify an effective datetime for deletion.
+        /// Delete one or more properties from a particular instrument. If the properties are time-variant then an effective datetime from which to delete properties must be specified. If the properties are perpetual then it is invalid to specify an effective datetime for deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
         /// <param name="requestBody">A list of property keys from the &#39;Instruments&#39; domain whose properties to delete.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.             The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is             before the time-variant property exists then a failure is returned. Do not specify this parameter if any of             the properties to delete are perpetual. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
@@ -880,13 +880,13 @@ namespace Lusid.Sdk.Api
         /// DeleteInstrumentProperties: Delete instrument properties
         /// </summary>
         /// <remarks>
-        /// Delete one or more properties from a particular instrument. If the properties are time-variant then an effective datetime from which  to delete properties must be specified. If the properties are perpetual then it is invalid to specify an effective datetime for deletion.
+        /// Delete one or more properties from a particular instrument. If the properties are time-variant then an effective datetime from which to delete properties must be specified. If the properties are perpetual then it is invalid to specify an effective datetime for deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
         /// <param name="requestBody">A list of property keys from the &#39;Instruments&#39; domain whose properties to delete.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.             The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is             before the time-variant property exists then a failure is returned. Do not specify this parameter if any of             the properties to delete are perpetual. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
@@ -899,7 +899,7 @@ namespace Lusid.Sdk.Api
         /// DeleteInstruments: Soft or hard delete multiple instruments
         /// </summary>
         /// <remarks>
-        /// Deletes a number of instruments identified by LusidInstrumentId.                Soft deletion marks the instrument as inactive so it can no longer be referenced when creating or updating transactions or holdings. You can still query existing transactions and holdings related to the inactive instrument.                In addition to the above behaviour, hard deletion: (i) completely removes all external identifiers from the instrument; (ii) marks the instrument as &#39;Deleted&#39;; (iii) prepends the instrument&#39;s name with &#39;DELETED &#39;; (iv) prevents the instrument from being returned in list instruments queries.                Following hard deletion, an instrument may only be retrieved by making a direct get instrument request for the LusidInstrumentId. Instrument deletion cannot be undone. Please note that currency instruments cannot currently be deleted.  The maximum number of instruments that this method can delete per request is 2,000.
+        /// Deletes a number of instruments identified by LusidInstrumentId.              Soft deletion marks the instrument as inactive so it can no longer be referenced when creating or updating transactions or holdings. You can still query existing transactions and holdings related to the inactive instrument.              In addition to the above behaviour, hard deletion: (i) completely removes all external identifiers from the instrument; (ii) marks the instrument as &#39;Deleted&#39;; (iii) prepends the instrument&#39;s name with &#39;DELETED &#39;; (iv) prevents the instrument from being returned in list instruments queries.              Following hard deletion, an instrument may only be retrieved by making a direct get instrument request for the LusidInstrumentId. Instrument deletion cannot be undone. Please note that currency instruments cannot currently be deleted.  The maximum number of instruments that this method can delete per request is 2,000.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The list of lusidInstrumentId&#39;s to delete.</param>
@@ -915,7 +915,7 @@ namespace Lusid.Sdk.Api
         /// DeleteInstruments: Soft or hard delete multiple instruments
         /// </summary>
         /// <remarks>
-        /// Deletes a number of instruments identified by LusidInstrumentId.                Soft deletion marks the instrument as inactive so it can no longer be referenced when creating or updating transactions or holdings. You can still query existing transactions and holdings related to the inactive instrument.                In addition to the above behaviour, hard deletion: (i) completely removes all external identifiers from the instrument; (ii) marks the instrument as &#39;Deleted&#39;; (iii) prepends the instrument&#39;s name with &#39;DELETED &#39;; (iv) prevents the instrument from being returned in list instruments queries.                Following hard deletion, an instrument may only be retrieved by making a direct get instrument request for the LusidInstrumentId. Instrument deletion cannot be undone. Please note that currency instruments cannot currently be deleted.  The maximum number of instruments that this method can delete per request is 2,000.
+        /// Deletes a number of instruments identified by LusidInstrumentId.              Soft deletion marks the instrument as inactive so it can no longer be referenced when creating or updating transactions or holdings. You can still query existing transactions and holdings related to the inactive instrument.              In addition to the above behaviour, hard deletion: (i) completely removes all external identifiers from the instrument; (ii) marks the instrument as &#39;Deleted&#39;; (iii) prepends the instrument&#39;s name with &#39;DELETED &#39;; (iv) prevents the instrument from being returned in list instruments queries.              Following hard deletion, an instrument may only be retrieved by making a direct get instrument request for the LusidInstrumentId. Instrument deletion cannot be undone. Please note that currency instruments cannot currently be deleted.  The maximum number of instruments that this method can delete per request is 2,000.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The list of lusidInstrumentId&#39;s to delete.</param>
@@ -954,16 +954,16 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (Dictionary&lt;string, List&lt;string&gt;&gt;)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Dictionary<string, List<string>>>> GetAllPossibleFeaturesWithHttpInfoAsync(string instrumentType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// GetExistingInstrumentCapabilities: Retrieve capabilities of an existing instrument identified by LUID. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.  Given an lusid instrument id provides instrument capabilities, outlining features, and, given the model, the capabilities also include supported addresses as well as economic dependencies.
+        /// GetExistingInstrumentCapabilities: Retrieve capabilities of an existing instrument identified by LUID. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies. Given an lusid instrument id provides instrument capabilities, outlining features, and, given the model, the capabilities also include supported addresses as well as economic dependencies.
         /// </summary>
         /// <remarks>
-        /// Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
+        /// Returns instrument capabilities containing useful information about the instrument and the model. This includes - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifier">A lusid instrument id identifying the instrument.</param>
         /// <param name="model">A pricing model for the instrument. Defaults to Unknown if not specified. If not specified the SupportedAddresses and EconomicDependencies are not provided. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to             returning the latest version if not specified. (optional)</param>
         /// <param name="instrumentScope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="recipeScope">The scope in which the recipe lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="recipeCode">A unique identifier for an entity, used to obtain configuration recipe details. Default configuration recipe is used if not provided. (optional)</param>
@@ -974,16 +974,16 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<InstrumentCapabilities> GetExistingInstrumentCapabilitiesAsync(string identifier, string? model = default(string?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? instrumentScope = default(string?), string? recipeScope = default(string?), string? recipeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// GetExistingInstrumentCapabilities: Retrieve capabilities of an existing instrument identified by LUID. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.  Given an lusid instrument id provides instrument capabilities, outlining features, and, given the model, the capabilities also include supported addresses as well as economic dependencies.
+        /// GetExistingInstrumentCapabilities: Retrieve capabilities of an existing instrument identified by LUID. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies. Given an lusid instrument id provides instrument capabilities, outlining features, and, given the model, the capabilities also include supported addresses as well as economic dependencies.
         /// </summary>
         /// <remarks>
-        /// Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
+        /// Returns instrument capabilities containing useful information about the instrument and the model. This includes - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifier">A lusid instrument id identifying the instrument.</param>
         /// <param name="model">A pricing model for the instrument. Defaults to Unknown if not specified. If not specified the SupportedAddresses and EconomicDependencies are not provided. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to             returning the latest version if not specified. (optional)</param>
         /// <param name="instrumentScope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="recipeScope">The scope in which the recipe lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="recipeCode">A unique identifier for an entity, used to obtain configuration recipe details. Default configuration recipe is used if not provided. (optional)</param>
@@ -1000,8 +1000,8 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifier">A lusid instrument id identifying the instrument.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to             returning the latest version if not specified. (optional)</param>
         /// <param name="instrumentScope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="recipeScope">The scope in which the recipe lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="recipeCode">A unique identifier for an entity, used to obtain configuration recipe details. Default configuration recipe is used if not provided. (optional)</param>
@@ -1019,8 +1019,8 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifier">A lusid instrument id identifying the instrument.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to             returning the latest version if not specified. (optional)</param>
         /// <param name="instrumentScope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="recipeScope">The scope in which the recipe lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="recipeCode">A unique identifier for an entity, used to obtain configuration recipe details. Default configuration recipe is used if not provided. (optional)</param>
@@ -1038,11 +1038,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to use, for example &#39;Figi&#39;.</param>
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto              the instrument, or from any domain that supports relationships to decorate onto related entities.              These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to             returning the latest version if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto             the instrument, or from any domain that supports relationships to decorate onto related entities.             These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1058,11 +1058,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to use, for example &#39;Figi&#39;.</param>
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto              the instrument, or from any domain that supports relationships to decorate onto related entities.              These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to             returning the latest version if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto             the instrument, or from any domain that supports relationships to decorate onto related entities.             These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1072,7 +1072,7 @@ namespace Lusid.Sdk.Api
         /// GetInstrumentIdentifierTypes: Get instrument identifier types
         /// </summary>
         /// <remarks>
-        /// Retrieve a list of all valid instrument identifier types and whether they are unique or not.                An instrument must have a value for at least one unique identifier type (it can have more than one unique type and value).  In addition, a value is automatically generated for a LUSID Instrument ID (LUID) unique type by the system.                An instrument can have values for multiple non-unique identifier types (or it can have zero non-unique types and values).
+        /// Retrieve a list of all valid instrument identifier types and whether they are unique or not.              An instrument must have a value for at least one unique identifier type (it can have more than one unique type and value). In addition, a value is automatically generated for a LUSID Instrument ID (LUID) unique type by the system.              An instrument can have values for multiple non-unique identifier types (or it can have zero non-unique types and values).
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1085,7 +1085,7 @@ namespace Lusid.Sdk.Api
         /// GetInstrumentIdentifierTypes: Get instrument identifier types
         /// </summary>
         /// <remarks>
-        /// Retrieve a list of all valid instrument identifier types and whether they are unique or not.                An instrument must have a value for at least one unique identifier type (it can have more than one unique type and value).  In addition, a value is automatically generated for a LUSID Instrument ID (LUID) unique type by the system.                An instrument can have values for multiple non-unique identifier types (or it can have zero non-unique types and values).
+        /// Retrieve a list of all valid instrument identifier types and whether they are unique or not.              An instrument must have a value for at least one unique identifier type (it can have more than one unique type and value). In addition, a value is automatically generated for a LUSID Instrument ID (LUID) unique type by the system.              An instrument can have values for multiple non-unique identifier types (or it can have zero non-unique types and values).
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1141,8 +1141,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the instrument&#39;s properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the instrument&#39;s properties. Defaults to returning              the latest version of each property if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the instrument&#39;s properties.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the instrument&#39;s properties. Defaults to returning             the latest version of each property if not specified. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1159,8 +1159,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the instrument&#39;s properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the instrument&#39;s properties. Defaults to returning              the latest version of each property if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the instrument&#39;s properties.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the instrument&#39;s properties. Defaults to returning             the latest version of each property if not specified. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1176,11 +1176,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
-        /// <param name="propertyKey">The property key of a property from the &#39;Instrument&#39; domain whose history to retrieve.              This must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;.</param>
-        /// <param name="identifierEffectiveAt">The effective datetime used to resolve the instrument from the identifier.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the instrument&#39;s property history. Defaults to              returning the current datetime if not supplied. (optional)</param>
-        /// <param name="filter">Expression to filter the results. For more information about filtering,              see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing properties; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;filter&lt;/i&gt;, &lt;i&gt;effectiveAt&lt;/i&gt; and              &lt;i&gt;asAt&lt;/i&gt; fields must not have changed since the original request. For more information, see              https://support.lusid.com/knowledgebase/article/KA-01915. (optional)</param>
+        /// <param name="propertyKey">The property key of a property from the &#39;Instrument&#39; domain whose history to retrieve.             This must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;.</param>
+        /// <param name="identifierEffectiveAt">The effective datetime used to resolve the instrument from the identifier.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument&#39;s property history. Defaults to             returning the current datetime if not supplied. (optional)</param>
+        /// <param name="filter">Expression to filter the results. For more information about filtering,             see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing properties; this value is returned from             the previous call. If a pagination token is provided, the &lt;i&gt;filter&lt;/i&gt;, &lt;i&gt;effectiveAt&lt;/i&gt; and             &lt;i&gt;asAt&lt;/i&gt; fields must not have changed since the original request. For more information, see             https://support.lusid.com/knowledgebase/article/KA-01915. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1198,11 +1198,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
-        /// <param name="propertyKey">The property key of a property from the &#39;Instrument&#39; domain whose history to retrieve.              This must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;.</param>
-        /// <param name="identifierEffectiveAt">The effective datetime used to resolve the instrument from the identifier.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the instrument&#39;s property history. Defaults to              returning the current datetime if not supplied. (optional)</param>
-        /// <param name="filter">Expression to filter the results. For more information about filtering,              see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing properties; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;filter&lt;/i&gt;, &lt;i&gt;effectiveAt&lt;/i&gt; and              &lt;i&gt;asAt&lt;/i&gt; fields must not have changed since the original request. For more information, see              https://support.lusid.com/knowledgebase/article/KA-01915. (optional)</param>
+        /// <param name="propertyKey">The property key of a property from the &#39;Instrument&#39; domain whose history to retrieve.             This must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;.</param>
+        /// <param name="identifierEffectiveAt">The effective datetime used to resolve the instrument from the identifier.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument&#39;s property history. Defaults to             returning the current datetime if not supplied. (optional)</param>
+        /// <param name="filter">Expression to filter the results. For more information about filtering,             see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing properties; this value is returned from             the previous call. If a pagination token is provided, the &lt;i&gt;filter&lt;/i&gt;, &lt;i&gt;effectiveAt&lt;/i&gt; and             &lt;i&gt;asAt&lt;/i&gt; fields must not have changed since the original request. For more information, see             https://support.lusid.com/knowledgebase/article/KA-01915. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1222,7 +1222,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to get relationships. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve relationships. Defaults to return the latest LUSID AsAt time if not specified. (optional)</param>
         /// <param name="filter">Expression to filter relationships. Users should provide null or empty string for this field until further notice. (optional)</param>
-        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.              These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example              &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. (optional)</param>
+        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.             These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example             &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. (optional)</param>
         /// <param name="scope">The entity scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1242,7 +1242,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to get relationships. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve relationships. Defaults to return the latest LUSID AsAt time if not specified. (optional)</param>
         /// <param name="filter">Expression to filter relationships. Users should provide null or empty string for this field until further notice. (optional)</param>
-        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.              These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example              &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. (optional)</param>
+        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.             These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example             &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. (optional)</param>
         /// <param name="scope">The entity scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1253,16 +1253,16 @@ namespace Lusid.Sdk.Api
         /// GetInstruments: Get instruments
         /// </summary>
         /// <remarks>
-        /// Retrieve the definition of one or more instruments, as identified by a collection of unique identifiers.                Note that to retrieve all the instruments in the instrument master, use the List instruments endpoint instead.
+        /// Retrieve the definition of one or more instruments, as identified by a collection of unique identifiers.              Note that to retrieve all the instruments in the instrument master, use the List instruments endpoint instead.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to use, for example &#39;Figi&#39;.</param>
         /// <param name="requestBody">A list of one or more &lt;i&gt;identifierType&lt;/i&gt; values to use to identify instruments.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument definitions.               Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the instrument definitions.               Defaults to returning the latest version of each instrument definition if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto               each instrument, or from any domain that supports relationships to decorate onto related entities.               These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument definitions.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument definitions.              Defaults to returning the latest version of each instrument definition if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto              each instrument, or from any domain that supports relationships to decorate onto related entities.              These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1273,16 +1273,16 @@ namespace Lusid.Sdk.Api
         /// GetInstruments: Get instruments
         /// </summary>
         /// <remarks>
-        /// Retrieve the definition of one or more instruments, as identified by a collection of unique identifiers.                Note that to retrieve all the instruments in the instrument master, use the List instruments endpoint instead.
+        /// Retrieve the definition of one or more instruments, as identified by a collection of unique identifiers.              Note that to retrieve all the instruments in the instrument master, use the List instruments endpoint instead.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to use, for example &#39;Figi&#39;.</param>
         /// <param name="requestBody">A list of one or more &lt;i&gt;identifierType&lt;/i&gt; values to use to identify instruments.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument definitions.               Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the instrument definitions.               Defaults to returning the latest version of each instrument definition if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto               each instrument, or from any domain that supports relationships to decorate onto related entities.               These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument definitions.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument definitions.              Defaults to returning the latest version of each instrument definition if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto              each instrument, or from any domain that supports relationships to decorate onto related entities.              These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1297,8 +1297,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the instrument&#39;s properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the instrument&#39;s properties. Defaults to returning              the latest version of each property if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the instrument&#39;s properties.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the instrument&#39;s properties. Defaults to returning             the latest version of each property if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing commands; this value is returned from the previous call. (optional)</param>
         /// <param name="limit">When paginating, limit the results per page to this number. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
@@ -1317,8 +1317,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the instrument&#39;s properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the instrument&#39;s properties. Defaults to returning              the latest version of each property if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the instrument&#39;s properties.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the instrument&#39;s properties. Defaults to returning             the latest version of each property if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing commands; this value is returned from the previous call. (optional)</param>
         /// <param name="limit">When paginating, limit the results per page to this number. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
@@ -1331,18 +1331,18 @@ namespace Lusid.Sdk.Api
         /// ListInstruments: List instruments
         /// </summary>
         /// <remarks>
-        /// List all the instruments in the instrument master.                To retrieve a particular set of instruments instead, use the Get instruments endpoint.  The maximum number of instruments that this method can list per request is 2,000.
+        /// List all the instruments in the instrument master.              To retrieve a particular set of instruments instead, use the Get instruments endpoint.  The maximum number of instruments that this method can list per request is 2,000.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to list instruments. Defaults to returning the latest               version of each instrument if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list instruments.               Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing instruments; this value is returned from               the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt;, &lt;i&gt;filter&lt;/i&gt;, &lt;i&gt;effectiveAt&lt;/i&gt; and               &lt;i&gt;asAt&lt;/i&gt; fields must not have changed since the original request.               For more information, see https://support.lusid.com/knowledgebase/article/KA-01915. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list instruments. Defaults to returning the latest              version of each instrument if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list instruments.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing instruments; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt;, &lt;i&gt;filter&lt;/i&gt;, &lt;i&gt;effectiveAt&lt;/i&gt; and              &lt;i&gt;asAt&lt;/i&gt; fields must not have changed since the original request.              For more information, see https://support.lusid.com/knowledgebase/article/KA-01915. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Defaults to filtering out inactive instruments               (that is, those that have been deleted). For more information about filtering results,               see https://support.lusid.com/knowledgebase/article/KA-01914. (optional, default to &quot;State eq &#39;Active&#39;&quot;)</param>
-        /// <param name="instrumentPropertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto               instruments, or from any domain that supports relationships to decorate onto related entities.               These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Defaults to filtering out inactive instruments              (that is, those that have been deleted). For more information about filtering results,              see https://support.lusid.com/knowledgebase/article/KA-01914. (optional, default to &quot;State eq &#39;Active&#39;&quot;)</param>
+        /// <param name="instrumentPropertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto              instruments, or from any domain that supports relationships to decorate onto related entities.              These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use. (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use. (optional)</param>
         /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
@@ -1356,18 +1356,18 @@ namespace Lusid.Sdk.Api
         /// ListInstruments: List instruments
         /// </summary>
         /// <remarks>
-        /// List all the instruments in the instrument master.                To retrieve a particular set of instruments instead, use the Get instruments endpoint.  The maximum number of instruments that this method can list per request is 2,000.
+        /// List all the instruments in the instrument master.              To retrieve a particular set of instruments instead, use the Get instruments endpoint.  The maximum number of instruments that this method can list per request is 2,000.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to list instruments. Defaults to returning the latest               version of each instrument if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list instruments.               Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing instruments; this value is returned from               the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt;, &lt;i&gt;filter&lt;/i&gt;, &lt;i&gt;effectiveAt&lt;/i&gt; and               &lt;i&gt;asAt&lt;/i&gt; fields must not have changed since the original request.               For more information, see https://support.lusid.com/knowledgebase/article/KA-01915. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list instruments. Defaults to returning the latest              version of each instrument if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list instruments.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing instruments; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt;, &lt;i&gt;filter&lt;/i&gt;, &lt;i&gt;effectiveAt&lt;/i&gt; and              &lt;i&gt;asAt&lt;/i&gt; fields must not have changed since the original request.              For more information, see https://support.lusid.com/knowledgebase/article/KA-01915. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Defaults to filtering out inactive instruments               (that is, those that have been deleted). For more information about filtering results,               see https://support.lusid.com/knowledgebase/article/KA-01914. (optional, default to &quot;State eq &#39;Active&#39;&quot;)</param>
-        /// <param name="instrumentPropertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto               instruments, or from any domain that supports relationships to decorate onto related entities.               These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Defaults to filtering out inactive instruments              (that is, those that have been deleted). For more information about filtering results,              see https://support.lusid.com/knowledgebase/article/KA-01914. (optional, default to &quot;State eq &#39;Active&#39;&quot;)</param>
+        /// <param name="instrumentPropertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto              instruments, or from any domain that supports relationships to decorate onto related entities.              These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use. (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use. (optional)</param>
         /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
@@ -1380,7 +1380,7 @@ namespace Lusid.Sdk.Api
         /// QueryInstrumentCapabilities: Query capabilities of a particular instrument in advance of creating it. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.
         /// </summary>
         /// <remarks>
-        /// Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
+        /// Returns instrument capabilities containing useful information about the instrument and the model. This includes - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="lusidInstrument">The definition of the instrument.</param>
@@ -1395,7 +1395,7 @@ namespace Lusid.Sdk.Api
         /// QueryInstrumentCapabilities: Query capabilities of a particular instrument in advance of creating it. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.
         /// </summary>
         /// <remarks>
-        /// Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
+        /// Returns instrument capabilities containing useful information about the instrument and the model. This includes - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="lusidInstrument">The definition of the instrument.</param>
@@ -1409,12 +1409,12 @@ namespace Lusid.Sdk.Api
         /// UpdateInstrumentIdentifier: Update instrument identifier
         /// </summary>
         /// <remarks>
-        /// Create, update or delete a particular instrument identifier for an instrument.                To delete the identifier, leave the value unspecified in the request. If not being deleted, the  identifier is updated if it exists and created if it does not.
+        /// Create, update or delete a particular instrument identifier for an instrument.              To delete the identifier, leave the value unspecified in the request. If not being deleted, the identifier is updated if it exists and created if it does not.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
-        /// <param name="updateInstrumentIdentifierRequest">The identifier to update or delete. This need not be the same value as the               &#39;identifier&#39; parameter used to retrieve the instrument.</param>
+        /// <param name="updateInstrumentIdentifierRequest">The identifier to update or delete. This need not be the same value as the              &#39;identifier&#39; parameter used to retrieve the instrument.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
@@ -1428,12 +1428,12 @@ namespace Lusid.Sdk.Api
         /// UpdateInstrumentIdentifier: Update instrument identifier
         /// </summary>
         /// <remarks>
-        /// Create, update or delete a particular instrument identifier for an instrument.                To delete the identifier, leave the value unspecified in the request. If not being deleted, the  identifier is updated if it exists and created if it does not.
+        /// Create, update or delete a particular instrument identifier for an instrument.              To delete the identifier, leave the value unspecified in the request. If not being deleted, the identifier is updated if it exists and created if it does not.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
-        /// <param name="updateInstrumentIdentifierRequest">The identifier to update or delete. This need not be the same value as the               &#39;identifier&#39; parameter used to retrieve the instrument.</param>
+        /// <param name="updateInstrumentIdentifierRequest">The identifier to update or delete. This need not be the same value as the              &#39;identifier&#39; parameter used to retrieve the instrument.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
@@ -1446,7 +1446,7 @@ namespace Lusid.Sdk.Api
         /// UpsertInstruments: Upsert instruments
         /// </summary>
         /// <remarks>
-        /// Create or update one or more instruments in the instrument master. An instrument is updated  if it already exists and created if it does not.                In the request, each instrument definition should be keyed by a unique correlation ID. This ID is ephemeral  and not stored by LUSID. It serves only to easily identify each instrument in the response.                Note that an instrument must have at least one unique identifier, which is a combination of a type  (such as &#39;Figi&#39;) and a value (such as &#39;BBG000BS1N49&#39;). In addition, a random value is automatically  generated for a LUSID Instrument ID (LUID) unique type by the system. For more information, see  https://support.lusid.com/knowledgebase/article/KA-01862.                The response returns both the collection of successfully created or updated instruments, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.  The maximum number of instruments that this method can upsert per request is 2,000.
+        /// Create or update one or more instruments in the instrument master. An instrument is updated if it already exists and created if it does not.              In the request, each instrument definition should be keyed by a unique correlation ID. This ID is ephemeral and not stored by LUSID. It serves only to easily identify each instrument in the response.              Note that an instrument must have at least one unique identifier, which is a combination of a type (such as &#39;Figi&#39;) and a value (such as &#39;BBG000BS1N49&#39;). In addition, a random value is automatically generated for a LUSID Instrument ID (LUID) unique type by the system. For more information, see https://support.lusid.com/knowledgebase/article/KA-01862.              The response returns both the collection of successfully created or updated instruments, as well as those that failed. For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.  The maximum number of instruments that this method can upsert per request is 2,000.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The definitions of the instruments to create or update.</param>
@@ -1463,7 +1463,7 @@ namespace Lusid.Sdk.Api
         /// UpsertInstruments: Upsert instruments
         /// </summary>
         /// <remarks>
-        /// Create or update one or more instruments in the instrument master. An instrument is updated  if it already exists and created if it does not.                In the request, each instrument definition should be keyed by a unique correlation ID. This ID is ephemeral  and not stored by LUSID. It serves only to easily identify each instrument in the response.                Note that an instrument must have at least one unique identifier, which is a combination of a type  (such as &#39;Figi&#39;) and a value (such as &#39;BBG000BS1N49&#39;). In addition, a random value is automatically  generated for a LUSID Instrument ID (LUID) unique type by the system. For more information, see  https://support.lusid.com/knowledgebase/article/KA-01862.                The response returns both the collection of successfully created or updated instruments, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.  The maximum number of instruments that this method can upsert per request is 2,000.
+        /// Create or update one or more instruments in the instrument master. An instrument is updated if it already exists and created if it does not.              In the request, each instrument definition should be keyed by a unique correlation ID. This ID is ephemeral and not stored by LUSID. It serves only to easily identify each instrument in the response.              Note that an instrument must have at least one unique identifier, which is a combination of a type (such as &#39;Figi&#39;) and a value (such as &#39;BBG000BS1N49&#39;). In addition, a random value is automatically generated for a LUSID Instrument ID (LUID) unique type by the system. For more information, see https://support.lusid.com/knowledgebase/article/KA-01862.              The response returns both the collection of successfully created or updated instruments, as well as those that failed. For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.  The maximum number of instruments that this method can upsert per request is 2,000.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The definitions of the instruments to create or update.</param>
@@ -1479,7 +1479,7 @@ namespace Lusid.Sdk.Api
         /// UpsertInstrumentsProperties: Upsert instruments properties
         /// </summary>
         /// <remarks>
-        /// Create or update one or more properties for particular instruments.                Each instrument property is updated if it exists and created if it does not. For any failures, a reason  is provided.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// Create or update one or more properties for particular instruments.              Each instrument property is updated if it exists and created if it does not. For any failures, a reason is provided.              Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertInstrumentPropertyRequest">A list of instruments and associated instrument properties to create or update.</param>
@@ -1496,7 +1496,7 @@ namespace Lusid.Sdk.Api
         /// UpsertInstrumentsProperties: Upsert instruments properties
         /// </summary>
         /// <remarks>
-        /// Create or update one or more properties for particular instruments.                Each instrument property is updated if it exists and created if it does not. For any failures, a reason  is provided.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// Create or update one or more properties for particular instruments.              Each instrument property is updated if it exists and created if it does not. For any failures, a reason is provided.              Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertInstrumentPropertyRequest">A list of instruments and associated instrument properties to create or update.</param>
@@ -1632,7 +1632,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// BatchUpsertInstrumentProperties: Batch upsert instruments properties Create or update one or more properties for particular instruments.    Each instrument property is updated if it exists and created if it does not. For any failures, a reason  is provided.    Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// BatchUpsertInstrumentProperties: Batch upsert instruments properties Create or update one or more properties for particular instruments.  Each instrument property is updated if it exists and created if it does not. For any failures, a reason is provided.  Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">A list of instruments and associated instrument properties to create or update.</param>
@@ -1651,7 +1651,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// BatchUpsertInstrumentProperties: Batch upsert instruments properties Create or update one or more properties for particular instruments.    Each instrument property is updated if it exists and created if it does not. For any failures, a reason  is provided.    Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// BatchUpsertInstrumentProperties: Batch upsert instruments properties Create or update one or more properties for particular instruments.  Each instrument property is updated if it exists and created if it does not. For any failures, a reason is provided.  Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">A list of instruments and associated instrument properties to create or update.</param>
@@ -1766,7 +1766,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// BatchUpsertInstrumentProperties: Batch upsert instruments properties Create or update one or more properties for particular instruments.    Each instrument property is updated if it exists and created if it does not. For any failures, a reason  is provided.    Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// BatchUpsertInstrumentProperties: Batch upsert instruments properties Create or update one or more properties for particular instruments.  Each instrument property is updated if it exists and created if it does not. For any failures, a reason is provided.  Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">A list of instruments and associated instrument properties to create or update.</param>
@@ -1786,7 +1786,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// BatchUpsertInstrumentProperties: Batch upsert instruments properties Create or update one or more properties for particular instruments.    Each instrument property is updated if it exists and created if it does not. For any failures, a reason  is provided.    Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// BatchUpsertInstrumentProperties: Batch upsert instruments properties Create or update one or more properties for particular instruments.  Each instrument property is updated if it exists and created if it does not. For any failures, a reason is provided.  Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">A list of instruments and associated instrument properties to create or update.</param>
@@ -1904,14 +1904,14 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// CalculateSettlementDate: Get the settlement date for an instrument. Get the settlement date for a given trade date and instrument. The calculated settlement date will be in UTC.  If a cut label transaction date is provided, the settlement date will be calculated relative to the absolute UTC datetime.
+        /// CalculateSettlementDate: Get the settlement date for an instrument. Get the settlement date for a given trade date and instrument. The calculated settlement date will be in UTC. If a cut label transaction date is provided, the settlement date will be calculated relative to the absolute UTC datetime.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">An identifier type attached to the Instrument.</param>
         /// <param name="identifier">The identifier value.</param>
         /// <param name="transactionDate">The transaction date to calculate the settlement date from. This can be a UTC datetime offset or a cut label. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the related instrument and calendars for calculation. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the related instrument and calendars for calculation. Defaults to             returning the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>AddBusinessDaysToDateResponse</returns>
@@ -1922,14 +1922,14 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// CalculateSettlementDate: Get the settlement date for an instrument. Get the settlement date for a given trade date and instrument. The calculated settlement date will be in UTC.  If a cut label transaction date is provided, the settlement date will be calculated relative to the absolute UTC datetime.
+        /// CalculateSettlementDate: Get the settlement date for an instrument. Get the settlement date for a given trade date and instrument. The calculated settlement date will be in UTC. If a cut label transaction date is provided, the settlement date will be calculated relative to the absolute UTC datetime.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">An identifier type attached to the Instrument.</param>
         /// <param name="identifier">The identifier value.</param>
         /// <param name="transactionDate">The transaction date to calculate the settlement date from. This can be a UTC datetime offset or a cut label. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the related instrument and calendars for calculation. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the related instrument and calendars for calculation. Defaults to             returning the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AddBusinessDaysToDateResponse</returns>
@@ -2031,14 +2031,14 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// CalculateSettlementDate: Get the settlement date for an instrument. Get the settlement date for a given trade date and instrument. The calculated settlement date will be in UTC.  If a cut label transaction date is provided, the settlement date will be calculated relative to the absolute UTC datetime.
+        /// CalculateSettlementDate: Get the settlement date for an instrument. Get the settlement date for a given trade date and instrument. The calculated settlement date will be in UTC. If a cut label transaction date is provided, the settlement date will be calculated relative to the absolute UTC datetime.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">An identifier type attached to the Instrument.</param>
         /// <param name="identifier">The identifier value.</param>
         /// <param name="transactionDate">The transaction date to calculate the settlement date from. This can be a UTC datetime offset or a cut label. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the related instrument and calendars for calculation. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the related instrument and calendars for calculation. Defaults to             returning the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2050,14 +2050,14 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// CalculateSettlementDate: Get the settlement date for an instrument. Get the settlement date for a given trade date and instrument. The calculated settlement date will be in UTC.  If a cut label transaction date is provided, the settlement date will be calculated relative to the absolute UTC datetime.
+        /// CalculateSettlementDate: Get the settlement date for an instrument. Get the settlement date for a given trade date and instrument. The calculated settlement date will be in UTC. If a cut label transaction date is provided, the settlement date will be calculated relative to the absolute UTC datetime.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">An identifier type attached to the Instrument.</param>
         /// <param name="identifier">The identifier value.</param>
         /// <param name="transactionDate">The transaction date to calculate the settlement date from. This can be a UTC datetime offset or a cut label. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the related instrument and calendars for calculation. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the related instrument and calendars for calculation. Defaults to             returning the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2162,7 +2162,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// DeleteInstrument: Soft delete a single instrument Soft delete a particular instrument, as identified by a particular instrument identifier.                Once deleted, an instrument is marked as inactive and can no longer be referenced when creating or updating  transactions or holdings. You can still query existing transactions and holdings related to the  deleted instrument.
+        /// DeleteInstrument: Soft delete a single instrument Soft delete a particular instrument, as identified by a particular instrument identifier.              Once deleted, an instrument is marked as inactive and can no longer be referenced when creating or updating transactions or holdings. You can still query existing transactions and holdings related to the deleted instrument.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
@@ -2178,7 +2178,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// DeleteInstrument: Soft delete a single instrument Soft delete a particular instrument, as identified by a particular instrument identifier.                Once deleted, an instrument is marked as inactive and can no longer be referenced when creating or updating  transactions or holdings. You can still query existing transactions and holdings related to the  deleted instrument.
+        /// DeleteInstrument: Soft delete a single instrument Soft delete a particular instrument, as identified by a particular instrument identifier.              Once deleted, an instrument is marked as inactive and can no longer be referenced when creating or updating transactions or holdings. You can still query existing transactions and holdings related to the deleted instrument.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
@@ -2277,7 +2277,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// DeleteInstrument: Soft delete a single instrument Soft delete a particular instrument, as identified by a particular instrument identifier.                Once deleted, an instrument is marked as inactive and can no longer be referenced when creating or updating  transactions or holdings. You can still query existing transactions and holdings related to the  deleted instrument.
+        /// DeleteInstrument: Soft delete a single instrument Soft delete a particular instrument, as identified by a particular instrument identifier.              Once deleted, an instrument is marked as inactive and can no longer be referenced when creating or updating transactions or holdings. You can still query existing transactions and holdings related to the deleted instrument.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
@@ -2294,7 +2294,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// DeleteInstrument: Soft delete a single instrument Soft delete a particular instrument, as identified by a particular instrument identifier.                Once deleted, an instrument is marked as inactive and can no longer be referenced when creating or updating  transactions or holdings. You can still query existing transactions and holdings related to the  deleted instrument.
+        /// DeleteInstrument: Soft delete a single instrument Soft delete a particular instrument, as identified by a particular instrument identifier.              Once deleted, an instrument is marked as inactive and can no longer be referenced when creating or updating transactions or holdings. You can still query existing transactions and holdings related to the deleted instrument.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
@@ -2396,13 +2396,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// DeleteInstrumentProperties: Delete instrument properties Delete one or more properties from a particular instrument. If the properties are time-variant then an effective datetime from which  to delete properties must be specified. If the properties are perpetual then it is invalid to specify an effective datetime for deletion.
+        /// DeleteInstrumentProperties: Delete instrument properties Delete one or more properties from a particular instrument. If the properties are time-variant then an effective datetime from which to delete properties must be specified. If the properties are perpetual then it is invalid to specify an effective datetime for deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
         /// <param name="requestBody">A list of property keys from the &#39;Instruments&#39; domain whose properties to delete.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.             The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is             before the time-variant property exists then a failure is returned. Do not specify this parameter if any of             the properties to delete are perpetual. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
@@ -2416,13 +2416,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// DeleteInstrumentProperties: Delete instrument properties Delete one or more properties from a particular instrument. If the properties are time-variant then an effective datetime from which  to delete properties must be specified. If the properties are perpetual then it is invalid to specify an effective datetime for deletion.
+        /// DeleteInstrumentProperties: Delete instrument properties Delete one or more properties from a particular instrument. If the properties are time-variant then an effective datetime from which to delete properties must be specified. If the properties are perpetual then it is invalid to specify an effective datetime for deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
         /// <param name="requestBody">A list of property keys from the &#39;Instruments&#39; domain whose properties to delete.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.             The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is             before the time-variant property exists then a failure is returned. Do not specify this parameter if any of             the properties to delete are perpetual. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
@@ -2542,13 +2542,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// DeleteInstrumentProperties: Delete instrument properties Delete one or more properties from a particular instrument. If the properties are time-variant then an effective datetime from which  to delete properties must be specified. If the properties are perpetual then it is invalid to specify an effective datetime for deletion.
+        /// DeleteInstrumentProperties: Delete instrument properties Delete one or more properties from a particular instrument. If the properties are time-variant then an effective datetime from which to delete properties must be specified. If the properties are perpetual then it is invalid to specify an effective datetime for deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
         /// <param name="requestBody">A list of property keys from the &#39;Instruments&#39; domain whose properties to delete.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.             The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is             before the time-variant property exists then a failure is returned. Do not specify this parameter if any of             the properties to delete are perpetual. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
@@ -2563,13 +2563,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// DeleteInstrumentProperties: Delete instrument properties Delete one or more properties from a particular instrument. If the properties are time-variant then an effective datetime from which  to delete properties must be specified. If the properties are perpetual then it is invalid to specify an effective datetime for deletion.
+        /// DeleteInstrumentProperties: Delete instrument properties Delete one or more properties from a particular instrument. If the properties are time-variant then an effective datetime from which to delete properties must be specified. If the properties are perpetual then it is invalid to specify an effective datetime for deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
         /// <param name="requestBody">A list of property keys from the &#39;Instruments&#39; domain whose properties to delete.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.             The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is             before the time-variant property exists then a failure is returned. Do not specify this parameter if any of             the properties to delete are perpetual. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
@@ -2692,7 +2692,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// DeleteInstruments: Soft or hard delete multiple instruments Deletes a number of instruments identified by LusidInstrumentId.                Soft deletion marks the instrument as inactive so it can no longer be referenced when creating or updating transactions or holdings. You can still query existing transactions and holdings related to the inactive instrument.                In addition to the above behaviour, hard deletion: (i) completely removes all external identifiers from the instrument; (ii) marks the instrument as &#39;Deleted&#39;; (iii) prepends the instrument&#39;s name with &#39;DELETED &#39;; (iv) prevents the instrument from being returned in list instruments queries.                Following hard deletion, an instrument may only be retrieved by making a direct get instrument request for the LusidInstrumentId. Instrument deletion cannot be undone. Please note that currency instruments cannot currently be deleted.  The maximum number of instruments that this method can delete per request is 2,000.
+        /// DeleteInstruments: Soft or hard delete multiple instruments Deletes a number of instruments identified by LusidInstrumentId.              Soft deletion marks the instrument as inactive so it can no longer be referenced when creating or updating transactions or holdings. You can still query existing transactions and holdings related to the inactive instrument.              In addition to the above behaviour, hard deletion: (i) completely removes all external identifiers from the instrument; (ii) marks the instrument as &#39;Deleted&#39;; (iii) prepends the instrument&#39;s name with &#39;DELETED &#39;; (iv) prevents the instrument from being returned in list instruments queries.              Following hard deletion, an instrument may only be retrieved by making a direct get instrument request for the LusidInstrumentId. Instrument deletion cannot be undone. Please note that currency instruments cannot currently be deleted.  The maximum number of instruments that this method can delete per request is 2,000.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The list of lusidInstrumentId&#39;s to delete.</param>
@@ -2708,7 +2708,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// DeleteInstruments: Soft or hard delete multiple instruments Deletes a number of instruments identified by LusidInstrumentId.                Soft deletion marks the instrument as inactive so it can no longer be referenced when creating or updating transactions or holdings. You can still query existing transactions and holdings related to the inactive instrument.                In addition to the above behaviour, hard deletion: (i) completely removes all external identifiers from the instrument; (ii) marks the instrument as &#39;Deleted&#39;; (iii) prepends the instrument&#39;s name with &#39;DELETED &#39;; (iv) prevents the instrument from being returned in list instruments queries.                Following hard deletion, an instrument may only be retrieved by making a direct get instrument request for the LusidInstrumentId. Instrument deletion cannot be undone. Please note that currency instruments cannot currently be deleted.  The maximum number of instruments that this method can delete per request is 2,000.
+        /// DeleteInstruments: Soft or hard delete multiple instruments Deletes a number of instruments identified by LusidInstrumentId.              Soft deletion marks the instrument as inactive so it can no longer be referenced when creating or updating transactions or holdings. You can still query existing transactions and holdings related to the inactive instrument.              In addition to the above behaviour, hard deletion: (i) completely removes all external identifiers from the instrument; (ii) marks the instrument as &#39;Deleted&#39;; (iii) prepends the instrument&#39;s name with &#39;DELETED &#39;; (iv) prevents the instrument from being returned in list instruments queries.              Following hard deletion, an instrument may only be retrieved by making a direct get instrument request for the LusidInstrumentId. Instrument deletion cannot be undone. Please note that currency instruments cannot currently be deleted.  The maximum number of instruments that this method can delete per request is 2,000.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The list of lusidInstrumentId&#39;s to delete.</param>
@@ -2808,7 +2808,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// DeleteInstruments: Soft or hard delete multiple instruments Deletes a number of instruments identified by LusidInstrumentId.                Soft deletion marks the instrument as inactive so it can no longer be referenced when creating or updating transactions or holdings. You can still query existing transactions and holdings related to the inactive instrument.                In addition to the above behaviour, hard deletion: (i) completely removes all external identifiers from the instrument; (ii) marks the instrument as &#39;Deleted&#39;; (iii) prepends the instrument&#39;s name with &#39;DELETED &#39;; (iv) prevents the instrument from being returned in list instruments queries.                Following hard deletion, an instrument may only be retrieved by making a direct get instrument request for the LusidInstrumentId. Instrument deletion cannot be undone. Please note that currency instruments cannot currently be deleted.  The maximum number of instruments that this method can delete per request is 2,000.
+        /// DeleteInstruments: Soft or hard delete multiple instruments Deletes a number of instruments identified by LusidInstrumentId.              Soft deletion marks the instrument as inactive so it can no longer be referenced when creating or updating transactions or holdings. You can still query existing transactions and holdings related to the inactive instrument.              In addition to the above behaviour, hard deletion: (i) completely removes all external identifiers from the instrument; (ii) marks the instrument as &#39;Deleted&#39;; (iii) prepends the instrument&#39;s name with &#39;DELETED &#39;; (iv) prevents the instrument from being returned in list instruments queries.              Following hard deletion, an instrument may only be retrieved by making a direct get instrument request for the LusidInstrumentId. Instrument deletion cannot be undone. Please note that currency instruments cannot currently be deleted.  The maximum number of instruments that this method can delete per request is 2,000.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The list of lusidInstrumentId&#39;s to delete.</param>
@@ -2825,7 +2825,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// DeleteInstruments: Soft or hard delete multiple instruments Deletes a number of instruments identified by LusidInstrumentId.                Soft deletion marks the instrument as inactive so it can no longer be referenced when creating or updating transactions or holdings. You can still query existing transactions and holdings related to the inactive instrument.                In addition to the above behaviour, hard deletion: (i) completely removes all external identifiers from the instrument; (ii) marks the instrument as &#39;Deleted&#39;; (iii) prepends the instrument&#39;s name with &#39;DELETED &#39;; (iv) prevents the instrument from being returned in list instruments queries.                Following hard deletion, an instrument may only be retrieved by making a direct get instrument request for the LusidInstrumentId. Instrument deletion cannot be undone. Please note that currency instruments cannot currently be deleted.  The maximum number of instruments that this method can delete per request is 2,000.
+        /// DeleteInstruments: Soft or hard delete multiple instruments Deletes a number of instruments identified by LusidInstrumentId.              Soft deletion marks the instrument as inactive so it can no longer be referenced when creating or updating transactions or holdings. You can still query existing transactions and holdings related to the inactive instrument.              In addition to the above behaviour, hard deletion: (i) completely removes all external identifiers from the instrument; (ii) marks the instrument as &#39;Deleted&#39;; (iii) prepends the instrument&#39;s name with &#39;DELETED &#39;; (iv) prevents the instrument from being returned in list instruments queries.              Following hard deletion, an instrument may only be retrieved by making a direct get instrument request for the LusidInstrumentId. Instrument deletion cannot be undone. Please note that currency instruments cannot currently be deleted.  The maximum number of instruments that this method can delete per request is 2,000.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The list of lusidInstrumentId&#39;s to delete.</param>
@@ -3132,13 +3132,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// GetExistingInstrumentCapabilities: Retrieve capabilities of an existing instrument identified by LUID. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.  Given an lusid instrument id provides instrument capabilities, outlining features, and, given the model, the capabilities also include supported addresses as well as economic dependencies. Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
+        /// GetExistingInstrumentCapabilities: Retrieve capabilities of an existing instrument identified by LUID. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies. Given an lusid instrument id provides instrument capabilities, outlining features, and, given the model, the capabilities also include supported addresses as well as economic dependencies. Returns instrument capabilities containing useful information about the instrument and the model. This includes - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifier">A lusid instrument id identifying the instrument.</param>
         /// <param name="model">A pricing model for the instrument. Defaults to Unknown if not specified. If not specified the SupportedAddresses and EconomicDependencies are not provided. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to             returning the latest version if not specified. (optional)</param>
         /// <param name="instrumentScope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="recipeScope">The scope in which the recipe lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="recipeCode">A unique identifier for an entity, used to obtain configuration recipe details. Default configuration recipe is used if not provided. (optional)</param>
@@ -3152,13 +3152,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// GetExistingInstrumentCapabilities: Retrieve capabilities of an existing instrument identified by LUID. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.  Given an lusid instrument id provides instrument capabilities, outlining features, and, given the model, the capabilities also include supported addresses as well as economic dependencies. Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
+        /// GetExistingInstrumentCapabilities: Retrieve capabilities of an existing instrument identified by LUID. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies. Given an lusid instrument id provides instrument capabilities, outlining features, and, given the model, the capabilities also include supported addresses as well as economic dependencies. Returns instrument capabilities containing useful information about the instrument and the model. This includes - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifier">A lusid instrument id identifying the instrument.</param>
         /// <param name="model">A pricing model for the instrument. Defaults to Unknown if not specified. If not specified the SupportedAddresses and EconomicDependencies are not provided. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to             returning the latest version if not specified. (optional)</param>
         /// <param name="instrumentScope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="recipeScope">The scope in which the recipe lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="recipeCode">A unique identifier for an entity, used to obtain configuration recipe details. Default configuration recipe is used if not provided. (optional)</param>
@@ -3268,13 +3268,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// GetExistingInstrumentCapabilities: Retrieve capabilities of an existing instrument identified by LUID. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.  Given an lusid instrument id provides instrument capabilities, outlining features, and, given the model, the capabilities also include supported addresses as well as economic dependencies. Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
+        /// GetExistingInstrumentCapabilities: Retrieve capabilities of an existing instrument identified by LUID. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies. Given an lusid instrument id provides instrument capabilities, outlining features, and, given the model, the capabilities also include supported addresses as well as economic dependencies. Returns instrument capabilities containing useful information about the instrument and the model. This includes - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifier">A lusid instrument id identifying the instrument.</param>
         /// <param name="model">A pricing model for the instrument. Defaults to Unknown if not specified. If not specified the SupportedAddresses and EconomicDependencies are not provided. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to             returning the latest version if not specified. (optional)</param>
         /// <param name="instrumentScope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="recipeScope">The scope in which the recipe lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="recipeCode">A unique identifier for an entity, used to obtain configuration recipe details. Default configuration recipe is used if not provided. (optional)</param>
@@ -3289,13 +3289,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// GetExistingInstrumentCapabilities: Retrieve capabilities of an existing instrument identified by LUID. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.  Given an lusid instrument id provides instrument capabilities, outlining features, and, given the model, the capabilities also include supported addresses as well as economic dependencies. Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
+        /// GetExistingInstrumentCapabilities: Retrieve capabilities of an existing instrument identified by LUID. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies. Given an lusid instrument id provides instrument capabilities, outlining features, and, given the model, the capabilities also include supported addresses as well as economic dependencies. Returns instrument capabilities containing useful information about the instrument and the model. This includes - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifier">A lusid instrument id identifying the instrument.</param>
         /// <param name="model">A pricing model for the instrument. Defaults to Unknown if not specified. If not specified the SupportedAddresses and EconomicDependencies are not provided. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to             returning the latest version if not specified. (optional)</param>
         /// <param name="instrumentScope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="recipeScope">The scope in which the recipe lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="recipeCode">A unique identifier for an entity, used to obtain configuration recipe details. Default configuration recipe is used if not provided. (optional)</param>
@@ -3412,8 +3412,8 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifier">A lusid instrument id identifying the instrument.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to             returning the latest version if not specified. (optional)</param>
         /// <param name="instrumentScope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="recipeScope">The scope in which the recipe lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="recipeCode">A unique identifier for an entity, used to obtain configuration recipe details. Default configuration recipe is used if not provided. (optional)</param>
@@ -3431,8 +3431,8 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifier">A lusid instrument id identifying the instrument.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to             returning the latest version if not specified. (optional)</param>
         /// <param name="instrumentScope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="recipeScope">The scope in which the recipe lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="recipeCode">A unique identifier for an entity, used to obtain configuration recipe details. Default configuration recipe is used if not provided. (optional)</param>
@@ -3542,8 +3542,8 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifier">A lusid instrument id identifying the instrument.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to             returning the latest version if not specified. (optional)</param>
         /// <param name="instrumentScope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="recipeScope">The scope in which the recipe lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="recipeCode">A unique identifier for an entity, used to obtain configuration recipe details. Default configuration recipe is used if not provided. (optional)</param>
@@ -3562,8 +3562,8 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifier">A lusid instrument id identifying the instrument.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to             returning the latest version if not specified. (optional)</param>
         /// <param name="instrumentScope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="recipeScope">The scope in which the recipe lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="recipeCode">A unique identifier for an entity, used to obtain configuration recipe details. Default configuration recipe is used if not provided. (optional)</param>
@@ -3677,11 +3677,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to use, for example &#39;Figi&#39;.</param>
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto              the instrument, or from any domain that supports relationships to decorate onto related entities.              These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to             returning the latest version if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto             the instrument, or from any domain that supports relationships to decorate onto related entities.             These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Instrument</returns>
@@ -3697,11 +3697,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to use, for example &#39;Figi&#39;.</param>
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto              the instrument, or from any domain that supports relationships to decorate onto related entities.              These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to             returning the latest version if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto             the instrument, or from any domain that supports relationships to decorate onto related entities.             These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Instrument</returns>
@@ -3816,11 +3816,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to use, for example &#39;Figi&#39;.</param>
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto              the instrument, or from any domain that supports relationships to decorate onto related entities.              These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to             returning the latest version if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto             the instrument, or from any domain that supports relationships to decorate onto related entities.             These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -3837,11 +3837,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to use, for example &#39;Figi&#39;.</param>
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto              the instrument, or from any domain that supports relationships to decorate onto related entities.              These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to             returning the latest version if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto             the instrument, or from any domain that supports relationships to decorate onto related entities.             These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -3954,7 +3954,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// GetInstrumentIdentifierTypes: Get instrument identifier types Retrieve a list of all valid instrument identifier types and whether they are unique or not.                An instrument must have a value for at least one unique identifier type (it can have more than one unique type and value).  In addition, a value is automatically generated for a LUSID Instrument ID (LUID) unique type by the system.                An instrument can have values for multiple non-unique identifier types (or it can have zero non-unique types and values).
+        /// GetInstrumentIdentifierTypes: Get instrument identifier types Retrieve a list of all valid instrument identifier types and whether they are unique or not.              An instrument must have a value for at least one unique identifier type (it can have more than one unique type and value). In addition, a value is automatically generated for a LUSID Instrument ID (LUID) unique type by the system.              An instrument can have values for multiple non-unique identifier types (or it can have zero non-unique types and values).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -3967,7 +3967,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// GetInstrumentIdentifierTypes: Get instrument identifier types Retrieve a list of all valid instrument identifier types and whether they are unique or not.                An instrument must have a value for at least one unique identifier type (it can have more than one unique type and value).  In addition, a value is automatically generated for a LUSID Instrument ID (LUID) unique type by the system.                An instrument can have values for multiple non-unique identifier types (or it can have zero non-unique types and values).
+        /// GetInstrumentIdentifierTypes: Get instrument identifier types Retrieve a list of all valid instrument identifier types and whether they are unique or not.              An instrument must have a value for at least one unique identifier type (it can have more than one unique type and value). In addition, a value is automatically generated for a LUSID Instrument ID (LUID) unique type by the system.              An instrument can have values for multiple non-unique identifier types (or it can have zero non-unique types and values).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -4045,7 +4045,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// GetInstrumentIdentifierTypes: Get instrument identifier types Retrieve a list of all valid instrument identifier types and whether they are unique or not.                An instrument must have a value for at least one unique identifier type (it can have more than one unique type and value).  In addition, a value is automatically generated for a LUSID Instrument ID (LUID) unique type by the system.                An instrument can have values for multiple non-unique identifier types (or it can have zero non-unique types and values).
+        /// GetInstrumentIdentifierTypes: Get instrument identifier types Retrieve a list of all valid instrument identifier types and whether they are unique or not.              An instrument must have a value for at least one unique identifier type (it can have more than one unique type and value). In addition, a value is automatically generated for a LUSID Instrument ID (LUID) unique type by the system.              An instrument can have values for multiple non-unique identifier types (or it can have zero non-unique types and values).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -4059,7 +4059,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// GetInstrumentIdentifierTypes: Get instrument identifier types Retrieve a list of all valid instrument identifier types and whether they are unique or not.                An instrument must have a value for at least one unique identifier type (it can have more than one unique type and value).  In addition, a value is automatically generated for a LUSID Instrument ID (LUID) unique type by the system.                An instrument can have values for multiple non-unique identifier types (or it can have zero non-unique types and values).
+        /// GetInstrumentIdentifierTypes: Get instrument identifier types Retrieve a list of all valid instrument identifier types and whether they are unique or not.              An instrument must have a value for at least one unique identifier type (it can have more than one unique type and value). In addition, a value is automatically generated for a LUSID Instrument ID (LUID) unique type by the system.              An instrument can have values for multiple non-unique identifier types (or it can have zero non-unique types and values).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -4439,8 +4439,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the instrument&#39;s properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the instrument&#39;s properties. Defaults to returning              the latest version of each property if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the instrument&#39;s properties.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the instrument&#39;s properties. Defaults to returning             the latest version of each property if not specified. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -4457,8 +4457,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the instrument&#39;s properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the instrument&#39;s properties. Defaults to returning              the latest version of each property if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the instrument&#39;s properties.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the instrument&#39;s properties. Defaults to returning             the latest version of each property if not specified. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -4566,8 +4566,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the instrument&#39;s properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the instrument&#39;s properties. Defaults to returning              the latest version of each property if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the instrument&#39;s properties.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the instrument&#39;s properties. Defaults to returning             the latest version of each property if not specified. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -4585,8 +4585,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the instrument&#39;s properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the instrument&#39;s properties. Defaults to returning              the latest version of each property if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the instrument&#39;s properties.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the instrument&#39;s properties. Defaults to returning             the latest version of each property if not specified. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -4697,11 +4697,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
-        /// <param name="propertyKey">The property key of a property from the &#39;Instrument&#39; domain whose history to retrieve.              This must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;.</param>
-        /// <param name="identifierEffectiveAt">The effective datetime used to resolve the instrument from the identifier.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the instrument&#39;s property history. Defaults to              returning the current datetime if not supplied. (optional)</param>
-        /// <param name="filter">Expression to filter the results. For more information about filtering,              see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing properties; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;filter&lt;/i&gt;, &lt;i&gt;effectiveAt&lt;/i&gt; and              &lt;i&gt;asAt&lt;/i&gt; fields must not have changed since the original request. For more information, see              https://support.lusid.com/knowledgebase/article/KA-01915. (optional)</param>
+        /// <param name="propertyKey">The property key of a property from the &#39;Instrument&#39; domain whose history to retrieve.             This must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;.</param>
+        /// <param name="identifierEffectiveAt">The effective datetime used to resolve the instrument from the identifier.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument&#39;s property history. Defaults to             returning the current datetime if not supplied. (optional)</param>
+        /// <param name="filter">Expression to filter the results. For more information about filtering,             see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing properties; this value is returned from             the previous call. If a pagination token is provided, the &lt;i&gt;filter&lt;/i&gt;, &lt;i&gt;effectiveAt&lt;/i&gt; and             &lt;i&gt;asAt&lt;/i&gt; fields must not have changed since the original request. For more information, see             https://support.lusid.com/knowledgebase/article/KA-01915. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -4719,11 +4719,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
-        /// <param name="propertyKey">The property key of a property from the &#39;Instrument&#39; domain whose history to retrieve.              This must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;.</param>
-        /// <param name="identifierEffectiveAt">The effective datetime used to resolve the instrument from the identifier.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the instrument&#39;s property history. Defaults to              returning the current datetime if not supplied. (optional)</param>
-        /// <param name="filter">Expression to filter the results. For more information about filtering,              see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing properties; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;filter&lt;/i&gt;, &lt;i&gt;effectiveAt&lt;/i&gt; and              &lt;i&gt;asAt&lt;/i&gt; fields must not have changed since the original request. For more information, see              https://support.lusid.com/knowledgebase/article/KA-01915. (optional)</param>
+        /// <param name="propertyKey">The property key of a property from the &#39;Instrument&#39; domain whose history to retrieve.             This must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;.</param>
+        /// <param name="identifierEffectiveAt">The effective datetime used to resolve the instrument from the identifier.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument&#39;s property history. Defaults to             returning the current datetime if not supplied. (optional)</param>
+        /// <param name="filter">Expression to filter the results. For more information about filtering,             see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing properties; this value is returned from             the previous call. If a pagination token is provided, the &lt;i&gt;filter&lt;/i&gt;, &lt;i&gt;effectiveAt&lt;/i&gt; and             &lt;i&gt;asAt&lt;/i&gt; fields must not have changed since the original request. For more information, see             https://support.lusid.com/knowledgebase/article/KA-01915. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -4851,11 +4851,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
-        /// <param name="propertyKey">The property key of a property from the &#39;Instrument&#39; domain whose history to retrieve.              This must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;.</param>
-        /// <param name="identifierEffectiveAt">The effective datetime used to resolve the instrument from the identifier.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the instrument&#39;s property history. Defaults to              returning the current datetime if not supplied. (optional)</param>
-        /// <param name="filter">Expression to filter the results. For more information about filtering,              see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing properties; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;filter&lt;/i&gt;, &lt;i&gt;effectiveAt&lt;/i&gt; and              &lt;i&gt;asAt&lt;/i&gt; fields must not have changed since the original request. For more information, see              https://support.lusid.com/knowledgebase/article/KA-01915. (optional)</param>
+        /// <param name="propertyKey">The property key of a property from the &#39;Instrument&#39; domain whose history to retrieve.             This must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;.</param>
+        /// <param name="identifierEffectiveAt">The effective datetime used to resolve the instrument from the identifier.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument&#39;s property history. Defaults to             returning the current datetime if not supplied. (optional)</param>
+        /// <param name="filter">Expression to filter the results. For more information about filtering,             see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing properties; this value is returned from             the previous call. If a pagination token is provided, the &lt;i&gt;filter&lt;/i&gt;, &lt;i&gt;effectiveAt&lt;/i&gt; and             &lt;i&gt;asAt&lt;/i&gt; fields must not have changed since the original request. For more information, see             https://support.lusid.com/knowledgebase/article/KA-01915. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -4874,11 +4874,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
-        /// <param name="propertyKey">The property key of a property from the &#39;Instrument&#39; domain whose history to retrieve.              This must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;.</param>
-        /// <param name="identifierEffectiveAt">The effective datetime used to resolve the instrument from the identifier.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the instrument&#39;s property history. Defaults to              returning the current datetime if not supplied. (optional)</param>
-        /// <param name="filter">Expression to filter the results. For more information about filtering,              see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing properties; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;filter&lt;/i&gt;, &lt;i&gt;effectiveAt&lt;/i&gt; and              &lt;i&gt;asAt&lt;/i&gt; fields must not have changed since the original request. For more information, see              https://support.lusid.com/knowledgebase/article/KA-01915. (optional)</param>
+        /// <param name="propertyKey">The property key of a property from the &#39;Instrument&#39; domain whose history to retrieve.             This must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;.</param>
+        /// <param name="identifierEffectiveAt">The effective datetime used to resolve the instrument from the identifier.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument&#39;s property history. Defaults to             returning the current datetime if not supplied. (optional)</param>
+        /// <param name="filter">Expression to filter the results. For more information about filtering,             see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing properties; this value is returned from             the previous call. If a pagination token is provided, the &lt;i&gt;filter&lt;/i&gt;, &lt;i&gt;effectiveAt&lt;/i&gt; and             &lt;i&gt;asAt&lt;/i&gt; fields must not have changed since the original request. For more information, see             https://support.lusid.com/knowledgebase/article/KA-01915. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -5012,7 +5012,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to get relationships. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve relationships. Defaults to return the latest LUSID AsAt time if not specified. (optional)</param>
         /// <param name="filter">Expression to filter relationships. Users should provide null or empty string for this field until further notice. (optional)</param>
-        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.              These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example              &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. (optional)</param>
+        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.             These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example             &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. (optional)</param>
         /// <param name="scope">The entity scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -5032,7 +5032,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to get relationships. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve relationships. Defaults to return the latest LUSID AsAt time if not specified. (optional)</param>
         /// <param name="filter">Expression to filter relationships. Users should provide null or empty string for this field until further notice. (optional)</param>
-        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.              These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example              &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. (optional)</param>
+        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.             These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example             &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. (optional)</param>
         /// <param name="scope">The entity scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -5151,7 +5151,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to get relationships. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve relationships. Defaults to return the latest LUSID AsAt time if not specified. (optional)</param>
         /// <param name="filter">Expression to filter relationships. Users should provide null or empty string for this field until further notice. (optional)</param>
-        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.              These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example              &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. (optional)</param>
+        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.             These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example             &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. (optional)</param>
         /// <param name="scope">The entity scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -5172,7 +5172,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to get relationships. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve relationships. Defaults to return the latest LUSID AsAt time if not specified. (optional)</param>
         /// <param name="filter">Expression to filter relationships. Users should provide null or empty string for this field until further notice. (optional)</param>
-        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.              These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example              &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. (optional)</param>
+        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.             These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example             &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. (optional)</param>
         /// <param name="scope">The entity scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -5286,16 +5286,16 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// GetInstruments: Get instruments Retrieve the definition of one or more instruments, as identified by a collection of unique identifiers.                Note that to retrieve all the instruments in the instrument master, use the List instruments endpoint instead.
+        /// GetInstruments: Get instruments Retrieve the definition of one or more instruments, as identified by a collection of unique identifiers.              Note that to retrieve all the instruments in the instrument master, use the List instruments endpoint instead.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to use, for example &#39;Figi&#39;.</param>
         /// <param name="requestBody">A list of one or more &lt;i&gt;identifierType&lt;/i&gt; values to use to identify instruments.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument definitions.               Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the instrument definitions.               Defaults to returning the latest version of each instrument definition if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto               each instrument, or from any domain that supports relationships to decorate onto related entities.               These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument definitions.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument definitions.              Defaults to returning the latest version of each instrument definition if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto              each instrument, or from any domain that supports relationships to decorate onto related entities.              These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>GetInstrumentsResponse</returns>
@@ -5306,16 +5306,16 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// GetInstruments: Get instruments Retrieve the definition of one or more instruments, as identified by a collection of unique identifiers.                Note that to retrieve all the instruments in the instrument master, use the List instruments endpoint instead.
+        /// GetInstruments: Get instruments Retrieve the definition of one or more instruments, as identified by a collection of unique identifiers.              Note that to retrieve all the instruments in the instrument master, use the List instruments endpoint instead.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to use, for example &#39;Figi&#39;.</param>
         /// <param name="requestBody">A list of one or more &lt;i&gt;identifierType&lt;/i&gt; values to use to identify instruments.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument definitions.               Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the instrument definitions.               Defaults to returning the latest version of each instrument definition if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto               each instrument, or from any domain that supports relationships to decorate onto related entities.               These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument definitions.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument definitions.              Defaults to returning the latest version of each instrument definition if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto              each instrument, or from any domain that supports relationships to decorate onto related entities.              These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GetInstrumentsResponse</returns>
@@ -5429,16 +5429,16 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// GetInstruments: Get instruments Retrieve the definition of one or more instruments, as identified by a collection of unique identifiers.                Note that to retrieve all the instruments in the instrument master, use the List instruments endpoint instead.
+        /// GetInstruments: Get instruments Retrieve the definition of one or more instruments, as identified by a collection of unique identifiers.              Note that to retrieve all the instruments in the instrument master, use the List instruments endpoint instead.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to use, for example &#39;Figi&#39;.</param>
         /// <param name="requestBody">A list of one or more &lt;i&gt;identifierType&lt;/i&gt; values to use to identify instruments.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument definitions.               Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the instrument definitions.               Defaults to returning the latest version of each instrument definition if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto               each instrument, or from any domain that supports relationships to decorate onto related entities.               These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument definitions.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument definitions.              Defaults to returning the latest version of each instrument definition if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto              each instrument, or from any domain that supports relationships to decorate onto related entities.              These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -5450,16 +5450,16 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// GetInstruments: Get instruments Retrieve the definition of one or more instruments, as identified by a collection of unique identifiers.                Note that to retrieve all the instruments in the instrument master, use the List instruments endpoint instead.
+        /// GetInstruments: Get instruments Retrieve the definition of one or more instruments, as identified by a collection of unique identifiers.              Note that to retrieve all the instruments in the instrument master, use the List instruments endpoint instead.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to use, for example &#39;Figi&#39;.</param>
         /// <param name="requestBody">A list of one or more &lt;i&gt;identifierType&lt;/i&gt; values to use to identify instruments.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument definitions.               Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the instrument definitions.               Defaults to returning the latest version of each instrument definition if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto               each instrument, or from any domain that supports relationships to decorate onto related entities.               These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument definitions.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument definitions.              Defaults to returning the latest version of each instrument definition if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto              each instrument, or from any domain that supports relationships to decorate onto related entities.              These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -5581,8 +5581,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the instrument&#39;s properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the instrument&#39;s properties. Defaults to returning              the latest version of each property if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the instrument&#39;s properties.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the instrument&#39;s properties. Defaults to returning             the latest version of each property if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing commands; this value is returned from the previous call. (optional)</param>
         /// <param name="limit">When paginating, limit the results per page to this number. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
@@ -5601,8 +5601,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the instrument&#39;s properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the instrument&#39;s properties. Defaults to returning              the latest version of each property if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the instrument&#39;s properties.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the instrument&#39;s properties. Defaults to returning             the latest version of each property if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing commands; this value is returned from the previous call. (optional)</param>
         /// <param name="limit">When paginating, limit the results per page to this number. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
@@ -5720,8 +5720,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the instrument&#39;s properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the instrument&#39;s properties. Defaults to returning              the latest version of each property if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the instrument&#39;s properties.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the instrument&#39;s properties. Defaults to returning             the latest version of each property if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing commands; this value is returned from the previous call. (optional)</param>
         /// <param name="limit">When paginating, limit the results per page to this number. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
@@ -5741,8 +5741,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the instrument&#39;s properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the instrument&#39;s properties. Defaults to returning              the latest version of each property if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the instrument&#39;s properties.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the instrument&#39;s properties. Defaults to returning             the latest version of each property if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing commands; this value is returned from the previous call. (optional)</param>
         /// <param name="limit">When paginating, limit the results per page to this number. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
@@ -5858,18 +5858,18 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// ListInstruments: List instruments List all the instruments in the instrument master.                To retrieve a particular set of instruments instead, use the Get instruments endpoint.  The maximum number of instruments that this method can list per request is 2,000.
+        /// ListInstruments: List instruments List all the instruments in the instrument master.              To retrieve a particular set of instruments instead, use the Get instruments endpoint.  The maximum number of instruments that this method can list per request is 2,000.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to list instruments. Defaults to returning the latest               version of each instrument if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list instruments.               Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing instruments; this value is returned from               the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt;, &lt;i&gt;filter&lt;/i&gt;, &lt;i&gt;effectiveAt&lt;/i&gt; and               &lt;i&gt;asAt&lt;/i&gt; fields must not have changed since the original request.               For more information, see https://support.lusid.com/knowledgebase/article/KA-01915. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list instruments. Defaults to returning the latest              version of each instrument if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list instruments.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing instruments; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt;, &lt;i&gt;filter&lt;/i&gt;, &lt;i&gt;effectiveAt&lt;/i&gt; and              &lt;i&gt;asAt&lt;/i&gt; fields must not have changed since the original request.              For more information, see https://support.lusid.com/knowledgebase/article/KA-01915. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Defaults to filtering out inactive instruments               (that is, those that have been deleted). For more information about filtering results,               see https://support.lusid.com/knowledgebase/article/KA-01914. (optional, default to &quot;State eq &#39;Active&#39;&quot;)</param>
-        /// <param name="instrumentPropertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto               instruments, or from any domain that supports relationships to decorate onto related entities.               These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Defaults to filtering out inactive instruments              (that is, those that have been deleted). For more information about filtering results,              see https://support.lusid.com/knowledgebase/article/KA-01914. (optional, default to &quot;State eq &#39;Active&#39;&quot;)</param>
+        /// <param name="instrumentPropertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto              instruments, or from any domain that supports relationships to decorate onto related entities.              These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use. (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use. (optional)</param>
         /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
@@ -5883,18 +5883,18 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// ListInstruments: List instruments List all the instruments in the instrument master.                To retrieve a particular set of instruments instead, use the Get instruments endpoint.  The maximum number of instruments that this method can list per request is 2,000.
+        /// ListInstruments: List instruments List all the instruments in the instrument master.              To retrieve a particular set of instruments instead, use the Get instruments endpoint.  The maximum number of instruments that this method can list per request is 2,000.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to list instruments. Defaults to returning the latest               version of each instrument if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list instruments.               Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing instruments; this value is returned from               the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt;, &lt;i&gt;filter&lt;/i&gt;, &lt;i&gt;effectiveAt&lt;/i&gt; and               &lt;i&gt;asAt&lt;/i&gt; fields must not have changed since the original request.               For more information, see https://support.lusid.com/knowledgebase/article/KA-01915. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list instruments. Defaults to returning the latest              version of each instrument if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list instruments.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing instruments; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt;, &lt;i&gt;filter&lt;/i&gt;, &lt;i&gt;effectiveAt&lt;/i&gt; and              &lt;i&gt;asAt&lt;/i&gt; fields must not have changed since the original request.              For more information, see https://support.lusid.com/knowledgebase/article/KA-01915. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Defaults to filtering out inactive instruments               (that is, those that have been deleted). For more information about filtering results,               see https://support.lusid.com/knowledgebase/article/KA-01914. (optional, default to &quot;State eq &#39;Active&#39;&quot;)</param>
-        /// <param name="instrumentPropertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto               instruments, or from any domain that supports relationships to decorate onto related entities.               These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Defaults to filtering out inactive instruments              (that is, those that have been deleted). For more information about filtering results,              see https://support.lusid.com/knowledgebase/article/KA-01914. (optional, default to &quot;State eq &#39;Active&#39;&quot;)</param>
+        /// <param name="instrumentPropertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto              instruments, or from any domain that supports relationships to decorate onto related entities.              These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use. (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use. (optional)</param>
         /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
@@ -6021,18 +6021,18 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// ListInstruments: List instruments List all the instruments in the instrument master.                To retrieve a particular set of instruments instead, use the Get instruments endpoint.  The maximum number of instruments that this method can list per request is 2,000.
+        /// ListInstruments: List instruments List all the instruments in the instrument master.              To retrieve a particular set of instruments instead, use the Get instruments endpoint.  The maximum number of instruments that this method can list per request is 2,000.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to list instruments. Defaults to returning the latest               version of each instrument if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list instruments.               Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing instruments; this value is returned from               the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt;, &lt;i&gt;filter&lt;/i&gt;, &lt;i&gt;effectiveAt&lt;/i&gt; and               &lt;i&gt;asAt&lt;/i&gt; fields must not have changed since the original request.               For more information, see https://support.lusid.com/knowledgebase/article/KA-01915. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list instruments. Defaults to returning the latest              version of each instrument if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list instruments.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing instruments; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt;, &lt;i&gt;filter&lt;/i&gt;, &lt;i&gt;effectiveAt&lt;/i&gt; and              &lt;i&gt;asAt&lt;/i&gt; fields must not have changed since the original request.              For more information, see https://support.lusid.com/knowledgebase/article/KA-01915. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Defaults to filtering out inactive instruments               (that is, those that have been deleted). For more information about filtering results,               see https://support.lusid.com/knowledgebase/article/KA-01914. (optional, default to &quot;State eq &#39;Active&#39;&quot;)</param>
-        /// <param name="instrumentPropertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto               instruments, or from any domain that supports relationships to decorate onto related entities.               These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Defaults to filtering out inactive instruments              (that is, those that have been deleted). For more information about filtering results,              see https://support.lusid.com/knowledgebase/article/KA-01914. (optional, default to &quot;State eq &#39;Active&#39;&quot;)</param>
+        /// <param name="instrumentPropertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto              instruments, or from any domain that supports relationships to decorate onto related entities.              These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use. (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use. (optional)</param>
         /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
@@ -6047,18 +6047,18 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// ListInstruments: List instruments List all the instruments in the instrument master.                To retrieve a particular set of instruments instead, use the Get instruments endpoint.  The maximum number of instruments that this method can list per request is 2,000.
+        /// ListInstruments: List instruments List all the instruments in the instrument master.              To retrieve a particular set of instruments instead, use the Get instruments endpoint.  The maximum number of instruments that this method can list per request is 2,000.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to list instruments. Defaults to returning the latest               version of each instrument if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list instruments.               Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing instruments; this value is returned from               the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt;, &lt;i&gt;filter&lt;/i&gt;, &lt;i&gt;effectiveAt&lt;/i&gt; and               &lt;i&gt;asAt&lt;/i&gt; fields must not have changed since the original request.               For more information, see https://support.lusid.com/knowledgebase/article/KA-01915. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list instruments. Defaults to returning the latest              version of each instrument if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list instruments.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing instruments; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt;, &lt;i&gt;filter&lt;/i&gt;, &lt;i&gt;effectiveAt&lt;/i&gt; and              &lt;i&gt;asAt&lt;/i&gt; fields must not have changed since the original request.              For more information, see https://support.lusid.com/knowledgebase/article/KA-01915. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Defaults to filtering out inactive instruments               (that is, those that have been deleted). For more information about filtering results,               see https://support.lusid.com/knowledgebase/article/KA-01914. (optional, default to &quot;State eq &#39;Active&#39;&quot;)</param>
-        /// <param name="instrumentPropertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto               instruments, or from any domain that supports relationships to decorate onto related entities.               These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Defaults to filtering out inactive instruments              (that is, those that have been deleted). For more information about filtering results,              see https://support.lusid.com/knowledgebase/article/KA-01914. (optional, default to &quot;State eq &#39;Active&#39;&quot;)</param>
+        /// <param name="instrumentPropertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto              instruments, or from any domain that supports relationships to decorate onto related entities.              These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use. (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use. (optional)</param>
         /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
@@ -6188,7 +6188,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// QueryInstrumentCapabilities: Query capabilities of a particular instrument in advance of creating it. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies. Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
+        /// QueryInstrumentCapabilities: Query capabilities of a particular instrument in advance of creating it. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies. Returns instrument capabilities containing useful information about the instrument and the model. This includes - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="lusidInstrument">The definition of the instrument.</param>
@@ -6203,7 +6203,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// QueryInstrumentCapabilities: Query capabilities of a particular instrument in advance of creating it. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies. Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
+        /// QueryInstrumentCapabilities: Query capabilities of a particular instrument in advance of creating it. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies. Returns instrument capabilities containing useful information about the instrument and the model. This includes - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="lusidInstrument">The definition of the instrument.</param>
@@ -6298,7 +6298,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// QueryInstrumentCapabilities: Query capabilities of a particular instrument in advance of creating it. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies. Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
+        /// QueryInstrumentCapabilities: Query capabilities of a particular instrument in advance of creating it. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies. Returns instrument capabilities containing useful information about the instrument and the model. This includes - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="lusidInstrument">The definition of the instrument.</param>
@@ -6314,7 +6314,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// QueryInstrumentCapabilities: Query capabilities of a particular instrument in advance of creating it. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies. Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
+        /// QueryInstrumentCapabilities: Query capabilities of a particular instrument in advance of creating it. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies. Returns instrument capabilities containing useful information about the instrument and the model. This includes - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="lusidInstrument">The definition of the instrument.</param>
@@ -6412,12 +6412,12 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// UpdateInstrumentIdentifier: Update instrument identifier Create, update or delete a particular instrument identifier for an instrument.                To delete the identifier, leave the value unspecified in the request. If not being deleted, the  identifier is updated if it exists and created if it does not.
+        /// UpdateInstrumentIdentifier: Update instrument identifier Create, update or delete a particular instrument identifier for an instrument.              To delete the identifier, leave the value unspecified in the request. If not being deleted, the identifier is updated if it exists and created if it does not.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
-        /// <param name="updateInstrumentIdentifierRequest">The identifier to update or delete. This need not be the same value as the               &#39;identifier&#39; parameter used to retrieve the instrument.</param>
+        /// <param name="updateInstrumentIdentifierRequest">The identifier to update or delete. This need not be the same value as the              &#39;identifier&#39; parameter used to retrieve the instrument.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
@@ -6431,12 +6431,12 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// UpdateInstrumentIdentifier: Update instrument identifier Create, update or delete a particular instrument identifier for an instrument.                To delete the identifier, leave the value unspecified in the request. If not being deleted, the  identifier is updated if it exists and created if it does not.
+        /// UpdateInstrumentIdentifier: Update instrument identifier Create, update or delete a particular instrument identifier for an instrument.              To delete the identifier, leave the value unspecified in the request. If not being deleted, the identifier is updated if it exists and created if it does not.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
-        /// <param name="updateInstrumentIdentifierRequest">The identifier to update or delete. This need not be the same value as the               &#39;identifier&#39; parameter used to retrieve the instrument.</param>
+        /// <param name="updateInstrumentIdentifierRequest">The identifier to update or delete. This need not be the same value as the              &#39;identifier&#39; parameter used to retrieve the instrument.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
@@ -6552,12 +6552,12 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// UpdateInstrumentIdentifier: Update instrument identifier Create, update or delete a particular instrument identifier for an instrument.                To delete the identifier, leave the value unspecified in the request. If not being deleted, the  identifier is updated if it exists and created if it does not.
+        /// UpdateInstrumentIdentifier: Update instrument identifier Create, update or delete a particular instrument identifier for an instrument.              To delete the identifier, leave the value unspecified in the request. If not being deleted, the identifier is updated if it exists and created if it does not.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
-        /// <param name="updateInstrumentIdentifierRequest">The identifier to update or delete. This need not be the same value as the               &#39;identifier&#39; parameter used to retrieve the instrument.</param>
+        /// <param name="updateInstrumentIdentifierRequest">The identifier to update or delete. This need not be the same value as the              &#39;identifier&#39; parameter used to retrieve the instrument.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
@@ -6572,12 +6572,12 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// UpdateInstrumentIdentifier: Update instrument identifier Create, update or delete a particular instrument identifier for an instrument.                To delete the identifier, leave the value unspecified in the request. If not being deleted, the  identifier is updated if it exists and created if it does not.
+        /// UpdateInstrumentIdentifier: Update instrument identifier Create, update or delete a particular instrument identifier for an instrument.              To delete the identifier, leave the value unspecified in the request. If not being deleted, the identifier is updated if it exists and created if it does not.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
-        /// <param name="updateInstrumentIdentifierRequest">The identifier to update or delete. This need not be the same value as the               &#39;identifier&#39; parameter used to retrieve the instrument.</param>
+        /// <param name="updateInstrumentIdentifierRequest">The identifier to update or delete. This need not be the same value as the              &#39;identifier&#39; parameter used to retrieve the instrument.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
@@ -6696,7 +6696,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// UpsertInstruments: Upsert instruments Create or update one or more instruments in the instrument master. An instrument is updated  if it already exists and created if it does not.                In the request, each instrument definition should be keyed by a unique correlation ID. This ID is ephemeral  and not stored by LUSID. It serves only to easily identify each instrument in the response.                Note that an instrument must have at least one unique identifier, which is a combination of a type  (such as &#39;Figi&#39;) and a value (such as &#39;BBG000BS1N49&#39;). In addition, a random value is automatically  generated for a LUSID Instrument ID (LUID) unique type by the system. For more information, see  https://support.lusid.com/knowledgebase/article/KA-01862.                The response returns both the collection of successfully created or updated instruments, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.  The maximum number of instruments that this method can upsert per request is 2,000.
+        /// UpsertInstruments: Upsert instruments Create or update one or more instruments in the instrument master. An instrument is updated if it already exists and created if it does not.              In the request, each instrument definition should be keyed by a unique correlation ID. This ID is ephemeral and not stored by LUSID. It serves only to easily identify each instrument in the response.              Note that an instrument must have at least one unique identifier, which is a combination of a type (such as &#39;Figi&#39;) and a value (such as &#39;BBG000BS1N49&#39;). In addition, a random value is automatically generated for a LUSID Instrument ID (LUID) unique type by the system. For more information, see https://support.lusid.com/knowledgebase/article/KA-01862.              The response returns both the collection of successfully created or updated instruments, as well as those that failed. For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.  The maximum number of instruments that this method can upsert per request is 2,000.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The definitions of the instruments to create or update.</param>
@@ -6713,7 +6713,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// UpsertInstruments: Upsert instruments Create or update one or more instruments in the instrument master. An instrument is updated  if it already exists and created if it does not.                In the request, each instrument definition should be keyed by a unique correlation ID. This ID is ephemeral  and not stored by LUSID. It serves only to easily identify each instrument in the response.                Note that an instrument must have at least one unique identifier, which is a combination of a type  (such as &#39;Figi&#39;) and a value (such as &#39;BBG000BS1N49&#39;). In addition, a random value is automatically  generated for a LUSID Instrument ID (LUID) unique type by the system. For more information, see  https://support.lusid.com/knowledgebase/article/KA-01862.                The response returns both the collection of successfully created or updated instruments, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.  The maximum number of instruments that this method can upsert per request is 2,000.
+        /// UpsertInstruments: Upsert instruments Create or update one or more instruments in the instrument master. An instrument is updated if it already exists and created if it does not.              In the request, each instrument definition should be keyed by a unique correlation ID. This ID is ephemeral and not stored by LUSID. It serves only to easily identify each instrument in the response.              Note that an instrument must have at least one unique identifier, which is a combination of a type (such as &#39;Figi&#39;) and a value (such as &#39;BBG000BS1N49&#39;). In addition, a random value is automatically generated for a LUSID Instrument ID (LUID) unique type by the system. For more information, see https://support.lusid.com/knowledgebase/article/KA-01862.              The response returns both the collection of successfully created or updated instruments, as well as those that failed. For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.  The maximum number of instruments that this method can upsert per request is 2,000.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The definitions of the instruments to create or update.</param>
@@ -6818,7 +6818,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// UpsertInstruments: Upsert instruments Create or update one or more instruments in the instrument master. An instrument is updated  if it already exists and created if it does not.                In the request, each instrument definition should be keyed by a unique correlation ID. This ID is ephemeral  and not stored by LUSID. It serves only to easily identify each instrument in the response.                Note that an instrument must have at least one unique identifier, which is a combination of a type  (such as &#39;Figi&#39;) and a value (such as &#39;BBG000BS1N49&#39;). In addition, a random value is automatically  generated for a LUSID Instrument ID (LUID) unique type by the system. For more information, see  https://support.lusid.com/knowledgebase/article/KA-01862.                The response returns both the collection of successfully created or updated instruments, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.  The maximum number of instruments that this method can upsert per request is 2,000.
+        /// UpsertInstruments: Upsert instruments Create or update one or more instruments in the instrument master. An instrument is updated if it already exists and created if it does not.              In the request, each instrument definition should be keyed by a unique correlation ID. This ID is ephemeral and not stored by LUSID. It serves only to easily identify each instrument in the response.              Note that an instrument must have at least one unique identifier, which is a combination of a type (such as &#39;Figi&#39;) and a value (such as &#39;BBG000BS1N49&#39;). In addition, a random value is automatically generated for a LUSID Instrument ID (LUID) unique type by the system. For more information, see https://support.lusid.com/knowledgebase/article/KA-01862.              The response returns both the collection of successfully created or updated instruments, as well as those that failed. For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.  The maximum number of instruments that this method can upsert per request is 2,000.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The definitions of the instruments to create or update.</param>
@@ -6836,7 +6836,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// UpsertInstruments: Upsert instruments Create or update one or more instruments in the instrument master. An instrument is updated  if it already exists and created if it does not.                In the request, each instrument definition should be keyed by a unique correlation ID. This ID is ephemeral  and not stored by LUSID. It serves only to easily identify each instrument in the response.                Note that an instrument must have at least one unique identifier, which is a combination of a type  (such as &#39;Figi&#39;) and a value (such as &#39;BBG000BS1N49&#39;). In addition, a random value is automatically  generated for a LUSID Instrument ID (LUID) unique type by the system. For more information, see  https://support.lusid.com/knowledgebase/article/KA-01862.                The response returns both the collection of successfully created or updated instruments, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.  The maximum number of instruments that this method can upsert per request is 2,000.
+        /// UpsertInstruments: Upsert instruments Create or update one or more instruments in the instrument master. An instrument is updated if it already exists and created if it does not.              In the request, each instrument definition should be keyed by a unique correlation ID. This ID is ephemeral and not stored by LUSID. It serves only to easily identify each instrument in the response.              Note that an instrument must have at least one unique identifier, which is a combination of a type (such as &#39;Figi&#39;) and a value (such as &#39;BBG000BS1N49&#39;). In addition, a random value is automatically generated for a LUSID Instrument ID (LUID) unique type by the system. For more information, see https://support.lusid.com/knowledgebase/article/KA-01862.              The response returns both the collection of successfully created or updated instruments, as well as those that failed. For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.  The maximum number of instruments that this method can upsert per request is 2,000.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The definitions of the instruments to create or update.</param>
@@ -6944,7 +6944,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// UpsertInstrumentsProperties: Upsert instruments properties Create or update one or more properties for particular instruments.                Each instrument property is updated if it exists and created if it does not. For any failures, a reason  is provided.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// UpsertInstrumentsProperties: Upsert instruments properties Create or update one or more properties for particular instruments.              Each instrument property is updated if it exists and created if it does not. For any failures, a reason is provided.              Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertInstrumentPropertyRequest">A list of instruments and associated instrument properties to create or update.</param>
@@ -6961,7 +6961,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// UpsertInstrumentsProperties: Upsert instruments properties Create or update one or more properties for particular instruments.                Each instrument property is updated if it exists and created if it does not. For any failures, a reason  is provided.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// UpsertInstrumentsProperties: Upsert instruments properties Create or update one or more properties for particular instruments.              Each instrument property is updated if it exists and created if it does not. For any failures, a reason is provided.              Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertInstrumentPropertyRequest">A list of instruments and associated instrument properties to create or update.</param>
@@ -7066,7 +7066,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// UpsertInstrumentsProperties: Upsert instruments properties Create or update one or more properties for particular instruments.                Each instrument property is updated if it exists and created if it does not. For any failures, a reason  is provided.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// UpsertInstrumentsProperties: Upsert instruments properties Create or update one or more properties for particular instruments.              Each instrument property is updated if it exists and created if it does not. For any failures, a reason is provided.              Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertInstrumentPropertyRequest">A list of instruments and associated instrument properties to create or update.</param>
@@ -7084,7 +7084,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// UpsertInstrumentsProperties: Upsert instruments properties Create or update one or more properties for particular instruments.                Each instrument property is updated if it exists and created if it does not. For any failures, a reason  is provided.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// UpsertInstrumentsProperties: Upsert instruments properties Create or update one or more properties for particular instruments.              Each instrument property is updated if it exists and created if it does not. For any failures, a reason is provided.              Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertInstrumentPropertyRequest">A list of instruments and associated instrument properties to create or update.</param>

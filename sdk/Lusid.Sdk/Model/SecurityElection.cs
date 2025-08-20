@@ -38,8 +38,8 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="electionKey">Unique key associated to this election. (required).</param>
         /// <param name="isChosen">Is this the election that has been explicitly chosen from multiple options..</param>
-        /// <param name="isDefault">Is this election automatically applied in the absence of an election having been made.  May only be true for one election if multiple are provided..</param>
-        /// <param name="price">Price per unit of the security. At least one of UnitsRatio or Price must be provided.  Price must non-zero..</param>
+        /// <param name="isDefault">Is this election automatically applied in the absence of an election having been made. May only be true for one election if multiple are provided..</param>
+        /// <param name="price">Price per unit of the security. At least one of UnitsRatio or Price must be provided. Price must non-zero..</param>
         /// <param name="unitsRatio">unitsRatio.</param>
         public SecurityElection(string electionKey = default(string), bool isChosen = default(bool), bool isDefault = default(bool), decimal? price = default(decimal?), UnitsRatio unitsRatio = default(UnitsRatio))
         {
@@ -70,16 +70,16 @@ namespace Lusid.Sdk.Model
         public bool IsChosen { get; set; }
 
         /// <summary>
-        /// Is this election automatically applied in the absence of an election having been made.  May only be true for one election if multiple are provided.
+        /// Is this election automatically applied in the absence of an election having been made. May only be true for one election if multiple are provided.
         /// </summary>
-        /// <value>Is this election automatically applied in the absence of an election having been made.  May only be true for one election if multiple are provided.</value>
+        /// <value>Is this election automatically applied in the absence of an election having been made. May only be true for one election if multiple are provided.</value>
         [DataMember(Name = "isDefault", EmitDefaultValue = true)]
         public bool IsDefault { get; set; }
 
         /// <summary>
-        /// Price per unit of the security. At least one of UnitsRatio or Price must be provided.  Price must non-zero.
+        /// Price per unit of the security. At least one of UnitsRatio or Price must be provided. Price must non-zero.
         /// </summary>
-        /// <value>Price per unit of the security. At least one of UnitsRatio or Price must be provided.  Price must non-zero.</value>
+        /// <value>Price per unit of the security. At least one of UnitsRatio or Price must be provided. Price must non-zero.</value>
         [DataMember(Name = "price", EmitDefaultValue = true)]
         public decimal? Price { get; set; }
 

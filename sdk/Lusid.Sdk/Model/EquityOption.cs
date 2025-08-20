@@ -41,19 +41,19 @@ namespace Lusid.Sdk.Model
         /// <param name="startDate">The start date of the instrument. This is normally synonymous with the trade-date. (required).</param>
         /// <param name="optionMaturityDate">The maturity date of the option. (required).</param>
         /// <param name="optionSettlementDate">The settlement date of the option..</param>
-        /// <param name="deliveryType">Is the option cash settled or physical delivery of option    Supported string (enumeration) values are: [Cash, Physical]. (required).</param>
-        /// <param name="optionType">Type of optionality for the option    Supported string (enumeration) values are: [Call, Put]. (required).</param>
+        /// <param name="deliveryType">Is the option cash settled or physical delivery of option  Supported string (enumeration) values are: [Cash, Physical]. (required).</param>
+        /// <param name="optionType">Type of optionality for the option  Supported string (enumeration) values are: [Call, Put]. (required).</param>
         /// <param name="strike">The strike of the option. (required).</param>
         /// <param name="domCcy">The domestic currency of the instrument. (required).</param>
-        /// <param name="underlyingIdentifier">The market identifier type of the underlying code, e.g RIC.    Supported string (enumeration) values are: [LusidInstrumentId, Isin, Sedol, Cusip, ClientInternal, Figi, RIC, QuotePermId, REDCode, BBGId, ICECode].  Optional field, should be used in combination with the Code field.  Not compatible with the Underlying field..</param>
-        /// <param name="code">The identifying code for the equity underlying, e.g. &#39;IBM.N&#39;.  Optional field, should be used in combination with the UnderlyingIdentifier field.  Not compatible with the Underlying field..</param>
-        /// <param name="equityOptionType">Equity option types. E.g. Vanilla (default), RightsIssue, Warrant.    Supported string (enumeration) values are: [Vanilla, RightsIssue, Warrant]..</param>
+        /// <param name="underlyingIdentifier">The market identifier type of the underlying code, e.g RIC.  Supported string (enumeration) values are: [LusidInstrumentId, Isin, Sedol, Cusip, ClientInternal, Figi, RIC, QuotePermId, REDCode, BBGId, ICECode]. Optional field, should be used in combination with the Code field. Not compatible with the Underlying field..</param>
+        /// <param name="code">The identifying code for the equity underlying, e.g. &#39;IBM.N&#39;. Optional field, should be used in combination with the UnderlyingIdentifier field. Not compatible with the Underlying field..</param>
+        /// <param name="equityOptionType">Equity option types. E.g. Vanilla (default), RightsIssue, Warrant.  Supported string (enumeration) values are: [Vanilla, RightsIssue, Warrant]..</param>
         /// <param name="numberOfShares">The amount of shares to exchange if the option is exercised..</param>
         /// <param name="premium">premium.</param>
-        /// <param name="exerciseType">Type of optionality that is present; European, American.    Supported string (enumeration) values are: [European, American]..</param>
+        /// <param name="exerciseType">Type of optionality that is present; European, American.  Supported string (enumeration) values are: [European, American]..</param>
         /// <param name="underlying">underlying.</param>
         /// <param name="deliveryDays">Number of business days between exercise date and settlement of the option payoff or underlying..</param>
-        /// <param name="businessDayConvention">Business day convention for option exercise date to settlement date calculation.  Supported string (enumeration) values are: [NoAdjustment, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, HalfMonthModifiedFollowing, Nearest]..</param>
+        /// <param name="businessDayConvention">Business day convention for option exercise date to settlement date calculation. Supported string (enumeration) values are: [NoAdjustment, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, HalfMonthModifiedFollowing, Nearest]..</param>
         /// <param name="settlementCalendars">Holiday calendars for option exercise date to settlement date calculation..</param>
         /// <param name="timeZoneConventions">timeZoneConventions.</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit, FlexibleRepo (required) (default to &quot;EquityOption&quot;).</param>
@@ -116,16 +116,16 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset? OptionSettlementDate { get; set; }
 
         /// <summary>
-        /// Is the option cash settled or physical delivery of option    Supported string (enumeration) values are: [Cash, Physical].
+        /// Is the option cash settled or physical delivery of option  Supported string (enumeration) values are: [Cash, Physical].
         /// </summary>
-        /// <value>Is the option cash settled or physical delivery of option    Supported string (enumeration) values are: [Cash, Physical].</value>
+        /// <value>Is the option cash settled or physical delivery of option  Supported string (enumeration) values are: [Cash, Physical].</value>
         [DataMember(Name = "deliveryType", IsRequired = true, EmitDefaultValue = true)]
         public string DeliveryType { get; set; }
 
         /// <summary>
-        /// Type of optionality for the option    Supported string (enumeration) values are: [Call, Put].
+        /// Type of optionality for the option  Supported string (enumeration) values are: [Call, Put].
         /// </summary>
-        /// <value>Type of optionality for the option    Supported string (enumeration) values are: [Call, Put].</value>
+        /// <value>Type of optionality for the option  Supported string (enumeration) values are: [Call, Put].</value>
         [DataMember(Name = "optionType", IsRequired = true, EmitDefaultValue = true)]
         public string OptionType { get; set; }
 
@@ -144,23 +144,23 @@ namespace Lusid.Sdk.Model
         public string DomCcy { get; set; }
 
         /// <summary>
-        /// The market identifier type of the underlying code, e.g RIC.    Supported string (enumeration) values are: [LusidInstrumentId, Isin, Sedol, Cusip, ClientInternal, Figi, RIC, QuotePermId, REDCode, BBGId, ICECode].  Optional field, should be used in combination with the Code field.  Not compatible with the Underlying field.
+        /// The market identifier type of the underlying code, e.g RIC.  Supported string (enumeration) values are: [LusidInstrumentId, Isin, Sedol, Cusip, ClientInternal, Figi, RIC, QuotePermId, REDCode, BBGId, ICECode]. Optional field, should be used in combination with the Code field. Not compatible with the Underlying field.
         /// </summary>
-        /// <value>The market identifier type of the underlying code, e.g RIC.    Supported string (enumeration) values are: [LusidInstrumentId, Isin, Sedol, Cusip, ClientInternal, Figi, RIC, QuotePermId, REDCode, BBGId, ICECode].  Optional field, should be used in combination with the Code field.  Not compatible with the Underlying field.</value>
+        /// <value>The market identifier type of the underlying code, e.g RIC.  Supported string (enumeration) values are: [LusidInstrumentId, Isin, Sedol, Cusip, ClientInternal, Figi, RIC, QuotePermId, REDCode, BBGId, ICECode]. Optional field, should be used in combination with the Code field. Not compatible with the Underlying field.</value>
         [DataMember(Name = "underlyingIdentifier", EmitDefaultValue = true)]
         public string UnderlyingIdentifier { get; set; }
 
         /// <summary>
-        /// The identifying code for the equity underlying, e.g. &#39;IBM.N&#39;.  Optional field, should be used in combination with the UnderlyingIdentifier field.  Not compatible with the Underlying field.
+        /// The identifying code for the equity underlying, e.g. &#39;IBM.N&#39;. Optional field, should be used in combination with the UnderlyingIdentifier field. Not compatible with the Underlying field.
         /// </summary>
-        /// <value>The identifying code for the equity underlying, e.g. &#39;IBM.N&#39;.  Optional field, should be used in combination with the UnderlyingIdentifier field.  Not compatible with the Underlying field.</value>
+        /// <value>The identifying code for the equity underlying, e.g. &#39;IBM.N&#39;. Optional field, should be used in combination with the UnderlyingIdentifier field. Not compatible with the Underlying field.</value>
         [DataMember(Name = "code", EmitDefaultValue = true)]
         public string Code { get; set; }
 
         /// <summary>
-        /// Equity option types. E.g. Vanilla (default), RightsIssue, Warrant.    Supported string (enumeration) values are: [Vanilla, RightsIssue, Warrant].
+        /// Equity option types. E.g. Vanilla (default), RightsIssue, Warrant.  Supported string (enumeration) values are: [Vanilla, RightsIssue, Warrant].
         /// </summary>
-        /// <value>Equity option types. E.g. Vanilla (default), RightsIssue, Warrant.    Supported string (enumeration) values are: [Vanilla, RightsIssue, Warrant].</value>
+        /// <value>Equity option types. E.g. Vanilla (default), RightsIssue, Warrant.  Supported string (enumeration) values are: [Vanilla, RightsIssue, Warrant].</value>
         [DataMember(Name = "equityOptionType", EmitDefaultValue = true)]
         public string EquityOptionType { get; set; }
 
@@ -178,9 +178,9 @@ namespace Lusid.Sdk.Model
         public Premium Premium { get; set; }
 
         /// <summary>
-        /// Type of optionality that is present; European, American.    Supported string (enumeration) values are: [European, American].
+        /// Type of optionality that is present; European, American.  Supported string (enumeration) values are: [European, American].
         /// </summary>
-        /// <value>Type of optionality that is present; European, American.    Supported string (enumeration) values are: [European, American].</value>
+        /// <value>Type of optionality that is present; European, American.  Supported string (enumeration) values are: [European, American].</value>
         [DataMember(Name = "exerciseType", EmitDefaultValue = true)]
         public string ExerciseType { get; set; }
 
@@ -198,9 +198,9 @@ namespace Lusid.Sdk.Model
         public int DeliveryDays { get; set; }
 
         /// <summary>
-        /// Business day convention for option exercise date to settlement date calculation.  Supported string (enumeration) values are: [NoAdjustment, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, HalfMonthModifiedFollowing, Nearest].
+        /// Business day convention for option exercise date to settlement date calculation. Supported string (enumeration) values are: [NoAdjustment, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, HalfMonthModifiedFollowing, Nearest].
         /// </summary>
-        /// <value>Business day convention for option exercise date to settlement date calculation.  Supported string (enumeration) values are: [NoAdjustment, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, HalfMonthModifiedFollowing, Nearest].</value>
+        /// <value>Business day convention for option exercise date to settlement date calculation. Supported string (enumeration) values are: [NoAdjustment, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, HalfMonthModifiedFollowing, Nearest].</value>
         [DataMember(Name = "businessDayConvention", EmitDefaultValue = true)]
         public string BusinessDayConvention { get; set; }
 

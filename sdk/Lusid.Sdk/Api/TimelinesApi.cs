@@ -35,7 +35,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] CreateClosedPeriod: Create a new closed period against a timeline entity
         /// </summary>
         /// <remarks>
-        /// Creates a new closed period against a timeline entity  Returns the newly created closed period entity with properties
+        /// Creates a new closed period against a timeline entity Returns the newly created closed period entity with properties
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Timeline.</param>
@@ -50,7 +50,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] CreateClosedPeriod: Create a new closed period against a timeline entity
         /// </summary>
         /// <remarks>
-        /// Creates a new closed period against a timeline entity  Returns the newly created closed period entity with properties
+        /// Creates a new closed period against a timeline entity Returns the newly created closed period entity with properties
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Timeline.</param>
@@ -64,7 +64,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] CreateTimeline: Create a Timeline
         /// </summary>
         /// <remarks>
-        /// Creates a Timeline. Returns the created Timeline at the current effectiveAt.  Note that Timelines are mono-temporal, however they can have Time-Variant Properties.  Upserted Properties will be returned at the latest AsAt and EffectiveAt
+        /// Creates a Timeline. Returns the created Timeline at the current effectiveAt. Note that Timelines are mono-temporal, however they can have Time-Variant Properties. Upserted Properties will be returned at the latest AsAt and EffectiveAt
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTimelineRequest">The request containing the details of the Timeline (optional)</param>
@@ -77,7 +77,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] CreateTimeline: Create a Timeline
         /// </summary>
         /// <remarks>
-        /// Creates a Timeline. Returns the created Timeline at the current effectiveAt.  Note that Timelines are mono-temporal, however they can have Time-Variant Properties.  Upserted Properties will be returned at the latest AsAt and EffectiveAt
+        /// Creates a Timeline. Returns the created Timeline at the current effectiveAt. Note that Timelines are mono-temporal, however they can have Time-Variant Properties. Upserted Properties will be returned at the latest AsAt and EffectiveAt
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTimelineRequest">The request containing the details of the Timeline (optional)</param>
@@ -89,11 +89,11 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] DeleteTimeline: Deletes a particular Timeline
         /// </summary>
         /// <remarks>
-        /// The deletion will take effect from the Timeline deletion datetime.  i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
+        /// The deletion will take effect from the Timeline deletion datetime. i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Timeline.</param>
-        /// <param name="code">The code of the specified Timeline. Together with the domain and scope this uniquely              identifies the Timeline.</param>
+        /// <param name="code">The code of the specified Timeline. Together with the domain and scope this uniquely             identifies the Timeline.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
@@ -103,11 +103,11 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] DeleteTimeline: Deletes a particular Timeline
         /// </summary>
         /// <remarks>
-        /// The deletion will take effect from the Timeline deletion datetime.  i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
+        /// The deletion will take effect from the Timeline deletion datetime. i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Timeline.</param>
-        /// <param name="code">The code of the specified Timeline. Together with the domain and scope this uniquely              identifies the Timeline.</param>
+        /// <param name="code">The code of the specified Timeline. Together with the domain and scope this uniquely             identifies the Timeline.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
@@ -120,10 +120,10 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Timeline.</param>
-        /// <param name="code">The code of the Timeline. Together with the scope this uniquely              identifies the Timeline.</param>
-        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the ClosedPeriod definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;ClosedPeriod&#39; domain to decorate onto              the ClosedPeriod.              These must have the format {domain}/{scope}/{code}, for example &#39;ClosedPeriod/system/Name&#39;. (optional)</param>
+        /// <param name="code">The code of the Timeline. Together with the scope this uniquely             identifies the Timeline.</param>
+        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,             this uniquely identifies the ClosedPeriod</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the ClosedPeriod definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;ClosedPeriod&#39; domain to decorate onto             the ClosedPeriod.             These must have the format {domain}/{scope}/{code}, for example &#39;ClosedPeriod/system/Name&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ClosedPeriod</returns>
@@ -137,10 +137,10 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Timeline.</param>
-        /// <param name="code">The code of the Timeline. Together with the scope this uniquely              identifies the Timeline.</param>
-        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the ClosedPeriod definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;ClosedPeriod&#39; domain to decorate onto              the ClosedPeriod.              These must have the format {domain}/{scope}/{code}, for example &#39;ClosedPeriod/system/Name&#39;. (optional)</param>
+        /// <param name="code">The code of the Timeline. Together with the scope this uniquely             identifies the Timeline.</param>
+        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,             this uniquely identifies the ClosedPeriod</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the ClosedPeriod definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;ClosedPeriod&#39; domain to decorate onto             the ClosedPeriod.             These must have the format {domain}/{scope}/{code}, for example &#39;ClosedPeriod/system/Name&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ClosedPeriod</returns>
@@ -149,14 +149,14 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetTimeline: Get a single Timeline by scope and code.
         /// </summary>
         /// <remarks>
-        /// Retrieves one Timeline by scope and code.  Timelines are mono-temporal. The EffectiveAt is only applied to Time-Variant Properties.
+        /// Retrieves one Timeline by scope and code. Timelines are mono-temporal. The EffectiveAt is only applied to Time-Variant Properties.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Timeline.</param>
-        /// <param name="code">The code of the specified Timeline. Together with the scope this uniquely              identifies the Timeline.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Timeline definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the timeline properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Timeline&#39; domain to decorate onto              the Timeline.              These must have the format {domain}/{scope}/{code}, for example &#39;Timeline/system/Name&#39;. (optional)</param>
+        /// <param name="code">The code of the specified Timeline. Together with the scope this uniquely             identifies the Timeline.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Timeline definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the timeline properties.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Timeline&#39; domain to decorate onto             the Timeline.             These must have the format {domain}/{scope}/{code}, for example &#39;Timeline/system/Name&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Timeline</returns>
@@ -166,14 +166,14 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetTimeline: Get a single Timeline by scope and code.
         /// </summary>
         /// <remarks>
-        /// Retrieves one Timeline by scope and code.  Timelines are mono-temporal. The EffectiveAt is only applied to Time-Variant Properties.
+        /// Retrieves one Timeline by scope and code. Timelines are mono-temporal. The EffectiveAt is only applied to Time-Variant Properties.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Timeline.</param>
-        /// <param name="code">The code of the specified Timeline. Together with the scope this uniquely              identifies the Timeline.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Timeline definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the timeline properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Timeline&#39; domain to decorate onto              the Timeline.              These must have the format {domain}/{scope}/{code}, for example &#39;Timeline/system/Name&#39;. (optional)</param>
+        /// <param name="code">The code of the specified Timeline. Together with the scope this uniquely             identifies the Timeline.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Timeline definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the timeline properties.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Timeline&#39; domain to decorate onto             the Timeline.             These must have the format {domain}/{scope}/{code}, for example &#39;Timeline/system/Name&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Timeline</returns>
@@ -188,11 +188,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Timeline.</param>
         /// <param name="code">The code of the Timeline.</param>
         /// <param name="asAt">The asAt datetime at which to list the ClosedPeriods. Defaults to returning the latest version of each ClosedPeriod if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing ClosedPeriods; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing ClosedPeriods; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For example, to filter on the effectiveEnd, specify \&quot;effectiveEnd gt 2019-01-15T10:00:00\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.             For example, to filter on the effectiveEnd, specify \&quot;effectiveEnd gt 2019-01-15T10:00:00\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;ClosedPeriod&#39; domain to decorate onto each ClosedPeriod.              These must take the format {domain}/{scope}/{code}, for example &#39;ClosedPeriod/Account/id&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;ClosedPeriod&#39; domain to decorate onto each ClosedPeriod.             These must take the format {domain}/{scope}/{code}, for example &#39;ClosedPeriod/Account/id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfClosedPeriod</returns>
@@ -208,11 +208,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Timeline.</param>
         /// <param name="code">The code of the Timeline.</param>
         /// <param name="asAt">The asAt datetime at which to list the ClosedPeriods. Defaults to returning the latest version of each ClosedPeriod if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing ClosedPeriods; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing ClosedPeriods; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For example, to filter on the effectiveEnd, specify \&quot;effectiveEnd gt 2019-01-15T10:00:00\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.             For example, to filter on the effectiveEnd, specify \&quot;effectiveEnd gt 2019-01-15T10:00:00\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;ClosedPeriod&#39; domain to decorate onto each ClosedPeriod.              These must take the format {domain}/{scope}/{code}, for example &#39;ClosedPeriod/Account/id&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;ClosedPeriod&#39; domain to decorate onto each ClosedPeriod.             These must take the format {domain}/{scope}/{code}, for example &#39;ClosedPeriod/Account/id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfClosedPeriod</returns>
@@ -225,12 +225,12 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Timelines. Defaults to returning the latest version of each Timeline if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the Timelines.              Note that Timelines are monotemporal, the effectiveAt is for Timevariant Properties on the Timeline only.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Timelines; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the Timelines.             Note that Timelines are monotemporal, the effectiveAt is for Timevariant Properties on the Timeline only.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Timelines; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For example, to filter on the displayName, specify \&quot;displayName eq &#39;AccountingTimeline&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.             For example, to filter on the displayName, specify \&quot;displayName eq &#39;AccountingTimeline&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Timeline&#39; domain to decorate onto each Timeline.              These must take the format {domain}/{scope}/{code}, for example &#39;Timeline/Account/id&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Timeline&#39; domain to decorate onto each Timeline.             These must take the format {domain}/{scope}/{code}, for example &#39;Timeline/Account/id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfTimeline</returns>
@@ -244,12 +244,12 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Timelines. Defaults to returning the latest version of each Timeline if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the Timelines.              Note that Timelines are monotemporal, the effectiveAt is for Timevariant Properties on the Timeline only.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Timelines; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the Timelines.             Note that Timelines are monotemporal, the effectiveAt is for Timevariant Properties on the Timeline only.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Timelines; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For example, to filter on the displayName, specify \&quot;displayName eq &#39;AccountingTimeline&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.             For example, to filter on the displayName, specify \&quot;displayName eq &#39;AccountingTimeline&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Timeline&#39; domain to decorate onto each Timeline.              These must take the format {domain}/{scope}/{code}, for example &#39;Timeline/Account/id&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Timeline&#39; domain to decorate onto each Timeline.             These must take the format {domain}/{scope}/{code}, for example &#39;Timeline/Account/id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfTimeline</returns>
@@ -263,7 +263,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Timeline.</param>
         /// <param name="code">The code of the Timeline.</param>
-        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod</param>
+        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,             this uniquely identifies the ClosedPeriod</param>
         /// <param name="postCloseActivitiesRequest">Specifies collection of post close activities (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -279,7 +279,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Timeline.</param>
         /// <param name="code">The code of the Timeline.</param>
-        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod</param>
+        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,             this uniquely identifies the ClosedPeriod</param>
         /// <param name="postCloseActivitiesRequest">Specifies collection of post close activities (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -289,7 +289,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] UpdateTimeline: Update Timeline defined by scope and code
         /// </summary>
         /// <remarks>
-        /// Overwrites an existing Timeline  Update request has the same required fields as Create apart from the id.  Returns the updated Timeline at the current effectiveAt.  Note that Timelines are mono-temporal, however they can have Time-Variant Properties.  Updated Properties will be returned at the latest AsAt and EffectiveAt
+        /// Overwrites an existing Timeline Update request has the same required fields as Create apart from the id. Returns the updated Timeline at the current effectiveAt. Note that Timelines are mono-temporal, however they can have Time-Variant Properties. Updated Properties will be returned at the latest AsAt and EffectiveAt
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Timeline.</param>
@@ -304,7 +304,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] UpdateTimeline: Update Timeline defined by scope and code
         /// </summary>
         /// <remarks>
-        /// Overwrites an existing Timeline  Update request has the same required fields as Create apart from the id.  Returns the updated Timeline at the current effectiveAt.  Note that Timelines are mono-temporal, however they can have Time-Variant Properties.  Updated Properties will be returned at the latest AsAt and EffectiveAt
+        /// Overwrites an existing Timeline Update request has the same required fields as Create apart from the id. Returns the updated Timeline at the current effectiveAt. Note that Timelines are mono-temporal, however they can have Time-Variant Properties. Updated Properties will be returned at the latest AsAt and EffectiveAt
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Timeline.</param>
@@ -327,7 +327,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] CreateClosedPeriod: Create a new closed period against a timeline entity
         /// </summary>
         /// <remarks>
-        /// Creates a new closed period against a timeline entity  Returns the newly created closed period entity with properties
+        /// Creates a new closed period against a timeline entity Returns the newly created closed period entity with properties
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Timeline.</param>
@@ -343,7 +343,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] CreateClosedPeriod: Create a new closed period against a timeline entity
         /// </summary>
         /// <remarks>
-        /// Creates a new closed period against a timeline entity  Returns the newly created closed period entity with properties
+        /// Creates a new closed period against a timeline entity Returns the newly created closed period entity with properties
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Timeline.</param>
@@ -358,7 +358,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] CreateTimeline: Create a Timeline
         /// </summary>
         /// <remarks>
-        /// Creates a Timeline. Returns the created Timeline at the current effectiveAt.  Note that Timelines are mono-temporal, however they can have Time-Variant Properties.  Upserted Properties will be returned at the latest AsAt and EffectiveAt
+        /// Creates a Timeline. Returns the created Timeline at the current effectiveAt. Note that Timelines are mono-temporal, however they can have Time-Variant Properties. Upserted Properties will be returned at the latest AsAt and EffectiveAt
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTimelineRequest">The request containing the details of the Timeline (optional)</param>
@@ -372,7 +372,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] CreateTimeline: Create a Timeline
         /// </summary>
         /// <remarks>
-        /// Creates a Timeline. Returns the created Timeline at the current effectiveAt.  Note that Timelines are mono-temporal, however they can have Time-Variant Properties.  Upserted Properties will be returned at the latest AsAt and EffectiveAt
+        /// Creates a Timeline. Returns the created Timeline at the current effectiveAt. Note that Timelines are mono-temporal, however they can have Time-Variant Properties. Upserted Properties will be returned at the latest AsAt and EffectiveAt
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTimelineRequest">The request containing the details of the Timeline (optional)</param>
@@ -385,11 +385,11 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] DeleteTimeline: Deletes a particular Timeline
         /// </summary>
         /// <remarks>
-        /// The deletion will take effect from the Timeline deletion datetime.  i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
+        /// The deletion will take effect from the Timeline deletion datetime. i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Timeline.</param>
-        /// <param name="code">The code of the specified Timeline. Together with the domain and scope this uniquely              identifies the Timeline.</param>
+        /// <param name="code">The code of the specified Timeline. Together with the domain and scope this uniquely             identifies the Timeline.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -400,11 +400,11 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] DeleteTimeline: Deletes a particular Timeline
         /// </summary>
         /// <remarks>
-        /// The deletion will take effect from the Timeline deletion datetime.  i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
+        /// The deletion will take effect from the Timeline deletion datetime. i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Timeline.</param>
-        /// <param name="code">The code of the specified Timeline. Together with the domain and scope this uniquely              identifies the Timeline.</param>
+        /// <param name="code">The code of the specified Timeline. Together with the domain and scope this uniquely             identifies the Timeline.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -418,10 +418,10 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Timeline.</param>
-        /// <param name="code">The code of the Timeline. Together with the scope this uniquely              identifies the Timeline.</param>
-        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the ClosedPeriod definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;ClosedPeriod&#39; domain to decorate onto              the ClosedPeriod.              These must have the format {domain}/{scope}/{code}, for example &#39;ClosedPeriod/system/Name&#39;. (optional)</param>
+        /// <param name="code">The code of the Timeline. Together with the scope this uniquely             identifies the Timeline.</param>
+        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,             this uniquely identifies the ClosedPeriod</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the ClosedPeriod definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;ClosedPeriod&#39; domain to decorate onto             the ClosedPeriod.             These must have the format {domain}/{scope}/{code}, for example &#39;ClosedPeriod/system/Name&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -436,10 +436,10 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Timeline.</param>
-        /// <param name="code">The code of the Timeline. Together with the scope this uniquely              identifies the Timeline.</param>
-        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the ClosedPeriod definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;ClosedPeriod&#39; domain to decorate onto              the ClosedPeriod.              These must have the format {domain}/{scope}/{code}, for example &#39;ClosedPeriod/system/Name&#39;. (optional)</param>
+        /// <param name="code">The code of the Timeline. Together with the scope this uniquely             identifies the Timeline.</param>
+        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,             this uniquely identifies the ClosedPeriod</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the ClosedPeriod definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;ClosedPeriod&#39; domain to decorate onto             the ClosedPeriod.             These must have the format {domain}/{scope}/{code}, for example &#39;ClosedPeriod/system/Name&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -449,14 +449,14 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetTimeline: Get a single Timeline by scope and code.
         /// </summary>
         /// <remarks>
-        /// Retrieves one Timeline by scope and code.  Timelines are mono-temporal. The EffectiveAt is only applied to Time-Variant Properties.
+        /// Retrieves one Timeline by scope and code. Timelines are mono-temporal. The EffectiveAt is only applied to Time-Variant Properties.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Timeline.</param>
-        /// <param name="code">The code of the specified Timeline. Together with the scope this uniquely              identifies the Timeline.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Timeline definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the timeline properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Timeline&#39; domain to decorate onto              the Timeline.              These must have the format {domain}/{scope}/{code}, for example &#39;Timeline/system/Name&#39;. (optional)</param>
+        /// <param name="code">The code of the specified Timeline. Together with the scope this uniquely             identifies the Timeline.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Timeline definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the timeline properties.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Timeline&#39; domain to decorate onto             the Timeline.             These must have the format {domain}/{scope}/{code}, for example &#39;Timeline/system/Name&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -467,14 +467,14 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetTimeline: Get a single Timeline by scope and code.
         /// </summary>
         /// <remarks>
-        /// Retrieves one Timeline by scope and code.  Timelines are mono-temporal. The EffectiveAt is only applied to Time-Variant Properties.
+        /// Retrieves one Timeline by scope and code. Timelines are mono-temporal. The EffectiveAt is only applied to Time-Variant Properties.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Timeline.</param>
-        /// <param name="code">The code of the specified Timeline. Together with the scope this uniquely              identifies the Timeline.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Timeline definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the timeline properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Timeline&#39; domain to decorate onto              the Timeline.              These must have the format {domain}/{scope}/{code}, for example &#39;Timeline/system/Name&#39;. (optional)</param>
+        /// <param name="code">The code of the specified Timeline. Together with the scope this uniquely             identifies the Timeline.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Timeline definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the timeline properties.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Timeline&#39; domain to decorate onto             the Timeline.             These must have the format {domain}/{scope}/{code}, for example &#39;Timeline/system/Name&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -490,11 +490,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Timeline.</param>
         /// <param name="code">The code of the Timeline.</param>
         /// <param name="asAt">The asAt datetime at which to list the ClosedPeriods. Defaults to returning the latest version of each ClosedPeriod if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing ClosedPeriods; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing ClosedPeriods; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For example, to filter on the effectiveEnd, specify \&quot;effectiveEnd gt 2019-01-15T10:00:00\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.             For example, to filter on the effectiveEnd, specify \&quot;effectiveEnd gt 2019-01-15T10:00:00\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;ClosedPeriod&#39; domain to decorate onto each ClosedPeriod.              These must take the format {domain}/{scope}/{code}, for example &#39;ClosedPeriod/Account/id&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;ClosedPeriod&#39; domain to decorate onto each ClosedPeriod.             These must take the format {domain}/{scope}/{code}, for example &#39;ClosedPeriod/Account/id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -511,11 +511,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Timeline.</param>
         /// <param name="code">The code of the Timeline.</param>
         /// <param name="asAt">The asAt datetime at which to list the ClosedPeriods. Defaults to returning the latest version of each ClosedPeriod if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing ClosedPeriods; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing ClosedPeriods; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For example, to filter on the effectiveEnd, specify \&quot;effectiveEnd gt 2019-01-15T10:00:00\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.             For example, to filter on the effectiveEnd, specify \&quot;effectiveEnd gt 2019-01-15T10:00:00\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;ClosedPeriod&#39; domain to decorate onto each ClosedPeriod.              These must take the format {domain}/{scope}/{code}, for example &#39;ClosedPeriod/Account/id&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;ClosedPeriod&#39; domain to decorate onto each ClosedPeriod.             These must take the format {domain}/{scope}/{code}, for example &#39;ClosedPeriod/Account/id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -529,12 +529,12 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Timelines. Defaults to returning the latest version of each Timeline if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the Timelines.              Note that Timelines are monotemporal, the effectiveAt is for Timevariant Properties on the Timeline only.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Timelines; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the Timelines.             Note that Timelines are monotemporal, the effectiveAt is for Timevariant Properties on the Timeline only.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Timelines; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For example, to filter on the displayName, specify \&quot;displayName eq &#39;AccountingTimeline&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.             For example, to filter on the displayName, specify \&quot;displayName eq &#39;AccountingTimeline&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Timeline&#39; domain to decorate onto each Timeline.              These must take the format {domain}/{scope}/{code}, for example &#39;Timeline/Account/id&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Timeline&#39; domain to decorate onto each Timeline.             These must take the format {domain}/{scope}/{code}, for example &#39;Timeline/Account/id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -549,12 +549,12 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Timelines. Defaults to returning the latest version of each Timeline if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the Timelines.              Note that Timelines are monotemporal, the effectiveAt is for Timevariant Properties on the Timeline only.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Timelines; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the Timelines.             Note that Timelines are monotemporal, the effectiveAt is for Timevariant Properties on the Timeline only.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Timelines; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For example, to filter on the displayName, specify \&quot;displayName eq &#39;AccountingTimeline&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.             For example, to filter on the displayName, specify \&quot;displayName eq &#39;AccountingTimeline&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Timeline&#39; domain to decorate onto each Timeline.              These must take the format {domain}/{scope}/{code}, for example &#39;Timeline/Account/id&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Timeline&#39; domain to decorate onto each Timeline.             These must take the format {domain}/{scope}/{code}, for example &#39;Timeline/Account/id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -569,7 +569,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Timeline.</param>
         /// <param name="code">The code of the Timeline.</param>
-        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod</param>
+        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,             this uniquely identifies the ClosedPeriod</param>
         /// <param name="postCloseActivitiesRequest">Specifies collection of post close activities (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -586,7 +586,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Timeline.</param>
         /// <param name="code">The code of the Timeline.</param>
-        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod</param>
+        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,             this uniquely identifies the ClosedPeriod</param>
         /// <param name="postCloseActivitiesRequest">Specifies collection of post close activities (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -597,7 +597,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] UpdateTimeline: Update Timeline defined by scope and code
         /// </summary>
         /// <remarks>
-        /// Overwrites an existing Timeline  Update request has the same required fields as Create apart from the id.  Returns the updated Timeline at the current effectiveAt.  Note that Timelines are mono-temporal, however they can have Time-Variant Properties.  Updated Properties will be returned at the latest AsAt and EffectiveAt
+        /// Overwrites an existing Timeline Update request has the same required fields as Create apart from the id. Returns the updated Timeline at the current effectiveAt. Note that Timelines are mono-temporal, however they can have Time-Variant Properties. Updated Properties will be returned at the latest AsAt and EffectiveAt
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Timeline.</param>
@@ -613,7 +613,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] UpdateTimeline: Update Timeline defined by scope and code
         /// </summary>
         /// <remarks>
-        /// Overwrites an existing Timeline  Update request has the same required fields as Create apart from the id.  Returns the updated Timeline at the current effectiveAt.  Note that Timelines are mono-temporal, however they can have Time-Variant Properties.  Updated Properties will be returned at the latest AsAt and EffectiveAt
+        /// Overwrites an existing Timeline Update request has the same required fields as Create apart from the id. Returns the updated Timeline at the current effectiveAt. Note that Timelines are mono-temporal, however they can have Time-Variant Properties. Updated Properties will be returned at the latest AsAt and EffectiveAt
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Timeline.</param>
@@ -748,7 +748,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateClosedPeriod: Create a new closed period against a timeline entity Creates a new closed period against a timeline entity  Returns the newly created closed period entity with properties
+        /// [EXPERIMENTAL] CreateClosedPeriod: Create a new closed period against a timeline entity Creates a new closed period against a timeline entity Returns the newly created closed period entity with properties
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Timeline.</param>
@@ -764,7 +764,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateClosedPeriod: Create a new closed period against a timeline entity Creates a new closed period against a timeline entity  Returns the newly created closed period entity with properties
+        /// [EXPERIMENTAL] CreateClosedPeriod: Create a new closed period against a timeline entity Creates a new closed period against a timeline entity Returns the newly created closed period entity with properties
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Timeline.</param>
@@ -864,7 +864,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateClosedPeriod: Create a new closed period against a timeline entity Creates a new closed period against a timeline entity  Returns the newly created closed period entity with properties
+        /// [EXPERIMENTAL] CreateClosedPeriod: Create a new closed period against a timeline entity Creates a new closed period against a timeline entity Returns the newly created closed period entity with properties
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Timeline.</param>
@@ -881,7 +881,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateClosedPeriod: Create a new closed period against a timeline entity Creates a new closed period against a timeline entity  Returns the newly created closed period entity with properties
+        /// [EXPERIMENTAL] CreateClosedPeriod: Create a new closed period against a timeline entity Creates a new closed period against a timeline entity Returns the newly created closed period entity with properties
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Timeline.</param>
@@ -984,7 +984,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateTimeline: Create a Timeline Creates a Timeline. Returns the created Timeline at the current effectiveAt.  Note that Timelines are mono-temporal, however they can have Time-Variant Properties.  Upserted Properties will be returned at the latest AsAt and EffectiveAt
+        /// [EXPERIMENTAL] CreateTimeline: Create a Timeline Creates a Timeline. Returns the created Timeline at the current effectiveAt. Note that Timelines are mono-temporal, however they can have Time-Variant Properties. Upserted Properties will be returned at the latest AsAt and EffectiveAt
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTimelineRequest">The request containing the details of the Timeline (optional)</param>
@@ -998,7 +998,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateTimeline: Create a Timeline Creates a Timeline. Returns the created Timeline at the current effectiveAt.  Note that Timelines are mono-temporal, however they can have Time-Variant Properties.  Upserted Properties will be returned at the latest AsAt and EffectiveAt
+        /// [EXPERIMENTAL] CreateTimeline: Create a Timeline Creates a Timeline. Returns the created Timeline at the current effectiveAt. Note that Timelines are mono-temporal, however they can have Time-Variant Properties. Upserted Properties will be returned at the latest AsAt and EffectiveAt
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTimelineRequest">The request containing the details of the Timeline (optional)</param>
@@ -1082,7 +1082,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateTimeline: Create a Timeline Creates a Timeline. Returns the created Timeline at the current effectiveAt.  Note that Timelines are mono-temporal, however they can have Time-Variant Properties.  Upserted Properties will be returned at the latest AsAt and EffectiveAt
+        /// [EXPERIMENTAL] CreateTimeline: Create a Timeline Creates a Timeline. Returns the created Timeline at the current effectiveAt. Note that Timelines are mono-temporal, however they can have Time-Variant Properties. Upserted Properties will be returned at the latest AsAt and EffectiveAt
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTimelineRequest">The request containing the details of the Timeline (optional)</param>
@@ -1097,7 +1097,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateTimeline: Create a Timeline Creates a Timeline. Returns the created Timeline at the current effectiveAt.  Note that Timelines are mono-temporal, however they can have Time-Variant Properties.  Upserted Properties will be returned at the latest AsAt and EffectiveAt
+        /// [EXPERIMENTAL] CreateTimeline: Create a Timeline Creates a Timeline. Returns the created Timeline at the current effectiveAt. Note that Timelines are mono-temporal, however they can have Time-Variant Properties. Upserted Properties will be returned at the latest AsAt and EffectiveAt
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTimelineRequest">The request containing the details of the Timeline (optional)</param>
@@ -1184,11 +1184,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTimeline: Deletes a particular Timeline The deletion will take effect from the Timeline deletion datetime.  i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
+        /// [EXPERIMENTAL] DeleteTimeline: Deletes a particular Timeline The deletion will take effect from the Timeline deletion datetime. i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Timeline.</param>
-        /// <param name="code">The code of the specified Timeline. Together with the domain and scope this uniquely              identifies the Timeline.</param>
+        /// <param name="code">The code of the specified Timeline. Together with the domain and scope this uniquely             identifies the Timeline.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
@@ -1199,11 +1199,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTimeline: Deletes a particular Timeline The deletion will take effect from the Timeline deletion datetime.  i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
+        /// [EXPERIMENTAL] DeleteTimeline: Deletes a particular Timeline The deletion will take effect from the Timeline deletion datetime. i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Timeline.</param>
-        /// <param name="code">The code of the specified Timeline. Together with the domain and scope this uniquely              identifies the Timeline.</param>
+        /// <param name="code">The code of the specified Timeline. Together with the domain and scope this uniquely             identifies the Timeline.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
@@ -1293,11 +1293,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTimeline: Deletes a particular Timeline The deletion will take effect from the Timeline deletion datetime.  i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
+        /// [EXPERIMENTAL] DeleteTimeline: Deletes a particular Timeline The deletion will take effect from the Timeline deletion datetime. i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Timeline.</param>
-        /// <param name="code">The code of the specified Timeline. Together with the domain and scope this uniquely              identifies the Timeline.</param>
+        /// <param name="code">The code of the specified Timeline. Together with the domain and scope this uniquely             identifies the Timeline.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1309,11 +1309,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTimeline: Deletes a particular Timeline The deletion will take effect from the Timeline deletion datetime.  i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
+        /// [EXPERIMENTAL] DeleteTimeline: Deletes a particular Timeline The deletion will take effect from the Timeline deletion datetime. i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Timeline.</param>
-        /// <param name="code">The code of the specified Timeline. Together with the domain and scope this uniquely              identifies the Timeline.</param>
+        /// <param name="code">The code of the specified Timeline. Together with the domain and scope this uniquely             identifies the Timeline.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1410,10 +1410,10 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Timeline.</param>
-        /// <param name="code">The code of the Timeline. Together with the scope this uniquely              identifies the Timeline.</param>
-        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the ClosedPeriod definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;ClosedPeriod&#39; domain to decorate onto              the ClosedPeriod.              These must have the format {domain}/{scope}/{code}, for example &#39;ClosedPeriod/system/Name&#39;. (optional)</param>
+        /// <param name="code">The code of the Timeline. Together with the scope this uniquely             identifies the Timeline.</param>
+        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,             this uniquely identifies the ClosedPeriod</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the ClosedPeriod definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;ClosedPeriod&#39; domain to decorate onto             the ClosedPeriod.             These must have the format {domain}/{scope}/{code}, for example &#39;ClosedPeriod/system/Name&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ClosedPeriod</returns>
@@ -1428,10 +1428,10 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Timeline.</param>
-        /// <param name="code">The code of the Timeline. Together with the scope this uniquely              identifies the Timeline.</param>
-        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the ClosedPeriod definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;ClosedPeriod&#39; domain to decorate onto              the ClosedPeriod.              These must have the format {domain}/{scope}/{code}, for example &#39;ClosedPeriod/system/Name&#39;. (optional)</param>
+        /// <param name="code">The code of the Timeline. Together with the scope this uniquely             identifies the Timeline.</param>
+        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,             this uniquely identifies the ClosedPeriod</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the ClosedPeriod definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;ClosedPeriod&#39; domain to decorate onto             the ClosedPeriod.             These must have the format {domain}/{scope}/{code}, for example &#39;ClosedPeriod/system/Name&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ClosedPeriod</returns>
@@ -1540,10 +1540,10 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Timeline.</param>
-        /// <param name="code">The code of the Timeline. Together with the scope this uniquely              identifies the Timeline.</param>
-        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the ClosedPeriod definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;ClosedPeriod&#39; domain to decorate onto              the ClosedPeriod.              These must have the format {domain}/{scope}/{code}, for example &#39;ClosedPeriod/system/Name&#39;. (optional)</param>
+        /// <param name="code">The code of the Timeline. Together with the scope this uniquely             identifies the Timeline.</param>
+        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,             this uniquely identifies the ClosedPeriod</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the ClosedPeriod definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;ClosedPeriod&#39; domain to decorate onto             the ClosedPeriod.             These must have the format {domain}/{scope}/{code}, for example &#39;ClosedPeriod/system/Name&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1559,10 +1559,10 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Timeline.</param>
-        /// <param name="code">The code of the Timeline. Together with the scope this uniquely              identifies the Timeline.</param>
-        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the ClosedPeriod definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;ClosedPeriod&#39; domain to decorate onto              the ClosedPeriod.              These must have the format {domain}/{scope}/{code}, for example &#39;ClosedPeriod/system/Name&#39;. (optional)</param>
+        /// <param name="code">The code of the Timeline. Together with the scope this uniquely             identifies the Timeline.</param>
+        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,             this uniquely identifies the ClosedPeriod</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the ClosedPeriod definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;ClosedPeriod&#39; domain to decorate onto             the ClosedPeriod.             These must have the format {domain}/{scope}/{code}, for example &#39;ClosedPeriod/system/Name&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1670,14 +1670,14 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTimeline: Get a single Timeline by scope and code. Retrieves one Timeline by scope and code.  Timelines are mono-temporal. The EffectiveAt is only applied to Time-Variant Properties.
+        /// [EXPERIMENTAL] GetTimeline: Get a single Timeline by scope and code. Retrieves one Timeline by scope and code. Timelines are mono-temporal. The EffectiveAt is only applied to Time-Variant Properties.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Timeline.</param>
-        /// <param name="code">The code of the specified Timeline. Together with the scope this uniquely              identifies the Timeline.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Timeline definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the timeline properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Timeline&#39; domain to decorate onto              the Timeline.              These must have the format {domain}/{scope}/{code}, for example &#39;Timeline/system/Name&#39;. (optional)</param>
+        /// <param name="code">The code of the specified Timeline. Together with the scope this uniquely             identifies the Timeline.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Timeline definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the timeline properties.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Timeline&#39; domain to decorate onto             the Timeline.             These must have the format {domain}/{scope}/{code}, for example &#39;Timeline/system/Name&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Timeline</returns>
@@ -1688,14 +1688,14 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTimeline: Get a single Timeline by scope and code. Retrieves one Timeline by scope and code.  Timelines are mono-temporal. The EffectiveAt is only applied to Time-Variant Properties.
+        /// [EXPERIMENTAL] GetTimeline: Get a single Timeline by scope and code. Retrieves one Timeline by scope and code. Timelines are mono-temporal. The EffectiveAt is only applied to Time-Variant Properties.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Timeline.</param>
-        /// <param name="code">The code of the specified Timeline. Together with the scope this uniquely              identifies the Timeline.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Timeline definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the timeline properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Timeline&#39; domain to decorate onto              the Timeline.              These must have the format {domain}/{scope}/{code}, for example &#39;Timeline/system/Name&#39;. (optional)</param>
+        /// <param name="code">The code of the specified Timeline. Together with the scope this uniquely             identifies the Timeline.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Timeline definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the timeline properties.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Timeline&#39; domain to decorate onto             the Timeline.             These must have the format {domain}/{scope}/{code}, for example &#39;Timeline/system/Name&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Timeline</returns>
@@ -1797,14 +1797,14 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTimeline: Get a single Timeline by scope and code. Retrieves one Timeline by scope and code.  Timelines are mono-temporal. The EffectiveAt is only applied to Time-Variant Properties.
+        /// [EXPERIMENTAL] GetTimeline: Get a single Timeline by scope and code. Retrieves one Timeline by scope and code. Timelines are mono-temporal. The EffectiveAt is only applied to Time-Variant Properties.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Timeline.</param>
-        /// <param name="code">The code of the specified Timeline. Together with the scope this uniquely              identifies the Timeline.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Timeline definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the timeline properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Timeline&#39; domain to decorate onto              the Timeline.              These must have the format {domain}/{scope}/{code}, for example &#39;Timeline/system/Name&#39;. (optional)</param>
+        /// <param name="code">The code of the specified Timeline. Together with the scope this uniquely             identifies the Timeline.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Timeline definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the timeline properties.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Timeline&#39; domain to decorate onto             the Timeline.             These must have the format {domain}/{scope}/{code}, for example &#39;Timeline/system/Name&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1816,14 +1816,14 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTimeline: Get a single Timeline by scope and code. Retrieves one Timeline by scope and code.  Timelines are mono-temporal. The EffectiveAt is only applied to Time-Variant Properties.
+        /// [EXPERIMENTAL] GetTimeline: Get a single Timeline by scope and code. Retrieves one Timeline by scope and code. Timelines are mono-temporal. The EffectiveAt is only applied to Time-Variant Properties.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Timeline.</param>
-        /// <param name="code">The code of the specified Timeline. Together with the scope this uniquely              identifies the Timeline.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Timeline definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the timeline properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Timeline&#39; domain to decorate onto              the Timeline.              These must have the format {domain}/{scope}/{code}, for example &#39;Timeline/system/Name&#39;. (optional)</param>
+        /// <param name="code">The code of the specified Timeline. Together with the scope this uniquely             identifies the Timeline.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Timeline definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the timeline properties.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Timeline&#39; domain to decorate onto             the Timeline.             These must have the format {domain}/{scope}/{code}, for example &#39;Timeline/system/Name&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1934,11 +1934,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Timeline.</param>
         /// <param name="code">The code of the Timeline.</param>
         /// <param name="asAt">The asAt datetime at which to list the ClosedPeriods. Defaults to returning the latest version of each ClosedPeriod if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing ClosedPeriods; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing ClosedPeriods; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For example, to filter on the effectiveEnd, specify \&quot;effectiveEnd gt 2019-01-15T10:00:00\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.             For example, to filter on the effectiveEnd, specify \&quot;effectiveEnd gt 2019-01-15T10:00:00\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;ClosedPeriod&#39; domain to decorate onto each ClosedPeriod.              These must take the format {domain}/{scope}/{code}, for example &#39;ClosedPeriod/Account/id&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;ClosedPeriod&#39; domain to decorate onto each ClosedPeriod.             These must take the format {domain}/{scope}/{code}, for example &#39;ClosedPeriod/Account/id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfClosedPeriod</returns>
@@ -1955,11 +1955,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Timeline.</param>
         /// <param name="code">The code of the Timeline.</param>
         /// <param name="asAt">The asAt datetime at which to list the ClosedPeriods. Defaults to returning the latest version of each ClosedPeriod if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing ClosedPeriods; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing ClosedPeriods; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For example, to filter on the effectiveEnd, specify \&quot;effectiveEnd gt 2019-01-15T10:00:00\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.             For example, to filter on the effectiveEnd, specify \&quot;effectiveEnd gt 2019-01-15T10:00:00\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;ClosedPeriod&#39; domain to decorate onto each ClosedPeriod.              These must take the format {domain}/{scope}/{code}, for example &#39;ClosedPeriod/Account/id&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;ClosedPeriod&#39; domain to decorate onto each ClosedPeriod.             These must take the format {domain}/{scope}/{code}, for example &#39;ClosedPeriod/Account/id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfClosedPeriod</returns>
@@ -2079,11 +2079,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Timeline.</param>
         /// <param name="code">The code of the Timeline.</param>
         /// <param name="asAt">The asAt datetime at which to list the ClosedPeriods. Defaults to returning the latest version of each ClosedPeriod if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing ClosedPeriods; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing ClosedPeriods; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For example, to filter on the effectiveEnd, specify \&quot;effectiveEnd gt 2019-01-15T10:00:00\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.             For example, to filter on the effectiveEnd, specify \&quot;effectiveEnd gt 2019-01-15T10:00:00\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;ClosedPeriod&#39; domain to decorate onto each ClosedPeriod.              These must take the format {domain}/{scope}/{code}, for example &#39;ClosedPeriod/Account/id&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;ClosedPeriod&#39; domain to decorate onto each ClosedPeriod.             These must take the format {domain}/{scope}/{code}, for example &#39;ClosedPeriod/Account/id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2101,11 +2101,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Timeline.</param>
         /// <param name="code">The code of the Timeline.</param>
         /// <param name="asAt">The asAt datetime at which to list the ClosedPeriods. Defaults to returning the latest version of each ClosedPeriod if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing ClosedPeriods; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing ClosedPeriods; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For example, to filter on the effectiveEnd, specify \&quot;effectiveEnd gt 2019-01-15T10:00:00\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.             For example, to filter on the effectiveEnd, specify \&quot;effectiveEnd gt 2019-01-15T10:00:00\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;ClosedPeriod&#39; domain to decorate onto each ClosedPeriod.              These must take the format {domain}/{scope}/{code}, for example &#39;ClosedPeriod/Account/id&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;ClosedPeriod&#39; domain to decorate onto each ClosedPeriod.             These must take the format {domain}/{scope}/{code}, for example &#39;ClosedPeriod/Account/id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2226,12 +2226,12 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Timelines. Defaults to returning the latest version of each Timeline if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the Timelines.              Note that Timelines are monotemporal, the effectiveAt is for Timevariant Properties on the Timeline only.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Timelines; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the Timelines.             Note that Timelines are monotemporal, the effectiveAt is for Timevariant Properties on the Timeline only.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Timelines; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For example, to filter on the displayName, specify \&quot;displayName eq &#39;AccountingTimeline&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.             For example, to filter on the displayName, specify \&quot;displayName eq &#39;AccountingTimeline&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Timeline&#39; domain to decorate onto each Timeline.              These must take the format {domain}/{scope}/{code}, for example &#39;Timeline/Account/id&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Timeline&#39; domain to decorate onto each Timeline.             These must take the format {domain}/{scope}/{code}, for example &#39;Timeline/Account/id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfTimeline</returns>
@@ -2246,12 +2246,12 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Timelines. Defaults to returning the latest version of each Timeline if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the Timelines.              Note that Timelines are monotemporal, the effectiveAt is for Timevariant Properties on the Timeline only.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Timelines; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the Timelines.             Note that Timelines are monotemporal, the effectiveAt is for Timevariant Properties on the Timeline only.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Timelines; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For example, to filter on the displayName, specify \&quot;displayName eq &#39;AccountingTimeline&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.             For example, to filter on the displayName, specify \&quot;displayName eq &#39;AccountingTimeline&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Timeline&#39; domain to decorate onto each Timeline.              These must take the format {domain}/{scope}/{code}, for example &#39;Timeline/Account/id&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Timeline&#39; domain to decorate onto each Timeline.             These must take the format {domain}/{scope}/{code}, for example &#39;Timeline/Account/id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfTimeline</returns>
@@ -2359,12 +2359,12 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Timelines. Defaults to returning the latest version of each Timeline if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the Timelines.              Note that Timelines are monotemporal, the effectiveAt is for Timevariant Properties on the Timeline only.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Timelines; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the Timelines.             Note that Timelines are monotemporal, the effectiveAt is for Timevariant Properties on the Timeline only.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Timelines; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For example, to filter on the displayName, specify \&quot;displayName eq &#39;AccountingTimeline&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.             For example, to filter on the displayName, specify \&quot;displayName eq &#39;AccountingTimeline&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Timeline&#39; domain to decorate onto each Timeline.              These must take the format {domain}/{scope}/{code}, for example &#39;Timeline/Account/id&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Timeline&#39; domain to decorate onto each Timeline.             These must take the format {domain}/{scope}/{code}, for example &#39;Timeline/Account/id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2380,12 +2380,12 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Timelines. Defaults to returning the latest version of each Timeline if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the Timelines.              Note that Timelines are monotemporal, the effectiveAt is for Timevariant Properties on the Timeline only.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Timelines; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the Timelines.             Note that Timelines are monotemporal, the effectiveAt is for Timevariant Properties on the Timeline only.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Timelines; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For example, to filter on the displayName, specify \&quot;displayName eq &#39;AccountingTimeline&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.             For example, to filter on the displayName, specify \&quot;displayName eq &#39;AccountingTimeline&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Timeline&#39; domain to decorate onto each Timeline.              These must take the format {domain}/{scope}/{code}, for example &#39;Timeline/Account/id&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Timeline&#39; domain to decorate onto each Timeline.             These must take the format {domain}/{scope}/{code}, for example &#39;Timeline/Account/id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2497,7 +2497,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Timeline.</param>
         /// <param name="code">The code of the Timeline.</param>
-        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod</param>
+        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,             this uniquely identifies the ClosedPeriod</param>
         /// <param name="postCloseActivitiesRequest">Specifies collection of post close activities (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2514,7 +2514,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Timeline.</param>
         /// <param name="code">The code of the Timeline.</param>
-        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod</param>
+        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,             this uniquely identifies the ClosedPeriod</param>
         /// <param name="postCloseActivitiesRequest">Specifies collection of post close activities (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2622,7 +2622,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Timeline.</param>
         /// <param name="code">The code of the Timeline.</param>
-        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod</param>
+        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,             this uniquely identifies the ClosedPeriod</param>
         /// <param name="postCloseActivitiesRequest">Specifies collection of post close activities (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2640,7 +2640,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Timeline.</param>
         /// <param name="code">The code of the Timeline.</param>
-        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod</param>
+        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,             this uniquely identifies the ClosedPeriod</param>
         /// <param name="postCloseActivitiesRequest">Specifies collection of post close activities (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2746,7 +2746,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateTimeline: Update Timeline defined by scope and code Overwrites an existing Timeline  Update request has the same required fields as Create apart from the id.  Returns the updated Timeline at the current effectiveAt.  Note that Timelines are mono-temporal, however they can have Time-Variant Properties.  Updated Properties will be returned at the latest AsAt and EffectiveAt
+        /// [EXPERIMENTAL] UpdateTimeline: Update Timeline defined by scope and code Overwrites an existing Timeline Update request has the same required fields as Create apart from the id. Returns the updated Timeline at the current effectiveAt. Note that Timelines are mono-temporal, however they can have Time-Variant Properties. Updated Properties will be returned at the latest AsAt and EffectiveAt
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Timeline.</param>
@@ -2762,7 +2762,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateTimeline: Update Timeline defined by scope and code Overwrites an existing Timeline  Update request has the same required fields as Create apart from the id.  Returns the updated Timeline at the current effectiveAt.  Note that Timelines are mono-temporal, however they can have Time-Variant Properties.  Updated Properties will be returned at the latest AsAt and EffectiveAt
+        /// [EXPERIMENTAL] UpdateTimeline: Update Timeline defined by scope and code Overwrites an existing Timeline Update request has the same required fields as Create apart from the id. Returns the updated Timeline at the current effectiveAt. Note that Timelines are mono-temporal, however they can have Time-Variant Properties. Updated Properties will be returned at the latest AsAt and EffectiveAt
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Timeline.</param>
@@ -2862,7 +2862,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateTimeline: Update Timeline defined by scope and code Overwrites an existing Timeline  Update request has the same required fields as Create apart from the id.  Returns the updated Timeline at the current effectiveAt.  Note that Timelines are mono-temporal, however they can have Time-Variant Properties.  Updated Properties will be returned at the latest AsAt and EffectiveAt
+        /// [EXPERIMENTAL] UpdateTimeline: Update Timeline defined by scope and code Overwrites an existing Timeline Update request has the same required fields as Create apart from the id. Returns the updated Timeline at the current effectiveAt. Note that Timelines are mono-temporal, however they can have Time-Variant Properties. Updated Properties will be returned at the latest AsAt and EffectiveAt
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Timeline.</param>
@@ -2879,7 +2879,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateTimeline: Update Timeline defined by scope and code Overwrites an existing Timeline  Update request has the same required fields as Create apart from the id.  Returns the updated Timeline at the current effectiveAt.  Note that Timelines are mono-temporal, however they can have Time-Variant Properties.  Updated Properties will be returned at the latest AsAt and EffectiveAt
+        /// [EXPERIMENTAL] UpdateTimeline: Update Timeline defined by scope and code Overwrites an existing Timeline Update request has the same required fields as Create apart from the id. Returns the updated Timeline at the current effectiveAt. Note that Timelines are mono-temporal, however they can have Time-Variant Properties. Updated Properties will be returned at the latest AsAt and EffectiveAt
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Timeline.</param>

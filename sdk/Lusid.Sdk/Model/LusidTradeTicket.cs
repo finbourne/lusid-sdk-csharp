@@ -69,7 +69,7 @@ namespace Lusid.Sdk.Model
         /// <param name="transactionDate">Transaction Date. Date at which transaction is known. (required).</param>
         /// <param name="settlementDate">Transaction settlement. Date at which transaction is finalised and realised into the system. (required).</param>
         /// <param name="totalConsideration">totalConsideration (required).</param>
-        /// <param name="units">Number of units in the transaction. For an OTC this is somewhat interchangeable with the quantity booked in the  instrument. As M x N or N x M are equivalent it is advised a client chooses one approach and sticks to it.  Arguably either the unit or holding is best unitised. (required).</param>
+        /// <param name="units">Number of units in the transaction. For an OTC this is somewhat interchangeable with the quantity booked in the instrument. As M x N or N x M are equivalent it is advised a client chooses one approach and sticks to it. Arguably either the unit or holding is best unitised. (required).</param>
         /// <param name="instrumentIdentifiers">Identifiers for the instrument. (required).</param>
         /// <param name="instrumentScope">Scope of instrument.</param>
         /// <param name="instrumentName">Name of instrument.</param>
@@ -171,9 +171,9 @@ namespace Lusid.Sdk.Model
         public CurrencyAndAmount TotalConsideration { get; set; }
 
         /// <summary>
-        /// Number of units in the transaction. For an OTC this is somewhat interchangeable with the quantity booked in the  instrument. As M x N or N x M are equivalent it is advised a client chooses one approach and sticks to it.  Arguably either the unit or holding is best unitised.
+        /// Number of units in the transaction. For an OTC this is somewhat interchangeable with the quantity booked in the instrument. As M x N or N x M are equivalent it is advised a client chooses one approach and sticks to it. Arguably either the unit or holding is best unitised.
         /// </summary>
-        /// <value>Number of units in the transaction. For an OTC this is somewhat interchangeable with the quantity booked in the  instrument. As M x N or N x M are equivalent it is advised a client chooses one approach and sticks to it.  Arguably either the unit or holding is best unitised.</value>
+        /// <value>Number of units in the transaction. For an OTC this is somewhat interchangeable with the quantity booked in the instrument. As M x N or N x M are equivalent it is advised a client chooses one approach and sticks to it. Arguably either the unit or holding is best unitised.</value>
         [DataMember(Name = "units", IsRequired = true, EmitDefaultValue = true)]
         public decimal Units { get; set; }
 

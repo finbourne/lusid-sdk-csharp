@@ -24,7 +24,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// A BondConversionSchedule object represents a class containing the  information required for the creation of convertible features in a ComplexBond
+    /// A BondConversionSchedule object represents a class containing the information required for the creation of convertible features in a ComplexBond
     /// </summary>
     [DataContract(Name = "BondConversionSchedule")]
     [JsonConverter(typeof(JsonSubtypes), "ScheduleType")]
@@ -38,11 +38,11 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BondConversionSchedule" /> class.
         /// </summary>
-        /// <param name="identifiers">The market identifier(s) of the share that the bond converts to. The instrument  will not fail validation if no identifier is supplied..</param>
+        /// <param name="identifiers">The market identifier(s) of the share that the bond converts to. The instrument will not fail validation if no identifier is supplied..</param>
         /// <param name="bondConversionEntries">The dates at which the bond may be converted and associated information required about the conversion..</param>
-        /// <param name="conversionTrigger">Corporate event that triggers a conversion    Supported string (enumeration) values are: [NextEquityFinancing, IpoConversion, KnownDates, SoftCall]. (required).</param>
-        /// <param name="deliveryType">Is a conversion made into cash or into shares?    Supported string (enumeration) values are: [Cash, Physical]..</param>
-        /// <param name="exerciseType">The exercise type of the conversion schedule (American or European).  For American type, the bond is convertible from a given exercise date until the next date in the schedule, or until it matures.  For European type, the bond is only convertible on the given exercise date.    Supported string (enumeration) values are: [European, Bermudan, American]. (required).</param>
+        /// <param name="conversionTrigger">Corporate event that triggers a conversion  Supported string (enumeration) values are: [NextEquityFinancing, IpoConversion, KnownDates, SoftCall]. (required).</param>
+        /// <param name="deliveryType">Is a conversion made into cash or into shares?  Supported string (enumeration) values are: [Cash, Physical]..</param>
+        /// <param name="exerciseType">The exercise type of the conversion schedule (American or European). For American type, the bond is convertible from a given exercise date until the next date in the schedule, or until it matures. For European type, the bond is only convertible on the given exercise date.  Supported string (enumeration) values are: [European, Bermudan, American]. (required).</param>
         /// <param name="includesAccrued">Set this to true if a accrued interest is included in the conversion. Defaults to true..</param>
         /// <param name="mandatoryConversion">Set this to true if a conversion is mandatory if the trigger occurs. Defaults to false..</param>
         /// <param name="notificationPeriodEnd">The last day in the notification period for the conversion of the bond.</param>
@@ -72,9 +72,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The market identifier(s) of the share that the bond converts to. The instrument  will not fail validation if no identifier is supplied.
+        /// The market identifier(s) of the share that the bond converts to. The instrument will not fail validation if no identifier is supplied.
         /// </summary>
-        /// <value>The market identifier(s) of the share that the bond converts to. The instrument  will not fail validation if no identifier is supplied.</value>
+        /// <value>The market identifier(s) of the share that the bond converts to. The instrument will not fail validation if no identifier is supplied.</value>
         [DataMember(Name = "identifiers", EmitDefaultValue = true)]
         public Dictionary<string, string> Identifiers { get; set; }
 
@@ -86,23 +86,23 @@ namespace Lusid.Sdk.Model
         public List<BondConversionEntry> BondConversionEntries { get; set; }
 
         /// <summary>
-        /// Corporate event that triggers a conversion    Supported string (enumeration) values are: [NextEquityFinancing, IpoConversion, KnownDates, SoftCall].
+        /// Corporate event that triggers a conversion  Supported string (enumeration) values are: [NextEquityFinancing, IpoConversion, KnownDates, SoftCall].
         /// </summary>
-        /// <value>Corporate event that triggers a conversion    Supported string (enumeration) values are: [NextEquityFinancing, IpoConversion, KnownDates, SoftCall].</value>
+        /// <value>Corporate event that triggers a conversion  Supported string (enumeration) values are: [NextEquityFinancing, IpoConversion, KnownDates, SoftCall].</value>
         [DataMember(Name = "conversionTrigger", IsRequired = true, EmitDefaultValue = true)]
         public string ConversionTrigger { get; set; }
 
         /// <summary>
-        /// Is a conversion made into cash or into shares?    Supported string (enumeration) values are: [Cash, Physical].
+        /// Is a conversion made into cash or into shares?  Supported string (enumeration) values are: [Cash, Physical].
         /// </summary>
-        /// <value>Is a conversion made into cash or into shares?    Supported string (enumeration) values are: [Cash, Physical].</value>
+        /// <value>Is a conversion made into cash or into shares?  Supported string (enumeration) values are: [Cash, Physical].</value>
         [DataMember(Name = "deliveryType", EmitDefaultValue = true)]
         public string DeliveryType { get; set; }
 
         /// <summary>
-        /// The exercise type of the conversion schedule (American or European).  For American type, the bond is convertible from a given exercise date until the next date in the schedule, or until it matures.  For European type, the bond is only convertible on the given exercise date.    Supported string (enumeration) values are: [European, Bermudan, American].
+        /// The exercise type of the conversion schedule (American or European). For American type, the bond is convertible from a given exercise date until the next date in the schedule, or until it matures. For European type, the bond is only convertible on the given exercise date.  Supported string (enumeration) values are: [European, Bermudan, American].
         /// </summary>
-        /// <value>The exercise type of the conversion schedule (American or European).  For American type, the bond is convertible from a given exercise date until the next date in the schedule, or until it matures.  For European type, the bond is only convertible on the given exercise date.    Supported string (enumeration) values are: [European, Bermudan, American].</value>
+        /// <value>The exercise type of the conversion schedule (American or European). For American type, the bond is convertible from a given exercise date until the next date in the schedule, or until it matures. For European type, the bond is only convertible on the given exercise date.  Supported string (enumeration) values are: [European, Bermudan, American].</value>
         [DataMember(Name = "exerciseType", IsRequired = true, EmitDefaultValue = true)]
         public string ExerciseType { get; set; }
 

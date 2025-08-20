@@ -35,7 +35,7 @@ namespace Lusid.Sdk.Api
         /// GetCustomEntityByEntityUniqueId: Get a Custom Entity instance by its EntityUniqueId
         /// </summary>
         /// <remarks>
-        /// Retrieve a particular Custom Entity instance.  If the Custom Entity is deleted, this will return the state of the Custom Entity immediately prior to deletion.
+        /// Retrieve a particular Custom Entity instance. If the Custom Entity is deleted, this will return the state of the Custom Entity immediately prior to deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityUniqueId">The universally unique identifier of the Custom Entity.</param>
@@ -51,7 +51,7 @@ namespace Lusid.Sdk.Api
         /// GetCustomEntityByEntityUniqueId: Get a Custom Entity instance by its EntityUniqueId
         /// </summary>
         /// <remarks>
-        /// Retrieve a particular Custom Entity instance.  If the Custom Entity is deleted, this will return the state of the Custom Entity immediately prior to deletion.
+        /// Retrieve a particular Custom Entity instance. If the Custom Entity is deleted, this will return the state of the Custom Entity immediately prior to deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityUniqueId">The universally unique identifier of the Custom Entity.</param>
@@ -66,7 +66,7 @@ namespace Lusid.Sdk.Api
         /// GetDataTypeByEntityUniqueId: Get DataType by EntityUniqueId
         /// </summary>
         /// <remarks>
-        /// Retrieve the definition of a particular DataType.  If the DataType is deleted, this will return the state of the DataType immediately prior to deletion.
+        /// Retrieve the definition of a particular DataType. If the DataType is deleted, this will return the state of the DataType immediately prior to deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityUniqueId">The universally unique identifier of the DataType definition.</param>
@@ -81,7 +81,7 @@ namespace Lusid.Sdk.Api
         /// GetDataTypeByEntityUniqueId: Get DataType by EntityUniqueId
         /// </summary>
         /// <remarks>
-        /// Retrieve the definition of a particular DataType.  If the DataType is deleted, this will return the state of the DataType immediately prior to deletion.
+        /// Retrieve the definition of a particular DataType. If the DataType is deleted, this will return the state of the DataType immediately prior to deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityUniqueId">The universally unique identifier of the DataType definition.</param>
@@ -101,9 +101,9 @@ namespace Lusid.Sdk.Api
         /// <param name="entityType">The type of the entity to list the change history for.</param>
         /// <param name="entityUniqueId">The universally unique identifier of the entity.</param>
         /// <param name="asAt">The asAt datetime at which to list change history information. Defaults to return the change history at the latest datetime if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing change history information from a previous call to list change              history information. This value is returned from the previous call. If a pagination token is provided the filter, sortBy              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing change history information from a previous call to list change             history information. This value is returned from the previous call. If a pagination token is provided the filter, sortBy             and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -120,9 +120,9 @@ namespace Lusid.Sdk.Api
         /// <param name="entityType">The type of the entity to list the change history for.</param>
         /// <param name="entityUniqueId">The universally unique identifier of the entity.</param>
         /// <param name="asAt">The asAt datetime at which to list change history information. Defaults to return the change history at the latest datetime if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing change history information from a previous call to list change              history information. This value is returned from the previous call. If a pagination token is provided the filter, sortBy              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing change history information from a previous call to list change             history information. This value is returned from the previous call. If a pagination token is provided the filter, sortBy             and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -132,7 +132,7 @@ namespace Lusid.Sdk.Api
         /// GetInstrumentByEntityUniqueId: Get instrument by EntityUniqueId
         /// </summary>
         /// <remarks>
-        /// Retrieve the definition of a particular instrument.  If the instrument is deleted, this will return the state of the instrument immediately prior to deletion.
+        /// Retrieve the definition of a particular instrument. If the instrument is deleted, this will return the state of the instrument immediately prior to deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityUniqueId">The universally unique identifier of the instrument definition.</param>
@@ -148,7 +148,7 @@ namespace Lusid.Sdk.Api
         /// GetInstrumentByEntityUniqueId: Get instrument by EntityUniqueId
         /// </summary>
         /// <remarks>
-        /// Retrieve the definition of a particular instrument.  If the instrument is deleted, this will return the state of the instrument immediately prior to deletion.
+        /// Retrieve the definition of a particular instrument. If the instrument is deleted, this will return the state of the instrument immediately prior to deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityUniqueId">The universally unique identifier of the instrument definition.</param>
@@ -163,7 +163,7 @@ namespace Lusid.Sdk.Api
         /// GetPortfolioByEntityUniqueId: Get portfolio by EntityUniqueId
         /// </summary>
         /// <remarks>
-        /// Retrieve the definition of a particular portfolio.  If the portfolio is deleted, this will return the state of the portfolio immediately prior to deletion.
+        /// Retrieve the definition of a particular portfolio. If the portfolio is deleted, this will return the state of the portfolio immediately prior to deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityUniqueId">The universally unique identifier of the portfolio definition.</param>
@@ -179,7 +179,7 @@ namespace Lusid.Sdk.Api
         /// GetPortfolioByEntityUniqueId: Get portfolio by EntityUniqueId
         /// </summary>
         /// <remarks>
-        /// Retrieve the definition of a particular portfolio.  If the portfolio is deleted, this will return the state of the portfolio immediately prior to deletion.
+        /// Retrieve the definition of a particular portfolio. If the portfolio is deleted, this will return the state of the portfolio immediately prior to deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityUniqueId">The universally unique identifier of the portfolio definition.</param>
@@ -194,7 +194,7 @@ namespace Lusid.Sdk.Api
         /// GetPortfolioChanges: Get the next change to each portfolio in a scope.
         /// </summary>
         /// <remarks>
-        /// Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time.  Includes changes from parent portfolios in different scopes.  Excludes changes from subscriptions (e.g corporate actions).
+        /// Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time. Includes changes from parent portfolios in different scopes. Excludes changes from subscriptions (e.g corporate actions).
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope</param>
@@ -209,7 +209,7 @@ namespace Lusid.Sdk.Api
         /// GetPortfolioChanges: Get the next change to each portfolio in a scope.
         /// </summary>
         /// <remarks>
-        /// Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time.  Includes changes from parent portfolios in different scopes.  Excludes changes from subscriptions (e.g corporate actions).
+        /// Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time. Includes changes from parent portfolios in different scopes. Excludes changes from subscriptions (e.g corporate actions).
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope</param>
@@ -223,7 +223,7 @@ namespace Lusid.Sdk.Api
         /// GetPropertyDefinitionByEntityUniqueId: Get property definition by EntityUniqueId
         /// </summary>
         /// <remarks>
-        /// Retrieve a particular property definition.  If the property definition is deleted, this will return the state of the property definition immediately prior to deletion.
+        /// Retrieve a particular property definition. If the property definition is deleted, this will return the state of the property definition immediately prior to deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityUniqueId">The universally unique identifier of the property definition.</param>
@@ -239,7 +239,7 @@ namespace Lusid.Sdk.Api
         /// GetPropertyDefinitionByEntityUniqueId: Get property definition by EntityUniqueId
         /// </summary>
         /// <remarks>
-        /// Retrieve a particular property definition.  If the property definition is deleted, this will return the state of the property definition immediately prior to deletion.
+        /// Retrieve a particular property definition. If the property definition is deleted, this will return the state of the property definition immediately prior to deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityUniqueId">The universally unique identifier of the property definition.</param>
@@ -263,7 +263,7 @@ namespace Lusid.Sdk.Api
         /// GetCustomEntityByEntityUniqueId: Get a Custom Entity instance by its EntityUniqueId
         /// </summary>
         /// <remarks>
-        /// Retrieve a particular Custom Entity instance.  If the Custom Entity is deleted, this will return the state of the Custom Entity immediately prior to deletion.
+        /// Retrieve a particular Custom Entity instance. If the Custom Entity is deleted, this will return the state of the Custom Entity immediately prior to deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityUniqueId">The universally unique identifier of the Custom Entity.</param>
@@ -280,7 +280,7 @@ namespace Lusid.Sdk.Api
         /// GetCustomEntityByEntityUniqueId: Get a Custom Entity instance by its EntityUniqueId
         /// </summary>
         /// <remarks>
-        /// Retrieve a particular Custom Entity instance.  If the Custom Entity is deleted, this will return the state of the Custom Entity immediately prior to deletion.
+        /// Retrieve a particular Custom Entity instance. If the Custom Entity is deleted, this will return the state of the Custom Entity immediately prior to deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityUniqueId">The universally unique identifier of the Custom Entity.</param>
@@ -296,7 +296,7 @@ namespace Lusid.Sdk.Api
         /// GetDataTypeByEntityUniqueId: Get DataType by EntityUniqueId
         /// </summary>
         /// <remarks>
-        /// Retrieve the definition of a particular DataType.  If the DataType is deleted, this will return the state of the DataType immediately prior to deletion.
+        /// Retrieve the definition of a particular DataType. If the DataType is deleted, this will return the state of the DataType immediately prior to deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityUniqueId">The universally unique identifier of the DataType definition.</param>
@@ -312,7 +312,7 @@ namespace Lusid.Sdk.Api
         /// GetDataTypeByEntityUniqueId: Get DataType by EntityUniqueId
         /// </summary>
         /// <remarks>
-        /// Retrieve the definition of a particular DataType.  If the DataType is deleted, this will return the state of the DataType immediately prior to deletion.
+        /// Retrieve the definition of a particular DataType. If the DataType is deleted, this will return the state of the DataType immediately prior to deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityUniqueId">The universally unique identifier of the DataType definition.</param>
@@ -333,9 +333,9 @@ namespace Lusid.Sdk.Api
         /// <param name="entityType">The type of the entity to list the change history for.</param>
         /// <param name="entityUniqueId">The universally unique identifier of the entity.</param>
         /// <param name="asAt">The asAt datetime at which to list change history information. Defaults to return the change history at the latest datetime if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing change history information from a previous call to list change              history information. This value is returned from the previous call. If a pagination token is provided the filter, sortBy              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing change history information from a previous call to list change             history information. This value is returned from the previous call. If a pagination token is provided the filter, sortBy             and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -353,9 +353,9 @@ namespace Lusid.Sdk.Api
         /// <param name="entityType">The type of the entity to list the change history for.</param>
         /// <param name="entityUniqueId">The universally unique identifier of the entity.</param>
         /// <param name="asAt">The asAt datetime at which to list change history information. Defaults to return the change history at the latest datetime if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing change history information from a previous call to list change              history information. This value is returned from the previous call. If a pagination token is provided the filter, sortBy              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing change history information from a previous call to list change             history information. This value is returned from the previous call. If a pagination token is provided the filter, sortBy             and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -366,7 +366,7 @@ namespace Lusid.Sdk.Api
         /// GetInstrumentByEntityUniqueId: Get instrument by EntityUniqueId
         /// </summary>
         /// <remarks>
-        /// Retrieve the definition of a particular instrument.  If the instrument is deleted, this will return the state of the instrument immediately prior to deletion.
+        /// Retrieve the definition of a particular instrument. If the instrument is deleted, this will return the state of the instrument immediately prior to deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityUniqueId">The universally unique identifier of the instrument definition.</param>
@@ -383,7 +383,7 @@ namespace Lusid.Sdk.Api
         /// GetInstrumentByEntityUniqueId: Get instrument by EntityUniqueId
         /// </summary>
         /// <remarks>
-        /// Retrieve the definition of a particular instrument.  If the instrument is deleted, this will return the state of the instrument immediately prior to deletion.
+        /// Retrieve the definition of a particular instrument. If the instrument is deleted, this will return the state of the instrument immediately prior to deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityUniqueId">The universally unique identifier of the instrument definition.</param>
@@ -399,7 +399,7 @@ namespace Lusid.Sdk.Api
         /// GetPortfolioByEntityUniqueId: Get portfolio by EntityUniqueId
         /// </summary>
         /// <remarks>
-        /// Retrieve the definition of a particular portfolio.  If the portfolio is deleted, this will return the state of the portfolio immediately prior to deletion.
+        /// Retrieve the definition of a particular portfolio. If the portfolio is deleted, this will return the state of the portfolio immediately prior to deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityUniqueId">The universally unique identifier of the portfolio definition.</param>
@@ -416,7 +416,7 @@ namespace Lusid.Sdk.Api
         /// GetPortfolioByEntityUniqueId: Get portfolio by EntityUniqueId
         /// </summary>
         /// <remarks>
-        /// Retrieve the definition of a particular portfolio.  If the portfolio is deleted, this will return the state of the portfolio immediately prior to deletion.
+        /// Retrieve the definition of a particular portfolio. If the portfolio is deleted, this will return the state of the portfolio immediately prior to deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityUniqueId">The universally unique identifier of the portfolio definition.</param>
@@ -432,7 +432,7 @@ namespace Lusid.Sdk.Api
         /// GetPortfolioChanges: Get the next change to each portfolio in a scope.
         /// </summary>
         /// <remarks>
-        /// Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time.  Includes changes from parent portfolios in different scopes.  Excludes changes from subscriptions (e.g corporate actions).
+        /// Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time. Includes changes from parent portfolios in different scopes. Excludes changes from subscriptions (e.g corporate actions).
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope</param>
@@ -448,7 +448,7 @@ namespace Lusid.Sdk.Api
         /// GetPortfolioChanges: Get the next change to each portfolio in a scope.
         /// </summary>
         /// <remarks>
-        /// Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time.  Includes changes from parent portfolios in different scopes.  Excludes changes from subscriptions (e.g corporate actions).
+        /// Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time. Includes changes from parent portfolios in different scopes. Excludes changes from subscriptions (e.g corporate actions).
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope</param>
@@ -463,7 +463,7 @@ namespace Lusid.Sdk.Api
         /// GetPropertyDefinitionByEntityUniqueId: Get property definition by EntityUniqueId
         /// </summary>
         /// <remarks>
-        /// Retrieve a particular property definition.  If the property definition is deleted, this will return the state of the property definition immediately prior to deletion.
+        /// Retrieve a particular property definition. If the property definition is deleted, this will return the state of the property definition immediately prior to deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityUniqueId">The universally unique identifier of the property definition.</param>
@@ -480,7 +480,7 @@ namespace Lusid.Sdk.Api
         /// GetPropertyDefinitionByEntityUniqueId: Get property definition by EntityUniqueId
         /// </summary>
         /// <remarks>
-        /// Retrieve a particular property definition.  If the property definition is deleted, this will return the state of the property definition immediately prior to deletion.
+        /// Retrieve a particular property definition. If the property definition is deleted, this will return the state of the property definition immediately prior to deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityUniqueId">The universally unique identifier of the property definition.</param>
@@ -616,7 +616,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// GetCustomEntityByEntityUniqueId: Get a Custom Entity instance by its EntityUniqueId Retrieve a particular Custom Entity instance.  If the Custom Entity is deleted, this will return the state of the Custom Entity immediately prior to deletion.
+        /// GetCustomEntityByEntityUniqueId: Get a Custom Entity instance by its EntityUniqueId Retrieve a particular Custom Entity instance. If the Custom Entity is deleted, this will return the state of the Custom Entity immediately prior to deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityUniqueId">The universally unique identifier of the Custom Entity.</param>
@@ -633,7 +633,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// GetCustomEntityByEntityUniqueId: Get a Custom Entity instance by its EntityUniqueId Retrieve a particular Custom Entity instance.  If the Custom Entity is deleted, this will return the state of the Custom Entity immediately prior to deletion.
+        /// GetCustomEntityByEntityUniqueId: Get a Custom Entity instance by its EntityUniqueId Retrieve a particular Custom Entity instance. If the Custom Entity is deleted, this will return the state of the Custom Entity immediately prior to deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityUniqueId">The universally unique identifier of the Custom Entity.</param>
@@ -734,7 +734,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// GetCustomEntityByEntityUniqueId: Get a Custom Entity instance by its EntityUniqueId Retrieve a particular Custom Entity instance.  If the Custom Entity is deleted, this will return the state of the Custom Entity immediately prior to deletion.
+        /// GetCustomEntityByEntityUniqueId: Get a Custom Entity instance by its EntityUniqueId Retrieve a particular Custom Entity instance. If the Custom Entity is deleted, this will return the state of the Custom Entity immediately prior to deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityUniqueId">The universally unique identifier of the Custom Entity.</param>
@@ -752,7 +752,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// GetCustomEntityByEntityUniqueId: Get a Custom Entity instance by its EntityUniqueId Retrieve a particular Custom Entity instance.  If the Custom Entity is deleted, this will return the state of the Custom Entity immediately prior to deletion.
+        /// GetCustomEntityByEntityUniqueId: Get a Custom Entity instance by its EntityUniqueId Retrieve a particular Custom Entity instance. If the Custom Entity is deleted, this will return the state of the Custom Entity immediately prior to deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityUniqueId">The universally unique identifier of the Custom Entity.</param>
@@ -856,7 +856,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// GetDataTypeByEntityUniqueId: Get DataType by EntityUniqueId Retrieve the definition of a particular DataType.  If the DataType is deleted, this will return the state of the DataType immediately prior to deletion.
+        /// GetDataTypeByEntityUniqueId: Get DataType by EntityUniqueId Retrieve the definition of a particular DataType. If the DataType is deleted, this will return the state of the DataType immediately prior to deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityUniqueId">The universally unique identifier of the DataType definition.</param>
@@ -872,7 +872,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// GetDataTypeByEntityUniqueId: Get DataType by EntityUniqueId Retrieve the definition of a particular DataType.  If the DataType is deleted, this will return the state of the DataType immediately prior to deletion.
+        /// GetDataTypeByEntityUniqueId: Get DataType by EntityUniqueId Retrieve the definition of a particular DataType. If the DataType is deleted, this will return the state of the DataType immediately prior to deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityUniqueId">The universally unique identifier of the DataType definition.</param>
@@ -968,7 +968,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// GetDataTypeByEntityUniqueId: Get DataType by EntityUniqueId Retrieve the definition of a particular DataType.  If the DataType is deleted, this will return the state of the DataType immediately prior to deletion.
+        /// GetDataTypeByEntityUniqueId: Get DataType by EntityUniqueId Retrieve the definition of a particular DataType. If the DataType is deleted, this will return the state of the DataType immediately prior to deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityUniqueId">The universally unique identifier of the DataType definition.</param>
@@ -985,7 +985,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// GetDataTypeByEntityUniqueId: Get DataType by EntityUniqueId Retrieve the definition of a particular DataType.  If the DataType is deleted, this will return the state of the DataType immediately prior to deletion.
+        /// GetDataTypeByEntityUniqueId: Get DataType by EntityUniqueId Retrieve the definition of a particular DataType. If the DataType is deleted, this will return the state of the DataType immediately prior to deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityUniqueId">The universally unique identifier of the DataType definition.</param>
@@ -1090,9 +1090,9 @@ namespace Lusid.Sdk.Api
         /// <param name="entityType">The type of the entity to list the change history for.</param>
         /// <param name="entityUniqueId">The universally unique identifier of the entity.</param>
         /// <param name="asAt">The asAt datetime at which to list change history information. Defaults to return the change history at the latest datetime if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing change history information from a previous call to list change              history information. This value is returned from the previous call. If a pagination token is provided the filter, sortBy              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing change history information from a previous call to list change             history information. This value is returned from the previous call. If a pagination token is provided the filter, sortBy             and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1110,9 +1110,9 @@ namespace Lusid.Sdk.Api
         /// <param name="entityType">The type of the entity to list the change history for.</param>
         /// <param name="entityUniqueId">The universally unique identifier of the entity.</param>
         /// <param name="asAt">The asAt datetime at which to list change history information. Defaults to return the change history at the latest datetime if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing change history information from a previous call to list change              history information. This value is returned from the previous call. If a pagination token is provided the filter, sortBy              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing change history information from a previous call to list change             history information. This value is returned from the previous call. If a pagination token is provided the filter, sortBy             and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1229,9 +1229,9 @@ namespace Lusid.Sdk.Api
         /// <param name="entityType">The type of the entity to list the change history for.</param>
         /// <param name="entityUniqueId">The universally unique identifier of the entity.</param>
         /// <param name="asAt">The asAt datetime at which to list change history information. Defaults to return the change history at the latest datetime if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing change history information from a previous call to list change              history information. This value is returned from the previous call. If a pagination token is provided the filter, sortBy              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing change history information from a previous call to list change             history information. This value is returned from the previous call. If a pagination token is provided the filter, sortBy             and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1250,9 +1250,9 @@ namespace Lusid.Sdk.Api
         /// <param name="entityType">The type of the entity to list the change history for.</param>
         /// <param name="entityUniqueId">The universally unique identifier of the entity.</param>
         /// <param name="asAt">The asAt datetime at which to list change history information. Defaults to return the change history at the latest datetime if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing change history information from a previous call to list change              history information. This value is returned from the previous call. If a pagination token is provided the filter, sortBy              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing change history information from a previous call to list change             history information. This value is returned from the previous call. If a pagination token is provided the filter, sortBy             and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1366,7 +1366,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// GetInstrumentByEntityUniqueId: Get instrument by EntityUniqueId Retrieve the definition of a particular instrument.  If the instrument is deleted, this will return the state of the instrument immediately prior to deletion.
+        /// GetInstrumentByEntityUniqueId: Get instrument by EntityUniqueId Retrieve the definition of a particular instrument. If the instrument is deleted, this will return the state of the instrument immediately prior to deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityUniqueId">The universally unique identifier of the instrument definition.</param>
@@ -1383,7 +1383,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// GetInstrumentByEntityUniqueId: Get instrument by EntityUniqueId Retrieve the definition of a particular instrument.  If the instrument is deleted, this will return the state of the instrument immediately prior to deletion.
+        /// GetInstrumentByEntityUniqueId: Get instrument by EntityUniqueId Retrieve the definition of a particular instrument. If the instrument is deleted, this will return the state of the instrument immediately prior to deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityUniqueId">The universally unique identifier of the instrument definition.</param>
@@ -1484,7 +1484,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// GetInstrumentByEntityUniqueId: Get instrument by EntityUniqueId Retrieve the definition of a particular instrument.  If the instrument is deleted, this will return the state of the instrument immediately prior to deletion.
+        /// GetInstrumentByEntityUniqueId: Get instrument by EntityUniqueId Retrieve the definition of a particular instrument. If the instrument is deleted, this will return the state of the instrument immediately prior to deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityUniqueId">The universally unique identifier of the instrument definition.</param>
@@ -1502,7 +1502,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// GetInstrumentByEntityUniqueId: Get instrument by EntityUniqueId Retrieve the definition of a particular instrument.  If the instrument is deleted, this will return the state of the instrument immediately prior to deletion.
+        /// GetInstrumentByEntityUniqueId: Get instrument by EntityUniqueId Retrieve the definition of a particular instrument. If the instrument is deleted, this will return the state of the instrument immediately prior to deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityUniqueId">The universally unique identifier of the instrument definition.</param>
@@ -1606,7 +1606,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// GetPortfolioByEntityUniqueId: Get portfolio by EntityUniqueId Retrieve the definition of a particular portfolio.  If the portfolio is deleted, this will return the state of the portfolio immediately prior to deletion.
+        /// GetPortfolioByEntityUniqueId: Get portfolio by EntityUniqueId Retrieve the definition of a particular portfolio. If the portfolio is deleted, this will return the state of the portfolio immediately prior to deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityUniqueId">The universally unique identifier of the portfolio definition.</param>
@@ -1623,7 +1623,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// GetPortfolioByEntityUniqueId: Get portfolio by EntityUniqueId Retrieve the definition of a particular portfolio.  If the portfolio is deleted, this will return the state of the portfolio immediately prior to deletion.
+        /// GetPortfolioByEntityUniqueId: Get portfolio by EntityUniqueId Retrieve the definition of a particular portfolio. If the portfolio is deleted, this will return the state of the portfolio immediately prior to deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityUniqueId">The universally unique identifier of the portfolio definition.</param>
@@ -1724,7 +1724,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// GetPortfolioByEntityUniqueId: Get portfolio by EntityUniqueId Retrieve the definition of a particular portfolio.  If the portfolio is deleted, this will return the state of the portfolio immediately prior to deletion.
+        /// GetPortfolioByEntityUniqueId: Get portfolio by EntityUniqueId Retrieve the definition of a particular portfolio. If the portfolio is deleted, this will return the state of the portfolio immediately prior to deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityUniqueId">The universally unique identifier of the portfolio definition.</param>
@@ -1742,7 +1742,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// GetPortfolioByEntityUniqueId: Get portfolio by EntityUniqueId Retrieve the definition of a particular portfolio.  If the portfolio is deleted, this will return the state of the portfolio immediately prior to deletion.
+        /// GetPortfolioByEntityUniqueId: Get portfolio by EntityUniqueId Retrieve the definition of a particular portfolio. If the portfolio is deleted, this will return the state of the portfolio immediately prior to deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityUniqueId">The universally unique identifier of the portfolio definition.</param>
@@ -1846,7 +1846,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// GetPortfolioChanges: Get the next change to each portfolio in a scope. Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time.  Includes changes from parent portfolios in different scopes.  Excludes changes from subscriptions (e.g corporate actions).
+        /// GetPortfolioChanges: Get the next change to each portfolio in a scope. Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time. Includes changes from parent portfolios in different scopes. Excludes changes from subscriptions (e.g corporate actions).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope</param>
@@ -1862,7 +1862,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// GetPortfolioChanges: Get the next change to each portfolio in a scope. Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time.  Includes changes from parent portfolios in different scopes.  Excludes changes from subscriptions (e.g corporate actions).
+        /// GetPortfolioChanges: Get the next change to each portfolio in a scope. Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time. Includes changes from parent portfolios in different scopes. Excludes changes from subscriptions (e.g corporate actions).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope</param>
@@ -1961,7 +1961,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// GetPortfolioChanges: Get the next change to each portfolio in a scope. Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time.  Includes changes from parent portfolios in different scopes.  Excludes changes from subscriptions (e.g corporate actions).
+        /// GetPortfolioChanges: Get the next change to each portfolio in a scope. Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time. Includes changes from parent portfolios in different scopes. Excludes changes from subscriptions (e.g corporate actions).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope</param>
@@ -1978,7 +1978,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// GetPortfolioChanges: Get the next change to each portfolio in a scope. Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time.  Includes changes from parent portfolios in different scopes.  Excludes changes from subscriptions (e.g corporate actions).
+        /// GetPortfolioChanges: Get the next change to each portfolio in a scope. Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time. Includes changes from parent portfolios in different scopes. Excludes changes from subscriptions (e.g corporate actions).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope</param>
@@ -2080,7 +2080,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// GetPropertyDefinitionByEntityUniqueId: Get property definition by EntityUniqueId Retrieve a particular property definition.  If the property definition is deleted, this will return the state of the property definition immediately prior to deletion.
+        /// GetPropertyDefinitionByEntityUniqueId: Get property definition by EntityUniqueId Retrieve a particular property definition. If the property definition is deleted, this will return the state of the property definition immediately prior to deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityUniqueId">The universally unique identifier of the property definition.</param>
@@ -2097,7 +2097,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// GetPropertyDefinitionByEntityUniqueId: Get property definition by EntityUniqueId Retrieve a particular property definition.  If the property definition is deleted, this will return the state of the property definition immediately prior to deletion.
+        /// GetPropertyDefinitionByEntityUniqueId: Get property definition by EntityUniqueId Retrieve a particular property definition. If the property definition is deleted, this will return the state of the property definition immediately prior to deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityUniqueId">The universally unique identifier of the property definition.</param>
@@ -2198,7 +2198,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// GetPropertyDefinitionByEntityUniqueId: Get property definition by EntityUniqueId Retrieve a particular property definition.  If the property definition is deleted, this will return the state of the property definition immediately prior to deletion.
+        /// GetPropertyDefinitionByEntityUniqueId: Get property definition by EntityUniqueId Retrieve a particular property definition. If the property definition is deleted, this will return the state of the property definition immediately prior to deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityUniqueId">The universally unique identifier of the property definition.</param>
@@ -2216,7 +2216,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// GetPropertyDefinitionByEntityUniqueId: Get property definition by EntityUniqueId Retrieve a particular property definition.  If the property definition is deleted, this will return the state of the property definition immediately prior to deletion.
+        /// GetPropertyDefinitionByEntityUniqueId: Get property definition by EntityUniqueId Retrieve a particular property definition. If the property definition is deleted, this will return the state of the property definition immediately prior to deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityUniqueId">The universally unique identifier of the property definition.</param>

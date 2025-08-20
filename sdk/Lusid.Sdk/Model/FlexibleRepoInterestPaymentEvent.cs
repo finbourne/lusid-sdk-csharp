@@ -24,7 +24,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Definition of FlexibleRepoInterestPaymentEvent, which represents the regular interest payments associated with an  open repo contract modelled as a FlexibleRepo.
+    /// Definition of FlexibleRepoInterestPaymentEvent, which represents the regular interest payments associated with an open repo contract modelled as a FlexibleRepo.
     /// </summary>
     [DataContract(Name = "FlexibleRepoInterestPaymentEvent")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentEventType")]
@@ -41,7 +41,7 @@ namespace Lusid.Sdk.Model
         /// <param name="settlementDate">Settlement date of the interest payment. This is a required field..</param>
         /// <param name="entitlementDate">EntitlementDate of the interest payment. This is a required field..</param>
         /// <param name="currency">Currency of the interest payment. This is a required field. (required).</param>
-        /// <param name="interestPerUnit">Interest payment per unit held of the FlexibleRepo. This field is optional. If not specified, the system  will not generate a virtual transaction for this event.</param>
+        /// <param name="interestPerUnit">Interest payment per unit held of the FlexibleRepo. This field is optional. If not specified, the system will not generate a virtual transaction for this event.</param>
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent (required) (default to &quot;FlexibleRepoInterestPaymentEvent&quot;).</param>
         public FlexibleRepoInterestPaymentEvent(DateTimeOffset settlementDate = default(DateTimeOffset), DateTimeOffset entitlementDate = default(DateTimeOffset), string currency = default(string), decimal? interestPerUnit = default(decimal?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
@@ -78,9 +78,9 @@ namespace Lusid.Sdk.Model
         public string Currency { get; set; }
 
         /// <summary>
-        /// Interest payment per unit held of the FlexibleRepo. This field is optional. If not specified, the system  will not generate a virtual transaction for this event
+        /// Interest payment per unit held of the FlexibleRepo. This field is optional. If not specified, the system will not generate a virtual transaction for this event
         /// </summary>
-        /// <value>Interest payment per unit held of the FlexibleRepo. This field is optional. If not specified, the system  will not generate a virtual transaction for this event</value>
+        /// <value>Interest payment per unit held of the FlexibleRepo. This field is optional. If not specified, the system will not generate a virtual transaction for this event</value>
         [DataMember(Name = "interestPerUnit", EmitDefaultValue = true)]
         public decimal? InterestPerUnit { get; set; }
 

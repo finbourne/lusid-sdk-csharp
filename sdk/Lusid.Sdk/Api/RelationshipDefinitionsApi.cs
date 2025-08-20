@@ -64,7 +64,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relationship definition to be deleted.</param>
-        /// <param name="code">The code of the relationship definition to be deleted. Together with the domain and scope this uniquely              identifies the relationship.</param>
+        /// <param name="code">The code of the relationship definition to be deleted. Together with the domain and scope this uniquely             identifies the relationship.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
@@ -78,7 +78,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relationship definition to be deleted.</param>
-        /// <param name="code">The code of the relationship definition to be deleted. Together with the domain and scope this uniquely              identifies the relationship.</param>
+        /// <param name="code">The code of the relationship definition to be deleted. Together with the domain and scope this uniquely             identifies the relationship.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
@@ -91,8 +91,8 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified relationship definition.</param>
-        /// <param name="code">The code of the specified relationship definition. Together with the domain and scope this uniquely              identifies the relationship definition.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the relationship definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
+        /// <param name="code">The code of the specified relationship definition. Together with the domain and scope this uniquely             identifies the relationship definition.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the relationship definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>RelationshipDefinition</returns>
@@ -106,8 +106,8 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified relationship definition.</param>
-        /// <param name="code">The code of the specified relationship definition. Together with the domain and scope this uniquely              identifies the relationship definition.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the relationship definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
+        /// <param name="code">The code of the specified relationship definition. Together with the domain and scope this uniquely             identifies the relationship definition.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the relationship definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of RelationshipDefinition</returns>
@@ -119,10 +119,10 @@ namespace Lusid.Sdk.Api
         /// Retrieve one or more specified relationship definitions.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve the relationship definitions. Defaults to return              the latest version of each definition if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing relationship definitions from a previous call to list relationship definitions. This  value is returned from the previous call. If a pagination token is provided the filter, sortBy and asAt field  must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the relationship definitions. Defaults to return             the latest version of each definition if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing relationship definitions from a previous call to list relationship definitions. This value is returned from the previous call. If a pagination token is provided the filter, sortBy and asAt field must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              For example, to filter on the Scope, use \&quot;scope eq &#39;ExampleScope&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.             For example, to filter on the Scope, use \&quot;scope eq &#39;ExampleScope&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -136,10 +136,10 @@ namespace Lusid.Sdk.Api
         /// Retrieve one or more specified relationship definitions.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve the relationship definitions. Defaults to return              the latest version of each definition if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing relationship definitions from a previous call to list relationship definitions. This  value is returned from the previous call. If a pagination token is provided the filter, sortBy and asAt field  must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the relationship definitions. Defaults to return             the latest version of each definition if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing relationship definitions from a previous call to list relationship definitions. This value is returned from the previous call. If a pagination token is provided the filter, sortBy and asAt field must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              For example, to filter on the Scope, use \&quot;scope eq &#39;ExampleScope&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.             For example, to filter on the Scope, use \&quot;scope eq &#39;ExampleScope&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -149,11 +149,11 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] UpdateRelationshipDefinition: Update Relationship Definition
         /// </summary>
         /// <remarks>
-        /// Update the definition of a specified existing relationship. Not all elements within a relationship definition  are modifiable due to the potential implications for values already stored against the relationship.
+        /// Update the definition of a specified existing relationship. Not all elements within a relationship definition are modifiable due to the potential implications for values already stored against the relationship.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relationship definition being updated.</param>
-        /// <param name="code">The code of the relationship definition being updated. Together with the scope this uniquely              identifies the relationship definition.</param>
+        /// <param name="code">The code of the relationship definition being updated. Together with the scope this uniquely             identifies the relationship definition.</param>
         /// <param name="updateRelationshipDefinitionRequest">The details of relationship definition to update.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -164,11 +164,11 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] UpdateRelationshipDefinition: Update Relationship Definition
         /// </summary>
         /// <remarks>
-        /// Update the definition of a specified existing relationship. Not all elements within a relationship definition  are modifiable due to the potential implications for values already stored against the relationship.
+        /// Update the definition of a specified existing relationship. Not all elements within a relationship definition are modifiable due to the potential implications for values already stored against the relationship.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relationship definition being updated.</param>
-        /// <param name="code">The code of the relationship definition being updated. Together with the scope this uniquely              identifies the relationship definition.</param>
+        /// <param name="code">The code of the relationship definition being updated. Together with the scope this uniquely             identifies the relationship definition.</param>
         /// <param name="updateRelationshipDefinitionRequest">The details of relationship definition to update.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -218,7 +218,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relationship definition to be deleted.</param>
-        /// <param name="code">The code of the relationship definition to be deleted. Together with the domain and scope this uniquely              identifies the relationship.</param>
+        /// <param name="code">The code of the relationship definition to be deleted. Together with the domain and scope this uniquely             identifies the relationship.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -233,7 +233,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relationship definition to be deleted.</param>
-        /// <param name="code">The code of the relationship definition to be deleted. Together with the domain and scope this uniquely              identifies the relationship.</param>
+        /// <param name="code">The code of the relationship definition to be deleted. Together with the domain and scope this uniquely             identifies the relationship.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -247,8 +247,8 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified relationship definition.</param>
-        /// <param name="code">The code of the specified relationship definition. Together with the domain and scope this uniquely              identifies the relationship definition.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the relationship definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
+        /// <param name="code">The code of the specified relationship definition. Together with the domain and scope this uniquely             identifies the relationship definition.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the relationship definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -263,8 +263,8 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified relationship definition.</param>
-        /// <param name="code">The code of the specified relationship definition. Together with the domain and scope this uniquely              identifies the relationship definition.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the relationship definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
+        /// <param name="code">The code of the specified relationship definition. Together with the domain and scope this uniquely             identifies the relationship definition.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the relationship definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -277,10 +277,10 @@ namespace Lusid.Sdk.Api
         /// Retrieve one or more specified relationship definitions.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve the relationship definitions. Defaults to return              the latest version of each definition if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing relationship definitions from a previous call to list relationship definitions. This  value is returned from the previous call. If a pagination token is provided the filter, sortBy and asAt field  must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the relationship definitions. Defaults to return             the latest version of each definition if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing relationship definitions from a previous call to list relationship definitions. This value is returned from the previous call. If a pagination token is provided the filter, sortBy and asAt field must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              For example, to filter on the Scope, use \&quot;scope eq &#39;ExampleScope&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.             For example, to filter on the Scope, use \&quot;scope eq &#39;ExampleScope&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -295,10 +295,10 @@ namespace Lusid.Sdk.Api
         /// Retrieve one or more specified relationship definitions.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve the relationship definitions. Defaults to return              the latest version of each definition if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing relationship definitions from a previous call to list relationship definitions. This  value is returned from the previous call. If a pagination token is provided the filter, sortBy and asAt field  must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the relationship definitions. Defaults to return             the latest version of each definition if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing relationship definitions from a previous call to list relationship definitions. This value is returned from the previous call. If a pagination token is provided the filter, sortBy and asAt field must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              For example, to filter on the Scope, use \&quot;scope eq &#39;ExampleScope&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.             For example, to filter on the Scope, use \&quot;scope eq &#39;ExampleScope&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -309,11 +309,11 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] UpdateRelationshipDefinition: Update Relationship Definition
         /// </summary>
         /// <remarks>
-        /// Update the definition of a specified existing relationship. Not all elements within a relationship definition  are modifiable due to the potential implications for values already stored against the relationship.
+        /// Update the definition of a specified existing relationship. Not all elements within a relationship definition are modifiable due to the potential implications for values already stored against the relationship.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relationship definition being updated.</param>
-        /// <param name="code">The code of the relationship definition being updated. Together with the scope this uniquely              identifies the relationship definition.</param>
+        /// <param name="code">The code of the relationship definition being updated. Together with the scope this uniquely             identifies the relationship definition.</param>
         /// <param name="updateRelationshipDefinitionRequest">The details of relationship definition to update.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -325,11 +325,11 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] UpdateRelationshipDefinition: Update Relationship Definition
         /// </summary>
         /// <remarks>
-        /// Update the definition of a specified existing relationship. Not all elements within a relationship definition  are modifiable due to the potential implications for values already stored against the relationship.
+        /// Update the definition of a specified existing relationship. Not all elements within a relationship definition are modifiable due to the potential implications for values already stored against the relationship.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relationship definition being updated.</param>
-        /// <param name="code">The code of the relationship definition being updated. Together with the scope this uniquely              identifies the relationship definition.</param>
+        /// <param name="code">The code of the relationship definition being updated. Together with the scope this uniquely             identifies the relationship definition.</param>
         /// <param name="updateRelationshipDefinitionRequest">The details of relationship definition to update.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -676,7 +676,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relationship definition to be deleted.</param>
-        /// <param name="code">The code of the relationship definition to be deleted. Together with the domain and scope this uniquely              identifies the relationship.</param>
+        /// <param name="code">The code of the relationship definition to be deleted. Together with the domain and scope this uniquely             identifies the relationship.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
@@ -691,7 +691,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relationship definition to be deleted.</param>
-        /// <param name="code">The code of the relationship definition to be deleted. Together with the domain and scope this uniquely              identifies the relationship.</param>
+        /// <param name="code">The code of the relationship definition to be deleted. Together with the domain and scope this uniquely             identifies the relationship.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
@@ -785,7 +785,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relationship definition to be deleted.</param>
-        /// <param name="code">The code of the relationship definition to be deleted. Together with the domain and scope this uniquely              identifies the relationship.</param>
+        /// <param name="code">The code of the relationship definition to be deleted. Together with the domain and scope this uniquely             identifies the relationship.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -801,7 +801,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relationship definition to be deleted.</param>
-        /// <param name="code">The code of the relationship definition to be deleted. Together with the domain and scope this uniquely              identifies the relationship.</param>
+        /// <param name="code">The code of the relationship definition to be deleted. Together with the domain and scope this uniquely             identifies the relationship.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -898,8 +898,8 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified relationship definition.</param>
-        /// <param name="code">The code of the specified relationship definition. Together with the domain and scope this uniquely              identifies the relationship definition.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the relationship definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
+        /// <param name="code">The code of the specified relationship definition. Together with the domain and scope this uniquely             identifies the relationship definition.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the relationship definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>RelationshipDefinition</returns>
@@ -914,8 +914,8 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified relationship definition.</param>
-        /// <param name="code">The code of the specified relationship definition. Together with the domain and scope this uniquely              identifies the relationship definition.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the relationship definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
+        /// <param name="code">The code of the specified relationship definition. Together with the domain and scope this uniquely             identifies the relationship definition.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the relationship definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of RelationshipDefinition</returns>
@@ -1013,8 +1013,8 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified relationship definition.</param>
-        /// <param name="code">The code of the specified relationship definition. Together with the domain and scope this uniquely              identifies the relationship definition.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the relationship definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
+        /// <param name="code">The code of the specified relationship definition. Together with the domain and scope this uniquely             identifies the relationship definition.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the relationship definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1030,8 +1030,8 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified relationship definition.</param>
-        /// <param name="code">The code of the specified relationship definition. Together with the domain and scope this uniquely              identifies the relationship definition.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the relationship definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
+        /// <param name="code">The code of the specified relationship definition. Together with the domain and scope this uniquely             identifies the relationship definition.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the relationship definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1131,10 +1131,10 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] ListRelationshipDefinitions: List relationship definitions Retrieve one or more specified relationship definitions.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve the relationship definitions. Defaults to return              the latest version of each definition if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing relationship definitions from a previous call to list relationship definitions. This  value is returned from the previous call. If a pagination token is provided the filter, sortBy and asAt field  must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the relationship definitions. Defaults to return             the latest version of each definition if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing relationship definitions from a previous call to list relationship definitions. This value is returned from the previous call. If a pagination token is provided the filter, sortBy and asAt field must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              For example, to filter on the Scope, use \&quot;scope eq &#39;ExampleScope&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.             For example, to filter on the Scope, use \&quot;scope eq &#39;ExampleScope&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1149,10 +1149,10 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] ListRelationshipDefinitions: List relationship definitions Retrieve one or more specified relationship definitions.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve the relationship definitions. Defaults to return              the latest version of each definition if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing relationship definitions from a previous call to list relationship definitions. This  value is returned from the previous call. If a pagination token is provided the filter, sortBy and asAt field  must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the relationship definitions. Defaults to return             the latest version of each definition if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing relationship definitions from a previous call to list relationship definitions. This value is returned from the previous call. If a pagination token is provided the filter, sortBy and asAt field must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              For example, to filter on the Scope, use \&quot;scope eq &#39;ExampleScope&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.             For example, to filter on the Scope, use \&quot;scope eq &#39;ExampleScope&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1252,10 +1252,10 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] ListRelationshipDefinitions: List relationship definitions Retrieve one or more specified relationship definitions.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve the relationship definitions. Defaults to return              the latest version of each definition if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing relationship definitions from a previous call to list relationship definitions. This  value is returned from the previous call. If a pagination token is provided the filter, sortBy and asAt field  must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the relationship definitions. Defaults to return             the latest version of each definition if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing relationship definitions from a previous call to list relationship definitions. This value is returned from the previous call. If a pagination token is provided the filter, sortBy and asAt field must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              For example, to filter on the Scope, use \&quot;scope eq &#39;ExampleScope&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.             For example, to filter on the Scope, use \&quot;scope eq &#39;ExampleScope&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1271,10 +1271,10 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] ListRelationshipDefinitions: List relationship definitions Retrieve one or more specified relationship definitions.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve the relationship definitions. Defaults to return              the latest version of each definition if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing relationship definitions from a previous call to list relationship definitions. This  value is returned from the previous call. If a pagination token is provided the filter, sortBy and asAt field  must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the relationship definitions. Defaults to return             the latest version of each definition if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing relationship definitions from a previous call to list relationship definitions. This value is returned from the previous call. If a pagination token is provided the filter, sortBy and asAt field must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              For example, to filter on the Scope, use \&quot;scope eq &#39;ExampleScope&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.             For example, to filter on the Scope, use \&quot;scope eq &#39;ExampleScope&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1374,11 +1374,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpdateRelationshipDefinition: Update Relationship Definition Update the definition of a specified existing relationship. Not all elements within a relationship definition  are modifiable due to the potential implications for values already stored against the relationship.
+        /// [EARLY ACCESS] UpdateRelationshipDefinition: Update Relationship Definition Update the definition of a specified existing relationship. Not all elements within a relationship definition are modifiable due to the potential implications for values already stored against the relationship.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relationship definition being updated.</param>
-        /// <param name="code">The code of the relationship definition being updated. Together with the scope this uniquely              identifies the relationship definition.</param>
+        /// <param name="code">The code of the relationship definition being updated. Together with the scope this uniquely             identifies the relationship definition.</param>
         /// <param name="updateRelationshipDefinitionRequest">The details of relationship definition to update.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1390,11 +1390,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpdateRelationshipDefinition: Update Relationship Definition Update the definition of a specified existing relationship. Not all elements within a relationship definition  are modifiable due to the potential implications for values already stored against the relationship.
+        /// [EARLY ACCESS] UpdateRelationshipDefinition: Update Relationship Definition Update the definition of a specified existing relationship. Not all elements within a relationship definition are modifiable due to the potential implications for values already stored against the relationship.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relationship definition being updated.</param>
-        /// <param name="code">The code of the relationship definition being updated. Together with the scope this uniquely              identifies the relationship definition.</param>
+        /// <param name="code">The code of the relationship definition being updated. Together with the scope this uniquely             identifies the relationship definition.</param>
         /// <param name="updateRelationshipDefinitionRequest">The details of relationship definition to update.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1496,11 +1496,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpdateRelationshipDefinition: Update Relationship Definition Update the definition of a specified existing relationship. Not all elements within a relationship definition  are modifiable due to the potential implications for values already stored against the relationship.
+        /// [EARLY ACCESS] UpdateRelationshipDefinition: Update Relationship Definition Update the definition of a specified existing relationship. Not all elements within a relationship definition are modifiable due to the potential implications for values already stored against the relationship.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relationship definition being updated.</param>
-        /// <param name="code">The code of the relationship definition being updated. Together with the scope this uniquely              identifies the relationship definition.</param>
+        /// <param name="code">The code of the relationship definition being updated. Together with the scope this uniquely             identifies the relationship definition.</param>
         /// <param name="updateRelationshipDefinitionRequest">The details of relationship definition to update.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1513,11 +1513,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpdateRelationshipDefinition: Update Relationship Definition Update the definition of a specified existing relationship. Not all elements within a relationship definition  are modifiable due to the potential implications for values already stored against the relationship.
+        /// [EARLY ACCESS] UpdateRelationshipDefinition: Update Relationship Definition Update the definition of a specified existing relationship. Not all elements within a relationship definition are modifiable due to the potential implications for values already stored against the relationship.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relationship definition being updated.</param>
-        /// <param name="code">The code of the relationship definition being updated. Together with the scope this uniquely              identifies the relationship definition.</param>
+        /// <param name="code">The code of the relationship definition being updated. Together with the scope this uniquely             identifies the relationship definition.</param>
         /// <param name="updateRelationshipDefinitionRequest">The details of relationship definition to update.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>

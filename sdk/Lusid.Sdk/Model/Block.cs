@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// A block of orders for the same instrument, intended to record for example a trader&#39;s aggregation  of outstanding orders at a given time.
+    /// A block of orders for the same instrument, intended to record for example a trader&#39;s aggregation of outstanding orders at a given time.
     /// </summary>
     [DataContract(Name = "Block")]
     public partial class Block : IEquatable<Block>, IValidatableObject

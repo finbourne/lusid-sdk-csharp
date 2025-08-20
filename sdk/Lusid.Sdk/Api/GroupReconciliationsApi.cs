@@ -35,13 +35,13 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] BatchUpdateComparisonResults: Add User Review entries for a range of comparison results related to a specific GroupReconciliationDefinition.
         /// </summary>
         /// <remarks>
-        /// Allows to update multiple Group Reconciliation Comparison Results related to the same definition specified by the Finbourne.Identifiers.Abstractions.Scope and Finbourne.Identifiers.Abstractions.Code.  Updates User Review with new entries and sets the relevant Review Status.  Supports partial success when all the entries that haven&#39;t passed validation or are not related to the definition will be returned with respectful error details.
+        /// Allows to update multiple Group Reconciliation Comparison Results related to the same definition specified by the Finbourne.Identifiers.Abstractions.Scope and Finbourne.Identifiers.Abstractions.Code. Updates User Review with new entries and sets the relevant Review Status. Supports partial success when all the entries that haven&#39;t passed validation or are not related to the definition will be returned with respectful error details.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Shared Scope of the GroupReconciliationDefinition and GroupReconciliationComparisonResults.</param>
         /// <param name="code">GroupReconciliationDefinitionId code.</param>
-        /// <param name="batchUpdateUserReviewForComparisonResultRequest">A collection of the comparison result Ids and their user review entries to be added or removed.                  Single request contains resultId, break code/match key/comment to add and break code/match key/comment to remove by added timestamp.</param>
-        /// <param name="successMode">Defines whether the request should fail if at least one of the entries is failed to update                  or process all the entries regardless and return collections of successful and failed updates. \&quot;Partial\&quot; (default) | \&quot;Atomic\&quot;. (optional, default to &quot;Partial&quot;)</param>
+        /// <param name="batchUpdateUserReviewForComparisonResultRequest">A collection of the comparison result Ids and their user review entries to be added or removed.                 Single request contains resultId, break code/match key/comment to add and break code/match key/comment to remove by added timestamp.</param>
+        /// <param name="successMode">Defines whether the request should fail if at least one of the entries is failed to update                 or process all the entries regardless and return collections of successful and failed updates. \&quot;Partial\&quot; (default) | \&quot;Atomic\&quot;. (optional, default to &quot;Partial&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>BatchUpdateUserReviewForComparisonResultResponse</returns>
@@ -51,13 +51,13 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] BatchUpdateComparisonResults: Add User Review entries for a range of comparison results related to a specific GroupReconciliationDefinition.
         /// </summary>
         /// <remarks>
-        /// Allows to update multiple Group Reconciliation Comparison Results related to the same definition specified by the Finbourne.Identifiers.Abstractions.Scope and Finbourne.Identifiers.Abstractions.Code.  Updates User Review with new entries and sets the relevant Review Status.  Supports partial success when all the entries that haven&#39;t passed validation or are not related to the definition will be returned with respectful error details.
+        /// Allows to update multiple Group Reconciliation Comparison Results related to the same definition specified by the Finbourne.Identifiers.Abstractions.Scope and Finbourne.Identifiers.Abstractions.Code. Updates User Review with new entries and sets the relevant Review Status. Supports partial success when all the entries that haven&#39;t passed validation or are not related to the definition will be returned with respectful error details.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Shared Scope of the GroupReconciliationDefinition and GroupReconciliationComparisonResults.</param>
         /// <param name="code">GroupReconciliationDefinitionId code.</param>
-        /// <param name="batchUpdateUserReviewForComparisonResultRequest">A collection of the comparison result Ids and their user review entries to be added or removed.                  Single request contains resultId, break code/match key/comment to add and break code/match key/comment to remove by added timestamp.</param>
-        /// <param name="successMode">Defines whether the request should fail if at least one of the entries is failed to update                  or process all the entries regardless and return collections of successful and failed updates. \&quot;Partial\&quot; (default) | \&quot;Atomic\&quot;. (optional, default to &quot;Partial&quot;)</param>
+        /// <param name="batchUpdateUserReviewForComparisonResultRequest">A collection of the comparison result Ids and their user review entries to be added or removed.                 Single request contains resultId, break code/match key/comment to add and break code/match key/comment to remove by added timestamp.</param>
+        /// <param name="successMode">Defines whether the request should fail if at least one of the entries is failed to update                 or process all the entries regardless and return collections of successful and failed updates. \&quot;Partial\&quot; (default) | \&quot;Atomic\&quot;. (optional, default to &quot;Partial&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of BatchUpdateUserReviewForComparisonResultResponse</returns>
@@ -116,11 +116,11 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] DeleteComparisonRuleset: Deletes a particular Group Reconciliation Comparison Ruleset
         /// </summary>
         /// <remarks>
-        /// The deletion will take effect from the reconciliation comparison ruleset deletion datetime.  i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
+        /// The deletion will take effect from the reconciliation comparison ruleset deletion datetime. i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified comparison ruleset.</param>
-        /// <param name="code">The code of the specified comparison ruleset. Together with the domain and scope this uniquely              identifies the reconciliation comparison ruleset.</param>
+        /// <param name="code">The code of the specified comparison ruleset. Together with the domain and scope this uniquely             identifies the reconciliation comparison ruleset.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
@@ -130,11 +130,11 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] DeleteComparisonRuleset: Deletes a particular Group Reconciliation Comparison Ruleset
         /// </summary>
         /// <remarks>
-        /// The deletion will take effect from the reconciliation comparison ruleset deletion datetime.  i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
+        /// The deletion will take effect from the reconciliation comparison ruleset deletion datetime. i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified comparison ruleset.</param>
-        /// <param name="code">The code of the specified comparison ruleset. Together with the domain and scope this uniquely              identifies the reconciliation comparison ruleset.</param>
+        /// <param name="code">The code of the specified comparison ruleset. Together with the domain and scope this uniquely             identifies the reconciliation comparison ruleset.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
@@ -170,13 +170,13 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetComparisonResult: Get a single Group Reconciliation Comparison Result by scope and code.
         /// </summary>
         /// <remarks>
-        /// Retrieves one Group Reconciliation Comparison Result by scope and code  with the prior validation that its related reconciliation definition exists.
+        /// Retrieves one Group Reconciliation Comparison Result by scope and code with the prior validation that its related reconciliation definition exists.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified comparison result and its related reconciliation definition.</param>
         /// <param name="code">The code of the reconciliation definition that was used to produce the reconciliation result.</param>
-        /// <param name="resultId">The code of the specified reconciliation result. Together with the domain and scope this uniquely              identifies the reconciliation comparison result. This value is also the same as the computed result hash based on property values.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the comparison result definition. Defaults to return              the latest version if not specified. (optional)</param>
+        /// <param name="resultId">The code of the specified reconciliation result. Together with the domain and scope this uniquely             identifies the reconciliation comparison result. This value is also the same as the computed result hash based on property values.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the comparison result definition. Defaults to return             the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>GroupReconciliationComparisonResult</returns>
@@ -186,13 +186,13 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetComparisonResult: Get a single Group Reconciliation Comparison Result by scope and code.
         /// </summary>
         /// <remarks>
-        /// Retrieves one Group Reconciliation Comparison Result by scope and code  with the prior validation that its related reconciliation definition exists.
+        /// Retrieves one Group Reconciliation Comparison Result by scope and code with the prior validation that its related reconciliation definition exists.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified comparison result and its related reconciliation definition.</param>
         /// <param name="code">The code of the reconciliation definition that was used to produce the reconciliation result.</param>
-        /// <param name="resultId">The code of the specified reconciliation result. Together with the domain and scope this uniquely              identifies the reconciliation comparison result. This value is also the same as the computed result hash based on property values.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the comparison result definition. Defaults to return              the latest version if not specified. (optional)</param>
+        /// <param name="resultId">The code of the specified reconciliation result. Together with the domain and scope this uniquely             identifies the reconciliation comparison result. This value is also the same as the computed result hash based on property values.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the comparison result definition. Defaults to return             the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GroupReconciliationComparisonResult</returns>
@@ -205,8 +205,8 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified comparison ruleset.</param>
-        /// <param name="code">The code of the specified comparison ruleset. Together with the domain and scope this uniquely              identifies the reconciliation comparison ruleset.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the comparison ruleset definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
+        /// <param name="code">The code of the specified comparison ruleset. Together with the domain and scope this uniquely             identifies the reconciliation comparison ruleset.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the comparison ruleset definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>GroupReconciliationComparisonRuleset</returns>
@@ -220,8 +220,8 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified comparison ruleset.</param>
-        /// <param name="code">The code of the specified comparison ruleset. Together with the domain and scope this uniquely              identifies the reconciliation comparison ruleset.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the comparison ruleset definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
+        /// <param name="code">The code of the specified comparison ruleset. Together with the domain and scope this uniquely             identifies the reconciliation comparison ruleset.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the comparison ruleset definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GroupReconciliationComparisonRuleset</returns>
@@ -234,7 +234,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the group reconciliation definition to retrieve.</param>
-        /// <param name="code">The code of the group reconciliation definition to retrieve. Together with the scope              this uniquely identifies the group reconciliation definition.</param>
+        /// <param name="code">The code of the group reconciliation definition to retrieve. Together with the scope             this uniquely identifies the group reconciliation definition.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the group reconciliation definition. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the group reconciliation definition. Defaults to return the latest version of the portfolio group definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -250,7 +250,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the group reconciliation definition to retrieve.</param>
-        /// <param name="code">The code of the group reconciliation definition to retrieve. Together with the scope              this uniquely identifies the group reconciliation definition.</param>
+        /// <param name="code">The code of the group reconciliation definition to retrieve. Together with the scope             this uniquely identifies the group reconciliation definition.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the group reconciliation definition. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the group reconciliation definition. Defaults to return the latest version of the portfolio group definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -261,14 +261,14 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListComparisonResults: Get a set of Group Reconciliation Comparison Results.
         /// </summary>
         /// <remarks>
-        /// Retrieves all Group Reconciliation Comparison Results that fit the filter, in a specific order if sortBy is provided.  Supports pagination.
+        /// Retrieves all Group Reconciliation Comparison Results that fit the filter, in a specific order if sortBy is provided. Supports pagination.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve the comparison results. Defaults to return the latest              version of the comparison results if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing comparison results from a previous call to list              comparison results. This value is returned from the previous call. If a pagination token is provided the sortBy,              filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the comparison results. Defaults to return the latest             version of the comparison results if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing comparison results from a previous call to list             comparison results. This value is returned from the previous call. If a pagination token is provided the sortBy,             filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many per page. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfGroupReconciliationComparisonResult</returns>
@@ -278,14 +278,14 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListComparisonResults: Get a set of Group Reconciliation Comparison Results.
         /// </summary>
         /// <remarks>
-        /// Retrieves all Group Reconciliation Comparison Results that fit the filter, in a specific order if sortBy is provided.  Supports pagination.
+        /// Retrieves all Group Reconciliation Comparison Results that fit the filter, in a specific order if sortBy is provided. Supports pagination.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve the comparison results. Defaults to return the latest              version of the comparison results if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing comparison results from a previous call to list              comparison results. This value is returned from the previous call. If a pagination token is provided the sortBy,              filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the comparison results. Defaults to return the latest             version of the comparison results if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing comparison results from a previous call to list             comparison results. This value is returned from the previous call. If a pagination token is provided the sortBy,             filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many per page. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfGroupReconciliationComparisonResult</returns>
@@ -294,14 +294,14 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListComparisonRulesets: Get a set of Group Reconciliation Comparison Rulesets
         /// </summary>
         /// <remarks>
-        /// Retrieves all Group Reconciliation Comparison Ruleset that fit the filter, in a specific order if sortBy is provided  Supports pagination
+        /// Retrieves all Group Reconciliation Comparison Ruleset that fit the filter, in a specific order if sortBy is provided Supports pagination
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve the comparison rulesets. Defaults to return the latest              version of the comparison rulesets if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing comparison rulesets from a previous call to list              comparison rulesets. This value is returned from the previous call. If a pagination token is provided the sortBy,              filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the comparison rulesets. Defaults to return the latest             version of the comparison rulesets if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing comparison rulesets from a previous call to list             comparison rulesets. This value is returned from the previous call. If a pagination token is provided the sortBy,             filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many per page. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfGroupReconciliationComparisonRuleset</returns>
@@ -311,14 +311,14 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListComparisonRulesets: Get a set of Group Reconciliation Comparison Rulesets
         /// </summary>
         /// <remarks>
-        /// Retrieves all Group Reconciliation Comparison Ruleset that fit the filter, in a specific order if sortBy is provided  Supports pagination
+        /// Retrieves all Group Reconciliation Comparison Ruleset that fit the filter, in a specific order if sortBy is provided Supports pagination
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve the comparison rulesets. Defaults to return the latest              version of the comparison rulesets if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing comparison rulesets from a previous call to list              comparison rulesets. This value is returned from the previous call. If a pagination token is provided the sortBy,              filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the comparison rulesets. Defaults to return the latest             version of the comparison rulesets if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing comparison rulesets from a previous call to list             comparison rulesets. This value is returned from the previous call. If a pagination token is provided the sortBy,             filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many per page. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfGroupReconciliationComparisonRuleset</returns>
@@ -332,9 +332,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="effectiveAt">The effective datetime or cut label at which to list the group reconciliation definitions. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to list the group reconciliation definitions. Defaults to return the latest version of each group reconciliation definition if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing group reconciliation definitions from a previous call to list group reconciliation definitions. This  value is returned from the previous call. If a pagination token is provided the filter, effectiveAt, sortBy  and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing group reconciliation definitions from a previous call to list group reconciliation definitions. This value is returned from the previous call. If a pagination token is provided the filter, effectiveAt, sortBy and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to no limit if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.             For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -350,9 +350,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="effectiveAt">The effective datetime or cut label at which to list the group reconciliation definitions. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to list the group reconciliation definitions. Defaults to return the latest version of each group reconciliation definition if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing group reconciliation definitions from a previous call to list group reconciliation definitions. This  value is returned from the previous call. If a pagination token is provided the filter, effectiveAt, sortBy  and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing group reconciliation definitions from a previous call to list group reconciliation definitions. This value is returned from the previous call. If a pagination token is provided the filter, effectiveAt, sortBy and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to no limit if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.             For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -362,7 +362,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] RunReconciliation: Runs a Group Reconciliation
         /// </summary>
         /// <remarks>
-        /// Runs a Group Reconciliation using the definition specified by the Finbourne.Identifiers.Abstractions.Scope and Finbourne.Identifiers.Abstractions.Code  Supports pagination.
+        /// Runs a Group Reconciliation using the definition specified by the Finbourne.Identifiers.Abstractions.Scope and Finbourne.Identifiers.Abstractions.Code Supports pagination.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the group reconciliation definition to use for the reconciliation.</param>
@@ -377,7 +377,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] RunReconciliation: Runs a Group Reconciliation
         /// </summary>
         /// <remarks>
-        /// Runs a Group Reconciliation using the definition specified by the Finbourne.Identifiers.Abstractions.Scope and Finbourne.Identifiers.Abstractions.Code  Supports pagination.
+        /// Runs a Group Reconciliation using the definition specified by the Finbourne.Identifiers.Abstractions.Scope and Finbourne.Identifiers.Abstractions.Code Supports pagination.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the group reconciliation definition to use for the reconciliation.</param>
@@ -391,11 +391,11 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] UpdateComparisonRuleset: Update Group Reconciliation Comparison Ruleset defined by scope and code
         /// </summary>
         /// <remarks>
-        /// Overwrites an existing Group Reconciliation Comparison Ruleset  Update request has the same required fields as Create apart from the Id
+        /// Overwrites an existing Group Reconciliation Comparison Ruleset Update request has the same required fields as Create apart from the Id
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified comparison ruleset.</param>
-        /// <param name="code">The code of the specified comparison ruleset. Together with the domain and scope this uniquely                  identifies the reconciliation comparison ruleset.</param>
+        /// <param name="code">The code of the specified comparison ruleset. Together with the domain and scope this uniquely                 identifies the reconciliation comparison ruleset.</param>
         /// <param name="updateGroupReconciliationComparisonRulesetRequest">The request containing the updated details of the ruleset (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -406,11 +406,11 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] UpdateComparisonRuleset: Update Group Reconciliation Comparison Ruleset defined by scope and code
         /// </summary>
         /// <remarks>
-        /// Overwrites an existing Group Reconciliation Comparison Ruleset  Update request has the same required fields as Create apart from the Id
+        /// Overwrites an existing Group Reconciliation Comparison Ruleset Update request has the same required fields as Create apart from the Id
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified comparison ruleset.</param>
-        /// <param name="code">The code of the specified comparison ruleset. Together with the domain and scope this uniquely                  identifies the reconciliation comparison ruleset.</param>
+        /// <param name="code">The code of the specified comparison ruleset. Together with the domain and scope this uniquely                 identifies the reconciliation comparison ruleset.</param>
         /// <param name="updateGroupReconciliationComparisonRulesetRequest">The request containing the updated details of the ruleset (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -458,13 +458,13 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] BatchUpdateComparisonResults: Add User Review entries for a range of comparison results related to a specific GroupReconciliationDefinition.
         /// </summary>
         /// <remarks>
-        /// Allows to update multiple Group Reconciliation Comparison Results related to the same definition specified by the Finbourne.Identifiers.Abstractions.Scope and Finbourne.Identifiers.Abstractions.Code.  Updates User Review with new entries and sets the relevant Review Status.  Supports partial success when all the entries that haven&#39;t passed validation or are not related to the definition will be returned with respectful error details.
+        /// Allows to update multiple Group Reconciliation Comparison Results related to the same definition specified by the Finbourne.Identifiers.Abstractions.Scope and Finbourne.Identifiers.Abstractions.Code. Updates User Review with new entries and sets the relevant Review Status. Supports partial success when all the entries that haven&#39;t passed validation or are not related to the definition will be returned with respectful error details.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Shared Scope of the GroupReconciliationDefinition and GroupReconciliationComparisonResults.</param>
         /// <param name="code">GroupReconciliationDefinitionId code.</param>
-        /// <param name="batchUpdateUserReviewForComparisonResultRequest">A collection of the comparison result Ids and their user review entries to be added or removed.                  Single request contains resultId, break code/match key/comment to add and break code/match key/comment to remove by added timestamp.</param>
-        /// <param name="successMode">Defines whether the request should fail if at least one of the entries is failed to update                  or process all the entries regardless and return collections of successful and failed updates. \&quot;Partial\&quot; (default) | \&quot;Atomic\&quot;. (optional, default to &quot;Partial&quot;)</param>
+        /// <param name="batchUpdateUserReviewForComparisonResultRequest">A collection of the comparison result Ids and their user review entries to be added or removed.                 Single request contains resultId, break code/match key/comment to add and break code/match key/comment to remove by added timestamp.</param>
+        /// <param name="successMode">Defines whether the request should fail if at least one of the entries is failed to update                 or process all the entries regardless and return collections of successful and failed updates. \&quot;Partial\&quot; (default) | \&quot;Atomic\&quot;. (optional, default to &quot;Partial&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -475,13 +475,13 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] BatchUpdateComparisonResults: Add User Review entries for a range of comparison results related to a specific GroupReconciliationDefinition.
         /// </summary>
         /// <remarks>
-        /// Allows to update multiple Group Reconciliation Comparison Results related to the same definition specified by the Finbourne.Identifiers.Abstractions.Scope and Finbourne.Identifiers.Abstractions.Code.  Updates User Review with new entries and sets the relevant Review Status.  Supports partial success when all the entries that haven&#39;t passed validation or are not related to the definition will be returned with respectful error details.
+        /// Allows to update multiple Group Reconciliation Comparison Results related to the same definition specified by the Finbourne.Identifiers.Abstractions.Scope and Finbourne.Identifiers.Abstractions.Code. Updates User Review with new entries and sets the relevant Review Status. Supports partial success when all the entries that haven&#39;t passed validation or are not related to the definition will be returned with respectful error details.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Shared Scope of the GroupReconciliationDefinition and GroupReconciliationComparisonResults.</param>
         /// <param name="code">GroupReconciliationDefinitionId code.</param>
-        /// <param name="batchUpdateUserReviewForComparisonResultRequest">A collection of the comparison result Ids and their user review entries to be added or removed.                  Single request contains resultId, break code/match key/comment to add and break code/match key/comment to remove by added timestamp.</param>
-        /// <param name="successMode">Defines whether the request should fail if at least one of the entries is failed to update                  or process all the entries regardless and return collections of successful and failed updates. \&quot;Partial\&quot; (default) | \&quot;Atomic\&quot;. (optional, default to &quot;Partial&quot;)</param>
+        /// <param name="batchUpdateUserReviewForComparisonResultRequest">A collection of the comparison result Ids and their user review entries to be added or removed.                 Single request contains resultId, break code/match key/comment to add and break code/match key/comment to remove by added timestamp.</param>
+        /// <param name="successMode">Defines whether the request should fail if at least one of the entries is failed to update                 or process all the entries regardless and return collections of successful and failed updates. \&quot;Partial\&quot; (default) | \&quot;Atomic\&quot;. (optional, default to &quot;Partial&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -545,11 +545,11 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] DeleteComparisonRuleset: Deletes a particular Group Reconciliation Comparison Ruleset
         /// </summary>
         /// <remarks>
-        /// The deletion will take effect from the reconciliation comparison ruleset deletion datetime.  i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
+        /// The deletion will take effect from the reconciliation comparison ruleset deletion datetime. i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified comparison ruleset.</param>
-        /// <param name="code">The code of the specified comparison ruleset. Together with the domain and scope this uniquely              identifies the reconciliation comparison ruleset.</param>
+        /// <param name="code">The code of the specified comparison ruleset. Together with the domain and scope this uniquely             identifies the reconciliation comparison ruleset.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -560,11 +560,11 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] DeleteComparisonRuleset: Deletes a particular Group Reconciliation Comparison Ruleset
         /// </summary>
         /// <remarks>
-        /// The deletion will take effect from the reconciliation comparison ruleset deletion datetime.  i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
+        /// The deletion will take effect from the reconciliation comparison ruleset deletion datetime. i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified comparison ruleset.</param>
-        /// <param name="code">The code of the specified comparison ruleset. Together with the domain and scope this uniquely              identifies the reconciliation comparison ruleset.</param>
+        /// <param name="code">The code of the specified comparison ruleset. Together with the domain and scope this uniquely             identifies the reconciliation comparison ruleset.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -603,13 +603,13 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetComparisonResult: Get a single Group Reconciliation Comparison Result by scope and code.
         /// </summary>
         /// <remarks>
-        /// Retrieves one Group Reconciliation Comparison Result by scope and code  with the prior validation that its related reconciliation definition exists.
+        /// Retrieves one Group Reconciliation Comparison Result by scope and code with the prior validation that its related reconciliation definition exists.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified comparison result and its related reconciliation definition.</param>
         /// <param name="code">The code of the reconciliation definition that was used to produce the reconciliation result.</param>
-        /// <param name="resultId">The code of the specified reconciliation result. Together with the domain and scope this uniquely              identifies the reconciliation comparison result. This value is also the same as the computed result hash based on property values.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the comparison result definition. Defaults to return              the latest version if not specified. (optional)</param>
+        /// <param name="resultId">The code of the specified reconciliation result. Together with the domain and scope this uniquely             identifies the reconciliation comparison result. This value is also the same as the computed result hash based on property values.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the comparison result definition. Defaults to return             the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -620,13 +620,13 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetComparisonResult: Get a single Group Reconciliation Comparison Result by scope and code.
         /// </summary>
         /// <remarks>
-        /// Retrieves one Group Reconciliation Comparison Result by scope and code  with the prior validation that its related reconciliation definition exists.
+        /// Retrieves one Group Reconciliation Comparison Result by scope and code with the prior validation that its related reconciliation definition exists.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified comparison result and its related reconciliation definition.</param>
         /// <param name="code">The code of the reconciliation definition that was used to produce the reconciliation result.</param>
-        /// <param name="resultId">The code of the specified reconciliation result. Together with the domain and scope this uniquely              identifies the reconciliation comparison result. This value is also the same as the computed result hash based on property values.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the comparison result definition. Defaults to return              the latest version if not specified. (optional)</param>
+        /// <param name="resultId">The code of the specified reconciliation result. Together with the domain and scope this uniquely             identifies the reconciliation comparison result. This value is also the same as the computed result hash based on property values.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the comparison result definition. Defaults to return             the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -640,8 +640,8 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified comparison ruleset.</param>
-        /// <param name="code">The code of the specified comparison ruleset. Together with the domain and scope this uniquely              identifies the reconciliation comparison ruleset.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the comparison ruleset definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
+        /// <param name="code">The code of the specified comparison ruleset. Together with the domain and scope this uniquely             identifies the reconciliation comparison ruleset.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the comparison ruleset definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -656,8 +656,8 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified comparison ruleset.</param>
-        /// <param name="code">The code of the specified comparison ruleset. Together with the domain and scope this uniquely              identifies the reconciliation comparison ruleset.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the comparison ruleset definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
+        /// <param name="code">The code of the specified comparison ruleset. Together with the domain and scope this uniquely             identifies the reconciliation comparison ruleset.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the comparison ruleset definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -671,7 +671,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the group reconciliation definition to retrieve.</param>
-        /// <param name="code">The code of the group reconciliation definition to retrieve. Together with the scope              this uniquely identifies the group reconciliation definition.</param>
+        /// <param name="code">The code of the group reconciliation definition to retrieve. Together with the scope             this uniquely identifies the group reconciliation definition.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the group reconciliation definition. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the group reconciliation definition. Defaults to return the latest version of the portfolio group definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -688,7 +688,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the group reconciliation definition to retrieve.</param>
-        /// <param name="code">The code of the group reconciliation definition to retrieve. Together with the scope              this uniquely identifies the group reconciliation definition.</param>
+        /// <param name="code">The code of the group reconciliation definition to retrieve. Together with the scope             this uniquely identifies the group reconciliation definition.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the group reconciliation definition. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the group reconciliation definition. Defaults to return the latest version of the portfolio group definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -700,14 +700,14 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListComparisonResults: Get a set of Group Reconciliation Comparison Results.
         /// </summary>
         /// <remarks>
-        /// Retrieves all Group Reconciliation Comparison Results that fit the filter, in a specific order if sortBy is provided.  Supports pagination.
+        /// Retrieves all Group Reconciliation Comparison Results that fit the filter, in a specific order if sortBy is provided. Supports pagination.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve the comparison results. Defaults to return the latest              version of the comparison results if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing comparison results from a previous call to list              comparison results. This value is returned from the previous call. If a pagination token is provided the sortBy,              filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the comparison results. Defaults to return the latest             version of the comparison results if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing comparison results from a previous call to list             comparison results. This value is returned from the previous call. If a pagination token is provided the sortBy,             filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many per page. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -718,14 +718,14 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListComparisonResults: Get a set of Group Reconciliation Comparison Results.
         /// </summary>
         /// <remarks>
-        /// Retrieves all Group Reconciliation Comparison Results that fit the filter, in a specific order if sortBy is provided.  Supports pagination.
+        /// Retrieves all Group Reconciliation Comparison Results that fit the filter, in a specific order if sortBy is provided. Supports pagination.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve the comparison results. Defaults to return the latest              version of the comparison results if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing comparison results from a previous call to list              comparison results. This value is returned from the previous call. If a pagination token is provided the sortBy,              filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the comparison results. Defaults to return the latest             version of the comparison results if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing comparison results from a previous call to list             comparison results. This value is returned from the previous call. If a pagination token is provided the sortBy,             filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many per page. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -735,14 +735,14 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListComparisonRulesets: Get a set of Group Reconciliation Comparison Rulesets
         /// </summary>
         /// <remarks>
-        /// Retrieves all Group Reconciliation Comparison Ruleset that fit the filter, in a specific order if sortBy is provided  Supports pagination
+        /// Retrieves all Group Reconciliation Comparison Ruleset that fit the filter, in a specific order if sortBy is provided Supports pagination
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve the comparison rulesets. Defaults to return the latest              version of the comparison rulesets if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing comparison rulesets from a previous call to list              comparison rulesets. This value is returned from the previous call. If a pagination token is provided the sortBy,              filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the comparison rulesets. Defaults to return the latest             version of the comparison rulesets if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing comparison rulesets from a previous call to list             comparison rulesets. This value is returned from the previous call. If a pagination token is provided the sortBy,             filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many per page. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -753,14 +753,14 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListComparisonRulesets: Get a set of Group Reconciliation Comparison Rulesets
         /// </summary>
         /// <remarks>
-        /// Retrieves all Group Reconciliation Comparison Ruleset that fit the filter, in a specific order if sortBy is provided  Supports pagination
+        /// Retrieves all Group Reconciliation Comparison Ruleset that fit the filter, in a specific order if sortBy is provided Supports pagination
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve the comparison rulesets. Defaults to return the latest              version of the comparison rulesets if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing comparison rulesets from a previous call to list              comparison rulesets. This value is returned from the previous call. If a pagination token is provided the sortBy,              filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the comparison rulesets. Defaults to return the latest             version of the comparison rulesets if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing comparison rulesets from a previous call to list             comparison rulesets. This value is returned from the previous call. If a pagination token is provided the sortBy,             filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many per page. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -775,9 +775,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="effectiveAt">The effective datetime or cut label at which to list the group reconciliation definitions. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to list the group reconciliation definitions. Defaults to return the latest version of each group reconciliation definition if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing group reconciliation definitions from a previous call to list group reconciliation definitions. This  value is returned from the previous call. If a pagination token is provided the filter, effectiveAt, sortBy  and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing group reconciliation definitions from a previous call to list group reconciliation definitions. This value is returned from the previous call. If a pagination token is provided the filter, effectiveAt, sortBy and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to no limit if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.             For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -794,9 +794,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="effectiveAt">The effective datetime or cut label at which to list the group reconciliation definitions. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to list the group reconciliation definitions. Defaults to return the latest version of each group reconciliation definition if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing group reconciliation definitions from a previous call to list group reconciliation definitions. This  value is returned from the previous call. If a pagination token is provided the filter, effectiveAt, sortBy  and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing group reconciliation definitions from a previous call to list group reconciliation definitions. This value is returned from the previous call. If a pagination token is provided the filter, effectiveAt, sortBy and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to no limit if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.             For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -807,7 +807,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] RunReconciliation: Runs a Group Reconciliation
         /// </summary>
         /// <remarks>
-        /// Runs a Group Reconciliation using the definition specified by the Finbourne.Identifiers.Abstractions.Scope and Finbourne.Identifiers.Abstractions.Code  Supports pagination.
+        /// Runs a Group Reconciliation using the definition specified by the Finbourne.Identifiers.Abstractions.Scope and Finbourne.Identifiers.Abstractions.Code Supports pagination.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the group reconciliation definition to use for the reconciliation.</param>
@@ -823,7 +823,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] RunReconciliation: Runs a Group Reconciliation
         /// </summary>
         /// <remarks>
-        /// Runs a Group Reconciliation using the definition specified by the Finbourne.Identifiers.Abstractions.Scope and Finbourne.Identifiers.Abstractions.Code  Supports pagination.
+        /// Runs a Group Reconciliation using the definition specified by the Finbourne.Identifiers.Abstractions.Scope and Finbourne.Identifiers.Abstractions.Code Supports pagination.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the group reconciliation definition to use for the reconciliation.</param>
@@ -838,11 +838,11 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] UpdateComparisonRuleset: Update Group Reconciliation Comparison Ruleset defined by scope and code
         /// </summary>
         /// <remarks>
-        /// Overwrites an existing Group Reconciliation Comparison Ruleset  Update request has the same required fields as Create apart from the Id
+        /// Overwrites an existing Group Reconciliation Comparison Ruleset Update request has the same required fields as Create apart from the Id
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified comparison ruleset.</param>
-        /// <param name="code">The code of the specified comparison ruleset. Together with the domain and scope this uniquely                  identifies the reconciliation comparison ruleset.</param>
+        /// <param name="code">The code of the specified comparison ruleset. Together with the domain and scope this uniquely                 identifies the reconciliation comparison ruleset.</param>
         /// <param name="updateGroupReconciliationComparisonRulesetRequest">The request containing the updated details of the ruleset (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -854,11 +854,11 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] UpdateComparisonRuleset: Update Group Reconciliation Comparison Ruleset defined by scope and code
         /// </summary>
         /// <remarks>
-        /// Overwrites an existing Group Reconciliation Comparison Ruleset  Update request has the same required fields as Create apart from the Id
+        /// Overwrites an existing Group Reconciliation Comparison Ruleset Update request has the same required fields as Create apart from the Id
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified comparison ruleset.</param>
-        /// <param name="code">The code of the specified comparison ruleset. Together with the domain and scope this uniquely                  identifies the reconciliation comparison ruleset.</param>
+        /// <param name="code">The code of the specified comparison ruleset. Together with the domain and scope this uniquely                 identifies the reconciliation comparison ruleset.</param>
         /// <param name="updateGroupReconciliationComparisonRulesetRequest">The request containing the updated details of the ruleset (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1020,13 +1020,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] BatchUpdateComparisonResults: Add User Review entries for a range of comparison results related to a specific GroupReconciliationDefinition. Allows to update multiple Group Reconciliation Comparison Results related to the same definition specified by the Finbourne.Identifiers.Abstractions.Scope and Finbourne.Identifiers.Abstractions.Code.  Updates User Review with new entries and sets the relevant Review Status.  Supports partial success when all the entries that haven&#39;t passed validation or are not related to the definition will be returned with respectful error details.
+        /// [EXPERIMENTAL] BatchUpdateComparisonResults: Add User Review entries for a range of comparison results related to a specific GroupReconciliationDefinition. Allows to update multiple Group Reconciliation Comparison Results related to the same definition specified by the Finbourne.Identifiers.Abstractions.Scope and Finbourne.Identifiers.Abstractions.Code. Updates User Review with new entries and sets the relevant Review Status. Supports partial success when all the entries that haven&#39;t passed validation or are not related to the definition will be returned with respectful error details.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Shared Scope of the GroupReconciliationDefinition and GroupReconciliationComparisonResults.</param>
         /// <param name="code">GroupReconciliationDefinitionId code.</param>
-        /// <param name="batchUpdateUserReviewForComparisonResultRequest">A collection of the comparison result Ids and their user review entries to be added or removed.                  Single request contains resultId, break code/match key/comment to add and break code/match key/comment to remove by added timestamp.</param>
-        /// <param name="successMode">Defines whether the request should fail if at least one of the entries is failed to update                  or process all the entries regardless and return collections of successful and failed updates. \&quot;Partial\&quot; (default) | \&quot;Atomic\&quot;. (optional, default to &quot;Partial&quot;)</param>
+        /// <param name="batchUpdateUserReviewForComparisonResultRequest">A collection of the comparison result Ids and their user review entries to be added or removed.                 Single request contains resultId, break code/match key/comment to add and break code/match key/comment to remove by added timestamp.</param>
+        /// <param name="successMode">Defines whether the request should fail if at least one of the entries is failed to update                 or process all the entries regardless and return collections of successful and failed updates. \&quot;Partial\&quot; (default) | \&quot;Atomic\&quot;. (optional, default to &quot;Partial&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>BatchUpdateUserReviewForComparisonResultResponse</returns>
@@ -1037,13 +1037,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] BatchUpdateComparisonResults: Add User Review entries for a range of comparison results related to a specific GroupReconciliationDefinition. Allows to update multiple Group Reconciliation Comparison Results related to the same definition specified by the Finbourne.Identifiers.Abstractions.Scope and Finbourne.Identifiers.Abstractions.Code.  Updates User Review with new entries and sets the relevant Review Status.  Supports partial success when all the entries that haven&#39;t passed validation or are not related to the definition will be returned with respectful error details.
+        /// [EXPERIMENTAL] BatchUpdateComparisonResults: Add User Review entries for a range of comparison results related to a specific GroupReconciliationDefinition. Allows to update multiple Group Reconciliation Comparison Results related to the same definition specified by the Finbourne.Identifiers.Abstractions.Scope and Finbourne.Identifiers.Abstractions.Code. Updates User Review with new entries and sets the relevant Review Status. Supports partial success when all the entries that haven&#39;t passed validation or are not related to the definition will be returned with respectful error details.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Shared Scope of the GroupReconciliationDefinition and GroupReconciliationComparisonResults.</param>
         /// <param name="code">GroupReconciliationDefinitionId code.</param>
-        /// <param name="batchUpdateUserReviewForComparisonResultRequest">A collection of the comparison result Ids and their user review entries to be added or removed.                  Single request contains resultId, break code/match key/comment to add and break code/match key/comment to remove by added timestamp.</param>
-        /// <param name="successMode">Defines whether the request should fail if at least one of the entries is failed to update                  or process all the entries regardless and return collections of successful and failed updates. \&quot;Partial\&quot; (default) | \&quot;Atomic\&quot;. (optional, default to &quot;Partial&quot;)</param>
+        /// <param name="batchUpdateUserReviewForComparisonResultRequest">A collection of the comparison result Ids and their user review entries to be added or removed.                 Single request contains resultId, break code/match key/comment to add and break code/match key/comment to remove by added timestamp.</param>
+        /// <param name="successMode">Defines whether the request should fail if at least one of the entries is failed to update                 or process all the entries regardless and return collections of successful and failed updates. \&quot;Partial\&quot; (default) | \&quot;Atomic\&quot;. (optional, default to &quot;Partial&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of BatchUpdateUserReviewForComparisonResultResponse</returns>
@@ -1148,13 +1148,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] BatchUpdateComparisonResults: Add User Review entries for a range of comparison results related to a specific GroupReconciliationDefinition. Allows to update multiple Group Reconciliation Comparison Results related to the same definition specified by the Finbourne.Identifiers.Abstractions.Scope and Finbourne.Identifiers.Abstractions.Code.  Updates User Review with new entries and sets the relevant Review Status.  Supports partial success when all the entries that haven&#39;t passed validation or are not related to the definition will be returned with respectful error details.
+        /// [EXPERIMENTAL] BatchUpdateComparisonResults: Add User Review entries for a range of comparison results related to a specific GroupReconciliationDefinition. Allows to update multiple Group Reconciliation Comparison Results related to the same definition specified by the Finbourne.Identifiers.Abstractions.Scope and Finbourne.Identifiers.Abstractions.Code. Updates User Review with new entries and sets the relevant Review Status. Supports partial success when all the entries that haven&#39;t passed validation or are not related to the definition will be returned with respectful error details.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Shared Scope of the GroupReconciliationDefinition and GroupReconciliationComparisonResults.</param>
         /// <param name="code">GroupReconciliationDefinitionId code.</param>
-        /// <param name="batchUpdateUserReviewForComparisonResultRequest">A collection of the comparison result Ids and their user review entries to be added or removed.                  Single request contains resultId, break code/match key/comment to add and break code/match key/comment to remove by added timestamp.</param>
-        /// <param name="successMode">Defines whether the request should fail if at least one of the entries is failed to update                  or process all the entries regardless and return collections of successful and failed updates. \&quot;Partial\&quot; (default) | \&quot;Atomic\&quot;. (optional, default to &quot;Partial&quot;)</param>
+        /// <param name="batchUpdateUserReviewForComparisonResultRequest">A collection of the comparison result Ids and their user review entries to be added or removed.                 Single request contains resultId, break code/match key/comment to add and break code/match key/comment to remove by added timestamp.</param>
+        /// <param name="successMode">Defines whether the request should fail if at least one of the entries is failed to update                 or process all the entries regardless and return collections of successful and failed updates. \&quot;Partial\&quot; (default) | \&quot;Atomic\&quot;. (optional, default to &quot;Partial&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1166,13 +1166,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] BatchUpdateComparisonResults: Add User Review entries for a range of comparison results related to a specific GroupReconciliationDefinition. Allows to update multiple Group Reconciliation Comparison Results related to the same definition specified by the Finbourne.Identifiers.Abstractions.Scope and Finbourne.Identifiers.Abstractions.Code.  Updates User Review with new entries and sets the relevant Review Status.  Supports partial success when all the entries that haven&#39;t passed validation or are not related to the definition will be returned with respectful error details.
+        /// [EXPERIMENTAL] BatchUpdateComparisonResults: Add User Review entries for a range of comparison results related to a specific GroupReconciliationDefinition. Allows to update multiple Group Reconciliation Comparison Results related to the same definition specified by the Finbourne.Identifiers.Abstractions.Scope and Finbourne.Identifiers.Abstractions.Code. Updates User Review with new entries and sets the relevant Review Status. Supports partial success when all the entries that haven&#39;t passed validation or are not related to the definition will be returned with respectful error details.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Shared Scope of the GroupReconciliationDefinition and GroupReconciliationComparisonResults.</param>
         /// <param name="code">GroupReconciliationDefinitionId code.</param>
-        /// <param name="batchUpdateUserReviewForComparisonResultRequest">A collection of the comparison result Ids and their user review entries to be added or removed.                  Single request contains resultId, break code/match key/comment to add and break code/match key/comment to remove by added timestamp.</param>
-        /// <param name="successMode">Defines whether the request should fail if at least one of the entries is failed to update                  or process all the entries regardless and return collections of successful and failed updates. \&quot;Partial\&quot; (default) | \&quot;Atomic\&quot;. (optional, default to &quot;Partial&quot;)</param>
+        /// <param name="batchUpdateUserReviewForComparisonResultRequest">A collection of the comparison result Ids and their user review entries to be added or removed.                 Single request contains resultId, break code/match key/comment to add and break code/match key/comment to remove by added timestamp.</param>
+        /// <param name="successMode">Defines whether the request should fail if at least one of the entries is failed to update                 or process all the entries regardless and return collections of successful and failed updates. \&quot;Partial\&quot; (default) | \&quot;Atomic\&quot;. (optional, default to &quot;Partial&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1680,11 +1680,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteComparisonRuleset: Deletes a particular Group Reconciliation Comparison Ruleset The deletion will take effect from the reconciliation comparison ruleset deletion datetime.  i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
+        /// [EXPERIMENTAL] DeleteComparisonRuleset: Deletes a particular Group Reconciliation Comparison Ruleset The deletion will take effect from the reconciliation comparison ruleset deletion datetime. i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified comparison ruleset.</param>
-        /// <param name="code">The code of the specified comparison ruleset. Together with the domain and scope this uniquely              identifies the reconciliation comparison ruleset.</param>
+        /// <param name="code">The code of the specified comparison ruleset. Together with the domain and scope this uniquely             identifies the reconciliation comparison ruleset.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
@@ -1695,11 +1695,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteComparisonRuleset: Deletes a particular Group Reconciliation Comparison Ruleset The deletion will take effect from the reconciliation comparison ruleset deletion datetime.  i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
+        /// [EXPERIMENTAL] DeleteComparisonRuleset: Deletes a particular Group Reconciliation Comparison Ruleset The deletion will take effect from the reconciliation comparison ruleset deletion datetime. i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified comparison ruleset.</param>
-        /// <param name="code">The code of the specified comparison ruleset. Together with the domain and scope this uniquely              identifies the reconciliation comparison ruleset.</param>
+        /// <param name="code">The code of the specified comparison ruleset. Together with the domain and scope this uniquely             identifies the reconciliation comparison ruleset.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
@@ -1789,11 +1789,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteComparisonRuleset: Deletes a particular Group Reconciliation Comparison Ruleset The deletion will take effect from the reconciliation comparison ruleset deletion datetime.  i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
+        /// [EXPERIMENTAL] DeleteComparisonRuleset: Deletes a particular Group Reconciliation Comparison Ruleset The deletion will take effect from the reconciliation comparison ruleset deletion datetime. i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified comparison ruleset.</param>
-        /// <param name="code">The code of the specified comparison ruleset. Together with the domain and scope this uniquely              identifies the reconciliation comparison ruleset.</param>
+        /// <param name="code">The code of the specified comparison ruleset. Together with the domain and scope this uniquely             identifies the reconciliation comparison ruleset.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1805,11 +1805,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteComparisonRuleset: Deletes a particular Group Reconciliation Comparison Ruleset The deletion will take effect from the reconciliation comparison ruleset deletion datetime.  i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
+        /// [EXPERIMENTAL] DeleteComparisonRuleset: Deletes a particular Group Reconciliation Comparison Ruleset The deletion will take effect from the reconciliation comparison ruleset deletion datetime. i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified comparison ruleset.</param>
-        /// <param name="code">The code of the specified comparison ruleset. Together with the domain and scope this uniquely              identifies the reconciliation comparison ruleset.</param>
+        /// <param name="code">The code of the specified comparison ruleset. Together with the domain and scope this uniquely             identifies the reconciliation comparison ruleset.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2124,13 +2124,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetComparisonResult: Get a single Group Reconciliation Comparison Result by scope and code. Retrieves one Group Reconciliation Comparison Result by scope and code  with the prior validation that its related reconciliation definition exists.
+        /// [EXPERIMENTAL] GetComparisonResult: Get a single Group Reconciliation Comparison Result by scope and code. Retrieves one Group Reconciliation Comparison Result by scope and code with the prior validation that its related reconciliation definition exists.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified comparison result and its related reconciliation definition.</param>
         /// <param name="code">The code of the reconciliation definition that was used to produce the reconciliation result.</param>
-        /// <param name="resultId">The code of the specified reconciliation result. Together with the domain and scope this uniquely              identifies the reconciliation comparison result. This value is also the same as the computed result hash based on property values.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the comparison result definition. Defaults to return              the latest version if not specified. (optional)</param>
+        /// <param name="resultId">The code of the specified reconciliation result. Together with the domain and scope this uniquely             identifies the reconciliation comparison result. This value is also the same as the computed result hash based on property values.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the comparison result definition. Defaults to return             the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>GroupReconciliationComparisonResult</returns>
@@ -2141,13 +2141,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetComparisonResult: Get a single Group Reconciliation Comparison Result by scope and code. Retrieves one Group Reconciliation Comparison Result by scope and code  with the prior validation that its related reconciliation definition exists.
+        /// [EXPERIMENTAL] GetComparisonResult: Get a single Group Reconciliation Comparison Result by scope and code. Retrieves one Group Reconciliation Comparison Result by scope and code with the prior validation that its related reconciliation definition exists.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified comparison result and its related reconciliation definition.</param>
         /// <param name="code">The code of the reconciliation definition that was used to produce the reconciliation result.</param>
-        /// <param name="resultId">The code of the specified reconciliation result. Together with the domain and scope this uniquely              identifies the reconciliation comparison result. This value is also the same as the computed result hash based on property values.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the comparison result definition. Defaults to return              the latest version if not specified. (optional)</param>
+        /// <param name="resultId">The code of the specified reconciliation result. Together with the domain and scope this uniquely             identifies the reconciliation comparison result. This value is also the same as the computed result hash based on property values.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the comparison result definition. Defaults to return             the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GroupReconciliationComparisonResult</returns>
@@ -2248,13 +2248,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetComparisonResult: Get a single Group Reconciliation Comparison Result by scope and code. Retrieves one Group Reconciliation Comparison Result by scope and code  with the prior validation that its related reconciliation definition exists.
+        /// [EXPERIMENTAL] GetComparisonResult: Get a single Group Reconciliation Comparison Result by scope and code. Retrieves one Group Reconciliation Comparison Result by scope and code with the prior validation that its related reconciliation definition exists.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified comparison result and its related reconciliation definition.</param>
         /// <param name="code">The code of the reconciliation definition that was used to produce the reconciliation result.</param>
-        /// <param name="resultId">The code of the specified reconciliation result. Together with the domain and scope this uniquely              identifies the reconciliation comparison result. This value is also the same as the computed result hash based on property values.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the comparison result definition. Defaults to return              the latest version if not specified. (optional)</param>
+        /// <param name="resultId">The code of the specified reconciliation result. Together with the domain and scope this uniquely             identifies the reconciliation comparison result. This value is also the same as the computed result hash based on property values.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the comparison result definition. Defaults to return             the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2266,13 +2266,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetComparisonResult: Get a single Group Reconciliation Comparison Result by scope and code. Retrieves one Group Reconciliation Comparison Result by scope and code  with the prior validation that its related reconciliation definition exists.
+        /// [EXPERIMENTAL] GetComparisonResult: Get a single Group Reconciliation Comparison Result by scope and code. Retrieves one Group Reconciliation Comparison Result by scope and code with the prior validation that its related reconciliation definition exists.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified comparison result and its related reconciliation definition.</param>
         /// <param name="code">The code of the reconciliation definition that was used to produce the reconciliation result.</param>
-        /// <param name="resultId">The code of the specified reconciliation result. Together with the domain and scope this uniquely              identifies the reconciliation comparison result. This value is also the same as the computed result hash based on property values.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the comparison result definition. Defaults to return              the latest version if not specified. (optional)</param>
+        /// <param name="resultId">The code of the specified reconciliation result. Together with the domain and scope this uniquely             identifies the reconciliation comparison result. This value is also the same as the computed result hash based on property values.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the comparison result definition. Defaults to return             the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2380,8 +2380,8 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified comparison ruleset.</param>
-        /// <param name="code">The code of the specified comparison ruleset. Together with the domain and scope this uniquely              identifies the reconciliation comparison ruleset.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the comparison ruleset definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
+        /// <param name="code">The code of the specified comparison ruleset. Together with the domain and scope this uniquely             identifies the reconciliation comparison ruleset.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the comparison ruleset definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>GroupReconciliationComparisonRuleset</returns>
@@ -2396,8 +2396,8 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified comparison ruleset.</param>
-        /// <param name="code">The code of the specified comparison ruleset. Together with the domain and scope this uniquely              identifies the reconciliation comparison ruleset.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the comparison ruleset definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
+        /// <param name="code">The code of the specified comparison ruleset. Together with the domain and scope this uniquely             identifies the reconciliation comparison ruleset.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the comparison ruleset definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GroupReconciliationComparisonRuleset</returns>
@@ -2495,8 +2495,8 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified comparison ruleset.</param>
-        /// <param name="code">The code of the specified comparison ruleset. Together with the domain and scope this uniquely              identifies the reconciliation comparison ruleset.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the comparison ruleset definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
+        /// <param name="code">The code of the specified comparison ruleset. Together with the domain and scope this uniquely             identifies the reconciliation comparison ruleset.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the comparison ruleset definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2512,8 +2512,8 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified comparison ruleset.</param>
-        /// <param name="code">The code of the specified comparison ruleset. Together with the domain and scope this uniquely              identifies the reconciliation comparison ruleset.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the comparison ruleset definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
+        /// <param name="code">The code of the specified comparison ruleset. Together with the domain and scope this uniquely             identifies the reconciliation comparison ruleset.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the comparison ruleset definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2614,7 +2614,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the group reconciliation definition to retrieve.</param>
-        /// <param name="code">The code of the group reconciliation definition to retrieve. Together with the scope              this uniquely identifies the group reconciliation definition.</param>
+        /// <param name="code">The code of the group reconciliation definition to retrieve. Together with the scope             this uniquely identifies the group reconciliation definition.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the group reconciliation definition. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the group reconciliation definition. Defaults to return the latest version of the portfolio group definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -2631,7 +2631,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the group reconciliation definition to retrieve.</param>
-        /// <param name="code">The code of the group reconciliation definition to retrieve. Together with the scope              this uniquely identifies the group reconciliation definition.</param>
+        /// <param name="code">The code of the group reconciliation definition to retrieve. Together with the scope             this uniquely identifies the group reconciliation definition.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the group reconciliation definition. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the group reconciliation definition. Defaults to return the latest version of the portfolio group definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -2735,7 +2735,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the group reconciliation definition to retrieve.</param>
-        /// <param name="code">The code of the group reconciliation definition to retrieve. Together with the scope              this uniquely identifies the group reconciliation definition.</param>
+        /// <param name="code">The code of the group reconciliation definition to retrieve. Together with the scope             this uniquely identifies the group reconciliation definition.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the group reconciliation definition. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the group reconciliation definition. Defaults to return the latest version of the portfolio group definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -2753,7 +2753,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the group reconciliation definition to retrieve.</param>
-        /// <param name="code">The code of the group reconciliation definition to retrieve. Together with the scope              this uniquely identifies the group reconciliation definition.</param>
+        /// <param name="code">The code of the group reconciliation definition to retrieve. Together with the scope             this uniquely identifies the group reconciliation definition.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the group reconciliation definition. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the group reconciliation definition. Defaults to return the latest version of the portfolio group definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -2856,14 +2856,14 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListComparisonResults: Get a set of Group Reconciliation Comparison Results. Retrieves all Group Reconciliation Comparison Results that fit the filter, in a specific order if sortBy is provided.  Supports pagination.
+        /// [EXPERIMENTAL] ListComparisonResults: Get a set of Group Reconciliation Comparison Results. Retrieves all Group Reconciliation Comparison Results that fit the filter, in a specific order if sortBy is provided. Supports pagination.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve the comparison results. Defaults to return the latest              version of the comparison results if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing comparison results from a previous call to list              comparison results. This value is returned from the previous call. If a pagination token is provided the sortBy,              filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the comparison results. Defaults to return the latest             version of the comparison results if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing comparison results from a previous call to list             comparison results. This value is returned from the previous call. If a pagination token is provided the sortBy,             filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many per page. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfGroupReconciliationComparisonResult</returns>
@@ -2874,14 +2874,14 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListComparisonResults: Get a set of Group Reconciliation Comparison Results. Retrieves all Group Reconciliation Comparison Results that fit the filter, in a specific order if sortBy is provided.  Supports pagination.
+        /// [EXPERIMENTAL] ListComparisonResults: Get a set of Group Reconciliation Comparison Results. Retrieves all Group Reconciliation Comparison Results that fit the filter, in a specific order if sortBy is provided. Supports pagination.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve the comparison results. Defaults to return the latest              version of the comparison results if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing comparison results from a previous call to list              comparison results. This value is returned from the previous call. If a pagination token is provided the sortBy,              filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the comparison results. Defaults to return the latest             version of the comparison results if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing comparison results from a previous call to list             comparison results. This value is returned from the previous call. If a pagination token is provided the sortBy,             filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many per page. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfGroupReconciliationComparisonResult</returns>
@@ -2977,14 +2977,14 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListComparisonResults: Get a set of Group Reconciliation Comparison Results. Retrieves all Group Reconciliation Comparison Results that fit the filter, in a specific order if sortBy is provided.  Supports pagination.
+        /// [EXPERIMENTAL] ListComparisonResults: Get a set of Group Reconciliation Comparison Results. Retrieves all Group Reconciliation Comparison Results that fit the filter, in a specific order if sortBy is provided. Supports pagination.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve the comparison results. Defaults to return the latest              version of the comparison results if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing comparison results from a previous call to list              comparison results. This value is returned from the previous call. If a pagination token is provided the sortBy,              filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the comparison results. Defaults to return the latest             version of the comparison results if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing comparison results from a previous call to list             comparison results. This value is returned from the previous call. If a pagination token is provided the sortBy,             filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many per page. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2996,14 +2996,14 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListComparisonResults: Get a set of Group Reconciliation Comparison Results. Retrieves all Group Reconciliation Comparison Results that fit the filter, in a specific order if sortBy is provided.  Supports pagination.
+        /// [EXPERIMENTAL] ListComparisonResults: Get a set of Group Reconciliation Comparison Results. Retrieves all Group Reconciliation Comparison Results that fit the filter, in a specific order if sortBy is provided. Supports pagination.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve the comparison results. Defaults to return the latest              version of the comparison results if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing comparison results from a previous call to list              comparison results. This value is returned from the previous call. If a pagination token is provided the sortBy,              filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the comparison results. Defaults to return the latest             version of the comparison results if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing comparison results from a previous call to list             comparison results. This value is returned from the previous call. If a pagination token is provided the sortBy,             filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many per page. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -3102,14 +3102,14 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListComparisonRulesets: Get a set of Group Reconciliation Comparison Rulesets Retrieves all Group Reconciliation Comparison Ruleset that fit the filter, in a specific order if sortBy is provided  Supports pagination
+        /// [EXPERIMENTAL] ListComparisonRulesets: Get a set of Group Reconciliation Comparison Rulesets Retrieves all Group Reconciliation Comparison Ruleset that fit the filter, in a specific order if sortBy is provided Supports pagination
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve the comparison rulesets. Defaults to return the latest              version of the comparison rulesets if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing comparison rulesets from a previous call to list              comparison rulesets. This value is returned from the previous call. If a pagination token is provided the sortBy,              filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the comparison rulesets. Defaults to return the latest             version of the comparison rulesets if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing comparison rulesets from a previous call to list             comparison rulesets. This value is returned from the previous call. If a pagination token is provided the sortBy,             filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many per page. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfGroupReconciliationComparisonRuleset</returns>
@@ -3120,14 +3120,14 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListComparisonRulesets: Get a set of Group Reconciliation Comparison Rulesets Retrieves all Group Reconciliation Comparison Ruleset that fit the filter, in a specific order if sortBy is provided  Supports pagination
+        /// [EXPERIMENTAL] ListComparisonRulesets: Get a set of Group Reconciliation Comparison Rulesets Retrieves all Group Reconciliation Comparison Ruleset that fit the filter, in a specific order if sortBy is provided Supports pagination
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve the comparison rulesets. Defaults to return the latest              version of the comparison rulesets if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing comparison rulesets from a previous call to list              comparison rulesets. This value is returned from the previous call. If a pagination token is provided the sortBy,              filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the comparison rulesets. Defaults to return the latest             version of the comparison rulesets if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing comparison rulesets from a previous call to list             comparison rulesets. This value is returned from the previous call. If a pagination token is provided the sortBy,             filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many per page. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfGroupReconciliationComparisonRuleset</returns>
@@ -3223,14 +3223,14 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListComparisonRulesets: Get a set of Group Reconciliation Comparison Rulesets Retrieves all Group Reconciliation Comparison Ruleset that fit the filter, in a specific order if sortBy is provided  Supports pagination
+        /// [EXPERIMENTAL] ListComparisonRulesets: Get a set of Group Reconciliation Comparison Rulesets Retrieves all Group Reconciliation Comparison Ruleset that fit the filter, in a specific order if sortBy is provided Supports pagination
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve the comparison rulesets. Defaults to return the latest              version of the comparison rulesets if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing comparison rulesets from a previous call to list              comparison rulesets. This value is returned from the previous call. If a pagination token is provided the sortBy,              filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the comparison rulesets. Defaults to return the latest             version of the comparison rulesets if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing comparison rulesets from a previous call to list             comparison rulesets. This value is returned from the previous call. If a pagination token is provided the sortBy,             filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many per page. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -3242,14 +3242,14 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListComparisonRulesets: Get a set of Group Reconciliation Comparison Rulesets Retrieves all Group Reconciliation Comparison Ruleset that fit the filter, in a specific order if sortBy is provided  Supports pagination
+        /// [EXPERIMENTAL] ListComparisonRulesets: Get a set of Group Reconciliation Comparison Rulesets Retrieves all Group Reconciliation Comparison Ruleset that fit the filter, in a specific order if sortBy is provided Supports pagination
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve the comparison rulesets. Defaults to return the latest              version of the comparison rulesets if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing comparison rulesets from a previous call to list              comparison rulesets. This value is returned from the previous call. If a pagination token is provided the sortBy,              filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the comparison rulesets. Defaults to return the latest             version of the comparison rulesets if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing comparison rulesets from a previous call to list             comparison rulesets. This value is returned from the previous call. If a pagination token is provided the sortBy,             filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many per page. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -3353,9 +3353,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="effectiveAt">The effective datetime or cut label at which to list the group reconciliation definitions. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to list the group reconciliation definitions. Defaults to return the latest version of each group reconciliation definition if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing group reconciliation definitions from a previous call to list group reconciliation definitions. This  value is returned from the previous call. If a pagination token is provided the filter, effectiveAt, sortBy  and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing group reconciliation definitions from a previous call to list group reconciliation definitions. This value is returned from the previous call. If a pagination token is provided the filter, effectiveAt, sortBy and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to no limit if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.             For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -3372,9 +3372,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="effectiveAt">The effective datetime or cut label at which to list the group reconciliation definitions. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to list the group reconciliation definitions. Defaults to return the latest version of each group reconciliation definition if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing group reconciliation definitions from a previous call to list group reconciliation definitions. This  value is returned from the previous call. If a pagination token is provided the filter, effectiveAt, sortBy  and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing group reconciliation definitions from a previous call to list group reconciliation definitions. This value is returned from the previous call. If a pagination token is provided the filter, effectiveAt, sortBy and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to no limit if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.             For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -3480,9 +3480,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="effectiveAt">The effective datetime or cut label at which to list the group reconciliation definitions. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to list the group reconciliation definitions. Defaults to return the latest version of each group reconciliation definition if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing group reconciliation definitions from a previous call to list group reconciliation definitions. This  value is returned from the previous call. If a pagination token is provided the filter, effectiveAt, sortBy  and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing group reconciliation definitions from a previous call to list group reconciliation definitions. This value is returned from the previous call. If a pagination token is provided the filter, effectiveAt, sortBy and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to no limit if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.             For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3500,9 +3500,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="effectiveAt">The effective datetime or cut label at which to list the group reconciliation definitions. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to list the group reconciliation definitions. Defaults to return the latest version of each group reconciliation definition if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing group reconciliation definitions from a previous call to list group reconciliation definitions. This  value is returned from the previous call. If a pagination token is provided the filter, effectiveAt, sortBy  and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing group reconciliation definitions from a previous call to list group reconciliation definitions. This value is returned from the previous call. If a pagination token is provided the filter, effectiveAt, sortBy and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to no limit if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.             For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3606,7 +3606,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] RunReconciliation: Runs a Group Reconciliation Runs a Group Reconciliation using the definition specified by the Finbourne.Identifiers.Abstractions.Scope and Finbourne.Identifiers.Abstractions.Code  Supports pagination.
+        /// [EXPERIMENTAL] RunReconciliation: Runs a Group Reconciliation Runs a Group Reconciliation using the definition specified by the Finbourne.Identifiers.Abstractions.Scope and Finbourne.Identifiers.Abstractions.Code Supports pagination.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the group reconciliation definition to use for the reconciliation.</param>
@@ -3622,7 +3622,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] RunReconciliation: Runs a Group Reconciliation Runs a Group Reconciliation using the definition specified by the Finbourne.Identifiers.Abstractions.Scope and Finbourne.Identifiers.Abstractions.Code  Supports pagination.
+        /// [EXPERIMENTAL] RunReconciliation: Runs a Group Reconciliation Runs a Group Reconciliation using the definition specified by the Finbourne.Identifiers.Abstractions.Scope and Finbourne.Identifiers.Abstractions.Code Supports pagination.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the group reconciliation definition to use for the reconciliation.</param>
@@ -3722,7 +3722,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] RunReconciliation: Runs a Group Reconciliation Runs a Group Reconciliation using the definition specified by the Finbourne.Identifiers.Abstractions.Scope and Finbourne.Identifiers.Abstractions.Code  Supports pagination.
+        /// [EXPERIMENTAL] RunReconciliation: Runs a Group Reconciliation Runs a Group Reconciliation using the definition specified by the Finbourne.Identifiers.Abstractions.Scope and Finbourne.Identifiers.Abstractions.Code Supports pagination.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the group reconciliation definition to use for the reconciliation.</param>
@@ -3739,7 +3739,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] RunReconciliation: Runs a Group Reconciliation Runs a Group Reconciliation using the definition specified by the Finbourne.Identifiers.Abstractions.Scope and Finbourne.Identifiers.Abstractions.Code  Supports pagination.
+        /// [EXPERIMENTAL] RunReconciliation: Runs a Group Reconciliation Runs a Group Reconciliation using the definition specified by the Finbourne.Identifiers.Abstractions.Scope and Finbourne.Identifiers.Abstractions.Code Supports pagination.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the group reconciliation definition to use for the reconciliation.</param>
@@ -3842,11 +3842,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateComparisonRuleset: Update Group Reconciliation Comparison Ruleset defined by scope and code Overwrites an existing Group Reconciliation Comparison Ruleset  Update request has the same required fields as Create apart from the Id
+        /// [EXPERIMENTAL] UpdateComparisonRuleset: Update Group Reconciliation Comparison Ruleset defined by scope and code Overwrites an existing Group Reconciliation Comparison Ruleset Update request has the same required fields as Create apart from the Id
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified comparison ruleset.</param>
-        /// <param name="code">The code of the specified comparison ruleset. Together with the domain and scope this uniquely                  identifies the reconciliation comparison ruleset.</param>
+        /// <param name="code">The code of the specified comparison ruleset. Together with the domain and scope this uniquely                 identifies the reconciliation comparison ruleset.</param>
         /// <param name="updateGroupReconciliationComparisonRulesetRequest">The request containing the updated details of the ruleset (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -3858,11 +3858,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateComparisonRuleset: Update Group Reconciliation Comparison Ruleset defined by scope and code Overwrites an existing Group Reconciliation Comparison Ruleset  Update request has the same required fields as Create apart from the Id
+        /// [EXPERIMENTAL] UpdateComparisonRuleset: Update Group Reconciliation Comparison Ruleset defined by scope and code Overwrites an existing Group Reconciliation Comparison Ruleset Update request has the same required fields as Create apart from the Id
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified comparison ruleset.</param>
-        /// <param name="code">The code of the specified comparison ruleset. Together with the domain and scope this uniquely                  identifies the reconciliation comparison ruleset.</param>
+        /// <param name="code">The code of the specified comparison ruleset. Together with the domain and scope this uniquely                 identifies the reconciliation comparison ruleset.</param>
         /// <param name="updateGroupReconciliationComparisonRulesetRequest">The request containing the updated details of the ruleset (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -3958,11 +3958,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateComparisonRuleset: Update Group Reconciliation Comparison Ruleset defined by scope and code Overwrites an existing Group Reconciliation Comparison Ruleset  Update request has the same required fields as Create apart from the Id
+        /// [EXPERIMENTAL] UpdateComparisonRuleset: Update Group Reconciliation Comparison Ruleset defined by scope and code Overwrites an existing Group Reconciliation Comparison Ruleset Update request has the same required fields as Create apart from the Id
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified comparison ruleset.</param>
-        /// <param name="code">The code of the specified comparison ruleset. Together with the domain and scope this uniquely                  identifies the reconciliation comparison ruleset.</param>
+        /// <param name="code">The code of the specified comparison ruleset. Together with the domain and scope this uniquely                 identifies the reconciliation comparison ruleset.</param>
         /// <param name="updateGroupReconciliationComparisonRulesetRequest">The request containing the updated details of the ruleset (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3975,11 +3975,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateComparisonRuleset: Update Group Reconciliation Comparison Ruleset defined by scope and code Overwrites an existing Group Reconciliation Comparison Ruleset  Update request has the same required fields as Create apart from the Id
+        /// [EXPERIMENTAL] UpdateComparisonRuleset: Update Group Reconciliation Comparison Ruleset defined by scope and code Overwrites an existing Group Reconciliation Comparison Ruleset Update request has the same required fields as Create apart from the Id
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified comparison ruleset.</param>
-        /// <param name="code">The code of the specified comparison ruleset. Together with the domain and scope this uniquely                  identifies the reconciliation comparison ruleset.</param>
+        /// <param name="code">The code of the specified comparison ruleset. Together with the domain and scope this uniquely                 identifies the reconciliation comparison ruleset.</param>
         /// <param name="updateGroupReconciliationComparisonRulesetRequest">The request containing the updated details of the ruleset (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>

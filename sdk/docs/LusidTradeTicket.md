@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **TransactionDate** | **string** | Transaction Date. Date at which transaction is known. | 
 **SettlementDate** | **string** | Transaction settlement. Date at which transaction is finalised and realised into the system. | 
 **TotalConsideration** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | 
-**Units** | **decimal** | Number of units in the transaction. For an OTC this is somewhat interchangeable with the quantity booked in the  instrument. As M x N or N x M are equivalent it is advised a client chooses one approach and sticks to it.  Arguably either the unit or holding is best unitised. | 
+**Units** | **decimal** | Number of units in the transaction. For an OTC this is somewhat interchangeable with the quantity booked in the instrument. As M x N or N x M are equivalent it is advised a client chooses one approach and sticks to it. Arguably either the unit or holding is best unitised. | 
 **InstrumentIdentifiers** | **Dictionary&lt;string, string&gt;** | Identifiers for the instrument. | 
 **InstrumentScope** | **string** | Scope of instrument | [optional] 
 **InstrumentName** | **string** | Name of instrument | [optional] 

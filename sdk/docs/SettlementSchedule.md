@@ -8,6 +8,10 @@ Name | Type | Description | Notes
 **SettlementDate** | **DateTimeOffset** |  | [optional] 
 **Units** | **decimal** |  | [optional] 
 **BondInterest** | **decimal** |  | [optional] 
+**MovementName** | **string** |  | [optional] 
+**MovementType** | **string** |  | [optional] 
+**UnsettledUnits** | **decimal** |  | [optional] 
+**OverdueUnits** | **decimal** |  | [optional] 
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

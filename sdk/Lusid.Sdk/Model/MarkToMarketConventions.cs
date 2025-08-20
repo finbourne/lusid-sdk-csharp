@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// A set of conventions for mark to market. Mark to market is a method   that values financial instruments based on current market prices,   reflecting their current value, rather than historical cost.
+    /// A set of conventions for mark to market. Mark to market is a method  that values financial instruments based on current market prices,  reflecting their current value, rather than historical cost.
     /// </summary>
     [DataContract(Name = "MarkToMarketConventions")]
     public partial class MarkToMarketConventions : IEquatable<MarkToMarketConventions>, IValidatableObject

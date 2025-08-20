@@ -43,7 +43,7 @@ namespace Lusid.Sdk.Model
         /// <param name="contractSize">The principal amount of the term deposit. (required).</param>
         /// <param name="flowConvention">flowConvention (required).</param>
         /// <param name="rate">The fixed rate for the term deposit. Specified as a decimal, e.g 0.03 is meant to be 3% interest (required).</param>
-        /// <param name="domCcy">The domestic currency of the instrument. This should be the same as the Currency set on the FlowConventions.  You do not need to populate this field for Term Deposits in LUSID as all functionality is driven by the Currency set on the FlowConventions.  LUSID will not store values saved on this field..</param>
+        /// <param name="domCcy">The domestic currency of the instrument. This should be the same as the Currency set on the FlowConventions. You do not need to populate this field for Term Deposits in LUSID as all functionality is driven by the Currency set on the FlowConventions. LUSID will not store values saved on this field..</param>
         /// <param name="tradingConventions">tradingConventions.</param>
         /// <param name="timeZoneConventions">timeZoneConventions.</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit, FlexibleRepo (required) (default to &quot;TermDeposit&quot;).</param>
@@ -99,9 +99,9 @@ namespace Lusid.Sdk.Model
         public decimal Rate { get; set; }
 
         /// <summary>
-        /// The domestic currency of the instrument. This should be the same as the Currency set on the FlowConventions.  You do not need to populate this field for Term Deposits in LUSID as all functionality is driven by the Currency set on the FlowConventions.  LUSID will not store values saved on this field.
+        /// The domestic currency of the instrument. This should be the same as the Currency set on the FlowConventions. You do not need to populate this field for Term Deposits in LUSID as all functionality is driven by the Currency set on the FlowConventions. LUSID will not store values saved on this field.
         /// </summary>
-        /// <value>The domestic currency of the instrument. This should be the same as the Currency set on the FlowConventions.  You do not need to populate this field for Term Deposits in LUSID as all functionality is driven by the Currency set on the FlowConventions.  LUSID will not store values saved on this field.</value>
+        /// <value>The domestic currency of the instrument. This should be the same as the Currency set on the FlowConventions. You do not need to populate this field for Term Deposits in LUSID as all functionality is driven by the Currency set on the FlowConventions. LUSID will not store values saved on this field.</value>
         [DataMember(Name = "domCcy", EmitDefaultValue = true)]
         public string DomCcy { get; set; }
 

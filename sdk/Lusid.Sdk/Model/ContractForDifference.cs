@@ -39,15 +39,15 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="ContractForDifference" /> class.
         /// </summary>
         /// <param name="startDate">The start date of the CFD. (required).</param>
-        /// <param name="maturityDate">The maturity date for the CFD. If CFDType is Futures, this should be set to be the maturity date of the underlying  future. If CFDType is Cash, this should not be set..</param>
+        /// <param name="maturityDate">The maturity date for the CFD. If CFDType is Futures, this should be set to be the maturity date of the underlying future. If CFDType is Cash, this should not be set..</param>
         /// <param name="code">The code of the underlying..</param>
-        /// <param name="contractSize">The size of the CFD contract, this should represent the total number of stocks that the CFD represents.   This field is optional, if not set it will default to 1..</param>
+        /// <param name="contractSize">The size of the CFD contract, this should represent the total number of stocks that the CFD represents.  This field is optional, if not set it will default to 1..</param>
         /// <param name="payCcy">The currency that this CFD pays out, this can be different to the UnderlyingCcy. (required).</param>
-        /// <param name="referenceRate">The reference rate of the CFD, this can be set to 0 but not negative values.  This field is optional, if not set it will default to 0..</param>
-        /// <param name="type">The type of CFD.    Supported string (enumeration) values are: [Cash, Futures]. (required).</param>
+        /// <param name="referenceRate">The reference rate of the CFD, this can be set to 0 but not negative values. This field is optional, if not set it will default to 0..</param>
+        /// <param name="type">The type of CFD.  Supported string (enumeration) values are: [Cash, Futures]. (required).</param>
         /// <param name="underlyingCcy">The currency of the underlying.</param>
-        /// <param name="underlyingIdentifier">External market codes and identifiers for the CFD, e.g. RIC.    Supported string (enumeration) values are: [LusidInstrumentId, Isin, Sedol, Cusip, ClientInternal, Figi, RIC, QuotePermId, REDCode, BBGId, ICECode]..</param>
-        /// <param name="lotSize">CFD LotSize, the minimum number of shares that can be bought or sold at once.  Optional, if set must be non-negative, if not set defaults to 1..</param>
+        /// <param name="underlyingIdentifier">External market codes and identifiers for the CFD, e.g. RIC.  Supported string (enumeration) values are: [LusidInstrumentId, Isin, Sedol, Cusip, ClientInternal, Figi, RIC, QuotePermId, REDCode, BBGId, ICECode]..</param>
+        /// <param name="lotSize">CFD LotSize, the minimum number of shares that can be bought or sold at once. Optional, if set must be non-negative, if not set defaults to 1..</param>
         /// <param name="underlying">underlying.</param>
         /// <param name="timeZoneConventions">timeZoneConventions.</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit, FlexibleRepo (required) (default to &quot;ContractForDifference&quot;).</param>
@@ -85,9 +85,9 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset StartDate { get; set; }
 
         /// <summary>
-        /// The maturity date for the CFD. If CFDType is Futures, this should be set to be the maturity date of the underlying  future. If CFDType is Cash, this should not be set.
+        /// The maturity date for the CFD. If CFDType is Futures, this should be set to be the maturity date of the underlying future. If CFDType is Cash, this should not be set.
         /// </summary>
-        /// <value>The maturity date for the CFD. If CFDType is Futures, this should be set to be the maturity date of the underlying  future. If CFDType is Cash, this should not be set.</value>
+        /// <value>The maturity date for the CFD. If CFDType is Futures, this should be set to be the maturity date of the underlying future. If CFDType is Cash, this should not be set.</value>
         [DataMember(Name = "maturityDate", EmitDefaultValue = false)]
         public DateTimeOffset MaturityDate { get; set; }
 
@@ -99,9 +99,9 @@ namespace Lusid.Sdk.Model
         public string Code { get; set; }
 
         /// <summary>
-        /// The size of the CFD contract, this should represent the total number of stocks that the CFD represents.   This field is optional, if not set it will default to 1.
+        /// The size of the CFD contract, this should represent the total number of stocks that the CFD represents.  This field is optional, if not set it will default to 1.
         /// </summary>
-        /// <value>The size of the CFD contract, this should represent the total number of stocks that the CFD represents.   This field is optional, if not set it will default to 1.</value>
+        /// <value>The size of the CFD contract, this should represent the total number of stocks that the CFD represents.  This field is optional, if not set it will default to 1.</value>
         [DataMember(Name = "contractSize", EmitDefaultValue = true)]
         public decimal ContractSize { get; set; }
 
@@ -113,16 +113,16 @@ namespace Lusid.Sdk.Model
         public string PayCcy { get; set; }
 
         /// <summary>
-        /// The reference rate of the CFD, this can be set to 0 but not negative values.  This field is optional, if not set it will default to 0.
+        /// The reference rate of the CFD, this can be set to 0 but not negative values. This field is optional, if not set it will default to 0.
         /// </summary>
-        /// <value>The reference rate of the CFD, this can be set to 0 but not negative values.  This field is optional, if not set it will default to 0.</value>
+        /// <value>The reference rate of the CFD, this can be set to 0 but not negative values. This field is optional, if not set it will default to 0.</value>
         [DataMember(Name = "referenceRate", EmitDefaultValue = true)]
         public decimal ReferenceRate { get; set; }
 
         /// <summary>
-        /// The type of CFD.    Supported string (enumeration) values are: [Cash, Futures].
+        /// The type of CFD.  Supported string (enumeration) values are: [Cash, Futures].
         /// </summary>
-        /// <value>The type of CFD.    Supported string (enumeration) values are: [Cash, Futures].</value>
+        /// <value>The type of CFD.  Supported string (enumeration) values are: [Cash, Futures].</value>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
 
@@ -134,16 +134,16 @@ namespace Lusid.Sdk.Model
         public string UnderlyingCcy { get; set; }
 
         /// <summary>
-        /// External market codes and identifiers for the CFD, e.g. RIC.    Supported string (enumeration) values are: [LusidInstrumentId, Isin, Sedol, Cusip, ClientInternal, Figi, RIC, QuotePermId, REDCode, BBGId, ICECode].
+        /// External market codes and identifiers for the CFD, e.g. RIC.  Supported string (enumeration) values are: [LusidInstrumentId, Isin, Sedol, Cusip, ClientInternal, Figi, RIC, QuotePermId, REDCode, BBGId, ICECode].
         /// </summary>
-        /// <value>External market codes and identifiers for the CFD, e.g. RIC.    Supported string (enumeration) values are: [LusidInstrumentId, Isin, Sedol, Cusip, ClientInternal, Figi, RIC, QuotePermId, REDCode, BBGId, ICECode].</value>
+        /// <value>External market codes and identifiers for the CFD, e.g. RIC.  Supported string (enumeration) values are: [LusidInstrumentId, Isin, Sedol, Cusip, ClientInternal, Figi, RIC, QuotePermId, REDCode, BBGId, ICECode].</value>
         [DataMember(Name = "underlyingIdentifier", EmitDefaultValue = true)]
         public string UnderlyingIdentifier { get; set; }
 
         /// <summary>
-        /// CFD LotSize, the minimum number of shares that can be bought or sold at once.  Optional, if set must be non-negative, if not set defaults to 1.
+        /// CFD LotSize, the minimum number of shares that can be bought or sold at once. Optional, if set must be non-negative, if not set defaults to 1.
         /// </summary>
-        /// <value>CFD LotSize, the minimum number of shares that can be bought or sold at once.  Optional, if set must be non-negative, if not set defaults to 1.</value>
+        /// <value>CFD LotSize, the minimum number of shares that can be bought or sold at once. Optional, if set must be non-negative, if not set defaults to 1.</value>
         [DataMember(Name = "lotSize", EmitDefaultValue = true)]
         public int LotSize { get; set; }
 

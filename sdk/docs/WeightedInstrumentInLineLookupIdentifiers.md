@@ -1,5 +1,5 @@
 # Lusid.Sdk.Model.WeightedInstrumentInLineLookupIdentifiers
-External market codes and identifiers for the equity, e.g. IBM.  Required for valuation via SimpleStatic (look-up pricing).  Valuation will not succeed without a matching quote.
+External market codes and identifiers for the equity, e.g. IBM. Required for valuation via SimpleStatic (look-up pricing). Valuation will not succeed without a matching quote.
 
 ## Properties
 

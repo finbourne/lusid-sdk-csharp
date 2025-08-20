@@ -171,7 +171,7 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<DerivedTransactionPortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the derived transaction portfolio.
-            var code = "code_example";  // string | The code of the derived transaction portfolio. Together with the scope this uniquely identifies              the derived transaction portfolio.
+            var code = "code_example";  // string | The code of the derived transaction portfolio. Together with the scope this uniquely identifies             the derived transaction portfolio.
             var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective date of the change. (optional) 
 
             try
@@ -219,7 +219,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **scope** | **string** | The scope of the derived transaction portfolio. |  |
-| **code** | **string** | The code of the derived transaction portfolio. Together with the scope this uniquely identifies              the derived transaction portfolio. |  |
+| **code** | **string** | The code of the derived transaction portfolio. Together with the scope this uniquely identifies             the derived transaction portfolio. |  |
 | **effectiveAt** | **DateTimeOrCutLabel?** | The effective date of the change. | [optional]  |
 
 ### Return type

@@ -24,7 +24,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Market Data required to build a volatility surface for pricing.  Single constant volatility point.
+    /// Market Data required to build a volatility surface for pricing. Single constant volatility point.
     /// </summary>
     [DataContract(Name = "ConstantVolatilitySurface")]
     [JsonConverter(typeof(JsonSubtypes), "MarketDataType")]
@@ -39,7 +39,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="ConstantVolatilitySurface" /> class.
         /// </summary>
         /// <param name="baseDate">Base date of the engine - this is the reference date for resolution of tenors. (required).</param>
-        /// <param name="assetType">What is the asset that the engine is for.  Supported string (enumeration) values are: [Cash, Commodity, Credit, Equity, Fx, Rates, FxVol, IrVol, EquityVol, HolidayCalendar, IndexConvention, FlowConvention, CdsFlowConvention, CorporateActions, FxForwards, Quote, Inflation, EquityCurve, All, VendorOpaque]. (required).</param>
+        /// <param name="assetType">What is the asset that the engine is for. Supported string (enumeration) values are: [Cash, Commodity, Credit, Equity, Fx, Rates, FxVol, IrVol, EquityVol, HolidayCalendar, IndexConvention, FlowConvention, CdsFlowConvention, CorporateActions, FxForwards, Quote, Inflation, EquityCurve, All, VendorOpaque]. (required).</param>
         /// <param name="lineage">lineage.</param>
         /// <param name="volatility">Volatility value. (required).</param>
         /// <param name="marketDataType">The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface (required) (default to &quot;ConstantVolatilitySurface&quot;).</param>
@@ -64,9 +64,9 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset BaseDate { get; set; }
 
         /// <summary>
-        /// What is the asset that the engine is for.  Supported string (enumeration) values are: [Cash, Commodity, Credit, Equity, Fx, Rates, FxVol, IrVol, EquityVol, HolidayCalendar, IndexConvention, FlowConvention, CdsFlowConvention, CorporateActions, FxForwards, Quote, Inflation, EquityCurve, All, VendorOpaque].
+        /// What is the asset that the engine is for. Supported string (enumeration) values are: [Cash, Commodity, Credit, Equity, Fx, Rates, FxVol, IrVol, EquityVol, HolidayCalendar, IndexConvention, FlowConvention, CdsFlowConvention, CorporateActions, FxForwards, Quote, Inflation, EquityCurve, All, VendorOpaque].
         /// </summary>
-        /// <value>What is the asset that the engine is for.  Supported string (enumeration) values are: [Cash, Commodity, Credit, Equity, Fx, Rates, FxVol, IrVol, EquityVol, HolidayCalendar, IndexConvention, FlowConvention, CdsFlowConvention, CorporateActions, FxForwards, Quote, Inflation, EquityCurve, All, VendorOpaque].</value>
+        /// <value>What is the asset that the engine is for. Supported string (enumeration) values are: [Cash, Commodity, Credit, Equity, Fx, Rates, FxVol, IrVol, EquityVol, HolidayCalendar, IndexConvention, FlowConvention, CdsFlowConvention, CorporateActions, FxForwards, Quote, Inflation, EquityCurve, All, VendorOpaque].</value>
         [DataMember(Name = "assetType", IsRequired = true, EmitDefaultValue = true)]
         public string AssetType { get; set; }
 

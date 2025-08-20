@@ -35,7 +35,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] CreateCheckDefinition: Create a Check Definition
         /// </summary>
         /// <remarks>
-        /// Creates a Check Definition. Returns the created Check Definition at the current effectiveAt.  Note that Check Definitions are mono-temporal, however they can have Time-Variant Properties.  Upserted Properties will be returned at the latest AsAt and EffectiveAt
+        /// Creates a Check Definition. Returns the created Check Definition at the current effectiveAt. Note that Check Definitions are mono-temporal, however they can have Time-Variant Properties. Upserted Properties will be returned at the latest AsAt and EffectiveAt
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createCheckDefinitionRequest">The request containing the details of the Check Definition (optional)</param>
@@ -48,7 +48,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] CreateCheckDefinition: Create a Check Definition
         /// </summary>
         /// <remarks>
-        /// Creates a Check Definition. Returns the created Check Definition at the current effectiveAt.  Note that Check Definitions are mono-temporal, however they can have Time-Variant Properties.  Upserted Properties will be returned at the latest AsAt and EffectiveAt
+        /// Creates a Check Definition. Returns the created Check Definition at the current effectiveAt. Note that Check Definitions are mono-temporal, however they can have Time-Variant Properties. Upserted Properties will be returned at the latest AsAt and EffectiveAt
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createCheckDefinitionRequest">The request containing the details of the Check Definition (optional)</param>
@@ -60,11 +60,11 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] DeleteCheckDefinition: Deletes a particular Check Definition
         /// </summary>
         /// <remarks>
-        /// The deletion will take effect from the Check Definition deletion datetime.  i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
+        /// The deletion will take effect from the Check Definition deletion datetime. i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Check Definition.</param>
-        /// <param name="code">The code of the specified Check Definition. Together with the domain and scope this uniquely              identifies the Check Definition.</param>
+        /// <param name="code">The code of the specified Check Definition. Together with the domain and scope this uniquely             identifies the Check Definition.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
@@ -74,11 +74,11 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] DeleteCheckDefinition: Deletes a particular Check Definition
         /// </summary>
         /// <remarks>
-        /// The deletion will take effect from the Check Definition deletion datetime.  i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
+        /// The deletion will take effect from the Check Definition deletion datetime. i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Check Definition.</param>
-        /// <param name="code">The code of the specified Check Definition. Together with the domain and scope this uniquely              identifies the Check Definition.</param>
+        /// <param name="code">The code of the specified Check Definition. Together with the domain and scope this uniquely             identifies the Check Definition.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
@@ -87,14 +87,14 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetCheckDefinition: Get a single Check Definition by scope and code.
         /// </summary>
         /// <remarks>
-        /// Retrieves one Check Definition by scope and code.  Check Definitions are mono-temporal. The EffectiveAt is only applied to Time-Variant Properties.
+        /// Retrieves one Check Definition by scope and code. Check Definitions are mono-temporal. The EffectiveAt is only applied to Time-Variant Properties.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Check Definition.</param>
-        /// <param name="code">The code of the specified Check Definition. Together with the scope this uniquely              identifies the Check Definition.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Check Definition definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the check definition properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;CheckDefinition&#39; domain to decorate onto              the Check Definition.              These must have the format {domain}/{scope}/{code}, for example &#39;CheckDefinition/system/Name&#39;. (optional)</param>
+        /// <param name="code">The code of the specified Check Definition. Together with the scope this uniquely             identifies the Check Definition.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Check Definition definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the check definition properties.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;CheckDefinition&#39; domain to decorate onto             the Check Definition.             These must have the format {domain}/{scope}/{code}, for example &#39;CheckDefinition/system/Name&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>CheckDefinition</returns>
@@ -104,14 +104,14 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetCheckDefinition: Get a single Check Definition by scope and code.
         /// </summary>
         /// <remarks>
-        /// Retrieves one Check Definition by scope and code.  Check Definitions are mono-temporal. The EffectiveAt is only applied to Time-Variant Properties.
+        /// Retrieves one Check Definition by scope and code. Check Definitions are mono-temporal. The EffectiveAt is only applied to Time-Variant Properties.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Check Definition.</param>
-        /// <param name="code">The code of the specified Check Definition. Together with the scope this uniquely              identifies the Check Definition.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Check Definition definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the check definition properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;CheckDefinition&#39; domain to decorate onto              the Check Definition.              These must have the format {domain}/{scope}/{code}, for example &#39;CheckDefinition/system/Name&#39;. (optional)</param>
+        /// <param name="code">The code of the specified Check Definition. Together with the scope this uniquely             identifies the Check Definition.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Check Definition definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the check definition properties.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;CheckDefinition&#39; domain to decorate onto             the Check Definition.             These must have the format {domain}/{scope}/{code}, for example &#39;CheckDefinition/system/Name&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of CheckDefinition</returns>
@@ -124,12 +124,12 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Check Definitions. Defaults to returning the latest version of each Check Definition if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the Check Definitions.              Note that Check Definitions are monotemporal, the effectiveAt is for Timevariant Properties on the Check Definition only.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Check Definitions; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the Check Definitions.             Note that Check Definitions are monotemporal, the effectiveAt is for Timevariant Properties on the Check Definition only.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Check Definitions; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For example, to filter on the displayName, specify \&quot;displayName eq &#39;MyCheckDefinition&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.             For example, to filter on the displayName, specify \&quot;displayName eq &#39;MyCheckDefinition&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;CheckDefinition&#39; domain to decorate onto each Check Definition.              These must take the format {domain}/{scope}/{code}, for example &#39;CheckDefinition/Account/id&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;CheckDefinition&#39; domain to decorate onto each Check Definition.             These must take the format {domain}/{scope}/{code}, for example &#39;CheckDefinition/Account/id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfCheckDefinition</returns>
@@ -143,12 +143,12 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Check Definitions. Defaults to returning the latest version of each Check Definition if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the Check Definitions.              Note that Check Definitions are monotemporal, the effectiveAt is for Timevariant Properties on the Check Definition only.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Check Definitions; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the Check Definitions.             Note that Check Definitions are monotemporal, the effectiveAt is for Timevariant Properties on the Check Definition only.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Check Definitions; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For example, to filter on the displayName, specify \&quot;displayName eq &#39;MyCheckDefinition&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.             For example, to filter on the displayName, specify \&quot;displayName eq &#39;MyCheckDefinition&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;CheckDefinition&#39; domain to decorate onto each Check Definition.              These must take the format {domain}/{scope}/{code}, for example &#39;CheckDefinition/Account/id&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;CheckDefinition&#39; domain to decorate onto each Check Definition.             These must take the format {domain}/{scope}/{code}, for example &#39;CheckDefinition/Account/id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfCheckDefinition</returns>
@@ -157,7 +157,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] UpdateCheckDefinition: Update Check Definition defined by scope and code
         /// </summary>
         /// <remarks>
-        /// Overwrites an existing Check Definition  Update request has the same required fields as Create apart from the id.  Returns the updated Check Definition at the current effectiveAt.  Note that Check Definitions are mono-temporal, however they can have Time-Variant Properties.  Updated Properties will be returned at the latest AsAt and EffectiveAt
+        /// Overwrites an existing Check Definition Update request has the same required fields as Create apart from the id. Returns the updated Check Definition at the current effectiveAt. Note that Check Definitions are mono-temporal, however they can have Time-Variant Properties. Updated Properties will be returned at the latest AsAt and EffectiveAt
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Check Definition.</param>
@@ -172,7 +172,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] UpdateCheckDefinition: Update Check Definition defined by scope and code
         /// </summary>
         /// <remarks>
-        /// Overwrites an existing Check Definition  Update request has the same required fields as Create apart from the id.  Returns the updated Check Definition at the current effectiveAt.  Note that Check Definitions are mono-temporal, however they can have Time-Variant Properties.  Updated Properties will be returned at the latest AsAt and EffectiveAt
+        /// Overwrites an existing Check Definition Update request has the same required fields as Create apart from the id. Returns the updated Check Definition at the current effectiveAt. Note that Check Definitions are mono-temporal, however they can have Time-Variant Properties. Updated Properties will be returned at the latest AsAt and EffectiveAt
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Check Definition.</param>
@@ -195,7 +195,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] CreateCheckDefinition: Create a Check Definition
         /// </summary>
         /// <remarks>
-        /// Creates a Check Definition. Returns the created Check Definition at the current effectiveAt.  Note that Check Definitions are mono-temporal, however they can have Time-Variant Properties.  Upserted Properties will be returned at the latest AsAt and EffectiveAt
+        /// Creates a Check Definition. Returns the created Check Definition at the current effectiveAt. Note that Check Definitions are mono-temporal, however they can have Time-Variant Properties. Upserted Properties will be returned at the latest AsAt and EffectiveAt
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createCheckDefinitionRequest">The request containing the details of the Check Definition (optional)</param>
@@ -209,7 +209,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] CreateCheckDefinition: Create a Check Definition
         /// </summary>
         /// <remarks>
-        /// Creates a Check Definition. Returns the created Check Definition at the current effectiveAt.  Note that Check Definitions are mono-temporal, however they can have Time-Variant Properties.  Upserted Properties will be returned at the latest AsAt and EffectiveAt
+        /// Creates a Check Definition. Returns the created Check Definition at the current effectiveAt. Note that Check Definitions are mono-temporal, however they can have Time-Variant Properties. Upserted Properties will be returned at the latest AsAt and EffectiveAt
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createCheckDefinitionRequest">The request containing the details of the Check Definition (optional)</param>
@@ -222,11 +222,11 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] DeleteCheckDefinition: Deletes a particular Check Definition
         /// </summary>
         /// <remarks>
-        /// The deletion will take effect from the Check Definition deletion datetime.  i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
+        /// The deletion will take effect from the Check Definition deletion datetime. i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Check Definition.</param>
-        /// <param name="code">The code of the specified Check Definition. Together with the domain and scope this uniquely              identifies the Check Definition.</param>
+        /// <param name="code">The code of the specified Check Definition. Together with the domain and scope this uniquely             identifies the Check Definition.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -237,11 +237,11 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] DeleteCheckDefinition: Deletes a particular Check Definition
         /// </summary>
         /// <remarks>
-        /// The deletion will take effect from the Check Definition deletion datetime.  i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
+        /// The deletion will take effect from the Check Definition deletion datetime. i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Check Definition.</param>
-        /// <param name="code">The code of the specified Check Definition. Together with the domain and scope this uniquely              identifies the Check Definition.</param>
+        /// <param name="code">The code of the specified Check Definition. Together with the domain and scope this uniquely             identifies the Check Definition.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -251,14 +251,14 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetCheckDefinition: Get a single Check Definition by scope and code.
         /// </summary>
         /// <remarks>
-        /// Retrieves one Check Definition by scope and code.  Check Definitions are mono-temporal. The EffectiveAt is only applied to Time-Variant Properties.
+        /// Retrieves one Check Definition by scope and code. Check Definitions are mono-temporal. The EffectiveAt is only applied to Time-Variant Properties.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Check Definition.</param>
-        /// <param name="code">The code of the specified Check Definition. Together with the scope this uniquely              identifies the Check Definition.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Check Definition definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the check definition properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;CheckDefinition&#39; domain to decorate onto              the Check Definition.              These must have the format {domain}/{scope}/{code}, for example &#39;CheckDefinition/system/Name&#39;. (optional)</param>
+        /// <param name="code">The code of the specified Check Definition. Together with the scope this uniquely             identifies the Check Definition.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Check Definition definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the check definition properties.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;CheckDefinition&#39; domain to decorate onto             the Check Definition.             These must have the format {domain}/{scope}/{code}, for example &#39;CheckDefinition/system/Name&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -269,14 +269,14 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetCheckDefinition: Get a single Check Definition by scope and code.
         /// </summary>
         /// <remarks>
-        /// Retrieves one Check Definition by scope and code.  Check Definitions are mono-temporal. The EffectiveAt is only applied to Time-Variant Properties.
+        /// Retrieves one Check Definition by scope and code. Check Definitions are mono-temporal. The EffectiveAt is only applied to Time-Variant Properties.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Check Definition.</param>
-        /// <param name="code">The code of the specified Check Definition. Together with the scope this uniquely              identifies the Check Definition.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Check Definition definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the check definition properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;CheckDefinition&#39; domain to decorate onto              the Check Definition.              These must have the format {domain}/{scope}/{code}, for example &#39;CheckDefinition/system/Name&#39;. (optional)</param>
+        /// <param name="code">The code of the specified Check Definition. Together with the scope this uniquely             identifies the Check Definition.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Check Definition definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the check definition properties.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;CheckDefinition&#39; domain to decorate onto             the Check Definition.             These must have the format {domain}/{scope}/{code}, for example &#39;CheckDefinition/system/Name&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -290,12 +290,12 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Check Definitions. Defaults to returning the latest version of each Check Definition if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the Check Definitions.              Note that Check Definitions are monotemporal, the effectiveAt is for Timevariant Properties on the Check Definition only.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Check Definitions; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the Check Definitions.             Note that Check Definitions are monotemporal, the effectiveAt is for Timevariant Properties on the Check Definition only.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Check Definitions; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For example, to filter on the displayName, specify \&quot;displayName eq &#39;MyCheckDefinition&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.             For example, to filter on the displayName, specify \&quot;displayName eq &#39;MyCheckDefinition&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;CheckDefinition&#39; domain to decorate onto each Check Definition.              These must take the format {domain}/{scope}/{code}, for example &#39;CheckDefinition/Account/id&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;CheckDefinition&#39; domain to decorate onto each Check Definition.             These must take the format {domain}/{scope}/{code}, for example &#39;CheckDefinition/Account/id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -310,12 +310,12 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Check Definitions. Defaults to returning the latest version of each Check Definition if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the Check Definitions.              Note that Check Definitions are monotemporal, the effectiveAt is for Timevariant Properties on the Check Definition only.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Check Definitions; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the Check Definitions.             Note that Check Definitions are monotemporal, the effectiveAt is for Timevariant Properties on the Check Definition only.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Check Definitions; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For example, to filter on the displayName, specify \&quot;displayName eq &#39;MyCheckDefinition&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.             For example, to filter on the displayName, specify \&quot;displayName eq &#39;MyCheckDefinition&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;CheckDefinition&#39; domain to decorate onto each Check Definition.              These must take the format {domain}/{scope}/{code}, for example &#39;CheckDefinition/Account/id&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;CheckDefinition&#39; domain to decorate onto each Check Definition.             These must take the format {domain}/{scope}/{code}, for example &#39;CheckDefinition/Account/id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -325,7 +325,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] UpdateCheckDefinition: Update Check Definition defined by scope and code
         /// </summary>
         /// <remarks>
-        /// Overwrites an existing Check Definition  Update request has the same required fields as Create apart from the id.  Returns the updated Check Definition at the current effectiveAt.  Note that Check Definitions are mono-temporal, however they can have Time-Variant Properties.  Updated Properties will be returned at the latest AsAt and EffectiveAt
+        /// Overwrites an existing Check Definition Update request has the same required fields as Create apart from the id. Returns the updated Check Definition at the current effectiveAt. Note that Check Definitions are mono-temporal, however they can have Time-Variant Properties. Updated Properties will be returned at the latest AsAt and EffectiveAt
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Check Definition.</param>
@@ -341,7 +341,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] UpdateCheckDefinition: Update Check Definition defined by scope and code
         /// </summary>
         /// <remarks>
-        /// Overwrites an existing Check Definition  Update request has the same required fields as Create apart from the id.  Returns the updated Check Definition at the current effectiveAt.  Note that Check Definitions are mono-temporal, however they can have Time-Variant Properties.  Updated Properties will be returned at the latest AsAt and EffectiveAt
+        /// Overwrites an existing Check Definition Update request has the same required fields as Create apart from the id. Returns the updated Check Definition at the current effectiveAt. Note that Check Definitions are mono-temporal, however they can have Time-Variant Properties. Updated Properties will be returned at the latest AsAt and EffectiveAt
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Check Definition.</param>
@@ -476,7 +476,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateCheckDefinition: Create a Check Definition Creates a Check Definition. Returns the created Check Definition at the current effectiveAt.  Note that Check Definitions are mono-temporal, however they can have Time-Variant Properties.  Upserted Properties will be returned at the latest AsAt and EffectiveAt
+        /// [EXPERIMENTAL] CreateCheckDefinition: Create a Check Definition Creates a Check Definition. Returns the created Check Definition at the current effectiveAt. Note that Check Definitions are mono-temporal, however they can have Time-Variant Properties. Upserted Properties will be returned at the latest AsAt and EffectiveAt
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createCheckDefinitionRequest">The request containing the details of the Check Definition (optional)</param>
@@ -490,7 +490,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateCheckDefinition: Create a Check Definition Creates a Check Definition. Returns the created Check Definition at the current effectiveAt.  Note that Check Definitions are mono-temporal, however they can have Time-Variant Properties.  Upserted Properties will be returned at the latest AsAt and EffectiveAt
+        /// [EXPERIMENTAL] CreateCheckDefinition: Create a Check Definition Creates a Check Definition. Returns the created Check Definition at the current effectiveAt. Note that Check Definitions are mono-temporal, however they can have Time-Variant Properties. Upserted Properties will be returned at the latest AsAt and EffectiveAt
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createCheckDefinitionRequest">The request containing the details of the Check Definition (optional)</param>
@@ -574,7 +574,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateCheckDefinition: Create a Check Definition Creates a Check Definition. Returns the created Check Definition at the current effectiveAt.  Note that Check Definitions are mono-temporal, however they can have Time-Variant Properties.  Upserted Properties will be returned at the latest AsAt and EffectiveAt
+        /// [EXPERIMENTAL] CreateCheckDefinition: Create a Check Definition Creates a Check Definition. Returns the created Check Definition at the current effectiveAt. Note that Check Definitions are mono-temporal, however they can have Time-Variant Properties. Upserted Properties will be returned at the latest AsAt and EffectiveAt
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createCheckDefinitionRequest">The request containing the details of the Check Definition (optional)</param>
@@ -589,7 +589,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateCheckDefinition: Create a Check Definition Creates a Check Definition. Returns the created Check Definition at the current effectiveAt.  Note that Check Definitions are mono-temporal, however they can have Time-Variant Properties.  Upserted Properties will be returned at the latest AsAt and EffectiveAt
+        /// [EXPERIMENTAL] CreateCheckDefinition: Create a Check Definition Creates a Check Definition. Returns the created Check Definition at the current effectiveAt. Note that Check Definitions are mono-temporal, however they can have Time-Variant Properties. Upserted Properties will be returned at the latest AsAt and EffectiveAt
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createCheckDefinitionRequest">The request containing the details of the Check Definition (optional)</param>
@@ -676,11 +676,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteCheckDefinition: Deletes a particular Check Definition The deletion will take effect from the Check Definition deletion datetime.  i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
+        /// [EXPERIMENTAL] DeleteCheckDefinition: Deletes a particular Check Definition The deletion will take effect from the Check Definition deletion datetime. i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Check Definition.</param>
-        /// <param name="code">The code of the specified Check Definition. Together with the domain and scope this uniquely              identifies the Check Definition.</param>
+        /// <param name="code">The code of the specified Check Definition. Together with the domain and scope this uniquely             identifies the Check Definition.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
@@ -691,11 +691,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteCheckDefinition: Deletes a particular Check Definition The deletion will take effect from the Check Definition deletion datetime.  i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
+        /// [EXPERIMENTAL] DeleteCheckDefinition: Deletes a particular Check Definition The deletion will take effect from the Check Definition deletion datetime. i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Check Definition.</param>
-        /// <param name="code">The code of the specified Check Definition. Together with the domain and scope this uniquely              identifies the Check Definition.</param>
+        /// <param name="code">The code of the specified Check Definition. Together with the domain and scope this uniquely             identifies the Check Definition.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
@@ -785,11 +785,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteCheckDefinition: Deletes a particular Check Definition The deletion will take effect from the Check Definition deletion datetime.  i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
+        /// [EXPERIMENTAL] DeleteCheckDefinition: Deletes a particular Check Definition The deletion will take effect from the Check Definition deletion datetime. i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Check Definition.</param>
-        /// <param name="code">The code of the specified Check Definition. Together with the domain and scope this uniquely              identifies the Check Definition.</param>
+        /// <param name="code">The code of the specified Check Definition. Together with the domain and scope this uniquely             identifies the Check Definition.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -801,11 +801,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteCheckDefinition: Deletes a particular Check Definition The deletion will take effect from the Check Definition deletion datetime.  i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
+        /// [EXPERIMENTAL] DeleteCheckDefinition: Deletes a particular Check Definition The deletion will take effect from the Check Definition deletion datetime. i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Check Definition.</param>
-        /// <param name="code">The code of the specified Check Definition. Together with the domain and scope this uniquely              identifies the Check Definition.</param>
+        /// <param name="code">The code of the specified Check Definition. Together with the domain and scope this uniquely             identifies the Check Definition.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -898,14 +898,14 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetCheckDefinition: Get a single Check Definition by scope and code. Retrieves one Check Definition by scope and code.  Check Definitions are mono-temporal. The EffectiveAt is only applied to Time-Variant Properties.
+        /// [EXPERIMENTAL] GetCheckDefinition: Get a single Check Definition by scope and code. Retrieves one Check Definition by scope and code. Check Definitions are mono-temporal. The EffectiveAt is only applied to Time-Variant Properties.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Check Definition.</param>
-        /// <param name="code">The code of the specified Check Definition. Together with the scope this uniquely              identifies the Check Definition.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Check Definition definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the check definition properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;CheckDefinition&#39; domain to decorate onto              the Check Definition.              These must have the format {domain}/{scope}/{code}, for example &#39;CheckDefinition/system/Name&#39;. (optional)</param>
+        /// <param name="code">The code of the specified Check Definition. Together with the scope this uniquely             identifies the Check Definition.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Check Definition definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the check definition properties.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;CheckDefinition&#39; domain to decorate onto             the Check Definition.             These must have the format {domain}/{scope}/{code}, for example &#39;CheckDefinition/system/Name&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>CheckDefinition</returns>
@@ -916,14 +916,14 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetCheckDefinition: Get a single Check Definition by scope and code. Retrieves one Check Definition by scope and code.  Check Definitions are mono-temporal. The EffectiveAt is only applied to Time-Variant Properties.
+        /// [EXPERIMENTAL] GetCheckDefinition: Get a single Check Definition by scope and code. Retrieves one Check Definition by scope and code. Check Definitions are mono-temporal. The EffectiveAt is only applied to Time-Variant Properties.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Check Definition.</param>
-        /// <param name="code">The code of the specified Check Definition. Together with the scope this uniquely              identifies the Check Definition.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Check Definition definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the check definition properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;CheckDefinition&#39; domain to decorate onto              the Check Definition.              These must have the format {domain}/{scope}/{code}, for example &#39;CheckDefinition/system/Name&#39;. (optional)</param>
+        /// <param name="code">The code of the specified Check Definition. Together with the scope this uniquely             identifies the Check Definition.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Check Definition definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the check definition properties.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;CheckDefinition&#39; domain to decorate onto             the Check Definition.             These must have the format {domain}/{scope}/{code}, for example &#39;CheckDefinition/system/Name&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of CheckDefinition</returns>
@@ -1025,14 +1025,14 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetCheckDefinition: Get a single Check Definition by scope and code. Retrieves one Check Definition by scope and code.  Check Definitions are mono-temporal. The EffectiveAt is only applied to Time-Variant Properties.
+        /// [EXPERIMENTAL] GetCheckDefinition: Get a single Check Definition by scope and code. Retrieves one Check Definition by scope and code. Check Definitions are mono-temporal. The EffectiveAt is only applied to Time-Variant Properties.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Check Definition.</param>
-        /// <param name="code">The code of the specified Check Definition. Together with the scope this uniquely              identifies the Check Definition.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Check Definition definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the check definition properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;CheckDefinition&#39; domain to decorate onto              the Check Definition.              These must have the format {domain}/{scope}/{code}, for example &#39;CheckDefinition/system/Name&#39;. (optional)</param>
+        /// <param name="code">The code of the specified Check Definition. Together with the scope this uniquely             identifies the Check Definition.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Check Definition definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the check definition properties.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;CheckDefinition&#39; domain to decorate onto             the Check Definition.             These must have the format {domain}/{scope}/{code}, for example &#39;CheckDefinition/system/Name&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1044,14 +1044,14 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetCheckDefinition: Get a single Check Definition by scope and code. Retrieves one Check Definition by scope and code.  Check Definitions are mono-temporal. The EffectiveAt is only applied to Time-Variant Properties.
+        /// [EXPERIMENTAL] GetCheckDefinition: Get a single Check Definition by scope and code. Retrieves one Check Definition by scope and code. Check Definitions are mono-temporal. The EffectiveAt is only applied to Time-Variant Properties.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Check Definition.</param>
-        /// <param name="code">The code of the specified Check Definition. Together with the scope this uniquely              identifies the Check Definition.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Check Definition definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the check definition properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;CheckDefinition&#39; domain to decorate onto              the Check Definition.              These must have the format {domain}/{scope}/{code}, for example &#39;CheckDefinition/system/Name&#39;. (optional)</param>
+        /// <param name="code">The code of the specified Check Definition. Together with the scope this uniquely             identifies the Check Definition.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Check Definition definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the check definition properties.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;CheckDefinition&#39; domain to decorate onto             the Check Definition.             These must have the format {domain}/{scope}/{code}, for example &#39;CheckDefinition/system/Name&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1160,12 +1160,12 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Check Definitions. Defaults to returning the latest version of each Check Definition if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the Check Definitions.              Note that Check Definitions are monotemporal, the effectiveAt is for Timevariant Properties on the Check Definition only.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Check Definitions; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the Check Definitions.             Note that Check Definitions are monotemporal, the effectiveAt is for Timevariant Properties on the Check Definition only.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Check Definitions; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For example, to filter on the displayName, specify \&quot;displayName eq &#39;MyCheckDefinition&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.             For example, to filter on the displayName, specify \&quot;displayName eq &#39;MyCheckDefinition&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;CheckDefinition&#39; domain to decorate onto each Check Definition.              These must take the format {domain}/{scope}/{code}, for example &#39;CheckDefinition/Account/id&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;CheckDefinition&#39; domain to decorate onto each Check Definition.             These must take the format {domain}/{scope}/{code}, for example &#39;CheckDefinition/Account/id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfCheckDefinition</returns>
@@ -1180,12 +1180,12 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Check Definitions. Defaults to returning the latest version of each Check Definition if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the Check Definitions.              Note that Check Definitions are monotemporal, the effectiveAt is for Timevariant Properties on the Check Definition only.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Check Definitions; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the Check Definitions.             Note that Check Definitions are monotemporal, the effectiveAt is for Timevariant Properties on the Check Definition only.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Check Definitions; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For example, to filter on the displayName, specify \&quot;displayName eq &#39;MyCheckDefinition&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.             For example, to filter on the displayName, specify \&quot;displayName eq &#39;MyCheckDefinition&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;CheckDefinition&#39; domain to decorate onto each Check Definition.              These must take the format {domain}/{scope}/{code}, for example &#39;CheckDefinition/Account/id&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;CheckDefinition&#39; domain to decorate onto each Check Definition.             These must take the format {domain}/{scope}/{code}, for example &#39;CheckDefinition/Account/id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfCheckDefinition</returns>
@@ -1293,12 +1293,12 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Check Definitions. Defaults to returning the latest version of each Check Definition if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the Check Definitions.              Note that Check Definitions are monotemporal, the effectiveAt is for Timevariant Properties on the Check Definition only.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Check Definitions; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the Check Definitions.             Note that Check Definitions are monotemporal, the effectiveAt is for Timevariant Properties on the Check Definition only.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Check Definitions; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For example, to filter on the displayName, specify \&quot;displayName eq &#39;MyCheckDefinition&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.             For example, to filter on the displayName, specify \&quot;displayName eq &#39;MyCheckDefinition&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;CheckDefinition&#39; domain to decorate onto each Check Definition.              These must take the format {domain}/{scope}/{code}, for example &#39;CheckDefinition/Account/id&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;CheckDefinition&#39; domain to decorate onto each Check Definition.             These must take the format {domain}/{scope}/{code}, for example &#39;CheckDefinition/Account/id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1314,12 +1314,12 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Check Definitions. Defaults to returning the latest version of each Check Definition if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the Check Definitions.              Note that Check Definitions are monotemporal, the effectiveAt is for Timevariant Properties on the Check Definition only.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Check Definitions; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the Check Definitions.             Note that Check Definitions are monotemporal, the effectiveAt is for Timevariant Properties on the Check Definition only.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Check Definitions; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For example, to filter on the displayName, specify \&quot;displayName eq &#39;MyCheckDefinition&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.             For example, to filter on the displayName, specify \&quot;displayName eq &#39;MyCheckDefinition&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;CheckDefinition&#39; domain to decorate onto each Check Definition.              These must take the format {domain}/{scope}/{code}, for example &#39;CheckDefinition/Account/id&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;CheckDefinition&#39; domain to decorate onto each Check Definition.             These must take the format {domain}/{scope}/{code}, for example &#39;CheckDefinition/Account/id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1426,7 +1426,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateCheckDefinition: Update Check Definition defined by scope and code Overwrites an existing Check Definition  Update request has the same required fields as Create apart from the id.  Returns the updated Check Definition at the current effectiveAt.  Note that Check Definitions are mono-temporal, however they can have Time-Variant Properties.  Updated Properties will be returned at the latest AsAt and EffectiveAt
+        /// [EXPERIMENTAL] UpdateCheckDefinition: Update Check Definition defined by scope and code Overwrites an existing Check Definition Update request has the same required fields as Create apart from the id. Returns the updated Check Definition at the current effectiveAt. Note that Check Definitions are mono-temporal, however they can have Time-Variant Properties. Updated Properties will be returned at the latest AsAt and EffectiveAt
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Check Definition.</param>
@@ -1442,7 +1442,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateCheckDefinition: Update Check Definition defined by scope and code Overwrites an existing Check Definition  Update request has the same required fields as Create apart from the id.  Returns the updated Check Definition at the current effectiveAt.  Note that Check Definitions are mono-temporal, however they can have Time-Variant Properties.  Updated Properties will be returned at the latest AsAt and EffectiveAt
+        /// [EXPERIMENTAL] UpdateCheckDefinition: Update Check Definition defined by scope and code Overwrites an existing Check Definition Update request has the same required fields as Create apart from the id. Returns the updated Check Definition at the current effectiveAt. Note that Check Definitions are mono-temporal, however they can have Time-Variant Properties. Updated Properties will be returned at the latest AsAt and EffectiveAt
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Check Definition.</param>
@@ -1542,7 +1542,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateCheckDefinition: Update Check Definition defined by scope and code Overwrites an existing Check Definition  Update request has the same required fields as Create apart from the id.  Returns the updated Check Definition at the current effectiveAt.  Note that Check Definitions are mono-temporal, however they can have Time-Variant Properties.  Updated Properties will be returned at the latest AsAt and EffectiveAt
+        /// [EXPERIMENTAL] UpdateCheckDefinition: Update Check Definition defined by scope and code Overwrites an existing Check Definition Update request has the same required fields as Create apart from the id. Returns the updated Check Definition at the current effectiveAt. Note that Check Definitions are mono-temporal, however they can have Time-Variant Properties. Updated Properties will be returned at the latest AsAt and EffectiveAt
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Check Definition.</param>
@@ -1559,7 +1559,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateCheckDefinition: Update Check Definition defined by scope and code Overwrites an existing Check Definition  Update request has the same required fields as Create apart from the id.  Returns the updated Check Definition at the current effectiveAt.  Note that Check Definitions are mono-temporal, however they can have Time-Variant Properties.  Updated Properties will be returned at the latest AsAt and EffectiveAt
+        /// [EXPERIMENTAL] UpdateCheckDefinition: Update Check Definition defined by scope and code Overwrites an existing Check Definition Update request has the same required fields as Create apart from the id. Returns the updated Check Definition at the current effectiveAt. Note that Check Definitions are mono-temporal, however they can have Time-Variant Properties. Updated Properties will be returned at the latest AsAt and EffectiveAt
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified Check Definition.</param>

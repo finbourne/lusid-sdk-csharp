@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **MasteredLusidInstrumentId** | **string** | Luid of the Instrument that Mastered Instrument points to - read only field | [optional] [readonly] 
 **MasteredName** | **string** | Name of the Instrument that Mastered Instrument points to - read only field | [optional] [readonly] 
 **MasteredScope** | **string** | Scope of the Instrument that Mastered Instrument points to - read only field | [optional] [readonly] 
-**MasteredAssetClass** | **string** | Asset class of the underlying mastered instrument - read only field    Supported string (enumeration) values are: [InterestRates, FX, Inflation, Equities, Credit, Commodities, Money]. | [optional] [readonly] 
+**MasteredAssetClass** | **string** | Asset class of the underlying mastered instrument - read only field  Supported string (enumeration) values are: [InterestRates, FX, Inflation, Equities, Credit, Commodities, Money]. | [optional] [readonly] 
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

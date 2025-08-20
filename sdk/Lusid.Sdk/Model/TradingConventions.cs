@@ -31,9 +31,9 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TradingConventions" /> class.
         /// </summary>
-        /// <param name="priceScaleFactor">The factor used to scale prices for the instrument. Currently used by LUSID when calculating cost  and notional amounts on transactions. Note this factor does not yet impact Valuation, PV, exposure,  all of which use the scale factor attached to the price quotes in the QuoteStore.  Must be positive and defaults to 1 if not set..</param>
-        /// <param name="minimumOrderSize">The Minimum Order Size  Must be non-negative and defaults to 0 if not set..</param>
-        /// <param name="minimumOrderIncrement">The Minimum Order Increment  Must be non-negative and defaults to 0 if not set..</param>
+        /// <param name="priceScaleFactor">The factor used to scale prices for the instrument. Currently used by LUSID when calculating cost and notional amounts on transactions. Note this factor does not yet impact Valuation, PV, exposure, all of which use the scale factor attached to the price quotes in the QuoteStore. Must be positive and defaults to 1 if not set..</param>
+        /// <param name="minimumOrderSize">The Minimum Order Size Must be non-negative and defaults to 0 if not set..</param>
+        /// <param name="minimumOrderIncrement">The Minimum Order Increment Must be non-negative and defaults to 0 if not set..</param>
         public TradingConventions(decimal priceScaleFactor = default(decimal), decimal minimumOrderSize = default(decimal), decimal minimumOrderIncrement = default(decimal))
         {
             this.PriceScaleFactor = priceScaleFactor;
@@ -42,23 +42,23 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The factor used to scale prices for the instrument. Currently used by LUSID when calculating cost  and notional amounts on transactions. Note this factor does not yet impact Valuation, PV, exposure,  all of which use the scale factor attached to the price quotes in the QuoteStore.  Must be positive and defaults to 1 if not set.
+        /// The factor used to scale prices for the instrument. Currently used by LUSID when calculating cost and notional amounts on transactions. Note this factor does not yet impact Valuation, PV, exposure, all of which use the scale factor attached to the price quotes in the QuoteStore. Must be positive and defaults to 1 if not set.
         /// </summary>
-        /// <value>The factor used to scale prices for the instrument. Currently used by LUSID when calculating cost  and notional amounts on transactions. Note this factor does not yet impact Valuation, PV, exposure,  all of which use the scale factor attached to the price quotes in the QuoteStore.  Must be positive and defaults to 1 if not set.</value>
+        /// <value>The factor used to scale prices for the instrument. Currently used by LUSID when calculating cost and notional amounts on transactions. Note this factor does not yet impact Valuation, PV, exposure, all of which use the scale factor attached to the price quotes in the QuoteStore. Must be positive and defaults to 1 if not set.</value>
         [DataMember(Name = "priceScaleFactor", EmitDefaultValue = true)]
         public decimal PriceScaleFactor { get; set; }
 
         /// <summary>
-        /// The Minimum Order Size  Must be non-negative and defaults to 0 if not set.
+        /// The Minimum Order Size Must be non-negative and defaults to 0 if not set.
         /// </summary>
-        /// <value>The Minimum Order Size  Must be non-negative and defaults to 0 if not set.</value>
+        /// <value>The Minimum Order Size Must be non-negative and defaults to 0 if not set.</value>
         [DataMember(Name = "minimumOrderSize", EmitDefaultValue = true)]
         public decimal MinimumOrderSize { get; set; }
 
         /// <summary>
-        /// The Minimum Order Increment  Must be non-negative and defaults to 0 if not set.
+        /// The Minimum Order Increment Must be non-negative and defaults to 0 if not set.
         /// </summary>
-        /// <value>The Minimum Order Increment  Must be non-negative and defaults to 0 if not set.</value>
+        /// <value>The Minimum Order Increment Must be non-negative and defaults to 0 if not set.</value>
         [DataMember(Name = "minimumOrderIncrement", EmitDefaultValue = true)]
         public decimal MinimumOrderIncrement { get; set; }
 

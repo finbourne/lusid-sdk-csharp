@@ -31,7 +31,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ConstituentsAdjustmentHeader" /> class.
         /// </summary>
-        /// <param name="effectiveAt">There can be at most one holdings adjustment for a portfolio at a  specific effective time so this uniquely identifies the adjustment..</param>
+        /// <param name="effectiveAt">There can be at most one holdings adjustment for a portfolio at a specific effective time so this uniquely identifies the adjustment..</param>
         /// <param name="varVersion">varVersion.</param>
         /// <param name="links">links.</param>
         public ConstituentsAdjustmentHeader(DateTimeOffset effectiveAt = default(DateTimeOffset), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
@@ -42,9 +42,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// There can be at most one holdings adjustment for a portfolio at a  specific effective time so this uniquely identifies the adjustment.
+        /// There can be at most one holdings adjustment for a portfolio at a specific effective time so this uniquely identifies the adjustment.
         /// </summary>
-        /// <value>There can be at most one holdings adjustment for a portfolio at a  specific effective time so this uniquely identifies the adjustment.</value>
+        /// <value>There can be at most one holdings adjustment for a portfolio at a specific effective time so this uniquely identifies the adjustment.</value>
         [DataMember(Name = "effectiveAt", EmitDefaultValue = false)]
         public DateTimeOffset EffectiveAt { get; set; }
 

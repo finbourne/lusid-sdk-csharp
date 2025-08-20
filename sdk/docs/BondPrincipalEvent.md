@@ -1,5 +1,5 @@
 # Lusid.Sdk.Model.BondPrincipalEvent
-Definition of a Bond Principal Event  This is an event that describes the occurence of a cashflow due to the principal payment.
+Definition of a Bond Principal Event This is an event that describes the occurence of a cashflow due to the principal payment.
 
 ## Properties
 

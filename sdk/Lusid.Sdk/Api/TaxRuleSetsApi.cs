@@ -35,11 +35,11 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] CreateTaxRuleSet: Create a tax rule set.
         /// </summary>
         /// <remarks>
-        /// Creates a tax rule set definition at the given effective time.  The user must be entitled to read any properties specified in each rule.
+        /// Creates a tax rule set definition at the given effective time. The user must be entitled to read any properties specified in each rule.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTaxRuleSetRequest">The contents of the rule set.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which the rule set will take effect.  Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which the rule set will take effect. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>TaxRuleSet</returns>
@@ -49,11 +49,11 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] CreateTaxRuleSet: Create a tax rule set.
         /// </summary>
         /// <remarks>
-        /// Creates a tax rule set definition at the given effective time.  The user must be entitled to read any properties specified in each rule.
+        /// Creates a tax rule set definition at the given effective time. The user must be entitled to read any properties specified in each rule.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTaxRuleSetRequest">The contents of the rule set.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which the rule set will take effect.  Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which the rule set will take effect. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of TaxRuleSet</returns>
@@ -62,7 +62,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] DeleteTaxRuleSet: Delete a tax rule set.
         /// </summary>
         /// <remarks>
-        /// Deletes the rule set for all effective time.    The rule set will remain viewable at previous as at times, but it will no longer be considered applicable.    This cannot be undone.
+        /// Deletes the rule set for all effective time.  The rule set will remain viewable at previous as at times, but it will no longer be considered applicable.  This cannot be undone.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The rule set scope.</param>
@@ -76,7 +76,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] DeleteTaxRuleSet: Delete a tax rule set.
         /// </summary>
         /// <remarks>
-        /// Deletes the rule set for all effective time.    The rule set will remain viewable at previous as at times, but it will no longer be considered applicable.    This cannot be undone.
+        /// Deletes the rule set for all effective time.  The rule set will remain viewable at previous as at times, but it will no longer be considered applicable.  This cannot be undone.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The rule set scope.</param>
@@ -94,8 +94,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The rule set scope.</param>
         /// <param name="code">The rule set code.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definition.  Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not  specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definition. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>TaxRuleSet</returns>
@@ -110,8 +110,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The rule set scope.</param>
         /// <param name="code">The rule set code.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definition.  Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not  specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definition. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of TaxRuleSet</returns>
@@ -123,8 +123,8 @@ namespace Lusid.Sdk.Api
         /// Retrieves all tax rule set definitions at the given effective and as at times
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions.  Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not  specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfTaxRuleSet</returns>
@@ -137,8 +137,8 @@ namespace Lusid.Sdk.Api
         /// Retrieves all tax rule set definitions at the given effective and as at times
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions.  Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not  specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfTaxRuleSet</returns>
@@ -147,13 +147,13 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] UpdateTaxRuleSet: Update a tax rule set.
         /// </summary>
         /// <remarks>
-        /// Updates the tax rule set definition at the given effective time.  The changes will take place from this effective time until the next effective time that the rule has been updated at.  For example, consider a rule that has been created or updated effective at the first day of the coming month.  An upsert effective from the current day will only change the definition until that day.  An additional upsert at the same time (first day of the month) is required if the newly-updated definition is to supersede the future definition.  The user must be entitled to read any properties specified in each rule.
+        /// Updates the tax rule set definition at the given effective time. The changes will take place from this effective time until the next effective time that the rule has been updated at. For example, consider a rule that has been created or updated effective at the first day of the coming month. An upsert effective from the current day will only change the definition until that day. An additional upsert at the same time (first day of the month) is required if the newly-updated definition is to supersede the future definition. The user must be entitled to read any properties specified in each rule.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The rule set scope.</param>
         /// <param name="code">The rule set code.</param>
         /// <param name="updateTaxRuleSetRequest">The contents of the rule set.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which the rule set will take effect.  Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which the rule set will take effect. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>TaxRuleSet</returns>
@@ -163,13 +163,13 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] UpdateTaxRuleSet: Update a tax rule set.
         /// </summary>
         /// <remarks>
-        /// Updates the tax rule set definition at the given effective time.  The changes will take place from this effective time until the next effective time that the rule has been updated at.  For example, consider a rule that has been created or updated effective at the first day of the coming month.  An upsert effective from the current day will only change the definition until that day.  An additional upsert at the same time (first day of the month) is required if the newly-updated definition is to supersede the future definition.  The user must be entitled to read any properties specified in each rule.
+        /// Updates the tax rule set definition at the given effective time. The changes will take place from this effective time until the next effective time that the rule has been updated at. For example, consider a rule that has been created or updated effective at the first day of the coming month. An upsert effective from the current day will only change the definition until that day. An additional upsert at the same time (first day of the month) is required if the newly-updated definition is to supersede the future definition. The user must be entitled to read any properties specified in each rule.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The rule set scope.</param>
         /// <param name="code">The rule set code.</param>
         /// <param name="updateTaxRuleSetRequest">The contents of the rule set.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which the rule set will take effect.  Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which the rule set will take effect. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of TaxRuleSet</returns>
@@ -187,11 +187,11 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] CreateTaxRuleSet: Create a tax rule set.
         /// </summary>
         /// <remarks>
-        /// Creates a tax rule set definition at the given effective time.  The user must be entitled to read any properties specified in each rule.
+        /// Creates a tax rule set definition at the given effective time. The user must be entitled to read any properties specified in each rule.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTaxRuleSetRequest">The contents of the rule set.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which the rule set will take effect.  Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which the rule set will take effect. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -202,11 +202,11 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] CreateTaxRuleSet: Create a tax rule set.
         /// </summary>
         /// <remarks>
-        /// Creates a tax rule set definition at the given effective time.  The user must be entitled to read any properties specified in each rule.
+        /// Creates a tax rule set definition at the given effective time. The user must be entitled to read any properties specified in each rule.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTaxRuleSetRequest">The contents of the rule set.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which the rule set will take effect.  Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which the rule set will take effect. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -216,7 +216,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] DeleteTaxRuleSet: Delete a tax rule set.
         /// </summary>
         /// <remarks>
-        /// Deletes the rule set for all effective time.    The rule set will remain viewable at previous as at times, but it will no longer be considered applicable.    This cannot be undone.
+        /// Deletes the rule set for all effective time.  The rule set will remain viewable at previous as at times, but it will no longer be considered applicable.  This cannot be undone.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The rule set scope.</param>
@@ -231,7 +231,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] DeleteTaxRuleSet: Delete a tax rule set.
         /// </summary>
         /// <remarks>
-        /// Deletes the rule set for all effective time.    The rule set will remain viewable at previous as at times, but it will no longer be considered applicable.    This cannot be undone.
+        /// Deletes the rule set for all effective time.  The rule set will remain viewable at previous as at times, but it will no longer be considered applicable.  This cannot be undone.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The rule set scope.</param>
@@ -250,8 +250,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The rule set scope.</param>
         /// <param name="code">The rule set code.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definition.  Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not  specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definition. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -267,8 +267,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The rule set scope.</param>
         /// <param name="code">The rule set code.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definition.  Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not  specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definition. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -281,8 +281,8 @@ namespace Lusid.Sdk.Api
         /// Retrieves all tax rule set definitions at the given effective and as at times
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions.  Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not  specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -296,8 +296,8 @@ namespace Lusid.Sdk.Api
         /// Retrieves all tax rule set definitions at the given effective and as at times
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions.  Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not  specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -307,13 +307,13 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] UpdateTaxRuleSet: Update a tax rule set.
         /// </summary>
         /// <remarks>
-        /// Updates the tax rule set definition at the given effective time.  The changes will take place from this effective time until the next effective time that the rule has been updated at.  For example, consider a rule that has been created or updated effective at the first day of the coming month.  An upsert effective from the current day will only change the definition until that day.  An additional upsert at the same time (first day of the month) is required if the newly-updated definition is to supersede the future definition.  The user must be entitled to read any properties specified in each rule.
+        /// Updates the tax rule set definition at the given effective time. The changes will take place from this effective time until the next effective time that the rule has been updated at. For example, consider a rule that has been created or updated effective at the first day of the coming month. An upsert effective from the current day will only change the definition until that day. An additional upsert at the same time (first day of the month) is required if the newly-updated definition is to supersede the future definition. The user must be entitled to read any properties specified in each rule.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The rule set scope.</param>
         /// <param name="code">The rule set code.</param>
         /// <param name="updateTaxRuleSetRequest">The contents of the rule set.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which the rule set will take effect.  Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which the rule set will take effect. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -324,13 +324,13 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] UpdateTaxRuleSet: Update a tax rule set.
         /// </summary>
         /// <remarks>
-        /// Updates the tax rule set definition at the given effective time.  The changes will take place from this effective time until the next effective time that the rule has been updated at.  For example, consider a rule that has been created or updated effective at the first day of the coming month.  An upsert effective from the current day will only change the definition until that day.  An additional upsert at the same time (first day of the month) is required if the newly-updated definition is to supersede the future definition.  The user must be entitled to read any properties specified in each rule.
+        /// Updates the tax rule set definition at the given effective time. The changes will take place from this effective time until the next effective time that the rule has been updated at. For example, consider a rule that has been created or updated effective at the first day of the coming month. An upsert effective from the current day will only change the definition until that day. An additional upsert at the same time (first day of the month) is required if the newly-updated definition is to supersede the future definition. The user must be entitled to read any properties specified in each rule.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The rule set scope.</param>
         /// <param name="code">The rule set code.</param>
         /// <param name="updateTaxRuleSetRequest">The contents of the rule set.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which the rule set will take effect.  Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which the rule set will take effect. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -460,11 +460,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateTaxRuleSet: Create a tax rule set. Creates a tax rule set definition at the given effective time.  The user must be entitled to read any properties specified in each rule.
+        /// [EXPERIMENTAL] CreateTaxRuleSet: Create a tax rule set. Creates a tax rule set definition at the given effective time. The user must be entitled to read any properties specified in each rule.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTaxRuleSetRequest">The contents of the rule set.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which the rule set will take effect.  Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which the rule set will take effect. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>TaxRuleSet</returns>
@@ -475,11 +475,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateTaxRuleSet: Create a tax rule set. Creates a tax rule set definition at the given effective time.  The user must be entitled to read any properties specified in each rule.
+        /// [EXPERIMENTAL] CreateTaxRuleSet: Create a tax rule set. Creates a tax rule set definition at the given effective time. The user must be entitled to read any properties specified in each rule.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTaxRuleSetRequest">The contents of the rule set.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which the rule set will take effect.  Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which the rule set will take effect. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of TaxRuleSet</returns>
@@ -570,11 +570,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateTaxRuleSet: Create a tax rule set. Creates a tax rule set definition at the given effective time.  The user must be entitled to read any properties specified in each rule.
+        /// [EXPERIMENTAL] CreateTaxRuleSet: Create a tax rule set. Creates a tax rule set definition at the given effective time. The user must be entitled to read any properties specified in each rule.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTaxRuleSetRequest">The contents of the rule set.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which the rule set will take effect.  Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which the rule set will take effect. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -586,11 +586,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateTaxRuleSet: Create a tax rule set. Creates a tax rule set definition at the given effective time.  The user must be entitled to read any properties specified in each rule.
+        /// [EXPERIMENTAL] CreateTaxRuleSet: Create a tax rule set. Creates a tax rule set definition at the given effective time. The user must be entitled to read any properties specified in each rule.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTaxRuleSetRequest">The contents of the rule set.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which the rule set will take effect.  Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which the rule set will take effect. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -684,7 +684,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTaxRuleSet: Delete a tax rule set. Deletes the rule set for all effective time.    The rule set will remain viewable at previous as at times, but it will no longer be considered applicable.    This cannot be undone.
+        /// [EXPERIMENTAL] DeleteTaxRuleSet: Delete a tax rule set. Deletes the rule set for all effective time.  The rule set will remain viewable at previous as at times, but it will no longer be considered applicable.  This cannot be undone.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The rule set scope.</param>
@@ -699,7 +699,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTaxRuleSet: Delete a tax rule set. Deletes the rule set for all effective time.    The rule set will remain viewable at previous as at times, but it will no longer be considered applicable.    This cannot be undone.
+        /// [EXPERIMENTAL] DeleteTaxRuleSet: Delete a tax rule set. Deletes the rule set for all effective time.  The rule set will remain viewable at previous as at times, but it will no longer be considered applicable.  This cannot be undone.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The rule set scope.</param>
@@ -793,7 +793,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTaxRuleSet: Delete a tax rule set. Deletes the rule set for all effective time.    The rule set will remain viewable at previous as at times, but it will no longer be considered applicable.    This cannot be undone.
+        /// [EXPERIMENTAL] DeleteTaxRuleSet: Delete a tax rule set. Deletes the rule set for all effective time.  The rule set will remain viewable at previous as at times, but it will no longer be considered applicable.  This cannot be undone.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The rule set scope.</param>
@@ -809,7 +809,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTaxRuleSet: Delete a tax rule set. Deletes the rule set for all effective time.    The rule set will remain viewable at previous as at times, but it will no longer be considered applicable.    This cannot be undone.
+        /// [EXPERIMENTAL] DeleteTaxRuleSet: Delete a tax rule set. Deletes the rule set for all effective time.  The rule set will remain viewable at previous as at times, but it will no longer be considered applicable.  This cannot be undone.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The rule set scope.</param>
@@ -911,8 +911,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The rule set scope.</param>
         /// <param name="code">The rule set code.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definition.  Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not  specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definition. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>TaxRuleSet</returns>
@@ -928,8 +928,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The rule set scope.</param>
         /// <param name="code">The rule set code.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definition.  Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not  specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definition. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of TaxRuleSet</returns>
@@ -1032,8 +1032,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The rule set scope.</param>
         /// <param name="code">The rule set code.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definition.  Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not  specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definition. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1050,8 +1050,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The rule set scope.</param>
         /// <param name="code">The rule set code.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definition.  Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not  specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definition. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1155,8 +1155,8 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListTaxRuleSets: List tax rule sets. Retrieves all tax rule set definitions at the given effective and as at times
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions.  Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not  specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfTaxRuleSet</returns>
@@ -1170,8 +1170,8 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListTaxRuleSets: List tax rule sets. Retrieves all tax rule set definitions at the given effective and as at times
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions.  Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not  specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfTaxRuleSet</returns>
@@ -1258,8 +1258,8 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListTaxRuleSets: List tax rule sets. Retrieves all tax rule set definitions at the given effective and as at times
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions.  Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not  specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1274,8 +1274,8 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListTaxRuleSets: List tax rule sets. Retrieves all tax rule set definitions at the given effective and as at times
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions.  Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not  specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1362,13 +1362,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateTaxRuleSet: Update a tax rule set. Updates the tax rule set definition at the given effective time.  The changes will take place from this effective time until the next effective time that the rule has been updated at.  For example, consider a rule that has been created or updated effective at the first day of the coming month.  An upsert effective from the current day will only change the definition until that day.  An additional upsert at the same time (first day of the month) is required if the newly-updated definition is to supersede the future definition.  The user must be entitled to read any properties specified in each rule.
+        /// [EXPERIMENTAL] UpdateTaxRuleSet: Update a tax rule set. Updates the tax rule set definition at the given effective time. The changes will take place from this effective time until the next effective time that the rule has been updated at. For example, consider a rule that has been created or updated effective at the first day of the coming month. An upsert effective from the current day will only change the definition until that day. An additional upsert at the same time (first day of the month) is required if the newly-updated definition is to supersede the future definition. The user must be entitled to read any properties specified in each rule.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The rule set scope.</param>
         /// <param name="code">The rule set code.</param>
         /// <param name="updateTaxRuleSetRequest">The contents of the rule set.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which the rule set will take effect.  Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which the rule set will take effect. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>TaxRuleSet</returns>
@@ -1379,13 +1379,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateTaxRuleSet: Update a tax rule set. Updates the tax rule set definition at the given effective time.  The changes will take place from this effective time until the next effective time that the rule has been updated at.  For example, consider a rule that has been created or updated effective at the first day of the coming month.  An upsert effective from the current day will only change the definition until that day.  An additional upsert at the same time (first day of the month) is required if the newly-updated definition is to supersede the future definition.  The user must be entitled to read any properties specified in each rule.
+        /// [EXPERIMENTAL] UpdateTaxRuleSet: Update a tax rule set. Updates the tax rule set definition at the given effective time. The changes will take place from this effective time until the next effective time that the rule has been updated at. For example, consider a rule that has been created or updated effective at the first day of the coming month. An upsert effective from the current day will only change the definition until that day. An additional upsert at the same time (first day of the month) is required if the newly-updated definition is to supersede the future definition. The user must be entitled to read any properties specified in each rule.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The rule set scope.</param>
         /// <param name="code">The rule set code.</param>
         /// <param name="updateTaxRuleSetRequest">The contents of the rule set.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which the rule set will take effect.  Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which the rule set will take effect. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of TaxRuleSet</returns>
@@ -1490,13 +1490,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateTaxRuleSet: Update a tax rule set. Updates the tax rule set definition at the given effective time.  The changes will take place from this effective time until the next effective time that the rule has been updated at.  For example, consider a rule that has been created or updated effective at the first day of the coming month.  An upsert effective from the current day will only change the definition until that day.  An additional upsert at the same time (first day of the month) is required if the newly-updated definition is to supersede the future definition.  The user must be entitled to read any properties specified in each rule.
+        /// [EXPERIMENTAL] UpdateTaxRuleSet: Update a tax rule set. Updates the tax rule set definition at the given effective time. The changes will take place from this effective time until the next effective time that the rule has been updated at. For example, consider a rule that has been created or updated effective at the first day of the coming month. An upsert effective from the current day will only change the definition until that day. An additional upsert at the same time (first day of the month) is required if the newly-updated definition is to supersede the future definition. The user must be entitled to read any properties specified in each rule.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The rule set scope.</param>
         /// <param name="code">The rule set code.</param>
         /// <param name="updateTaxRuleSetRequest">The contents of the rule set.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which the rule set will take effect.  Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which the rule set will take effect. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1508,13 +1508,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateTaxRuleSet: Update a tax rule set. Updates the tax rule set definition at the given effective time.  The changes will take place from this effective time until the next effective time that the rule has been updated at.  For example, consider a rule that has been created or updated effective at the first day of the coming month.  An upsert effective from the current day will only change the definition until that day.  An additional upsert at the same time (first day of the month) is required if the newly-updated definition is to supersede the future definition.  The user must be entitled to read any properties specified in each rule.
+        /// [EXPERIMENTAL] UpdateTaxRuleSet: Update a tax rule set. Updates the tax rule set definition at the given effective time. The changes will take place from this effective time until the next effective time that the rule has been updated at. For example, consider a rule that has been created or updated effective at the first day of the coming month. An upsert effective from the current day will only change the definition until that day. An additional upsert at the same time (first day of the month) is required if the newly-updated definition is to supersede the future definition. The user must be entitled to read any properties specified in each rule.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The rule set scope.</param>
         /// <param name="code">The rule set code.</param>
         /// <param name="updateTaxRuleSetRequest">The contents of the rule set.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which the rule set will take effect.  Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which the rule set will take effect. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>

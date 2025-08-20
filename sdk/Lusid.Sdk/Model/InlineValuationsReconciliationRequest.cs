@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Specification for the reconciliation request. Left and Right hand sides are constructed. Each consists of a valuation of a inline set of instruments  using an inline aggregation request. The results of this can then be compared to each other. The difference, which is effectively a risk based  difference allows comparison of the effects of changing a recipe, valuation date, or (though it may or may not make logical sense) a set of instruments.
+    /// Specification for the reconciliation request. Left and Right hand sides are constructed. Each consists of a valuation of a inline set of instruments using an inline aggregation request. The results of this can then be compared to each other. The difference, which is effectively a risk based difference allows comparison of the effects of changing a recipe, valuation date, or (though it may or may not make logical sense) a set of instruments.
     /// </summary>
     [DataContract(Name = "InlineValuationsReconciliationRequest")]
     public partial class InlineValuationsReconciliationRequest : IEquatable<InlineValuationsReconciliationRequest>, IValidatableObject

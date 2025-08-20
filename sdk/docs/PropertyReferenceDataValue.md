@@ -1,5 +1,5 @@
 # Lusid.Sdk.Model.PropertyReferenceDataValue
-The ReferenceData relevant to the property. The ReferenceData is taken from the DataType on the PropertyDefinition that defines the Property.  Only ReferenceData where the ReferenceData value matches the Property value is included.
+The ReferenceData relevant to the property. The ReferenceData is taken from the DataType on the PropertyDefinition that defines the Property. Only ReferenceData where the ReferenceData value matches the Property value is included.
 
 ## Properties
 

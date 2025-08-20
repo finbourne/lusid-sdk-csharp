@@ -174,7 +174,7 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<AggregatedReturnsApi>();
             var scope = "scope_example";  // string | Returns entity scope.
             var code = "code_example";  // string | Returns entity code.
-            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the returns entity. Defaults to return              the latest version of the definition if not specified. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the returns entity. Defaults to return             the latest version of the definition if not specified. (optional) 
 
             try
             {
@@ -222,7 +222,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **scope** | **string** | Returns entity scope. |  |
 | **code** | **string** | Returns entity code. |  |
-| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the returns entity. Defaults to return              the latest version of the definition if not specified. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the returns entity. Defaults to return             the latest version of the definition if not specified. | [optional]  |
 
 ### Return type
 
@@ -290,7 +290,7 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<AggregatedReturnsApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<AggregatedReturnsApi>();
-            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the relation definitions. Defaults to return              the latest version of each definition if not specified. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the relation definitions. Defaults to return             the latest version of each definition if not specified. (optional) 
 
             try
             {
@@ -336,7 +336,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the relation definitions. Defaults to return              the latest version of each definition if not specified. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the relation definitions. Defaults to return             the latest version of each definition if not specified. | [optional]  |
 
 ### Return type
 

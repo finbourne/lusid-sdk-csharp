@@ -174,10 +174,10 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ReferencePortfolioApi>();
             var scope = "scope_example";  // string | The scope of the reference portfolio.
-            var code = "code_example";  // string | The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio.
+            var code = "code_example";  // string | The code of the reference portfolio. Together with the scope this uniquely identifies             the reference portfolio.
             var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective date of the constituents to retrieve. Defaults to the current LUSID system datetime if not specified. (optional) 
-            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve constituents. Defaults to return the latest version              of each constituent if not specified. (optional) 
-            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'Instrument' or 'ReferenceHolding' domain to decorate onto              constituents. These take the format {domain}/{scope}/{code} e.g. 'Instrument/system/Name' or              'ReferenceHolding/strategy/quantsignal'. Defaults to return all available instrument and reference holding properties if not specified. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve constituents. Defaults to return the latest version             of each constituent if not specified. (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'Instrument' or 'ReferenceHolding' domain to decorate onto             constituents. These take the format {domain}/{scope}/{code} e.g. 'Instrument/system/Name' or             'ReferenceHolding/strategy/quantsignal'. Defaults to return all available instrument and reference holding properties if not specified. (optional) 
 
             try
             {
@@ -224,10 +224,10 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **scope** | **string** | The scope of the reference portfolio. |  |
-| **code** | **string** | The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio. |  |
+| **code** | **string** | The code of the reference portfolio. Together with the scope this uniquely identifies             the reference portfolio. |  |
 | **effectiveAt** | **DateTimeOrCutLabel?** | The effective date of the constituents to retrieve. Defaults to the current LUSID system datetime if not specified. | [optional]  |
-| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve constituents. Defaults to return the latest version              of each constituent if not specified. | [optional]  |
-| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;Instrument&#39; or &#39;ReferenceHolding&#39; domain to decorate onto              constituents. These take the format {domain}/{scope}/{code} e.g. &#39;Instrument/system/Name&#39; or              &#39;ReferenceHolding/strategy/quantsignal&#39;. Defaults to return all available instrument and reference holding properties if not specified. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve constituents. Defaults to return the latest version             of each constituent if not specified. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;Instrument&#39; or &#39;ReferenceHolding&#39; domain to decorate onto             constituents. These take the format {domain}/{scope}/{code} e.g. &#39;Instrument/system/Name&#39; or             &#39;ReferenceHolding/strategy/quantsignal&#39;. Defaults to return all available instrument and reference holding properties if not specified. | [optional]  |
 
 ### Return type
 
@@ -296,7 +296,7 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ReferencePortfolioApi>();
             var scope = "scope_example";  // string | The scope of the reference portfolio.
-            var code = "code_example";  // string | The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio.
+            var code = "code_example";  // string | The code of the reference portfolio. Together with the scope this uniquely identifies             the reference portfolio.
             var fromEffectiveAt = "fromEffectiveAt_example";  // DateTimeOrCutLabel | Events between this time (inclusive) and the toEffectiveAt are returned.
             var toEffectiveAt = "toEffectiveAt_example";  // DateTimeOrCutLabel | Events between this time (inclusive) and the fromEffectiveAt are returned.
             var asAtTime = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt time for which the result is valid. (optional) 
@@ -346,7 +346,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **scope** | **string** | The scope of the reference portfolio. |  |
-| **code** | **string** | The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio. |  |
+| **code** | **string** | The code of the reference portfolio. Together with the scope this uniquely identifies             the reference portfolio. |  |
 | **fromEffectiveAt** | **DateTimeOrCutLabel** | Events between this time (inclusive) and the toEffectiveAt are returned. |  |
 | **toEffectiveAt** | **DateTimeOrCutLabel** | Events between this time (inclusive) and the fromEffectiveAt are returned. |  |
 | **asAtTime** | **DateTimeOffset?** | The asAt time for which the result is valid. | [optional]  |
@@ -376,7 +376,7 @@ catch (ApiException e)
 
 [EARLY ACCESS] UpsertReferencePortfolioConstituentProperties: Upsert constituent properties
 
-Create or update one or more constituent properties for a single constituent in the reference portfolio.  Each property will be updated if it already exists, created if it does not and deleted if value is null.  Both constituent and portfolio must exist at the time when properties are created or updated.
+Create or update one or more constituent properties for a single constituent in the reference portfolio. Each property will be updated if it already exists, created if it does not and deleted if value is null. Both constituent and portfolio must exist at the time when properties are created or updated.
 
 ### Example
 ```csharp
@@ -418,7 +418,7 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ReferencePortfolioApi>();
             var scope = "scope_example";  // string | The scope of the reference portfolio.
-            var code = "code_example";  // string | The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio.
+            var code = "code_example";  // string | The code of the reference portfolio. Together with the scope this uniquely identifies             the reference portfolio.
             var upsertReferencePortfolioConstituentPropertiesRequest = new UpsertReferencePortfolioConstituentPropertiesRequest(); // UpsertReferencePortfolioConstituentPropertiesRequest | The request to modify properties for the constituent.
 
             try
@@ -466,7 +466,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **scope** | **string** | The scope of the reference portfolio. |  |
-| **code** | **string** | The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio. |  |
+| **code** | **string** | The code of the reference portfolio. Together with the scope this uniquely identifies             the reference portfolio. |  |
 | **upsertReferencePortfolioConstituentPropertiesRequest** | [**UpsertReferencePortfolioConstituentPropertiesRequest**](UpsertReferencePortfolioConstituentPropertiesRequest.md) | The request to modify properties for the constituent. |  |
 
 ### Return type
@@ -536,7 +536,7 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ReferencePortfolioApi>();
             var scope = "scope_example";  // string | The scope of the reference portfolio.
-            var code = "code_example";  // string | The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio.
+            var code = "code_example";  // string | The code of the reference portfolio. Together with the scope this uniquely identifies             the reference portfolio.
             var upsertReferencePortfolioConstituentsRequest = new UpsertReferencePortfolioConstituentsRequest(); // UpsertReferencePortfolioConstituentsRequest | The constituents to upload to the reference portfolio.
 
             try
@@ -584,7 +584,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **scope** | **string** | The scope of the reference portfolio. |  |
-| **code** | **string** | The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio. |  |
+| **code** | **string** | The code of the reference portfolio. Together with the scope this uniquely identifies             the reference portfolio. |  |
 | **upsertReferencePortfolioConstituentsRequest** | [**UpsertReferencePortfolioConstituentsRequest**](UpsertReferencePortfolioConstituentsRequest.md) | The constituents to upload to the reference portfolio. |  |
 
 ### Return type

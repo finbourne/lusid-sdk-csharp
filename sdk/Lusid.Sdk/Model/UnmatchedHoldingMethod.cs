@@ -23,9 +23,9 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// When holdings adjustments are specified for a single effective date,  any holdings for the portfolio not included in the adjustments are  adjusted according to this value.
+    /// When holdings adjustments are specified for a single effective date, any holdings for the portfolio not included in the adjustments are adjusted according to this value.
     /// </summary>
-    /// <value>When holdings adjustments are specified for a single effective date,  any holdings for the portfolio not included in the adjustments are  adjusted according to this value.</value>
+    /// <value>When holdings adjustments are specified for a single effective date, any holdings for the portfolio not included in the adjustments are adjusted according to this value.</value>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum UnmatchedHoldingMethod
     {

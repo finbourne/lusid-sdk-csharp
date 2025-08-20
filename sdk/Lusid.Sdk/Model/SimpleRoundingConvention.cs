@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Certain bonds will follow certain rounding conventions.  For example, Thai government bonds will round accrued interest and cashflow values 2dp, whereas for  French government bonds, the rounding is to 7dp.
+    /// Certain bonds will follow certain rounding conventions. For example, Thai government bonds will round accrued interest and cashflow values 2dp, whereas for French government bonds, the rounding is to 7dp.
     /// </summary>
     [DataContract(Name = "SimpleRoundingConvention")]
     public partial class SimpleRoundingConvention : IEquatable<SimpleRoundingConvention>, IValidatableObject
@@ -32,7 +32,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="SimpleRoundingConvention" /> class.
         /// </summary>
         /// <param name="precision">The precision of the rounding. The decimal places or significant figures to which the rounding takes place..</param>
-        /// <param name="roundingType">The type of rounding.  e.g. Round Up, Round Down    Supported string (enumeration) values are: [Down, Up, Nearest]..</param>
+        /// <param name="roundingType">The type of rounding.  e.g. Round Up, Round Down  Supported string (enumeration) values are: [Down, Up, Nearest]..</param>
         public SimpleRoundingConvention(int precision = default(int), string roundingType = default(string))
         {
             this.Precision = precision;
@@ -47,9 +47,9 @@ namespace Lusid.Sdk.Model
         public int Precision { get; set; }
 
         /// <summary>
-        /// The type of rounding.  e.g. Round Up, Round Down    Supported string (enumeration) values are: [Down, Up, Nearest].
+        /// The type of rounding.  e.g. Round Up, Round Down  Supported string (enumeration) values are: [Down, Up, Nearest].
         /// </summary>
-        /// <value>The type of rounding.  e.g. Round Up, Round Down    Supported string (enumeration) values are: [Down, Up, Nearest].</value>
+        /// <value>The type of rounding.  e.g. Round Up, Round Down  Supported string (enumeration) values are: [Down, Up, Nearest].</value>
         [DataMember(Name = "roundingType", EmitDefaultValue = true)]
         public string RoundingType { get; set; }
 

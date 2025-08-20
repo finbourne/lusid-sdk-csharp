@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// What is the provenance of an instrument. This defines who creates/owns it, what format it is in (e.g. a proprietary format or a common and known one)              and what the version of that is.
+    /// What is the provenance of an instrument. This defines who creates/owns it, what format it is in (e.g. a proprietary format or a common and known one)             and what the version of that is.
     /// </summary>
     [DataContract(Name = "InstrumentDefinitionFormat")]
     public partial class InstrumentDefinitionFormat : IEquatable<InstrumentDefinitionFormat>, IValidatableObject
@@ -37,7 +37,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="InstrumentDefinitionFormat" /> class.
         /// </summary>
         /// <param name="sourceSystem">which source system does the format originate from (required).</param>
-        /// <param name="vendor">An instrument will potentially have been created by any number of different organisations. Some will be understood completely (e.g. LUSID&#39;s), some won&#39;t.              The provenance of an instrument indicates who \&quot;owns\&quot; the associated format. (required).</param>
+        /// <param name="vendor">An instrument will potentially have been created by any number of different organisations. Some will be understood completely (e.g. LUSID&#39;s), some won&#39;t.             The provenance of an instrument indicates who \&quot;owns\&quot; the associated format. (required).</param>
         /// <param name="varVersion">Version of the document. Would be preferable to avoid the need, but LUSID will not control other organisations&#39; trade formats. (required).</param>
         public InstrumentDefinitionFormat(string sourceSystem = default(string), string vendor = default(string), string varVersion = default(string))
         {
@@ -69,9 +69,9 @@ namespace Lusid.Sdk.Model
         public string SourceSystem { get; set; }
 
         /// <summary>
-        /// An instrument will potentially have been created by any number of different organisations. Some will be understood completely (e.g. LUSID&#39;s), some won&#39;t.              The provenance of an instrument indicates who \&quot;owns\&quot; the associated format.
+        /// An instrument will potentially have been created by any number of different organisations. Some will be understood completely (e.g. LUSID&#39;s), some won&#39;t.             The provenance of an instrument indicates who \&quot;owns\&quot; the associated format.
         /// </summary>
-        /// <value>An instrument will potentially have been created by any number of different organisations. Some will be understood completely (e.g. LUSID&#39;s), some won&#39;t.              The provenance of an instrument indicates who \&quot;owns\&quot; the associated format.</value>
+        /// <value>An instrument will potentially have been created by any number of different organisations. Some will be understood completely (e.g. LUSID&#39;s), some won&#39;t.             The provenance of an instrument indicates who \&quot;owns\&quot; the associated format.</value>
         [DataMember(Name = "vendor", IsRequired = true, EmitDefaultValue = true)]
         public string Vendor { get; set; }
 

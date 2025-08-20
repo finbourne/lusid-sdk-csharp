@@ -119,7 +119,7 @@ namespace Lusid.Sdk.Model
         /// <param name="periodType">The available values are: Daily, Weekly, Monthly, Quarterly, Annually.</param>
         /// <param name="periodCount">periodCount.</param>
         /// <param name="constituents">Set of constituents (instrument/weight pairings) (required).</param>
-        /// <param name="href">The Uri that returns the same result as the original request,  but may include resolved as at time(s)..</param>
+        /// <param name="href">The Uri that returns the same result as the original request, but may include resolved as at time(s)..</param>
         /// <param name="links">links.</param>
         public GetReferencePortfolioConstituentsResponse(DateTimeOffset effectiveFrom = default(DateTimeOffset), WeightTypeEnum weightType = default(WeightTypeEnum), PeriodTypeEnum ?periodType = default(PeriodTypeEnum?), int? periodCount = default(int?), List<ReferencePortfolioConstituent> constituents = default(List<ReferencePortfolioConstituent>), string href = default(string), List<Link> links = default(List<Link>))
         {
@@ -157,9 +157,9 @@ namespace Lusid.Sdk.Model
         public List<ReferencePortfolioConstituent> Constituents { get; set; }
 
         /// <summary>
-        /// The Uri that returns the same result as the original request,  but may include resolved as at time(s).
+        /// The Uri that returns the same result as the original request, but may include resolved as at time(s).
         /// </summary>
-        /// <value>The Uri that returns the same result as the original request,  but may include resolved as at time(s).</value>
+        /// <value>The Uri that returns the same result as the original request, but may include resolved as at time(s).</value>
         [DataMember(Name = "href", EmitDefaultValue = true)]
         public string Href { get; set; }
 

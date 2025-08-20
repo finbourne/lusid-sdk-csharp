@@ -41,12 +41,13 @@ namespace Lusid.Sdk.Model
         /// <param name="supplier">the result resource supplier (where the data comes from) (required).</param>
         /// <param name="dataScope">which is the scope in which the data should be found (required).</param>
         /// <param name="documentCode">document code that defines which document is desired (required).</param>
-        /// <param name="quoteInterval">Shorthand for the time interval used to select result data. This must be a dot-separated string              specifying a start and end date, for example &#39;5D.0D&#39; to look back 5 days from today (0 days ago)..</param>
+        /// <param name="quoteInterval">Shorthand for the time interval used to select result data. This must be a dot-separated string             specifying a start and end date, for example &#39;5D.0D&#39; to look back 5 days from today (0 days ago)..</param>
         /// <param name="asAt">The AsAt predicate specification..</param>
         /// <param name="resourceKey">The result data key that identifies the address pattern that this is a rule for (required).</param>
         /// <param name="documentResultType">documentResultType (required).</param>
+        /// <param name="useDocumentToInferHoldings">Indicates whether the relevant document should be used to infer the set of holdings in the valuation..</param>
         /// <param name="resultKeyRuleType">The available values are: Invalid, ResultDataKeyRule, PortfolioResultDataKeyRule (required) (default to &quot;ResultDataKeyRule&quot;).</param>
-        public ResultDataKeyRule(string supplier = default(string), string dataScope = default(string), string documentCode = default(string), string quoteInterval = default(string), DateTimeOffset? asAt = default(DateTimeOffset?), string resourceKey = default(string), string documentResultType = default(string), ResultKeyRuleTypeEnum resultKeyRuleType = default(ResultKeyRuleTypeEnum)) : base(resultKeyRuleType)
+        public ResultDataKeyRule(string supplier = default(string), string dataScope = default(string), string documentCode = default(string), string quoteInterval = default(string), DateTimeOffset? asAt = default(DateTimeOffset?), string resourceKey = default(string), string documentResultType = default(string), bool useDocumentToInferHoldings = default(bool), ResultKeyRuleTypeEnum resultKeyRuleType = default(ResultKeyRuleTypeEnum)) : base(resultKeyRuleType)
         {
             // to ensure "supplier" is required (not null)
             if (supplier == null)
@@ -80,6 +81,7 @@ namespace Lusid.Sdk.Model
             this.DocumentResultType = documentResultType;
             this.QuoteInterval = quoteInterval;
             this.AsAt = asAt;
+            this.UseDocumentToInferHoldings = useDocumentToInferHoldings;
         }
 
         /// <summary>
@@ -104,9 +106,9 @@ namespace Lusid.Sdk.Model
         public string DocumentCode { get; set; }
 
         /// <summary>
-        /// Shorthand for the time interval used to select result data. This must be a dot-separated string              specifying a start and end date, for example &#39;5D.0D&#39; to look back 5 days from today (0 days ago).
+        /// Shorthand for the time interval used to select result data. This must be a dot-separated string             specifying a start and end date, for example &#39;5D.0D&#39; to look back 5 days from today (0 days ago).
         /// </summary>
-        /// <value>Shorthand for the time interval used to select result data. This must be a dot-separated string              specifying a start and end date, for example &#39;5D.0D&#39; to look back 5 days from today (0 days ago).</value>
+        /// <value>Shorthand for the time interval used to select result data. This must be a dot-separated string             specifying a start and end date, for example &#39;5D.0D&#39; to look back 5 days from today (0 days ago).</value>
         [DataMember(Name = "quoteInterval", EmitDefaultValue = true)]
         public string QuoteInterval { get; set; }
 
@@ -131,6 +133,13 @@ namespace Lusid.Sdk.Model
         public string DocumentResultType { get; set; }
 
         /// <summary>
+        /// Indicates whether the relevant document should be used to infer the set of holdings in the valuation.
+        /// </summary>
+        /// <value>Indicates whether the relevant document should be used to infer the set of holdings in the valuation.</value>
+        [DataMember(Name = "useDocumentToInferHoldings", EmitDefaultValue = true)]
+        public bool UseDocumentToInferHoldings { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -146,6 +155,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  AsAt: ").Append(AsAt).Append("\n");
             sb.Append("  ResourceKey: ").Append(ResourceKey).Append("\n");
             sb.Append("  DocumentResultType: ").Append(DocumentResultType).Append("\n");
+            sb.Append("  UseDocumentToInferHoldings: ").Append(UseDocumentToInferHoldings).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -215,6 +225,10 @@ namespace Lusid.Sdk.Model
                     this.DocumentResultType == input.DocumentResultType ||
                     (this.DocumentResultType != null &&
                     this.DocumentResultType.Equals(input.DocumentResultType))
+                ) && base.Equals(input) && 
+                (
+                    this.UseDocumentToInferHoldings == input.UseDocumentToInferHoldings ||
+                    this.UseDocumentToInferHoldings.Equals(input.UseDocumentToInferHoldings)
                 );
         }
 
@@ -255,6 +269,7 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.DocumentResultType.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.UseDocumentToInferHoldings.GetHashCode();
                 return hashCode;
             }
         }

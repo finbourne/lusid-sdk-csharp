@@ -26,6 +26,8 @@ Name | Type | Description | Notes
 **SettlementSchedule** | [**List&lt;SettlementSchedule&gt;**](SettlementSchedule.md) | Where no. of days ahead has been specified, future dated settlements will be captured here. | [optional] 
 **CurrentFace** | **decimal?** | Current face value of the holding. | [optional] 
 **CustodianAccountId** | [**ResourceId**](ResourceId.md) |  | [optional] 
+**UnsettledUnits** | **decimal** | The number of unsettled units for the holding. | [optional] 
+**OverdueUnits** | **decimal** | The number of unsettled units for the holding that are beyond their contractual settlement date. | [optional] 
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

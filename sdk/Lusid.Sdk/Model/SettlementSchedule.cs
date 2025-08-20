@@ -35,12 +35,20 @@ namespace Lusid.Sdk.Model
         /// <param name="settlementDate">settlementDate.</param>
         /// <param name="units">units.</param>
         /// <param name="bondInterest">bondInterest.</param>
-        public SettlementSchedule(string tradeId = default(string), DateTimeOffset settlementDate = default(DateTimeOffset), decimal units = default(decimal), decimal bondInterest = default(decimal))
+        /// <param name="movementName">movementName.</param>
+        /// <param name="movementType">movementType.</param>
+        /// <param name="unsettledUnits">unsettledUnits.</param>
+        /// <param name="overdueUnits">overdueUnits.</param>
+        public SettlementSchedule(string tradeId = default(string), DateTimeOffset settlementDate = default(DateTimeOffset), decimal units = default(decimal), decimal bondInterest = default(decimal), string movementName = default(string), string movementType = default(string), decimal unsettledUnits = default(decimal), decimal overdueUnits = default(decimal))
         {
             this.TradeId = tradeId;
             this.SettlementDate = settlementDate;
             this.Units = units;
             this.BondInterest = bondInterest;
+            this.MovementName = movementName;
+            this.MovementType = movementType;
+            this.UnsettledUnits = unsettledUnits;
+            this.OverdueUnits = overdueUnits;
         }
 
         /// <summary>
@@ -68,6 +76,30 @@ namespace Lusid.Sdk.Model
         public decimal BondInterest { get; set; }
 
         /// <summary>
+        /// Gets or Sets MovementName
+        /// </summary>
+        [DataMember(Name = "movementName", EmitDefaultValue = true)]
+        public string MovementName { get; set; }
+
+        /// <summary>
+        /// Gets or Sets MovementType
+        /// </summary>
+        [DataMember(Name = "movementType", EmitDefaultValue = true)]
+        public string MovementType { get; set; }
+
+        /// <summary>
+        /// Gets or Sets UnsettledUnits
+        /// </summary>
+        [DataMember(Name = "unsettledUnits", EmitDefaultValue = true)]
+        public decimal UnsettledUnits { get; set; }
+
+        /// <summary>
+        /// Gets or Sets OverdueUnits
+        /// </summary>
+        [DataMember(Name = "overdueUnits", EmitDefaultValue = true)]
+        public decimal OverdueUnits { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -79,6 +111,10 @@ namespace Lusid.Sdk.Model
             sb.Append("  SettlementDate: ").Append(SettlementDate).Append("\n");
             sb.Append("  Units: ").Append(Units).Append("\n");
             sb.Append("  BondInterest: ").Append(BondInterest).Append("\n");
+            sb.Append("  MovementName: ").Append(MovementName).Append("\n");
+            sb.Append("  MovementType: ").Append(MovementType).Append("\n");
+            sb.Append("  UnsettledUnits: ").Append(UnsettledUnits).Append("\n");
+            sb.Append("  OverdueUnits: ").Append(OverdueUnits).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -131,6 +167,24 @@ namespace Lusid.Sdk.Model
                 (
                     this.BondInterest == input.BondInterest ||
                     this.BondInterest.Equals(input.BondInterest)
+                ) && 
+                (
+                    this.MovementName == input.MovementName ||
+                    (this.MovementName != null &&
+                    this.MovementName.Equals(input.MovementName))
+                ) && 
+                (
+                    this.MovementType == input.MovementType ||
+                    (this.MovementType != null &&
+                    this.MovementType.Equals(input.MovementType))
+                ) && 
+                (
+                    this.UnsettledUnits == input.UnsettledUnits ||
+                    this.UnsettledUnits.Equals(input.UnsettledUnits)
+                ) && 
+                (
+                    this.OverdueUnits == input.OverdueUnits ||
+                    this.OverdueUnits.Equals(input.OverdueUnits)
                 );
         }
 
@@ -153,6 +207,16 @@ namespace Lusid.Sdk.Model
                 }
                 hashCode = (hashCode * 59) + this.Units.GetHashCode();
                 hashCode = (hashCode * 59) + this.BondInterest.GetHashCode();
+                if (this.MovementName != null)
+                {
+                    hashCode = (hashCode * 59) + this.MovementName.GetHashCode();
+                }
+                if (this.MovementType != null)
+                {
+                    hashCode = (hashCode * 59) + this.MovementType.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.UnsettledUnits.GetHashCode();
+                hashCode = (hashCode * 59) + this.OverdueUnits.GetHashCode();
                 return hashCode;
             }
         }

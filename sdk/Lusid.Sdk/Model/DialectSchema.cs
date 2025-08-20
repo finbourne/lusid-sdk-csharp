@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// A schema that a given document must obey. A representation of the validation of a particular Dialect,  in a given language.
+    /// A schema that a given document must obey. A representation of the validation of a particular Dialect, in a given language.
     /// </summary>
     [DataContract(Name = "DialectSchema")]
     public partial class DialectSchema : IEquatable<DialectSchema>, IValidatableObject

@@ -24,7 +24,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Definition of a swap cash flow event.  This event describes the cashflow generated from either an interest rate swap or inflation swap instrument.
+    /// Definition of a swap cash flow event. This event describes the cashflow generated from either an interest rate swap or inflation swap instrument.
     /// </summary>
     [DataContract(Name = "SwapCashFlowEvent")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentEventType")]

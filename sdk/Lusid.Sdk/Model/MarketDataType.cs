@@ -23,9 +23,9 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// The format of the complex market data stored. Complex market data is used to store any  data which requires more context than just a simple single point as is the case with a  quote.  Examples of such complex market data are Discount Curve and Volatility Surfaces.
+    /// The format of the complex market data stored. Complex market data is used to store any data which requires more context than just a simple single point as is the case with a quote. Examples of such complex market data are Discount Curve and Volatility Surfaces.
     /// </summary>
-    /// <value>The format of the complex market data stored. Complex market data is used to store any  data which requires more context than just a simple single point as is the case with a  quote.  Examples of such complex market data are Discount Curve and Volatility Surfaces.</value>
+    /// <value>The format of the complex market data stored. Complex market data is used to store any data which requires more context than just a simple single point as is the case with a quote. Examples of such complex market data are Discount Curve and Volatility Surfaces.</value>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum MarketDataType
     {

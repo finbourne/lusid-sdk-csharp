@@ -24,7 +24,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Event representing a repurchase agreement cashflow.   For example, cashflow for a partial closure of the   repurchase agreement.
+    /// Event representing a repurchase agreement cashflow.  For example, cashflow for a partial closure of the  repurchase agreement.
     /// </summary>
     [DataContract(Name = "RepoCashFlowEvent")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentEventType")]
@@ -38,9 +38,9 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RepoCashFlowEvent" /> class.
         /// </summary>
-        /// <param name="entitlementDate">The date on which the counterparties become entitled   to exchange cash as part of a partial closure of the   repurchase agreement. The date must be before or on   the settlement date, and on or before the maturity   date of the repo. This is a required field..</param>
-        /// <param name="settlementDate">The date on which the exchange of cash is settled.   The date must be on or after the entitlement date,  and on or before the maturity date of the repo.   This is a required field..</param>
-        /// <param name="cashFlowPerUnit">The amount of cash to be exchanged for each unit   of the instrument held on the entitlement date. (required).</param>
+        /// <param name="entitlementDate">The date on which the counterparties become entitled  to exchange cash as part of a partial closure of the  repurchase agreement. The date must be before or on  the settlement date, and on or before the maturity  date of the repo. This is a required field..</param>
+        /// <param name="settlementDate">The date on which the exchange of cash is settled.  The date must be on or after the entitlement date, and on or before the maturity date of the repo.  This is a required field..</param>
+        /// <param name="cashFlowPerUnit">The amount of cash to be exchanged for each unit  of the instrument held on the entitlement date. (required).</param>
         /// <param name="currency">The currency in which the cashflow is paid. (required).</param>
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent (required) (default to &quot;RepoCashFlowEvent&quot;).</param>
         public RepoCashFlowEvent(DateTimeOffset entitlementDate = default(DateTimeOffset), DateTimeOffset settlementDate = default(DateTimeOffset), decimal cashFlowPerUnit = default(decimal), string currency = default(string), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
@@ -57,23 +57,23 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The date on which the counterparties become entitled   to exchange cash as part of a partial closure of the   repurchase agreement. The date must be before or on   the settlement date, and on or before the maturity   date of the repo. This is a required field.
+        /// The date on which the counterparties become entitled  to exchange cash as part of a partial closure of the  repurchase agreement. The date must be before or on  the settlement date, and on or before the maturity  date of the repo. This is a required field.
         /// </summary>
-        /// <value>The date on which the counterparties become entitled   to exchange cash as part of a partial closure of the   repurchase agreement. The date must be before or on   the settlement date, and on or before the maturity   date of the repo. This is a required field.</value>
+        /// <value>The date on which the counterparties become entitled  to exchange cash as part of a partial closure of the  repurchase agreement. The date must be before or on  the settlement date, and on or before the maturity  date of the repo. This is a required field.</value>
         [DataMember(Name = "entitlementDate", EmitDefaultValue = false)]
         public DateTimeOffset EntitlementDate { get; set; }
 
         /// <summary>
-        /// The date on which the exchange of cash is settled.   The date must be on or after the entitlement date,  and on or before the maturity date of the repo.   This is a required field.
+        /// The date on which the exchange of cash is settled.  The date must be on or after the entitlement date, and on or before the maturity date of the repo.  This is a required field.
         /// </summary>
-        /// <value>The date on which the exchange of cash is settled.   The date must be on or after the entitlement date,  and on or before the maturity date of the repo.   This is a required field.</value>
+        /// <value>The date on which the exchange of cash is settled.  The date must be on or after the entitlement date, and on or before the maturity date of the repo.  This is a required field.</value>
         [DataMember(Name = "settlementDate", EmitDefaultValue = false)]
         public DateTimeOffset SettlementDate { get; set; }
 
         /// <summary>
-        /// The amount of cash to be exchanged for each unit   of the instrument held on the entitlement date.
+        /// The amount of cash to be exchanged for each unit  of the instrument held on the entitlement date.
         /// </summary>
-        /// <value>The amount of cash to be exchanged for each unit   of the instrument held on the entitlement date.</value>
+        /// <value>The amount of cash to be exchanged for each unit  of the instrument held on the entitlement date.</value>
         [DataMember(Name = "cashFlowPerUnit", IsRequired = true, EmitDefaultValue = true)]
         public decimal CashFlowPerUnit { get; set; }
 

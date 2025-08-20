@@ -38,7 +38,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="strike">The strike on this date (required).</param>
         /// <param name="date">The date at which the option can be actioned at this strike (required).</param>
-        /// <param name="endDate">If American exercise, this is the end of the exercise period.  Optional field. Defaults to the Date field if not set..</param>
+        /// <param name="endDate">If American exercise, this is the end of the exercise period. Optional field. Defaults to the Date field if not set..</param>
         public OptionEntry(decimal strike = default(decimal), DateTimeOffset date = default(DateTimeOffset), DateTimeOffset? endDate = default(DateTimeOffset?))
         {
             this.Strike = strike;
@@ -61,9 +61,9 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset Date { get; set; }
 
         /// <summary>
-        /// If American exercise, this is the end of the exercise period.  Optional field. Defaults to the Date field if not set.
+        /// If American exercise, this is the end of the exercise period. Optional field. Defaults to the Date field if not set.
         /// </summary>
-        /// <value>If American exercise, this is the end of the exercise period.  Optional field. Defaults to the Date field if not set.</value>
+        /// <value>If American exercise, this is the end of the exercise period. Optional field. Defaults to the Date field if not set.</value>
         [DataMember(Name = "endDate", EmitDefaultValue = true)]
         public DateTimeOffset? EndDate { get; set; }
 

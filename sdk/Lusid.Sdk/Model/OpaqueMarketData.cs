@@ -24,7 +24,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// A representation of an un-built piece of complex market data, to allow for passing through  to the vendor library for building.  The market data will usually be in some standard form such as XML or Json, representing a curve or surface.
+    /// A representation of an un-built piece of complex market data, to allow for passing through to the vendor library for building. The market data will usually be in some standard form such as XML or Json, representing a curve or surface.
     /// </summary>
     [DataContract(Name = "OpaqueMarketData")]
     [JsonConverter(typeof(JsonSubtypes), "MarketDataType")]
@@ -39,8 +39,8 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="OpaqueMarketData" /> class.
         /// </summary>
         /// <param name="document">The document as a string. (required).</param>
-        /// <param name="format">What format is the document stored in, e.g. Xml.  Supported string (enumeration) values are: [Unknown, Xml, Json, Csv]. (required).</param>
-        /// <param name="name">Internal name of document. This is not used for search, it is simply a designator that helps identify the document  and could be anything (filename, ftp address or similar) (required).</param>
+        /// <param name="format">What format is the document stored in, e.g. Xml. Supported string (enumeration) values are: [Unknown, Xml, Json, Csv]. (required).</param>
+        /// <param name="name">Internal name of document. This is not used for search, it is simply a designator that helps identify the document and could be anything (filename, ftp address or similar) (required).</param>
         /// <param name="lineage">Description of the complex market data&#39;s lineage e.g. &#39;FundAccountant_GreenQuality&#39;..</param>
         /// <param name="marketDataType">The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface (required) (default to &quot;OpaqueMarketData&quot;).</param>
         public OpaqueMarketData(string document = default(string), string format = default(string), string name = default(string), string lineage = default(string), MarketDataTypeEnum marketDataType = default(MarketDataTypeEnum)) : base(marketDataType)
@@ -74,16 +74,16 @@ namespace Lusid.Sdk.Model
         public string Document { get; set; }
 
         /// <summary>
-        /// What format is the document stored in, e.g. Xml.  Supported string (enumeration) values are: [Unknown, Xml, Json, Csv].
+        /// What format is the document stored in, e.g. Xml. Supported string (enumeration) values are: [Unknown, Xml, Json, Csv].
         /// </summary>
-        /// <value>What format is the document stored in, e.g. Xml.  Supported string (enumeration) values are: [Unknown, Xml, Json, Csv].</value>
+        /// <value>What format is the document stored in, e.g. Xml. Supported string (enumeration) values are: [Unknown, Xml, Json, Csv].</value>
         [DataMember(Name = "format", IsRequired = true, EmitDefaultValue = true)]
         public string Format { get; set; }
 
         /// <summary>
-        /// Internal name of document. This is not used for search, it is simply a designator that helps identify the document  and could be anything (filename, ftp address or similar)
+        /// Internal name of document. This is not used for search, it is simply a designator that helps identify the document and could be anything (filename, ftp address or similar)
         /// </summary>
-        /// <value>Internal name of document. This is not used for search, it is simply a designator that helps identify the document  and could be anything (filename, ftp address or similar)</value>
+        /// <value>Internal name of document. This is not used for search, it is simply a designator that helps identify the document and could be anything (filename, ftp address or similar)</value>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 

@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// A wrapper of conventions that should be used when interpreting tenors in the context of FX.  For instance, can be used to control how tenors are interpreted on an FxForwardTenorCurveData instance.
+    /// A wrapper of conventions that should be used when interpreting tenors in the context of FX. For instance, can be used to control how tenors are interpreted on an FxForwardTenorCurveData instance.
     /// </summary>
     [DataContract(Name = "FxTenorConvention")]
     public partial class FxTenorConvention : IEquatable<FxTenorConvention>, IValidatableObject

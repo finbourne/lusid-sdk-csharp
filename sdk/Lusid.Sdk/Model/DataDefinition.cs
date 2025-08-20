@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// When importing data from an external data source, in order for it to be reliable queryable, LUSID needs to know something about it.  A data definition tells LUSID, what a given external data item is, what type it is and whether it in some way identifies items of data.  Consider presenting LUSID with a list of dictionaries where each dictionary contains the same set of keys (names). Each data item pointed to by  a key would be expected to be of the same type (integer, string, decimal etc.). To identify a particular dictionary from the list, a tuple of  one or more of the items in the dictionary would make it unique. If only a single item is required then the
+    /// When importing data from an external data source, in order for it to be reliable queryable, LUSID needs to know something about it. A data definition tells LUSID, what a given external data item is, what type it is and whether it in some way identifies items of data. Consider presenting LUSID with a list of dictionaries where each dictionary contains the same set of keys (names). Each data item pointed to by a key would be expected to be of the same type (integer, string, decimal etc.). To identify a particular dictionary from the list, a tuple of one or more of the items in the dictionary would make it unique. If only a single item is required then the
     /// </summary>
     [DataContract(Name = "DataDefinition")]
     public partial class DataDefinition : IEquatable<DataDefinition>, IValidatableObject
@@ -38,8 +38,8 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="address">The internal address (LUSID native) of the unit in the provided data itself and corresponds to the external name of the data item (required).</param>
         /// <param name="name">The name of the data item. This is the name that will appear.</param>
-        /// <param name="dataType">A member of the set of possible data types, that all data passed under that key is expected to be of.  Currently limited to one of [string, integer, decimal, result0d]..</param>
-        /// <param name="keyType">Is the item either a unique key for the dictionary, i.e. does it identify a unique index or conceptual &#39;row&#39; within the list of dictionaries,  or a partial key or is it simply a data item within that dictionary. Must be one of [Unique,PartOfUnique,Leaf, CompositeLeaf].</param>
+        /// <param name="dataType">A member of the set of possible data types, that all data passed under that key is expected to be of. Currently limited to one of [string, integer, decimal, result0d]..</param>
+        /// <param name="keyType">Is the item either a unique key for the dictionary, i.e. does it identify a unique index or conceptual &#39;row&#39; within the list of dictionaries, or a partial key or is it simply a data item within that dictionary. Must be one of [Unique,PartOfUnique,Leaf, CompositeLeaf].</param>
         /// <param name="allowNull">The path to the field must exist (unless AllowMissing is true) but the actual value is allowed to be null..</param>
         /// <param name="allowMissing">The path (or column) is allowed to be missing but if it is present it is not allowed to be null unless AllowNull is true..</param>
         public DataDefinition(string address = default(string), string name = default(string), string dataType = default(string), string keyType = default(string), bool allowNull = default(bool), bool allowMissing = default(bool))
@@ -72,16 +72,16 @@ namespace Lusid.Sdk.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// A member of the set of possible data types, that all data passed under that key is expected to be of.  Currently limited to one of [string, integer, decimal, result0d].
+        /// A member of the set of possible data types, that all data passed under that key is expected to be of. Currently limited to one of [string, integer, decimal, result0d].
         /// </summary>
-        /// <value>A member of the set of possible data types, that all data passed under that key is expected to be of.  Currently limited to one of [string, integer, decimal, result0d].</value>
+        /// <value>A member of the set of possible data types, that all data passed under that key is expected to be of. Currently limited to one of [string, integer, decimal, result0d].</value>
         [DataMember(Name = "dataType", EmitDefaultValue = true)]
         public string DataType { get; set; }
 
         /// <summary>
-        /// Is the item either a unique key for the dictionary, i.e. does it identify a unique index or conceptual &#39;row&#39; within the list of dictionaries,  or a partial key or is it simply a data item within that dictionary. Must be one of [Unique,PartOfUnique,Leaf, CompositeLeaf]
+        /// Is the item either a unique key for the dictionary, i.e. does it identify a unique index or conceptual &#39;row&#39; within the list of dictionaries, or a partial key or is it simply a data item within that dictionary. Must be one of [Unique,PartOfUnique,Leaf, CompositeLeaf]
         /// </summary>
-        /// <value>Is the item either a unique key for the dictionary, i.e. does it identify a unique index or conceptual &#39;row&#39; within the list of dictionaries,  or a partial key or is it simply a data item within that dictionary. Must be one of [Unique,PartOfUnique,Leaf, CompositeLeaf]</value>
+        /// <value>Is the item either a unique key for the dictionary, i.e. does it identify a unique index or conceptual &#39;row&#39; within the list of dictionaries, or a partial key or is it simply a data item within that dictionary. Must be one of [Unique,PartOfUnique,Leaf, CompositeLeaf]</value>
         [DataMember(Name = "keyType", EmitDefaultValue = true)]
         public string KeyType { get; set; }
 

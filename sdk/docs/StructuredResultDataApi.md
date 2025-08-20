@@ -20,7 +20,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 CreateDataMap: Create data map
 
-Create or update one or more structured result store address definition data maps in a particular scope. Note these are immutable and cannot be changed once created.                In the request, each data map must be keyed by a unique correlation ID. This ID is ephemeral and not stored by LUSID.  It serves only to easily identify each data map object in the response.                The response returns both the collection of successfully created or updated data maps, as well as those that failed.  For each failure, a reason is provided.                It is important to check the failed set for any unsuccessful results.
+Create or update one or more structured result store address definition data maps in a particular scope. Note these are immutable and cannot be changed once created.              In the request, each data map must be keyed by a unique correlation ID. This ID is ephemeral and not stored by LUSID. It serves only to easily identify each data map object in the response.              The response returns both the collection of successfully created or updated data maps, as well as those that failed. For each failure, a reason is provided.              It is important to check the failed set for any unsuccessful results.
 
 ### Example
 ```csharp
@@ -136,7 +136,7 @@ catch (ApiException e)
 
 DeleteStructuredResultData: Delete structured result data
 
-Delete one or more structured result data items from a particular scope. Each item is identified by a unique ID which includes  information about its type as well as the exact effective datetime (to the microsecond) at which it entered the system (became valid).                In the request, each data item must be keyed by a unique correlation ID. This ID is ephemeral and not stored by LUSID.  It serves only to easily identify each data item in the response.                The response returns both the collection of successfully deleted data items, as well as those that failed.  For each failure, a reason is provided.                It is important to check the failed set for any unsuccessful results.
+Delete one or more structured result data items from a particular scope. Each item is identified by a unique ID which includes information about its type as well as the exact effective datetime (to the microsecond) at which it entered the system (became valid).              In the request, each data item must be keyed by a unique correlation ID. This ID is ephemeral and not stored by LUSID. It serves only to easily identify each data item in the response.              The response returns both the collection of successfully deleted data items, as well as those that failed. For each failure, a reason is provided.              It is important to check the failed set for any unsuccessful results.
 
 ### Example
 ```csharp
@@ -297,8 +297,8 @@ namespace Examples
             var code = "code_example";  // string | The code of the document for which address key definitions are retrieved.
             var source = "source_example";  // string | The source of the document for which address key definitions are retrieved.
             var resultType = "resultType_example";  // string | The result type of the document for which address key definitions are retrieved.
-            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime to query the document for which the address key definitions are retrieved.              Defaults to querying the latest version if not specified. (optional) 
-            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime to query the document for which the address key definitions are retrieved.              Defaults to querying the latest version if not specified. (optional) 
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime to query the document for which the address key definitions are retrieved.             Defaults to querying the latest version if not specified. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime to query the document for which the address key definitions are retrieved.             Defaults to querying the latest version if not specified. (optional) 
 
             try
             {
@@ -348,8 +348,8 @@ catch (ApiException e)
 | **code** | **string** | The code of the document for which address key definitions are retrieved. |  |
 | **source** | **string** | The source of the document for which address key definitions are retrieved. |  |
 | **resultType** | **string** | The result type of the document for which address key definitions are retrieved. |  |
-| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime to query the document for which the address key definitions are retrieved.              Defaults to querying the latest version if not specified. | [optional]  |
-| **asAt** | **DateTimeOffset?** | The asAt datetime to query the document for which the address key definitions are retrieved.              Defaults to querying the latest version if not specified. | [optional]  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime to query the document for which the address key definitions are retrieved.             Defaults to querying the latest version if not specified. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime to query the document for which the address key definitions are retrieved.             Defaults to querying the latest version if not specified. | [optional]  |
 
 ### Return type
 
@@ -376,7 +376,7 @@ catch (ApiException e)
 
 GetDataMap: Get data map
 
-Retrieve one or more structured result store address definition data maps from a particular scope.                Each data map can be identified by its invariant key, which can be thought of as a permanent URL.  For each ID, LUSID returns the most recently matched item.                In the request, each data map must be keyed by a unique correlation ID. This ID is ephemeral and not stored by LUSID.  It serves only to easily identify each data map in the response.                The response returns three collections. The first contains successfully retrieved data maps. The second contains those with a  valid identifier but that could not be found. The third contains those that failed because LUSID could not construct a valid identifier from the request.                For the IDs that failed to resolve or could not be found, a reason is provided.                It is important to check the failed sets for any unsuccessful results.
+Retrieve one or more structured result store address definition data maps from a particular scope.              Each data map can be identified by its invariant key, which can be thought of as a permanent URL. For each ID, LUSID returns the most recently matched item.              In the request, each data map must be keyed by a unique correlation ID. This ID is ephemeral and not stored by LUSID. It serves only to easily identify each data map in the response.              The response returns three collections. The first contains successfully retrieved data maps. The second contains those with a valid identifier but that could not be found. The third contains those that failed because LUSID could not construct a valid identifier from the request.              For the IDs that failed to resolve or could not be found, a reason is provided.              It is important to check the failed sets for any unsuccessful results.
 
 ### Example
 ```csharp
@@ -492,7 +492,7 @@ catch (ApiException e)
 
 GetStructuredResultData: Get structured result data
 
-Retrieve one or more structured result data items from a particular scope.                Each item can be identified by its time invariant structured result data identifier. For each ID, LUSID  returns the most recently matched item with respect to the provided (or default) effective datetime.                 An optional maximum age range window can be specified to control how far back to look from the specified  effective datetime. LUSID returns the most recent item within this window.                In the request, each data item must be keyed by a unique correlation ID. This ID is ephemeral and not stored by LUSID.  It serves only to easily identify each data item in the response.    The response returns three collections. The first contains successfully retrieved data items. The second contains those with a  valid identifier but that could not be found. The third contains those that failed because LUSID could not construct a valid identifier from the request.    For the IDs that failed to resolve or could not be found, a reason is provided.                It is important to check the failed sets for any unsuccessful results.
+Retrieve one or more structured result data items from a particular scope.              Each item can be identified by its time invariant structured result data identifier. For each ID, LUSID returns the most recently matched item with respect to the provided (or default) effective datetime.               An optional maximum age range window can be specified to control how far back to look from the specified effective datetime. LUSID returns the most recent item within this window.              In the request, each data item must be keyed by a unique correlation ID. This ID is ephemeral and not stored by LUSID. It serves only to easily identify each data item in the response.  The response returns three collections. The first contains successfully retrieved data items. The second contains those with a valid identifier but that could not be found. The third contains those that failed because LUSID could not construct a valid identifier from the request.  For the IDs that failed to resolve or could not be found, a reason is provided.              It is important to check the failed sets for any unsuccessful results.
 
 ### Example
 ```csharp
@@ -536,7 +536,7 @@ namespace Examples
             var scope = "scope_example";  // string | The scope from which to retrieve data items.
             var requestBody = new Dictionary<string, StructuredResultDataId>(); // Dictionary<string, StructuredResultDataId> | The time invariant set of structured data identifiers to retrieve, keyed by a unique, ephemeral correlation ID.
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the structured result data. Defaults to returning the latest version if not specified. (optional) 
-            var maxAge = "maxAge_example";  // string? | The duration of the look-back window in ISO8601 time interval format, for example 'P1Y2M3DT4H30M' (1 year, 2 months, 3 days, 4 hours and 30 minutes).               This is subtracted from the provided effectiveAt datetime to generate a effective datetime window inside which a data item must exist to be retrieved. (optional) 
+            var maxAge = "maxAge_example";  // string? | The duration of the look-back window in ISO8601 time interval format, for example 'P1Y2M3DT4H30M' (1 year, 2 months, 3 days, 4 hours and 30 minutes).              This is subtracted from the provided effectiveAt datetime to generate a effective datetime window inside which a data item must exist to be retrieved. (optional) 
 
             try
             {
@@ -585,7 +585,7 @@ catch (ApiException e)
 | **scope** | **string** | The scope from which to retrieve data items. |  |
 | **requestBody** | [**Dictionary&lt;string, StructuredResultDataId&gt;**](StructuredResultDataId.md) | The time invariant set of structured data identifiers to retrieve, keyed by a unique, ephemeral correlation ID. |  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the structured result data. Defaults to returning the latest version if not specified. | [optional]  |
-| **maxAge** | **string?** | The duration of the look-back window in ISO8601 time interval format, for example &#39;P1Y2M3DT4H30M&#39; (1 year, 2 months, 3 days, 4 hours and 30 minutes).               This is subtracted from the provided effectiveAt datetime to generate a effective datetime window inside which a data item must exist to be retrieved. | [optional]  |
+| **maxAge** | **string?** | The duration of the look-back window in ISO8601 time interval format, for example &#39;P1Y2M3DT4H30M&#39; (1 year, 2 months, 3 days, 4 hours and 30 minutes).              This is subtracted from the provided effectiveAt datetime to generate a effective datetime window inside which a data item must exist to be retrieved. | [optional]  |
 
 ### Return type
 
@@ -612,7 +612,7 @@ catch (ApiException e)
 
 GetVirtualDocument: Get Virtual Documents
 
-Retrieve one or more virtual documents from a particular scope.                Each item can be identified by its time invariant structured result data identifier. For each ID, LUSID  returns the most recently matched item with respect to the provided effective datetime.                In the request, each data item must be keyed by a unique correlation ID. This ID is ephemeral and not stored by LUSID.  It serves only to easily identify each data item in the response.                The response returns two collections. The first contains successfully retrieved data items. The second contains those with a  valid identifier but that could not be found, or those that failed because LUSID could not construct a valid identifier from the request.                For the IDs that failed to resolve or could not be found, a reason is provided.                It is important to check the failed sets for any unsuccessful results.
+Retrieve one or more virtual documents from a particular scope.              Each item can be identified by its time invariant structured result data identifier. For each ID, LUSID returns the most recently matched item with respect to the provided effective datetime.              In the request, each data item must be keyed by a unique correlation ID. This ID is ephemeral and not stored by LUSID. It serves only to easily identify each data item in the response.              The response returns two collections. The first contains successfully retrieved data items. The second contains those with a valid identifier but that could not be found, or those that failed because LUSID could not construct a valid identifier from the request.              For the IDs that failed to resolve or could not be found, a reason is provided.              It is important to check the failed sets for any unsuccessful results.
 
 ### Example
 ```csharp
@@ -730,7 +730,7 @@ catch (ApiException e)
 
 GetVirtualDocumentRows: Get Virtual Document Rows
 
-Retrieve the rows of the virtual document with the specified identifiers and the given effectiveAt date time.    Get virtual document rows merges multiple StructuredResultData items upserted with UpsertStructuredResultData  for a single StructuredResultDataId.                Since an item of StructuredResultData is always upserted with a StructuredResultDataId, of which  effectiveAt is a part, then merging across the asAt dimension is supported but not merging across the  effectiveAt dimension.
+Retrieve the rows of the virtual document with the specified identifiers and the given effectiveAt date time.  Get virtual document rows merges multiple StructuredResultData items upserted with UpsertStructuredResultData for a single StructuredResultDataId.              Since an item of StructuredResultData is always upserted with a StructuredResultDataId, of which effectiveAt is a part, then merging across the asAt dimension is supported but not merging across the effectiveAt dimension.
 
 ### Example
 ```csharp
@@ -777,9 +777,9 @@ namespace Examples
             var resultType = "resultType_example";  // string | The result type of the virtual document to retrieve.
             var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel | The effectiveAt datetime at which to retrieve the virtual document.
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the virtual document. Defaults to returning the latest version if not specified. (optional) 
-            var page = "page_example";  // string? | The pagination token to use to continue listing virtual document rows from a previous               call to list virtual document rows. This value is returned from the previous call. If a pagination token is               provided the filter, effectiveAt, and asAt fields must not have changed since the original request. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing virtual document rows from a previous              call to list virtual document rows. This value is returned from the previous call. If a pagination token is              provided the filter, effectiveAt, and asAt fields must not have changed since the original request. (optional) 
             var limit = 56;  // int? | When paginating, limit the number of returned results to this many. (optional) 
-            var filter = "filter_example";  // string? | Expression to filter the result set. Read more about filtering results from LUSID here:               https://support.lusid.com/filtering-results-from-lusid. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional) 
 
             try
             {
@@ -831,9 +831,9 @@ catch (ApiException e)
 | **resultType** | **string** | The result type of the virtual document to retrieve. |  |
 | **effectiveAt** | **DateTimeOrCutLabel** | The effectiveAt datetime at which to retrieve the virtual document. |  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the virtual document. Defaults to returning the latest version if not specified. | [optional]  |
-| **page** | **string?** | The pagination token to use to continue listing virtual document rows from a previous               call to list virtual document rows. This value is returned from the previous call. If a pagination token is               provided the filter, effectiveAt, and asAt fields must not have changed since the original request. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing virtual document rows from a previous              call to list virtual document rows. This value is returned from the previous call. If a pagination token is              provided the filter, effectiveAt, and asAt fields must not have changed since the original request. | [optional]  |
 | **limit** | **int?** | When paginating, limit the number of returned results to this many. | [optional]  |
-| **filter** | **string?** | Expression to filter the result set. Read more about filtering results from LUSID here:               https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
+| **filter** | **string?** | Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
 
 ### Return type
 
@@ -860,7 +860,7 @@ catch (ApiException e)
 
 UpsertResultValue: Upsert result value
 
-Create or update one or more Upsert one or more result values in a particular scope. An item is updated if it already exists  and created if it does not.                In the request, each data item must be keyed by a unique correlation ID. This ID is ephemeral and not stored by LUSID.  It serves only to easily identify each data item in the response.                The response returns both the collection of successfully created or updated data items, as well as those that failed.  For each failure, a reason is provided.                It is important to check the failed set for any unsuccessful results.
+Create or update one or more Upsert one or more result values in a particular scope. An item is updated if it already exists and created if it does not.              In the request, each data item must be keyed by a unique correlation ID. This ID is ephemeral and not stored by LUSID. It serves only to easily identify each data item in the response.              The response returns both the collection of successfully created or updated data items, as well as those that failed. For each failure, a reason is provided.              It is important to check the failed set for any unsuccessful results.
 
 ### Example
 ```csharp
@@ -976,7 +976,7 @@ catch (ApiException e)
 
 UpsertStructuredResultData: Upsert structured result data
 
-Create or update one or more structured result data items in a particular scope. An item is updated if it already exists  and created if it does not.                In the request, each data item must be keyed by a unique correlation ID. This ID is ephemeral and not stored by LUSID.  It serves only to easily identify each data item in the response.                The response returns both the collection of successfully created or updated data items, as well as those that failed.  For each failure, a reason is provided.                It is important to check the failed set for any unsuccessful results.
+Create or update one or more structured result data items in a particular scope. An item is updated if it already exists and created if it does not.              In the request, each data item must be keyed by a unique correlation ID. This ID is ephemeral and not stored by LUSID. It serves only to easily identify each data item in the response.              The response returns both the collection of successfully created or updated data items, as well as those that failed. For each failure, a reason is provided.              It is important to check the failed set for any unsuccessful results.
 
 ### Example
 ```csharp

@@ -138,7 +138,7 @@ catch (ApiException e)
 
 DeleteTransactionType: Delete a transaction type
 
-/// WARNING! Changing existing transaction types has a material impact on how data, new and old,  is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
+/// WARNING! Changing existing transaction types has a material impact on how data, new and old, is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
 
 ### Example
 ```csharp
@@ -533,7 +533,7 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionConfigurationApi>();
             var source = "source_example";  // string | The source that the type is in
             var type = "type_example";  // string | One of the type's aliases
-            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the transaction configuration.              Defaults to returning the latest version of the transaction configuration type if not specified (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the transaction configuration.             Defaults to returning the latest version of the transaction configuration type if not specified (optional) 
             var scope = "\"default\"";  // string? | The scope in which the transaction types exists. When not supplied the scope is 'default'. (optional)  (default to "default")
 
             try
@@ -582,7 +582,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **source** | **string** | The source that the type is in |  |
 | **type** | **string** | One of the type&#39;s aliases |  |
-| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the transaction configuration.              Defaults to returning the latest version of the transaction configuration type if not specified | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the transaction configuration.             Defaults to returning the latest version of the transaction configuration type if not specified | [optional]  |
 | **scope** | **string?** | The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. | [optional] [default to &quot;default&quot;] |
 
 ### Return type
@@ -726,7 +726,7 @@ catch (ApiException e)
 
 ListTransactionTypes: List transaction types
 
-Get the list of current transaction types. For information on the default transaction types provided with  LUSID, see https://support.lusid.com/knowledgebase/article/KA-01873/.
+Get the list of current transaction types. For information on the default transaction types provided with LUSID, see https://support.lusid.com/knowledgebase/article/KA-01873/.
 
 ### Example
 ```csharp
@@ -767,7 +767,7 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TransactionConfigurationApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionConfigurationApi>();
-            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the transaction types. Defaults              to returning the latest versions if not specified. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the transaction types. Defaults             to returning the latest versions if not specified. (optional) 
             var scope = "\"default\"";  // string? | The scope in which the side exists. When not supplied the scope is 'default'. (optional)  (default to "default")
 
             try
@@ -814,7 +814,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the transaction types. Defaults              to returning the latest versions if not specified. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the transaction types. Defaults             to returning the latest versions if not specified. | [optional]  |
 | **scope** | **string?** | The scope in which the side exists. When not supplied the scope is &#39;default&#39;. | [optional] [default to &quot;default&quot;] |
 
 ### Return type
@@ -1076,7 +1076,7 @@ catch (ApiException e)
 
 SetTransactionType: Set a specific transaction type
 
-Set a transaction type for the given source and type. If the requested transaction type does not exist, it will be created    WARNING! Changing existing transaction types has a material impact on how data, new and old, is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
+Set a transaction type for the given source and type. If the requested transaction type does not exist, it will be created  WARNING! Changing existing transaction types has a material impact on how data, new and old, is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
 
 ### Example
 ```csharp

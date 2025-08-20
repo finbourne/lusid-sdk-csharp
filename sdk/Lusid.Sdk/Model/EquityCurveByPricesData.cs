@@ -39,7 +39,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="EquityCurveByPricesData" /> class.
         /// </summary>
         /// <param name="baseDate">EffectiveAt date of the provided prices (required).</param>
-        /// <param name="dates">Dates provided for the forward price of the Equity at the corresponding price in Prices.  These dates should be in the future with respect to the BaseDate. (required).</param>
+        /// <param name="dates">Dates provided for the forward price of the Equity at the corresponding price in Prices. These dates should be in the future with respect to the BaseDate. (required).</param>
         /// <param name="lineage">Description of the complex market data&#39;s lineage e.g. &#39;FundAccountant_GreenQuality&#39;..</param>
         /// <param name="prices">Prices provided for the forward price of the Equity at the corresponding date in Dates. (required).</param>
         /// <param name="marketDataOptions">marketDataOptions.</param>
@@ -71,9 +71,9 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset BaseDate { get; set; }
 
         /// <summary>
-        /// Dates provided for the forward price of the Equity at the corresponding price in Prices.  These dates should be in the future with respect to the BaseDate.
+        /// Dates provided for the forward price of the Equity at the corresponding price in Prices. These dates should be in the future with respect to the BaseDate.
         /// </summary>
-        /// <value>Dates provided for the forward price of the Equity at the corresponding price in Prices.  These dates should be in the future with respect to the BaseDate.</value>
+        /// <value>Dates provided for the forward price of the Equity at the corresponding price in Prices. These dates should be in the future with respect to the BaseDate.</value>
         [DataMember(Name = "dates", IsRequired = true, EmitDefaultValue = true)]
         public List<DateTimeOffset> Dates { get; set; }
 

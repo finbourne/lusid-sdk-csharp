@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Information about a change to a field / property.  At least one of &#39;PreviousValue&#39; or &#39;NewValue&#39; will be set.
+    /// Information about a change to a field / property. At least one of &#39;PreviousValue&#39; or &#39;NewValue&#39; will be set.
     /// </summary>
     [DataContract(Name = "ChangeItem")]
     public partial class ChangeItem : IEquatable<ChangeItem>, IValidatableObject

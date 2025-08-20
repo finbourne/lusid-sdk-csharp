@@ -66,7 +66,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the derived transaction portfolio.</param>
-        /// <param name="code">The code of the derived transaction portfolio. Together with the scope this uniquely identifies              the derived transaction portfolio.</param>
+        /// <param name="code">The code of the derived transaction portfolio. Together with the scope this uniquely identifies             the derived transaction portfolio.</param>
         /// <param name="effectiveAt">The effective date of the change. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -81,7 +81,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the derived transaction portfolio.</param>
-        /// <param name="code">The code of the derived transaction portfolio. Together with the scope this uniquely identifies              the derived transaction portfolio.</param>
+        /// <param name="code">The code of the derived transaction portfolio. Together with the scope this uniquely identifies             the derived transaction portfolio.</param>
         /// <param name="effectiveAt">The effective date of the change. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -133,7 +133,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the derived transaction portfolio.</param>
-        /// <param name="code">The code of the derived transaction portfolio. Together with the scope this uniquely identifies              the derived transaction portfolio.</param>
+        /// <param name="code">The code of the derived transaction portfolio. Together with the scope this uniquely identifies             the derived transaction portfolio.</param>
         /// <param name="effectiveAt">The effective date of the change. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -149,7 +149,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the derived transaction portfolio.</param>
-        /// <param name="code">The code of the derived transaction portfolio. Together with the scope this uniquely identifies              the derived transaction portfolio.</param>
+        /// <param name="code">The code of the derived transaction portfolio. Together with the scope this uniquely identifies             the derived transaction portfolio.</param>
         /// <param name="effectiveAt">The effective date of the change. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -502,7 +502,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the derived transaction portfolio.</param>
-        /// <param name="code">The code of the derived transaction portfolio. Together with the scope this uniquely identifies              the derived transaction portfolio.</param>
+        /// <param name="code">The code of the derived transaction portfolio. Together with the scope this uniquely identifies             the derived transaction portfolio.</param>
         /// <param name="effectiveAt">The effective date of the change. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -518,7 +518,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the derived transaction portfolio.</param>
-        /// <param name="code">The code of the derived transaction portfolio. Together with the scope this uniquely identifies              the derived transaction portfolio.</param>
+        /// <param name="code">The code of the derived transaction portfolio. Together with the scope this uniquely identifies             the derived transaction portfolio.</param>
         /// <param name="effectiveAt">The effective date of the change. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -617,7 +617,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the derived transaction portfolio.</param>
-        /// <param name="code">The code of the derived transaction portfolio. Together with the scope this uniquely identifies              the derived transaction portfolio.</param>
+        /// <param name="code">The code of the derived transaction portfolio. Together with the scope this uniquely identifies             the derived transaction portfolio.</param>
         /// <param name="effectiveAt">The effective date of the change. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -634,7 +634,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the derived transaction portfolio.</param>
-        /// <param name="code">The code of the derived transaction portfolio. Together with the scope this uniquely identifies              the derived transaction portfolio.</param>
+        /// <param name="code">The code of the derived transaction portfolio. Together with the scope this uniquely identifies             the derived transaction portfolio.</param>
         /// <param name="effectiveAt">The effective date of the change. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>

@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// A standard representation of the effective date range for the event, used for display, filtering and windowing use cases.  The start and end values for the eventDateRange are mapped from the particular dates contained within the specific  InstrumentEvent schema.  Note that the start and end values may be identical for some types of events.
+    /// A standard representation of the effective date range for the event, used for display, filtering and windowing use cases. The start and end values for the eventDateRange are mapped from the particular dates contained within the specific InstrumentEvent schema.  Note that the start and end values may be identical for some types of events.
     /// </summary>
     [DataContract(Name = "EventDateRange")]
     public partial class EventDateRange : IEquatable<EventDateRange>, IValidatableObject

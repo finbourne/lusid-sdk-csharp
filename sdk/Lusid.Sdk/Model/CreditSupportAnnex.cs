@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Entity to capture the calculable and queryable methods and practices of determining and transferring collateral  to a counterparty as part of margining of transactions. These typically come from a particular ISDA agreement  that is in place between the two counterparties.
+    /// Entity to capture the calculable and queryable methods and practices of determining and transferring collateral to a counterparty as part of margining of transactions. These typically come from a particular ISDA agreement that is in place between the two counterparties.
     /// </summary>
     [DataContract(Name = "CreditSupportAnnex")]
     public partial class CreditSupportAnnex : IEquatable<CreditSupportAnnex>, IValidatableObject
@@ -36,13 +36,13 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CreditSupportAnnex" /> class.
         /// </summary>
-        /// <param name="referenceCurrency">The base, or reference, currency against which MtM value and exposure should be calculated  and in which the CSA parameters are defined if the currency is not otherwise explicitly stated. (required).</param>
+        /// <param name="referenceCurrency">The base, or reference, currency against which MtM value and exposure should be calculated and in which the CSA parameters are defined if the currency is not otherwise explicitly stated. (required).</param>
         /// <param name="collateralCurrencies">The set of currencies within which it is acceptable to post cash collateral. (required).</param>
-        /// <param name="isdaAgreementVersion">The transactions will take place with reference to a particular ISDA master agreement. This  will likely be either the ISDA 1992 or ISDA 2002 agremeents or ISDA close-out 2009. (required).</param>
-        /// <param name="marginCallFrequency">The tenor, e.g. daily (1D) or biweekly (2W), at which frequency a margin call will be made, calculations  made and money transferred to readjust. The calculation might also require a specific time for valuation and notification. (required).</param>
+        /// <param name="isdaAgreementVersion">The transactions will take place with reference to a particular ISDA master agreement. This will likely be either the ISDA 1992 or ISDA 2002 agremeents or ISDA close-out 2009. (required).</param>
+        /// <param name="marginCallFrequency">The tenor, e.g. daily (1D) or biweekly (2W), at which frequency a margin call will be made, calculations made and money transferred to readjust. The calculation might also require a specific time for valuation and notification. (required).</param>
         /// <param name="valuationAgent">Are the calculations performed by the institutions&#39;s counterparty or the institution trading with them. (required).</param>
-        /// <param name="thresholdAmount">At what level of exposure does collateral need to be posted. Will typically be zero for banks.  Should be stated in reference currency (required).</param>
-        /// <param name="roundingDecimalPlaces">Where a calculation needs to be rounded to a specific number of decimal places,  this states the number that that requires. (required).</param>
+        /// <param name="thresholdAmount">At what level of exposure does collateral need to be posted. Will typically be zero for banks. Should be stated in reference currency (required).</param>
+        /// <param name="roundingDecimalPlaces">Where a calculation needs to be rounded to a specific number of decimal places, this states the number that that requires. (required).</param>
         /// <param name="initialMarginAmount">The initial margin that is required. In the reference currency (required).</param>
         /// <param name="minimumTransferAmount">The minimum amount, in the reference currency, that must be transferred when required. (required).</param>
         /// <param name="id">id (required).</param>
@@ -91,9 +91,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The base, or reference, currency against which MtM value and exposure should be calculated  and in which the CSA parameters are defined if the currency is not otherwise explicitly stated.
+        /// The base, or reference, currency against which MtM value and exposure should be calculated and in which the CSA parameters are defined if the currency is not otherwise explicitly stated.
         /// </summary>
-        /// <value>The base, or reference, currency against which MtM value and exposure should be calculated  and in which the CSA parameters are defined if the currency is not otherwise explicitly stated.</value>
+        /// <value>The base, or reference, currency against which MtM value and exposure should be calculated and in which the CSA parameters are defined if the currency is not otherwise explicitly stated.</value>
         [DataMember(Name = "referenceCurrency", IsRequired = true, EmitDefaultValue = true)]
         public string ReferenceCurrency { get; set; }
 
@@ -105,16 +105,16 @@ namespace Lusid.Sdk.Model
         public List<string> CollateralCurrencies { get; set; }
 
         /// <summary>
-        /// The transactions will take place with reference to a particular ISDA master agreement. This  will likely be either the ISDA 1992 or ISDA 2002 agremeents or ISDA close-out 2009.
+        /// The transactions will take place with reference to a particular ISDA master agreement. This will likely be either the ISDA 1992 or ISDA 2002 agremeents or ISDA close-out 2009.
         /// </summary>
-        /// <value>The transactions will take place with reference to a particular ISDA master agreement. This  will likely be either the ISDA 1992 or ISDA 2002 agremeents or ISDA close-out 2009.</value>
+        /// <value>The transactions will take place with reference to a particular ISDA master agreement. This will likely be either the ISDA 1992 or ISDA 2002 agremeents or ISDA close-out 2009.</value>
         [DataMember(Name = "isdaAgreementVersion", IsRequired = true, EmitDefaultValue = true)]
         public string IsdaAgreementVersion { get; set; }
 
         /// <summary>
-        /// The tenor, e.g. daily (1D) or biweekly (2W), at which frequency a margin call will be made, calculations  made and money transferred to readjust. The calculation might also require a specific time for valuation and notification.
+        /// The tenor, e.g. daily (1D) or biweekly (2W), at which frequency a margin call will be made, calculations made and money transferred to readjust. The calculation might also require a specific time for valuation and notification.
         /// </summary>
-        /// <value>The tenor, e.g. daily (1D) or biweekly (2W), at which frequency a margin call will be made, calculations  made and money transferred to readjust. The calculation might also require a specific time for valuation and notification.</value>
+        /// <value>The tenor, e.g. daily (1D) or biweekly (2W), at which frequency a margin call will be made, calculations made and money transferred to readjust. The calculation might also require a specific time for valuation and notification.</value>
         [DataMember(Name = "marginCallFrequency", IsRequired = true, EmitDefaultValue = true)]
         public string MarginCallFrequency { get; set; }
 
@@ -126,16 +126,16 @@ namespace Lusid.Sdk.Model
         public string ValuationAgent { get; set; }
 
         /// <summary>
-        /// At what level of exposure does collateral need to be posted. Will typically be zero for banks.  Should be stated in reference currency
+        /// At what level of exposure does collateral need to be posted. Will typically be zero for banks. Should be stated in reference currency
         /// </summary>
-        /// <value>At what level of exposure does collateral need to be posted. Will typically be zero for banks.  Should be stated in reference currency</value>
+        /// <value>At what level of exposure does collateral need to be posted. Will typically be zero for banks. Should be stated in reference currency</value>
         [DataMember(Name = "thresholdAmount", IsRequired = true, EmitDefaultValue = true)]
         public decimal ThresholdAmount { get; set; }
 
         /// <summary>
-        /// Where a calculation needs to be rounded to a specific number of decimal places,  this states the number that that requires.
+        /// Where a calculation needs to be rounded to a specific number of decimal places, this states the number that that requires.
         /// </summary>
-        /// <value>Where a calculation needs to be rounded to a specific number of decimal places,  this states the number that that requires.</value>
+        /// <value>Where a calculation needs to be rounded to a specific number of decimal places, this states the number that that requires.</value>
         [DataMember(Name = "roundingDecimalPlaces", IsRequired = true, EmitDefaultValue = true)]
         public int RoundingDecimalPlaces { get; set; }
 

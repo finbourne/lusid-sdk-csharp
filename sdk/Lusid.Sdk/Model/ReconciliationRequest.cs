@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Specification for the reconciliation request. Left and Right hand sides are constructed. Each consists of a valuation of a portfolio  using an aggregation request. The results of this can then be compared to each other. The difference, which is effectively a risk based  difference allows comparison of the effects of changing a recipe, valuation date, or (though it may or may not make logical sense) a portfolio.  For instance, one might look at the difference in risk caused by the addition of transaction to a portfolio, or through changing the valuation  methodology or system.
+    /// Specification for the reconciliation request. Left and Right hand sides are constructed. Each consists of a valuation of a portfolio using an aggregation request. The results of this can then be compared to each other. The difference, which is effectively a risk based difference allows comparison of the effects of changing a recipe, valuation date, or (though it may or may not make logical sense) a portfolio. For instance, one might look at the difference in risk caused by the addition of transaction to a portfolio, or through changing the valuation methodology or system.
     /// </summary>
     [DataContract(Name = "ReconciliationRequest")]
     public partial class ReconciliationRequest : IEquatable<ReconciliationRequest>, IValidatableObject
@@ -39,8 +39,8 @@ namespace Lusid.Sdk.Model
         /// <param name="left">left (required).</param>
         /// <param name="right">right (required).</param>
         /// <param name="leftToRightMapping">The mapping from property keys requested by left aggregation to property keys on right hand side.</param>
-        /// <param name="comparisonRules">The set of rules to be used in comparing values. These are the rules that determine what constitutes a match.  The simplest is obviously an exact one-for-one comparison, but tolerances on numerical or date time values and  case-insensitive string comparison are supported amongst other types..</param>
-        /// <param name="preserveKeys">List of keys to preserve (from rhs) in the diff. Used in conjunction with filtering/grouping.  If two values are equal, for a given key then the value is elided from the results. Setting it here  will preserve it (takes the values from the RHS and puts it into the line by line results)..</param>
+        /// <param name="comparisonRules">The set of rules to be used in comparing values. These are the rules that determine what constitutes a match. The simplest is obviously an exact one-for-one comparison, but tolerances on numerical or date time values and case-insensitive string comparison are supported amongst other types..</param>
+        /// <param name="preserveKeys">List of keys to preserve (from rhs) in the diff. Used in conjunction with filtering/grouping. If two values are equal, for a given key then the value is elided from the results. Setting it here will preserve it (takes the values from the RHS and puts it into the line by line results)..</param>
         public ReconciliationRequest(ValuationRequest left = default(ValuationRequest), ValuationRequest right = default(ValuationRequest), List<ReconciliationLeftRightAddressKeyPair> leftToRightMapping = default(List<ReconciliationLeftRightAddressKeyPair>), List<ReconciliationRule> comparisonRules = default(List<ReconciliationRule>), List<string> preserveKeys = default(List<string>))
         {
             // to ensure "left" is required (not null)
@@ -80,16 +80,16 @@ namespace Lusid.Sdk.Model
         public List<ReconciliationLeftRightAddressKeyPair> LeftToRightMapping { get; set; }
 
         /// <summary>
-        /// The set of rules to be used in comparing values. These are the rules that determine what constitutes a match.  The simplest is obviously an exact one-for-one comparison, but tolerances on numerical or date time values and  case-insensitive string comparison are supported amongst other types.
+        /// The set of rules to be used in comparing values. These are the rules that determine what constitutes a match. The simplest is obviously an exact one-for-one comparison, but tolerances on numerical or date time values and case-insensitive string comparison are supported amongst other types.
         /// </summary>
-        /// <value>The set of rules to be used in comparing values. These are the rules that determine what constitutes a match.  The simplest is obviously an exact one-for-one comparison, but tolerances on numerical or date time values and  case-insensitive string comparison are supported amongst other types.</value>
+        /// <value>The set of rules to be used in comparing values. These are the rules that determine what constitutes a match. The simplest is obviously an exact one-for-one comparison, but tolerances on numerical or date time values and case-insensitive string comparison are supported amongst other types.</value>
         [DataMember(Name = "comparisonRules", EmitDefaultValue = true)]
         public List<ReconciliationRule> ComparisonRules { get; set; }
 
         /// <summary>
-        /// List of keys to preserve (from rhs) in the diff. Used in conjunction with filtering/grouping.  If two values are equal, for a given key then the value is elided from the results. Setting it here  will preserve it (takes the values from the RHS and puts it into the line by line results).
+        /// List of keys to preserve (from rhs) in the diff. Used in conjunction with filtering/grouping. If two values are equal, for a given key then the value is elided from the results. Setting it here will preserve it (takes the values from the RHS and puts it into the line by line results).
         /// </summary>
-        /// <value>List of keys to preserve (from rhs) in the diff. Used in conjunction with filtering/grouping.  If two values are equal, for a given key then the value is elided from the results. Setting it here  will preserve it (takes the values from the RHS and puts it into the line by line results).</value>
+        /// <value>List of keys to preserve (from rhs) in the diff. Used in conjunction with filtering/grouping. If two values are equal, for a given key then the value is elided from the results. Setting it here will preserve it (takes the values from the RHS and puts it into the line by line results).</value>
         [DataMember(Name = "preserveKeys", EmitDefaultValue = true)]
         public List<string> PreserveKeys { get; set; }
 

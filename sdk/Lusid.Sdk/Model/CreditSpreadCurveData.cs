@@ -40,11 +40,11 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="baseDate">EffectiveAt date of the quoted rates (required).</param>
         /// <param name="domCcy">Domestic currency of the curve (required).</param>
-        /// <param name="tenors">The tenors for which the rates apply  For more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097) (required).</param>
+        /// <param name="tenors">The tenors for which the rates apply For more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097) (required).</param>
         /// <param name="spreads">Par spread quotes corresponding to the tenors. (required).</param>
         /// <param name="recoveryRate">The recovery rate in default. (required).</param>
-        /// <param name="referenceDate">If tenors are provided, this is the date against which the tenors will be resolved.  This is of importance to CDX spread quotes, which are usually quoted in tenors relative to the CDX start date.  In this case, the ReferenceDate would be equal to the CDX start date, and the BaseDate would be the date for which the spreads are valid.  If not provided, this defaults to the BaseDate of the curve..</param>
-        /// <param name="maturities">The maturity dates for which the rates apply.  Either tenors or maturities should be provided, not both..</param>
+        /// <param name="referenceDate">If tenors are provided, this is the date against which the tenors will be resolved. This is of importance to CDX spread quotes, which are usually quoted in tenors relative to the CDX start date. In this case, the ReferenceDate would be equal to the CDX start date, and the BaseDate would be the date for which the spreads are valid. If not provided, this defaults to the BaseDate of the curve..</param>
+        /// <param name="maturities">The maturity dates for which the rates apply. Either tenors or maturities should be provided, not both..</param>
         /// <param name="lineage">Description of the complex market data&#39;s lineage e.g. &#39;FundAccountant_GreenQuality&#39;..</param>
         /// <param name="marketDataOptions">marketDataOptions.</param>
         /// <param name="marketDataType">The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface (required) (default to &quot;CreditSpreadCurveData&quot;).</param>
@@ -91,9 +91,9 @@ namespace Lusid.Sdk.Model
         public string DomCcy { get; set; }
 
         /// <summary>
-        /// The tenors for which the rates apply  For more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097)
+        /// The tenors for which the rates apply For more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097)
         /// </summary>
-        /// <value>The tenors for which the rates apply  For more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097)</value>
+        /// <value>The tenors for which the rates apply For more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097)</value>
         [DataMember(Name = "tenors", IsRequired = true, EmitDefaultValue = true)]
         public List<string> Tenors { get; set; }
 
@@ -112,16 +112,16 @@ namespace Lusid.Sdk.Model
         public decimal RecoveryRate { get; set; }
 
         /// <summary>
-        /// If tenors are provided, this is the date against which the tenors will be resolved.  This is of importance to CDX spread quotes, which are usually quoted in tenors relative to the CDX start date.  In this case, the ReferenceDate would be equal to the CDX start date, and the BaseDate would be the date for which the spreads are valid.  If not provided, this defaults to the BaseDate of the curve.
+        /// If tenors are provided, this is the date against which the tenors will be resolved. This is of importance to CDX spread quotes, which are usually quoted in tenors relative to the CDX start date. In this case, the ReferenceDate would be equal to the CDX start date, and the BaseDate would be the date for which the spreads are valid. If not provided, this defaults to the BaseDate of the curve.
         /// </summary>
-        /// <value>If tenors are provided, this is the date against which the tenors will be resolved.  This is of importance to CDX spread quotes, which are usually quoted in tenors relative to the CDX start date.  In this case, the ReferenceDate would be equal to the CDX start date, and the BaseDate would be the date for which the spreads are valid.  If not provided, this defaults to the BaseDate of the curve.</value>
+        /// <value>If tenors are provided, this is the date against which the tenors will be resolved. This is of importance to CDX spread quotes, which are usually quoted in tenors relative to the CDX start date. In this case, the ReferenceDate would be equal to the CDX start date, and the BaseDate would be the date for which the spreads are valid. If not provided, this defaults to the BaseDate of the curve.</value>
         [DataMember(Name = "referenceDate", EmitDefaultValue = true)]
         public DateTimeOffset? ReferenceDate { get; set; }
 
         /// <summary>
-        /// The maturity dates for which the rates apply.  Either tenors or maturities should be provided, not both.
+        /// The maturity dates for which the rates apply. Either tenors or maturities should be provided, not both.
         /// </summary>
-        /// <value>The maturity dates for which the rates apply.  Either tenors or maturities should be provided, not both.</value>
+        /// <value>The maturity dates for which the rates apply. Either tenors or maturities should be provided, not both.</value>
         [DataMember(Name = "maturities", EmitDefaultValue = true)]
         public List<DateTimeOffset> Maturities { get; set; }
 

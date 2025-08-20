@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Most, if not all, information about contracts is standardised. See, e.g. https://www.cmegroup.com/ for  common codes and similar data. This appears to be in common use by well known market information providers, e.g. Bloomberg and Refinitiv.  There is a lot of overlap with this and FuturesContractDetails but as that is an established DTO we must duplicate a number of fields here
+    /// Most, if not all, information about contracts is standardised. See, e.g. https://www.cmegroup.com/ for common codes and similar data. This appears to be in common use by well known market information providers, e.g. Bloomberg and Refinitiv. There is a lot of overlap with this and FuturesContractDetails but as that is an established DTO we must duplicate a number of fields here
     /// </summary>
     [DataContract(Name = "ExchangeTradedOptionContractDetails")]
     public partial class ExchangeTradedOptionContractDetails : IEquatable<ExchangeTradedOptionContractDetails>, IValidatableObject
@@ -40,17 +40,17 @@ namespace Lusid.Sdk.Model
         /// <param name="strike">The option strike, this can be negative for some options. (required).</param>
         /// <param name="contractSize">Size of a single contract. By default this should be set to 1000 if otherwise unknown and is defaulted to such. (required).</param>
         /// <param name="country">Country (code) for the exchange. (required).</param>
-        /// <param name="deliveryType">The delivery type, cash or physical. An option on a future is physically settled if upon exercising the  holder receives a future.    Supported string (enumeration) values are: [Cash, Physical]. (required).</param>
+        /// <param name="deliveryType">The delivery type, cash or physical. An option on a future is physically settled if upon exercising the holder receives a future.  Supported string (enumeration) values are: [Cash, Physical]. (required).</param>
         /// <param name="description">Description of contract (required).</param>
         /// <param name="exchangeCode">Exchange code for contract. This can be any string to uniquely identify the exchange (e.g. Exchange Name, MIC, BBG code). (required).</param>
         /// <param name="exerciseDate">The last exercise date of the option. (required).</param>
-        /// <param name="exerciseType">The exercise type, European, American or Bermudan.    Supported string (enumeration) values are: [European, Bermudan, American]. (required).</param>
+        /// <param name="exerciseType">The exercise type, European, American or Bermudan.  Supported string (enumeration) values are: [European, Bermudan, American]. (required).</param>
         /// <param name="optionCode">Option Contract Code, typically one or two letters, e.g. OG &#x3D;&gt; Option on Gold. (required).</param>
-        /// <param name="optionType">The option type, Call or Put.    Supported string (enumeration) values are: [Call, Put]. (required).</param>
+        /// <param name="optionType">The option type, Call or Put.  Supported string (enumeration) values are: [Call, Put]. (required).</param>
         /// <param name="underlying">underlying (required).</param>
         /// <param name="underlyingCode">Code of the underlying, for an option on futures this should be the futures code. (required).</param>
         /// <param name="deliveryDays">Number of business days between exercise date and settlement of the option payoff or underlying..</param>
-        /// <param name="businessDayConvention">The adjustment type to apply to dates that fall upon a non-business day, e.g. modified following or following.  Supported string (enumeration) values are: [NoAdjustment, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, HalfMonthModifiedFollowing, Nearest]..</param>
+        /// <param name="businessDayConvention">The adjustment type to apply to dates that fall upon a non-business day, e.g. modified following or following. Supported string (enumeration) values are: [NoAdjustment, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, HalfMonthModifiedFollowing, Nearest]..</param>
         /// <param name="settlementCalendars">An array of strings denoting calendars used in calculating the option settlement date..</param>
         public ExchangeTradedOptionContractDetails(string domCcy = default(string), decimal strike = default(decimal), decimal contractSize = default(decimal), string country = default(string), string deliveryType = default(string), string description = default(string), string exchangeCode = default(string), DateTimeOffset exerciseDate = default(DateTimeOffset), string exerciseType = default(string), string optionCode = default(string), string optionType = default(string), LusidInstrument underlying = default(LusidInstrument), string underlyingCode = default(string), int deliveryDays = default(int), string businessDayConvention = default(string), List<string> settlementCalendars = default(List<string>))
         {
@@ -151,9 +151,9 @@ namespace Lusid.Sdk.Model
         public string Country { get; set; }
 
         /// <summary>
-        /// The delivery type, cash or physical. An option on a future is physically settled if upon exercising the  holder receives a future.    Supported string (enumeration) values are: [Cash, Physical].
+        /// The delivery type, cash or physical. An option on a future is physically settled if upon exercising the holder receives a future.  Supported string (enumeration) values are: [Cash, Physical].
         /// </summary>
-        /// <value>The delivery type, cash or physical. An option on a future is physically settled if upon exercising the  holder receives a future.    Supported string (enumeration) values are: [Cash, Physical].</value>
+        /// <value>The delivery type, cash or physical. An option on a future is physically settled if upon exercising the holder receives a future.  Supported string (enumeration) values are: [Cash, Physical].</value>
         [DataMember(Name = "deliveryType", IsRequired = true, EmitDefaultValue = true)]
         public string DeliveryType { get; set; }
 
@@ -179,9 +179,9 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset ExerciseDate { get; set; }
 
         /// <summary>
-        /// The exercise type, European, American or Bermudan.    Supported string (enumeration) values are: [European, Bermudan, American].
+        /// The exercise type, European, American or Bermudan.  Supported string (enumeration) values are: [European, Bermudan, American].
         /// </summary>
-        /// <value>The exercise type, European, American or Bermudan.    Supported string (enumeration) values are: [European, Bermudan, American].</value>
+        /// <value>The exercise type, European, American or Bermudan.  Supported string (enumeration) values are: [European, Bermudan, American].</value>
         [DataMember(Name = "exerciseType", IsRequired = true, EmitDefaultValue = true)]
         public string ExerciseType { get; set; }
 
@@ -193,9 +193,9 @@ namespace Lusid.Sdk.Model
         public string OptionCode { get; set; }
 
         /// <summary>
-        /// The option type, Call or Put.    Supported string (enumeration) values are: [Call, Put].
+        /// The option type, Call or Put.  Supported string (enumeration) values are: [Call, Put].
         /// </summary>
-        /// <value>The option type, Call or Put.    Supported string (enumeration) values are: [Call, Put].</value>
+        /// <value>The option type, Call or Put.  Supported string (enumeration) values are: [Call, Put].</value>
         [DataMember(Name = "optionType", IsRequired = true, EmitDefaultValue = true)]
         public string OptionType { get; set; }
 
@@ -220,9 +220,9 @@ namespace Lusid.Sdk.Model
         public int DeliveryDays { get; set; }
 
         /// <summary>
-        /// The adjustment type to apply to dates that fall upon a non-business day, e.g. modified following or following.  Supported string (enumeration) values are: [NoAdjustment, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, HalfMonthModifiedFollowing, Nearest].
+        /// The adjustment type to apply to dates that fall upon a non-business day, e.g. modified following or following. Supported string (enumeration) values are: [NoAdjustment, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, HalfMonthModifiedFollowing, Nearest].
         /// </summary>
-        /// <value>The adjustment type to apply to dates that fall upon a non-business day, e.g. modified following or following.  Supported string (enumeration) values are: [NoAdjustment, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, HalfMonthModifiedFollowing, Nearest].</value>
+        /// <value>The adjustment type to apply to dates that fall upon a non-business day, e.g. modified following or following. Supported string (enumeration) values are: [NoAdjustment, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, HalfMonthModifiedFollowing, Nearest].</value>
         [DataMember(Name = "businessDayConvention", EmitDefaultValue = true)]
         public string BusinessDayConvention { get; set; }
 

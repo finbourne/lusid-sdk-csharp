@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// A recipe that is to be stored in the recipe structured data store.  Only one of these must be present.
+    /// A recipe that is to be stored in the recipe structured data store. Only one of these must be present.
     /// </summary>
     [DataContract(Name = "UpsertRecipeRequest")]
     public partial class UpsertRecipeRequest : IEquatable<UpsertRecipeRequest>, IValidatableObject

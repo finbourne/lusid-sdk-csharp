@@ -143,7 +143,7 @@ catch (ApiException e)
 
 [EARLY ACCESS] DeleteComplianceRule: Delete compliance rule.
 
-Use this endpoint to delete a compliance rule. The rule will be recoverable for asat times earlier than the  delete time, but will otherwise appear to have never existed.
+Use this endpoint to delete a compliance rule. The rule will be recoverable for asat times earlier than the delete time, but will otherwise appear to have never existed.
 
 ### Example
 ```csharp
@@ -419,7 +419,7 @@ namespace Examples
             var scope = "scope_example";  // string | The compliance rule's scope.
             var code = "code_example";  // string | The compliance rule's code.
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | Optional. Asat time for query. (optional) 
-            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'Compliance' domain to decorate onto the rule.              These must take the format {domain}/{scope}/{code}, for example 'Compliance/live/UCITS'. (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'Compliance' domain to decorate onto the rule.             These must take the format {domain}/{scope}/{code}, for example 'Compliance/live/UCITS'. (optional) 
 
             try
             {
@@ -468,7 +468,7 @@ catch (ApiException e)
 | **scope** | **string** | The compliance rule&#39;s scope. |  |
 | **code** | **string** | The compliance rule&#39;s code. |  |
 | **asAt** | **DateTimeOffset?** | Optional. Asat time for query. | [optional]  |
-| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;Compliance&#39; domain to decorate onto the rule.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;Compliance&#39; domain to decorate onto the rule.             These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. | [optional]  |
 
 ### Return type
 
@@ -894,7 +894,7 @@ namespace Examples
             var page = "page_example";  // string? | Optional. Pagination token. (optional) 
             var limit = 56;  // int? | Optional. Entries per page. (optional) 
             var filter = "filter_example";  // string? | Optional. Filter. (optional) 
-            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'Compliance' domain to decorate onto each rule.              These must take the format {domain}/{scope}/{code}, for example 'Compliance/live/UCITS'. If not provided will return all the entitled properties for each rule. (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'Compliance' domain to decorate onto each rule.             These must take the format {domain}/{scope}/{code}, for example 'Compliance/live/UCITS'. If not provided will return all the entitled properties for each rule. (optional) 
 
             try
             {
@@ -944,7 +944,7 @@ catch (ApiException e)
 | **page** | **string?** | Optional. Pagination token. | [optional]  |
 | **limit** | **int?** | Optional. Entries per page. | [optional]  |
 | **filter** | **string?** | Optional. Filter. | [optional]  |
-| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;Compliance&#39; domain to decorate onto each rule.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. If not provided will return all the entitled properties for each rule. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;Compliance&#39; domain to decorate onto each rule.             These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. If not provided will return all the entitled properties for each rule. | [optional]  |
 
 ### Return type
 
@@ -1013,7 +1013,7 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ComplianceApi>();
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | Optional. The time at which to get results from. Default : latest (optional) 
-            var page = "page_example";  // string? | Optional. The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. (optional) 
+            var page = "page_example";  // string? | Optional. The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields             must not have changed since the original request. (optional) 
             var limit = 56;  // int? | Optional. When paginating, limit the number of returned results to this many. (optional) 
             var filter = "filter_example";  // string? | Optional. Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
             var sortBy = new List<string>?(); // List<string>? | Optional. A list of field names to sort by, each suffixed by \"ASC\" or \"DESC\" (optional) 
@@ -1063,7 +1063,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **asAt** | **DateTimeOffset?** | Optional. The time at which to get results from. Default : latest | [optional]  |
-| **page** | **string?** | Optional. The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. | [optional]  |
+| **page** | **string?** | Optional. The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields             must not have changed since the original request. | [optional]  |
 | **limit** | **int?** | Optional. When paginating, limit the number of returned results to this many. | [optional]  |
 | **filter** | **string?** | Optional. Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
 | **sortBy** | [**List&lt;string&gt;?**](string.md) | Optional. A list of field names to sort by, each suffixed by \&quot;ASC\&quot; or \&quot;DESC\&quot; | [optional]  |
@@ -1135,7 +1135,7 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ComplianceApi>();
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | Optional. The time at which to get results from. Default : latest (optional) 
-            var page = "page_example";  // string? | Optional. The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. (optional) 
+            var page = "page_example";  // string? | Optional. The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields             must not have changed since the original request. (optional) 
             var limit = 56;  // int? | Optional. When paginating, limit the number of returned results to this many. (optional) 
             var filter = "filter_example";  // string? | Optional. Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
 
@@ -1184,7 +1184,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **asAt** | **DateTimeOffset?** | Optional. The time at which to get results from. Default : latest | [optional]  |
-| **page** | **string?** | Optional. The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. | [optional]  |
+| **page** | **string?** | Optional. The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields             must not have changed since the original request. | [optional]  |
 | **limit** | **int?** | Optional. When paginating, limit the number of returned results to this many. | [optional]  |
 | **filter** | **string?** | Optional. Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
 
@@ -1255,7 +1255,7 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ComplianceApi>();
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | Optional. The time at which to get results from. Default : latest (optional) 
-            var page = "page_example";  // string? | Optional. The pagination token to use to continue listing historical order breaches from a previous call to list historical order breaches.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. (optional) 
+            var page = "page_example";  // string? | Optional. The pagination token to use to continue listing historical order breaches from a previous call to list historical order breaches.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields             must not have changed since the original request. (optional) 
             var limit = 56;  // int? | Optional. When paginating, limit the number of returned results to this many. (optional) 
             var filter = "filter_example";  // string? | Optional. Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
             var sortBy = new List<string>?(); // List<string>? | Optional. A list of field names to sort by, each suffixed by \"ASC\" or \"DESC\" (optional) 
@@ -1305,7 +1305,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **asAt** | **DateTimeOffset?** | Optional. The time at which to get results from. Default : latest | [optional]  |
-| **page** | **string?** | Optional. The pagination token to use to continue listing historical order breaches from a previous call to list historical order breaches.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. | [optional]  |
+| **page** | **string?** | Optional. The pagination token to use to continue listing historical order breaches from a previous call to list historical order breaches.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields             must not have changed since the original request. | [optional]  |
 | **limit** | **int?** | Optional. When paginating, limit the number of returned results to this many. | [optional]  |
 | **filter** | **string?** | Optional. Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
 | **sortBy** | [**List&lt;string&gt;?**](string.md) | Optional. A list of field names to sort by, each suffixed by \&quot;ASC\&quot; or \&quot;DESC\&quot; | [optional]  |
@@ -1697,7 +1697,7 @@ catch (ApiException e)
 
 [EARLY ACCESS] UpsertComplianceRule: Upsert a compliance rule.
 
-Use this endpoint to upsert a single compliance rule. The template and variation specified must already  exist, as must the portfolio group. The parameters passed must match those required by the template variation.
+Use this endpoint to upsert a single compliance rule. The template and variation specified must already exist, as must the portfolio group. The parameters passed must match those required by the template variation.
 
 ### Example
 ```csharp

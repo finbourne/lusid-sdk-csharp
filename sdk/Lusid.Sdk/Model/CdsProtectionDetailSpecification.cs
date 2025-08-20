@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// CDSs generally conform to fairly standard definitions, but can be tweaked in a number of different ways.  This class gathers a number of common features which may deviate. These will default to the market standard when  no overrides are provided.
+    /// CDSs generally conform to fairly standard definitions, but can be tweaked in a number of different ways. This class gathers a number of common features which may deviate. These will default to the market standard when no overrides are provided.
     /// </summary>
     [DataContract(Name = "CdsProtectionDetailSpecification")]
     public partial class CdsProtectionDetailSpecification : IEquatable<CdsProtectionDetailSpecification>, IValidatableObject
@@ -31,8 +31,8 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CdsProtectionDetailSpecification" /> class.
         /// </summary>
-        /// <param name="seniority">The seniority level of the CDS.  Supported string (enumeration) values are: [SNR, SUB, JRSUBUT2, PREFT1, SECDOM, SNRFOR, SUBLT2].  Defaults to \&quot;SUB\&quot; if not set. (default to &quot;SUB&quot;).</param>
-        /// <param name="restructuringType">The restructuring clause.  Supported string (enumeration) values are: [CR, MR, MM, XR]. Defaults to \&quot;MM\&quot; if not set. (default to &quot;MM&quot;).</param>
+        /// <param name="seniority">The seniority level of the CDS. Supported string (enumeration) values are: [SNR, SUB, JRSUBUT2, PREFT1, SECDOM, SNRFOR, SUBLT2]. Defaults to \&quot;SUB\&quot; if not set. (default to &quot;SUB&quot;).</param>
+        /// <param name="restructuringType">The restructuring clause. Supported string (enumeration) values are: [CR, MR, MM, XR]. Defaults to \&quot;MM\&quot; if not set. (default to &quot;MM&quot;).</param>
         /// <param name="protectStartDay">Does the protection leg pay out in the case of default on the start date. Defaults to true if not set. (default to true).</param>
         /// <param name="payAccruedInterestOnDefault">Should accrued interest on the premium leg be paid if a credit event occurs. Defaults to true if not set. (default to true).</param>
         public CdsProtectionDetailSpecification(string seniority = @"SUB", string restructuringType = @"MM", bool protectStartDay = true, bool payAccruedInterestOnDefault = true)
@@ -46,16 +46,16 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The seniority level of the CDS.  Supported string (enumeration) values are: [SNR, SUB, JRSUBUT2, PREFT1, SECDOM, SNRFOR, SUBLT2].  Defaults to \&quot;SUB\&quot; if not set.
+        /// The seniority level of the CDS. Supported string (enumeration) values are: [SNR, SUB, JRSUBUT2, PREFT1, SECDOM, SNRFOR, SUBLT2]. Defaults to \&quot;SUB\&quot; if not set.
         /// </summary>
-        /// <value>The seniority level of the CDS.  Supported string (enumeration) values are: [SNR, SUB, JRSUBUT2, PREFT1, SECDOM, SNRFOR, SUBLT2].  Defaults to \&quot;SUB\&quot; if not set.</value>
+        /// <value>The seniority level of the CDS. Supported string (enumeration) values are: [SNR, SUB, JRSUBUT2, PREFT1, SECDOM, SNRFOR, SUBLT2]. Defaults to \&quot;SUB\&quot; if not set.</value>
         [DataMember(Name = "seniority", EmitDefaultValue = true)]
         public string Seniority { get; set; }
 
         /// <summary>
-        /// The restructuring clause.  Supported string (enumeration) values are: [CR, MR, MM, XR]. Defaults to \&quot;MM\&quot; if not set.
+        /// The restructuring clause. Supported string (enumeration) values are: [CR, MR, MM, XR]. Defaults to \&quot;MM\&quot; if not set.
         /// </summary>
-        /// <value>The restructuring clause.  Supported string (enumeration) values are: [CR, MR, MM, XR]. Defaults to \&quot;MM\&quot; if not set.</value>
+        /// <value>The restructuring clause. Supported string (enumeration) values are: [CR, MR, MM, XR]. Defaults to \&quot;MM\&quot; if not set.</value>
         [DataMember(Name = "restructuringType", EmitDefaultValue = true)]
         public string RestructuringType { get; set; }
 

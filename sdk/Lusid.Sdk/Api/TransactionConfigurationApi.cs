@@ -62,7 +62,7 @@ namespace Lusid.Sdk.Api
         /// DeleteTransactionType: Delete a transaction type
         /// </summary>
         /// <remarks>
-        /// /// WARNING! Changing existing transaction types has a material impact on how data, new and old,  is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
+        /// /// WARNING! Changing existing transaction types has a material impact on how data, new and old, is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">The source that the type is in</param>
@@ -77,7 +77,7 @@ namespace Lusid.Sdk.Api
         /// DeleteTransactionType: Delete a transaction type
         /// </summary>
         /// <remarks>
-        /// /// WARNING! Changing existing transaction types has a material impact on how data, new and old,  is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
+        /// /// WARNING! Changing existing transaction types has a material impact on how data, new and old, is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">The source that the type is in</param>
@@ -152,7 +152,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">The source that the type is in</param>
         /// <param name="type">One of the type&#39;s aliases</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the transaction configuration.              Defaults to returning the latest version of the transaction configuration type if not specified (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the transaction configuration.             Defaults to returning the latest version of the transaction configuration type if not specified (optional)</param>
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -168,7 +168,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">The source that the type is in</param>
         /// <param name="type">One of the type&#39;s aliases</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the transaction configuration.              Defaults to returning the latest version of the transaction configuration type if not specified (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the transaction configuration.             Defaults to returning the latest version of the transaction configuration type if not specified (optional)</param>
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -205,10 +205,10 @@ namespace Lusid.Sdk.Api
         /// ListTransactionTypes: List transaction types
         /// </summary>
         /// <remarks>
-        /// Get the list of current transaction types. For information on the default transaction types provided with  LUSID, see https://support.lusid.com/knowledgebase/article/KA-01873/.
+        /// Get the list of current transaction types. For information on the default transaction types provided with LUSID, see https://support.lusid.com/knowledgebase/article/KA-01873/.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults              to returning the latest versions if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults             to returning the latest versions if not specified. (optional)</param>
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -219,10 +219,10 @@ namespace Lusid.Sdk.Api
         /// ListTransactionTypes: List transaction types
         /// </summary>
         /// <remarks>
-        /// Get the list of current transaction types. For information on the default transaction types provided with  LUSID, see https://support.lusid.com/knowledgebase/article/KA-01873/.
+        /// Get the list of current transaction types. For information on the default transaction types provided with LUSID, see https://support.lusid.com/knowledgebase/article/KA-01873/.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults              to returning the latest versions if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults             to returning the latest versions if not specified. (optional)</param>
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -288,7 +288,7 @@ namespace Lusid.Sdk.Api
         /// SetTransactionType: Set a specific transaction type
         /// </summary>
         /// <remarks>
-        /// Set a transaction type for the given source and type. If the requested transaction type does not exist, it will be created    WARNING! Changing existing transaction types has a material impact on how data, new and old, is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
+        /// Set a transaction type for the given source and type. If the requested transaction type does not exist, it will be created  WARNING! Changing existing transaction types has a material impact on how data, new and old, is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">The source to set the transaction configuration for</param>
@@ -304,7 +304,7 @@ namespace Lusid.Sdk.Api
         /// SetTransactionType: Set a specific transaction type
         /// </summary>
         /// <remarks>
-        /// Set a transaction type for the given source and type. If the requested transaction type does not exist, it will be created    WARNING! Changing existing transaction types has a material impact on how data, new and old, is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
+        /// Set a transaction type for the given source and type. If the requested transaction type does not exist, it will be created  WARNING! Changing existing transaction types has a material impact on how data, new and old, is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">The source to set the transaction configuration for</param>
@@ -386,7 +386,7 @@ namespace Lusid.Sdk.Api
         /// DeleteTransactionType: Delete a transaction type
         /// </summary>
         /// <remarks>
-        /// /// WARNING! Changing existing transaction types has a material impact on how data, new and old,  is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
+        /// /// WARNING! Changing existing transaction types has a material impact on how data, new and old, is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">The source that the type is in</param>
@@ -402,7 +402,7 @@ namespace Lusid.Sdk.Api
         /// DeleteTransactionType: Delete a transaction type
         /// </summary>
         /// <remarks>
-        /// /// WARNING! Changing existing transaction types has a material impact on how data, new and old,  is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
+        /// /// WARNING! Changing existing transaction types has a material impact on how data, new and old, is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">The source that the type is in</param>
@@ -482,7 +482,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">The source that the type is in</param>
         /// <param name="type">One of the type&#39;s aliases</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the transaction configuration.              Defaults to returning the latest version of the transaction configuration type if not specified (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the transaction configuration.             Defaults to returning the latest version of the transaction configuration type if not specified (optional)</param>
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -499,7 +499,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">The source that the type is in</param>
         /// <param name="type">One of the type&#39;s aliases</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the transaction configuration.              Defaults to returning the latest version of the transaction configuration type if not specified (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the transaction configuration.             Defaults to returning the latest version of the transaction configuration type if not specified (optional)</param>
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -539,10 +539,10 @@ namespace Lusid.Sdk.Api
         /// ListTransactionTypes: List transaction types
         /// </summary>
         /// <remarks>
-        /// Get the list of current transaction types. For information on the default transaction types provided with  LUSID, see https://support.lusid.com/knowledgebase/article/KA-01873/.
+        /// Get the list of current transaction types. For information on the default transaction types provided with LUSID, see https://support.lusid.com/knowledgebase/article/KA-01873/.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults              to returning the latest versions if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults             to returning the latest versions if not specified. (optional)</param>
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -554,10 +554,10 @@ namespace Lusid.Sdk.Api
         /// ListTransactionTypes: List transaction types
         /// </summary>
         /// <remarks>
-        /// Get the list of current transaction types. For information on the default transaction types provided with  LUSID, see https://support.lusid.com/knowledgebase/article/KA-01873/.
+        /// Get the list of current transaction types. For information on the default transaction types provided with LUSID, see https://support.lusid.com/knowledgebase/article/KA-01873/.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults              to returning the latest versions if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults             to returning the latest versions if not specified. (optional)</param>
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -628,7 +628,7 @@ namespace Lusid.Sdk.Api
         /// SetTransactionType: Set a specific transaction type
         /// </summary>
         /// <remarks>
-        /// Set a transaction type for the given source and type. If the requested transaction type does not exist, it will be created    WARNING! Changing existing transaction types has a material impact on how data, new and old, is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
+        /// Set a transaction type for the given source and type. If the requested transaction type does not exist, it will be created  WARNING! Changing existing transaction types has a material impact on how data, new and old, is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">The source to set the transaction configuration for</param>
@@ -645,7 +645,7 @@ namespace Lusid.Sdk.Api
         /// SetTransactionType: Set a specific transaction type
         /// </summary>
         /// <remarks>
-        /// Set a transaction type for the given source and type. If the requested transaction type does not exist, it will be created    WARNING! Changing existing transaction types has a material impact on how data, new and old, is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
+        /// Set a transaction type for the given source and type. If the requested transaction type does not exist, it will be created  WARNING! Changing existing transaction types has a material impact on how data, new and old, is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">The source to set the transaction configuration for</param>
@@ -1028,7 +1028,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// DeleteTransactionType: Delete a transaction type /// WARNING! Changing existing transaction types has a material impact on how data, new and old,  is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
+        /// DeleteTransactionType: Delete a transaction type /// WARNING! Changing existing transaction types has a material impact on how data, new and old, is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">The source that the type is in</param>
@@ -1044,7 +1044,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// DeleteTransactionType: Delete a transaction type /// WARNING! Changing existing transaction types has a material impact on how data, new and old,  is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
+        /// DeleteTransactionType: Delete a transaction type /// WARNING! Changing existing transaction types has a material impact on how data, new and old, is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">The source that the type is in</param>
@@ -1143,7 +1143,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// DeleteTransactionType: Delete a transaction type /// WARNING! Changing existing transaction types has a material impact on how data, new and old,  is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
+        /// DeleteTransactionType: Delete a transaction type /// WARNING! Changing existing transaction types has a material impact on how data, new and old, is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">The source that the type is in</param>
@@ -1160,7 +1160,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// DeleteTransactionType: Delete a transaction type /// WARNING! Changing existing transaction types has a material impact on how data, new and old,  is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
+        /// DeleteTransactionType: Delete a transaction type /// WARNING! Changing existing transaction types has a material impact on how data, new and old, is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">The source that the type is in</param>
@@ -1711,7 +1711,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">The source that the type is in</param>
         /// <param name="type">One of the type&#39;s aliases</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the transaction configuration.              Defaults to returning the latest version of the transaction configuration type if not specified (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the transaction configuration.             Defaults to returning the latest version of the transaction configuration type if not specified (optional)</param>
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1728,7 +1728,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">The source that the type is in</param>
         /// <param name="type">One of the type&#39;s aliases</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the transaction configuration.              Defaults to returning the latest version of the transaction configuration type if not specified (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the transaction configuration.             Defaults to returning the latest version of the transaction configuration type if not specified (optional)</param>
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1832,7 +1832,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">The source that the type is in</param>
         /// <param name="type">One of the type&#39;s aliases</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the transaction configuration.              Defaults to returning the latest version of the transaction configuration type if not specified (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the transaction configuration.             Defaults to returning the latest version of the transaction configuration type if not specified (optional)</param>
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1850,7 +1850,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">The source that the type is in</param>
         /// <param name="type">One of the type&#39;s aliases</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the transaction configuration.              Defaults to returning the latest version of the transaction configuration type if not specified (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the transaction configuration.             Defaults to returning the latest version of the transaction configuration type if not specified (optional)</param>
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2162,10 +2162,10 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// ListTransactionTypes: List transaction types Get the list of current transaction types. For information on the default transaction types provided with  LUSID, see https://support.lusid.com/knowledgebase/article/KA-01873/.
+        /// ListTransactionTypes: List transaction types Get the list of current transaction types. For information on the default transaction types provided with LUSID, see https://support.lusid.com/knowledgebase/article/KA-01873/.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults              to returning the latest versions if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults             to returning the latest versions if not specified. (optional)</param>
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2177,10 +2177,10 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// ListTransactionTypes: List transaction types Get the list of current transaction types. For information on the default transaction types provided with  LUSID, see https://support.lusid.com/knowledgebase/article/KA-01873/.
+        /// ListTransactionTypes: List transaction types Get the list of current transaction types. For information on the default transaction types provided with LUSID, see https://support.lusid.com/knowledgebase/article/KA-01873/.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults              to returning the latest versions if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults             to returning the latest versions if not specified. (optional)</param>
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2265,10 +2265,10 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// ListTransactionTypes: List transaction types Get the list of current transaction types. For information on the default transaction types provided with  LUSID, see https://support.lusid.com/knowledgebase/article/KA-01873/.
+        /// ListTransactionTypes: List transaction types Get the list of current transaction types. For information on the default transaction types provided with LUSID, see https://support.lusid.com/knowledgebase/article/KA-01873/.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults              to returning the latest versions if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults             to returning the latest versions if not specified. (optional)</param>
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2281,10 +2281,10 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// ListTransactionTypes: List transaction types Get the list of current transaction types. For information on the default transaction types provided with  LUSID, see https://support.lusid.com/knowledgebase/article/KA-01873/.
+        /// ListTransactionTypes: List transaction types Get the list of current transaction types. For information on the default transaction types provided with LUSID, see https://support.lusid.com/knowledgebase/article/KA-01873/.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults              to returning the latest versions if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults             to returning the latest versions if not specified. (optional)</param>
         /// <param name="scope">The scope in which the side exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2838,7 +2838,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// SetTransactionType: Set a specific transaction type Set a transaction type for the given source and type. If the requested transaction type does not exist, it will be created    WARNING! Changing existing transaction types has a material impact on how data, new and old, is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
+        /// SetTransactionType: Set a specific transaction type Set a transaction type for the given source and type. If the requested transaction type does not exist, it will be created  WARNING! Changing existing transaction types has a material impact on how data, new and old, is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">The source to set the transaction configuration for</param>
@@ -2855,7 +2855,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// SetTransactionType: Set a specific transaction type Set a transaction type for the given source and type. If the requested transaction type does not exist, it will be created    WARNING! Changing existing transaction types has a material impact on how data, new and old, is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
+        /// SetTransactionType: Set a specific transaction type Set a transaction type for the given source and type. If the requested transaction type does not exist, it will be created  WARNING! Changing existing transaction types has a material impact on how data, new and old, is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">The source to set the transaction configuration for</param>
@@ -2966,7 +2966,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// SetTransactionType: Set a specific transaction type Set a transaction type for the given source and type. If the requested transaction type does not exist, it will be created    WARNING! Changing existing transaction types has a material impact on how data, new and old, is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
+        /// SetTransactionType: Set a specific transaction type Set a transaction type for the given source and type. If the requested transaction type does not exist, it will be created  WARNING! Changing existing transaction types has a material impact on how data, new and old, is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">The source to set the transaction configuration for</param>
@@ -2984,7 +2984,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// SetTransactionType: Set a specific transaction type Set a transaction type for the given source and type. If the requested transaction type does not exist, it will be created    WARNING! Changing existing transaction types has a material impact on how data, new and old, is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
+        /// SetTransactionType: Set a specific transaction type Set a transaction type for the given source and type. If the requested transaction type does not exist, it will be created  WARNING! Changing existing transaction types has a material impact on how data, new and old, is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">The source to set the transaction configuration for</param>

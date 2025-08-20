@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Object describing a particular industry classifier,  which comprises a classification code and the name of the classification system to which the code belongs.
+    /// Object describing a particular industry classifier, which comprises a classification code and the name of the classification system to which the code belongs.
     /// </summary>
     [DataContract(Name = "IndustryClassifier")]
     public partial class IndustryClassifier : IEquatable<IndustryClassifier>, IValidatableObject

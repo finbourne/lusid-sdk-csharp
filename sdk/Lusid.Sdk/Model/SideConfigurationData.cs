@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Configuration needed to define a side. Sides are referenced by Label. Beyond that, other properties  can be used to reference either transaction fields, or transaction properties.
+    /// Configuration needed to define a side. Sides are referenced by Label. Beyond that, other properties can be used to reference either transaction fields, or transaction properties.
     /// </summary>
     [DataContract(Name = "SideConfigurationData")]
     public partial class SideConfigurationData : IEquatable<SideConfigurationData>, IValidatableObject

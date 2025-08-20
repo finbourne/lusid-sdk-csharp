@@ -24,7 +24,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Schedule that steps at known dated points in time.  Used in representation of a sinking bond, also called amortisation, steps in coupons for fixed bonds and spreads for floating bonds.
+    /// Schedule that steps at known dated points in time. Used in representation of a sinking bond, also called amortisation, steps in coupons for fixed bonds and spreads for floating bonds.
     /// </summary>
     [DataContract(Name = "StepSchedule")]
     [JsonConverter(typeof(JsonSubtypes), "ScheduleType")]
@@ -38,8 +38,8 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="StepSchedule" /> class.
         /// </summary>
-        /// <param name="levelType">The type of shift or adjustment that the quantity represents.    Supported string (enumeration) values are: [Absolute, AbsoluteShift, Percentage, AbsolutePercentage]. (required).</param>
-        /// <param name="stepScheduleType">The type of step that this schedule is for.  Supported string (enumeration) values are: [Coupon, Notional, Spread]. (required).</param>
+        /// <param name="levelType">The type of shift or adjustment that the quantity represents.  Supported string (enumeration) values are: [Absolute, AbsoluteShift, Percentage, AbsolutePercentage]. (required).</param>
+        /// <param name="stepScheduleType">The type of step that this schedule is for. Supported string (enumeration) values are: [Coupon, Notional, Spread]. (required).</param>
         /// <param name="steps">The level steps which are applied. (required).</param>
         /// <param name="scheduleType">The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, BondConversionSchedule, Invalid (required) (default to &quot;StepSchedule&quot;).</param>
         public StepSchedule(string levelType = default(string), string stepScheduleType = default(string), List<LevelStep> steps = default(List<LevelStep>), ScheduleTypeEnum scheduleType = default(ScheduleTypeEnum)) : base(scheduleType)
@@ -65,16 +65,16 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The type of shift or adjustment that the quantity represents.    Supported string (enumeration) values are: [Absolute, AbsoluteShift, Percentage, AbsolutePercentage].
+        /// The type of shift or adjustment that the quantity represents.  Supported string (enumeration) values are: [Absolute, AbsoluteShift, Percentage, AbsolutePercentage].
         /// </summary>
-        /// <value>The type of shift or adjustment that the quantity represents.    Supported string (enumeration) values are: [Absolute, AbsoluteShift, Percentage, AbsolutePercentage].</value>
+        /// <value>The type of shift or adjustment that the quantity represents.  Supported string (enumeration) values are: [Absolute, AbsoluteShift, Percentage, AbsolutePercentage].</value>
         [DataMember(Name = "levelType", IsRequired = true, EmitDefaultValue = true)]
         public string LevelType { get; set; }
 
         /// <summary>
-        /// The type of step that this schedule is for.  Supported string (enumeration) values are: [Coupon, Notional, Spread].
+        /// The type of step that this schedule is for. Supported string (enumeration) values are: [Coupon, Notional, Spread].
         /// </summary>
-        /// <value>The type of step that this schedule is for.  Supported string (enumeration) values are: [Coupon, Notional, Spread].</value>
+        /// <value>The type of step that this schedule is for. Supported string (enumeration) values are: [Coupon, Notional, Spread].</value>
         [DataMember(Name = "stepScheduleType", IsRequired = true, EmitDefaultValue = true)]
         public string StepScheduleType { get; set; }
 

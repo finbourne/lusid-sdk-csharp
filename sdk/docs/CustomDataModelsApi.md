@@ -18,7 +18,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 [EXPERIMENTAL] BatchAmend: Batch amend entities Custom Data Model membership.
 
-Add/Remove entities to/from a Custom Data Model in a single operation.                Each amendment request must be keyed by a unique correlation ID.  This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each amendment in the response.                Note: If using partial failure modes, then it is important to check the response body for failures as any  failures will still return a 200 status code.
+Add/Remove entities to/from a Custom Data Model in a single operation.              Each amendment request must be keyed by a unique correlation ID.  This id is ephemeral and is not stored by LUSID. It serves only as a way to easily identify each amendment in the response.              Note: If using partial failure modes, then it is important to check the response body for failures as any failures will still return a 200 status code.
 
 ### Example
 ```csharp
@@ -250,7 +250,7 @@ catch (ApiException e)
 
 [EXPERIMENTAL] DeleteCustomDataModel: Delete a Custom Data Model
 
-Delete a Custom Data Model. The data model will remain viewable at previous as at times, but will no longer  be part of any hierarchies.
+Delete a Custom Data Model. The data model will remain viewable at previous as at times, but will no longer be part of any hierarchies.
 
 ### Example
 ```csharp
@@ -412,7 +412,7 @@ namespace Examples
             var entityType = "entityType_example";  // string | The entity type of the Data Model.
             var scope = "scope_example";  // string | The scope of the specified Data Model.
             var code = "code_example";  // string | The code of the specified Data Model.
-            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the Data Model. Defaults to return              the latest version of the Data Model if not specified. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the Data Model. Defaults to return             the latest version of the Data Model if not specified. (optional) 
 
             try
             {
@@ -461,7 +461,7 @@ catch (ApiException e)
 | **entityType** | **string** | The entity type of the Data Model. |  |
 | **scope** | **string** | The scope of the specified Data Model. |  |
 | **code** | **string** | The code of the specified Data Model. |  |
-| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the Data Model. Defaults to return              the latest version of the Data Model if not specified. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the Data Model. Defaults to return             the latest version of the Data Model if not specified. | [optional]  |
 
 ### Return type
 
@@ -529,7 +529,7 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CustomDataModelsApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CustomDataModelsApi>();
-            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the Data Model. Defaults to return              the latest version of the Data Model if not specified. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the Data Model. Defaults to return             the latest version of the Data Model if not specified. (optional) 
             var filter = "filter_example";  // string? | Expression to filter the results. Only EntityType is supported (optional) 
 
             try
@@ -576,7 +576,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the Data Model. Defaults to return              the latest version of the Data Model if not specified. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the Data Model. Defaults to return             the latest version of the Data Model if not specified. | [optional]  |
 | **filter** | **string?** | Expression to filter the results. Only EntityType is supported | [optional]  |
 
 ### Return type

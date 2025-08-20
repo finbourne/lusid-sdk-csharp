@@ -35,7 +35,7 @@ namespace Lusid.Sdk.Api
         /// DeleteTransactionFeeRule: Deletes a fee rule.
         /// </summary>
         /// <remarks>
-        /// Deletes the rule for all effective time.    The rule will remain viewable at previous as at times, but it will no longer be considered by  GetApplicableFees.    This cannot be undone.
+        /// Deletes the rule for all effective time.  The rule will remain viewable at previous as at times, but it will no longer be considered by GetApplicableFees.  This cannot be undone.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">The fee rule code.</param>
@@ -48,7 +48,7 @@ namespace Lusid.Sdk.Api
         /// DeleteTransactionFeeRule: Deletes a fee rule.
         /// </summary>
         /// <remarks>
-        /// Deletes the rule for all effective time.    The rule will remain viewable at previous as at times, but it will no longer be considered by  GetApplicableFees.    This cannot be undone.
+        /// Deletes the rule for all effective time.  The rule will remain viewable at previous as at times, but it will no longer be considered by GetApplicableFees.  This cannot be undone.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">The fee rule code.</param>
@@ -63,13 +63,13 @@ namespace Lusid.Sdk.Api
         /// Additionally, matching can be based on the instrument&#39;s properties, its portfolio properties, and any additional property keys present in the data file.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to match rule definitions. Defaults to the current LUSID  system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to match rule definitions. Defaults to returning the latest version if not  specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to match rule definitions. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to match rule definitions. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="instrumentIdentifierType">Optional. The unique identifier type to use, eg &#39;Figi&#39; or &#39;LusidInstrumentId&#39;. (optional)</param>
         /// <param name="instrumentIdentifier">Optional. The Instrument Identifier to get properties for. (optional)</param>
         /// <param name="portfolioScope">Optional. The scope of the portfolio to fetch properties from. (optional)</param>
         /// <param name="portfolioCode">Optional. The code of the portfolio to fetch properties from. (optional)</param>
-        /// <param name="requestBody">Any other property keys or fields, including the top-level fields of the              fee rule (e.g. \&quot;ExecutionBroker\&quot; and \&quot;SettlementCurrency\&quot; ) and those defined in AdditionalKeys, along with              their corresponding values that should be matched for fees. Eg. \&quot;Instrument/default/Name&#x3D;exampleValue\&quot; or              \&quot;AdditionalKey2&#x3D;Value2\&quot;. (optional)</param>
+        /// <param name="requestBody">Any other property keys or fields, including the top-level fields of the             fee rule (e.g. \&quot;ExecutionBroker\&quot; and \&quot;SettlementCurrency\&quot; ) and those defined in AdditionalKeys, along with             their corresponding values that should be matched for fees. Eg. \&quot;Instrument/default/Name&#x3D;exampleValue\&quot; or             \&quot;AdditionalKey2&#x3D;Value2\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfFeeRule</returns>
@@ -82,13 +82,13 @@ namespace Lusid.Sdk.Api
         /// Additionally, matching can be based on the instrument&#39;s properties, its portfolio properties, and any additional property keys present in the data file.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to match rule definitions. Defaults to the current LUSID  system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to match rule definitions. Defaults to returning the latest version if not  specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to match rule definitions. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to match rule definitions. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="instrumentIdentifierType">Optional. The unique identifier type to use, eg &#39;Figi&#39; or &#39;LusidInstrumentId&#39;. (optional)</param>
         /// <param name="instrumentIdentifier">Optional. The Instrument Identifier to get properties for. (optional)</param>
         /// <param name="portfolioScope">Optional. The scope of the portfolio to fetch properties from. (optional)</param>
         /// <param name="portfolioCode">Optional. The code of the portfolio to fetch properties from. (optional)</param>
-        /// <param name="requestBody">Any other property keys or fields, including the top-level fields of the              fee rule (e.g. \&quot;ExecutionBroker\&quot; and \&quot;SettlementCurrency\&quot; ) and those defined in AdditionalKeys, along with              their corresponding values that should be matched for fees. Eg. \&quot;Instrument/default/Name&#x3D;exampleValue\&quot; or              \&quot;AdditionalKey2&#x3D;Value2\&quot;. (optional)</param>
+        /// <param name="requestBody">Any other property keys or fields, including the top-level fields of the             fee rule (e.g. \&quot;ExecutionBroker\&quot; and \&quot;SettlementCurrency\&quot; ) and those defined in AdditionalKeys, along with             their corresponding values that should be matched for fees. Eg. \&quot;Instrument/default/Name&#x3D;exampleValue\&quot; or             \&quot;AdditionalKey2&#x3D;Value2\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfFeeRule</returns>
@@ -101,8 +101,8 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">The fee rule code.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definition. Defaults to the current LUSID  system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not  specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definition. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>FeeRule</returns>
@@ -116,8 +116,8 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">The fee rule code.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definition. Defaults to the current LUSID  system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not  specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definition. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of FeeRule</returns>
@@ -126,14 +126,14 @@ namespace Lusid.Sdk.Api
         /// ListTransactionFeeRules: List fee rules, with optional filtering.
         /// </summary>
         /// <remarks>
-        /// For more information about filtering results,  see https://support.lusid.com/knowledgebase/article/KA-01914.
+        /// For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID  system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not  specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing entities; this value is returned from the previous call. If  a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the  original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing entities; this value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfFeeRule</returns>
@@ -143,14 +143,14 @@ namespace Lusid.Sdk.Api
         /// ListTransactionFeeRules: List fee rules, with optional filtering.
         /// </summary>
         /// <remarks>
-        /// For more information about filtering results,  see https://support.lusid.com/knowledgebase/article/KA-01914.
+        /// For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID  system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not  specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing entities; this value is returned from the previous call. If  a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the  original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing entities; this value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfFeeRule</returns>
@@ -159,11 +159,11 @@ namespace Lusid.Sdk.Api
         /// UpsertTransactionFeeRules: Upsert fee rules.
         /// </summary>
         /// <remarks>
-        /// To upsert a new rule, the code field must be left empty, a code will then be assigned and returned as part  of the response. To update an existing rule, include the fee code. It is possible to both create and update  fee rules in the same request.    The upsert is transactional - either all create/update operations will succeed or none of them will.
+        /// To upsert a new rule, the code field must be left empty, a code will then be assigned and returned as part of the response. To update an existing rule, include the fee code. It is possible to both create and update fee rules in the same request.  The upsert is transactional - either all create/update operations will succeed or none of them will.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody">A dictionary of upsert request identifiers to rule upsert requests. The request              identifiers are valid for the request only and can be used to link the upserted fee rule to the code of a              created fee rule.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which the rule will take effect. Defaults to the current LUSID  system datetime if not specified. In the case of an update, the changes will take place from this effective  time until the next effective time that the rule as been upserted at. For example, consider a rule that  already exists, and has previously had an update applied so that the definition will change on the first day  of the coming month. An upsert effective from the current day will only change the definition until the  first day of the coming month. An additional upsert at the same time (first day of the month) is required  if the newly-updated definition is to supersede the future definition. (optional)</param>
+        /// <param name="requestBody">A dictionary of upsert request identifiers to rule upsert requests. The request             identifiers are valid for the request only and can be used to link the upserted fee rule to the code of a             created fee rule.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which the rule will take effect. Defaults to the current LUSID system datetime if not specified. In the case of an update, the changes will take place from this effective time until the next effective time that the rule as been upserted at. For example, consider a rule that already exists, and has previously had an update applied so that the definition will change on the first day of the coming month. An upsert effective from the current day will only change the definition until the first day of the coming month. An additional upsert at the same time (first day of the month) is required if the newly-updated definition is to supersede the future definition. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>FeeRuleUpsertResponse</returns>
@@ -173,11 +173,11 @@ namespace Lusid.Sdk.Api
         /// UpsertTransactionFeeRules: Upsert fee rules.
         /// </summary>
         /// <remarks>
-        /// To upsert a new rule, the code field must be left empty, a code will then be assigned and returned as part  of the response. To update an existing rule, include the fee code. It is possible to both create and update  fee rules in the same request.    The upsert is transactional - either all create/update operations will succeed or none of them will.
+        /// To upsert a new rule, the code field must be left empty, a code will then be assigned and returned as part of the response. To update an existing rule, include the fee code. It is possible to both create and update fee rules in the same request.  The upsert is transactional - either all create/update operations will succeed or none of them will.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody">A dictionary of upsert request identifiers to rule upsert requests. The request              identifiers are valid for the request only and can be used to link the upserted fee rule to the code of a              created fee rule.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which the rule will take effect. Defaults to the current LUSID  system datetime if not specified. In the case of an update, the changes will take place from this effective  time until the next effective time that the rule as been upserted at. For example, consider a rule that  already exists, and has previously had an update applied so that the definition will change on the first day  of the coming month. An upsert effective from the current day will only change the definition until the  first day of the coming month. An additional upsert at the same time (first day of the month) is required  if the newly-updated definition is to supersede the future definition. (optional)</param>
+        /// <param name="requestBody">A dictionary of upsert request identifiers to rule upsert requests. The request             identifiers are valid for the request only and can be used to link the upserted fee rule to the code of a             created fee rule.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which the rule will take effect. Defaults to the current LUSID system datetime if not specified. In the case of an update, the changes will take place from this effective time until the next effective time that the rule as been upserted at. For example, consider a rule that already exists, and has previously had an update applied so that the definition will change on the first day of the coming month. An upsert effective from the current day will only change the definition until the first day of the coming month. An additional upsert at the same time (first day of the month) is required if the newly-updated definition is to supersede the future definition. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of FeeRuleUpsertResponse</returns>
@@ -195,7 +195,7 @@ namespace Lusid.Sdk.Api
         /// DeleteTransactionFeeRule: Deletes a fee rule.
         /// </summary>
         /// <remarks>
-        /// Deletes the rule for all effective time.    The rule will remain viewable at previous as at times, but it will no longer be considered by  GetApplicableFees.    This cannot be undone.
+        /// Deletes the rule for all effective time.  The rule will remain viewable at previous as at times, but it will no longer be considered by GetApplicableFees.  This cannot be undone.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">The fee rule code.</param>
@@ -209,7 +209,7 @@ namespace Lusid.Sdk.Api
         /// DeleteTransactionFeeRule: Deletes a fee rule.
         /// </summary>
         /// <remarks>
-        /// Deletes the rule for all effective time.    The rule will remain viewable at previous as at times, but it will no longer be considered by  GetApplicableFees.    This cannot be undone.
+        /// Deletes the rule for all effective time.  The rule will remain viewable at previous as at times, but it will no longer be considered by GetApplicableFees.  This cannot be undone.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">The fee rule code.</param>
@@ -225,13 +225,13 @@ namespace Lusid.Sdk.Api
         /// Additionally, matching can be based on the instrument&#39;s properties, its portfolio properties, and any additional property keys present in the data file.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to match rule definitions. Defaults to the current LUSID  system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to match rule definitions. Defaults to returning the latest version if not  specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to match rule definitions. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to match rule definitions. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="instrumentIdentifierType">Optional. The unique identifier type to use, eg &#39;Figi&#39; or &#39;LusidInstrumentId&#39;. (optional)</param>
         /// <param name="instrumentIdentifier">Optional. The Instrument Identifier to get properties for. (optional)</param>
         /// <param name="portfolioScope">Optional. The scope of the portfolio to fetch properties from. (optional)</param>
         /// <param name="portfolioCode">Optional. The code of the portfolio to fetch properties from. (optional)</param>
-        /// <param name="requestBody">Any other property keys or fields, including the top-level fields of the              fee rule (e.g. \&quot;ExecutionBroker\&quot; and \&quot;SettlementCurrency\&quot; ) and those defined in AdditionalKeys, along with              their corresponding values that should be matched for fees. Eg. \&quot;Instrument/default/Name&#x3D;exampleValue\&quot; or              \&quot;AdditionalKey2&#x3D;Value2\&quot;. (optional)</param>
+        /// <param name="requestBody">Any other property keys or fields, including the top-level fields of the             fee rule (e.g. \&quot;ExecutionBroker\&quot; and \&quot;SettlementCurrency\&quot; ) and those defined in AdditionalKeys, along with             their corresponding values that should be matched for fees. Eg. \&quot;Instrument/default/Name&#x3D;exampleValue\&quot; or             \&quot;AdditionalKey2&#x3D;Value2\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -245,13 +245,13 @@ namespace Lusid.Sdk.Api
         /// Additionally, matching can be based on the instrument&#39;s properties, its portfolio properties, and any additional property keys present in the data file.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to match rule definitions. Defaults to the current LUSID  system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to match rule definitions. Defaults to returning the latest version if not  specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to match rule definitions. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to match rule definitions. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="instrumentIdentifierType">Optional. The unique identifier type to use, eg &#39;Figi&#39; or &#39;LusidInstrumentId&#39;. (optional)</param>
         /// <param name="instrumentIdentifier">Optional. The Instrument Identifier to get properties for. (optional)</param>
         /// <param name="portfolioScope">Optional. The scope of the portfolio to fetch properties from. (optional)</param>
         /// <param name="portfolioCode">Optional. The code of the portfolio to fetch properties from. (optional)</param>
-        /// <param name="requestBody">Any other property keys or fields, including the top-level fields of the              fee rule (e.g. \&quot;ExecutionBroker\&quot; and \&quot;SettlementCurrency\&quot; ) and those defined in AdditionalKeys, along with              their corresponding values that should be matched for fees. Eg. \&quot;Instrument/default/Name&#x3D;exampleValue\&quot; or              \&quot;AdditionalKey2&#x3D;Value2\&quot;. (optional)</param>
+        /// <param name="requestBody">Any other property keys or fields, including the top-level fields of the             fee rule (e.g. \&quot;ExecutionBroker\&quot; and \&quot;SettlementCurrency\&quot; ) and those defined in AdditionalKeys, along with             their corresponding values that should be matched for fees. Eg. \&quot;Instrument/default/Name&#x3D;exampleValue\&quot; or             \&quot;AdditionalKey2&#x3D;Value2\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -265,8 +265,8 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">The fee rule code.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definition. Defaults to the current LUSID  system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not  specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definition. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -281,8 +281,8 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">The fee rule code.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definition. Defaults to the current LUSID  system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not  specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definition. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -292,14 +292,14 @@ namespace Lusid.Sdk.Api
         /// ListTransactionFeeRules: List fee rules, with optional filtering.
         /// </summary>
         /// <remarks>
-        /// For more information about filtering results,  see https://support.lusid.com/knowledgebase/article/KA-01914.
+        /// For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID  system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not  specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing entities; this value is returned from the previous call. If  a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the  original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing entities; this value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -310,14 +310,14 @@ namespace Lusid.Sdk.Api
         /// ListTransactionFeeRules: List fee rules, with optional filtering.
         /// </summary>
         /// <remarks>
-        /// For more information about filtering results,  see https://support.lusid.com/knowledgebase/article/KA-01914.
+        /// For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID  system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not  specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing entities; this value is returned from the previous call. If  a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the  original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing entities; this value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -327,11 +327,11 @@ namespace Lusid.Sdk.Api
         /// UpsertTransactionFeeRules: Upsert fee rules.
         /// </summary>
         /// <remarks>
-        /// To upsert a new rule, the code field must be left empty, a code will then be assigned and returned as part  of the response. To update an existing rule, include the fee code. It is possible to both create and update  fee rules in the same request.    The upsert is transactional - either all create/update operations will succeed or none of them will.
+        /// To upsert a new rule, the code field must be left empty, a code will then be assigned and returned as part of the response. To update an existing rule, include the fee code. It is possible to both create and update fee rules in the same request.  The upsert is transactional - either all create/update operations will succeed or none of them will.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody">A dictionary of upsert request identifiers to rule upsert requests. The request              identifiers are valid for the request only and can be used to link the upserted fee rule to the code of a              created fee rule.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which the rule will take effect. Defaults to the current LUSID  system datetime if not specified. In the case of an update, the changes will take place from this effective  time until the next effective time that the rule as been upserted at. For example, consider a rule that  already exists, and has previously had an update applied so that the definition will change on the first day  of the coming month. An upsert effective from the current day will only change the definition until the  first day of the coming month. An additional upsert at the same time (first day of the month) is required  if the newly-updated definition is to supersede the future definition. (optional)</param>
+        /// <param name="requestBody">A dictionary of upsert request identifiers to rule upsert requests. The request             identifiers are valid for the request only and can be used to link the upserted fee rule to the code of a             created fee rule.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which the rule will take effect. Defaults to the current LUSID system datetime if not specified. In the case of an update, the changes will take place from this effective time until the next effective time that the rule as been upserted at. For example, consider a rule that already exists, and has previously had an update applied so that the definition will change on the first day of the coming month. An upsert effective from the current day will only change the definition until the first day of the coming month. An additional upsert at the same time (first day of the month) is required if the newly-updated definition is to supersede the future definition. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -342,11 +342,11 @@ namespace Lusid.Sdk.Api
         /// UpsertTransactionFeeRules: Upsert fee rules.
         /// </summary>
         /// <remarks>
-        /// To upsert a new rule, the code field must be left empty, a code will then be assigned and returned as part  of the response. To update an existing rule, include the fee code. It is possible to both create and update  fee rules in the same request.    The upsert is transactional - either all create/update operations will succeed or none of them will.
+        /// To upsert a new rule, the code field must be left empty, a code will then be assigned and returned as part of the response. To update an existing rule, include the fee code. It is possible to both create and update fee rules in the same request.  The upsert is transactional - either all create/update operations will succeed or none of them will.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody">A dictionary of upsert request identifiers to rule upsert requests. The request              identifiers are valid for the request only and can be used to link the upserted fee rule to the code of a              created fee rule.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which the rule will take effect. Defaults to the current LUSID  system datetime if not specified. In the case of an update, the changes will take place from this effective  time until the next effective time that the rule as been upserted at. For example, consider a rule that  already exists, and has previously had an update applied so that the definition will change on the first day  of the coming month. An upsert effective from the current day will only change the definition until the  first day of the coming month. An additional upsert at the same time (first day of the month) is required  if the newly-updated definition is to supersede the future definition. (optional)</param>
+        /// <param name="requestBody">A dictionary of upsert request identifiers to rule upsert requests. The request             identifiers are valid for the request only and can be used to link the upserted fee rule to the code of a             created fee rule.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which the rule will take effect. Defaults to the current LUSID system datetime if not specified. In the case of an update, the changes will take place from this effective time until the next effective time that the rule as been upserted at. For example, consider a rule that already exists, and has previously had an update applied so that the definition will change on the first day of the coming month. An upsert effective from the current day will only change the definition until the first day of the coming month. An additional upsert at the same time (first day of the month) is required if the newly-updated definition is to supersede the future definition. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -476,7 +476,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// DeleteTransactionFeeRule: Deletes a fee rule. Deletes the rule for all effective time.    The rule will remain viewable at previous as at times, but it will no longer be considered by  GetApplicableFees.    This cannot be undone.
+        /// DeleteTransactionFeeRule: Deletes a fee rule. Deletes the rule for all effective time.  The rule will remain viewable at previous as at times, but it will no longer be considered by GetApplicableFees.  This cannot be undone.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">The fee rule code.</param>
@@ -490,7 +490,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// DeleteTransactionFeeRule: Deletes a fee rule. Deletes the rule for all effective time.    The rule will remain viewable at previous as at times, but it will no longer be considered by  GetApplicableFees.    This cannot be undone.
+        /// DeleteTransactionFeeRule: Deletes a fee rule. Deletes the rule for all effective time.  The rule will remain viewable at previous as at times, but it will no longer be considered by GetApplicableFees.  This cannot be undone.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">The fee rule code.</param>
@@ -576,7 +576,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// DeleteTransactionFeeRule: Deletes a fee rule. Deletes the rule for all effective time.    The rule will remain viewable at previous as at times, but it will no longer be considered by  GetApplicableFees.    This cannot be undone.
+        /// DeleteTransactionFeeRule: Deletes a fee rule. Deletes the rule for all effective time.  The rule will remain viewable at previous as at times, but it will no longer be considered by GetApplicableFees.  This cannot be undone.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">The fee rule code.</param>
@@ -591,7 +591,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// DeleteTransactionFeeRule: Deletes a fee rule. Deletes the rule for all effective time.    The rule will remain viewable at previous as at times, but it will no longer be considered by  GetApplicableFees.    This cannot be undone.
+        /// DeleteTransactionFeeRule: Deletes a fee rule. Deletes the rule for all effective time.  The rule will remain viewable at previous as at times, but it will no longer be considered by GetApplicableFees.  This cannot be undone.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">The fee rule code.</param>
@@ -683,13 +683,13 @@ namespace Lusid.Sdk.Api
         /// GetApplicableTransactionFees: Get the Fees and Commissions that may be applicable to a transaction. Additionally, matching can be based on the instrument&#39;s properties, its portfolio properties, and any additional property keys present in the data file.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to match rule definitions. Defaults to the current LUSID  system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to match rule definitions. Defaults to returning the latest version if not  specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to match rule definitions. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to match rule definitions. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="instrumentIdentifierType">Optional. The unique identifier type to use, eg &#39;Figi&#39; or &#39;LusidInstrumentId&#39;. (optional)</param>
         /// <param name="instrumentIdentifier">Optional. The Instrument Identifier to get properties for. (optional)</param>
         /// <param name="portfolioScope">Optional. The scope of the portfolio to fetch properties from. (optional)</param>
         /// <param name="portfolioCode">Optional. The code of the portfolio to fetch properties from. (optional)</param>
-        /// <param name="requestBody">Any other property keys or fields, including the top-level fields of the              fee rule (e.g. \&quot;ExecutionBroker\&quot; and \&quot;SettlementCurrency\&quot; ) and those defined in AdditionalKeys, along with              their corresponding values that should be matched for fees. Eg. \&quot;Instrument/default/Name&#x3D;exampleValue\&quot; or              \&quot;AdditionalKey2&#x3D;Value2\&quot;. (optional)</param>
+        /// <param name="requestBody">Any other property keys or fields, including the top-level fields of the             fee rule (e.g. \&quot;ExecutionBroker\&quot; and \&quot;SettlementCurrency\&quot; ) and those defined in AdditionalKeys, along with             their corresponding values that should be matched for fees. Eg. \&quot;Instrument/default/Name&#x3D;exampleValue\&quot; or             \&quot;AdditionalKey2&#x3D;Value2\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfFeeRule</returns>
@@ -703,13 +703,13 @@ namespace Lusid.Sdk.Api
         /// GetApplicableTransactionFees: Get the Fees and Commissions that may be applicable to a transaction. Additionally, matching can be based on the instrument&#39;s properties, its portfolio properties, and any additional property keys present in the data file.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to match rule definitions. Defaults to the current LUSID  system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to match rule definitions. Defaults to returning the latest version if not  specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to match rule definitions. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to match rule definitions. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="instrumentIdentifierType">Optional. The unique identifier type to use, eg &#39;Figi&#39; or &#39;LusidInstrumentId&#39;. (optional)</param>
         /// <param name="instrumentIdentifier">Optional. The Instrument Identifier to get properties for. (optional)</param>
         /// <param name="portfolioScope">Optional. The scope of the portfolio to fetch properties from. (optional)</param>
         /// <param name="portfolioCode">Optional. The code of the portfolio to fetch properties from. (optional)</param>
-        /// <param name="requestBody">Any other property keys or fields, including the top-level fields of the              fee rule (e.g. \&quot;ExecutionBroker\&quot; and \&quot;SettlementCurrency\&quot; ) and those defined in AdditionalKeys, along with              their corresponding values that should be matched for fees. Eg. \&quot;Instrument/default/Name&#x3D;exampleValue\&quot; or              \&quot;AdditionalKey2&#x3D;Value2\&quot;. (optional)</param>
+        /// <param name="requestBody">Any other property keys or fields, including the top-level fields of the             fee rule (e.g. \&quot;ExecutionBroker\&quot; and \&quot;SettlementCurrency\&quot; ) and those defined in AdditionalKeys, along with             their corresponding values that should be matched for fees. Eg. \&quot;Instrument/default/Name&#x3D;exampleValue\&quot; or             \&quot;AdditionalKey2&#x3D;Value2\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfFeeRule</returns>
@@ -817,13 +817,13 @@ namespace Lusid.Sdk.Api
         /// GetApplicableTransactionFees: Get the Fees and Commissions that may be applicable to a transaction. Additionally, matching can be based on the instrument&#39;s properties, its portfolio properties, and any additional property keys present in the data file.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to match rule definitions. Defaults to the current LUSID  system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to match rule definitions. Defaults to returning the latest version if not  specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to match rule definitions. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to match rule definitions. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="instrumentIdentifierType">Optional. The unique identifier type to use, eg &#39;Figi&#39; or &#39;LusidInstrumentId&#39;. (optional)</param>
         /// <param name="instrumentIdentifier">Optional. The Instrument Identifier to get properties for. (optional)</param>
         /// <param name="portfolioScope">Optional. The scope of the portfolio to fetch properties from. (optional)</param>
         /// <param name="portfolioCode">Optional. The code of the portfolio to fetch properties from. (optional)</param>
-        /// <param name="requestBody">Any other property keys or fields, including the top-level fields of the              fee rule (e.g. \&quot;ExecutionBroker\&quot; and \&quot;SettlementCurrency\&quot; ) and those defined in AdditionalKeys, along with              their corresponding values that should be matched for fees. Eg. \&quot;Instrument/default/Name&#x3D;exampleValue\&quot; or              \&quot;AdditionalKey2&#x3D;Value2\&quot;. (optional)</param>
+        /// <param name="requestBody">Any other property keys or fields, including the top-level fields of the             fee rule (e.g. \&quot;ExecutionBroker\&quot; and \&quot;SettlementCurrency\&quot; ) and those defined in AdditionalKeys, along with             their corresponding values that should be matched for fees. Eg. \&quot;Instrument/default/Name&#x3D;exampleValue\&quot; or             \&quot;AdditionalKey2&#x3D;Value2\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -838,13 +838,13 @@ namespace Lusid.Sdk.Api
         /// GetApplicableTransactionFees: Get the Fees and Commissions that may be applicable to a transaction. Additionally, matching can be based on the instrument&#39;s properties, its portfolio properties, and any additional property keys present in the data file.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to match rule definitions. Defaults to the current LUSID  system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to match rule definitions. Defaults to returning the latest version if not  specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to match rule definitions. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to match rule definitions. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="instrumentIdentifierType">Optional. The unique identifier type to use, eg &#39;Figi&#39; or &#39;LusidInstrumentId&#39;. (optional)</param>
         /// <param name="instrumentIdentifier">Optional. The Instrument Identifier to get properties for. (optional)</param>
         /// <param name="portfolioScope">Optional. The scope of the portfolio to fetch properties from. (optional)</param>
         /// <param name="portfolioCode">Optional. The code of the portfolio to fetch properties from. (optional)</param>
-        /// <param name="requestBody">Any other property keys or fields, including the top-level fields of the              fee rule (e.g. \&quot;ExecutionBroker\&quot; and \&quot;SettlementCurrency\&quot; ) and those defined in AdditionalKeys, along with              their corresponding values that should be matched for fees. Eg. \&quot;Instrument/default/Name&#x3D;exampleValue\&quot; or              \&quot;AdditionalKey2&#x3D;Value2\&quot;. (optional)</param>
+        /// <param name="requestBody">Any other property keys or fields, including the top-level fields of the             fee rule (e.g. \&quot;ExecutionBroker\&quot; and \&quot;SettlementCurrency\&quot; ) and those defined in AdditionalKeys, along with             their corresponding values that should be matched for fees. Eg. \&quot;Instrument/default/Name&#x3D;exampleValue\&quot; or             \&quot;AdditionalKey2&#x3D;Value2\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -956,8 +956,8 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">The fee rule code.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definition. Defaults to the current LUSID  system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not  specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definition. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>FeeRule</returns>
@@ -972,8 +972,8 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">The fee rule code.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definition. Defaults to the current LUSID  system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not  specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definition. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of FeeRule</returns>
@@ -1068,8 +1068,8 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">The fee rule code.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definition. Defaults to the current LUSID  system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not  specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definition. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1085,8 +1085,8 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">The fee rule code.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definition. Defaults to the current LUSID  system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not  specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definition. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1180,14 +1180,14 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// ListTransactionFeeRules: List fee rules, with optional filtering. For more information about filtering results,  see https://support.lusid.com/knowledgebase/article/KA-01914.
+        /// ListTransactionFeeRules: List fee rules, with optional filtering. For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID  system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not  specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing entities; this value is returned from the previous call. If  a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the  original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing entities; this value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfFeeRule</returns>
@@ -1198,14 +1198,14 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// ListTransactionFeeRules: List fee rules, with optional filtering. For more information about filtering results,  see https://support.lusid.com/knowledgebase/article/KA-01914.
+        /// ListTransactionFeeRules: List fee rules, with optional filtering. For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID  system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not  specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing entities; this value is returned from the previous call. If  a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the  original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing entities; this value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfFeeRule</returns>
@@ -1301,14 +1301,14 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// ListTransactionFeeRules: List fee rules, with optional filtering. For more information about filtering results,  see https://support.lusid.com/knowledgebase/article/KA-01914.
+        /// ListTransactionFeeRules: List fee rules, with optional filtering. For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID  system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not  specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing entities; this value is returned from the previous call. If  a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the  original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing entities; this value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1320,14 +1320,14 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// ListTransactionFeeRules: List fee rules, with optional filtering. For more information about filtering results,  see https://support.lusid.com/knowledgebase/article/KA-01914.
+        /// ListTransactionFeeRules: List fee rules, with optional filtering. For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID  system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not  specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing entities; this value is returned from the previous call. If  a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the  original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing entities; this value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1426,11 +1426,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// UpsertTransactionFeeRules: Upsert fee rules. To upsert a new rule, the code field must be left empty, a code will then be assigned and returned as part  of the response. To update an existing rule, include the fee code. It is possible to both create and update  fee rules in the same request.    The upsert is transactional - either all create/update operations will succeed or none of them will.
+        /// UpsertTransactionFeeRules: Upsert fee rules. To upsert a new rule, the code field must be left empty, a code will then be assigned and returned as part of the response. To update an existing rule, include the fee code. It is possible to both create and update fee rules in the same request.  The upsert is transactional - either all create/update operations will succeed or none of them will.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody">A dictionary of upsert request identifiers to rule upsert requests. The request              identifiers are valid for the request only and can be used to link the upserted fee rule to the code of a              created fee rule.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which the rule will take effect. Defaults to the current LUSID  system datetime if not specified. In the case of an update, the changes will take place from this effective  time until the next effective time that the rule as been upserted at. For example, consider a rule that  already exists, and has previously had an update applied so that the definition will change on the first day  of the coming month. An upsert effective from the current day will only change the definition until the  first day of the coming month. An additional upsert at the same time (first day of the month) is required  if the newly-updated definition is to supersede the future definition. (optional)</param>
+        /// <param name="requestBody">A dictionary of upsert request identifiers to rule upsert requests. The request             identifiers are valid for the request only and can be used to link the upserted fee rule to the code of a             created fee rule.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which the rule will take effect. Defaults to the current LUSID system datetime if not specified. In the case of an update, the changes will take place from this effective time until the next effective time that the rule as been upserted at. For example, consider a rule that already exists, and has previously had an update applied so that the definition will change on the first day of the coming month. An upsert effective from the current day will only change the definition until the first day of the coming month. An additional upsert at the same time (first day of the month) is required if the newly-updated definition is to supersede the future definition. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>FeeRuleUpsertResponse</returns>
@@ -1441,11 +1441,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// UpsertTransactionFeeRules: Upsert fee rules. To upsert a new rule, the code field must be left empty, a code will then be assigned and returned as part  of the response. To update an existing rule, include the fee code. It is possible to both create and update  fee rules in the same request.    The upsert is transactional - either all create/update operations will succeed or none of them will.
+        /// UpsertTransactionFeeRules: Upsert fee rules. To upsert a new rule, the code field must be left empty, a code will then be assigned and returned as part of the response. To update an existing rule, include the fee code. It is possible to both create and update fee rules in the same request.  The upsert is transactional - either all create/update operations will succeed or none of them will.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody">A dictionary of upsert request identifiers to rule upsert requests. The request              identifiers are valid for the request only and can be used to link the upserted fee rule to the code of a              created fee rule.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which the rule will take effect. Defaults to the current LUSID  system datetime if not specified. In the case of an update, the changes will take place from this effective  time until the next effective time that the rule as been upserted at. For example, consider a rule that  already exists, and has previously had an update applied so that the definition will change on the first day  of the coming month. An upsert effective from the current day will only change the definition until the  first day of the coming month. An additional upsert at the same time (first day of the month) is required  if the newly-updated definition is to supersede the future definition. (optional)</param>
+        /// <param name="requestBody">A dictionary of upsert request identifiers to rule upsert requests. The request             identifiers are valid for the request only and can be used to link the upserted fee rule to the code of a             created fee rule.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which the rule will take effect. Defaults to the current LUSID system datetime if not specified. In the case of an update, the changes will take place from this effective time until the next effective time that the rule as been upserted at. For example, consider a rule that already exists, and has previously had an update applied so that the definition will change on the first day of the coming month. An upsert effective from the current day will only change the definition until the first day of the coming month. An additional upsert at the same time (first day of the month) is required if the newly-updated definition is to supersede the future definition. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of FeeRuleUpsertResponse</returns>
@@ -1536,11 +1536,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// UpsertTransactionFeeRules: Upsert fee rules. To upsert a new rule, the code field must be left empty, a code will then be assigned and returned as part  of the response. To update an existing rule, include the fee code. It is possible to both create and update  fee rules in the same request.    The upsert is transactional - either all create/update operations will succeed or none of them will.
+        /// UpsertTransactionFeeRules: Upsert fee rules. To upsert a new rule, the code field must be left empty, a code will then be assigned and returned as part of the response. To update an existing rule, include the fee code. It is possible to both create and update fee rules in the same request.  The upsert is transactional - either all create/update operations will succeed or none of them will.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody">A dictionary of upsert request identifiers to rule upsert requests. The request              identifiers are valid for the request only and can be used to link the upserted fee rule to the code of a              created fee rule.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which the rule will take effect. Defaults to the current LUSID  system datetime if not specified. In the case of an update, the changes will take place from this effective  time until the next effective time that the rule as been upserted at. For example, consider a rule that  already exists, and has previously had an update applied so that the definition will change on the first day  of the coming month. An upsert effective from the current day will only change the definition until the  first day of the coming month. An additional upsert at the same time (first day of the month) is required  if the newly-updated definition is to supersede the future definition. (optional)</param>
+        /// <param name="requestBody">A dictionary of upsert request identifiers to rule upsert requests. The request             identifiers are valid for the request only and can be used to link the upserted fee rule to the code of a             created fee rule.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which the rule will take effect. Defaults to the current LUSID system datetime if not specified. In the case of an update, the changes will take place from this effective time until the next effective time that the rule as been upserted at. For example, consider a rule that already exists, and has previously had an update applied so that the definition will change on the first day of the coming month. An upsert effective from the current day will only change the definition until the first day of the coming month. An additional upsert at the same time (first day of the month) is required if the newly-updated definition is to supersede the future definition. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1552,11 +1552,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// UpsertTransactionFeeRules: Upsert fee rules. To upsert a new rule, the code field must be left empty, a code will then be assigned and returned as part  of the response. To update an existing rule, include the fee code. It is possible to both create and update  fee rules in the same request.    The upsert is transactional - either all create/update operations will succeed or none of them will.
+        /// UpsertTransactionFeeRules: Upsert fee rules. To upsert a new rule, the code field must be left empty, a code will then be assigned and returned as part of the response. To update an existing rule, include the fee code. It is possible to both create and update fee rules in the same request.  The upsert is transactional - either all create/update operations will succeed or none of them will.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody">A dictionary of upsert request identifiers to rule upsert requests. The request              identifiers are valid for the request only and can be used to link the upserted fee rule to the code of a              created fee rule.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which the rule will take effect. Defaults to the current LUSID  system datetime if not specified. In the case of an update, the changes will take place from this effective  time until the next effective time that the rule as been upserted at. For example, consider a rule that  already exists, and has previously had an update applied so that the definition will change on the first day  of the coming month. An upsert effective from the current day will only change the definition until the  first day of the coming month. An additional upsert at the same time (first day of the month) is required  if the newly-updated definition is to supersede the future definition. (optional)</param>
+        /// <param name="requestBody">A dictionary of upsert request identifiers to rule upsert requests. The request             identifiers are valid for the request only and can be used to link the upserted fee rule to the code of a             created fee rule.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which the rule will take effect. Defaults to the current LUSID system datetime if not specified. In the case of an update, the changes will take place from this effective time until the next effective time that the rule as been upserted at. For example, consider a rule that already exists, and has previously had an update applied so that the definition will change on the first day of the coming month. An upsert effective from the current day will only change the definition until the first day of the coming month. An additional upsert at the same time (first day of the month) is required if the newly-updated definition is to supersede the future definition. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>

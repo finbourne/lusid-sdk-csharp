@@ -38,12 +38,12 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CapFloor" /> class.
         /// </summary>
-        /// <param name="capFloorType">Determine if it&#39;s CAP, FLOOR, or COLLAR.    Supported string (enumeration) values are: [Cap, Floor, Collar]. (required).</param>
+        /// <param name="capFloorType">Determine if it&#39;s CAP, FLOOR, or COLLAR.  Supported string (enumeration) values are: [Cap, Floor, Collar]. (required).</param>
         /// <param name="capStrike">Strike rate of the Cap..</param>
         /// <param name="floorStrike">Strike rate of the Floor..</param>
         /// <param name="includeFirstCaplet">Include first caplet flag. (required).</param>
         /// <param name="underlyingFloatingLeg">underlyingFloatingLeg (required).</param>
-        /// <param name="additionalPayments">Optional additional payments at a given date e.g. to level off an uneven equity swap.  The dates must be distinct and either all payments are Pay or all payments are Receive..</param>
+        /// <param name="additionalPayments">Optional additional payments at a given date e.g. to level off an uneven equity swap. The dates must be distinct and either all payments are Pay or all payments are Receive..</param>
         /// <param name="timeZoneConventions">timeZoneConventions.</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit, FlexibleRepo (required) (default to &quot;CapFloor&quot;).</param>
         public CapFloor(string capFloorType = default(string), decimal? capStrike = default(decimal?), decimal? floorStrike = default(decimal?), bool includeFirstCaplet = default(bool), FloatingLeg underlyingFloatingLeg = default(FloatingLeg), List<AdditionalPayment> additionalPayments = default(List<AdditionalPayment>), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
@@ -68,9 +68,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// Determine if it&#39;s CAP, FLOOR, or COLLAR.    Supported string (enumeration) values are: [Cap, Floor, Collar].
+        /// Determine if it&#39;s CAP, FLOOR, or COLLAR.  Supported string (enumeration) values are: [Cap, Floor, Collar].
         /// </summary>
-        /// <value>Determine if it&#39;s CAP, FLOOR, or COLLAR.    Supported string (enumeration) values are: [Cap, Floor, Collar].</value>
+        /// <value>Determine if it&#39;s CAP, FLOOR, or COLLAR.  Supported string (enumeration) values are: [Cap, Floor, Collar].</value>
         [DataMember(Name = "capFloorType", IsRequired = true, EmitDefaultValue = true)]
         public string CapFloorType { get; set; }
 
@@ -102,9 +102,9 @@ namespace Lusid.Sdk.Model
         public FloatingLeg UnderlyingFloatingLeg { get; set; }
 
         /// <summary>
-        /// Optional additional payments at a given date e.g. to level off an uneven equity swap.  The dates must be distinct and either all payments are Pay or all payments are Receive.
+        /// Optional additional payments at a given date e.g. to level off an uneven equity swap. The dates must be distinct and either all payments are Pay or all payments are Receive.
         /// </summary>
-        /// <value>Optional additional payments at a given date e.g. to level off an uneven equity swap.  The dates must be distinct and either all payments are Pay or all payments are Receive.</value>
+        /// <value>Optional additional payments at a given date e.g. to level off an uneven equity swap. The dates must be distinct and either all payments are Pay or all payments are Receive.</value>
         [DataMember(Name = "additionalPayments", EmitDefaultValue = true)]
         public List<AdditionalPayment> AdditionalPayments { get; set; }
 

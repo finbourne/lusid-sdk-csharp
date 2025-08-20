@@ -41,12 +41,12 @@ namespace Lusid.Sdk.Model
         /// <param name="baseDate">EffectiveAt date of the quoted pip rates (required).</param>
         /// <param name="domCcy">Domestic currency of the fx forward (required).</param>
         /// <param name="fgnCcy">Foreign currency of the fx forward (required).</param>
-        /// <param name="tenors">Tenors for which the forward rates apply.  For more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097) (required).</param>
+        /// <param name="tenors">Tenors for which the forward rates apply. For more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097) (required).</param>
         /// <param name="pipRates">Rates provided for the fx forward (price in FgnCcy per unit of DomCcy), expressed in pips (required).</param>
         /// <param name="lineage">Description of the complex market data&#39;s lineage e.g. &#39;FundAccountant_GreenQuality&#39;..</param>
         /// <param name="marketDataOptions">marketDataOptions.</param>
         /// <param name="calendars">The list of conventions that should be used when interpreting tenors as dates..</param>
-        /// <param name="spotDaysCalculationType">Configures how to calculate the spot date from the build date using the Calendars provided.  Supported string (enumeration) values are: [ SingleCalendar, UnionCalendars ].</param>
+        /// <param name="spotDaysCalculationType">Configures how to calculate the spot date from the build date using the Calendars provided. Supported string (enumeration) values are: [ SingleCalendar, UnionCalendars ].</param>
         /// <param name="marketDataType">The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface (required) (default to &quot;FxForwardTenorPipsCurveData&quot;).</param>
         public FxForwardTenorPipsCurveData(DateTimeOffset baseDate = default(DateTimeOffset), string domCcy = default(string), string fgnCcy = default(string), List<string> tenors = default(List<string>), List<decimal> pipRates = default(List<decimal>), string lineage = default(string), MarketDataOptions marketDataOptions = default(MarketDataOptions), List<FxTenorConvention> calendars = default(List<FxTenorConvention>), string spotDaysCalculationType = default(string), MarketDataTypeEnum marketDataType = default(MarketDataTypeEnum)) : base(marketDataType)
         {
@@ -103,9 +103,9 @@ namespace Lusid.Sdk.Model
         public string FgnCcy { get; set; }
 
         /// <summary>
-        /// Tenors for which the forward rates apply.  For more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097)
+        /// Tenors for which the forward rates apply. For more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097)
         /// </summary>
-        /// <value>Tenors for which the forward rates apply.  For more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097)</value>
+        /// <value>Tenors for which the forward rates apply. For more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097)</value>
         [DataMember(Name = "tenors", IsRequired = true, EmitDefaultValue = true)]
         public List<string> Tenors { get; set; }
 
@@ -137,9 +137,9 @@ namespace Lusid.Sdk.Model
         public List<FxTenorConvention> Calendars { get; set; }
 
         /// <summary>
-        /// Configures how to calculate the spot date from the build date using the Calendars provided.  Supported string (enumeration) values are: [ SingleCalendar, UnionCalendars ]
+        /// Configures how to calculate the spot date from the build date using the Calendars provided. Supported string (enumeration) values are: [ SingleCalendar, UnionCalendars ]
         /// </summary>
-        /// <value>Configures how to calculate the spot date from the build date using the Calendars provided.  Supported string (enumeration) values are: [ SingleCalendar, UnionCalendars ]</value>
+        /// <value>Configures how to calculate the spot date from the build date using the Calendars provided. Supported string (enumeration) values are: [ SingleCalendar, UnionCalendars ]</value>
         [DataMember(Name = "spotDaysCalculationType", EmitDefaultValue = true)]
         public string SpotDaysCalculationType { get; set; }
 

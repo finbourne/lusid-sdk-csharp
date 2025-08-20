@@ -1,5 +1,5 @@
 # Lusid.Sdk.Model.IndustryClassifier
-Object describing a particular industry classifier,  which comprises a classification code and the name of the classification system to which the code belongs.
+Object describing a particular industry classifier, which comprises a classification code and the name of the classification system to which the code belongs.
 
 ## Properties
 

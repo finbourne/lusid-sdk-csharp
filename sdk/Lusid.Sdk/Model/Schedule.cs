@@ -24,7 +24,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Base class for representing schedules in LUSID.  This base class should not be directly instantiated; each supported ScheduleType has a corresponding inherited class.
+    /// Base class for representing schedules in LUSID. This base class should not be directly instantiated; each supported ScheduleType has a corresponding inherited class.
     /// </summary>
     [DataContract(Name = "Schedule")]
     [JsonConverter(typeof(JsonSubtypes), "ScheduleType")]

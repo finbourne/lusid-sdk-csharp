@@ -23,7 +23,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 [BETA] DeleteCdsFlowConventions: Delete the CDS Flow Conventions of given scope and code, assuming that it is present.
 
-Delete the specified CDS Flow Conventions from a single scope.  The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.  It is important to always check for any unsuccessful response.
+Delete the specified CDS Flow Conventions from a single scope. The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed. It is important to always check for any unsuccessful response.
 
 ### Example
 ```csharp
@@ -139,7 +139,7 @@ catch (ApiException e)
 
 [BETA] DeleteFlowConventions: Delete the Flow Conventions of given scope and code, assuming that it is present.
 
-Delete the specified conventions from a single scope.  The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.  It is important to always check for any unsuccessful response.
+Delete the specified conventions from a single scope. The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed. It is important to always check for any unsuccessful response.
 
 ### Example
 ```csharp
@@ -255,7 +255,7 @@ catch (ApiException e)
 
 [BETA] DeleteIndexConvention: Delete the Index Convention of given scope and code, assuming that it is present.
 
-Delete the specified Index Convention from a single scope.  The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.  It is important to always check for any unsuccessful response.
+Delete the specified Index Convention from a single scope. The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed. It is important to always check for any unsuccessful response.
 
 ### Example
 ```csharp
@@ -371,7 +371,7 @@ catch (ApiException e)
 
 [BETA] GetCdsFlowConventions: Get CDS Flow Conventions
 
-Get a CDS Flow Conventions from a single scope.  The response will return either the conventions that has been stored, or a failure explaining why the request was unsuccessful.  It is important to always check for any unsuccessful requests (failures).
+Get a CDS Flow Conventions from a single scope. The response will return either the conventions that has been stored, or a failure explaining why the request was unsuccessful. It is important to always check for any unsuccessful requests (failures).
 
 ### Example
 ```csharp
@@ -489,7 +489,7 @@ catch (ApiException e)
 
 [BETA] GetFlowConventions: Get Flow Conventions
 
-Get a Flow Conventions from a single scope.  The response will return either the conventions that has been stored, or a failure explaining why the request was unsuccessful.  It is important to always check for any unsuccessful requests (failures).
+Get a Flow Conventions from a single scope. The response will return either the conventions that has been stored, or a failure explaining why the request was unsuccessful. It is important to always check for any unsuccessful requests (failures).
 
 ### Example
 ```csharp
@@ -607,7 +607,7 @@ catch (ApiException e)
 
 [BETA] GetIndexConvention: Get Index Convention
 
-Get a Index Convention from a single scope.  The response will return either the conventions that has been stored, or a failure explaining why the request was unsuccessful.  It is important to always check for any unsuccessful requests (failures).
+Get a Index Convention from a single scope. The response will return either the conventions that has been stored, or a failure explaining why the request was unsuccessful. It is important to always check for any unsuccessful requests (failures).
 
 ### Example
 ```csharp
@@ -1067,7 +1067,7 @@ catch (ApiException e)
 
 [BETA] UpsertCdsFlowConventions: Upsert a set of CDS Flow Conventions. This creates or updates the data in Lusid.
 
-Update or insert CDS Flow Conventions in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted CDS Flow Conventions or failure message if unsuccessful                It is important to always check to verify success (or failure).
+Update or insert CDS Flow Conventions in a single scope. An item will be updated if it already exists and inserted if it does not.              The response will return the successfully updated or inserted CDS Flow Conventions or failure message if unsuccessful              It is important to always check to verify success (or failure).
 
 ### Example
 ```csharp
@@ -1181,7 +1181,7 @@ catch (ApiException e)
 
 [BETA] UpsertFlowConventions: Upsert Flow Conventions. This creates or updates the data in Lusid.
 
-Update or insert Flow Conventions in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted Flow Conventions or failure message if unsuccessful                It is important to always check to verify success (or failure).
+Update or insert Flow Conventions in a single scope. An item will be updated if it already exists and inserted if it does not.              The response will return the successfully updated or inserted Flow Conventions or failure message if unsuccessful              It is important to always check to verify success (or failure).
 
 ### Example
 ```csharp
@@ -1295,7 +1295,7 @@ catch (ApiException e)
 
 [BETA] UpsertIndexConvention: Upsert a set of Index Convention. This creates or updates the data in Lusid.
 
-Update or insert Index Convention in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted Index Convention or failure message if unsuccessful                It is important to always check to verify success (or failure).
+Update or insert Index Convention in a single scope. An item will be updated if it already exists and inserted if it does not.              The response will return the successfully updated or inserted Index Convention or failure message if unsuccessful              It is important to always check to verify success (or failure).
 
 ### Example
 ```csharp

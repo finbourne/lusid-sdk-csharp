@@ -38,15 +38,15 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="recipeId">recipeId.</param>
         /// <param name="asAt">The asAt date to use.</param>
-        /// <param name="metrics">The set of specifications to calculate or retrieve during the valuation and present in the results. For example:  AggregateSpec(&#39;Valuation/PV&#39;,&#39;Sum&#39;) for returning the PV (present value) of holdings  AggregateSpec(&#39;Holding/default/Units&#39;,&#39;Sum&#39;) for returning the units of holidays  AggregateSpec(&#39;Instrument/default/LusidInstrumentId&#39;,&#39;Value&#39;) for returning the Lusid Instrument identifier (required).</param>
-        /// <param name="groupBy">The set of items by which to perform grouping. This primarily matters when one or more of the metric operators is a mapping  that reduces set size, e.g. sum or proportion. The group-by statement determines the set of keys by which to break the results out..</param>
-        /// <param name="filters">A set of filters to use to reduce the data found in a request. Equivalent to the &#39;where ...&#39; part of a Sql select statement.  For example, filter a set of values within a given range or matching a particular value..</param>
+        /// <param name="metrics">The set of specifications to calculate or retrieve during the valuation and present in the results. For example: AggregateSpec(&#39;Valuation/PV&#39;,&#39;Sum&#39;) for returning the PV (present value) of holdings AggregateSpec(&#39;Holding/default/Units&#39;,&#39;Sum&#39;) for returning the units of holidays AggregateSpec(&#39;Instrument/default/LusidInstrumentId&#39;,&#39;Value&#39;) for returning the Lusid Instrument identifier (required).</param>
+        /// <param name="groupBy">The set of items by which to perform grouping. This primarily matters when one or more of the metric operators is a mapping that reduces set size, e.g. sum or proportion. The group-by statement determines the set of keys by which to break the results out..</param>
+        /// <param name="filters">A set of filters to use to reduce the data found in a request. Equivalent to the &#39;where ...&#39; part of a Sql select statement. For example, filter a set of values within a given range or matching a particular value..</param>
         /// <param name="sort">A (possibly empty/null) set of specifications for how to order the results..</param>
-        /// <param name="reportCurrency">Three letter ISO currency string indicating what currency to report in for ReportCurrency denominated queries.  If not present, then the currency of the relevant portfolio will be used in its place..</param>
+        /// <param name="reportCurrency">Three letter ISO currency string indicating what currency to report in for ReportCurrency denominated queries. If not present, then the currency of the relevant portfolio will be used in its place..</param>
         /// <param name="equipWithSubtotals">Flag directing the Valuation call to populate the results with subtotals of aggregates..</param>
-        /// <param name="returnResultAsExpandedTypes">Financially meaningful results can be presented as either simple flat types or more complex expanded types.  For example, the present value (PV) of a holding could be represented either as a simple decimal (with currency implied)  or as a decimal-currency pair. This flag allows either representation to be returned. In the PV example,  the returned value would be the decimal-currency pair if this flag is true, or the decimal only if this flag is false..</param>
+        /// <param name="returnResultAsExpandedTypes">Financially meaningful results can be presented as either simple flat types or more complex expanded types. For example, the present value (PV) of a holding could be represented either as a simple decimal (with currency implied) or as a decimal-currency pair. This flag allows either representation to be returned. In the PV example, the returned value would be the decimal-currency pair if this flag is true, or the decimal only if this flag is false..</param>
         /// <param name="valuationSchedule">valuationSchedule.</param>
-        /// <param name="instruments">The set of instruments, weighted by the quantities held that are required.  It is identified by an identifier tag that can be used to identify it externally.  For a single, unique trade or transaction this can be thought of as equivalent to the transaction identifier, or  a composite of the sub-holding keys for a regular sub-holding. When there are multiple transactions sharing the same underlying instrument  such as purchase of shares on multiple dates where tax implications are different this would not be the case. (required).</param>
+        /// <param name="instruments">The set of instruments, weighted by the quantities held that are required. It is identified by an identifier tag that can be used to identify it externally. For a single, unique trade or transaction this can be thought of as equivalent to the transaction identifier, or a composite of the sub-holding keys for a regular sub-holding. When there are multiple transactions sharing the same underlying instrument such as purchase of shares on multiple dates where tax implications are different this would not be the case. (required).</param>
         /// <param name="marketDataOverrides">marketDataOverrides.</param>
         /// <param name="corporateActionSourceId">corporateActionSourceId.</param>
         public InlineValuationRequest(ResourceId recipeId = default(ResourceId), DateTimeOffset? asAt = default(DateTimeOffset?), List<AggregateSpec> metrics = default(List<AggregateSpec>), List<string> groupBy = default(List<string>), List<PropertyFilter> filters = default(List<PropertyFilter>), List<OrderBySpec> sort = default(List<OrderBySpec>), string reportCurrency = default(string), bool equipWithSubtotals = default(bool), bool returnResultAsExpandedTypes = default(bool), ValuationSchedule valuationSchedule = default(ValuationSchedule), List<WeightedInstrument> instruments = default(List<WeightedInstrument>), MarketDataOverrides marketDataOverrides = default(MarketDataOverrides), ResourceId corporateActionSourceId = default(ResourceId))
@@ -90,23 +90,23 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset? AsAt { get; set; }
 
         /// <summary>
-        /// The set of specifications to calculate or retrieve during the valuation and present in the results. For example:  AggregateSpec(&#39;Valuation/PV&#39;,&#39;Sum&#39;) for returning the PV (present value) of holdings  AggregateSpec(&#39;Holding/default/Units&#39;,&#39;Sum&#39;) for returning the units of holidays  AggregateSpec(&#39;Instrument/default/LusidInstrumentId&#39;,&#39;Value&#39;) for returning the Lusid Instrument identifier
+        /// The set of specifications to calculate or retrieve during the valuation and present in the results. For example: AggregateSpec(&#39;Valuation/PV&#39;,&#39;Sum&#39;) for returning the PV (present value) of holdings AggregateSpec(&#39;Holding/default/Units&#39;,&#39;Sum&#39;) for returning the units of holidays AggregateSpec(&#39;Instrument/default/LusidInstrumentId&#39;,&#39;Value&#39;) for returning the Lusid Instrument identifier
         /// </summary>
-        /// <value>The set of specifications to calculate or retrieve during the valuation and present in the results. For example:  AggregateSpec(&#39;Valuation/PV&#39;,&#39;Sum&#39;) for returning the PV (present value) of holdings  AggregateSpec(&#39;Holding/default/Units&#39;,&#39;Sum&#39;) for returning the units of holidays  AggregateSpec(&#39;Instrument/default/LusidInstrumentId&#39;,&#39;Value&#39;) for returning the Lusid Instrument identifier</value>
+        /// <value>The set of specifications to calculate or retrieve during the valuation and present in the results. For example: AggregateSpec(&#39;Valuation/PV&#39;,&#39;Sum&#39;) for returning the PV (present value) of holdings AggregateSpec(&#39;Holding/default/Units&#39;,&#39;Sum&#39;) for returning the units of holidays AggregateSpec(&#39;Instrument/default/LusidInstrumentId&#39;,&#39;Value&#39;) for returning the Lusid Instrument identifier</value>
         [DataMember(Name = "metrics", IsRequired = true, EmitDefaultValue = true)]
         public List<AggregateSpec> Metrics { get; set; }
 
         /// <summary>
-        /// The set of items by which to perform grouping. This primarily matters when one or more of the metric operators is a mapping  that reduces set size, e.g. sum or proportion. The group-by statement determines the set of keys by which to break the results out.
+        /// The set of items by which to perform grouping. This primarily matters when one or more of the metric operators is a mapping that reduces set size, e.g. sum or proportion. The group-by statement determines the set of keys by which to break the results out.
         /// </summary>
-        /// <value>The set of items by which to perform grouping. This primarily matters when one or more of the metric operators is a mapping  that reduces set size, e.g. sum or proportion. The group-by statement determines the set of keys by which to break the results out.</value>
+        /// <value>The set of items by which to perform grouping. This primarily matters when one or more of the metric operators is a mapping that reduces set size, e.g. sum or proportion. The group-by statement determines the set of keys by which to break the results out.</value>
         [DataMember(Name = "groupBy", EmitDefaultValue = true)]
         public List<string> GroupBy { get; set; }
 
         /// <summary>
-        /// A set of filters to use to reduce the data found in a request. Equivalent to the &#39;where ...&#39; part of a Sql select statement.  For example, filter a set of values within a given range or matching a particular value.
+        /// A set of filters to use to reduce the data found in a request. Equivalent to the &#39;where ...&#39; part of a Sql select statement. For example, filter a set of values within a given range or matching a particular value.
         /// </summary>
-        /// <value>A set of filters to use to reduce the data found in a request. Equivalent to the &#39;where ...&#39; part of a Sql select statement.  For example, filter a set of values within a given range or matching a particular value.</value>
+        /// <value>A set of filters to use to reduce the data found in a request. Equivalent to the &#39;where ...&#39; part of a Sql select statement. For example, filter a set of values within a given range or matching a particular value.</value>
         [DataMember(Name = "filters", EmitDefaultValue = true)]
         public List<PropertyFilter> Filters { get; set; }
 
@@ -118,9 +118,9 @@ namespace Lusid.Sdk.Model
         public List<OrderBySpec> Sort { get; set; }
 
         /// <summary>
-        /// Three letter ISO currency string indicating what currency to report in for ReportCurrency denominated queries.  If not present, then the currency of the relevant portfolio will be used in its place.
+        /// Three letter ISO currency string indicating what currency to report in for ReportCurrency denominated queries. If not present, then the currency of the relevant portfolio will be used in its place.
         /// </summary>
-        /// <value>Three letter ISO currency string indicating what currency to report in for ReportCurrency denominated queries.  If not present, then the currency of the relevant portfolio will be used in its place.</value>
+        /// <value>Three letter ISO currency string indicating what currency to report in for ReportCurrency denominated queries. If not present, then the currency of the relevant portfolio will be used in its place.</value>
         [DataMember(Name = "reportCurrency", EmitDefaultValue = true)]
         public string ReportCurrency { get; set; }
 
@@ -132,9 +132,9 @@ namespace Lusid.Sdk.Model
         public bool EquipWithSubtotals { get; set; }
 
         /// <summary>
-        /// Financially meaningful results can be presented as either simple flat types or more complex expanded types.  For example, the present value (PV) of a holding could be represented either as a simple decimal (with currency implied)  or as a decimal-currency pair. This flag allows either representation to be returned. In the PV example,  the returned value would be the decimal-currency pair if this flag is true, or the decimal only if this flag is false.
+        /// Financially meaningful results can be presented as either simple flat types or more complex expanded types. For example, the present value (PV) of a holding could be represented either as a simple decimal (with currency implied) or as a decimal-currency pair. This flag allows either representation to be returned. In the PV example, the returned value would be the decimal-currency pair if this flag is true, or the decimal only if this flag is false.
         /// </summary>
-        /// <value>Financially meaningful results can be presented as either simple flat types or more complex expanded types.  For example, the present value (PV) of a holding could be represented either as a simple decimal (with currency implied)  or as a decimal-currency pair. This flag allows either representation to be returned. In the PV example,  the returned value would be the decimal-currency pair if this flag is true, or the decimal only if this flag is false.</value>
+        /// <value>Financially meaningful results can be presented as either simple flat types or more complex expanded types. For example, the present value (PV) of a holding could be represented either as a simple decimal (with currency implied) or as a decimal-currency pair. This flag allows either representation to be returned. In the PV example, the returned value would be the decimal-currency pair if this flag is true, or the decimal only if this flag is false.</value>
         [DataMember(Name = "returnResultAsExpandedTypes", EmitDefaultValue = true)]
         public bool ReturnResultAsExpandedTypes { get; set; }
 
@@ -145,9 +145,9 @@ namespace Lusid.Sdk.Model
         public ValuationSchedule ValuationSchedule { get; set; }
 
         /// <summary>
-        /// The set of instruments, weighted by the quantities held that are required.  It is identified by an identifier tag that can be used to identify it externally.  For a single, unique trade or transaction this can be thought of as equivalent to the transaction identifier, or  a composite of the sub-holding keys for a regular sub-holding. When there are multiple transactions sharing the same underlying instrument  such as purchase of shares on multiple dates where tax implications are different this would not be the case.
+        /// The set of instruments, weighted by the quantities held that are required. It is identified by an identifier tag that can be used to identify it externally. For a single, unique trade or transaction this can be thought of as equivalent to the transaction identifier, or a composite of the sub-holding keys for a regular sub-holding. When there are multiple transactions sharing the same underlying instrument such as purchase of shares on multiple dates where tax implications are different this would not be the case.
         /// </summary>
-        /// <value>The set of instruments, weighted by the quantities held that are required.  It is identified by an identifier tag that can be used to identify it externally.  For a single, unique trade or transaction this can be thought of as equivalent to the transaction identifier, or  a composite of the sub-holding keys for a regular sub-holding. When there are multiple transactions sharing the same underlying instrument  such as purchase of shares on multiple dates where tax implications are different this would not be the case.</value>
+        /// <value>The set of instruments, weighted by the quantities held that are required. It is identified by an identifier tag that can be used to identify it externally. For a single, unique trade or transaction this can be thought of as equivalent to the transaction identifier, or a composite of the sub-holding keys for a regular sub-holding. When there are multiple transactions sharing the same underlying instrument such as purchase of shares on multiple dates where tax implications are different this would not be the case.</value>
         [DataMember(Name = "instruments", IsRequired = true, EmitDefaultValue = true)]
         public List<WeightedInstrument> Instruments { get; set; }
 

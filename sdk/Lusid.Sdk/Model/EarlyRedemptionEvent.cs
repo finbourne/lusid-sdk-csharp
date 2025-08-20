@@ -38,12 +38,12 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EarlyRedemptionEvent" /> class.
         /// </summary>
-        /// <param name="effectiveDate">Date of redemption.  For internally generated European callables, this is set to the exercise date.  For internally generated American callables, this is set to the start of the exercise period..</param>
+        /// <param name="effectiveDate">Date of redemption. For internally generated European callables, this is set to the exercise date. For internally generated American callables, this is set to the start of the exercise period..</param>
         /// <param name="currency">Currency of the redemption. (required).</param>
         /// <param name="earlyRedemptionElections">EarlyRedemptionElection for the redemption.  Used to trigger the redemption. (required).</param>
         /// <param name="redemptionPercentage">Percentage of the original issue that is redeemed, where 0.5 implies 50%.  Defaults to 1 if not set.  Must be between 0 and 1..</param>
         /// <param name="pricePerUnit">The price, or strike, that each unit is redeemed at..</param>
-        /// <param name="accruedInterestPerUnit">Unpaid accrued interest also repaid as part of the redemption, per unit.  Optional field.  If left empty, will be resolved internally by calculating the accrued owed on the EffectiveDate.  This process may require additional market data..</param>
+        /// <param name="accruedInterestPerUnit">Unpaid accrued interest also repaid as part of the redemption, per unit. Optional field. If left empty, will be resolved internally by calculating the accrued owed on the EffectiveDate. This process may require additional market data..</param>
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent (required) (default to &quot;EarlyRedemptionEvent&quot;).</param>
         public EarlyRedemptionEvent(DateTimeOffset? effectiveDate = default(DateTimeOffset?), string currency = default(string), List<EarlyRedemptionElection> earlyRedemptionElections = default(List<EarlyRedemptionElection>), decimal redemptionPercentage = default(decimal), decimal? pricePerUnit = default(decimal?), decimal? accruedInterestPerUnit = default(decimal?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
@@ -66,9 +66,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// Date of redemption.  For internally generated European callables, this is set to the exercise date.  For internally generated American callables, this is set to the start of the exercise period.
+        /// Date of redemption. For internally generated European callables, this is set to the exercise date. For internally generated American callables, this is set to the start of the exercise period.
         /// </summary>
-        /// <value>Date of redemption.  For internally generated European callables, this is set to the exercise date.  For internally generated American callables, this is set to the start of the exercise period.</value>
+        /// <value>Date of redemption. For internally generated European callables, this is set to the exercise date. For internally generated American callables, this is set to the start of the exercise period.</value>
         [DataMember(Name = "effectiveDate", EmitDefaultValue = true)]
         public DateTimeOffset? EffectiveDate { get; set; }
 
@@ -101,9 +101,9 @@ namespace Lusid.Sdk.Model
         public decimal? PricePerUnit { get; set; }
 
         /// <summary>
-        /// Unpaid accrued interest also repaid as part of the redemption, per unit.  Optional field.  If left empty, will be resolved internally by calculating the accrued owed on the EffectiveDate.  This process may require additional market data.
+        /// Unpaid accrued interest also repaid as part of the redemption, per unit. Optional field. If left empty, will be resolved internally by calculating the accrued owed on the EffectiveDate. This process may require additional market data.
         /// </summary>
-        /// <value>Unpaid accrued interest also repaid as part of the redemption, per unit.  Optional field.  If left empty, will be resolved internally by calculating the accrued owed on the EffectiveDate.  This process may require additional market data.</value>
+        /// <value>Unpaid accrued interest also repaid as part of the redemption, per unit. Optional field. If left empty, will be resolved internally by calculating the accrued owed on the EffectiveDate. This process may require additional market data.</value>
         [DataMember(Name = "accruedInterestPerUnit", EmitDefaultValue = true)]
         public decimal? AccruedInterestPerUnit { get; set; }
 

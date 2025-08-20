@@ -36,7 +36,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TranslateInstrumentDefinitionsRequest" /> class.
         /// </summary>
-        /// <param name="instruments">The collection of instruments to translate.                Each instrument definition should be keyed by a unique correlation id. This id is ephemeral  and is not stored by LUSID. It serves only as a way to easily identify each instrument in the response.                Any instrument that is not already in the LUSID dialect should be given as an ExoticInstrument. (required).</param>
+        /// <param name="instruments">The collection of instruments to translate.              Each instrument definition should be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID. It serves only as a way to easily identify each instrument in the response.              Any instrument that is not already in the LUSID dialect should be given as an ExoticInstrument. (required).</param>
         /// <param name="dialect">The target dialect that the given instruments should be translated to. (required).</param>
         public TranslateInstrumentDefinitionsRequest(Dictionary<string, LusidInstrument> instruments = default(Dictionary<string, LusidInstrument>), string dialect = default(string))
         {
@@ -55,9 +55,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The collection of instruments to translate.                Each instrument definition should be keyed by a unique correlation id. This id is ephemeral  and is not stored by LUSID. It serves only as a way to easily identify each instrument in the response.                Any instrument that is not already in the LUSID dialect should be given as an ExoticInstrument.
+        /// The collection of instruments to translate.              Each instrument definition should be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID. It serves only as a way to easily identify each instrument in the response.              Any instrument that is not already in the LUSID dialect should be given as an ExoticInstrument.
         /// </summary>
-        /// <value>The collection of instruments to translate.                Each instrument definition should be keyed by a unique correlation id. This id is ephemeral  and is not stored by LUSID. It serves only as a way to easily identify each instrument in the response.                Any instrument that is not already in the LUSID dialect should be given as an ExoticInstrument.</value>
+        /// <value>The collection of instruments to translate.              Each instrument definition should be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID. It serves only as a way to easily identify each instrument in the response.              Any instrument that is not already in the LUSID dialect should be given as an ExoticInstrument.</value>
         [DataMember(Name = "instruments", IsRequired = true, EmitDefaultValue = true)]
         public Dictionary<string, LusidInstrument> Instruments { get; set; }
 

@@ -1,5 +1,5 @@
 # Lusid.Sdk.Model.ResetEvent
-Definition of a reset event.  This is an event that describes a reset or fixing for an instrument such as the floating payment on  a swap cash flow.
+Definition of a reset event. This is an event that describes a reset or fixing for an instrument such as the floating payment on a swap cash flow.
 
 ## Properties
 

@@ -40,7 +40,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The entity type to list scopes for.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve scopes. Defaults to latest datetime if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing scopes from a previous call to list scopes.              This value is returned from the previous call. If a pagination token is provided, the limit and asAt fields              must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing scopes from a previous call to list scopes.             This value is returned from the previous call. If a pagination token is provided, the limit and asAt fields             must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -56,7 +56,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The entity type to list scopes for.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve scopes. Defaults to latest datetime if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing scopes from a previous call to list scopes.              This value is returned from the previous call. If a pagination token is provided, the limit and asAt fields              must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing scopes from a previous call to list scopes.             This value is returned from the previous call. If a pagination token is provided, the limit and asAt fields             must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -69,7 +69,7 @@ namespace Lusid.Sdk.Api
         /// List all the scopes that contain data.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="filter">Expression to filter the result set.              For example, to filter on the Scope, use \&quot;scope eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.             For example, to filter on the Scope, use \&quot;scope eq &#39;string&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfScopeDefinition</returns>
@@ -82,7 +82,7 @@ namespace Lusid.Sdk.Api
         /// List all the scopes that contain data.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="filter">Expression to filter the result set.              For example, to filter on the Scope, use \&quot;scope eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.             For example, to filter on the Scope, use \&quot;scope eq &#39;string&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfScopeDefinition</returns>
@@ -105,7 +105,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The entity type to list scopes for.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve scopes. Defaults to latest datetime if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing scopes from a previous call to list scopes.              This value is returned from the previous call. If a pagination token is provided, the limit and asAt fields              must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing scopes from a previous call to list scopes.             This value is returned from the previous call. If a pagination token is provided, the limit and asAt fields             must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -122,7 +122,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The entity type to list scopes for.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve scopes. Defaults to latest datetime if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing scopes from a previous call to list scopes.              This value is returned from the previous call. If a pagination token is provided, the limit and asAt fields              must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing scopes from a previous call to list scopes.             This value is returned from the previous call. If a pagination token is provided, the limit and asAt fields             must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -136,7 +136,7 @@ namespace Lusid.Sdk.Api
         /// List all the scopes that contain data.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="filter">Expression to filter the result set.              For example, to filter on the Scope, use \&quot;scope eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.             For example, to filter on the Scope, use \&quot;scope eq &#39;string&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -150,7 +150,7 @@ namespace Lusid.Sdk.Api
         /// List all the scopes that contain data.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="filter">Expression to filter the result set.              For example, to filter on the Scope, use \&quot;scope eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.             For example, to filter on the Scope, use \&quot;scope eq &#39;string&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -285,7 +285,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The entity type to list scopes for.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve scopes. Defaults to latest datetime if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing scopes from a previous call to list scopes.              This value is returned from the previous call. If a pagination token is provided, the limit and asAt fields              must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing scopes from a previous call to list scopes.             This value is returned from the previous call. If a pagination token is provided, the limit and asAt fields             must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -302,7 +302,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The entity type to list scopes for.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve scopes. Defaults to latest datetime if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing scopes from a previous call to list scopes.              This value is returned from the previous call. If a pagination token is provided, the limit and asAt fields              must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing scopes from a previous call to list scopes.             This value is returned from the previous call. If a pagination token is provided, the limit and asAt fields             must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -403,7 +403,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The entity type to list scopes for.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve scopes. Defaults to latest datetime if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing scopes from a previous call to list scopes.              This value is returned from the previous call. If a pagination token is provided, the limit and asAt fields              must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing scopes from a previous call to list scopes.             This value is returned from the previous call. If a pagination token is provided, the limit and asAt fields             must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -421,7 +421,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The entity type to list scopes for.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve scopes. Defaults to latest datetime if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing scopes from a previous call to list scopes.              This value is returned from the previous call. If a pagination token is provided, the limit and asAt fields              must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing scopes from a previous call to list scopes.             This value is returned from the previous call. If a pagination token is provided, the limit and asAt fields             must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -523,7 +523,7 @@ namespace Lusid.Sdk.Api
         /// ListScopes: List Scopes List all the scopes that contain data.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="filter">Expression to filter the result set.              For example, to filter on the Scope, use \&quot;scope eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.             For example, to filter on the Scope, use \&quot;scope eq &#39;string&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfScopeDefinition</returns>
@@ -537,7 +537,7 @@ namespace Lusid.Sdk.Api
         /// ListScopes: List Scopes List all the scopes that contain data.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="filter">Expression to filter the result set.              For example, to filter on the Scope, use \&quot;scope eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.             For example, to filter on the Scope, use \&quot;scope eq &#39;string&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfScopeDefinition</returns>
@@ -620,7 +620,7 @@ namespace Lusid.Sdk.Api
         /// ListScopes: List Scopes List all the scopes that contain data.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="filter">Expression to filter the result set.              For example, to filter on the Scope, use \&quot;scope eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.             For example, to filter on the Scope, use \&quot;scope eq &#39;string&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -635,7 +635,7 @@ namespace Lusid.Sdk.Api
         /// ListScopes: List Scopes List all the scopes that contain data.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="filter">Expression to filter the result set.              For example, to filter on the Scope, use \&quot;scope eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.             For example, to filter on the Scope, use \&quot;scope eq &#39;string&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>

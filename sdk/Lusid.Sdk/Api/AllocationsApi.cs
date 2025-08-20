@@ -35,7 +35,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] DeleteAllocation: Delete allocation
         /// </summary>
         /// <remarks>
-        /// Delete an allocation. Deletion will be valid from the allocation&#39;s creation datetime.  This means that the allocation will no longer exist at any effective datetime from the asAt datetime of deletion.
+        /// Delete an allocation. Deletion will be valid from the allocation&#39;s creation datetime. This means that the allocation will no longer exist at any effective datetime from the asAt datetime of deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The allocation scope.</param>
@@ -49,7 +49,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] DeleteAllocation: Delete allocation
         /// </summary>
         /// <remarks>
-        /// Delete an allocation. Deletion will be valid from the allocation&#39;s creation datetime.  This means that the allocation will no longer exist at any effective datetime from the asAt datetime of deletion.
+        /// Delete an allocation. Deletion will be valid from the allocation&#39;s creation datetime. This means that the allocation will no longer exist at any effective datetime from the asAt datetime of deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The allocation scope.</param>
@@ -68,7 +68,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope to which the allocation belongs.</param>
         /// <param name="code">The allocation&#39;s unique identifier.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the allocation. Defaults to return the latest version of the allocation if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Allocations\&quot; domain to decorate onto the allocation.              These take the format {domain}/{scope}/{code} e.g. \&quot;Allocations/system/Name\&quot;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Allocations\&quot; domain to decorate onto the allocation.             These take the format {domain}/{scope}/{code} e.g. \&quot;Allocations/system/Name\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Allocation</returns>
@@ -84,7 +84,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope to which the allocation belongs.</param>
         /// <param name="code">The allocation&#39;s unique identifier.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the allocation. Defaults to return the latest version of the allocation if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Allocations\&quot; domain to decorate onto the allocation.              These take the format {domain}/{scope}/{code} e.g. \&quot;Allocations/system/Name\&quot;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Allocations\&quot; domain to decorate onto the allocation.             These take the format {domain}/{scope}/{code} e.g. \&quot;Allocations/system/Name\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Allocation</returns>
@@ -97,11 +97,11 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the allocation. Defaults to return the latest version of the allocation if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing allocations from a previous call to list allocations.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing allocations from a previous call to list allocations.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields             must not have changed since the original request. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Allocations\&quot; domain to decorate onto each allocation.                  These take the format {domain}/{scope}/{code} e.g. \&quot;Allocations/system/Name\&quot;.                  All properties, except derived properties, are returned by default, without specifying here. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Allocations\&quot; domain to decorate onto each allocation.                 These take the format {domain}/{scope}/{code} e.g. \&quot;Allocations/system/Name\&quot;.                 All properties, except derived properties, are returned by default, without specifying here. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfAllocation</returns>
@@ -115,11 +115,11 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the allocation. Defaults to return the latest version of the allocation if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing allocations from a previous call to list allocations.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing allocations from a previous call to list allocations.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields             must not have changed since the original request. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Allocations\&quot; domain to decorate onto each allocation.                  These take the format {domain}/{scope}/{code} e.g. \&quot;Allocations/system/Name\&quot;.                  All properties, except derived properties, are returned by default, without specifying here. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Allocations\&quot; domain to decorate onto each allocation.                 These take the format {domain}/{scope}/{code} e.g. \&quot;Allocations/system/Name\&quot;.                 All properties, except derived properties, are returned by default, without specifying here. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfAllocation</returns>
@@ -133,7 +133,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="allocationSetRequest">The collection of allocation requests.</param>
         /// <param name="verificationAsAt">An optional verification asAt; individual upserts will fail if an existing entity has been updated between the verification asAt and time of upsert. (optional)</param>
-        /// <param name="retryWithoutChangedEntities">Optionally choose to keep retrying upsert for remaining entities if some are being updated concurrently. If set to true, any entities that have              changed since the verificationAsAt will be dropped from the set of allocations to upsert and the upsert will be retried. The response will only contain the allocations in the original request              that have been successfully upserted. (optional, default to false)</param>
+        /// <param name="retryWithoutChangedEntities">Optionally choose to keep retrying upsert for remaining entities if some are being updated concurrently. If set to true, any entities that have             changed since the verificationAsAt will be dropped from the set of allocations to upsert and the upsert will be retried. The response will only contain the allocations in the original request             that have been successfully upserted. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfAllocation</returns>
@@ -148,7 +148,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="allocationSetRequest">The collection of allocation requests.</param>
         /// <param name="verificationAsAt">An optional verification asAt; individual upserts will fail if an existing entity has been updated between the verification asAt and time of upsert. (optional)</param>
-        /// <param name="retryWithoutChangedEntities">Optionally choose to keep retrying upsert for remaining entities if some are being updated concurrently. If set to true, any entities that have              changed since the verificationAsAt will be dropped from the set of allocations to upsert and the upsert will be retried. The response will only contain the allocations in the original request              that have been successfully upserted. (optional, default to false)</param>
+        /// <param name="retryWithoutChangedEntities">Optionally choose to keep retrying upsert for remaining entities if some are being updated concurrently. If set to true, any entities that have             changed since the verificationAsAt will be dropped from the set of allocations to upsert and the upsert will be retried. The response will only contain the allocations in the original request             that have been successfully upserted. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfAllocation</returns>
@@ -166,7 +166,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] DeleteAllocation: Delete allocation
         /// </summary>
         /// <remarks>
-        /// Delete an allocation. Deletion will be valid from the allocation&#39;s creation datetime.  This means that the allocation will no longer exist at any effective datetime from the asAt datetime of deletion.
+        /// Delete an allocation. Deletion will be valid from the allocation&#39;s creation datetime. This means that the allocation will no longer exist at any effective datetime from the asAt datetime of deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The allocation scope.</param>
@@ -181,7 +181,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] DeleteAllocation: Delete allocation
         /// </summary>
         /// <remarks>
-        /// Delete an allocation. Deletion will be valid from the allocation&#39;s creation datetime.  This means that the allocation will no longer exist at any effective datetime from the asAt datetime of deletion.
+        /// Delete an allocation. Deletion will be valid from the allocation&#39;s creation datetime. This means that the allocation will no longer exist at any effective datetime from the asAt datetime of deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The allocation scope.</param>
@@ -201,7 +201,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope to which the allocation belongs.</param>
         /// <param name="code">The allocation&#39;s unique identifier.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the allocation. Defaults to return the latest version of the allocation if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Allocations\&quot; domain to decorate onto the allocation.              These take the format {domain}/{scope}/{code} e.g. \&quot;Allocations/system/Name\&quot;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Allocations\&quot; domain to decorate onto the allocation.             These take the format {domain}/{scope}/{code} e.g. \&quot;Allocations/system/Name\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -218,7 +218,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope to which the allocation belongs.</param>
         /// <param name="code">The allocation&#39;s unique identifier.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the allocation. Defaults to return the latest version of the allocation if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Allocations\&quot; domain to decorate onto the allocation.              These take the format {domain}/{scope}/{code} e.g. \&quot;Allocations/system/Name\&quot;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Allocations\&quot; domain to decorate onto the allocation.             These take the format {domain}/{scope}/{code} e.g. \&quot;Allocations/system/Name\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -232,11 +232,11 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the allocation. Defaults to return the latest version of the allocation if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing allocations from a previous call to list allocations.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing allocations from a previous call to list allocations.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields             must not have changed since the original request. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Allocations\&quot; domain to decorate onto each allocation.                  These take the format {domain}/{scope}/{code} e.g. \&quot;Allocations/system/Name\&quot;.                  All properties, except derived properties, are returned by default, without specifying here. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Allocations\&quot; domain to decorate onto each allocation.                 These take the format {domain}/{scope}/{code} e.g. \&quot;Allocations/system/Name\&quot;.                 All properties, except derived properties, are returned by default, without specifying here. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -251,11 +251,11 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the allocation. Defaults to return the latest version of the allocation if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing allocations from a previous call to list allocations.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing allocations from a previous call to list allocations.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields             must not have changed since the original request. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Allocations\&quot; domain to decorate onto each allocation.                  These take the format {domain}/{scope}/{code} e.g. \&quot;Allocations/system/Name\&quot;.                  All properties, except derived properties, are returned by default, without specifying here. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Allocations\&quot; domain to decorate onto each allocation.                 These take the format {domain}/{scope}/{code} e.g. \&quot;Allocations/system/Name\&quot;.                 All properties, except derived properties, are returned by default, without specifying here. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -270,7 +270,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="allocationSetRequest">The collection of allocation requests.</param>
         /// <param name="verificationAsAt">An optional verification asAt; individual upserts will fail if an existing entity has been updated between the verification asAt and time of upsert. (optional)</param>
-        /// <param name="retryWithoutChangedEntities">Optionally choose to keep retrying upsert for remaining entities if some are being updated concurrently. If set to true, any entities that have              changed since the verificationAsAt will be dropped from the set of allocations to upsert and the upsert will be retried. The response will only contain the allocations in the original request              that have been successfully upserted. (optional, default to false)</param>
+        /// <param name="retryWithoutChangedEntities">Optionally choose to keep retrying upsert for remaining entities if some are being updated concurrently. If set to true, any entities that have             changed since the verificationAsAt will be dropped from the set of allocations to upsert and the upsert will be retried. The response will only contain the allocations in the original request             that have been successfully upserted. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -286,7 +286,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="allocationSetRequest">The collection of allocation requests.</param>
         /// <param name="verificationAsAt">An optional verification asAt; individual upserts will fail if an existing entity has been updated between the verification asAt and time of upsert. (optional)</param>
-        /// <param name="retryWithoutChangedEntities">Optionally choose to keep retrying upsert for remaining entities if some are being updated concurrently. If set to true, any entities that have              changed since the verificationAsAt will be dropped from the set of allocations to upsert and the upsert will be retried. The response will only contain the allocations in the original request              that have been successfully upserted. (optional, default to false)</param>
+        /// <param name="retryWithoutChangedEntities">Optionally choose to keep retrying upsert for remaining entities if some are being updated concurrently. If set to true, any entities that have             changed since the verificationAsAt will be dropped from the set of allocations to upsert and the upsert will be retried. The response will only contain the allocations in the original request             that have been successfully upserted. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -416,7 +416,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteAllocation: Delete allocation Delete an allocation. Deletion will be valid from the allocation&#39;s creation datetime.  This means that the allocation will no longer exist at any effective datetime from the asAt datetime of deletion.
+        /// [EARLY ACCESS] DeleteAllocation: Delete allocation Delete an allocation. Deletion will be valid from the allocation&#39;s creation datetime. This means that the allocation will no longer exist at any effective datetime from the asAt datetime of deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The allocation scope.</param>
@@ -431,7 +431,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteAllocation: Delete allocation Delete an allocation. Deletion will be valid from the allocation&#39;s creation datetime.  This means that the allocation will no longer exist at any effective datetime from the asAt datetime of deletion.
+        /// [EARLY ACCESS] DeleteAllocation: Delete allocation Delete an allocation. Deletion will be valid from the allocation&#39;s creation datetime. This means that the allocation will no longer exist at any effective datetime from the asAt datetime of deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The allocation scope.</param>
@@ -525,7 +525,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteAllocation: Delete allocation Delete an allocation. Deletion will be valid from the allocation&#39;s creation datetime.  This means that the allocation will no longer exist at any effective datetime from the asAt datetime of deletion.
+        /// [EARLY ACCESS] DeleteAllocation: Delete allocation Delete an allocation. Deletion will be valid from the allocation&#39;s creation datetime. This means that the allocation will no longer exist at any effective datetime from the asAt datetime of deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The allocation scope.</param>
@@ -541,7 +541,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteAllocation: Delete allocation Delete an allocation. Deletion will be valid from the allocation&#39;s creation datetime.  This means that the allocation will no longer exist at any effective datetime from the asAt datetime of deletion.
+        /// [EARLY ACCESS] DeleteAllocation: Delete allocation Delete an allocation. Deletion will be valid from the allocation&#39;s creation datetime. This means that the allocation will no longer exist at any effective datetime from the asAt datetime of deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The allocation scope.</param>
@@ -644,7 +644,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope to which the allocation belongs.</param>
         /// <param name="code">The allocation&#39;s unique identifier.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the allocation. Defaults to return the latest version of the allocation if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Allocations\&quot; domain to decorate onto the allocation.              These take the format {domain}/{scope}/{code} e.g. \&quot;Allocations/system/Name\&quot;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Allocations\&quot; domain to decorate onto the allocation.             These take the format {domain}/{scope}/{code} e.g. \&quot;Allocations/system/Name\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Allocation</returns>
@@ -661,7 +661,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope to which the allocation belongs.</param>
         /// <param name="code">The allocation&#39;s unique identifier.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the allocation. Defaults to return the latest version of the allocation if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Allocations\&quot; domain to decorate onto the allocation.              These take the format {domain}/{scope}/{code} e.g. \&quot;Allocations/system/Name\&quot;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Allocations\&quot; domain to decorate onto the allocation.             These take the format {domain}/{scope}/{code} e.g. \&quot;Allocations/system/Name\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Allocation</returns>
@@ -765,7 +765,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope to which the allocation belongs.</param>
         /// <param name="code">The allocation&#39;s unique identifier.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the allocation. Defaults to return the latest version of the allocation if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Allocations\&quot; domain to decorate onto the allocation.              These take the format {domain}/{scope}/{code} e.g. \&quot;Allocations/system/Name\&quot;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Allocations\&quot; domain to decorate onto the allocation.             These take the format {domain}/{scope}/{code} e.g. \&quot;Allocations/system/Name\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -783,7 +783,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope to which the allocation belongs.</param>
         /// <param name="code">The allocation&#39;s unique identifier.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the allocation. Defaults to return the latest version of the allocation if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Allocations\&quot; domain to decorate onto the allocation.              These take the format {domain}/{scope}/{code} e.g. \&quot;Allocations/system/Name\&quot;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Allocations\&quot; domain to decorate onto the allocation.             These take the format {domain}/{scope}/{code} e.g. \&quot;Allocations/system/Name\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -888,11 +888,11 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the allocation. Defaults to return the latest version of the allocation if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing allocations from a previous call to list allocations.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing allocations from a previous call to list allocations.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields             must not have changed since the original request. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Allocations\&quot; domain to decorate onto each allocation.                  These take the format {domain}/{scope}/{code} e.g. \&quot;Allocations/system/Name\&quot;.                  All properties, except derived properties, are returned by default, without specifying here. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Allocations\&quot; domain to decorate onto each allocation.                 These take the format {domain}/{scope}/{code} e.g. \&quot;Allocations/system/Name\&quot;.                 All properties, except derived properties, are returned by default, without specifying here. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfAllocation</returns>
@@ -907,11 +907,11 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the allocation. Defaults to return the latest version of the allocation if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing allocations from a previous call to list allocations.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing allocations from a previous call to list allocations.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields             must not have changed since the original request. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Allocations\&quot; domain to decorate onto each allocation.                  These take the format {domain}/{scope}/{code} e.g. \&quot;Allocations/system/Name\&quot;.                  All properties, except derived properties, are returned by default, without specifying here. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Allocations\&quot; domain to decorate onto each allocation.                 These take the format {domain}/{scope}/{code} e.g. \&quot;Allocations/system/Name\&quot;.                 All properties, except derived properties, are returned by default, without specifying here. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfAllocation</returns>
@@ -1015,11 +1015,11 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the allocation. Defaults to return the latest version of the allocation if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing allocations from a previous call to list allocations.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing allocations from a previous call to list allocations.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields             must not have changed since the original request. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Allocations\&quot; domain to decorate onto each allocation.                  These take the format {domain}/{scope}/{code} e.g. \&quot;Allocations/system/Name\&quot;.                  All properties, except derived properties, are returned by default, without specifying here. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Allocations\&quot; domain to decorate onto each allocation.                 These take the format {domain}/{scope}/{code} e.g. \&quot;Allocations/system/Name\&quot;.                 All properties, except derived properties, are returned by default, without specifying here. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1035,11 +1035,11 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the allocation. Defaults to return the latest version of the allocation if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing allocations from a previous call to list allocations.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing allocations from a previous call to list allocations.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields             must not have changed since the original request. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Allocations\&quot; domain to decorate onto each allocation.                  These take the format {domain}/{scope}/{code} e.g. \&quot;Allocations/system/Name\&quot;.                  All properties, except derived properties, are returned by default, without specifying here. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Allocations\&quot; domain to decorate onto each allocation.                 These take the format {domain}/{scope}/{code} e.g. \&quot;Allocations/system/Name\&quot;.                 All properties, except derived properties, are returned by default, without specifying here. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1147,7 +1147,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="allocationSetRequest">The collection of allocation requests.</param>
         /// <param name="verificationAsAt">An optional verification asAt; individual upserts will fail if an existing entity has been updated between the verification asAt and time of upsert. (optional)</param>
-        /// <param name="retryWithoutChangedEntities">Optionally choose to keep retrying upsert for remaining entities if some are being updated concurrently. If set to true, any entities that have              changed since the verificationAsAt will be dropped from the set of allocations to upsert and the upsert will be retried. The response will only contain the allocations in the original request              that have been successfully upserted. (optional, default to false)</param>
+        /// <param name="retryWithoutChangedEntities">Optionally choose to keep retrying upsert for remaining entities if some are being updated concurrently. If set to true, any entities that have             changed since the verificationAsAt will be dropped from the set of allocations to upsert and the upsert will be retried. The response will only contain the allocations in the original request             that have been successfully upserted. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfAllocation</returns>
@@ -1163,7 +1163,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="allocationSetRequest">The collection of allocation requests.</param>
         /// <param name="verificationAsAt">An optional verification asAt; individual upserts will fail if an existing entity has been updated between the verification asAt and time of upsert. (optional)</param>
-        /// <param name="retryWithoutChangedEntities">Optionally choose to keep retrying upsert for remaining entities if some are being updated concurrently. If set to true, any entities that have              changed since the verificationAsAt will be dropped from the set of allocations to upsert and the upsert will be retried. The response will only contain the allocations in the original request              that have been successfully upserted. (optional, default to false)</param>
+        /// <param name="retryWithoutChangedEntities">Optionally choose to keep retrying upsert for remaining entities if some are being updated concurrently. If set to true, any entities that have             changed since the verificationAsAt will be dropped from the set of allocations to upsert and the upsert will be retried. The response will only contain the allocations in the original request             that have been successfully upserted. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfAllocation</returns>
@@ -1263,7 +1263,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="allocationSetRequest">The collection of allocation requests.</param>
         /// <param name="verificationAsAt">An optional verification asAt; individual upserts will fail if an existing entity has been updated between the verification asAt and time of upsert. (optional)</param>
-        /// <param name="retryWithoutChangedEntities">Optionally choose to keep retrying upsert for remaining entities if some are being updated concurrently. If set to true, any entities that have              changed since the verificationAsAt will be dropped from the set of allocations to upsert and the upsert will be retried. The response will only contain the allocations in the original request              that have been successfully upserted. (optional, default to false)</param>
+        /// <param name="retryWithoutChangedEntities">Optionally choose to keep retrying upsert for remaining entities if some are being updated concurrently. If set to true, any entities that have             changed since the verificationAsAt will be dropped from the set of allocations to upsert and the upsert will be retried. The response will only contain the allocations in the original request             that have been successfully upserted. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1280,7 +1280,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="allocationSetRequest">The collection of allocation requests.</param>
         /// <param name="verificationAsAt">An optional verification asAt; individual upserts will fail if an existing entity has been updated between the verification asAt and time of upsert. (optional)</param>
-        /// <param name="retryWithoutChangedEntities">Optionally choose to keep retrying upsert for remaining entities if some are being updated concurrently. If set to true, any entities that have              changed since the verificationAsAt will be dropped from the set of allocations to upsert and the upsert will be retried. The response will only contain the allocations in the original request              that have been successfully upserted. (optional, default to false)</param>
+        /// <param name="retryWithoutChangedEntities">Optionally choose to keep retrying upsert for remaining entities if some are being updated concurrently. If set to true, any entities that have             changed since the verificationAsAt will be dropped from the set of allocations to upsert and the upsert will be retried. The response will only contain the allocations in the original request             that have been successfully upserted. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>

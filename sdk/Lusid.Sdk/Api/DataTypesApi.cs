@@ -35,7 +35,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] CreateDataType: Create data type definition
         /// </summary>
         /// <remarks>
-        /// Create a new data type definition    Data types cannot be created in either the \&quot;default\&quot; or \&quot;system\&quot; scopes.
+        /// Create a new data type definition  Data types cannot be created in either the \&quot;default\&quot; or \&quot;system\&quot; scopes.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createDataTypeRequest">The definition of the new data type (optional)</param>
@@ -48,7 +48,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] CreateDataType: Create data type definition
         /// </summary>
         /// <remarks>
-        /// Create a new data type definition    Data types cannot be created in either the \&quot;default\&quot; or \&quot;system\&quot; scopes.
+        /// Create a new data type definition  Data types cannot be created in either the \&quot;default\&quot; or \&quot;system\&quot; scopes.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createDataTypeRequest">The definition of the new data type (optional)</param>
@@ -60,7 +60,7 @@ namespace Lusid.Sdk.Api
         /// DeleteDataType: Delete a data type definition.
         /// </summary>
         /// <remarks>
-        /// Delete an existing data type definition.    Data types cannot be deleted in either the \&quot;default\&quot; or \&quot;system\&quot; scopes, scopes beginning with \&quot;LUSID-\&quot;,  or data types that are in use on a property definition.
+        /// Delete an existing data type definition.  Data types cannot be deleted in either the \&quot;default\&quot; or \&quot;system\&quot; scopes, scopes beginning with \&quot;LUSID-\&quot;, or data types that are in use on a property definition.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the data type</param>
@@ -74,7 +74,7 @@ namespace Lusid.Sdk.Api
         /// DeleteDataType: Delete a data type definition.
         /// </summary>
         /// <remarks>
-        /// Delete an existing data type definition.    Data types cannot be deleted in either the \&quot;default\&quot; or \&quot;system\&quot; scopes, scopes beginning with \&quot;LUSID-\&quot;,  or data types that are in use on a property definition.
+        /// Delete an existing data type definition.  Data types cannot be deleted in either the \&quot;default\&quot; or \&quot;system\&quot; scopes, scopes beginning with \&quot;LUSID-\&quot;, or data types that are in use on a property definition.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the data type</param>
@@ -92,7 +92,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the data type</param>
         /// <param name="code">The code of the data type</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the data type definition. Defaults to              return the latest version of the instrument definition if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the data type definition. Defaults to             return the latest version of the instrument definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>DataType</returns>
@@ -107,7 +107,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the data type</param>
         /// <param name="code">The code of the data type</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the data type definition. Defaults to              return the latest version of the instrument definition if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the data type definition. Defaults to             return the latest version of the instrument definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DataType</returns>
@@ -122,7 +122,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the data type</param>
         /// <param name="code">The code of the data type</param>
         /// <param name="units">One or more unit identifiers for which the definition is being requested (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set.               For example, to filter on the Schema, use \&quot;schema eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the Schema, use \&quot;schema eq &#39;string&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="asAt">Optional. The as at of the requested data type (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -139,7 +139,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the data type</param>
         /// <param name="code">The code of the data type</param>
         /// <param name="units">One or more unit identifiers for which the definition is being requested (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set.               For example, to filter on the Schema, use \&quot;schema eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the Schema, use \&quot;schema eq &#39;string&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="asAt">Optional. The as at of the requested data type (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -152,10 +152,10 @@ namespace Lusid.Sdk.Api
         /// List all data type summaries
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to list the data type summaries. Defaults to returning the latest version               of each summary if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing data type summaries. This  value is returned from the previous call. If a pagination token is provided, the filter, sortBy  and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the data type summaries. Defaults to returning the latest version              of each summary if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing data type summaries. This value is returned from the previous call. If a pagination token is provided, the filter, sortBy and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set.                For example, to filter on the Scope, use \&quot;id.scope eq &#39;myscope&#39;\&quot;, to filter on Schema, use \&quot;schema eq &#39;string&#39;\&quot;,               to filter on AcceptableValues use \&quot;acceptableValues any (~ eq &#39;value&#39;)\&quot;               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set.               For example, to filter on the Scope, use \&quot;id.scope eq &#39;myscope&#39;\&quot;, to filter on Schema, use \&quot;schema eq &#39;string&#39;\&quot;,              to filter on AcceptableValues use \&quot;acceptableValues any (~ eq &#39;value&#39;)\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -169,10 +169,10 @@ namespace Lusid.Sdk.Api
         /// List all data type summaries
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to list the data type summaries. Defaults to returning the latest version               of each summary if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing data type summaries. This  value is returned from the previous call. If a pagination token is provided, the filter, sortBy  and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the data type summaries. Defaults to returning the latest version              of each summary if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing data type summaries. This value is returned from the previous call. If a pagination token is provided, the filter, sortBy and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set.                For example, to filter on the Scope, use \&quot;id.scope eq &#39;myscope&#39;\&quot;, to filter on Schema, use \&quot;schema eq &#39;string&#39;\&quot;,               to filter on AcceptableValues use \&quot;acceptableValues any (~ eq &#39;value&#39;)\&quot;               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set.               For example, to filter on the Scope, use \&quot;id.scope eq &#39;myscope&#39;\&quot;, to filter on Schema, use \&quot;schema eq &#39;string&#39;\&quot;,              to filter on AcceptableValues use \&quot;acceptableValues any (~ eq &#39;value&#39;)\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -190,7 +190,7 @@ namespace Lusid.Sdk.Api
         /// <param name="includeSystem">Whether to additionally include those data types in the \&quot;system\&quot; scope (optional)</param>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set.             For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfDataType</returns>
@@ -208,7 +208,7 @@ namespace Lusid.Sdk.Api
         /// <param name="includeSystem">Whether to additionally include those data types in the \&quot;system\&quot; scope (optional)</param>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set.             For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfDataType</returns>
@@ -217,7 +217,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] UpdateDataType: Update data type definition
         /// </summary>
         /// <remarks>
-        /// Update the definition of the specified existing data type    Not all elements within a data type definition are modifiable due to the potential implications for data  already stored against the types
+        /// Update the definition of the specified existing data type  Not all elements within a data type definition are modifiable due to the potential implications for data already stored against the types
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the data type</param>
@@ -232,7 +232,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] UpdateDataType: Update data type definition
         /// </summary>
         /// <remarks>
-        /// Update the definition of the specified existing data type    Not all elements within a data type definition are modifiable due to the potential implications for data  already stored against the types
+        /// Update the definition of the specified existing data type  Not all elements within a data type definition are modifiable due to the potential implications for data already stored against the types
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the data type</param>
@@ -313,7 +313,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] CreateDataType: Create data type definition
         /// </summary>
         /// <remarks>
-        /// Create a new data type definition    Data types cannot be created in either the \&quot;default\&quot; or \&quot;system\&quot; scopes.
+        /// Create a new data type definition  Data types cannot be created in either the \&quot;default\&quot; or \&quot;system\&quot; scopes.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createDataTypeRequest">The definition of the new data type (optional)</param>
@@ -327,7 +327,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] CreateDataType: Create data type definition
         /// </summary>
         /// <remarks>
-        /// Create a new data type definition    Data types cannot be created in either the \&quot;default\&quot; or \&quot;system\&quot; scopes.
+        /// Create a new data type definition  Data types cannot be created in either the \&quot;default\&quot; or \&quot;system\&quot; scopes.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createDataTypeRequest">The definition of the new data type (optional)</param>
@@ -340,7 +340,7 @@ namespace Lusid.Sdk.Api
         /// DeleteDataType: Delete a data type definition.
         /// </summary>
         /// <remarks>
-        /// Delete an existing data type definition.    Data types cannot be deleted in either the \&quot;default\&quot; or \&quot;system\&quot; scopes, scopes beginning with \&quot;LUSID-\&quot;,  or data types that are in use on a property definition.
+        /// Delete an existing data type definition.  Data types cannot be deleted in either the \&quot;default\&quot; or \&quot;system\&quot; scopes, scopes beginning with \&quot;LUSID-\&quot;, or data types that are in use on a property definition.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the data type</param>
@@ -355,7 +355,7 @@ namespace Lusid.Sdk.Api
         /// DeleteDataType: Delete a data type definition.
         /// </summary>
         /// <remarks>
-        /// Delete an existing data type definition.    Data types cannot be deleted in either the \&quot;default\&quot; or \&quot;system\&quot; scopes, scopes beginning with \&quot;LUSID-\&quot;,  or data types that are in use on a property definition.
+        /// Delete an existing data type definition.  Data types cannot be deleted in either the \&quot;default\&quot; or \&quot;system\&quot; scopes, scopes beginning with \&quot;LUSID-\&quot;, or data types that are in use on a property definition.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the data type</param>
@@ -374,7 +374,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the data type</param>
         /// <param name="code">The code of the data type</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the data type definition. Defaults to              return the latest version of the instrument definition if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the data type definition. Defaults to             return the latest version of the instrument definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -390,7 +390,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the data type</param>
         /// <param name="code">The code of the data type</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the data type definition. Defaults to              return the latest version of the instrument definition if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the data type definition. Defaults to             return the latest version of the instrument definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -406,7 +406,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the data type</param>
         /// <param name="code">The code of the data type</param>
         /// <param name="units">One or more unit identifiers for which the definition is being requested (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set.               For example, to filter on the Schema, use \&quot;schema eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the Schema, use \&quot;schema eq &#39;string&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="asAt">Optional. The as at of the requested data type (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -424,7 +424,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the data type</param>
         /// <param name="code">The code of the data type</param>
         /// <param name="units">One or more unit identifiers for which the definition is being requested (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set.               For example, to filter on the Schema, use \&quot;schema eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the Schema, use \&quot;schema eq &#39;string&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="asAt">Optional. The as at of the requested data type (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -438,10 +438,10 @@ namespace Lusid.Sdk.Api
         /// List all data type summaries
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to list the data type summaries. Defaults to returning the latest version               of each summary if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing data type summaries. This  value is returned from the previous call. If a pagination token is provided, the filter, sortBy  and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the data type summaries. Defaults to returning the latest version              of each summary if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing data type summaries. This value is returned from the previous call. If a pagination token is provided, the filter, sortBy and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set.                For example, to filter on the Scope, use \&quot;id.scope eq &#39;myscope&#39;\&quot;, to filter on Schema, use \&quot;schema eq &#39;string&#39;\&quot;,               to filter on AcceptableValues use \&quot;acceptableValues any (~ eq &#39;value&#39;)\&quot;               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set.               For example, to filter on the Scope, use \&quot;id.scope eq &#39;myscope&#39;\&quot;, to filter on Schema, use \&quot;schema eq &#39;string&#39;\&quot;,              to filter on AcceptableValues use \&quot;acceptableValues any (~ eq &#39;value&#39;)\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -456,10 +456,10 @@ namespace Lusid.Sdk.Api
         /// List all data type summaries
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to list the data type summaries. Defaults to returning the latest version               of each summary if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing data type summaries. This  value is returned from the previous call. If a pagination token is provided, the filter, sortBy  and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the data type summaries. Defaults to returning the latest version              of each summary if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing data type summaries. This value is returned from the previous call. If a pagination token is provided, the filter, sortBy and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set.                For example, to filter on the Scope, use \&quot;id.scope eq &#39;myscope&#39;\&quot;, to filter on Schema, use \&quot;schema eq &#39;string&#39;\&quot;,               to filter on AcceptableValues use \&quot;acceptableValues any (~ eq &#39;value&#39;)\&quot;               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set.               For example, to filter on the Scope, use \&quot;id.scope eq &#39;myscope&#39;\&quot;, to filter on Schema, use \&quot;schema eq &#39;string&#39;\&quot;,              to filter on AcceptableValues use \&quot;acceptableValues any (~ eq &#39;value&#39;)\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -478,7 +478,7 @@ namespace Lusid.Sdk.Api
         /// <param name="includeSystem">Whether to additionally include those data types in the \&quot;system\&quot; scope (optional)</param>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set.             For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -497,7 +497,7 @@ namespace Lusid.Sdk.Api
         /// <param name="includeSystem">Whether to additionally include those data types in the \&quot;system\&quot; scope (optional)</param>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set.             For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -507,7 +507,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] UpdateDataType: Update data type definition
         /// </summary>
         /// <remarks>
-        /// Update the definition of the specified existing data type    Not all elements within a data type definition are modifiable due to the potential implications for data  already stored against the types
+        /// Update the definition of the specified existing data type  Not all elements within a data type definition are modifiable due to the potential implications for data already stored against the types
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the data type</param>
@@ -523,7 +523,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] UpdateDataType: Update data type definition
         /// </summary>
         /// <remarks>
-        /// Update the definition of the specified existing data type    Not all elements within a data type definition are modifiable due to the potential implications for data  already stored against the types
+        /// Update the definition of the specified existing data type  Not all elements within a data type definition are modifiable due to the potential implications for data already stored against the types
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the data type</param>
@@ -720,7 +720,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] CreateDataType: Create data type definition Create a new data type definition    Data types cannot be created in either the \&quot;default\&quot; or \&quot;system\&quot; scopes.
+        /// [EARLY ACCESS] CreateDataType: Create data type definition Create a new data type definition  Data types cannot be created in either the \&quot;default\&quot; or \&quot;system\&quot; scopes.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createDataTypeRequest">The definition of the new data type (optional)</param>
@@ -734,7 +734,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] CreateDataType: Create data type definition Create a new data type definition    Data types cannot be created in either the \&quot;default\&quot; or \&quot;system\&quot; scopes.
+        /// [EARLY ACCESS] CreateDataType: Create data type definition Create a new data type definition  Data types cannot be created in either the \&quot;default\&quot; or \&quot;system\&quot; scopes.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createDataTypeRequest">The definition of the new data type (optional)</param>
@@ -818,7 +818,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] CreateDataType: Create data type definition Create a new data type definition    Data types cannot be created in either the \&quot;default\&quot; or \&quot;system\&quot; scopes.
+        /// [EARLY ACCESS] CreateDataType: Create data type definition Create a new data type definition  Data types cannot be created in either the \&quot;default\&quot; or \&quot;system\&quot; scopes.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createDataTypeRequest">The definition of the new data type (optional)</param>
@@ -833,7 +833,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] CreateDataType: Create data type definition Create a new data type definition    Data types cannot be created in either the \&quot;default\&quot; or \&quot;system\&quot; scopes.
+        /// [EARLY ACCESS] CreateDataType: Create data type definition Create a new data type definition  Data types cannot be created in either the \&quot;default\&quot; or \&quot;system\&quot; scopes.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createDataTypeRequest">The definition of the new data type (optional)</param>
@@ -920,7 +920,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// DeleteDataType: Delete a data type definition. Delete an existing data type definition.    Data types cannot be deleted in either the \&quot;default\&quot; or \&quot;system\&quot; scopes, scopes beginning with \&quot;LUSID-\&quot;,  or data types that are in use on a property definition.
+        /// DeleteDataType: Delete a data type definition. Delete an existing data type definition.  Data types cannot be deleted in either the \&quot;default\&quot; or \&quot;system\&quot; scopes, scopes beginning with \&quot;LUSID-\&quot;, or data types that are in use on a property definition.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the data type</param>
@@ -935,7 +935,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// DeleteDataType: Delete a data type definition. Delete an existing data type definition.    Data types cannot be deleted in either the \&quot;default\&quot; or \&quot;system\&quot; scopes, scopes beginning with \&quot;LUSID-\&quot;,  or data types that are in use on a property definition.
+        /// DeleteDataType: Delete a data type definition. Delete an existing data type definition.  Data types cannot be deleted in either the \&quot;default\&quot; or \&quot;system\&quot; scopes, scopes beginning with \&quot;LUSID-\&quot;, or data types that are in use on a property definition.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the data type</param>
@@ -1029,7 +1029,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// DeleteDataType: Delete a data type definition. Delete an existing data type definition.    Data types cannot be deleted in either the \&quot;default\&quot; or \&quot;system\&quot; scopes, scopes beginning with \&quot;LUSID-\&quot;,  or data types that are in use on a property definition.
+        /// DeleteDataType: Delete a data type definition. Delete an existing data type definition.  Data types cannot be deleted in either the \&quot;default\&quot; or \&quot;system\&quot; scopes, scopes beginning with \&quot;LUSID-\&quot;, or data types that are in use on a property definition.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the data type</param>
@@ -1045,7 +1045,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// DeleteDataType: Delete a data type definition. Delete an existing data type definition.    Data types cannot be deleted in either the \&quot;default\&quot; or \&quot;system\&quot; scopes, scopes beginning with \&quot;LUSID-\&quot;,  or data types that are in use on a property definition.
+        /// DeleteDataType: Delete a data type definition. Delete an existing data type definition.  Data types cannot be deleted in either the \&quot;default\&quot; or \&quot;system\&quot; scopes, scopes beginning with \&quot;LUSID-\&quot;, or data types that are in use on a property definition.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the data type</param>
@@ -1147,7 +1147,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the data type</param>
         /// <param name="code">The code of the data type</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the data type definition. Defaults to              return the latest version of the instrument definition if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the data type definition. Defaults to             return the latest version of the instrument definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>DataType</returns>
@@ -1163,7 +1163,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the data type</param>
         /// <param name="code">The code of the data type</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the data type definition. Defaults to              return the latest version of the instrument definition if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the data type definition. Defaults to             return the latest version of the instrument definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DataType</returns>
@@ -1262,7 +1262,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the data type</param>
         /// <param name="code">The code of the data type</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the data type definition. Defaults to              return the latest version of the instrument definition if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the data type definition. Defaults to             return the latest version of the instrument definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1279,7 +1279,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the data type</param>
         /// <param name="code">The code of the data type</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the data type definition. Defaults to              return the latest version of the instrument definition if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the data type definition. Defaults to             return the latest version of the instrument definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1382,7 +1382,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the data type</param>
         /// <param name="code">The code of the data type</param>
         /// <param name="units">One or more unit identifiers for which the definition is being requested (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set.               For example, to filter on the Schema, use \&quot;schema eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the Schema, use \&quot;schema eq &#39;string&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="asAt">Optional. The as at of the requested data type (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1400,7 +1400,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the data type</param>
         /// <param name="code">The code of the data type</param>
         /// <param name="units">One or more unit identifiers for which the definition is being requested (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set.               For example, to filter on the Schema, use \&quot;schema eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the Schema, use \&quot;schema eq &#39;string&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="asAt">Optional. The as at of the requested data type (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1509,7 +1509,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the data type</param>
         /// <param name="code">The code of the data type</param>
         /// <param name="units">One or more unit identifiers for which the definition is being requested (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set.               For example, to filter on the Schema, use \&quot;schema eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the Schema, use \&quot;schema eq &#39;string&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="asAt">Optional. The as at of the requested data type (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1528,7 +1528,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the data type</param>
         /// <param name="code">The code of the data type</param>
         /// <param name="units">One or more unit identifiers for which the definition is being requested (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set.               For example, to filter on the Schema, use \&quot;schema eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the Schema, use \&quot;schema eq &#39;string&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="asAt">Optional. The as at of the requested data type (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1637,10 +1637,10 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] ListDataTypeSummaries: List all data type summaries, without the reference data List all data type summaries
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to list the data type summaries. Defaults to returning the latest version               of each summary if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing data type summaries. This  value is returned from the previous call. If a pagination token is provided, the filter, sortBy  and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the data type summaries. Defaults to returning the latest version              of each summary if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing data type summaries. This value is returned from the previous call. If a pagination token is provided, the filter, sortBy and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set.                For example, to filter on the Scope, use \&quot;id.scope eq &#39;myscope&#39;\&quot;, to filter on Schema, use \&quot;schema eq &#39;string&#39;\&quot;,               to filter on AcceptableValues use \&quot;acceptableValues any (~ eq &#39;value&#39;)\&quot;               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set.               For example, to filter on the Scope, use \&quot;id.scope eq &#39;myscope&#39;\&quot;, to filter on Schema, use \&quot;schema eq &#39;string&#39;\&quot;,              to filter on AcceptableValues use \&quot;acceptableValues any (~ eq &#39;value&#39;)\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1655,10 +1655,10 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] ListDataTypeSummaries: List all data type summaries, without the reference data List all data type summaries
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to list the data type summaries. Defaults to returning the latest version               of each summary if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing data type summaries. This  value is returned from the previous call. If a pagination token is provided, the filter, sortBy  and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the data type summaries. Defaults to returning the latest version              of each summary if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing data type summaries. This value is returned from the previous call. If a pagination token is provided, the filter, sortBy and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set.                For example, to filter on the Scope, use \&quot;id.scope eq &#39;myscope&#39;\&quot;, to filter on Schema, use \&quot;schema eq &#39;string&#39;\&quot;,               to filter on AcceptableValues use \&quot;acceptableValues any (~ eq &#39;value&#39;)\&quot;               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set.               For example, to filter on the Scope, use \&quot;id.scope eq &#39;myscope&#39;\&quot;, to filter on Schema, use \&quot;schema eq &#39;string&#39;\&quot;,              to filter on AcceptableValues use \&quot;acceptableValues any (~ eq &#39;value&#39;)\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1758,10 +1758,10 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] ListDataTypeSummaries: List all data type summaries, without the reference data List all data type summaries
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to list the data type summaries. Defaults to returning the latest version               of each summary if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing data type summaries. This  value is returned from the previous call. If a pagination token is provided, the filter, sortBy  and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the data type summaries. Defaults to returning the latest version              of each summary if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing data type summaries. This value is returned from the previous call. If a pagination token is provided, the filter, sortBy and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set.                For example, to filter on the Scope, use \&quot;id.scope eq &#39;myscope&#39;\&quot;, to filter on Schema, use \&quot;schema eq &#39;string&#39;\&quot;,               to filter on AcceptableValues use \&quot;acceptableValues any (~ eq &#39;value&#39;)\&quot;               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set.               For example, to filter on the Scope, use \&quot;id.scope eq &#39;myscope&#39;\&quot;, to filter on Schema, use \&quot;schema eq &#39;string&#39;\&quot;,              to filter on AcceptableValues use \&quot;acceptableValues any (~ eq &#39;value&#39;)\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1777,10 +1777,10 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] ListDataTypeSummaries: List all data type summaries, without the reference data List all data type summaries
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to list the data type summaries. Defaults to returning the latest version               of each summary if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing data type summaries. This  value is returned from the previous call. If a pagination token is provided, the filter, sortBy  and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the data type summaries. Defaults to returning the latest version              of each summary if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing data type summaries. This value is returned from the previous call. If a pagination token is provided, the filter, sortBy and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set.                For example, to filter on the Scope, use \&quot;id.scope eq &#39;myscope&#39;\&quot;, to filter on Schema, use \&quot;schema eq &#39;string&#39;\&quot;,               to filter on AcceptableValues use \&quot;acceptableValues any (~ eq &#39;value&#39;)\&quot;               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set.               For example, to filter on the Scope, use \&quot;id.scope eq &#39;myscope&#39;\&quot;, to filter on Schema, use \&quot;schema eq &#39;string&#39;\&quot;,              to filter on AcceptableValues use \&quot;acceptableValues any (~ eq &#39;value&#39;)\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1888,7 +1888,7 @@ namespace Lusid.Sdk.Api
         /// <param name="includeSystem">Whether to additionally include those data types in the \&quot;system\&quot; scope (optional)</param>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set.             For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfDataType</returns>
@@ -1907,7 +1907,7 @@ namespace Lusid.Sdk.Api
         /// <param name="includeSystem">Whether to additionally include those data types in the \&quot;system\&quot; scope (optional)</param>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set.             For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfDataType</returns>
@@ -2018,7 +2018,7 @@ namespace Lusid.Sdk.Api
         /// <param name="includeSystem">Whether to additionally include those data types in the \&quot;system\&quot; scope (optional)</param>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set.             For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2038,7 +2038,7 @@ namespace Lusid.Sdk.Api
         /// <param name="includeSystem">Whether to additionally include those data types in the \&quot;system\&quot; scope (optional)</param>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set.             For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2144,7 +2144,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpdateDataType: Update data type definition Update the definition of the specified existing data type    Not all elements within a data type definition are modifiable due to the potential implications for data  already stored against the types
+        /// [EARLY ACCESS] UpdateDataType: Update data type definition Update the definition of the specified existing data type  Not all elements within a data type definition are modifiable due to the potential implications for data already stored against the types
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the data type</param>
@@ -2160,7 +2160,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpdateDataType: Update data type definition Update the definition of the specified existing data type    Not all elements within a data type definition are modifiable due to the potential implications for data  already stored against the types
+        /// [EARLY ACCESS] UpdateDataType: Update data type definition Update the definition of the specified existing data type  Not all elements within a data type definition are modifiable due to the potential implications for data already stored against the types
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the data type</param>
@@ -2266,7 +2266,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpdateDataType: Update data type definition Update the definition of the specified existing data type    Not all elements within a data type definition are modifiable due to the potential implications for data  already stored against the types
+        /// [EARLY ACCESS] UpdateDataType: Update data type definition Update the definition of the specified existing data type  Not all elements within a data type definition are modifiable due to the potential implications for data already stored against the types
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the data type</param>
@@ -2283,7 +2283,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpdateDataType: Update data type definition Update the definition of the specified existing data type    Not all elements within a data type definition are modifiable due to the potential implications for data  already stored against the types
+        /// [EARLY ACCESS] UpdateDataType: Update data type definition Update the definition of the specified existing data type  Not all elements within a data type definition are modifiable due to the potential implications for data already stored against the types
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the data type</param>

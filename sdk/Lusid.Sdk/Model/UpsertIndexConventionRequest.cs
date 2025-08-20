@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Index convention that is to be stored in the convention data store.  Only one of these must be present.
+    /// Index convention that is to be stored in the convention data store. Only one of these must be present.
     /// </summary>
     [DataContract(Name = "UpsertIndexConventionRequest")]
     public partial class UpsertIndexConventionRequest : IEquatable<UpsertIndexConventionRequest>, IValidatableObject

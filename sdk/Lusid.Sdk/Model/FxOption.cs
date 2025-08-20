@@ -24,7 +24,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// LUSID representation of an FX Option.  Including Vanilla, American, European, and Digital (Binary) options.
+    /// LUSID representation of an FX Option. Including Vanilla, American, European, and Digital (Binary) options.
     /// </summary>
     [DataContract(Name = "FxOption")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentType")]
@@ -40,20 +40,20 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="startDate">The start date of the instrument. This is normally synonymous with the trade-date. (required).</param>
         /// <param name="domCcy">The domestic currency of the instrument. (required).</param>
-        /// <param name="domAmount">The Amount of DomCcy that will be exchanged if the option is exercised.  This amount should be a positive number, with the Call/Put flag used to indicate direction.  The corresponding amount of FgnCcy that will be exchanged is this amount times the strike.  Note there is no rounding performed on this computed value.  This is an optional field, if not set the option ContractSize will default to 1..</param>
+        /// <param name="domAmount">The Amount of DomCcy that will be exchanged if the option is exercised. This amount should be a positive number, with the Call/Put flag used to indicate direction. The corresponding amount of FgnCcy that will be exchanged is this amount times the strike. Note there is no rounding performed on this computed value. This is an optional field, if not set the option ContractSize will default to 1..</param>
         /// <param name="fgnCcy">The foreign currency of the FX. (required).</param>
-        /// <param name="fgnAmount">For a vanilla FxOption contract, FgnAmount cannot be set.  In case of a digital FxOption (IsPayoffDigital&#x3D;&#x3D;true)  a payoff (if the option is in the money) can be either  in domestic or in foreign currency - for the latter  FgnAmount must be set.  Note: It is invalid to have FgnAmount and DomAmount  at the same time..</param>
+        /// <param name="fgnAmount">For a vanilla FxOption contract, FgnAmount cannot be set. In case of a digital FxOption (IsPayoffDigital&#x3D;&#x3D;true) a payoff (if the option is in the money) can be either in domestic or in foreign currency - for the latter FgnAmount must be set. Note: It is invalid to have FgnAmount and DomAmount at the same time..</param>
         /// <param name="strike">The strike of the option..</param>
-        /// <param name="barriers">For a barrier option the list should not be empty. Up to two barriers are supported.  An option cannot be at the same time barrier- and touch-option.  One (or both) of the lists must be empty..</param>
-        /// <param name="exerciseType">Type of optionality that is present; European, American.    Supported string (enumeration) values are: [European, American]..</param>
+        /// <param name="barriers">For a barrier option the list should not be empty. Up to two barriers are supported. An option cannot be at the same time barrier- and touch-option. One (or both) of the lists must be empty..</param>
+        /// <param name="exerciseType">Type of optionality that is present; European, American.  Supported string (enumeration) values are: [European, American]..</param>
         /// <param name="isCallNotPut">True if the option is a call, false if the option is a put. (required).</param>
         /// <param name="isDeliveryNotCash">True if the option delivers the FX underlying, False if the option is settled in cash. (required).</param>
-        /// <param name="isPayoffDigital">By default IsPayoffDigital is false. If IsPayoffDigital&#x3D;true,  the option is &#39;digital&#39;, and the option payoff is 0 or 1 unit of currency,  instead of a vanilla CallPayoff&#x3D;max(spot-strike,0) or PutPayoff&#x3D;max(strike-spot,0)..</param>
+        /// <param name="isPayoffDigital">By default IsPayoffDigital is false. If IsPayoffDigital&#x3D;true, the option is &#39;digital&#39;, and the option payoff is 0 or 1 unit of currency, instead of a vanilla CallPayoff&#x3D;max(spot-strike,0) or PutPayoff&#x3D;max(strike-spot,0)..</param>
         /// <param name="optionMaturityDate">The maturity date of the option. (required).</param>
         /// <param name="optionSettlementDate">The settlement date of the option. (required).</param>
-        /// <param name="payoutStyle">PayoutStyle for touch options.                For options without touch optionality, payoutStyle should not be set.  For options with touch optionality (where the touches data has been set), payoutStyle must be defined and cannot be None.    Supported string (enumeration) values are: [Deferred, Immediate]..</param>
+        /// <param name="payoutStyle">PayoutStyle for touch options.              For options without touch optionality, payoutStyle should not be set. For options with touch optionality (where the touches data has been set), payoutStyle must be defined and cannot be None.  Supported string (enumeration) values are: [Deferred, Immediate]..</param>
         /// <param name="premium">premium.</param>
-        /// <param name="touches">For a touch option the list should not be empty. Up to two touches are supported.  An option cannot be at the same time barrier- and touch-option.  One (or both) of the lists must be empty..</param>
+        /// <param name="touches">For a touch option the list should not be empty. Up to two touches are supported. An option cannot be at the same time barrier- and touch-option. One (or both) of the lists must be empty..</param>
         /// <param name="timeZoneConventions">timeZoneConventions.</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit, FlexibleRepo (required) (default to &quot;FxOption&quot;).</param>
         public FxOption(DateTimeOffset startDate = default(DateTimeOffset), string domCcy = default(string), decimal? domAmount = default(decimal?), string fgnCcy = default(string), decimal? fgnAmount = default(decimal?), decimal? strike = default(decimal?), List<Barrier> barriers = default(List<Barrier>), string exerciseType = default(string), bool isCallNotPut = default(bool), bool isDeliveryNotCash = default(bool), bool isPayoffDigital = default(bool), DateTimeOffset optionMaturityDate = default(DateTimeOffset), DateTimeOffset optionSettlementDate = default(DateTimeOffset), string payoutStyle = default(string), Premium premium = default(Premium), List<Touch> touches = default(List<Touch>), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
@@ -102,9 +102,9 @@ namespace Lusid.Sdk.Model
         public string DomCcy { get; set; }
 
         /// <summary>
-        /// The Amount of DomCcy that will be exchanged if the option is exercised.  This amount should be a positive number, with the Call/Put flag used to indicate direction.  The corresponding amount of FgnCcy that will be exchanged is this amount times the strike.  Note there is no rounding performed on this computed value.  This is an optional field, if not set the option ContractSize will default to 1.
+        /// The Amount of DomCcy that will be exchanged if the option is exercised. This amount should be a positive number, with the Call/Put flag used to indicate direction. The corresponding amount of FgnCcy that will be exchanged is this amount times the strike. Note there is no rounding performed on this computed value. This is an optional field, if not set the option ContractSize will default to 1.
         /// </summary>
-        /// <value>The Amount of DomCcy that will be exchanged if the option is exercised.  This amount should be a positive number, with the Call/Put flag used to indicate direction.  The corresponding amount of FgnCcy that will be exchanged is this amount times the strike.  Note there is no rounding performed on this computed value.  This is an optional field, if not set the option ContractSize will default to 1.</value>
+        /// <value>The Amount of DomCcy that will be exchanged if the option is exercised. This amount should be a positive number, with the Call/Put flag used to indicate direction. The corresponding amount of FgnCcy that will be exchanged is this amount times the strike. Note there is no rounding performed on this computed value. This is an optional field, if not set the option ContractSize will default to 1.</value>
         [DataMember(Name = "domAmount", EmitDefaultValue = true)]
         public decimal? DomAmount { get; set; }
 
@@ -116,9 +116,9 @@ namespace Lusid.Sdk.Model
         public string FgnCcy { get; set; }
 
         /// <summary>
-        /// For a vanilla FxOption contract, FgnAmount cannot be set.  In case of a digital FxOption (IsPayoffDigital&#x3D;&#x3D;true)  a payoff (if the option is in the money) can be either  in domestic or in foreign currency - for the latter  FgnAmount must be set.  Note: It is invalid to have FgnAmount and DomAmount  at the same time.
+        /// For a vanilla FxOption contract, FgnAmount cannot be set. In case of a digital FxOption (IsPayoffDigital&#x3D;&#x3D;true) a payoff (if the option is in the money) can be either in domestic or in foreign currency - for the latter FgnAmount must be set. Note: It is invalid to have FgnAmount and DomAmount at the same time.
         /// </summary>
-        /// <value>For a vanilla FxOption contract, FgnAmount cannot be set.  In case of a digital FxOption (IsPayoffDigital&#x3D;&#x3D;true)  a payoff (if the option is in the money) can be either  in domestic or in foreign currency - for the latter  FgnAmount must be set.  Note: It is invalid to have FgnAmount and DomAmount  at the same time.</value>
+        /// <value>For a vanilla FxOption contract, FgnAmount cannot be set. In case of a digital FxOption (IsPayoffDigital&#x3D;&#x3D;true) a payoff (if the option is in the money) can be either in domestic or in foreign currency - for the latter FgnAmount must be set. Note: It is invalid to have FgnAmount and DomAmount at the same time.</value>
         [DataMember(Name = "fgnAmount", EmitDefaultValue = true)]
         public decimal? FgnAmount { get; set; }
 
@@ -130,16 +130,16 @@ namespace Lusid.Sdk.Model
         public decimal? Strike { get; set; }
 
         /// <summary>
-        /// For a barrier option the list should not be empty. Up to two barriers are supported.  An option cannot be at the same time barrier- and touch-option.  One (or both) of the lists must be empty.
+        /// For a barrier option the list should not be empty. Up to two barriers are supported. An option cannot be at the same time barrier- and touch-option. One (or both) of the lists must be empty.
         /// </summary>
-        /// <value>For a barrier option the list should not be empty. Up to two barriers are supported.  An option cannot be at the same time barrier- and touch-option.  One (or both) of the lists must be empty.</value>
+        /// <value>For a barrier option the list should not be empty. Up to two barriers are supported. An option cannot be at the same time barrier- and touch-option. One (or both) of the lists must be empty.</value>
         [DataMember(Name = "barriers", EmitDefaultValue = true)]
         public List<Barrier> Barriers { get; set; }
 
         /// <summary>
-        /// Type of optionality that is present; European, American.    Supported string (enumeration) values are: [European, American].
+        /// Type of optionality that is present; European, American.  Supported string (enumeration) values are: [European, American].
         /// </summary>
-        /// <value>Type of optionality that is present; European, American.    Supported string (enumeration) values are: [European, American].</value>
+        /// <value>Type of optionality that is present; European, American.  Supported string (enumeration) values are: [European, American].</value>
         [DataMember(Name = "exerciseType", EmitDefaultValue = true)]
         public string ExerciseType { get; set; }
 
@@ -158,9 +158,9 @@ namespace Lusid.Sdk.Model
         public bool IsDeliveryNotCash { get; set; }
 
         /// <summary>
-        /// By default IsPayoffDigital is false. If IsPayoffDigital&#x3D;true,  the option is &#39;digital&#39;, and the option payoff is 0 or 1 unit of currency,  instead of a vanilla CallPayoff&#x3D;max(spot-strike,0) or PutPayoff&#x3D;max(strike-spot,0).
+        /// By default IsPayoffDigital is false. If IsPayoffDigital&#x3D;true, the option is &#39;digital&#39;, and the option payoff is 0 or 1 unit of currency, instead of a vanilla CallPayoff&#x3D;max(spot-strike,0) or PutPayoff&#x3D;max(strike-spot,0).
         /// </summary>
-        /// <value>By default IsPayoffDigital is false. If IsPayoffDigital&#x3D;true,  the option is &#39;digital&#39;, and the option payoff is 0 or 1 unit of currency,  instead of a vanilla CallPayoff&#x3D;max(spot-strike,0) or PutPayoff&#x3D;max(strike-spot,0).</value>
+        /// <value>By default IsPayoffDigital is false. If IsPayoffDigital&#x3D;true, the option is &#39;digital&#39;, and the option payoff is 0 or 1 unit of currency, instead of a vanilla CallPayoff&#x3D;max(spot-strike,0) or PutPayoff&#x3D;max(strike-spot,0).</value>
         [DataMember(Name = "isPayoffDigital", EmitDefaultValue = true)]
         public bool IsPayoffDigital { get; set; }
 
@@ -179,9 +179,9 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset OptionSettlementDate { get; set; }
 
         /// <summary>
-        /// PayoutStyle for touch options.                For options without touch optionality, payoutStyle should not be set.  For options with touch optionality (where the touches data has been set), payoutStyle must be defined and cannot be None.    Supported string (enumeration) values are: [Deferred, Immediate].
+        /// PayoutStyle for touch options.              For options without touch optionality, payoutStyle should not be set. For options with touch optionality (where the touches data has been set), payoutStyle must be defined and cannot be None.  Supported string (enumeration) values are: [Deferred, Immediate].
         /// </summary>
-        /// <value>PayoutStyle for touch options.                For options without touch optionality, payoutStyle should not be set.  For options with touch optionality (where the touches data has been set), payoutStyle must be defined and cannot be None.    Supported string (enumeration) values are: [Deferred, Immediate].</value>
+        /// <value>PayoutStyle for touch options.              For options without touch optionality, payoutStyle should not be set. For options with touch optionality (where the touches data has been set), payoutStyle must be defined and cannot be None.  Supported string (enumeration) values are: [Deferred, Immediate].</value>
         [DataMember(Name = "payoutStyle", EmitDefaultValue = true)]
         public string PayoutStyle { get; set; }
 
@@ -192,9 +192,9 @@ namespace Lusid.Sdk.Model
         public Premium Premium { get; set; }
 
         /// <summary>
-        /// For a touch option the list should not be empty. Up to two touches are supported.  An option cannot be at the same time barrier- and touch-option.  One (or both) of the lists must be empty.
+        /// For a touch option the list should not be empty. Up to two touches are supported. An option cannot be at the same time barrier- and touch-option. One (or both) of the lists must be empty.
         /// </summary>
-        /// <value>For a touch option the list should not be empty. Up to two touches are supported.  An option cannot be at the same time barrier- and touch-option.  One (or both) of the lists must be empty.</value>
+        /// <value>For a touch option the list should not be empty. Up to two touches are supported. An option cannot be at the same time barrier- and touch-option. One (or both) of the lists must be empty.</value>
         [DataMember(Name = "touches", EmitDefaultValue = true)]
         public List<Touch> Touches { get; set; }
 

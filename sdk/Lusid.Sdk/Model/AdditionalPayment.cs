@@ -39,7 +39,7 @@ namespace Lusid.Sdk.Model
         /// <param name="amount">The payment amount. (required).</param>
         /// <param name="currency">The payment currency. (required).</param>
         /// <param name="payDate">Date when the payment is made. (required).</param>
-        /// <param name="payReceive">Is it pay or receive.    Supported string (enumeration) values are: [Pay, Receive]. (required).</param>
+        /// <param name="payReceive">Is it pay or receive.  Supported string (enumeration) values are: [Pay, Receive]. (required).</param>
         public AdditionalPayment(decimal amount = default(decimal), string currency = default(string), DateTimeOffset payDate = default(DateTimeOffset), string payReceive = default(string))
         {
             this.Amount = amount;
@@ -80,9 +80,9 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset PayDate { get; set; }
 
         /// <summary>
-        /// Is it pay or receive.    Supported string (enumeration) values are: [Pay, Receive].
+        /// Is it pay or receive.  Supported string (enumeration) values are: [Pay, Receive].
         /// </summary>
-        /// <value>Is it pay or receive.    Supported string (enumeration) values are: [Pay, Receive].</value>
+        /// <value>Is it pay or receive.  Supported string (enumeration) values are: [Pay, Receive].</value>
         [DataMember(Name = "payReceive", IsRequired = true, EmitDefaultValue = true)]
         public string PayReceive { get; set; }
 

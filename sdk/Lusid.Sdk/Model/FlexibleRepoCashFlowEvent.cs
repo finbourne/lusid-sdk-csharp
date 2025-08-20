@@ -24,7 +24,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Definition of FlexibleRepoCashFlowEvent which represents a cash transfer as part of a repo contract modelled  as a FlexibleRepo, either as part of the purchase leg or repurchase leg, or any early closure.
+    /// Definition of FlexibleRepoCashFlowEvent which represents a cash transfer as part of a repo contract modelled as a FlexibleRepo, either as part of the purchase leg or repurchase leg, or any early closure.
     /// </summary>
     [DataContract(Name = "FlexibleRepoCashFlowEvent")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentEventType")]
@@ -41,7 +41,7 @@ namespace Lusid.Sdk.Model
         /// <param name="settlementDate">Date that the cash payment settles. This is a required field..</param>
         /// <param name="entitlementDate">Date the recipient of the cash payment is entitled to receive the cash. This is a required field..</param>
         /// <param name="currency">Currency of the payment. This is a required field. (required).</param>
-        /// <param name="cashFlowPerUnit">Amount of cash to be paid per unit of the instrument.  This amount is signed to indicate direction of the payment, i.e. as part of the purchase leg vs the repurchase leg.  This field is optional. If not specified, the system will not generate a virtual transaction for this event..</param>
+        /// <param name="cashFlowPerUnit">Amount of cash to be paid per unit of the instrument. This amount is signed to indicate direction of the payment, i.e. as part of the purchase leg vs the repurchase leg. This field is optional. If not specified, the system will not generate a virtual transaction for this event..</param>
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent (required) (default to &quot;FlexibleRepoCashFlowEvent&quot;).</param>
         public FlexibleRepoCashFlowEvent(DateTimeOffset settlementDate = default(DateTimeOffset), DateTimeOffset entitlementDate = default(DateTimeOffset), string currency = default(string), decimal? cashFlowPerUnit = default(decimal?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
@@ -78,9 +78,9 @@ namespace Lusid.Sdk.Model
         public string Currency { get; set; }
 
         /// <summary>
-        /// Amount of cash to be paid per unit of the instrument.  This amount is signed to indicate direction of the payment, i.e. as part of the purchase leg vs the repurchase leg.  This field is optional. If not specified, the system will not generate a virtual transaction for this event.
+        /// Amount of cash to be paid per unit of the instrument. This amount is signed to indicate direction of the payment, i.e. as part of the purchase leg vs the repurchase leg. This field is optional. If not specified, the system will not generate a virtual transaction for this event.
         /// </summary>
-        /// <value>Amount of cash to be paid per unit of the instrument.  This amount is signed to indicate direction of the payment, i.e. as part of the purchase leg vs the repurchase leg.  This field is optional. If not specified, the system will not generate a virtual transaction for this event.</value>
+        /// <value>Amount of cash to be paid per unit of the instrument. This amount is signed to indicate direction of the payment, i.e. as part of the purchase leg vs the repurchase leg. This field is optional. If not specified, the system will not generate a virtual transaction for this event.</value>
         [DataMember(Name = "cashFlowPerUnit", EmitDefaultValue = true)]
         public decimal? CashFlowPerUnit { get; set; }
 

@@ -39,8 +39,8 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The as at time to use. (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 100 is used. (optional, default to 100)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default of 100 is used. (optional, default to 100)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are return from list calls, and must be supplied exactly as returned. Additionally, when specifying this (optional)</param>
         /// <param name="queryApplicableInstrumentEventsRequest">The filter parameters used to retrieve applicable instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -55,8 +55,8 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The as at time to use. (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 100 is used. (optional, default to 100)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default of 100 is used. (optional, default to 100)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are return from list calls, and must be supplied exactly as returned. Additionally, when specifying this (optional)</param>
         /// <param name="queryApplicableInstrumentEventsRequest">The filter parameters used to retrieve applicable instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -94,8 +94,8 @@ namespace Lusid.Sdk.Api
         /// Returns a list of cashflows based on the holdings of the portfolios and date range specified in the query.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. (optional, default to 1000)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, queryBody, and limit must not  be modified. (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default of 1000 is used. (optional, default to 1000)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are return from list calls, and must be supplied exactly as returned. Additionally, when specifying this value, queryBody, and limit must not be modified. (optional)</param>
         /// <param name="queryCashFlowsRequest">The filter parameters used to retrieve instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -109,8 +109,8 @@ namespace Lusid.Sdk.Api
         /// Returns a list of cashflows based on the holdings of the portfolios and date range specified in the query.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. (optional, default to 1000)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, queryBody, and limit must not  be modified. (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default of 1000 is used. (optional, default to 1000)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are return from list calls, and must be supplied exactly as returned. Additionally, when specifying this value, queryBody, and limit must not be modified. (optional)</param>
         /// <param name="queryCashFlowsRequest">The filter parameters used to retrieve instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -123,8 +123,8 @@ namespace Lusid.Sdk.Api
         /// Returns a list of instrument events based on the holdings of the portfolios and date range specified in the query.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. (optional, default to 1000)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, queryBody, and limit must not  be modified. (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default of 1000 is used. (optional, default to 1000)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are return from list calls, and must be supplied exactly as returned. Additionally, when specifying this value, queryBody, and limit must not be modified. (optional)</param>
         /// <param name="queryInstrumentEventsRequest">The filter parameters used to retrieve instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -138,8 +138,8 @@ namespace Lusid.Sdk.Api
         /// Returns a list of instrument events based on the holdings of the portfolios and date range specified in the query.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. (optional, default to 1000)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, queryBody, and limit must not  be modified. (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default of 1000 is used. (optional, default to 1000)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are return from list calls, and must be supplied exactly as returned. Additionally, when specifying this value, queryBody, and limit must not be modified. (optional)</param>
         /// <param name="queryInstrumentEventsRequest">The filter parameters used to retrieve instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -149,11 +149,11 @@ namespace Lusid.Sdk.Api
         /// QueryTradeTickets: Returns a list of trade tickets based on the holdings of the portfolios and date range specified in the query.
         /// </summary>
         /// <remarks>
-        /// Returns a list of trade tickets based on the holdings of the portfolios and date range specified in the query.    These trade tickets are derived from events that involve transition of instrument states, such as transitions  on exercise or default of an instrument. The trade tickets are to allow the new position to be created given the  existing portfolio configuration.
+        /// Returns a list of trade tickets based on the holdings of the portfolios and date range specified in the query.  These trade tickets are derived from events that involve transition of instrument states, such as transitions on exercise or default of an instrument. The trade tickets are to allow the new position to be created given the existing portfolio configuration.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. (optional, default to 1000)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, queryBody, and limit must not  be modified. (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default of 1000 is used. (optional, default to 1000)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are return from list calls, and must be supplied exactly as returned. Additionally, when specifying this value, queryBody, and limit must not be modified. (optional)</param>
         /// <param name="queryTradeTicketsRequest">The filter parameters used to retrieve instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -164,11 +164,11 @@ namespace Lusid.Sdk.Api
         /// QueryTradeTickets: Returns a list of trade tickets based on the holdings of the portfolios and date range specified in the query.
         /// </summary>
         /// <remarks>
-        /// Returns a list of trade tickets based on the holdings of the portfolios and date range specified in the query.    These trade tickets are derived from events that involve transition of instrument states, such as transitions  on exercise or default of an instrument. The trade tickets are to allow the new position to be created given the  existing portfolio configuration.
+        /// Returns a list of trade tickets based on the holdings of the portfolios and date range specified in the query.  These trade tickets are derived from events that involve transition of instrument states, such as transitions on exercise or default of an instrument. The trade tickets are to allow the new position to be created given the existing portfolio configuration.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. (optional, default to 1000)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, queryBody, and limit must not  be modified. (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default of 1000 is used. (optional, default to 1000)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are return from list calls, and must be supplied exactly as returned. Additionally, when specifying this value, queryBody, and limit must not be modified. (optional)</param>
         /// <param name="queryTradeTicketsRequest">The filter parameters used to retrieve instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -191,8 +191,8 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The as at time to use. (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 100 is used. (optional, default to 100)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default of 100 is used. (optional, default to 100)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are return from list calls, and must be supplied exactly as returned. Additionally, when specifying this (optional)</param>
         /// <param name="queryApplicableInstrumentEventsRequest">The filter parameters used to retrieve applicable instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -208,8 +208,8 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The as at time to use. (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 100 is used. (optional, default to 100)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default of 100 is used. (optional, default to 100)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are return from list calls, and must be supplied exactly as returned. Additionally, when specifying this (optional)</param>
         /// <param name="queryApplicableInstrumentEventsRequest">The filter parameters used to retrieve applicable instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -250,8 +250,8 @@ namespace Lusid.Sdk.Api
         /// Returns a list of cashflows based on the holdings of the portfolios and date range specified in the query.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. (optional, default to 1000)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, queryBody, and limit must not  be modified. (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default of 1000 is used. (optional, default to 1000)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are return from list calls, and must be supplied exactly as returned. Additionally, when specifying this value, queryBody, and limit must not be modified. (optional)</param>
         /// <param name="queryCashFlowsRequest">The filter parameters used to retrieve instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -266,8 +266,8 @@ namespace Lusid.Sdk.Api
         /// Returns a list of cashflows based on the holdings of the portfolios and date range specified in the query.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. (optional, default to 1000)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, queryBody, and limit must not  be modified. (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default of 1000 is used. (optional, default to 1000)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are return from list calls, and must be supplied exactly as returned. Additionally, when specifying this value, queryBody, and limit must not be modified. (optional)</param>
         /// <param name="queryCashFlowsRequest">The filter parameters used to retrieve instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -281,8 +281,8 @@ namespace Lusid.Sdk.Api
         /// Returns a list of instrument events based on the holdings of the portfolios and date range specified in the query.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. (optional, default to 1000)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, queryBody, and limit must not  be modified. (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default of 1000 is used. (optional, default to 1000)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are return from list calls, and must be supplied exactly as returned. Additionally, when specifying this value, queryBody, and limit must not be modified. (optional)</param>
         /// <param name="queryInstrumentEventsRequest">The filter parameters used to retrieve instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -297,8 +297,8 @@ namespace Lusid.Sdk.Api
         /// Returns a list of instrument events based on the holdings of the portfolios and date range specified in the query.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. (optional, default to 1000)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, queryBody, and limit must not  be modified. (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default of 1000 is used. (optional, default to 1000)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are return from list calls, and must be supplied exactly as returned. Additionally, when specifying this value, queryBody, and limit must not be modified. (optional)</param>
         /// <param name="queryInstrumentEventsRequest">The filter parameters used to retrieve instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -309,11 +309,11 @@ namespace Lusid.Sdk.Api
         /// QueryTradeTickets: Returns a list of trade tickets based on the holdings of the portfolios and date range specified in the query.
         /// </summary>
         /// <remarks>
-        /// Returns a list of trade tickets based on the holdings of the portfolios and date range specified in the query.    These trade tickets are derived from events that involve transition of instrument states, such as transitions  on exercise or default of an instrument. The trade tickets are to allow the new position to be created given the  existing portfolio configuration.
+        /// Returns a list of trade tickets based on the holdings of the portfolios and date range specified in the query.  These trade tickets are derived from events that involve transition of instrument states, such as transitions on exercise or default of an instrument. The trade tickets are to allow the new position to be created given the existing portfolio configuration.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. (optional, default to 1000)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, queryBody, and limit must not  be modified. (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default of 1000 is used. (optional, default to 1000)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are return from list calls, and must be supplied exactly as returned. Additionally, when specifying this value, queryBody, and limit must not be modified. (optional)</param>
         /// <param name="queryTradeTicketsRequest">The filter parameters used to retrieve instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -325,11 +325,11 @@ namespace Lusid.Sdk.Api
         /// QueryTradeTickets: Returns a list of trade tickets based on the holdings of the portfolios and date range specified in the query.
         /// </summary>
         /// <remarks>
-        /// Returns a list of trade tickets based on the holdings of the portfolios and date range specified in the query.    These trade tickets are derived from events that involve transition of instrument states, such as transitions  on exercise or default of an instrument. The trade tickets are to allow the new position to be created given the  existing portfolio configuration.
+        /// Returns a list of trade tickets based on the holdings of the portfolios and date range specified in the query.  These trade tickets are derived from events that involve transition of instrument states, such as transitions on exercise or default of an instrument. The trade tickets are to allow the new position to be created given the existing portfolio configuration.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. (optional, default to 1000)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, queryBody, and limit must not  be modified. (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default of 1000 is used. (optional, default to 1000)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are return from list calls, and must be supplied exactly as returned. Additionally, when specifying this value, queryBody, and limit must not be modified. (optional)</param>
         /// <param name="queryTradeTicketsRequest">The filter parameters used to retrieve instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -464,8 +464,8 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The as at time to use. (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 100 is used. (optional, default to 100)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default of 100 is used. (optional, default to 100)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are return from list calls, and must be supplied exactly as returned. Additionally, when specifying this (optional)</param>
         /// <param name="queryApplicableInstrumentEventsRequest">The filter parameters used to retrieve applicable instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -481,8 +481,8 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The as at time to use. (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 100 is used. (optional, default to 100)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default of 100 is used. (optional, default to 100)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are return from list calls, and must be supplied exactly as returned. Additionally, when specifying this (optional)</param>
         /// <param name="queryApplicableInstrumentEventsRequest">The filter parameters used to retrieve applicable instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -580,8 +580,8 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The as at time to use. (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 100 is used. (optional, default to 100)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default of 100 is used. (optional, default to 100)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are return from list calls, and must be supplied exactly as returned. Additionally, when specifying this (optional)</param>
         /// <param name="queryApplicableInstrumentEventsRequest">The filter parameters used to retrieve applicable instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -598,8 +598,8 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The as at time to use. (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 100 is used. (optional, default to 100)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default of 100 is used. (optional, default to 100)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are return from list calls, and must be supplied exactly as returned. Additionally, when specifying this (optional)</param>
         /// <param name="queryApplicableInstrumentEventsRequest">The filter parameters used to retrieve applicable instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -899,8 +899,8 @@ namespace Lusid.Sdk.Api
         /// QueryCashFlows: Returns a list of cashflows based on the holdings of the portfolios and date range specified in the query. Returns a list of cashflows based on the holdings of the portfolios and date range specified in the query.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. (optional, default to 1000)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, queryBody, and limit must not  be modified. (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default of 1000 is used. (optional, default to 1000)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are return from list calls, and must be supplied exactly as returned. Additionally, when specifying this value, queryBody, and limit must not be modified. (optional)</param>
         /// <param name="queryCashFlowsRequest">The filter parameters used to retrieve instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -915,8 +915,8 @@ namespace Lusid.Sdk.Api
         /// QueryCashFlows: Returns a list of cashflows based on the holdings of the portfolios and date range specified in the query. Returns a list of cashflows based on the holdings of the portfolios and date range specified in the query.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. (optional, default to 1000)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, queryBody, and limit must not  be modified. (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default of 1000 is used. (optional, default to 1000)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are return from list calls, and must be supplied exactly as returned. Additionally, when specifying this value, queryBody, and limit must not be modified. (optional)</param>
         /// <param name="queryCashFlowsRequest">The filter parameters used to retrieve instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1009,8 +1009,8 @@ namespace Lusid.Sdk.Api
         /// QueryCashFlows: Returns a list of cashflows based on the holdings of the portfolios and date range specified in the query. Returns a list of cashflows based on the holdings of the portfolios and date range specified in the query.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. (optional, default to 1000)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, queryBody, and limit must not  be modified. (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default of 1000 is used. (optional, default to 1000)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are return from list calls, and must be supplied exactly as returned. Additionally, when specifying this value, queryBody, and limit must not be modified. (optional)</param>
         /// <param name="queryCashFlowsRequest">The filter parameters used to retrieve instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1026,8 +1026,8 @@ namespace Lusid.Sdk.Api
         /// QueryCashFlows: Returns a list of cashflows based on the holdings of the portfolios and date range specified in the query. Returns a list of cashflows based on the holdings of the portfolios and date range specified in the query.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. (optional, default to 1000)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, queryBody, and limit must not  be modified. (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default of 1000 is used. (optional, default to 1000)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are return from list calls, and must be supplied exactly as returned. Additionally, when specifying this value, queryBody, and limit must not be modified. (optional)</param>
         /// <param name="queryCashFlowsRequest">The filter parameters used to retrieve instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1123,8 +1123,8 @@ namespace Lusid.Sdk.Api
         /// QueryInstrumentEvents: Returns a list of instrument events based on the holdings of the portfolios and date range specified in the query. Returns a list of instrument events based on the holdings of the portfolios and date range specified in the query.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. (optional, default to 1000)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, queryBody, and limit must not  be modified. (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default of 1000 is used. (optional, default to 1000)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are return from list calls, and must be supplied exactly as returned. Additionally, when specifying this value, queryBody, and limit must not be modified. (optional)</param>
         /// <param name="queryInstrumentEventsRequest">The filter parameters used to retrieve instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1139,8 +1139,8 @@ namespace Lusid.Sdk.Api
         /// QueryInstrumentEvents: Returns a list of instrument events based on the holdings of the portfolios and date range specified in the query. Returns a list of instrument events based on the holdings of the portfolios and date range specified in the query.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. (optional, default to 1000)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, queryBody, and limit must not  be modified. (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default of 1000 is used. (optional, default to 1000)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are return from list calls, and must be supplied exactly as returned. Additionally, when specifying this value, queryBody, and limit must not be modified. (optional)</param>
         /// <param name="queryInstrumentEventsRequest">The filter parameters used to retrieve instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1233,8 +1233,8 @@ namespace Lusid.Sdk.Api
         /// QueryInstrumentEvents: Returns a list of instrument events based on the holdings of the portfolios and date range specified in the query. Returns a list of instrument events based on the holdings of the portfolios and date range specified in the query.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. (optional, default to 1000)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, queryBody, and limit must not  be modified. (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default of 1000 is used. (optional, default to 1000)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are return from list calls, and must be supplied exactly as returned. Additionally, when specifying this value, queryBody, and limit must not be modified. (optional)</param>
         /// <param name="queryInstrumentEventsRequest">The filter parameters used to retrieve instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1250,8 +1250,8 @@ namespace Lusid.Sdk.Api
         /// QueryInstrumentEvents: Returns a list of instrument events based on the holdings of the portfolios and date range specified in the query. Returns a list of instrument events based on the holdings of the portfolios and date range specified in the query.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. (optional, default to 1000)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, queryBody, and limit must not  be modified. (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default of 1000 is used. (optional, default to 1000)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are return from list calls, and must be supplied exactly as returned. Additionally, when specifying this value, queryBody, and limit must not be modified. (optional)</param>
         /// <param name="queryInstrumentEventsRequest">The filter parameters used to retrieve instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1344,11 +1344,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// QueryTradeTickets: Returns a list of trade tickets based on the holdings of the portfolios and date range specified in the query. Returns a list of trade tickets based on the holdings of the portfolios and date range specified in the query.    These trade tickets are derived from events that involve transition of instrument states, such as transitions  on exercise or default of an instrument. The trade tickets are to allow the new position to be created given the  existing portfolio configuration.
+        /// QueryTradeTickets: Returns a list of trade tickets based on the holdings of the portfolios and date range specified in the query. Returns a list of trade tickets based on the holdings of the portfolios and date range specified in the query.  These trade tickets are derived from events that involve transition of instrument states, such as transitions on exercise or default of an instrument. The trade tickets are to allow the new position to be created given the existing portfolio configuration.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. (optional, default to 1000)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, queryBody, and limit must not  be modified. (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default of 1000 is used. (optional, default to 1000)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are return from list calls, and must be supplied exactly as returned. Additionally, when specifying this value, queryBody, and limit must not be modified. (optional)</param>
         /// <param name="queryTradeTicketsRequest">The filter parameters used to retrieve instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1360,11 +1360,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// QueryTradeTickets: Returns a list of trade tickets based on the holdings of the portfolios and date range specified in the query. Returns a list of trade tickets based on the holdings of the portfolios and date range specified in the query.    These trade tickets are derived from events that involve transition of instrument states, such as transitions  on exercise or default of an instrument. The trade tickets are to allow the new position to be created given the  existing portfolio configuration.
+        /// QueryTradeTickets: Returns a list of trade tickets based on the holdings of the portfolios and date range specified in the query. Returns a list of trade tickets based on the holdings of the portfolios and date range specified in the query.  These trade tickets are derived from events that involve transition of instrument states, such as transitions on exercise or default of an instrument. The trade tickets are to allow the new position to be created given the existing portfolio configuration.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. (optional, default to 1000)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, queryBody, and limit must not  be modified. (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default of 1000 is used. (optional, default to 1000)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are return from list calls, and must be supplied exactly as returned. Additionally, when specifying this value, queryBody, and limit must not be modified. (optional)</param>
         /// <param name="queryTradeTicketsRequest">The filter parameters used to retrieve instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1454,11 +1454,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// QueryTradeTickets: Returns a list of trade tickets based on the holdings of the portfolios and date range specified in the query. Returns a list of trade tickets based on the holdings of the portfolios and date range specified in the query.    These trade tickets are derived from events that involve transition of instrument states, such as transitions  on exercise or default of an instrument. The trade tickets are to allow the new position to be created given the  existing portfolio configuration.
+        /// QueryTradeTickets: Returns a list of trade tickets based on the holdings of the portfolios and date range specified in the query. Returns a list of trade tickets based on the holdings of the portfolios and date range specified in the query.  These trade tickets are derived from events that involve transition of instrument states, such as transitions on exercise or default of an instrument. The trade tickets are to allow the new position to be created given the existing portfolio configuration.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. (optional, default to 1000)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, queryBody, and limit must not  be modified. (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default of 1000 is used. (optional, default to 1000)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are return from list calls, and must be supplied exactly as returned. Additionally, when specifying this value, queryBody, and limit must not be modified. (optional)</param>
         /// <param name="queryTradeTicketsRequest">The filter parameters used to retrieve instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1471,11 +1471,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// QueryTradeTickets: Returns a list of trade tickets based on the holdings of the portfolios and date range specified in the query. Returns a list of trade tickets based on the holdings of the portfolios and date range specified in the query.    These trade tickets are derived from events that involve transition of instrument states, such as transitions  on exercise or default of an instrument. The trade tickets are to allow the new position to be created given the  existing portfolio configuration.
+        /// QueryTradeTickets: Returns a list of trade tickets based on the holdings of the portfolios and date range specified in the query. Returns a list of trade tickets based on the holdings of the portfolios and date range specified in the query.  These trade tickets are derived from events that involve transition of instrument states, such as transitions on exercise or default of an instrument. The trade tickets are to allow the new position to be created given the existing portfolio configuration.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. (optional, default to 1000)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, queryBody, and limit must not  be modified. (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default of 1000 is used. (optional, default to 1000)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are return from list calls, and must be supplied exactly as returned. Additionally, when specifying this value, queryBody, and limit must not be modified. (optional)</param>
         /// <param name="queryTradeTicketsRequest">The filter parameters used to retrieve instrument events. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>

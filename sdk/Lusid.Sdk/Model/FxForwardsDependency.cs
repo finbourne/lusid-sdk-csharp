@@ -24,7 +24,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Indicates a dependency on an FxForwardCurve.  Identical to Fx dependencies in the meaning of domestic and foreign currencies, but describes a *set* of fx rates.  These rates are quoted rates for fx forwards, which can be used to interpolate the forward rate at a specific time in the future.  In the case of pips, the absolute rates can be expressed as rate &#x3D; spotFx + pips / pipsPerUnit
+    /// Indicates a dependency on an FxForwardCurve. Identical to Fx dependencies in the meaning of domestic and foreign currencies, but describes a *set* of fx rates. These rates are quoted rates for fx forwards, which can be used to interpolate the forward rate at a specific time in the future. In the case of pips, the absolute rates can be expressed as rate &#x3D; spotFx + pips / pipsPerUnit
     /// </summary>
     [DataContract(Name = "FxForwardsDependency")]
     [JsonConverter(typeof(JsonSubtypes), "DependencyType")]
@@ -40,8 +40,8 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="domesticCurrency">DomesticCurrency is the first currency in a currency pair quote e.g. eur-gbp, eur is the domestic currency. (required).</param>
         /// <param name="foreignCurrency">ForeignCurrency is the second currency in a currency pair quote e.g. eur-gbp, gbp is the foreign currency. (required).</param>
-        /// <param name="curveType">Used to describe the format in which the curve is expressed  e.g. FxFwdCurve (general term to describe any representation), TenorFxFwdCurve, PipsFxFwdCurve. (required).</param>
-        /// <param name="date">The effectiveDate of the entity that this is a dependency for.  Unless there is an obvious date this should be, like for a historic reset, then this is the valuation date. (required).</param>
+        /// <param name="curveType">Used to describe the format in which the curve is expressed e.g. FxFwdCurve (general term to describe any representation), TenorFxFwdCurve, PipsFxFwdCurve. (required).</param>
+        /// <param name="date">The effectiveDate of the entity that this is a dependency for. Unless there is an obvious date this should be, like for a historic reset, then this is the valuation date. (required).</param>
         /// <param name="dependencyType">The available values are: OpaqueDependency, CashDependency, DiscountingDependency, EquityCurveDependency, EquityVolDependency, FxDependency, FxForwardsDependency, FxVolDependency, IndexProjectionDependency, IrVolDependency, QuoteDependency, Vendor, CalendarDependency, InflationFixingDependency (required) (default to &quot;FxForwardsDependency&quot;).</param>
         public FxForwardsDependency(string domesticCurrency = default(string), string foreignCurrency = default(string), string curveType = default(string), DateTimeOffset date = default(DateTimeOffset), DependencyTypeEnum dependencyType = default(DependencyTypeEnum)) : base(dependencyType)
         {
@@ -81,16 +81,16 @@ namespace Lusid.Sdk.Model
         public string ForeignCurrency { get; set; }
 
         /// <summary>
-        /// Used to describe the format in which the curve is expressed  e.g. FxFwdCurve (general term to describe any representation), TenorFxFwdCurve, PipsFxFwdCurve.
+        /// Used to describe the format in which the curve is expressed e.g. FxFwdCurve (general term to describe any representation), TenorFxFwdCurve, PipsFxFwdCurve.
         /// </summary>
-        /// <value>Used to describe the format in which the curve is expressed  e.g. FxFwdCurve (general term to describe any representation), TenorFxFwdCurve, PipsFxFwdCurve.</value>
+        /// <value>Used to describe the format in which the curve is expressed e.g. FxFwdCurve (general term to describe any representation), TenorFxFwdCurve, PipsFxFwdCurve.</value>
         [DataMember(Name = "curveType", IsRequired = true, EmitDefaultValue = true)]
         public string CurveType { get; set; }
 
         /// <summary>
-        /// The effectiveDate of the entity that this is a dependency for.  Unless there is an obvious date this should be, like for a historic reset, then this is the valuation date.
+        /// The effectiveDate of the entity that this is a dependency for. Unless there is an obvious date this should be, like for a historic reset, then this is the valuation date.
         /// </summary>
-        /// <value>The effectiveDate of the entity that this is a dependency for.  Unless there is an obvious date this should be, like for a historic reset, then this is the valuation date.</value>
+        /// <value>The effectiveDate of the entity that this is a dependency for. Unless there is an obvious date this should be, like for a historic reset, then this is the valuation date.</value>
         [DataMember(Name = "date", IsRequired = true, EmitDefaultValue = true)]
         public DateTimeOffset Date { get; set; }
 

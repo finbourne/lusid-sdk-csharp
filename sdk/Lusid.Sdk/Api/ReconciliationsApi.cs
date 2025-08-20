@@ -123,7 +123,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the scheduled reconciliation</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the scheduled reconciliation. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the scheduled reconciliation. Defaults to returning the latest version of the reconciliation if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Reconciliation&#39; property domain to decorate onto the reconciliation.              These must take the form {domain}/{scope}/{code}, for example &#39;Reconciliation/Broker/Id&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Reconciliation&#39; property domain to decorate onto the reconciliation.             These must take the form {domain}/{scope}/{code}, for example &#39;Reconciliation/Broker/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Reconciliation</returns>
@@ -140,7 +140,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the scheduled reconciliation</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the scheduled reconciliation. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the scheduled reconciliation. Defaults to returning the latest version of the reconciliation if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Reconciliation&#39; property domain to decorate onto the reconciliation.              These must take the form {domain}/{scope}/{code}, for example &#39;Reconciliation/Broker/Id&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Reconciliation&#39; property domain to decorate onto the reconciliation.             These must take the form {domain}/{scope}/{code}, for example &#39;Reconciliation/Broker/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Reconciliation</returns>
@@ -179,7 +179,7 @@ namespace Lusid.Sdk.Api
         /// Lists all mappings this user is entitled to see
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="reconciliationType">Optional parameter to specify which type of mappings should be returned.  Defaults to Transaction if not provided. (optional)</param>
+        /// <param name="reconciliationType">Optional parameter to specify which type of mappings should be returned. Defaults to Transaction if not provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfMapping</returns>
@@ -192,7 +192,7 @@ namespace Lusid.Sdk.Api
         /// Lists all mappings this user is entitled to see
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="reconciliationType">Optional parameter to specify which type of mappings should be returned.  Defaults to Transaction if not provided. (optional)</param>
+        /// <param name="reconciliationType">Optional parameter to specify which type of mappings should be returned. Defaults to Transaction if not provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfMapping</returns>
@@ -204,12 +204,12 @@ namespace Lusid.Sdk.Api
         /// List all the scheduled reconciliations matching particular criteria
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the reconciliation. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the reconciliation. Defaults to returning the latest version              of each reconciliation if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing reconciliations; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the reconciliation. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the reconciliation. Defaults to returning the latest version             of each reconciliation if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing reconciliations; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For example, to filter on the reconciliation type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Reconciliation&#39; domain to decorate onto each reconciliation.              These must take the format {domain}/{scope}/{code}, for example &#39;Reconciliation/Broker/Id&#39;. (optional)</param>
+        /// <param name="filter">Expression to filter the results.             For example, to filter on the reconciliation type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Reconciliation&#39; domain to decorate onto each reconciliation.             These must take the format {domain}/{scope}/{code}, for example &#39;Reconciliation/Broker/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfReconciliation</returns>
@@ -222,21 +222,21 @@ namespace Lusid.Sdk.Api
         /// List all the scheduled reconciliations matching particular criteria
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the reconciliation. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the reconciliation. Defaults to returning the latest version              of each reconciliation if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing reconciliations; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the reconciliation. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the reconciliation. Defaults to returning the latest version             of each reconciliation if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing reconciliations; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For example, to filter on the reconciliation type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Reconciliation&#39; domain to decorate onto each reconciliation.              These must take the format {domain}/{scope}/{code}, for example &#39;Reconciliation/Broker/Id&#39;. (optional)</param>
+        /// <param name="filter">Expression to filter the results.             For example, to filter on the reconciliation type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Reconciliation&#39; domain to decorate onto each reconciliation.             These must take the format {domain}/{scope}/{code}, for example &#39;Reconciliation/Broker/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfReconciliation</returns>
         Lusid.Sdk.Client.ApiResponse<PagedResourceListOfReconciliation> ListReconciliationsWithHttpInfo(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// ReconcileGeneric: Reconcile either holdings or valuations performed on one or two sets of holdings using one or two configuration recipes.                The output is configurable for various types of comparisons, to allow tolerances on numerical and date-time data or case-insensitivity on strings,  and elision of resulting differences where they are &#39;empty&#39; or null or zero.
+        /// ReconcileGeneric: Reconcile either holdings or valuations performed on one or two sets of holdings using one or two configuration recipes.              The output is configurable for various types of comparisons, to allow tolerances on numerical and date-time data or case-insensitivity on strings, and elision of resulting differences where they are &#39;empty&#39; or null or zero.
         /// </summary>
         /// <remarks>
-        /// Perform evaluation of one or two set of holdings (a portfolio of instruments) using one or two (potentially different) configuration recipes.  Produce a breakdown of the resulting differences in evaluation that can be iterated through.
+        /// Perform evaluation of one or two set of holdings (a portfolio of instruments) using one or two (potentially different) configuration recipes. Produce a breakdown of the resulting differences in evaluation that can be iterated through.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reconciliationRequest">The specifications of the inputs to the reconciliation (optional)</param>
@@ -246,10 +246,10 @@ namespace Lusid.Sdk.Api
         ReconciliationResponse ReconcileGeneric(ReconciliationRequest? reconciliationRequest = default(ReconciliationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// ReconcileGeneric: Reconcile either holdings or valuations performed on one or two sets of holdings using one or two configuration recipes.                The output is configurable for various types of comparisons, to allow tolerances on numerical and date-time data or case-insensitivity on strings,  and elision of resulting differences where they are &#39;empty&#39; or null or zero.
+        /// ReconcileGeneric: Reconcile either holdings or valuations performed on one or two sets of holdings using one or two configuration recipes.              The output is configurable for various types of comparisons, to allow tolerances on numerical and date-time data or case-insensitivity on strings, and elision of resulting differences where they are &#39;empty&#39; or null or zero.
         /// </summary>
         /// <remarks>
-        /// Perform evaluation of one or two set of holdings (a portfolio of instruments) using one or two (potentially different) configuration recipes.  Produce a breakdown of the resulting differences in evaluation that can be iterated through.
+        /// Perform evaluation of one or two set of holdings (a portfolio of instruments) using one or two (potentially different) configuration recipes. Produce a breakdown of the resulting differences in evaluation that can be iterated through.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reconciliationRequest">The specifications of the inputs to the reconciliation (optional)</param>
@@ -266,7 +266,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the left portfolio Code, use \&quot;left.portfolioId.code eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set.             For example, to filter on the left portfolio Code, use \&quot;left.portfolioId.code eq &#39;string&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="portfoliosReconciliationRequest">The specifications of the inputs to the reconciliation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -282,7 +282,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the left portfolio Code, use \&quot;left.portfolioId.code eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set.             For example, to filter on the left portfolio Code, use \&quot;left.portfolioId.code eq &#39;string&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="portfoliosReconciliationRequest">The specifications of the inputs to the reconciliation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -317,7 +317,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] ReconcileTransactions: Perform a Transactions Reconciliation.
         /// </summary>
         /// <remarks>
-        /// Evaluates two sets of transactions to determine which transactions from each set likely match  using the rules of a specified mapping.
+        /// Evaluates two sets of transactions to determine which transactions from each set likely match using the rules of a specified mapping.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transactionReconciliationRequest"> (optional)</param>
@@ -330,7 +330,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] ReconcileTransactions: Perform a Transactions Reconciliation.
         /// </summary>
         /// <remarks>
-        /// Evaluates two sets of transactions to determine which transactions from each set likely match  using the rules of a specified mapping.
+        /// Evaluates two sets of transactions to determine which transactions from each set likely match using the rules of a specified mapping.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transactionReconciliationRequest"> (optional)</param>
@@ -342,7 +342,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ReconcileTransactionsV2: Perform a Transactions Reconciliation.
         /// </summary>
         /// <remarks>
-        /// Evaluates two sets of transactions to determine which transactions from each set likely match  using the rules of a specified mapping.
+        /// Evaluates two sets of transactions to determine which transactions from each set likely match using the rules of a specified mapping.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transactionReconciliationRequestV2"> (optional)</param>
@@ -355,7 +355,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ReconcileTransactionsV2: Perform a Transactions Reconciliation.
         /// </summary>
         /// <remarks>
-        /// Evaluates two sets of transactions to determine which transactions from each set likely match  using the rules of a specified mapping.
+        /// Evaluates two sets of transactions to determine which transactions from each set likely match using the rules of a specified mapping.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transactionReconciliationRequestV2"> (optional)</param>
@@ -421,7 +421,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] UpsertReconciliationMapping: Create or update a mapping
         /// </summary>
         /// <remarks>
-        /// If no mapping exists with the specified scope and code will create a new one.  Else will update the existing mapping
+        /// If no mapping exists with the specified scope and code will create a new one. Else will update the existing mapping
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mapping">The mapping to be created / updated. (optional)</param>
@@ -434,7 +434,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] UpsertReconciliationMapping: Create or update a mapping
         /// </summary>
         /// <remarks>
-        /// If no mapping exists with the specified scope and code will create a new one.  Else will update the existing mapping
+        /// If no mapping exists with the specified scope and code will create a new one. Else will update the existing mapping
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mapping">The mapping to be created / updated. (optional)</param>
@@ -549,7 +549,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the scheduled reconciliation</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the scheduled reconciliation. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the scheduled reconciliation. Defaults to returning the latest version of the reconciliation if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Reconciliation&#39; property domain to decorate onto the reconciliation.              These must take the form {domain}/{scope}/{code}, for example &#39;Reconciliation/Broker/Id&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Reconciliation&#39; property domain to decorate onto the reconciliation.             These must take the form {domain}/{scope}/{code}, for example &#39;Reconciliation/Broker/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -567,7 +567,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the scheduled reconciliation</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the scheduled reconciliation. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the scheduled reconciliation. Defaults to returning the latest version of the reconciliation if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Reconciliation&#39; property domain to decorate onto the reconciliation.              These must take the form {domain}/{scope}/{code}, for example &#39;Reconciliation/Broker/Id&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Reconciliation&#39; property domain to decorate onto the reconciliation.             These must take the form {domain}/{scope}/{code}, for example &#39;Reconciliation/Broker/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -609,7 +609,7 @@ namespace Lusid.Sdk.Api
         /// Lists all mappings this user is entitled to see
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="reconciliationType">Optional parameter to specify which type of mappings should be returned.  Defaults to Transaction if not provided. (optional)</param>
+        /// <param name="reconciliationType">Optional parameter to specify which type of mappings should be returned. Defaults to Transaction if not provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -623,7 +623,7 @@ namespace Lusid.Sdk.Api
         /// Lists all mappings this user is entitled to see
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="reconciliationType">Optional parameter to specify which type of mappings should be returned.  Defaults to Transaction if not provided. (optional)</param>
+        /// <param name="reconciliationType">Optional parameter to specify which type of mappings should be returned. Defaults to Transaction if not provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -636,12 +636,12 @@ namespace Lusid.Sdk.Api
         /// List all the scheduled reconciliations matching particular criteria
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the reconciliation. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the reconciliation. Defaults to returning the latest version              of each reconciliation if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing reconciliations; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the reconciliation. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the reconciliation. Defaults to returning the latest version             of each reconciliation if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing reconciliations; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For example, to filter on the reconciliation type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Reconciliation&#39; domain to decorate onto each reconciliation.              These must take the format {domain}/{scope}/{code}, for example &#39;Reconciliation/Broker/Id&#39;. (optional)</param>
+        /// <param name="filter">Expression to filter the results.             For example, to filter on the reconciliation type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Reconciliation&#39; domain to decorate onto each reconciliation.             These must take the format {domain}/{scope}/{code}, for example &#39;Reconciliation/Broker/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -655,22 +655,22 @@ namespace Lusid.Sdk.Api
         /// List all the scheduled reconciliations matching particular criteria
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the reconciliation. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the reconciliation. Defaults to returning the latest version              of each reconciliation if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing reconciliations; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the reconciliation. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the reconciliation. Defaults to returning the latest version             of each reconciliation if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing reconciliations; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For example, to filter on the reconciliation type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Reconciliation&#39; domain to decorate onto each reconciliation.              These must take the format {domain}/{scope}/{code}, for example &#39;Reconciliation/Broker/Id&#39;. (optional)</param>
+        /// <param name="filter">Expression to filter the results.             For example, to filter on the reconciliation type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Reconciliation&#39; domain to decorate onto each reconciliation.             These must take the format {domain}/{scope}/{code}, for example &#39;Reconciliation/Broker/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfReconciliation)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfReconciliation>> ListReconciliationsWithHttpInfoAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// ReconcileGeneric: Reconcile either holdings or valuations performed on one or two sets of holdings using one or two configuration recipes.                The output is configurable for various types of comparisons, to allow tolerances on numerical and date-time data or case-insensitivity on strings,  and elision of resulting differences where they are &#39;empty&#39; or null or zero.
+        /// ReconcileGeneric: Reconcile either holdings or valuations performed on one or two sets of holdings using one or two configuration recipes.              The output is configurable for various types of comparisons, to allow tolerances on numerical and date-time data or case-insensitivity on strings, and elision of resulting differences where they are &#39;empty&#39; or null or zero.
         /// </summary>
         /// <remarks>
-        /// Perform evaluation of one or two set of holdings (a portfolio of instruments) using one or two (potentially different) configuration recipes.  Produce a breakdown of the resulting differences in evaluation that can be iterated through.
+        /// Perform evaluation of one or two set of holdings (a portfolio of instruments) using one or two (potentially different) configuration recipes. Produce a breakdown of the resulting differences in evaluation that can be iterated through.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reconciliationRequest">The specifications of the inputs to the reconciliation (optional)</param>
@@ -681,10 +681,10 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ReconciliationResponse> ReconcileGenericAsync(ReconciliationRequest? reconciliationRequest = default(ReconciliationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// ReconcileGeneric: Reconcile either holdings or valuations performed on one or two sets of holdings using one or two configuration recipes.                The output is configurable for various types of comparisons, to allow tolerances on numerical and date-time data or case-insensitivity on strings,  and elision of resulting differences where they are &#39;empty&#39; or null or zero.
+        /// ReconcileGeneric: Reconcile either holdings or valuations performed on one or two sets of holdings using one or two configuration recipes.              The output is configurable for various types of comparisons, to allow tolerances on numerical and date-time data or case-insensitivity on strings, and elision of resulting differences where they are &#39;empty&#39; or null or zero.
         /// </summary>
         /// <remarks>
-        /// Perform evaluation of one or two set of holdings (a portfolio of instruments) using one or two (potentially different) configuration recipes.  Produce a breakdown of the resulting differences in evaluation that can be iterated through.
+        /// Perform evaluation of one or two set of holdings (a portfolio of instruments) using one or two (potentially different) configuration recipes. Produce a breakdown of the resulting differences in evaluation that can be iterated through.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reconciliationRequest">The specifications of the inputs to the reconciliation (optional)</param>
@@ -702,7 +702,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the left portfolio Code, use \&quot;left.portfolioId.code eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set.             For example, to filter on the left portfolio Code, use \&quot;left.portfolioId.code eq &#39;string&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="portfoliosReconciliationRequest">The specifications of the inputs to the reconciliation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -719,7 +719,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the left portfolio Code, use \&quot;left.portfolioId.code eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set.             For example, to filter on the left portfolio Code, use \&quot;left.portfolioId.code eq &#39;string&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="portfoliosReconciliationRequest">The specifications of the inputs to the reconciliation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -757,7 +757,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] ReconcileTransactions: Perform a Transactions Reconciliation.
         /// </summary>
         /// <remarks>
-        /// Evaluates two sets of transactions to determine which transactions from each set likely match  using the rules of a specified mapping.
+        /// Evaluates two sets of transactions to determine which transactions from each set likely match using the rules of a specified mapping.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transactionReconciliationRequest"> (optional)</param>
@@ -771,7 +771,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] ReconcileTransactions: Perform a Transactions Reconciliation.
         /// </summary>
         /// <remarks>
-        /// Evaluates two sets of transactions to determine which transactions from each set likely match  using the rules of a specified mapping.
+        /// Evaluates two sets of transactions to determine which transactions from each set likely match using the rules of a specified mapping.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transactionReconciliationRequest"> (optional)</param>
@@ -784,7 +784,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ReconcileTransactionsV2: Perform a Transactions Reconciliation.
         /// </summary>
         /// <remarks>
-        /// Evaluates two sets of transactions to determine which transactions from each set likely match  using the rules of a specified mapping.
+        /// Evaluates two sets of transactions to determine which transactions from each set likely match using the rules of a specified mapping.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transactionReconciliationRequestV2"> (optional)</param>
@@ -798,7 +798,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ReconcileTransactionsV2: Perform a Transactions Reconciliation.
         /// </summary>
         /// <remarks>
-        /// Evaluates two sets of transactions to determine which transactions from each set likely match  using the rules of a specified mapping.
+        /// Evaluates two sets of transactions to determine which transactions from each set likely match using the rules of a specified mapping.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transactionReconciliationRequestV2"> (optional)</param>
@@ -869,7 +869,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] UpsertReconciliationMapping: Create or update a mapping
         /// </summary>
         /// <remarks>
-        /// If no mapping exists with the specified scope and code will create a new one.  Else will update the existing mapping
+        /// If no mapping exists with the specified scope and code will create a new one. Else will update the existing mapping
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mapping">The mapping to be created / updated. (optional)</param>
@@ -883,7 +883,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] UpsertReconciliationMapping: Create or update a mapping
         /// </summary>
         /// <remarks>
-        /// If no mapping exists with the specified scope and code will create a new one.  Else will update the existing mapping
+        /// If no mapping exists with the specified scope and code will create a new one. Else will update the existing mapping
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mapping">The mapping to be created / updated. (optional)</param>
@@ -1685,7 +1685,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the scheduled reconciliation</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the scheduled reconciliation. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the scheduled reconciliation. Defaults to returning the latest version of the reconciliation if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Reconciliation&#39; property domain to decorate onto the reconciliation.              These must take the form {domain}/{scope}/{code}, for example &#39;Reconciliation/Broker/Id&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Reconciliation&#39; property domain to decorate onto the reconciliation.             These must take the form {domain}/{scope}/{code}, for example &#39;Reconciliation/Broker/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Reconciliation</returns>
@@ -1703,7 +1703,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the scheduled reconciliation</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the scheduled reconciliation. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the scheduled reconciliation. Defaults to returning the latest version of the reconciliation if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Reconciliation&#39; property domain to decorate onto the reconciliation.              These must take the form {domain}/{scope}/{code}, for example &#39;Reconciliation/Broker/Id&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Reconciliation&#39; property domain to decorate onto the reconciliation.             These must take the form {domain}/{scope}/{code}, for example &#39;Reconciliation/Broker/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Reconciliation</returns>
@@ -1812,7 +1812,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the scheduled reconciliation</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the scheduled reconciliation. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the scheduled reconciliation. Defaults to returning the latest version of the reconciliation if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Reconciliation&#39; property domain to decorate onto the reconciliation.              These must take the form {domain}/{scope}/{code}, for example &#39;Reconciliation/Broker/Id&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Reconciliation&#39; property domain to decorate onto the reconciliation.             These must take the form {domain}/{scope}/{code}, for example &#39;Reconciliation/Broker/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1831,7 +1831,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the scheduled reconciliation</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the scheduled reconciliation. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the scheduled reconciliation. Defaults to returning the latest version of the reconciliation if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Reconciliation&#39; property domain to decorate onto the reconciliation.              These must take the form {domain}/{scope}/{code}, for example &#39;Reconciliation/Broker/Id&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Reconciliation&#39; property domain to decorate onto the reconciliation.             These must take the form {domain}/{scope}/{code}, for example &#39;Reconciliation/Broker/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2161,7 +2161,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] ListReconciliationMappings: List the reconciliation mappings Lists all mappings this user is entitled to see
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="reconciliationType">Optional parameter to specify which type of mappings should be returned.  Defaults to Transaction if not provided. (optional)</param>
+        /// <param name="reconciliationType">Optional parameter to specify which type of mappings should be returned. Defaults to Transaction if not provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfMapping</returns>
@@ -2175,7 +2175,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] ListReconciliationMappings: List the reconciliation mappings Lists all mappings this user is entitled to see
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="reconciliationType">Optional parameter to specify which type of mappings should be returned.  Defaults to Transaction if not provided. (optional)</param>
+        /// <param name="reconciliationType">Optional parameter to specify which type of mappings should be returned. Defaults to Transaction if not provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfMapping</returns>
@@ -2258,7 +2258,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] ListReconciliationMappings: List the reconciliation mappings Lists all mappings this user is entitled to see
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="reconciliationType">Optional parameter to specify which type of mappings should be returned.  Defaults to Transaction if not provided. (optional)</param>
+        /// <param name="reconciliationType">Optional parameter to specify which type of mappings should be returned. Defaults to Transaction if not provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2273,7 +2273,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] ListReconciliationMappings: List the reconciliation mappings Lists all mappings this user is entitled to see
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="reconciliationType">Optional parameter to specify which type of mappings should be returned.  Defaults to Transaction if not provided. (optional)</param>
+        /// <param name="reconciliationType">Optional parameter to specify which type of mappings should be returned. Defaults to Transaction if not provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2359,12 +2359,12 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListReconciliations: List scheduled reconciliations List all the scheduled reconciliations matching particular criteria
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the reconciliation. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the reconciliation. Defaults to returning the latest version              of each reconciliation if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing reconciliations; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the reconciliation. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the reconciliation. Defaults to returning the latest version             of each reconciliation if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing reconciliations; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For example, to filter on the reconciliation type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Reconciliation&#39; domain to decorate onto each reconciliation.              These must take the format {domain}/{scope}/{code}, for example &#39;Reconciliation/Broker/Id&#39;. (optional)</param>
+        /// <param name="filter">Expression to filter the results.             For example, to filter on the reconciliation type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Reconciliation&#39; domain to decorate onto each reconciliation.             These must take the format {domain}/{scope}/{code}, for example &#39;Reconciliation/Broker/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfReconciliation</returns>
@@ -2378,12 +2378,12 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListReconciliations: List scheduled reconciliations List all the scheduled reconciliations matching particular criteria
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the reconciliation. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the reconciliation. Defaults to returning the latest version              of each reconciliation if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing reconciliations; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the reconciliation. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the reconciliation. Defaults to returning the latest version             of each reconciliation if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing reconciliations; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For example, to filter on the reconciliation type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Reconciliation&#39; domain to decorate onto each reconciliation.              These must take the format {domain}/{scope}/{code}, for example &#39;Reconciliation/Broker/Id&#39;. (optional)</param>
+        /// <param name="filter">Expression to filter the results.             For example, to filter on the reconciliation type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Reconciliation&#39; domain to decorate onto each reconciliation.             These must take the format {domain}/{scope}/{code}, for example &#39;Reconciliation/Broker/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfReconciliation</returns>
@@ -2486,12 +2486,12 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListReconciliations: List scheduled reconciliations List all the scheduled reconciliations matching particular criteria
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the reconciliation. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the reconciliation. Defaults to returning the latest version              of each reconciliation if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing reconciliations; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the reconciliation. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the reconciliation. Defaults to returning the latest version             of each reconciliation if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing reconciliations; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For example, to filter on the reconciliation type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Reconciliation&#39; domain to decorate onto each reconciliation.              These must take the format {domain}/{scope}/{code}, for example &#39;Reconciliation/Broker/Id&#39;. (optional)</param>
+        /// <param name="filter">Expression to filter the results.             For example, to filter on the reconciliation type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Reconciliation&#39; domain to decorate onto each reconciliation.             These must take the format {domain}/{scope}/{code}, for example &#39;Reconciliation/Broker/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2506,12 +2506,12 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListReconciliations: List scheduled reconciliations List all the scheduled reconciliations matching particular criteria
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the reconciliation. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the reconciliation. Defaults to returning the latest version              of each reconciliation if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing reconciliations; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the reconciliation. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the reconciliation. Defaults to returning the latest version             of each reconciliation if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing reconciliations; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For example, to filter on the reconciliation type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Reconciliation&#39; domain to decorate onto each reconciliation.              These must take the format {domain}/{scope}/{code}, for example &#39;Reconciliation/Broker/Id&#39;. (optional)</param>
+        /// <param name="filter">Expression to filter the results.             For example, to filter on the reconciliation type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Reconciliation&#39; domain to decorate onto each reconciliation.             These must take the format {domain}/{scope}/{code}, for example &#39;Reconciliation/Broker/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2614,7 +2614,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// ReconcileGeneric: Reconcile either holdings or valuations performed on one or two sets of holdings using one or two configuration recipes.                The output is configurable for various types of comparisons, to allow tolerances on numerical and date-time data or case-insensitivity on strings,  and elision of resulting differences where they are &#39;empty&#39; or null or zero. Perform evaluation of one or two set of holdings (a portfolio of instruments) using one or two (potentially different) configuration recipes.  Produce a breakdown of the resulting differences in evaluation that can be iterated through.
+        /// ReconcileGeneric: Reconcile either holdings or valuations performed on one or two sets of holdings using one or two configuration recipes.              The output is configurable for various types of comparisons, to allow tolerances on numerical and date-time data or case-insensitivity on strings, and elision of resulting differences where they are &#39;empty&#39; or null or zero. Perform evaluation of one or two set of holdings (a portfolio of instruments) using one or two (potentially different) configuration recipes. Produce a breakdown of the resulting differences in evaluation that can be iterated through.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reconciliationRequest">The specifications of the inputs to the reconciliation (optional)</param>
@@ -2628,7 +2628,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// ReconcileGeneric: Reconcile either holdings or valuations performed on one or two sets of holdings using one or two configuration recipes.                The output is configurable for various types of comparisons, to allow tolerances on numerical and date-time data or case-insensitivity on strings,  and elision of resulting differences where they are &#39;empty&#39; or null or zero. Perform evaluation of one or two set of holdings (a portfolio of instruments) using one or two (potentially different) configuration recipes.  Produce a breakdown of the resulting differences in evaluation that can be iterated through.
+        /// ReconcileGeneric: Reconcile either holdings or valuations performed on one or two sets of holdings using one or two configuration recipes.              The output is configurable for various types of comparisons, to allow tolerances on numerical and date-time data or case-insensitivity on strings, and elision of resulting differences where they are &#39;empty&#39; or null or zero. Perform evaluation of one or two set of holdings (a portfolio of instruments) using one or two (potentially different) configuration recipes. Produce a breakdown of the resulting differences in evaluation that can be iterated through.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reconciliationRequest">The specifications of the inputs to the reconciliation (optional)</param>
@@ -2712,7 +2712,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// ReconcileGeneric: Reconcile either holdings or valuations performed on one or two sets of holdings using one or two configuration recipes.                The output is configurable for various types of comparisons, to allow tolerances on numerical and date-time data or case-insensitivity on strings,  and elision of resulting differences where they are &#39;empty&#39; or null or zero. Perform evaluation of one or two set of holdings (a portfolio of instruments) using one or two (potentially different) configuration recipes.  Produce a breakdown of the resulting differences in evaluation that can be iterated through.
+        /// ReconcileGeneric: Reconcile either holdings or valuations performed on one or two sets of holdings using one or two configuration recipes.              The output is configurable for various types of comparisons, to allow tolerances on numerical and date-time data or case-insensitivity on strings, and elision of resulting differences where they are &#39;empty&#39; or null or zero. Perform evaluation of one or two set of holdings (a portfolio of instruments) using one or two (potentially different) configuration recipes. Produce a breakdown of the resulting differences in evaluation that can be iterated through.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reconciliationRequest">The specifications of the inputs to the reconciliation (optional)</param>
@@ -2727,7 +2727,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// ReconcileGeneric: Reconcile either holdings or valuations performed on one or two sets of holdings using one or two configuration recipes.                The output is configurable for various types of comparisons, to allow tolerances on numerical and date-time data or case-insensitivity on strings,  and elision of resulting differences where they are &#39;empty&#39; or null or zero. Perform evaluation of one or two set of holdings (a portfolio of instruments) using one or two (potentially different) configuration recipes.  Produce a breakdown of the resulting differences in evaluation that can be iterated through.
+        /// ReconcileGeneric: Reconcile either holdings or valuations performed on one or two sets of holdings using one or two configuration recipes.              The output is configurable for various types of comparisons, to allow tolerances on numerical and date-time data or case-insensitivity on strings, and elision of resulting differences where they are &#39;empty&#39; or null or zero. Perform evaluation of one or two set of holdings (a portfolio of instruments) using one or two (potentially different) configuration recipes. Produce a breakdown of the resulting differences in evaluation that can be iterated through.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reconciliationRequest">The specifications of the inputs to the reconciliation (optional)</param>
@@ -2819,7 +2819,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the left portfolio Code, use \&quot;left.portfolioId.code eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set.             For example, to filter on the left portfolio Code, use \&quot;left.portfolioId.code eq &#39;string&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="portfoliosReconciliationRequest">The specifications of the inputs to the reconciliation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2836,7 +2836,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the left portfolio Code, use \&quot;left.portfolioId.code eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set.             For example, to filter on the left portfolio Code, use \&quot;left.portfolioId.code eq &#39;string&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="portfoliosReconciliationRequest">The specifications of the inputs to the reconciliation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2935,7 +2935,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the left portfolio Code, use \&quot;left.portfolioId.code eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set.             For example, to filter on the left portfolio Code, use \&quot;left.portfolioId.code eq &#39;string&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="portfoliosReconciliationRequest">The specifications of the inputs to the reconciliation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2953,7 +2953,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the left portfolio Code, use \&quot;left.portfolioId.code eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set.             For example, to filter on the left portfolio Code, use \&quot;left.portfolioId.code eq &#39;string&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="portfoliosReconciliationRequest">The specifications of the inputs to the reconciliation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3250,7 +3250,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ReconcileTransactions: Perform a Transactions Reconciliation. Evaluates two sets of transactions to determine which transactions from each set likely match  using the rules of a specified mapping.
+        /// [EARLY ACCESS] ReconcileTransactions: Perform a Transactions Reconciliation. Evaluates two sets of transactions to determine which transactions from each set likely match using the rules of a specified mapping.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transactionReconciliationRequest"> (optional)</param>
@@ -3264,7 +3264,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ReconcileTransactions: Perform a Transactions Reconciliation. Evaluates two sets of transactions to determine which transactions from each set likely match  using the rules of a specified mapping.
+        /// [EARLY ACCESS] ReconcileTransactions: Perform a Transactions Reconciliation. Evaluates two sets of transactions to determine which transactions from each set likely match using the rules of a specified mapping.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transactionReconciliationRequest"> (optional)</param>
@@ -3348,7 +3348,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ReconcileTransactions: Perform a Transactions Reconciliation. Evaluates two sets of transactions to determine which transactions from each set likely match  using the rules of a specified mapping.
+        /// [EARLY ACCESS] ReconcileTransactions: Perform a Transactions Reconciliation. Evaluates two sets of transactions to determine which transactions from each set likely match using the rules of a specified mapping.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transactionReconciliationRequest"> (optional)</param>
@@ -3363,7 +3363,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ReconcileTransactions: Perform a Transactions Reconciliation. Evaluates two sets of transactions to determine which transactions from each set likely match  using the rules of a specified mapping.
+        /// [EARLY ACCESS] ReconcileTransactions: Perform a Transactions Reconciliation. Evaluates two sets of transactions to determine which transactions from each set likely match using the rules of a specified mapping.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transactionReconciliationRequest"> (optional)</param>
@@ -3450,7 +3450,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ReconcileTransactionsV2: Perform a Transactions Reconciliation. Evaluates two sets of transactions to determine which transactions from each set likely match  using the rules of a specified mapping.
+        /// [EXPERIMENTAL] ReconcileTransactionsV2: Perform a Transactions Reconciliation. Evaluates two sets of transactions to determine which transactions from each set likely match using the rules of a specified mapping.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transactionReconciliationRequestV2"> (optional)</param>
@@ -3464,7 +3464,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ReconcileTransactionsV2: Perform a Transactions Reconciliation. Evaluates two sets of transactions to determine which transactions from each set likely match  using the rules of a specified mapping.
+        /// [EXPERIMENTAL] ReconcileTransactionsV2: Perform a Transactions Reconciliation. Evaluates two sets of transactions to determine which transactions from each set likely match using the rules of a specified mapping.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transactionReconciliationRequestV2"> (optional)</param>
@@ -3548,7 +3548,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ReconcileTransactionsV2: Perform a Transactions Reconciliation. Evaluates two sets of transactions to determine which transactions from each set likely match  using the rules of a specified mapping.
+        /// [EXPERIMENTAL] ReconcileTransactionsV2: Perform a Transactions Reconciliation. Evaluates two sets of transactions to determine which transactions from each set likely match using the rules of a specified mapping.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transactionReconciliationRequestV2"> (optional)</param>
@@ -3563,7 +3563,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ReconcileTransactionsV2: Perform a Transactions Reconciliation. Evaluates two sets of transactions to determine which transactions from each set likely match  using the rules of a specified mapping.
+        /// [EXPERIMENTAL] ReconcileTransactionsV2: Perform a Transactions Reconciliation. Evaluates two sets of transactions to determine which transactions from each set likely match using the rules of a specified mapping.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transactionReconciliationRequestV2"> (optional)</param>
@@ -4086,7 +4086,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertReconciliationMapping: Create or update a mapping If no mapping exists with the specified scope and code will create a new one.  Else will update the existing mapping
+        /// [EARLY ACCESS] UpsertReconciliationMapping: Create or update a mapping If no mapping exists with the specified scope and code will create a new one. Else will update the existing mapping
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mapping">The mapping to be created / updated. (optional)</param>
@@ -4100,7 +4100,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertReconciliationMapping: Create or update a mapping If no mapping exists with the specified scope and code will create a new one.  Else will update the existing mapping
+        /// [EARLY ACCESS] UpsertReconciliationMapping: Create or update a mapping If no mapping exists with the specified scope and code will create a new one. Else will update the existing mapping
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mapping">The mapping to be created / updated. (optional)</param>
@@ -4184,7 +4184,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertReconciliationMapping: Create or update a mapping If no mapping exists with the specified scope and code will create a new one.  Else will update the existing mapping
+        /// [EARLY ACCESS] UpsertReconciliationMapping: Create or update a mapping If no mapping exists with the specified scope and code will create a new one. Else will update the existing mapping
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mapping">The mapping to be created / updated. (optional)</param>
@@ -4199,7 +4199,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertReconciliationMapping: Create or update a mapping If no mapping exists with the specified scope and code will create a new one.  Else will update the existing mapping
+        /// [EARLY ACCESS] UpsertReconciliationMapping: Create or update a mapping If no mapping exists with the specified scope and code will create a new one. Else will update the existing mapping
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mapping">The mapping to be created / updated. (optional)</param>

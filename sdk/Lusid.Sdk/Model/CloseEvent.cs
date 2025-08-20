@@ -24,7 +24,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// The termination of an instrument.  In some cases termination can happen over a range of dates e.g. american option exercise.  In most cases the startDate &#x3D;&#x3D; endDate
+    /// The termination of an instrument. In some cases termination can happen over a range of dates e.g. american option exercise. In most cases the startDate &#x3D;&#x3D; endDate
     /// </summary>
     [DataContract(Name = "CloseEvent")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentEventType")]

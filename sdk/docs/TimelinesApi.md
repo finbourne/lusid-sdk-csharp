@@ -20,7 +20,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 [EXPERIMENTAL] CreateClosedPeriod: Create a new closed period against a timeline entity
 
-Creates a new closed period against a timeline entity  Returns the newly created closed period entity with properties
+Creates a new closed period against a timeline entity Returns the newly created closed period entity with properties
 
 ### Example
 ```csharp
@@ -138,7 +138,7 @@ catch (ApiException e)
 
 [EXPERIMENTAL] CreateTimeline: Create a Timeline
 
-Creates a Timeline. Returns the created Timeline at the current effectiveAt.  Note that Timelines are mono-temporal, however they can have Time-Variant Properties.  Upserted Properties will be returned at the latest AsAt and EffectiveAt
+Creates a Timeline. Returns the created Timeline at the current effectiveAt. Note that Timelines are mono-temporal, however they can have Time-Variant Properties. Upserted Properties will be returned at the latest AsAt and EffectiveAt
 
 ### Example
 ```csharp
@@ -252,7 +252,7 @@ catch (ApiException e)
 
 [EXPERIMENTAL] DeleteTimeline: Deletes a particular Timeline
 
-The deletion will take effect from the Timeline deletion datetime.  i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
+The deletion will take effect from the Timeline deletion datetime. i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
 
 ### Example
 ```csharp
@@ -294,7 +294,7 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TimelinesApi>();
             var scope = "scope_example";  // string | The scope of the specified Timeline.
-            var code = "code_example";  // string | The code of the specified Timeline. Together with the domain and scope this uniquely              identifies the Timeline.
+            var code = "code_example";  // string | The code of the specified Timeline. Together with the domain and scope this uniquely             identifies the Timeline.
 
             try
             {
@@ -341,7 +341,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **scope** | **string** | The scope of the specified Timeline. |  |
-| **code** | **string** | The code of the specified Timeline. Together with the domain and scope this uniquely              identifies the Timeline. |  |
+| **code** | **string** | The code of the specified Timeline. Together with the domain and scope this uniquely             identifies the Timeline. |  |
 
 ### Return type
 
@@ -410,10 +410,10 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TimelinesApi>();
             var scope = "scope_example";  // string | The scope of the Timeline.
-            var code = "code_example";  // string | The code of the Timeline. Together with the scope this uniquely              identifies the Timeline.
-            var closedPeriodId = "closedPeriodId_example";  // string | The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod
-            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the ClosedPeriod definition. Defaults to return              the latest version of the definition if not specified. (optional) 
-            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'ClosedPeriod' domain to decorate onto              the ClosedPeriod.              These must have the format {domain}/{scope}/{code}, for example 'ClosedPeriod/system/Name'. (optional) 
+            var code = "code_example";  // string | The code of the Timeline. Together with the scope this uniquely             identifies the Timeline.
+            var closedPeriodId = "closedPeriodId_example";  // string | The id of the Closed Period. Together with the scope and code of the Timeline,             this uniquely identifies the ClosedPeriod
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the ClosedPeriod definition. Defaults to return             the latest version of the definition if not specified. (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'ClosedPeriod' domain to decorate onto             the ClosedPeriod.             These must have the format {domain}/{scope}/{code}, for example 'ClosedPeriod/system/Name'. (optional) 
 
             try
             {
@@ -460,10 +460,10 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **scope** | **string** | The scope of the Timeline. |  |
-| **code** | **string** | The code of the Timeline. Together with the scope this uniquely              identifies the Timeline. |  |
-| **closedPeriodId** | **string** | The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod |  |
-| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the ClosedPeriod definition. Defaults to return              the latest version of the definition if not specified. | [optional]  |
-| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;ClosedPeriod&#39; domain to decorate onto              the ClosedPeriod.              These must have the format {domain}/{scope}/{code}, for example &#39;ClosedPeriod/system/Name&#39;. | [optional]  |
+| **code** | **string** | The code of the Timeline. Together with the scope this uniquely             identifies the Timeline. |  |
+| **closedPeriodId** | **string** | The id of the Closed Period. Together with the scope and code of the Timeline,             this uniquely identifies the ClosedPeriod |  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the ClosedPeriod definition. Defaults to return             the latest version of the definition if not specified. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;ClosedPeriod&#39; domain to decorate onto             the ClosedPeriod.             These must have the format {domain}/{scope}/{code}, for example &#39;ClosedPeriod/system/Name&#39;. | [optional]  |
 
 ### Return type
 
@@ -490,7 +490,7 @@ catch (ApiException e)
 
 [EXPERIMENTAL] GetTimeline: Get a single Timeline by scope and code.
 
-Retrieves one Timeline by scope and code.  Timelines are mono-temporal. The EffectiveAt is only applied to Time-Variant Properties.
+Retrieves one Timeline by scope and code. Timelines are mono-temporal. The EffectiveAt is only applied to Time-Variant Properties.
 
 ### Example
 ```csharp
@@ -532,10 +532,10 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TimelinesApi>();
             var scope = "scope_example";  // string | The scope of the specified Timeline.
-            var code = "code_example";  // string | The code of the specified Timeline. Together with the scope this uniquely              identifies the Timeline.
-            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the Timeline definition. Defaults to return              the latest version of the definition if not specified. (optional) 
-            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to retrieve the timeline properties.              Defaults to the current LUSID system datetime if not specified. (optional) 
-            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'Timeline' domain to decorate onto              the Timeline.              These must have the format {domain}/{scope}/{code}, for example 'Timeline/system/Name'. (optional) 
+            var code = "code_example";  // string | The code of the specified Timeline. Together with the scope this uniquely             identifies the Timeline.
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the Timeline definition. Defaults to return             the latest version of the definition if not specified. (optional) 
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to retrieve the timeline properties.             Defaults to the current LUSID system datetime if not specified. (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'Timeline' domain to decorate onto             the Timeline.             These must have the format {domain}/{scope}/{code}, for example 'Timeline/system/Name'. (optional) 
 
             try
             {
@@ -582,10 +582,10 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **scope** | **string** | The scope of the specified Timeline. |  |
-| **code** | **string** | The code of the specified Timeline. Together with the scope this uniquely              identifies the Timeline. |  |
-| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the Timeline definition. Defaults to return              the latest version of the definition if not specified. | [optional]  |
-| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to retrieve the timeline properties.              Defaults to the current LUSID system datetime if not specified. | [optional]  |
-| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;Timeline&#39; domain to decorate onto              the Timeline.              These must have the format {domain}/{scope}/{code}, for example &#39;Timeline/system/Name&#39;. | [optional]  |
+| **code** | **string** | The code of the specified Timeline. Together with the scope this uniquely             identifies the Timeline. |  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the Timeline definition. Defaults to return             the latest version of the definition if not specified. | [optional]  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to retrieve the timeline properties.             Defaults to the current LUSID system datetime if not specified. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;Timeline&#39; domain to decorate onto             the Timeline.             These must have the format {domain}/{scope}/{code}, for example &#39;Timeline/system/Name&#39;. | [optional]  |
 
 ### Return type
 
@@ -656,11 +656,11 @@ namespace Examples
             var scope = "scope_example";  // string | The scope of the Timeline.
             var code = "code_example";  // string | The code of the Timeline.
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the ClosedPeriods. Defaults to returning the latest version of each ClosedPeriod if not specified. (optional) 
-            var page = "page_example";  // string? | The pagination token to use to continue listing ClosedPeriods; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing ClosedPeriods; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional) 
             var limit = 56;  // int? | When paginating, limit the results to this number. Defaults to 100 if not specified. (optional) 
-            var filter = "filter_example";  // string? | Expression to filter the results.              For example, to filter on the effectiveEnd, specify \"effectiveEnd gt 2019-01-15T10:00:00\". For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the results.             For example, to filter on the effectiveEnd, specify \"effectiveEnd gt 2019-01-15T10:00:00\". For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional) 
             var sortBy = new List<string>?(); // List<string>? | A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\" (optional) 
-            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'ClosedPeriod' domain to decorate onto each ClosedPeriod.              These must take the format {domain}/{scope}/{code}, for example 'ClosedPeriod/Account/id'. (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'ClosedPeriod' domain to decorate onto each ClosedPeriod.             These must take the format {domain}/{scope}/{code}, for example 'ClosedPeriod/Account/id'. (optional) 
 
             try
             {
@@ -709,11 +709,11 @@ catch (ApiException e)
 | **scope** | **string** | The scope of the Timeline. |  |
 | **code** | **string** | The code of the Timeline. |  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to list the ClosedPeriods. Defaults to returning the latest version of each ClosedPeriod if not specified. | [optional]  |
-| **page** | **string?** | The pagination token to use to continue listing ClosedPeriods; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing ClosedPeriods; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. | [optional]  |
 | **limit** | **int?** | When paginating, limit the results to this number. Defaults to 100 if not specified. | [optional]  |
-| **filter** | **string?** | Expression to filter the results.              For example, to filter on the effectiveEnd, specify \&quot;effectiveEnd gt 2019-01-15T10:00:00\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional]  |
+| **filter** | **string?** | Expression to filter the results.             For example, to filter on the effectiveEnd, specify \&quot;effectiveEnd gt 2019-01-15T10:00:00\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional]  |
 | **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; | [optional]  |
-| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;ClosedPeriod&#39; domain to decorate onto each ClosedPeriod.              These must take the format {domain}/{scope}/{code}, for example &#39;ClosedPeriod/Account/id&#39;. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;ClosedPeriod&#39; domain to decorate onto each ClosedPeriod.             These must take the format {domain}/{scope}/{code}, for example &#39;ClosedPeriod/Account/id&#39;. | [optional]  |
 
 ### Return type
 
@@ -782,12 +782,12 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TimelinesApi>();
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the Timelines. Defaults to returning the latest version of each Timeline if not specified. (optional) 
-            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to list the Timelines.              Note that Timelines are monotemporal, the effectiveAt is for Timevariant Properties on the Timeline only.              Defaults to the current LUSID system datetime if not specified. (optional) 
-            var page = "page_example";  // string? | The pagination token to use to continue listing Timelines; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional) 
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to list the Timelines.             Note that Timelines are monotemporal, the effectiveAt is for Timevariant Properties on the Timeline only.             Defaults to the current LUSID system datetime if not specified. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing Timelines; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional) 
             var limit = 56;  // int? | When paginating, limit the results to this number. Defaults to 100 if not specified. (optional) 
-            var filter = "filter_example";  // string? | Expression to filter the results.              For example, to filter on the displayName, specify \"displayName eq 'AccountingTimeline'\". For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the results.             For example, to filter on the displayName, specify \"displayName eq 'AccountingTimeline'\". For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional) 
             var sortBy = new List<string>?(); // List<string>? | A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\" (optional) 
-            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'Timeline' domain to decorate onto each Timeline.              These must take the format {domain}/{scope}/{code}, for example 'Timeline/Account/id'. (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'Timeline' domain to decorate onto each Timeline.             These must take the format {domain}/{scope}/{code}, for example 'Timeline/Account/id'. (optional) 
 
             try
             {
@@ -834,12 +834,12 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to list the Timelines. Defaults to returning the latest version of each Timeline if not specified. | [optional]  |
-| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to list the Timelines.              Note that Timelines are monotemporal, the effectiveAt is for Timevariant Properties on the Timeline only.              Defaults to the current LUSID system datetime if not specified. | [optional]  |
-| **page** | **string?** | The pagination token to use to continue listing Timelines; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. | [optional]  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to list the Timelines.             Note that Timelines are monotemporal, the effectiveAt is for Timevariant Properties on the Timeline only.             Defaults to the current LUSID system datetime if not specified. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing Timelines; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. | [optional]  |
 | **limit** | **int?** | When paginating, limit the results to this number. Defaults to 100 if not specified. | [optional]  |
-| **filter** | **string?** | Expression to filter the results.              For example, to filter on the displayName, specify \&quot;displayName eq &#39;AccountingTimeline&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional]  |
+| **filter** | **string?** | Expression to filter the results.             For example, to filter on the displayName, specify \&quot;displayName eq &#39;AccountingTimeline&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional]  |
 | **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; | [optional]  |
-| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;Timeline&#39; domain to decorate onto each Timeline.              These must take the format {domain}/{scope}/{code}, for example &#39;Timeline/Account/id&#39;. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;Timeline&#39; domain to decorate onto each Timeline.             These must take the format {domain}/{scope}/{code}, for example &#39;Timeline/Account/id&#39;. | [optional]  |
 
 ### Return type
 
@@ -909,7 +909,7 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TimelinesApi>();
             var scope = "scope_example";  // string | The scope of the Timeline.
             var code = "code_example";  // string | The code of the Timeline.
-            var closedPeriodId = "closedPeriodId_example";  // string | The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod
+            var closedPeriodId = "closedPeriodId_example";  // string | The id of the Closed Period. Together with the scope and code of the Timeline,             this uniquely identifies the ClosedPeriod
             var postCloseActivitiesRequest = new PostCloseActivitiesRequest?(); // PostCloseActivitiesRequest? | Specifies collection of post close activities (optional) 
 
             try
@@ -958,7 +958,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **scope** | **string** | The scope of the Timeline. |  |
 | **code** | **string** | The code of the Timeline. |  |
-| **closedPeriodId** | **string** | The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod |  |
+| **closedPeriodId** | **string** | The id of the Closed Period. Together with the scope and code of the Timeline,             this uniquely identifies the ClosedPeriod |  |
 | **postCloseActivitiesRequest** | [**PostCloseActivitiesRequest?**](PostCloseActivitiesRequest?.md) | Specifies collection of post close activities | [optional]  |
 
 ### Return type
@@ -986,7 +986,7 @@ catch (ApiException e)
 
 [EXPERIMENTAL] UpdateTimeline: Update Timeline defined by scope and code
 
-Overwrites an existing Timeline  Update request has the same required fields as Create apart from the id.  Returns the updated Timeline at the current effectiveAt.  Note that Timelines are mono-temporal, however they can have Time-Variant Properties.  Updated Properties will be returned at the latest AsAt and EffectiveAt
+Overwrites an existing Timeline Update request has the same required fields as Create apart from the id. Returns the updated Timeline at the current effectiveAt. Note that Timelines are mono-temporal, however they can have Time-Variant Properties. Updated Properties will be returned at the latest AsAt and EffectiveAt
 
 ### Example
 ```csharp

@@ -39,7 +39,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentEventType">The type of instrument events that the template is applied to.</param>
-        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template</param>
+        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument             event type, instrument type and scope uniquely identifies a transaction template</param>
         /// <param name="scope">The scope in which the template lies.</param>
         /// <param name="transactionTemplateRequest">A request defining a new transaction template to be created.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -55,7 +55,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentEventType">The type of instrument events that the template is applied to.</param>
-        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template</param>
+        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument             event type, instrument type and scope uniquely identifies a transaction template</param>
         /// <param name="scope">The scope in which the template lies.</param>
         /// <param name="transactionTemplateRequest">A request defining a new transaction template to be created.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -70,7 +70,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentEventType">The type of instrument events that the template is applied to.</param>
-        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template</param>
+        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument             event type, instrument type and scope uniquely identifies a transaction template</param>
         /// <param name="scope">The scope of the template.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -85,7 +85,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentEventType">The type of instrument events that the template is applied to.</param>
-        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template</param>
+        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument             event type, instrument type and scope uniquely identifies a transaction template</param>
         /// <param name="scope">The scope of the template.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -99,7 +99,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentEventType">The instrument event type of the transaction template</param>
-        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template</param>
+        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument             event type, instrument type and scope uniquely identifies a transaction template</param>
         /// <param name="scope">The scope in which the template lies. When not supplied the scope is &#39;default&#39;.</param>
         /// <param name="asAt">The AsAt time of the requested Transaction Template (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -115,7 +115,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentEventType">The instrument event type of the transaction template</param>
-        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template</param>
+        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument             event type, instrument type and scope uniquely identifies a transaction template</param>
         /// <param name="scope">The scope in which the template lies. When not supplied the scope is &#39;default&#39;.</param>
         /// <param name="asAt">The AsAt time of the requested Transaction Template (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -155,9 +155,9 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">AsAt of the request (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Transaction Template Specifications from              a previous call to list Transaction Template Specifications.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt              fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Transaction Template Specifications from             a previous call to list Transaction Template Specifications.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt             fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -172,9 +172,9 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">AsAt of the request (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Transaction Template Specifications from              a previous call to list Transaction Template Specifications.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt              fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Transaction Template Specifications from             a previous call to list Transaction Template Specifications.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt             fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -188,9 +188,9 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The AsAt time at which to retrieve the Transaction Templates (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Transaction Templates from a previous call to list Transaction Templates.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, limit, and asAt fields              must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Transaction Templates from a previous call to list Transaction Templates.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, limit, and asAt fields             must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -205,9 +205,9 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The AsAt time at which to retrieve the Transaction Templates (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Transaction Templates from a previous call to list Transaction Templates.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, limit, and asAt fields              must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Transaction Templates from a previous call to list Transaction Templates.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, limit, and asAt fields             must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -221,7 +221,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentEventType">The type of instrument events that the template is applied to.</param>
-        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template</param>
+        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument             event type, instrument type and scope uniquely identifies a transaction template</param>
         /// <param name="scope">The scope in which the template lies.</param>
         /// <param name="transactionTemplateRequest">A request defining the updated values for the transaction template.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -237,7 +237,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentEventType">The type of instrument events that the template is applied to.</param>
-        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template</param>
+        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument             event type, instrument type and scope uniquely identifies a transaction template</param>
         /// <param name="scope">The scope in which the template lies.</param>
         /// <param name="transactionTemplateRequest">A request defining the updated values for the transaction template.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -261,7 +261,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentEventType">The type of instrument events that the template is applied to.</param>
-        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template</param>
+        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument             event type, instrument type and scope uniquely identifies a transaction template</param>
         /// <param name="scope">The scope in which the template lies.</param>
         /// <param name="transactionTemplateRequest">A request defining a new transaction template to be created.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -278,7 +278,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentEventType">The type of instrument events that the template is applied to.</param>
-        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template</param>
+        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument             event type, instrument type and scope uniquely identifies a transaction template</param>
         /// <param name="scope">The scope in which the template lies.</param>
         /// <param name="transactionTemplateRequest">A request defining a new transaction template to be created.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -294,7 +294,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentEventType">The type of instrument events that the template is applied to.</param>
-        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template</param>
+        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument             event type, instrument type and scope uniquely identifies a transaction template</param>
         /// <param name="scope">The scope of the template.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -310,7 +310,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentEventType">The type of instrument events that the template is applied to.</param>
-        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template</param>
+        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument             event type, instrument type and scope uniquely identifies a transaction template</param>
         /// <param name="scope">The scope of the template.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -325,7 +325,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentEventType">The instrument event type of the transaction template</param>
-        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template</param>
+        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument             event type, instrument type and scope uniquely identifies a transaction template</param>
         /// <param name="scope">The scope in which the template lies. When not supplied the scope is &#39;default&#39;.</param>
         /// <param name="asAt">The AsAt time of the requested Transaction Template (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -342,7 +342,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentEventType">The instrument event type of the transaction template</param>
-        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template</param>
+        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument             event type, instrument type and scope uniquely identifies a transaction template</param>
         /// <param name="scope">The scope in which the template lies. When not supplied the scope is &#39;default&#39;.</param>
         /// <param name="asAt">The AsAt time of the requested Transaction Template (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -385,9 +385,9 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">AsAt of the request (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Transaction Template Specifications from              a previous call to list Transaction Template Specifications.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt              fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Transaction Template Specifications from             a previous call to list Transaction Template Specifications.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt             fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -403,9 +403,9 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">AsAt of the request (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Transaction Template Specifications from              a previous call to list Transaction Template Specifications.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt              fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Transaction Template Specifications from             a previous call to list Transaction Template Specifications.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt             fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -420,9 +420,9 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The AsAt time at which to retrieve the Transaction Templates (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Transaction Templates from a previous call to list Transaction Templates.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, limit, and asAt fields              must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Transaction Templates from a previous call to list Transaction Templates.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, limit, and asAt fields             must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -438,9 +438,9 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The AsAt time at which to retrieve the Transaction Templates (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Transaction Templates from a previous call to list Transaction Templates.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, limit, and asAt fields              must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Transaction Templates from a previous call to list Transaction Templates.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, limit, and asAt fields             must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -455,7 +455,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentEventType">The type of instrument events that the template is applied to.</param>
-        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template</param>
+        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument             event type, instrument type and scope uniquely identifies a transaction template</param>
         /// <param name="scope">The scope in which the template lies.</param>
         /// <param name="transactionTemplateRequest">A request defining the updated values for the transaction template.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -472,7 +472,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentEventType">The type of instrument events that the template is applied to.</param>
-        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template</param>
+        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument             event type, instrument type and scope uniquely identifies a transaction template</param>
         /// <param name="scope">The scope in which the template lies.</param>
         /// <param name="transactionTemplateRequest">A request defining the updated values for the transaction template.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -608,7 +608,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentEventType">The type of instrument events that the template is applied to.</param>
-        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template</param>
+        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument             event type, instrument type and scope uniquely identifies a transaction template</param>
         /// <param name="scope">The scope in which the template lies.</param>
         /// <param name="transactionTemplateRequest">A request defining a new transaction template to be created.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -625,7 +625,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentEventType">The type of instrument events that the template is applied to.</param>
-        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template</param>
+        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument             event type, instrument type and scope uniquely identifies a transaction template</param>
         /// <param name="scope">The scope in which the template lies.</param>
         /// <param name="transactionTemplateRequest">A request defining a new transaction template to be created.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -739,7 +739,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentEventType">The type of instrument events that the template is applied to.</param>
-        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template</param>
+        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument             event type, instrument type and scope uniquely identifies a transaction template</param>
         /// <param name="scope">The scope in which the template lies.</param>
         /// <param name="transactionTemplateRequest">A request defining a new transaction template to be created.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -757,7 +757,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentEventType">The type of instrument events that the template is applied to.</param>
-        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template</param>
+        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument             event type, instrument type and scope uniquely identifies a transaction template</param>
         /// <param name="scope">The scope in which the template lies.</param>
         /// <param name="transactionTemplateRequest">A request defining a new transaction template to be created.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -874,7 +874,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentEventType">The type of instrument events that the template is applied to.</param>
-        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template</param>
+        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument             event type, instrument type and scope uniquely identifies a transaction template</param>
         /// <param name="scope">The scope of the template.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -890,7 +890,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentEventType">The type of instrument events that the template is applied to.</param>
-        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template</param>
+        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument             event type, instrument type and scope uniquely identifies a transaction template</param>
         /// <param name="scope">The scope of the template.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -992,7 +992,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentEventType">The type of instrument events that the template is applied to.</param>
-        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template</param>
+        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument             event type, instrument type and scope uniquely identifies a transaction template</param>
         /// <param name="scope">The scope of the template.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1009,7 +1009,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentEventType">The type of instrument events that the template is applied to.</param>
-        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template</param>
+        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument             event type, instrument type and scope uniquely identifies a transaction template</param>
         /// <param name="scope">The scope of the template.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1114,7 +1114,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentEventType">The instrument event type of the transaction template</param>
-        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template</param>
+        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument             event type, instrument type and scope uniquely identifies a transaction template</param>
         /// <param name="scope">The scope in which the template lies. When not supplied the scope is &#39;default&#39;.</param>
         /// <param name="asAt">The AsAt time of the requested Transaction Template (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1131,7 +1131,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentEventType">The instrument event type of the transaction template</param>
-        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template</param>
+        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument             event type, instrument type and scope uniquely identifies a transaction template</param>
         /// <param name="scope">The scope in which the template lies. When not supplied the scope is &#39;default&#39;.</param>
         /// <param name="asAt">The AsAt time of the requested Transaction Template (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1238,7 +1238,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentEventType">The instrument event type of the transaction template</param>
-        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template</param>
+        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument             event type, instrument type and scope uniquely identifies a transaction template</param>
         /// <param name="scope">The scope in which the template lies. When not supplied the scope is &#39;default&#39;.</param>
         /// <param name="asAt">The AsAt time of the requested Transaction Template (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1256,7 +1256,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentEventType">The instrument event type of the transaction template</param>
-        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template</param>
+        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument             event type, instrument type and scope uniquely identifies a transaction template</param>
         /// <param name="scope">The scope in which the template lies. When not supplied the scope is &#39;default&#39;.</param>
         /// <param name="asAt">The AsAt time of the requested Transaction Template (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1570,9 +1570,9 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">AsAt of the request (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Transaction Template Specifications from              a previous call to list Transaction Template Specifications.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt              fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Transaction Template Specifications from             a previous call to list Transaction Template Specifications.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt             fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1588,9 +1588,9 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">AsAt of the request (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Transaction Template Specifications from              a previous call to list Transaction Template Specifications.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt              fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Transaction Template Specifications from             a previous call to list Transaction Template Specifications.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt             fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1691,9 +1691,9 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">AsAt of the request (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Transaction Template Specifications from              a previous call to list Transaction Template Specifications.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt              fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Transaction Template Specifications from             a previous call to list Transaction Template Specifications.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt             fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1710,9 +1710,9 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">AsAt of the request (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Transaction Template Specifications from              a previous call to list Transaction Template Specifications.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt              fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Transaction Template Specifications from             a previous call to list Transaction Template Specifications.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt             fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1816,9 +1816,9 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The AsAt time at which to retrieve the Transaction Templates (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Transaction Templates from a previous call to list Transaction Templates.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, limit, and asAt fields              must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Transaction Templates from a previous call to list Transaction Templates.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, limit, and asAt fields             must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1834,9 +1834,9 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The AsAt time at which to retrieve the Transaction Templates (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Transaction Templates from a previous call to list Transaction Templates.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, limit, and asAt fields              must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Transaction Templates from a previous call to list Transaction Templates.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, limit, and asAt fields             must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1937,9 +1937,9 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The AsAt time at which to retrieve the Transaction Templates (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Transaction Templates from a previous call to list Transaction Templates.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, limit, and asAt fields              must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Transaction Templates from a previous call to list Transaction Templates.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, limit, and asAt fields             must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1956,9 +1956,9 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The AsAt time at which to retrieve the Transaction Templates (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Transaction Templates from a previous call to list Transaction Templates.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, limit, and asAt fields              must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Transaction Templates from a previous call to list Transaction Templates.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, limit, and asAt fields             must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2062,7 +2062,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentEventType">The type of instrument events that the template is applied to.</param>
-        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template</param>
+        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument             event type, instrument type and scope uniquely identifies a transaction template</param>
         /// <param name="scope">The scope in which the template lies.</param>
         /// <param name="transactionTemplateRequest">A request defining the updated values for the transaction template.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -2079,7 +2079,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentEventType">The type of instrument events that the template is applied to.</param>
-        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template</param>
+        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument             event type, instrument type and scope uniquely identifies a transaction template</param>
         /// <param name="scope">The scope in which the template lies.</param>
         /// <param name="transactionTemplateRequest">A request defining the updated values for the transaction template.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -2193,7 +2193,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentEventType">The type of instrument events that the template is applied to.</param>
-        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template</param>
+        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument             event type, instrument type and scope uniquely identifies a transaction template</param>
         /// <param name="scope">The scope in which the template lies.</param>
         /// <param name="transactionTemplateRequest">A request defining the updated values for the transaction template.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -2211,7 +2211,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentEventType">The type of instrument events that the template is applied to.</param>
-        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template</param>
+        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument             event type, instrument type and scope uniquely identifies a transaction template</param>
         /// <param name="scope">The scope in which the template lies.</param>
         /// <param name="transactionTemplateRequest">A request defining the updated values for the transaction template.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
