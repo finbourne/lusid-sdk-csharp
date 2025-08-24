@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Wraps a Finbourne.WebApi.Interface.Dto.ComplexMarketData.ComplexMarketData object with information that was retrieved from storage with it. In particular, the scope that the data was stored in, and a &lt;seealso cref&#x3D;\&quot;T:Finbourne.WebApi.Interface.Dto.ComplexMarketData.ComplexMarketDataId\&quot; /&gt; object identifying the market data in that scope.
+    /// Wraps a Finbourne.WebApi.Interface.Dto.ComplexMarketData.ComplexMarketData object with information that was retrieved from storage with it.  In particular,  the scope that the data was stored in,  and a &lt;seealso cref&#x3D;\&quot;T:Finbourne.WebApi.Interface.Dto.ComplexMarketData.ComplexMarketDataId\&quot; /&gt; object identifying the market data in that scope.
     /// </summary>
     [DataContract(Name = "ListComplexMarketDataWithMetaDataResponse")]
     public partial class ListComplexMarketDataWithMetaDataResponse : IEquatable<ListComplexMarketDataWithMetaDataResponse>, IValidatableObject

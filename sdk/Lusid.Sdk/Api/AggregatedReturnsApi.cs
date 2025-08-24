@@ -67,7 +67,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Returns entity scope.</param>
         /// <param name="code">Returns entity code.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the returns entity. Defaults to return             the latest version of the definition if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the returns entity. Defaults to return              the latest version of the definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ReturnsEntity</returns>
@@ -82,7 +82,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Returns entity scope.</param>
         /// <param name="code">Returns entity code.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the returns entity. Defaults to return             the latest version of the definition if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the returns entity. Defaults to return              the latest version of the definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ReturnsEntity</returns>
@@ -94,7 +94,7 @@ namespace Lusid.Sdk.Api
         /// List returns entities.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve the relation definitions. Defaults to return             the latest version of each definition if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the relation definitions. Defaults to return              the latest version of each definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfReturnsEntity</returns>
@@ -107,7 +107,7 @@ namespace Lusid.Sdk.Api
         /// List returns entities.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve the relation definitions. Defaults to return             the latest version of each definition if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the relation definitions. Defaults to return              the latest version of each definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfReturnsEntity</returns>
@@ -184,7 +184,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Returns entity scope.</param>
         /// <param name="code">Returns entity code.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the returns entity. Defaults to return             the latest version of the definition if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the returns entity. Defaults to return              the latest version of the definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -200,7 +200,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Returns entity scope.</param>
         /// <param name="code">Returns entity code.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the returns entity. Defaults to return             the latest version of the definition if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the returns entity. Defaults to return              the latest version of the definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -213,7 +213,7 @@ namespace Lusid.Sdk.Api
         /// List returns entities.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve the relation definitions. Defaults to return             the latest version of each definition if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the relation definitions. Defaults to return              the latest version of each definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -227,7 +227,7 @@ namespace Lusid.Sdk.Api
         /// List returns entities.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve the relation definitions. Defaults to return             the latest version of each definition if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the relation definitions. Defaults to return              the latest version of each definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -611,7 +611,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Returns entity scope.</param>
         /// <param name="code">Returns entity code.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the returns entity. Defaults to return             the latest version of the definition if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the returns entity. Defaults to return              the latest version of the definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ReturnsEntity</returns>
@@ -627,7 +627,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Returns entity scope.</param>
         /// <param name="code">Returns entity code.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the returns entity. Defaults to return             the latest version of the definition if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the returns entity. Defaults to return              the latest version of the definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ReturnsEntity</returns>
@@ -726,7 +726,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Returns entity scope.</param>
         /// <param name="code">Returns entity code.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the returns entity. Defaults to return             the latest version of the definition if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the returns entity. Defaults to return              the latest version of the definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -743,7 +743,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Returns entity scope.</param>
         /// <param name="code">Returns entity code.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the returns entity. Defaults to return             the latest version of the definition if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the returns entity. Defaults to return              the latest version of the definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -843,7 +843,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListReturnsEntities: List returns entities. List returns entities.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve the relation definitions. Defaults to return             the latest version of each definition if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the relation definitions. Defaults to return              the latest version of each definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfReturnsEntity</returns>
@@ -857,7 +857,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListReturnsEntities: List returns entities. List returns entities.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve the relation definitions. Defaults to return             the latest version of each definition if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the relation definitions. Defaults to return              the latest version of each definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfReturnsEntity</returns>
@@ -940,7 +940,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListReturnsEntities: List returns entities. List returns entities.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve the relation definitions. Defaults to return             the latest version of each definition if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the relation definitions. Defaults to return              the latest version of each definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -955,7 +955,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListReturnsEntities: List returns entities. List returns entities.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve the relation definitions. Defaults to return             the latest version of each definition if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the relation definitions. Defaults to return              the latest version of each definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>

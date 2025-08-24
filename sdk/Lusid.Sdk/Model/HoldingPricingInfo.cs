@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Enables price quotes to be created from Holding fields as either overrides or fallbacks to the Market Data resolution process. For example, we may wish to price an instrument at Cost if Market Data resolution fails. We may also wish to always price Bonds using the LastTradedPrice on the corresponding Holding.
+    /// Enables price quotes to be created from Holding fields as either overrides or fallbacks to the Market Data  resolution process. For example, we may wish to price an instrument at Cost if Market Data resolution fails.  We may also wish to always price Bonds using the LastTradedPrice on the corresponding Holding.
     /// </summary>
     [DataContract(Name = "HoldingPricingInfo")]
     public partial class HoldingPricingInfo : IEquatable<HoldingPricingInfo>, IValidatableObject
@@ -32,7 +32,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="HoldingPricingInfo" /> class.
         /// </summary>
         /// <param name="fallbackField">The default Holding field to fall back on if the Market Data resolution process fails to find a price quote..</param>
-        /// <param name="overrideField">The default Holding field to be used as an override for instrument price quotes. This cannot be specified along with a FallbackField or any SpecificFallbacks, since we&#39;ll never attempt Market Data resolution for price quotes if this field is populated..</param>
+        /// <param name="overrideField">The default Holding field to be used as an override for instrument price quotes. This cannot be specified  along with a FallbackField or any SpecificFallbacks, since we&#39;ll never attempt Market Data resolution  for price quotes if this field is populated..</param>
         /// <param name="specificFallbacks">Allows a user to specify fallbacks using Holding fields for sources that match a particular DependencySourceFilter..</param>
         /// <param name="specificOverrides">Allows a user to specify overrides using Holding fields for sources that match a particular DependencySourceFilter..</param>
         public HoldingPricingInfo(string fallbackField = default(string), string overrideField = default(string), List<SpecificHoldingPricingInfo> specificFallbacks = default(List<SpecificHoldingPricingInfo>), List<SpecificHoldingPricingInfo> specificOverrides = default(List<SpecificHoldingPricingInfo>))
@@ -51,9 +51,9 @@ namespace Lusid.Sdk.Model
         public string FallbackField { get; set; }
 
         /// <summary>
-        /// The default Holding field to be used as an override for instrument price quotes. This cannot be specified along with a FallbackField or any SpecificFallbacks, since we&#39;ll never attempt Market Data resolution for price quotes if this field is populated.
+        /// The default Holding field to be used as an override for instrument price quotes. This cannot be specified  along with a FallbackField or any SpecificFallbacks, since we&#39;ll never attempt Market Data resolution  for price quotes if this field is populated.
         /// </summary>
-        /// <value>The default Holding field to be used as an override for instrument price quotes. This cannot be specified along with a FallbackField or any SpecificFallbacks, since we&#39;ll never attempt Market Data resolution for price quotes if this field is populated.</value>
+        /// <value>The default Holding field to be used as an override for instrument price quotes. This cannot be specified  along with a FallbackField or any SpecificFallbacks, since we&#39;ll never attempt Market Data resolution  for price quotes if this field is populated.</value>
         [DataMember(Name = "overrideField", EmitDefaultValue = true)]
         public string OverrideField { get; set; }
 

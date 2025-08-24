@@ -24,7 +24,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Definition of an MBS Interest Shortfall Event This is an event that describes the occurence of a cashflow due to unpaid interest that was deferred and not capitalised into the outstanding principal balance of a mortgage-backed security.
+    /// Definition of an MBS Interest Shortfall Event  This is an event that describes the occurence of a cashflow due to unpaid interest that was deferred and  not capitalised into the outstanding principal balance of a mortgage-backed security.
     /// </summary>
     [DataContract(Name = "MbsInterestShortfallEvent")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentEventType")]

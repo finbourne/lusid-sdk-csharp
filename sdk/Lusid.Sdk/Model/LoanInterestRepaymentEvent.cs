@@ -41,8 +41,8 @@ namespace Lusid.Sdk.Model
         /// <param name="paymentDate">Date that the interest is due to be paid..</param>
         /// <param name="exDate">Date that the accrued interest is calculated up until..</param>
         /// <param name="currency">Currency of the repayment. (required).</param>
-        /// <param name="fraction">Fraction of the accrued on the holding to be repaid.  Must be between 0 and 1, inclusive. Defaults to 1 if not set..</param>
-        /// <param name="lapseElections">Election for controlling whether the interest is paid automatically or not. Exactly one election must be provided..</param>
+        /// <param name="fraction">Fraction of the accrued on the holding to be repaid.  Must be between 0 and 1, inclusive.  Defaults to 1 if not set..</param>
+        /// <param name="lapseElections">Election for controlling whether the interest is paid automatically or not.  Exactly one election must be provided..</param>
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent (required) (default to &quot;LoanInterestRepaymentEvent&quot;).</param>
         public LoanInterestRepaymentEvent(DateTimeOffset paymentDate = default(DateTimeOffset), DateTimeOffset exDate = default(DateTimeOffset), string currency = default(string), decimal fraction = default(decimal), List<LapseElection> lapseElections = default(List<LapseElection>), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
@@ -80,16 +80,16 @@ namespace Lusid.Sdk.Model
         public string Currency { get; set; }
 
         /// <summary>
-        /// Fraction of the accrued on the holding to be repaid.  Must be between 0 and 1, inclusive. Defaults to 1 if not set.
+        /// Fraction of the accrued on the holding to be repaid.  Must be between 0 and 1, inclusive.  Defaults to 1 if not set.
         /// </summary>
-        /// <value>Fraction of the accrued on the holding to be repaid.  Must be between 0 and 1, inclusive. Defaults to 1 if not set.</value>
+        /// <value>Fraction of the accrued on the holding to be repaid.  Must be between 0 and 1, inclusive.  Defaults to 1 if not set.</value>
         [DataMember(Name = "fraction", EmitDefaultValue = true)]
         public decimal Fraction { get; set; }
 
         /// <summary>
-        /// Election for controlling whether the interest is paid automatically or not. Exactly one election must be provided.
+        /// Election for controlling whether the interest is paid automatically or not.  Exactly one election must be provided.
         /// </summary>
-        /// <value>Election for controlling whether the interest is paid automatically or not. Exactly one election must be provided.</value>
+        /// <value>Election for controlling whether the interest is paid automatically or not.  Exactly one election must be provided.</value>
         [DataMember(Name = "lapseElections", EmitDefaultValue = true)]
         public List<LapseElection> LapseElections { get; set; }
 

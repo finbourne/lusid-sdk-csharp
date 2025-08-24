@@ -40,9 +40,9 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="paymentDate">Date that the Principal is due to be paid..</param>
         /// <param name="currency">Currency of the repayment. (required).</param>
-        /// <param name="lapseElections">Election for controlling whether the Principal is paid automatically or not. Exactly one election must be provided..</param>
-        /// <param name="fraction">Fraction of the outstanding settled principal balance to be repaid. Must be between 0 and 1, inclusive. Defaults to 1 if not set. Ignored if the field Amount is set to a value different than zero..</param>
-        /// <param name="amount">Amount to be repaid (independent of the fraction). This field is not used at all if not set or set to 0, in this case the fraction field will be used instead. Otherwise, the fraction field is ignored..</param>
+        /// <param name="lapseElections">Election for controlling whether the Principal is paid automatically or not.  Exactly one election must be provided..</param>
+        /// <param name="fraction">Fraction of the outstanding settled principal balance to be repaid. Must be between 0 and 1, inclusive.  Defaults to 1 if not set. Ignored if the field Amount is set to a value different than zero..</param>
+        /// <param name="amount">Amount to be repaid (independent of the fraction).  This field is not used at all if not set or set to 0, in this case the fraction field will be used instead.  Otherwise, the fraction field is ignored..</param>
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent (required) (default to &quot;LoanPrincipalRepaymentEvent&quot;).</param>
         public LoanPrincipalRepaymentEvent(DateTimeOffset paymentDate = default(DateTimeOffset), string currency = default(string), List<LapseElection> lapseElections = default(List<LapseElection>), decimal? fraction = default(decimal?), decimal? amount = default(decimal?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
@@ -73,23 +73,23 @@ namespace Lusid.Sdk.Model
         public string Currency { get; set; }
 
         /// <summary>
-        /// Election for controlling whether the Principal is paid automatically or not. Exactly one election must be provided.
+        /// Election for controlling whether the Principal is paid automatically or not.  Exactly one election must be provided.
         /// </summary>
-        /// <value>Election for controlling whether the Principal is paid automatically or not. Exactly one election must be provided.</value>
+        /// <value>Election for controlling whether the Principal is paid automatically or not.  Exactly one election must be provided.</value>
         [DataMember(Name = "lapseElections", EmitDefaultValue = true)]
         public List<LapseElection> LapseElections { get; set; }
 
         /// <summary>
-        /// Fraction of the outstanding settled principal balance to be repaid. Must be between 0 and 1, inclusive. Defaults to 1 if not set. Ignored if the field Amount is set to a value different than zero.
+        /// Fraction of the outstanding settled principal balance to be repaid. Must be between 0 and 1, inclusive.  Defaults to 1 if not set. Ignored if the field Amount is set to a value different than zero.
         /// </summary>
-        /// <value>Fraction of the outstanding settled principal balance to be repaid. Must be between 0 and 1, inclusive. Defaults to 1 if not set. Ignored if the field Amount is set to a value different than zero.</value>
+        /// <value>Fraction of the outstanding settled principal balance to be repaid. Must be between 0 and 1, inclusive.  Defaults to 1 if not set. Ignored if the field Amount is set to a value different than zero.</value>
         [DataMember(Name = "fraction", EmitDefaultValue = true)]
         public decimal? Fraction { get; set; }
 
         /// <summary>
-        /// Amount to be repaid (independent of the fraction). This field is not used at all if not set or set to 0, in this case the fraction field will be used instead. Otherwise, the fraction field is ignored.
+        /// Amount to be repaid (independent of the fraction).  This field is not used at all if not set or set to 0, in this case the fraction field will be used instead.  Otherwise, the fraction field is ignored.
         /// </summary>
-        /// <value>Amount to be repaid (independent of the fraction). This field is not used at all if not set or set to 0, in this case the fraction field will be used instead. Otherwise, the fraction field is ignored.</value>
+        /// <value>Amount to be repaid (independent of the fraction).  This field is not used at all if not set or set to 0, in this case the fraction field will be used instead.  Otherwise, the fraction field is ignored.</value>
         [DataMember(Name = "amount", EmitDefaultValue = true)]
         public decimal? Amount { get; set; }
 

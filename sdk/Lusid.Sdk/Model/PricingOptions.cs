@@ -32,20 +32,20 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="PricingOptions" /> class.
         /// </summary>
         /// <param name="modelSelection">modelSelection.</param>
-        /// <param name="useInstrumentTypeToDeterminePricer">If true then use the instrument type to set the default instrument pricer This applies where no more specific set of overrides are provided on a per-vendor and instrument basis..</param>
-        /// <param name="allowAnyInstrumentsWithSecUidToPriceOffLookup">By default, one would not expect to price and exotic instrument, i.e. an instrument with a complicated instrument definition simply through looking up a price as there should be a better way of evaluating it. To override that behaviour and allow lookup for a price from the instrument identifier(s), set this to true..</param>
-        /// <param name="allowPartiallySuccessfulEvaluation">If true then a failure in task evaluation doesn&#39;t cause overall failure. results will be returned where they succeeded and annotation elsewhere.</param>
-        /// <param name="produceSeparateResultForLinearOtcLegs">If true (default), when pricing an Fx-Forward or Interest Rate Swap, Future and other linearly separable products, product two results, one for each leg rather than a single line result with the amalgamated/summed pv from both legs..</param>
-        /// <param name="enableUseOfCachedUnitResults">If true, when pricing using a model or for an instrument that supports use of intermediate cached-results, use them. Default is that this caching is turned off..</param>
+        /// <param name="useInstrumentTypeToDeterminePricer">If true then use the instrument type to set the default instrument pricer  This applies where no more specific set of overrides are provided on a per-vendor and instrument basis..</param>
+        /// <param name="allowAnyInstrumentsWithSecUidToPriceOffLookup">By default, one would not expect to price and exotic instrument, i.e. an instrument with a complicated  instrument definition simply through looking up a price as there should be a better way of evaluating it.  To override that behaviour and allow lookup for a price from the instrument identifier(s), set this to true..</param>
+        /// <param name="allowPartiallySuccessfulEvaluation">If true then a failure in task evaluation doesn&#39;t cause overall failure.  results will be returned where they succeeded and annotation elsewhere.</param>
+        /// <param name="produceSeparateResultForLinearOtcLegs">If true (default), when pricing an Fx-Forward or Interest Rate Swap, Future and other linearly separable products, product two results, one for each leg  rather than a single line result with the amalgamated/summed pv from both legs..</param>
+        /// <param name="enableUseOfCachedUnitResults">If true, when pricing using a model or for an instrument that supports use of intermediate cached-results, use them.  Default is that this caching is turned off..</param>
         /// <param name="windowValuationOnInstrumentStartEnd">If true, when valuing an instrument outside the period where it is &#39;alive&#39; (the start-maturity window) it will return a valuation of zero.</param>
-        /// <param name="removeContingentCashflowsInPaymentDiary">When creating a payment diary, should contingent cash payments (e.g. from exercise of a swaption into a swap) be included or not. i.e. Is exercise or default being assumed to happen or not..</param>
+        /// <param name="removeContingentCashflowsInPaymentDiary">When creating a payment diary, should contingent cash payments (e.g. from exercise of a swaption into a swap) be included or not.  i.e. Is exercise or default being assumed to happen or not..</param>
         /// <param name="useChildSubHoldingKeysForPortfolioExpansion">Should fund constituents inherit subholding keys from the parent subholding keyb.</param>
         /// <param name="validateDomesticAndQuoteCurrenciesAreConsistent">Do we validate that the instrument domestic currency matches the quote currency (unless unknown/zzz) when using lookup pricing..</param>
         /// <param name="mbsValuationUsingHoldingCurrentFace">mbsValuationUsingHoldingCurrentFace.</param>
-        /// <param name="convertSrsCashFlowsToPortfolioCurrency">In the case upserted structured result store (SRS) cashflows are not  in the portfolio currency, set this parameter to True to convert said cashflows into the portfolio currency. By default, this flag is set  to False and Lusid will not do any FX conversion.  Please note that FX conversion is dependent on the data available in the quote store - ensure that all relevant FX quotes have been loaded for cashflow currency conversion..</param>
-        /// <param name="conservedQuantityForLookthroughExpansion">When performing lookthrough portfolio expansion with ScalingMethodology set to \&quot;Sum\&quot; or \&quot;AbsoluteSum\&quot;, the quantity specified here will be conserved and apportioned to lookthrough constituents. For example, an equal-weighting index with 100 constituents can be modelled as a reference portfolio with 1% weights on each equity. When expanding a $9000 holding of that index into its constituents while conserving PV, we end up with $90 of each equity. The number of units of each equity held is then implied. Note that conservation of one quantity may imply non-conservation of others, especially when some constituents are OTCs.              Allowed values are: \&quot;PV\&quot; (default), \&quot;Exposure\&quot;..</param>
+        /// <param name="convertSrsCashFlowsToPortfolioCurrency">In the case upserted structured result store (SRS) cashflows are not   in the portfolio currency, set this parameter to True to convert said  cashflows into the portfolio currency. By default, this flag is set   to False and Lusid will not do any FX conversion.    Please note that FX conversion is dependent on the data available in  the quote store - ensure that all relevant FX quotes have been loaded  for cashflow currency conversion..</param>
+        /// <param name="conservedQuantityForLookthroughExpansion">When performing lookthrough portfolio expansion with ScalingMethodology set to \&quot;Sum\&quot; or \&quot;AbsoluteSum\&quot;,  the quantity specified here will be conserved and apportioned to lookthrough constituents.  For example, an equal-weighting index with 100 constituents can be modelled as a reference portfolio with 1% weights on each equity.  When expanding a $9000 holding of that index into its constituents while conserving PV, we end up with $90 of each equity.  The number of units of each equity held is then implied.  Note that conservation of one quantity may imply non-conservation of others, especially when some constituents are OTCs.                Allowed values are: \&quot;PV\&quot; (default), \&quot;Exposure\&quot;..</param>
         /// <param name="returnZeroPv">returnZeroPv.</param>
-        /// <param name="enableLegLevelInferenceForCustomSrsColumns">When enabled, allows inference between leg-level and instrument-level data during portfolio valuation. If data is missing at one level, it may be inferred from the other level. For example, missing leg-level data  may be inferred from existing leg-level and instrument- level data when ProduceSeparateResultForLinearOtcLegs is enabled, and vice versa. Explicitly provided data always takes precedence..</param>
+        /// <param name="enableLegLevelInferenceForCustomSrsColumns">When enabled, allows inference between leg-level and  instrument-level data during portfolio valuation. If  data is missing at one level, it may be inferred from  the other level. For example, missing leg-level data   may be inferred from existing leg-level and instrument-  level data when ProduceSeparateResultForLinearOtcLegs  is enabled, and vice versa. Explicitly provided data  always takes precedence..</param>
         public PricingOptions(ModelSelection modelSelection = default(ModelSelection), bool useInstrumentTypeToDeterminePricer = default(bool), bool allowAnyInstrumentsWithSecUidToPriceOffLookup = default(bool), bool allowPartiallySuccessfulEvaluation = default(bool), bool produceSeparateResultForLinearOtcLegs = default(bool), bool enableUseOfCachedUnitResults = default(bool), bool windowValuationOnInstrumentStartEnd = default(bool), bool removeContingentCashflowsInPaymentDiary = default(bool), bool useChildSubHoldingKeysForPortfolioExpansion = default(bool), bool validateDomesticAndQuoteCurrenciesAreConsistent = default(bool), bool mbsValuationUsingHoldingCurrentFace = default(bool), bool convertSrsCashFlowsToPortfolioCurrency = default(bool), string conservedQuantityForLookthroughExpansion = default(string), ReturnZeroPvOptions returnZeroPv = default(ReturnZeroPvOptions), bool enableLegLevelInferenceForCustomSrsColumns = default(bool))
         {
             this.ModelSelection = modelSelection;
@@ -72,37 +72,37 @@ namespace Lusid.Sdk.Model
         public ModelSelection ModelSelection { get; set; }
 
         /// <summary>
-        /// If true then use the instrument type to set the default instrument pricer This applies where no more specific set of overrides are provided on a per-vendor and instrument basis.
+        /// If true then use the instrument type to set the default instrument pricer  This applies where no more specific set of overrides are provided on a per-vendor and instrument basis.
         /// </summary>
-        /// <value>If true then use the instrument type to set the default instrument pricer This applies where no more specific set of overrides are provided on a per-vendor and instrument basis.</value>
+        /// <value>If true then use the instrument type to set the default instrument pricer  This applies where no more specific set of overrides are provided on a per-vendor and instrument basis.</value>
         [DataMember(Name = "useInstrumentTypeToDeterminePricer", EmitDefaultValue = true)]
         public bool UseInstrumentTypeToDeterminePricer { get; set; }
 
         /// <summary>
-        /// By default, one would not expect to price and exotic instrument, i.e. an instrument with a complicated instrument definition simply through looking up a price as there should be a better way of evaluating it. To override that behaviour and allow lookup for a price from the instrument identifier(s), set this to true.
+        /// By default, one would not expect to price and exotic instrument, i.e. an instrument with a complicated  instrument definition simply through looking up a price as there should be a better way of evaluating it.  To override that behaviour and allow lookup for a price from the instrument identifier(s), set this to true.
         /// </summary>
-        /// <value>By default, one would not expect to price and exotic instrument, i.e. an instrument with a complicated instrument definition simply through looking up a price as there should be a better way of evaluating it. To override that behaviour and allow lookup for a price from the instrument identifier(s), set this to true.</value>
+        /// <value>By default, one would not expect to price and exotic instrument, i.e. an instrument with a complicated  instrument definition simply through looking up a price as there should be a better way of evaluating it.  To override that behaviour and allow lookup for a price from the instrument identifier(s), set this to true.</value>
         [DataMember(Name = "allowAnyInstrumentsWithSecUidToPriceOffLookup", EmitDefaultValue = true)]
         public bool AllowAnyInstrumentsWithSecUidToPriceOffLookup { get; set; }
 
         /// <summary>
-        /// If true then a failure in task evaluation doesn&#39;t cause overall failure. results will be returned where they succeeded and annotation elsewhere
+        /// If true then a failure in task evaluation doesn&#39;t cause overall failure.  results will be returned where they succeeded and annotation elsewhere
         /// </summary>
-        /// <value>If true then a failure in task evaluation doesn&#39;t cause overall failure. results will be returned where they succeeded and annotation elsewhere</value>
+        /// <value>If true then a failure in task evaluation doesn&#39;t cause overall failure.  results will be returned where they succeeded and annotation elsewhere</value>
         [DataMember(Name = "allowPartiallySuccessfulEvaluation", EmitDefaultValue = true)]
         public bool AllowPartiallySuccessfulEvaluation { get; set; }
 
         /// <summary>
-        /// If true (default), when pricing an Fx-Forward or Interest Rate Swap, Future and other linearly separable products, product two results, one for each leg rather than a single line result with the amalgamated/summed pv from both legs.
+        /// If true (default), when pricing an Fx-Forward or Interest Rate Swap, Future and other linearly separable products, product two results, one for each leg  rather than a single line result with the amalgamated/summed pv from both legs.
         /// </summary>
-        /// <value>If true (default), when pricing an Fx-Forward or Interest Rate Swap, Future and other linearly separable products, product two results, one for each leg rather than a single line result with the amalgamated/summed pv from both legs.</value>
+        /// <value>If true (default), when pricing an Fx-Forward or Interest Rate Swap, Future and other linearly separable products, product two results, one for each leg  rather than a single line result with the amalgamated/summed pv from both legs.</value>
         [DataMember(Name = "produceSeparateResultForLinearOtcLegs", EmitDefaultValue = true)]
         public bool ProduceSeparateResultForLinearOtcLegs { get; set; }
 
         /// <summary>
-        /// If true, when pricing using a model or for an instrument that supports use of intermediate cached-results, use them. Default is that this caching is turned off.
+        /// If true, when pricing using a model or for an instrument that supports use of intermediate cached-results, use them.  Default is that this caching is turned off.
         /// </summary>
-        /// <value>If true, when pricing using a model or for an instrument that supports use of intermediate cached-results, use them. Default is that this caching is turned off.</value>
+        /// <value>If true, when pricing using a model or for an instrument that supports use of intermediate cached-results, use them.  Default is that this caching is turned off.</value>
         [DataMember(Name = "enableUseOfCachedUnitResults", EmitDefaultValue = true)]
         public bool EnableUseOfCachedUnitResults { get; set; }
 
@@ -114,9 +114,9 @@ namespace Lusid.Sdk.Model
         public bool WindowValuationOnInstrumentStartEnd { get; set; }
 
         /// <summary>
-        /// When creating a payment diary, should contingent cash payments (e.g. from exercise of a swaption into a swap) be included or not. i.e. Is exercise or default being assumed to happen or not.
+        /// When creating a payment diary, should contingent cash payments (e.g. from exercise of a swaption into a swap) be included or not.  i.e. Is exercise or default being assumed to happen or not.
         /// </summary>
-        /// <value>When creating a payment diary, should contingent cash payments (e.g. from exercise of a swaption into a swap) be included or not. i.e. Is exercise or default being assumed to happen or not.</value>
+        /// <value>When creating a payment diary, should contingent cash payments (e.g. from exercise of a swaption into a swap) be included or not.  i.e. Is exercise or default being assumed to happen or not.</value>
         [DataMember(Name = "removeContingentCashflowsInPaymentDiary", EmitDefaultValue = true)]
         public bool RemoveContingentCashflowsInPaymentDiary { get; set; }
 
@@ -141,16 +141,16 @@ namespace Lusid.Sdk.Model
         public bool MbsValuationUsingHoldingCurrentFace { get; set; }
 
         /// <summary>
-        /// In the case upserted structured result store (SRS) cashflows are not  in the portfolio currency, set this parameter to True to convert said cashflows into the portfolio currency. By default, this flag is set  to False and Lusid will not do any FX conversion.  Please note that FX conversion is dependent on the data available in the quote store - ensure that all relevant FX quotes have been loaded for cashflow currency conversion.
+        /// In the case upserted structured result store (SRS) cashflows are not   in the portfolio currency, set this parameter to True to convert said  cashflows into the portfolio currency. By default, this flag is set   to False and Lusid will not do any FX conversion.    Please note that FX conversion is dependent on the data available in  the quote store - ensure that all relevant FX quotes have been loaded  for cashflow currency conversion.
         /// </summary>
-        /// <value>In the case upserted structured result store (SRS) cashflows are not  in the portfolio currency, set this parameter to True to convert said cashflows into the portfolio currency. By default, this flag is set  to False and Lusid will not do any FX conversion.  Please note that FX conversion is dependent on the data available in the quote store - ensure that all relevant FX quotes have been loaded for cashflow currency conversion.</value>
+        /// <value>In the case upserted structured result store (SRS) cashflows are not   in the portfolio currency, set this parameter to True to convert said  cashflows into the portfolio currency. By default, this flag is set   to False and Lusid will not do any FX conversion.    Please note that FX conversion is dependent on the data available in  the quote store - ensure that all relevant FX quotes have been loaded  for cashflow currency conversion.</value>
         [DataMember(Name = "convertSrsCashFlowsToPortfolioCurrency", EmitDefaultValue = true)]
         public bool ConvertSrsCashFlowsToPortfolioCurrency { get; set; }
 
         /// <summary>
-        /// When performing lookthrough portfolio expansion with ScalingMethodology set to \&quot;Sum\&quot; or \&quot;AbsoluteSum\&quot;, the quantity specified here will be conserved and apportioned to lookthrough constituents. For example, an equal-weighting index with 100 constituents can be modelled as a reference portfolio with 1% weights on each equity. When expanding a $9000 holding of that index into its constituents while conserving PV, we end up with $90 of each equity. The number of units of each equity held is then implied. Note that conservation of one quantity may imply non-conservation of others, especially when some constituents are OTCs.              Allowed values are: \&quot;PV\&quot; (default), \&quot;Exposure\&quot;.
+        /// When performing lookthrough portfolio expansion with ScalingMethodology set to \&quot;Sum\&quot; or \&quot;AbsoluteSum\&quot;,  the quantity specified here will be conserved and apportioned to lookthrough constituents.  For example, an equal-weighting index with 100 constituents can be modelled as a reference portfolio with 1% weights on each equity.  When expanding a $9000 holding of that index into its constituents while conserving PV, we end up with $90 of each equity.  The number of units of each equity held is then implied.  Note that conservation of one quantity may imply non-conservation of others, especially when some constituents are OTCs.                Allowed values are: \&quot;PV\&quot; (default), \&quot;Exposure\&quot;.
         /// </summary>
-        /// <value>When performing lookthrough portfolio expansion with ScalingMethodology set to \&quot;Sum\&quot; or \&quot;AbsoluteSum\&quot;, the quantity specified here will be conserved and apportioned to lookthrough constituents. For example, an equal-weighting index with 100 constituents can be modelled as a reference portfolio with 1% weights on each equity. When expanding a $9000 holding of that index into its constituents while conserving PV, we end up with $90 of each equity. The number of units of each equity held is then implied. Note that conservation of one quantity may imply non-conservation of others, especially when some constituents are OTCs.              Allowed values are: \&quot;PV\&quot; (default), \&quot;Exposure\&quot;.</value>
+        /// <value>When performing lookthrough portfolio expansion with ScalingMethodology set to \&quot;Sum\&quot; or \&quot;AbsoluteSum\&quot;,  the quantity specified here will be conserved and apportioned to lookthrough constituents.  For example, an equal-weighting index with 100 constituents can be modelled as a reference portfolio with 1% weights on each equity.  When expanding a $9000 holding of that index into its constituents while conserving PV, we end up with $90 of each equity.  The number of units of each equity held is then implied.  Note that conservation of one quantity may imply non-conservation of others, especially when some constituents are OTCs.                Allowed values are: \&quot;PV\&quot; (default), \&quot;Exposure\&quot;.</value>
         [DataMember(Name = "conservedQuantityForLookthroughExpansion", EmitDefaultValue = true)]
         public string ConservedQuantityForLookthroughExpansion { get; set; }
 
@@ -161,9 +161,9 @@ namespace Lusid.Sdk.Model
         public ReturnZeroPvOptions ReturnZeroPv { get; set; }
 
         /// <summary>
-        /// When enabled, allows inference between leg-level and instrument-level data during portfolio valuation. If data is missing at one level, it may be inferred from the other level. For example, missing leg-level data  may be inferred from existing leg-level and instrument- level data when ProduceSeparateResultForLinearOtcLegs is enabled, and vice versa. Explicitly provided data always takes precedence.
+        /// When enabled, allows inference between leg-level and  instrument-level data during portfolio valuation. If  data is missing at one level, it may be inferred from  the other level. For example, missing leg-level data   may be inferred from existing leg-level and instrument-  level data when ProduceSeparateResultForLinearOtcLegs  is enabled, and vice versa. Explicitly provided data  always takes precedence.
         /// </summary>
-        /// <value>When enabled, allows inference between leg-level and instrument-level data during portfolio valuation. If data is missing at one level, it may be inferred from the other level. For example, missing leg-level data  may be inferred from existing leg-level and instrument- level data when ProduceSeparateResultForLinearOtcLegs is enabled, and vice versa. Explicitly provided data always takes precedence.</value>
+        /// <value>When enabled, allows inference between leg-level and  instrument-level data during portfolio valuation. If  data is missing at one level, it may be inferred from  the other level. For example, missing leg-level data   may be inferred from existing leg-level and instrument-  level data when ProduceSeparateResultForLinearOtcLegs  is enabled, and vice versa. Explicitly provided data  always takes precedence.</value>
         [DataMember(Name = "enableLegLevelInferenceForCustomSrsColumns", EmitDefaultValue = true)]
         public bool EnableLegLevelInferenceForCustomSrsColumns { get; set; }
 

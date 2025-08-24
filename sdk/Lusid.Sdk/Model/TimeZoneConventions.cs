@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Provides information on the primary time zone of an instrument and optional cut labels for defining times to be used by instrument events.
+    /// Provides information on the primary time zone of an instrument and optional cut labels  for defining times to be used by instrument events.
     /// </summary>
     [DataContract(Name = "TimeZoneConventions")]
     public partial class TimeZoneConventions : IEquatable<TimeZoneConventions>, IValidatableObject

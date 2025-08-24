@@ -9,19 +9,19 @@ Name | Type | Description | Notes
 **StartDate** | **DateTimeOffset** | The start date of the instrument. This is normally synonymous with the trade-date. | 
 **OptionMaturityDate** | **DateTimeOffset** | The maturity date of the option. | 
 **OptionSettlementDate** | **DateTimeOffset?** | The settlement date of the option. | [optional] 
-**DeliveryType** | **string** | Is the option cash settled or physical delivery of option  Supported string (enumeration) values are: [Cash, Physical]. | 
-**OptionType** | **string** | Type of optionality for the option  Supported string (enumeration) values are: [Call, Put]. | 
+**DeliveryType** | **string** | Is the option cash settled or physical delivery of option    Supported string (enumeration) values are: [Cash, Physical]. | 
+**OptionType** | **string** | Type of optionality for the option    Supported string (enumeration) values are: [Call, Put]. | 
 **Strike** | **decimal** | The strike of the option. | 
 **DomCcy** | **string** | The domestic currency of the instrument. | 
-**UnderlyingIdentifier** | **string** | The market identifier type of the underlying code, e.g RIC.  Supported string (enumeration) values are: [LusidInstrumentId, Isin, Sedol, Cusip, ClientInternal, Figi, RIC, QuotePermId, REDCode, BBGId, ICECode]. Optional field, should be used in combination with the Code field. Not compatible with the Underlying field. | [optional] 
-**Code** | **string** | The identifying code for the equity underlying, e.g. &#39;IBM.N&#39;. Optional field, should be used in combination with the UnderlyingIdentifier field. Not compatible with the Underlying field. | [optional] 
-**EquityOptionType** | **string** | Equity option types. E.g. Vanilla (default), RightsIssue, Warrant.  Supported string (enumeration) values are: [Vanilla, RightsIssue, Warrant]. | [optional] 
+**UnderlyingIdentifier** | **string** | The market identifier type of the underlying code, e.g RIC.    Supported string (enumeration) values are: [LusidInstrumentId, Isin, Sedol, Cusip, ClientInternal, Figi, RIC, QuotePermId, REDCode, BBGId, ICECode].  Optional field, should be used in combination with the Code field.  Not compatible with the Underlying field. | [optional] 
+**Code** | **string** | The identifying code for the equity underlying, e.g. &#39;IBM.N&#39;.  Optional field, should be used in combination with the UnderlyingIdentifier field.  Not compatible with the Underlying field. | [optional] 
+**EquityOptionType** | **string** | Equity option types. E.g. Vanilla (default), RightsIssue, Warrant.    Supported string (enumeration) values are: [Vanilla, RightsIssue, Warrant]. | [optional] 
 **NumberOfShares** | **decimal?** | The amount of shares to exchange if the option is exercised. | [optional] 
 **Premium** | [**Premium**](Premium.md) |  | [optional] 
-**ExerciseType** | **string** | Type of optionality that is present; European, American.  Supported string (enumeration) values are: [European, American]. | [optional] 
+**ExerciseType** | **string** | Type of optionality that is present; European, American.    Supported string (enumeration) values are: [European, American]. | [optional] 
 **Underlying** | [**LusidInstrument**](LusidInstrument.md) |  | [optional] 
 **DeliveryDays** | **int** | Number of business days between exercise date and settlement of the option payoff or underlying. | [optional] 
-**BusinessDayConvention** | **string** | Business day convention for option exercise date to settlement date calculation. Supported string (enumeration) values are: [NoAdjustment, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, HalfMonthModifiedFollowing, Nearest]. | [optional] 
+**BusinessDayConvention** | **string** | Business day convention for option exercise date to settlement date calculation.  Supported string (enumeration) values are: [NoAdjustment, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, HalfMonthModifiedFollowing, Nearest]. | [optional] 
 **SettlementCalendars** | **List&lt;string&gt;** | Holiday calendars for option exercise date to settlement date calculation. | [optional] 
 **TimeZoneConventions** | [**TimeZoneConventions**](TimeZoneConventions.md) |  | [optional] 
 

@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Represents the legal agreement between two parties engaged in an OTC transaction. A typical example would be a 2002 ISDA Master Agreement, signed by two legal entities on a given date.
+    /// Represents the legal agreement between two parties engaged in an OTC transaction.  A typical example would be a 2002 ISDA Master Agreement, signed by two legal entities on a given date.
     /// </summary>
     [DataContract(Name = "CounterpartyAgreement")]
     public partial class CounterpartyAgreement : IEquatable<CounterpartyAgreement>, IValidatableObject

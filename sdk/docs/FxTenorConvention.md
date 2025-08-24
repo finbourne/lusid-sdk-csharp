@@ -1,5 +1,5 @@
 # Lusid.Sdk.Model.FxTenorConvention
-A wrapper of conventions that should be used when interpreting tenors in the context of FX. For instance, can be used to control how tenors are interpreted on an FxForwardTenorCurveData instance.
+A wrapper of conventions that should be used when interpreting tenors in the context of FX.  For instance, can be used to control how tenors are interpreted on an FxForwardTenorCurveData instance.
 
 ## Properties
 

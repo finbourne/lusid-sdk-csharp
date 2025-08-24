@@ -170,7 +170,7 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<RelationDefinitionsApi>();
             var scope = "scope_example";  // string | The scope of the relation to be deleted.
-            var code = "code_example";  // string | The code of the relation to be deleted. Together with the domain and scope this uniquely             identifies the relation.
+            var code = "code_example";  // string | The code of the relation to be deleted. Together with the domain and scope this uniquely              identifies the relation.
 
             try
             {
@@ -217,7 +217,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **scope** | **string** | The scope of the relation to be deleted. |  |
-| **code** | **string** | The code of the relation to be deleted. Together with the domain and scope this uniquely             identifies the relation. |  |
+| **code** | **string** | The code of the relation to be deleted. Together with the domain and scope this uniquely              identifies the relation. |  |
 
 ### Return type
 
@@ -286,8 +286,8 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<RelationDefinitionsApi>();
             var scope = "scope_example";  // string | The scope of the specified relation.
-            var code = "code_example";  // string | The code of the specified relation. Together with the domain and scope this uniquely             identifies the relation.
-            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the relation definition. Defaults to return             the latest version of the definition if not specified. (optional) 
+            var code = "code_example";  // string | The code of the specified relation. Together with the domain and scope this uniquely              identifies the relation.
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the relation definition. Defaults to return              the latest version of the definition if not specified. (optional) 
 
             try
             {
@@ -334,8 +334,8 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **scope** | **string** | The scope of the specified relation. |  |
-| **code** | **string** | The code of the specified relation. Together with the domain and scope this uniquely             identifies the relation. |  |
-| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the relation definition. Defaults to return             the latest version of the definition if not specified. | [optional]  |
+| **code** | **string** | The code of the specified relation. Together with the domain and scope this uniquely              identifies the relation. |  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the relation definition. Defaults to return              the latest version of the definition if not specified. | [optional]  |
 
 ### Return type
 

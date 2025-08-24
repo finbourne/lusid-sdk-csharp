@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// The record of a number of executions against a single Placement (directly analogous to a partial or full fill against a street order).
+    /// The record of a number of executions against a single Placement (directly analogous to  a partial or full fill against a street order).
     /// </summary>
     [DataContract(Name = "Execution")]
     public partial class Execution : IEquatable<Execution>, IValidatableObject

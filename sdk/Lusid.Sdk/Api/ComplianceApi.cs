@@ -62,7 +62,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] DeleteComplianceRule: Delete compliance rule.
         /// </summary>
         /// <remarks>
-        /// Use this endpoint to delete a compliance rule. The rule will be recoverable for asat times earlier than the delete time, but will otherwise appear to have never existed.
+        /// Use this endpoint to delete a compliance rule. The rule will be recoverable for asat times earlier than the  delete time, but will otherwise appear to have never existed.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The compliance rule&#39;s scope.</param>
@@ -76,7 +76,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] DeleteComplianceRule: Delete compliance rule.
         /// </summary>
         /// <remarks>
-        /// Use this endpoint to delete a compliance rule. The rule will be recoverable for asat times earlier than the delete time, but will otherwise appear to have never existed.
+        /// Use this endpoint to delete a compliance rule. The rule will be recoverable for asat times earlier than the  delete time, but will otherwise appear to have never existed.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The compliance rule&#39;s scope.</param>
@@ -122,7 +122,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The compliance rule&#39;s scope.</param>
         /// <param name="code">The compliance rule&#39;s code.</param>
         /// <param name="asAt">Optional. Asat time for query. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto the rule.             These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto the rule.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ComplianceRuleResponse</returns>
@@ -138,7 +138,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The compliance rule&#39;s scope.</param>
         /// <param name="code">The compliance rule&#39;s code.</param>
         /// <param name="asAt">Optional. Asat time for query. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto the rule.             These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto the rule.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ComplianceRuleResponse</returns>
@@ -241,7 +241,7 @@ namespace Lusid.Sdk.Api
         /// <param name="page">Optional. Pagination token. (optional)</param>
         /// <param name="limit">Optional. Entries per page. (optional)</param>
         /// <param name="filter">Optional. Filter. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto each rule.             These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. If not provided will return all the entitled properties for each rule. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto each rule.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. If not provided will return all the entitled properties for each rule. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfComplianceRuleResponse</returns>
@@ -258,7 +258,7 @@ namespace Lusid.Sdk.Api
         /// <param name="page">Optional. Pagination token. (optional)</param>
         /// <param name="limit">Optional. Entries per page. (optional)</param>
         /// <param name="filter">Optional. Filter. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto each rule.             These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. If not provided will return all the entitled properties for each rule. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto each rule.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. If not provided will return all the entitled properties for each rule. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfComplianceRuleResponse</returns>
@@ -271,7 +271,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">Optional. The time at which to get results from. Default : latest (optional)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">Optional. A list of field names to sort by, each suffixed by \&quot;ASC\&quot; or \&quot;DESC\&quot; (optional)</param>
@@ -288,7 +288,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">Optional. The time at which to get results from. Default : latest (optional)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">Optional. A list of field names to sort by, each suffixed by \&quot;ASC\&quot; or \&quot;DESC\&quot; (optional)</param>
@@ -304,7 +304,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">Optional. The time at which to get results from. Default : latest (optional)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -320,7 +320,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">Optional. The time at which to get results from. Default : latest (optional)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -335,7 +335,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">Optional. The time at which to get results from. Default : latest (optional)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing historical order breaches from a previous call to list historical order breaches.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing historical order breaches from a previous call to list historical order breaches.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">Optional. A list of field names to sort by, each suffixed by \&quot;ASC\&quot; or \&quot;DESC\&quot; (optional)</param>
@@ -352,7 +352,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">Optional. The time at which to get results from. Default : latest (optional)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing historical order breaches from a previous call to list historical order breaches.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing historical order breaches from a previous call to list historical order breaches.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">Optional. A list of field names to sort by, each suffixed by \&quot;ASC\&quot; or \&quot;DESC\&quot; (optional)</param>
@@ -459,7 +459,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] UpsertComplianceRule: Upsert a compliance rule.
         /// </summary>
         /// <remarks>
-        /// Use this endpoint to upsert a single compliance rule. The template and variation specified must already exist, as must the portfolio group. The parameters passed must match those required by the template variation.
+        /// Use this endpoint to upsert a single compliance rule. The template and variation specified must already  exist, as must the portfolio group. The parameters passed must match those required by the template variation.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertComplianceRuleRequest"> (optional)</param>
@@ -472,7 +472,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] UpsertComplianceRule: Upsert a compliance rule.
         /// </summary>
         /// <remarks>
-        /// Use this endpoint to upsert a single compliance rule. The template and variation specified must already exist, as must the portfolio group. The parameters passed must match those required by the template variation.
+        /// Use this endpoint to upsert a single compliance rule. The template and variation specified must already  exist, as must the portfolio group. The parameters passed must match those required by the template variation.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertComplianceRuleRequest"> (optional)</param>
@@ -547,7 +547,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] DeleteComplianceRule: Delete compliance rule.
         /// </summary>
         /// <remarks>
-        /// Use this endpoint to delete a compliance rule. The rule will be recoverable for asat times earlier than the delete time, but will otherwise appear to have never existed.
+        /// Use this endpoint to delete a compliance rule. The rule will be recoverable for asat times earlier than the  delete time, but will otherwise appear to have never existed.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The compliance rule&#39;s scope.</param>
@@ -562,7 +562,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] DeleteComplianceRule: Delete compliance rule.
         /// </summary>
         /// <remarks>
-        /// Use this endpoint to delete a compliance rule. The rule will be recoverable for asat times earlier than the delete time, but will otherwise appear to have never existed.
+        /// Use this endpoint to delete a compliance rule. The rule will be recoverable for asat times earlier than the  delete time, but will otherwise appear to have never existed.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The compliance rule&#39;s scope.</param>
@@ -611,7 +611,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The compliance rule&#39;s scope.</param>
         /// <param name="code">The compliance rule&#39;s code.</param>
         /// <param name="asAt">Optional. Asat time for query. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto the rule.             These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto the rule.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -628,7 +628,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The compliance rule&#39;s scope.</param>
         /// <param name="code">The compliance rule&#39;s code.</param>
         /// <param name="asAt">Optional. Asat time for query. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto the rule.             These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto the rule.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -738,7 +738,7 @@ namespace Lusid.Sdk.Api
         /// <param name="page">Optional. Pagination token. (optional)</param>
         /// <param name="limit">Optional. Entries per page. (optional)</param>
         /// <param name="filter">Optional. Filter. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto each rule.             These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. If not provided will return all the entitled properties for each rule. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto each rule.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. If not provided will return all the entitled properties for each rule. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -756,7 +756,7 @@ namespace Lusid.Sdk.Api
         /// <param name="page">Optional. Pagination token. (optional)</param>
         /// <param name="limit">Optional. Entries per page. (optional)</param>
         /// <param name="filter">Optional. Filter. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto each rule.             These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. If not provided will return all the entitled properties for each rule. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto each rule.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. If not provided will return all the entitled properties for each rule. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -770,7 +770,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">Optional. The time at which to get results from. Default : latest (optional)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">Optional. A list of field names to sort by, each suffixed by \&quot;ASC\&quot; or \&quot;DESC\&quot; (optional)</param>
@@ -788,7 +788,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">Optional. The time at which to get results from. Default : latest (optional)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">Optional. A list of field names to sort by, each suffixed by \&quot;ASC\&quot; or \&quot;DESC\&quot; (optional)</param>
@@ -805,7 +805,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">Optional. The time at which to get results from. Default : latest (optional)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -822,7 +822,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">Optional. The time at which to get results from. Default : latest (optional)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -838,7 +838,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">Optional. The time at which to get results from. Default : latest (optional)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing historical order breaches from a previous call to list historical order breaches.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing historical order breaches from a previous call to list historical order breaches.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">Optional. A list of field names to sort by, each suffixed by \&quot;ASC\&quot; or \&quot;DESC\&quot; (optional)</param>
@@ -856,7 +856,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">Optional. The time at which to get results from. Default : latest (optional)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing historical order breaches from a previous call to list historical order breaches.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing historical order breaches from a previous call to list historical order breaches.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">Optional. A list of field names to sort by, each suffixed by \&quot;ASC\&quot; or \&quot;DESC\&quot; (optional)</param>
@@ -970,7 +970,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] UpsertComplianceRule: Upsert a compliance rule.
         /// </summary>
         /// <remarks>
-        /// Use this endpoint to upsert a single compliance rule. The template and variation specified must already exist, as must the portfolio group. The parameters passed must match those required by the template variation.
+        /// Use this endpoint to upsert a single compliance rule. The template and variation specified must already  exist, as must the portfolio group. The parameters passed must match those required by the template variation.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertComplianceRuleRequest"> (optional)</param>
@@ -984,7 +984,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] UpsertComplianceRule: Upsert a compliance rule.
         /// </summary>
         /// <remarks>
-        /// Use this endpoint to upsert a single compliance rule. The template and variation specified must already exist, as must the portfolio group. The parameters passed must match those required by the template variation.
+        /// Use this endpoint to upsert a single compliance rule. The template and variation specified must already  exist, as must the portfolio group. The parameters passed must match those required by the template variation.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertComplianceRuleRequest"> (optional)</param>
@@ -1374,7 +1374,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteComplianceRule: Delete compliance rule. Use this endpoint to delete a compliance rule. The rule will be recoverable for asat times earlier than the delete time, but will otherwise appear to have never existed.
+        /// [EARLY ACCESS] DeleteComplianceRule: Delete compliance rule. Use this endpoint to delete a compliance rule. The rule will be recoverable for asat times earlier than the  delete time, but will otherwise appear to have never existed.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The compliance rule&#39;s scope.</param>
@@ -1389,7 +1389,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteComplianceRule: Delete compliance rule. Use this endpoint to delete a compliance rule. The rule will be recoverable for asat times earlier than the delete time, but will otherwise appear to have never existed.
+        /// [EARLY ACCESS] DeleteComplianceRule: Delete compliance rule. Use this endpoint to delete a compliance rule. The rule will be recoverable for asat times earlier than the  delete time, but will otherwise appear to have never existed.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The compliance rule&#39;s scope.</param>
@@ -1483,7 +1483,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteComplianceRule: Delete compliance rule. Use this endpoint to delete a compliance rule. The rule will be recoverable for asat times earlier than the delete time, but will otherwise appear to have never existed.
+        /// [EARLY ACCESS] DeleteComplianceRule: Delete compliance rule. Use this endpoint to delete a compliance rule. The rule will be recoverable for asat times earlier than the  delete time, but will otherwise appear to have never existed.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The compliance rule&#39;s scope.</param>
@@ -1499,7 +1499,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteComplianceRule: Delete compliance rule. Use this endpoint to delete a compliance rule. The rule will be recoverable for asat times earlier than the delete time, but will otherwise appear to have never existed.
+        /// [EARLY ACCESS] DeleteComplianceRule: Delete compliance rule. Use this endpoint to delete a compliance rule. The rule will be recoverable for asat times earlier than the  delete time, but will otherwise appear to have never existed.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The compliance rule&#39;s scope.</param>
@@ -1824,7 +1824,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The compliance rule&#39;s scope.</param>
         /// <param name="code">The compliance rule&#39;s code.</param>
         /// <param name="asAt">Optional. Asat time for query. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto the rule.             These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto the rule.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ComplianceRuleResponse</returns>
@@ -1841,7 +1841,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The compliance rule&#39;s scope.</param>
         /// <param name="code">The compliance rule&#39;s code.</param>
         /// <param name="asAt">Optional. Asat time for query. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto the rule.             These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto the rule.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ComplianceRuleResponse</returns>
@@ -1945,7 +1945,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The compliance rule&#39;s scope.</param>
         /// <param name="code">The compliance rule&#39;s code.</param>
         /// <param name="asAt">Optional. Asat time for query. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto the rule.             These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto the rule.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1963,7 +1963,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The compliance rule&#39;s scope.</param>
         /// <param name="code">The compliance rule&#39;s code.</param>
         /// <param name="asAt">Optional. Asat time for query. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto the rule.             These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto the rule.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2785,7 +2785,7 @@ namespace Lusid.Sdk.Api
         /// <param name="page">Optional. Pagination token. (optional)</param>
         /// <param name="limit">Optional. Entries per page. (optional)</param>
         /// <param name="filter">Optional. Filter. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto each rule.             These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. If not provided will return all the entitled properties for each rule. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto each rule.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. If not provided will return all the entitled properties for each rule. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfComplianceRuleResponse</returns>
@@ -2803,7 +2803,7 @@ namespace Lusid.Sdk.Api
         /// <param name="page">Optional. Pagination token. (optional)</param>
         /// <param name="limit">Optional. Entries per page. (optional)</param>
         /// <param name="filter">Optional. Filter. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto each rule.             These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. If not provided will return all the entitled properties for each rule. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto each rule.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. If not provided will return all the entitled properties for each rule. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfComplianceRuleResponse</returns>
@@ -2906,7 +2906,7 @@ namespace Lusid.Sdk.Api
         /// <param name="page">Optional. Pagination token. (optional)</param>
         /// <param name="limit">Optional. Entries per page. (optional)</param>
         /// <param name="filter">Optional. Filter. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto each rule.             These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. If not provided will return all the entitled properties for each rule. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto each rule.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. If not provided will return all the entitled properties for each rule. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2925,7 +2925,7 @@ namespace Lusid.Sdk.Api
         /// <param name="page">Optional. Pagination token. (optional)</param>
         /// <param name="limit">Optional. Entries per page. (optional)</param>
         /// <param name="filter">Optional. Filter. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto each rule.             These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. If not provided will return all the entitled properties for each rule. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto each rule.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. If not provided will return all the entitled properties for each rule. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -3028,7 +3028,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">Optional. The time at which to get results from. Default : latest (optional)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">Optional. A list of field names to sort by, each suffixed by \&quot;ASC\&quot; or \&quot;DESC\&quot; (optional)</param>
@@ -3046,7 +3046,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">Optional. The time at which to get results from. Default : latest (optional)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">Optional. A list of field names to sort by, each suffixed by \&quot;ASC\&quot; or \&quot;DESC\&quot; (optional)</param>
@@ -3149,7 +3149,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">Optional. The time at which to get results from. Default : latest (optional)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">Optional. A list of field names to sort by, each suffixed by \&quot;ASC\&quot; or \&quot;DESC\&quot; (optional)</param>
@@ -3168,7 +3168,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">Optional. The time at which to get results from. Default : latest (optional)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">Optional. A list of field names to sort by, each suffixed by \&quot;ASC\&quot; or \&quot;DESC\&quot; (optional)</param>
@@ -3274,7 +3274,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">Optional. The time at which to get results from. Default : latest (optional)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -3291,7 +3291,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">Optional. The time at which to get results from. Default : latest (optional)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -3389,7 +3389,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">Optional. The time at which to get results from. Default : latest (optional)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -3407,7 +3407,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">Optional. The time at which to get results from. Default : latest (optional)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -3508,7 +3508,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">Optional. The time at which to get results from. Default : latest (optional)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing historical order breaches from a previous call to list historical order breaches.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing historical order breaches from a previous call to list historical order breaches.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">Optional. A list of field names to sort by, each suffixed by \&quot;ASC\&quot; or \&quot;DESC\&quot; (optional)</param>
@@ -3526,7 +3526,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">Optional. The time at which to get results from. Default : latest (optional)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing historical order breaches from a previous call to list historical order breaches.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing historical order breaches from a previous call to list historical order breaches.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">Optional. A list of field names to sort by, each suffixed by \&quot;ASC\&quot; or \&quot;DESC\&quot; (optional)</param>
@@ -3629,7 +3629,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">Optional. The time at which to get results from. Default : latest (optional)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing historical order breaches from a previous call to list historical order breaches.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing historical order breaches from a previous call to list historical order breaches.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">Optional. A list of field names to sort by, each suffixed by \&quot;ASC\&quot; or \&quot;DESC\&quot; (optional)</param>
@@ -3648,7 +3648,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">Optional. The time at which to get results from. Default : latest (optional)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing historical order breaches from a previous call to list historical order breaches.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing historical order breaches from a previous call to list historical order breaches.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">Optional. A list of field names to sort by, each suffixed by \&quot;ASC\&quot; or \&quot;DESC\&quot; (optional)</param>
@@ -4534,7 +4534,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertComplianceRule: Upsert a compliance rule. Use this endpoint to upsert a single compliance rule. The template and variation specified must already exist, as must the portfolio group. The parameters passed must match those required by the template variation.
+        /// [EARLY ACCESS] UpsertComplianceRule: Upsert a compliance rule. Use this endpoint to upsert a single compliance rule. The template and variation specified must already  exist, as must the portfolio group. The parameters passed must match those required by the template variation.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertComplianceRuleRequest"> (optional)</param>
@@ -4548,7 +4548,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertComplianceRule: Upsert a compliance rule. Use this endpoint to upsert a single compliance rule. The template and variation specified must already exist, as must the portfolio group. The parameters passed must match those required by the template variation.
+        /// [EARLY ACCESS] UpsertComplianceRule: Upsert a compliance rule. Use this endpoint to upsert a single compliance rule. The template and variation specified must already  exist, as must the portfolio group. The parameters passed must match those required by the template variation.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertComplianceRuleRequest"> (optional)</param>
@@ -4632,7 +4632,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertComplianceRule: Upsert a compliance rule. Use this endpoint to upsert a single compliance rule. The template and variation specified must already exist, as must the portfolio group. The parameters passed must match those required by the template variation.
+        /// [EARLY ACCESS] UpsertComplianceRule: Upsert a compliance rule. Use this endpoint to upsert a single compliance rule. The template and variation specified must already  exist, as must the portfolio group. The parameters passed must match those required by the template variation.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertComplianceRuleRequest"> (optional)</param>
@@ -4647,7 +4647,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertComplianceRule: Upsert a compliance rule. Use this endpoint to upsert a single compliance rule. The template and variation specified must already exist, as must the portfolio group. The parameters passed must match those required by the template variation.
+        /// [EARLY ACCESS] UpsertComplianceRule: Upsert a compliance rule. Use this endpoint to upsert a single compliance rule. The template and variation specified must already  exist, as must the portfolio group. The parameters passed must match those required by the template variation.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertComplianceRuleRequest"> (optional)</param>

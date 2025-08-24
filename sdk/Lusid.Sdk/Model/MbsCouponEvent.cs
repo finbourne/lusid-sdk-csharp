@@ -24,7 +24,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Definition of an MBS Coupon Event This is an event that describes the occurence of a cashflow due to a mortgage-backed security coupon payment.
+    /// Definition of an MBS Coupon Event  This is an event that describes the occurence of a cashflow due to a mortgage-backed security coupon payment.
     /// </summary>
     [DataContract(Name = "MbsCouponEvent")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentEventType")]

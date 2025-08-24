@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// The underlying instrument representing one side of the TRS and its pay-receive direction.              Note that TRS currently only supports an asset of Bond or ComplexBond, no other instruments are allowed. Support for additional instrument types will be added in the future.
+    /// The underlying instrument representing one side of the TRS and its pay-receive direction.                Note that TRS currently only supports an asset of Bond or ComplexBond, no other instruments are allowed.  Support for additional instrument types will be added in the future.
     /// </summary>
     [DataContract(Name = "AssetLeg")]
     public partial class AssetLeg : IEquatable<AssetLeg>, IValidatableObject
@@ -37,7 +37,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="AssetLeg" /> class.
         /// </summary>
         /// <param name="asset">asset (required).</param>
-        /// <param name="payReceive">Either Pay or Receive stating direction of the asset in the swap.  Supported string (enumeration) values are: [Pay, Receive]. (required).</param>
+        /// <param name="payReceive">Either Pay or Receive stating direction of the asset in the swap.    Supported string (enumeration) values are: [Pay, Receive]. (required).</param>
         public AssetLeg(LusidInstrument asset = default(LusidInstrument), string payReceive = default(string))
         {
             // to ensure "asset" is required (not null)
@@ -61,9 +61,9 @@ namespace Lusid.Sdk.Model
         public LusidInstrument Asset { get; set; }
 
         /// <summary>
-        /// Either Pay or Receive stating direction of the asset in the swap.  Supported string (enumeration) values are: [Pay, Receive].
+        /// Either Pay or Receive stating direction of the asset in the swap.    Supported string (enumeration) values are: [Pay, Receive].
         /// </summary>
-        /// <value>Either Pay or Receive stating direction of the asset in the swap.  Supported string (enumeration) values are: [Pay, Receive].</value>
+        /// <value>Either Pay or Receive stating direction of the asset in the swap.    Supported string (enumeration) values are: [Pay, Receive].</value>
         [DataMember(Name = "payReceive", IsRequired = true, EmitDefaultValue = true)]
         public string PayReceive { get; set; }
 

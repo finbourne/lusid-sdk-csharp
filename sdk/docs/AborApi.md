@@ -538,7 +538,7 @@ namespace Examples
             var code = "code_example";  // string | The code of the Abor. Together with the scope this uniquely identifies the Abor.
             var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to retrieve the Abor properties. Defaults to the current LUSID system datetime if not specified. (optional) 
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the Abor definition. Defaults to returning the latest version of the Abor definition if not specified. (optional) 
-            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'Abor' domain to decorate onto the Abor.             These must take the format {domain}/{scope}/{code}, for example 'Abor/Manager/Id'. If no properties are specified, then no properties will be returned. (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'Abor' domain to decorate onto the Abor.              These must take the format {domain}/{scope}/{code}, for example 'Abor/Manager/Id'. If no properties are specified, then no properties will be returned. (optional) 
 
             try
             {
@@ -588,7 +588,7 @@ catch (ApiException e)
 | **code** | **string** | The code of the Abor. Together with the scope this uniquely identifies the Abor. |  |
 | **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to retrieve the Abor properties. Defaults to the current LUSID system datetime if not specified. | [optional]  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the Abor definition. Defaults to returning the latest version of the Abor definition if not specified. | [optional]  |
-| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;Abor&#39; domain to decorate onto the Abor.             These must take the format {domain}/{scope}/{code}, for example &#39;Abor/Manager/Id&#39;. If no properties are specified, then no properties will be returned. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;Abor&#39; domain to decorate onto the Abor.              These must take the format {domain}/{scope}/{code}, for example &#39;Abor/Manager/Id&#39;. If no properties are specified, then no properties will be returned. | [optional]  |
 
 ### Return type
 
@@ -735,7 +735,7 @@ catch (ApiException e)
 
 [EXPERIMENTAL] GetJournalEntryLines: Get the Journal Entry lines for the given Abor.
 
-Gets the Journal Entry lines for the given Abor              The Journal Entry lines have been generated from transactions and translated via posting rules
+Gets the Journal Entry lines for the given Abor                The Journal Entry lines have been generated from transactions and translated via posting rules
 
 ### Example
 ```csharp
@@ -779,7 +779,7 @@ namespace Examples
             var scope = "scope_example";  // string | The scope of the Abor.
             var code = "code_example";  // string | The code of the Abor. Together with the scope is creating the unique identifier for the given Abor.
             var journalEntryLinesQueryParameters = new JournalEntryLinesQueryParameters(); // JournalEntryLinesQueryParameters | The query parameters used in running the generation of the Journal Entry lines.
-            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve Journal Entry lines. Defaults to returning the latest version              of each transaction if not specified. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve Journal Entry lines. Defaults to returning the latest version               of each transaction if not specified. (optional) 
             var filter = "filter_example";  // string? | \"Expression to filter the result set.\" (optional) 
             var limit = 56;  // int? | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional) 
             var page = "page_example";  // string? | The pagination token to use to continue listing Journal Entry lines from a previous call to GetJournalEntryLines. (optional) 
@@ -831,7 +831,7 @@ catch (ApiException e)
 | **scope** | **string** | The scope of the Abor. |  |
 | **code** | **string** | The code of the Abor. Together with the scope is creating the unique identifier for the given Abor. |  |
 | **journalEntryLinesQueryParameters** | [**JournalEntryLinesQueryParameters**](JournalEntryLinesQueryParameters.md) | The query parameters used in running the generation of the Journal Entry lines. |  |
-| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve Journal Entry lines. Defaults to returning the latest version              of each transaction if not specified. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve Journal Entry lines. Defaults to returning the latest version               of each transaction if not specified. | [optional]  |
 | **filter** | **string?** | \&quot;Expression to filter the result set.\&quot; | [optional]  |
 | **limit** | **int?** | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. | [optional]  |
 | **page** | **string?** | The pagination token to use to continue listing Journal Entry lines from a previous call to GetJournalEntryLines. | [optional]  |
@@ -861,7 +861,7 @@ catch (ApiException e)
 
 [EXPERIMENTAL] GetTrialBalance: Get the Trial Balance for the given Abor.
 
-Gets the Trial Balance for the given Abor.  The Trial Balance has been generated from transactions, translated via Posting Rules and aggregated based on a General Ledger Profile (where specified).
+Gets the Trial Balance for the given Abor.    The Trial Balance has been generated from transactions, translated via Posting Rules  and aggregated based on a General Ledger Profile (where specified).
 
 ### Example
 ```csharp
@@ -905,10 +905,10 @@ namespace Examples
             var scope = "scope_example";  // string | The scope of the Abor.
             var code = "code_example";  // string | The code of the Abor. Together with the scope this uniquely identifies the Abor.
             var trialBalanceQueryParameters = new TrialBalanceQueryParameters(); // TrialBalanceQueryParameters | The query parameters used in running the generation of the Trial Balance.
-            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the Trial Balance.             Defaults to returning the latest version if not specified. (optional) 
-            var filter = "filter_example";  // string? | Expression to filter the results by.             For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional) 
-            var limit = 56;  // int? | When paginating, limit the number of returned results to this many.             Defaults to 100 if not specified. (optional) 
-            var page = "page_example";  // string? | The pagination token to use to continue listing Trial Balances.             This token is returned from the previous call.             If a pagination token is provided, the filter, effectiveAt and asAt fields             must not have changed since the original request. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the Trial Balance.              Defaults to returning the latest version if not specified. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the results by.              For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional) 
+            var limit = 56;  // int? | When paginating, limit the number of returned results to this many.              Defaults to 100 if not specified. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing Trial Balances.              This token is returned from the previous call.              If a pagination token is provided, the filter, effectiveAt and asAt fields              must not have changed since the original request. (optional) 
 
             try
             {
@@ -957,10 +957,10 @@ catch (ApiException e)
 | **scope** | **string** | The scope of the Abor. |  |
 | **code** | **string** | The code of the Abor. Together with the scope this uniquely identifies the Abor. |  |
 | **trialBalanceQueryParameters** | [**TrialBalanceQueryParameters**](TrialBalanceQueryParameters.md) | The query parameters used in running the generation of the Trial Balance. |  |
-| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the Trial Balance.             Defaults to returning the latest version if not specified. | [optional]  |
-| **filter** | **string?** | Expression to filter the results by.             For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional]  |
-| **limit** | **int?** | When paginating, limit the number of returned results to this many.             Defaults to 100 if not specified. | [optional]  |
-| **page** | **string?** | The pagination token to use to continue listing Trial Balances.             This token is returned from the previous call.             If a pagination token is provided, the filter, effectiveAt and asAt fields             must not have changed since the original request. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the Trial Balance.              Defaults to returning the latest version if not specified. | [optional]  |
+| **filter** | **string?** | Expression to filter the results by.              For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional]  |
+| **limit** | **int?** | When paginating, limit the number of returned results to this many.              Defaults to 100 if not specified. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing Trial Balances.              This token is returned from the previous call.              If a pagination token is provided, the filter, effectiveAt and asAt fields              must not have changed since the original request. | [optional]  |
 
 ### Return type
 
@@ -1028,13 +1028,13 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<AborApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<AborApi>();
-            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to list the TimeVariant properties for the Abor. Defaults to the current LUSID             system datetime if not specified. (optional) 
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to list the TimeVariant properties for the Abor. Defaults to the current LUSID              system datetime if not specified. (optional) 
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the Abor. Defaults to returning the latest version of each Abor if not specified. (optional) 
-            var page = "page_example";  // string? | The pagination token to use to continue listing Abor; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing Abor; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional) 
             var limit = 56;  // int? | When paginating, limit the results to this number. Defaults to 100 if not specified. (optional) 
-            var filter = "filter_example";  // string? | Expression to filter the results.             For example, to filter on the Abor type, specify \"id.Code eq 'Abor1'\". For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the results.              For example, to filter on the Abor type, specify \"id.Code eq 'Abor1'\". For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional) 
             var sortBy = new List<string>?(); // List<string>? | A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\". (optional) 
-            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'Abor' domain to decorate onto each Abor.             These must take the format {domain}/{scope}/{code}, for example 'Abor/Manager/Id'. (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'Abor' domain to decorate onto each Abor.              These must take the format {domain}/{scope}/{code}, for example 'Abor/Manager/Id'. (optional) 
 
             try
             {
@@ -1080,13 +1080,13 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to list the TimeVariant properties for the Abor. Defaults to the current LUSID             system datetime if not specified. | [optional]  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to list the TimeVariant properties for the Abor. Defaults to the current LUSID              system datetime if not specified. | [optional]  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to list the Abor. Defaults to returning the latest version of each Abor if not specified. | [optional]  |
-| **page** | **string?** | The pagination token to use to continue listing Abor; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing Abor; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. | [optional]  |
 | **limit** | **int?** | When paginating, limit the results to this number. Defaults to 100 if not specified. | [optional]  |
-| **filter** | **string?** | Expression to filter the results.             For example, to filter on the Abor type, specify \&quot;id.Code eq &#39;Abor1&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional]  |
+| **filter** | **string?** | Expression to filter the results.              For example, to filter on the Abor type, specify \&quot;id.Code eq &#39;Abor1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional]  |
 | **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. | [optional]  |
-| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;Abor&#39; domain to decorate onto each Abor.             These must take the format {domain}/{scope}/{code}, for example &#39;Abor/Manager/Id&#39;. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;Abor&#39; domain to decorate onto each Abor.              These must take the format {domain}/{scope}/{code}, for example &#39;Abor/Manager/Id&#39;. | [optional]  |
 
 ### Return type
 
@@ -1156,13 +1156,13 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<AborApi>();
             var scope = "scope_example";  // string | The scope of the Abor.
             var code = "code_example";  // string | The code of the Abor.
-            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to list the TimeVariant properties for the Diary Entries. Defaults to the current LUSID             system datetime if not specified. (optional) 
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to list the TimeVariant properties for the Diary Entries. Defaults to the current LUSID              system datetime if not specified. (optional) 
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the DiaryEntry. Defaults to returning the latest version of each DiaryEntry if not specified. (optional) 
-            var page = "page_example";  // string? | The pagination token to use to continue listing diary entries; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing diary entries; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional) 
             var limit = 56;  // int? | When paginating, limit the results to this number. Defaults to 100 if not specified. (optional) 
-            var filter = "filter_example";  // string? | Expression to filter the results.             For example, to filter on the DiaryEntry type, specify \"type eq 'PeriodBoundary'\". For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the results.              For example, to filter on the DiaryEntry type, specify \"type eq 'PeriodBoundary'\". For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional) 
             var sortBy = new List<string>?(); // List<string>? | A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\". (optional) 
-            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'DiaryEntry' domain to decorate onto each DiaryEntry.             These must take the format {domain}/{scope}/{code}, for example 'DiaryEntry/Report/Id'. (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'DiaryEntry' domain to decorate onto each DiaryEntry.              These must take the format {domain}/{scope}/{code}, for example 'DiaryEntry/Report/Id'. (optional) 
 
             try
             {
@@ -1210,13 +1210,13 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **scope** | **string** | The scope of the Abor. |  |
 | **code** | **string** | The code of the Abor. |  |
-| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to list the TimeVariant properties for the Diary Entries. Defaults to the current LUSID             system datetime if not specified. | [optional]  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to list the TimeVariant properties for the Diary Entries. Defaults to the current LUSID              system datetime if not specified. | [optional]  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to list the DiaryEntry. Defaults to returning the latest version of each DiaryEntry if not specified. | [optional]  |
-| **page** | **string?** | The pagination token to use to continue listing diary entries; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing diary entries; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. | [optional]  |
 | **limit** | **int?** | When paginating, limit the results to this number. Defaults to 100 if not specified. | [optional]  |
-| **filter** | **string?** | Expression to filter the results.             For example, to filter on the DiaryEntry type, specify \&quot;type eq &#39;PeriodBoundary&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional]  |
+| **filter** | **string?** | Expression to filter the results.              For example, to filter on the DiaryEntry type, specify \&quot;type eq &#39;PeriodBoundary&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional]  |
 | **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. | [optional]  |
-| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;DiaryEntry&#39; domain to decorate onto each DiaryEntry.             These must take the format {domain}/{scope}/{code}, for example &#39;DiaryEntry/Report/Id&#39;. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;DiaryEntry&#39; domain to decorate onto each DiaryEntry.              These must take the format {domain}/{scope}/{code}, for example &#39;DiaryEntry/Report/Id&#39;. | [optional]  |
 
 ### Return type
 
@@ -1403,7 +1403,7 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<AborApi>();
             var scope = "scope_example";  // string | The scope of the Abor.
-            var code = "code_example";  // string | The code of the Abor. Together with the             scope this uniquely identifies the Abor.
+            var code = "code_example";  // string | The code of the Abor. Together with the              scope this uniquely identifies the Abor.
             var operation = new List<Operation>(); // List<Operation> | The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.
 
             try
@@ -1451,7 +1451,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **scope** | **string** | The scope of the Abor. |  |
-| **code** | **string** | The code of the Abor. Together with the             scope this uniquely identifies the Abor. |  |
+| **code** | **string** | The code of the Abor. Together with the              scope this uniquely identifies the Abor. |  |
 | **operation** | [**List&lt;Operation&gt;**](Operation.md) | The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902. |  |
 
 ### Return type
@@ -1597,7 +1597,7 @@ catch (ApiException e)
 
 [EXPERIMENTAL] UpsertAborProperties: Upsert Abor properties
 
-Update or insert one or more properties onto a single Abor. A property will be updated if it already exists and inserted if it does not. All properties must be of the domain 'Abor'.              Upserting a property that exists for an Abor, with a null value, will delete the instance of the property for that group.              Properties have an <i>effectiveFrom</i> datetime for which the property is valid, and an <i>effectiveUntil</i> datetime until which the property is valid. Not supplying an <i>effectiveUntil</i> datetime results in the property being valid indefinitely, or until the next <i>effectiveFrom</i> datetime of the property.
+Update or insert one or more properties onto a single Abor. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain 'Abor'.                Upserting a property that exists for an Abor, with a null value, will delete the instance of the property for that group.                Properties have an <i>effectiveFrom</i> datetime for which the property is valid, and an <i>effectiveUntil</i>  datetime until which the property is valid. Not supplying an <i>effectiveUntil</i> datetime results in the property being  valid indefinitely, or until the next <i>effectiveFrom</i> datetime of the property.
 
 ### Example
 ```csharp
@@ -1640,7 +1640,7 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<AborApi>();
             var scope = "scope_example";  // string | The scope of the Abor to update or insert the properties onto.
             var code = "code_example";  // string | The code of the Abor to update or insert the properties onto. Together with the scope this uniquely identifies the Abor.
-            var requestBody = new Dictionary<string, Property>?(); // Dictionary<string, Property>? | The properties to be updated or inserted onto the Abor. Each property in              the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \"Abor/Manager/Id\". (optional) 
+            var requestBody = new Dictionary<string, Property>?(); // Dictionary<string, Property>? | The properties to be updated or inserted onto the Abor. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \"Abor/Manager/Id\". (optional) 
 
             try
             {
@@ -1688,7 +1688,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **scope** | **string** | The scope of the Abor to update or insert the properties onto. |  |
 | **code** | **string** | The code of the Abor to update or insert the properties onto. Together with the scope this uniquely identifies the Abor. |  |
-| **requestBody** | [**Dictionary&lt;string, Property&gt;?**](Property.md) | The properties to be updated or inserted onto the Abor. Each property in              the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;Abor/Manager/Id\&quot;. | [optional]  |
+| **requestBody** | [**Dictionary&lt;string, Property&gt;?**](Property.md) | The properties to be updated or inserted onto the Abor. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;Abor/Manager/Id\&quot;. | [optional]  |
 
 ### Return type
 

@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Any overriding data for notionals, spreads or rates that would affect generation of a leg. This supports the case where an amortisation schedule is given but otherwise generation is allowed as usual.
+    /// Any overriding data for notionals, spreads or rates that would affect generation of a leg.  This supports the case where an amortisation schedule is given but otherwise generation is allowed as usual.
     /// </summary>
     [DataContract(Name = "FixedLeg_allOf_overrides")]
     public partial class FixedLegAllOfOverrides : IEquatable<FixedLegAllOfOverrides>, IValidatableObject

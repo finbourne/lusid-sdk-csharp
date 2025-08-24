@@ -24,7 +24,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Definition of an Amortisation event. This is an event that describes the occurence of amortisation.
+    /// Definition of an Amortisation event.  This is an event that describes the occurence of amortisation.
     /// </summary>
     [DataContract(Name = "AmortisationEvent")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentEventType")]
@@ -38,7 +38,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AmortisationEvent" /> class.
         /// </summary>
-        /// <param name="amountReduced">The amount reduced in this amortisation event. That is, the difference between the previous notional amount and the current notional amount as set in this event. (required).</param>
+        /// <param name="amountReduced">The amount reduced in this amortisation event.  That is, the difference between the previous notional amount and the current notional amount as set in this event. (required).</param>
         /// <param name="domCcy">Domestic currency of the originating instrument (required).</param>
         /// <param name="payReceive">Is this event in relation to the Pay or Receive leg (required).</param>
         /// <param name="paymentDate">The date the principal payment is to be made. (required).</param>
@@ -62,9 +62,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The amount reduced in this amortisation event. That is, the difference between the previous notional amount and the current notional amount as set in this event.
+        /// The amount reduced in this amortisation event.  That is, the difference between the previous notional amount and the current notional amount as set in this event.
         /// </summary>
-        /// <value>The amount reduced in this amortisation event. That is, the difference between the previous notional amount and the current notional amount as set in this event.</value>
+        /// <value>The amount reduced in this amortisation event.  That is, the difference between the previous notional amount and the current notional amount as set in this event.</value>
         [DataMember(Name = "amountReduced", IsRequired = true, EmitDefaultValue = true)]
         public decimal AmountReduced { get; set; }
 

@@ -44,11 +44,11 @@ namespace Lusid.Sdk.Model
         /// <param name="fgnAmountPerUnit">Amount per unit in the FgnCcy (foreign currency) (required).</param>
         /// <param name="fgnCcy">The foreign currency of the forward. (required).</param>
         /// <param name="isNdf">Is this settlement corresponding to a deliverable forward, or an NDF (required).</param>
-        /// <param name="fixingDate">Optional.  Required if the event is an NDF (i.e. if IsNdf &#x3D; true). Date of the FxRate fixings..</param>
-        /// <param name="settlementCcy">Optional.  Required if the event is an NDF (i.e. if IsNdf &#x3D; true). May be set to either DomCcy or FgnCcy, or a third currency..</param>
-        /// <param name="cashFlowPerUnit">Optional.  Required if the event is an NDF (i.e. if IsNdf &#x3D; true). CashFlow per unit.  Paid in the SettlementCcy..</param>
-        /// <param name="domesticToForeignRate">Domestic currency to foreign currency FX rate. Not required, only used to override quotes..</param>
-        /// <param name="domesticToSettlementRate">Domestic currency to settlement currency FX rate Not required, only used to override quotes..</param>
+        /// <param name="fixingDate">Optional.  Required if the event is an NDF (i.e. if IsNdf &#x3D; true).  Date of the FxRate fixings..</param>
+        /// <param name="settlementCcy">Optional.  Required if the event is an NDF (i.e. if IsNdf &#x3D; true).  May be set to either DomCcy or FgnCcy, or a third currency..</param>
+        /// <param name="cashFlowPerUnit">Optional.  Required if the event is an NDF (i.e. if IsNdf &#x3D; true).  CashFlow per unit.  Paid in the SettlementCcy..</param>
+        /// <param name="domesticToForeignRate">Domestic currency to foreign currency FX rate.  Not required, only used to override quotes..</param>
+        /// <param name="domesticToSettlementRate">Domestic currency to settlement currency FX rate  Not required, only used to override quotes..</param>
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent (required) (default to &quot;FxForwardSettlementEvent&quot;).</param>
         public FxForwardSettlementEvent(DateTimeOffset maturityDate = default(DateTimeOffset), decimal domAmountPerUnit = default(decimal), string domCcy = default(string), decimal fgnAmountPerUnit = default(decimal), string fgnCcy = default(string), bool isNdf = default(bool), DateTimeOffset? fixingDate = default(DateTimeOffset?), string settlementCcy = default(string), decimal? cashFlowPerUnit = default(decimal?), decimal? domesticToForeignRate = default(decimal?), decimal? domesticToSettlementRate = default(decimal?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
@@ -118,44 +118,44 @@ namespace Lusid.Sdk.Model
         public bool IsNdf { get; set; }
 
         /// <summary>
-        /// Optional.  Required if the event is an NDF (i.e. if IsNdf &#x3D; true). Date of the FxRate fixings.
+        /// Optional.  Required if the event is an NDF (i.e. if IsNdf &#x3D; true).  Date of the FxRate fixings.
         /// </summary>
-        /// <value>Optional.  Required if the event is an NDF (i.e. if IsNdf &#x3D; true). Date of the FxRate fixings.</value>
+        /// <value>Optional.  Required if the event is an NDF (i.e. if IsNdf &#x3D; true).  Date of the FxRate fixings.</value>
         [DataMember(Name = "fixingDate", EmitDefaultValue = true)]
         public DateTimeOffset? FixingDate { get; set; }
 
         /// <summary>
-        /// Optional.  Required if the event is an NDF (i.e. if IsNdf &#x3D; true). May be set to either DomCcy or FgnCcy, or a third currency.
+        /// Optional.  Required if the event is an NDF (i.e. if IsNdf &#x3D; true).  May be set to either DomCcy or FgnCcy, or a third currency.
         /// </summary>
-        /// <value>Optional.  Required if the event is an NDF (i.e. if IsNdf &#x3D; true). May be set to either DomCcy or FgnCcy, or a third currency.</value>
+        /// <value>Optional.  Required if the event is an NDF (i.e. if IsNdf &#x3D; true).  May be set to either DomCcy or FgnCcy, or a third currency.</value>
         [DataMember(Name = "settlementCcy", EmitDefaultValue = true)]
         public string SettlementCcy { get; set; }
 
         /// <summary>
-        /// Optional.  Required if the event is an NDF (i.e. if IsNdf &#x3D; true). CashFlow per unit.  Paid in the SettlementCcy.
+        /// Optional.  Required if the event is an NDF (i.e. if IsNdf &#x3D; true).  CashFlow per unit.  Paid in the SettlementCcy.
         /// </summary>
-        /// <value>Optional.  Required if the event is an NDF (i.e. if IsNdf &#x3D; true). CashFlow per unit.  Paid in the SettlementCcy.</value>
+        /// <value>Optional.  Required if the event is an NDF (i.e. if IsNdf &#x3D; true).  CashFlow per unit.  Paid in the SettlementCcy.</value>
         [DataMember(Name = "cashFlowPerUnit", EmitDefaultValue = true)]
         public decimal? CashFlowPerUnit { get; set; }
 
         /// <summary>
-        /// Domestic currency to foreign currency FX rate. Not required, only used to override quotes.
+        /// Domestic currency to foreign currency FX rate.  Not required, only used to override quotes.
         /// </summary>
-        /// <value>Domestic currency to foreign currency FX rate. Not required, only used to override quotes.</value>
+        /// <value>Domestic currency to foreign currency FX rate.  Not required, only used to override quotes.</value>
         [DataMember(Name = "domesticToForeignRate", EmitDefaultValue = true)]
         public decimal? DomesticToForeignRate { get; set; }
 
         /// <summary>
-        /// Domestic currency to settlement currency FX rate Not required, only used to override quotes.
+        /// Domestic currency to settlement currency FX rate  Not required, only used to override quotes.
         /// </summary>
-        /// <value>Domestic currency to settlement currency FX rate Not required, only used to override quotes.</value>
+        /// <value>Domestic currency to settlement currency FX rate  Not required, only used to override quotes.</value>
         [DataMember(Name = "domesticToSettlementRate", EmitDefaultValue = true)]
         public decimal? DomesticToSettlementRate { get; set; }
 
         /// <summary>
-        /// Foreign currency to settlement currency FX rate Not required, only used to override quotes.
+        /// Foreign currency to settlement currency FX rate  Not required, only used to override quotes.
         /// </summary>
-        /// <value>Foreign currency to settlement currency FX rate Not required, only used to override quotes.</value>
+        /// <value>Foreign currency to settlement currency FX rate  Not required, only used to override quotes.</value>
         [DataMember(Name = "foreignToSettlementRate", EmitDefaultValue = true)]
         public decimal? ForeignToSettlementRate { get; private set; }
 

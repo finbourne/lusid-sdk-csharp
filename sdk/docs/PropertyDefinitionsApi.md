@@ -293,7 +293,7 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PropertyDefinitionsApi>();
             var domain = "NotDefined";  // string | The domain of the property to be deleted.
             var scope = "scope_example";  // string | The scope of the property to be deleted.
-            var code = "code_example";  // string | The code of the property to be deleted. Together with the domain and scope this uniquely             identifies the property.
+            var code = "code_example";  // string | The code of the property to be deleted. Together with the domain and scope this uniquely              identifies the property.
 
             try
             {
@@ -341,7 +341,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **domain** | **string** | The domain of the property to be deleted. |  |
 | **scope** | **string** | The scope of the property to be deleted. |  |
-| **code** | **string** | The code of the property to be deleted. Together with the domain and scope this uniquely             identifies the property. |  |
+| **code** | **string** | The code of the property to be deleted. Together with the domain and scope this uniquely              identifies the property. |  |
 
 ### Return type
 
@@ -368,7 +368,7 @@ catch (ApiException e)
 
 [EARLY ACCESS] DeletePropertyDefinitionProperties: Delete property definition properties
 
-Delete one or more properties from a single property definition. If the properties are time-variant then an effective date time from which the properties will be deleted must be specified. If the properties are perpetual then it is invalid to specify an effective date time for deletion.
+Delete one or more properties from a single property definition. If the properties are time-variant then an effective date time from which the  properties will be deleted must be specified. If the properties are perpetual then it is invalid to specify an effective date time for deletion.
 
 ### Example
 ```csharp
@@ -412,8 +412,8 @@ namespace Examples
             var domain = "NotDefined";  // string | The domain of the property definition to delete properties from.
             var scope = "scope_example";  // string | The scope of the property definition to delete properties from.
             var code = "code_example";  // string | The code of the property definition to delete properties from.
-            var requestBody = new List<string>(); // List<string> | The property keys of the properties to delete. These must take the format             {domain}/{scope}/{code} e.g \"PropertyDefinition/myScope/someAttributeKey\". Each property must be from the \"PropertyDefinition\" domain.
-            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to delete time-variant properties from.             The property must exist at the specified 'effectiveAt' datetime. If the 'effectiveAt' is not provided or is before             the time-variant property exists then a failure is returned. Do not specify this parameter if an of the properties to delete are perpetual. (optional) 
+            var requestBody = new List<string>(); // List<string> | The property keys of the properties to delete. These must take the format              {domain}/{scope}/{code} e.g \"PropertyDefinition/myScope/someAttributeKey\". Each property must be from the \"PropertyDefinition\" domain.
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified 'effectiveAt' datetime. If the 'effectiveAt' is not provided or is before              the time-variant property exists then a failure is returned. Do not specify this parameter if an of the properties to delete are perpetual. (optional) 
 
             try
             {
@@ -462,8 +462,8 @@ catch (ApiException e)
 | **domain** | **string** | The domain of the property definition to delete properties from. |  |
 | **scope** | **string** | The scope of the property definition to delete properties from. |  |
 | **code** | **string** | The code of the property definition to delete properties from. |  |
-| **requestBody** | [**List&lt;string&gt;**](string.md) | The property keys of the properties to delete. These must take the format             {domain}/{scope}/{code} e.g \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;. Each property must be from the \&quot;PropertyDefinition\&quot; domain. |  |
-| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to delete time-variant properties from.             The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is before             the time-variant property exists then a failure is returned. Do not specify this parameter if an of the properties to delete are perpetual. | [optional]  |
+| **requestBody** | [**List&lt;string&gt;**](string.md) | The property keys of the properties to delete. These must take the format              {domain}/{scope}/{code} e.g \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;. Each property must be from the \&quot;PropertyDefinition\&quot; domain. |  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is before              the time-variant property exists then a failure is returned. Do not specify this parameter if an of the properties to delete are perpetual. | [optional]  |
 
 ### Return type
 
@@ -531,10 +531,10 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PropertyDefinitionsApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PropertyDefinitionsApi>();
-            var propertyKeys = new List<string>(); // List<string> | One or more property keys which identify each property that a definition should             be retrieved for. The format for each property key is {domain}/{scope}/{code}, e.g. 'Portfolio/Manager/Id'.
-            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the property definitions. Defaults to return             the latest version of each definition if not specified. (optional) 
-            var filter = "filter_example";  // string? | Expression to filter the result set.              For example, to filter on the Lifetime, use \"lifeTime eq 'Perpetual'\"             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
-            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to list properties attached to the Property Definition.             Defaults to the current LUSID system datetime if not specified. (optional) 
+            var propertyKeys = new List<string>(); // List<string> | One or more property keys which identify each property that a definition should              be retrieved for. The format for each property key is {domain}/{scope}/{code}, e.g. 'Portfolio/Manager/Id'.
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the property definitions. Defaults to return              the latest version of each definition if not specified. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the result set.               For example, to filter on the Lifetime, use \"lifeTime eq 'Perpetual'\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to list properties attached to the Property Definition.              Defaults to the current LUSID system datetime if not specified. (optional) 
 
             try
             {
@@ -580,10 +580,10 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **propertyKeys** | [**List&lt;string&gt;**](string.md) | One or more property keys which identify each property that a definition should             be retrieved for. The format for each property key is {domain}/{scope}/{code}, e.g. &#39;Portfolio/Manager/Id&#39;. |  |
-| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the property definitions. Defaults to return             the latest version of each definition if not specified. | [optional]  |
-| **filter** | **string?** | Expression to filter the result set.              For example, to filter on the Lifetime, use \&quot;lifeTime eq &#39;Perpetual&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
-| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to list properties attached to the Property Definition.             Defaults to the current LUSID system datetime if not specified. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;**](string.md) | One or more property keys which identify each property that a definition should              be retrieved for. The format for each property key is {domain}/{scope}/{code}, e.g. &#39;Portfolio/Manager/Id&#39;. |  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the property definitions. Defaults to return              the latest version of each definition if not specified. | [optional]  |
+| **filter** | **string?** | Expression to filter the result set.               For example, to filter on the Lifetime, use \&quot;lifeTime eq &#39;Perpetual&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to list properties attached to the Property Definition.              Defaults to the current LUSID system datetime if not specified. | [optional]  |
 
 ### Return type
 
@@ -653,9 +653,9 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PropertyDefinitionsApi>();
             var domain = "NotDefined";  // string | The domain of the specified property.
             var scope = "scope_example";  // string | The scope of the specified property.
-            var code = "code_example";  // string | The code of the specified property. Together with the domain and scope this uniquely             identifies the property.
-            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the property definition. Defaults to return             the latest version of the definition if not specified. (optional) 
-            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to list properties attached to the Property Definition.             Defaults to the current LUSID system datetime if not specified. (optional) 
+            var code = "code_example";  // string | The code of the specified property. Together with the domain and scope this uniquely              identifies the property.
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the property definition. Defaults to return              the latest version of the definition if not specified. (optional) 
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to list properties attached to the Property Definition.              Defaults to the current LUSID system datetime if not specified. (optional) 
 
             try
             {
@@ -703,9 +703,9 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **domain** | **string** | The domain of the specified property. |  |
 | **scope** | **string** | The scope of the specified property. |  |
-| **code** | **string** | The code of the specified property. Together with the domain and scope this uniquely             identifies the property. |  |
-| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the property definition. Defaults to return             the latest version of the definition if not specified. | [optional]  |
-| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to list properties attached to the Property Definition.             Defaults to the current LUSID system datetime if not specified. | [optional]  |
+| **code** | **string** | The code of the specified property. Together with the domain and scope this uniquely              identifies the property. |  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the property definition. Defaults to return              the latest version of the definition if not specified. | [optional]  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to list properties attached to the Property Definition.              Defaults to the current LUSID system datetime if not specified. | [optional]  |
 
 ### Return type
 
@@ -776,10 +776,10 @@ namespace Examples
             var domain = "NotDefined";  // string | The domain of the property definition to which the property is attached
             var scope = "scope_example";  // string | The scope of the property definition to which the property is attached
             var code = "code_example";  // string | The code of the property definition to which the property is attached
-            var propertyKey = "propertyKey_example";  // string | The property key of the property whose history to show. This must be from the \"Property Definition\" domain and in the format             {domain}/{scope}/{code}, for example \"PropertyDefinition/myScope/someAttributeKey\".
+            var propertyKey = "propertyKey_example";  // string | The property key of the property whose history to show. This must be from the \"Property Definition\" domain and in the format              {domain}/{scope}/{code}, for example \"PropertyDefinition/myScope/someAttributeKey\".
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to show the history. Defaults to the current datetime if not specified. (optional) 
             var filter = "filter_example";  // string? | Expression to filter the results. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
-            var page = "page_example";  // string? | The pagination token to use to continue listing properties from a previous call to get property time series.             This value is returned from the previous call. If a pagination token is provided the filter and asAt fields             must not have changed since the original request. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing properties from a previous call to get property time series.              This value is returned from the previous call. If a pagination token is provided the filter and asAt fields              must not have changed since the original request. (optional) 
             var limit = 56;  // int? | When paginating, limit the number of returned results to this many. (optional) 
 
             try
@@ -829,10 +829,10 @@ catch (ApiException e)
 | **domain** | **string** | The domain of the property definition to which the property is attached |  |
 | **scope** | **string** | The scope of the property definition to which the property is attached |  |
 | **code** | **string** | The code of the property definition to which the property is attached |  |
-| **propertyKey** | **string** | The property key of the property whose history to show. This must be from the \&quot;Property Definition\&quot; domain and in the format             {domain}/{scope}/{code}, for example \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;. |  |
+| **propertyKey** | **string** | The property key of the property whose history to show. This must be from the \&quot;Property Definition\&quot; domain and in the format              {domain}/{scope}/{code}, for example \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;. |  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to show the history. Defaults to the current datetime if not specified. | [optional]  |
 | **filter** | **string?** | Expression to filter the results. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
-| **page** | **string?** | The pagination token to use to continue listing properties from a previous call to get property time series.             This value is returned from the previous call. If a pagination token is provided the filter and asAt fields             must not have changed since the original request. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing properties from a previous call to get property time series.              This value is returned from the previous call. If a pagination token is provided the filter and asAt fields              must not have changed since the original request. | [optional]  |
 | **limit** | **int?** | When paginating, limit the number of returned results to this many. | [optional]  |
 
 ### Return type
@@ -901,12 +901,12 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PropertyDefinitionsApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PropertyDefinitionsApi>();
-            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to list the property definitions. Defaults to the current LUSID             system datetime if not specified. (optional) 
-            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the property definitions. Defaults to returning the latest version             of each property definition if not specified. (optional) 
-            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'Property Definition' domain to decorate onto             property definitions. These must take the format             {domain}/{scope}/{code} e.g \"PropertyDefinition/myScope/someAttributeKey\". Each property must be from the \"PropertyDefinition\" domain. (optional) 
-            var page = "page_example";  // string? | The pagination token to use to continue listing property definitions; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional) 
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to list the property definitions. Defaults to the current LUSID              system datetime if not specified. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the property definitions. Defaults to returning the latest version              of each property definition if not specified. (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'Property Definition' domain to decorate onto              property definitions. These must take the format              {domain}/{scope}/{code} e.g \"PropertyDefinition/myScope/someAttributeKey\". Each property must be from the \"PropertyDefinition\" domain. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing property definitions; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional) 
             var limit = 56;  // int? | When paginating, limit the results to this number. Defaults to 100 if not specified. (optional) 
-            var filter = "filter_example";  // string? | Expression to filter the results.             For example, to filter on the display name, specify \"DisplayName eq 'DisplayName'\". For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the results.              For example, to filter on the display name, specify \"DisplayName eq 'DisplayName'\". For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional) 
             var sortBy = new List<string>?(); // List<string>? | A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\" (optional) 
 
             try
@@ -953,12 +953,12 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to list the property definitions. Defaults to the current LUSID             system datetime if not specified. | [optional]  |
-| **asAt** | **DateTimeOffset?** | The asAt datetime at which to list the property definitions. Defaults to returning the latest version             of each property definition if not specified. | [optional]  |
-| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;Property Definition&#39; domain to decorate onto             property definitions. These must take the format             {domain}/{scope}/{code} e.g \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;. Each property must be from the \&quot;PropertyDefinition\&quot; domain. | [optional]  |
-| **page** | **string?** | The pagination token to use to continue listing property definitions; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. | [optional]  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to list the property definitions. Defaults to the current LUSID              system datetime if not specified. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to list the property definitions. Defaults to returning the latest version              of each property definition if not specified. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;Property Definition&#39; domain to decorate onto              property definitions. These must take the format              {domain}/{scope}/{code} e.g \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;. Each property must be from the \&quot;PropertyDefinition\&quot; domain. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing property definitions; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. | [optional]  |
 | **limit** | **int?** | When paginating, limit the results to this number. Defaults to 100 if not specified. | [optional]  |
-| **filter** | **string?** | Expression to filter the results.             For example, to filter on the display name, specify \&quot;DisplayName eq &#39;DisplayName&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional]  |
+| **filter** | **string?** | Expression to filter the results.              For example, to filter on the display name, specify \&quot;DisplayName eq &#39;DisplayName&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional]  |
 | **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; | [optional]  |
 
 ### Return type
@@ -1106,7 +1106,7 @@ catch (ApiException e)
 
 UpdatePropertyDefinition: Update property definition
 
-Update the definition of a specified existing property. Not all elements within a property definition are modifiable due to the potential implications for values already stored against the property.
+Update the definition of a specified existing property. Not all elements within a property definition  are modifiable due to the potential implications for values already stored against the property.
 
 ### Example
 ```csharp
@@ -1149,7 +1149,7 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PropertyDefinitionsApi>();
             var domain = "NotDefined";  // string | The domain of the property being updated.
             var scope = "scope_example";  // string | The scope of the property being updated.
-            var code = "code_example";  // string | The code of the property being updated. Together with the domain and scope this uniquely             identifies the property.
+            var code = "code_example";  // string | The code of the property being updated. Together with the domain and scope this uniquely              identifies the property.
             var updatePropertyDefinitionRequest = new UpdatePropertyDefinitionRequest(); // UpdatePropertyDefinitionRequest | The updated definition of the property.
 
             try
@@ -1198,7 +1198,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **domain** | **string** | The domain of the property being updated. |  |
 | **scope** | **string** | The scope of the property being updated. |  |
-| **code** | **string** | The code of the property being updated. Together with the domain and scope this uniquely             identifies the property. |  |
+| **code** | **string** | The code of the property being updated. Together with the domain and scope this uniquely              identifies the property. |  |
 | **updatePropertyDefinitionRequest** | [**UpdatePropertyDefinitionRequest**](UpdatePropertyDefinitionRequest.md) | The updated definition of the property. |  |
 
 ### Return type
@@ -1270,7 +1270,7 @@ namespace Examples
             var domain = "NotDefined";  // string | The domain of the specified property.
             var scope = "scope_example";  // string | The scope of the specified property.
             var code = "code_example";  // string | The code of the specified property. Together with the domain and scope this uniquely
-            var requestBody = new Dictionary<string, Property>(); // Dictionary<string, Property> | The properties to be created or updated. Each property in             the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code}, for example             'PropertyDefinition/Manager/Id'.
+            var requestBody = new Dictionary<string, Property>(); // Dictionary<string, Property> | The properties to be created or updated. Each property in              the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code}, for example              'PropertyDefinition/Manager/Id'.
             var successMode = "\"Partial\"";  // string? | Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial. (optional)  (default to "Partial")
 
             try
@@ -1320,7 +1320,7 @@ catch (ApiException e)
 | **domain** | **string** | The domain of the specified property. |  |
 | **scope** | **string** | The scope of the specified property. |  |
 | **code** | **string** | The code of the specified property. Together with the domain and scope this uniquely |  |
-| **requestBody** | [**Dictionary&lt;string, Property&gt;**](Property.md) | The properties to be created or updated. Each property in             the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code}, for example             &#39;PropertyDefinition/Manager/Id&#39;. |  |
+| **requestBody** | [**Dictionary&lt;string, Property&gt;**](Property.md) | The properties to be created or updated. Each property in              the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code}, for example              &#39;PropertyDefinition/Manager/Id&#39;. |  |
 | **successMode** | **string?** | Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial. | [optional] [default to &quot;Partial&quot;] |
 
 ### Return type

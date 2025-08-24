@@ -36,10 +36,10 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ExDividendConfiguration" /> class.
         /// </summary>
-        /// <param name="useBusinessDays">Is the ex-dividend period counted in business days or calendar days. Defaults to false if not set..</param>
-        /// <param name="exDividendDays">Number of days in the ex-dividend period. If the settlement date falls in the ex-dividend period then the coupon paid is zero and the accrued interest is negative. If set, this must be a non-negative number. If not set, or set to 0, than there is no ex-dividend period. (required).</param>
+        /// <param name="useBusinessDays">Is the ex-dividend period counted in business days or calendar days.  Defaults to false if not set..</param>
+        /// <param name="exDividendDays">Number of days in the ex-dividend period.  If the settlement date falls in the ex-dividend period then the coupon paid is zero and the accrued interest is negative.  If set, this must be a non-negative number.  If not set, or set to 0, than there is no ex-dividend period. (required).</param>
         /// <param name="returnNegativeAccrued">Does the accrued interest go negative in the ex-dividend period, or does it go to zero..</param>
-        /// <param name="applyThirty360PayDelay">Set this flag to true if the ex-dividend days represent a pay delay from the accrual end date in calendar days under the 30/360 day count convention. The typical use case for this flag are Mortgage Backed Securities with pay delay between 1 and 60 days, such as FreddieMac and FannieMae. If this flag is set, the useBusinessDays setting will be ignored. Defaults to false if not provided..</param>
+        /// <param name="applyThirty360PayDelay">Set this flag to true if the ex-dividend days represent a pay delay from the accrual end date in calendar  days under the 30/360 day count convention. The typical use case for this flag are Mortgage Backed Securities  with pay delay between 1 and 60 days, such as FreddieMac and FannieMae. If this flag is set, the useBusinessDays  setting will be ignored.  Defaults to false if not provided..</param>
         public ExDividendConfiguration(bool useBusinessDays = default(bool), int exDividendDays = default(int), bool returnNegativeAccrued = default(bool), bool applyThirty360PayDelay = default(bool))
         {
             this.ExDividendDays = exDividendDays;
@@ -49,16 +49,16 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// Is the ex-dividend period counted in business days or calendar days. Defaults to false if not set.
+        /// Is the ex-dividend period counted in business days or calendar days.  Defaults to false if not set.
         /// </summary>
-        /// <value>Is the ex-dividend period counted in business days or calendar days. Defaults to false if not set.</value>
+        /// <value>Is the ex-dividend period counted in business days or calendar days.  Defaults to false if not set.</value>
         [DataMember(Name = "useBusinessDays", EmitDefaultValue = true)]
         public bool UseBusinessDays { get; set; }
 
         /// <summary>
-        /// Number of days in the ex-dividend period. If the settlement date falls in the ex-dividend period then the coupon paid is zero and the accrued interest is negative. If set, this must be a non-negative number. If not set, or set to 0, than there is no ex-dividend period.
+        /// Number of days in the ex-dividend period.  If the settlement date falls in the ex-dividend period then the coupon paid is zero and the accrued interest is negative.  If set, this must be a non-negative number.  If not set, or set to 0, than there is no ex-dividend period.
         /// </summary>
-        /// <value>Number of days in the ex-dividend period. If the settlement date falls in the ex-dividend period then the coupon paid is zero and the accrued interest is negative. If set, this must be a non-negative number. If not set, or set to 0, than there is no ex-dividend period.</value>
+        /// <value>Number of days in the ex-dividend period.  If the settlement date falls in the ex-dividend period then the coupon paid is zero and the accrued interest is negative.  If set, this must be a non-negative number.  If not set, or set to 0, than there is no ex-dividend period.</value>
         [DataMember(Name = "exDividendDays", IsRequired = true, EmitDefaultValue = true)]
         public int ExDividendDays { get; set; }
 
@@ -70,9 +70,9 @@ namespace Lusid.Sdk.Model
         public bool ReturnNegativeAccrued { get; set; }
 
         /// <summary>
-        /// Set this flag to true if the ex-dividend days represent a pay delay from the accrual end date in calendar days under the 30/360 day count convention. The typical use case for this flag are Mortgage Backed Securities with pay delay between 1 and 60 days, such as FreddieMac and FannieMae. If this flag is set, the useBusinessDays setting will be ignored. Defaults to false if not provided.
+        /// Set this flag to true if the ex-dividend days represent a pay delay from the accrual end date in calendar  days under the 30/360 day count convention. The typical use case for this flag are Mortgage Backed Securities  with pay delay between 1 and 60 days, such as FreddieMac and FannieMae. If this flag is set, the useBusinessDays  setting will be ignored.  Defaults to false if not provided.
         /// </summary>
-        /// <value>Set this flag to true if the ex-dividend days represent a pay delay from the accrual end date in calendar days under the 30/360 day count convention. The typical use case for this flag are Mortgage Backed Securities with pay delay between 1 and 60 days, such as FreddieMac and FannieMae. If this flag is set, the useBusinessDays setting will be ignored. Defaults to false if not provided.</value>
+        /// <value>Set this flag to true if the ex-dividend days represent a pay delay from the accrual end date in calendar  days under the 30/360 day count convention. The typical use case for this flag are Mortgage Backed Securities  with pay delay between 1 and 60 days, such as FreddieMac and FannieMae. If this flag is set, the useBusinessDays  setting will be ignored.  Defaults to false if not provided.</value>
         [DataMember(Name = "applyThirty360PayDelay", EmitDefaultValue = true)]
         public bool ApplyThirty360PayDelay { get; set; }
 

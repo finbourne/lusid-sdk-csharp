@@ -24,7 +24,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// For indicating a dependency on discounting for a given currency. E.g Valuing a Bond with the Discounting model will declare a DiscountingDependency for the domestic currency of the bond to account for the time-value of the future cashFlows of the bond.
+    /// For indicating a dependency on discounting for a given currency.  E.g Valuing a Bond with the Discounting model will declare a DiscountingDependency  for the domestic currency of the bond to account for the time-value of the future cashFlows of the bond.
     /// </summary>
     [DataContract(Name = "DiscountingDependency")]
     [JsonConverter(typeof(JsonSubtypes), "DependencyType")]
@@ -39,7 +39,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="DiscountingDependency" /> class.
         /// </summary>
         /// <param name="currency">The currency that needs to be discounted. (required).</param>
-        /// <param name="date">The effectiveDate of the entity that this is a dependency for. Unless there is an obvious date this should be, like for a historic reset, then this is the valuation date. (required).</param>
+        /// <param name="date">The effectiveDate of the entity that this is a dependency for.  Unless there is an obvious date this should be, like for a historic reset, then this is the valuation date. (required).</param>
         /// <param name="dependencyType">The available values are: OpaqueDependency, CashDependency, DiscountingDependency, EquityCurveDependency, EquityVolDependency, FxDependency, FxForwardsDependency, FxVolDependency, IndexProjectionDependency, IrVolDependency, QuoteDependency, Vendor, CalendarDependency, InflationFixingDependency (required) (default to &quot;DiscountingDependency&quot;).</param>
         public DiscountingDependency(string currency = default(string), DateTimeOffset date = default(DateTimeOffset), DependencyTypeEnum dependencyType = default(DependencyTypeEnum)) : base(dependencyType)
         {
@@ -60,9 +60,9 @@ namespace Lusid.Sdk.Model
         public string Currency { get; set; }
 
         /// <summary>
-        /// The effectiveDate of the entity that this is a dependency for. Unless there is an obvious date this should be, like for a historic reset, then this is the valuation date.
+        /// The effectiveDate of the entity that this is a dependency for.  Unless there is an obvious date this should be, like for a historic reset, then this is the valuation date.
         /// </summary>
-        /// <value>The effectiveDate of the entity that this is a dependency for. Unless there is an obvious date this should be, like for a historic reset, then this is the valuation date.</value>
+        /// <value>The effectiveDate of the entity that this is a dependency for.  Unless there is an obvious date this should be, like for a historic reset, then this is the valuation date.</value>
         [DataMember(Name = "date", IsRequired = true, EmitDefaultValue = true)]
         public DateTimeOffset Date { get; set; }
 

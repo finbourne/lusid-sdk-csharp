@@ -24,7 +24,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// LUSID representation of an Inflation Swap. The implementation supports the following swap types: * Zero Coupon inflation swap, with a single payment at maturity. * LPI Swap (capped and floored) * Year on Year inflation swap              This instrument has multiple legs, to see how legs are used in LUSID see [knowledge base article KA-02252](https://support.lusid.com/knowledgebase/article/KA-02252).              | Leg Index | Leg Identifier | Description | | - -- -- -- -- | - -- -- -- -- -- -- - | - -- -- -- -- -- | | 1 | InflationLeg | Cash flows with a rate relating to an underlying inflation index. | | 2 | FixedLeg | Cash flows with a fixed rate. | | 3 | AdditionalPayments | Cash flows relating to any additional payments (optional). |
+    /// LUSID representation of an Inflation Swap.  The implementation supports the following swap types:  * Zero Coupon inflation swap, with a single payment at maturity.  * LPI Swap (capped and floored)  * Year on Year inflation swap                This instrument has multiple legs, to see how legs are used in LUSID see [knowledge base article KA-02252](https://support.lusid.com/knowledgebase/article/KA-02252).                | Leg Index | Leg Identifier | Description |  | - -- -- -- -- | - -- -- -- -- -- -- - | - -- -- -- -- -- |  | 1 | InflationLeg | Cash flows with a rate relating to an underlying inflation index. |  | 2 | FixedLeg | Cash flows with a fixed rate. |  | 3 | AdditionalPayments | Cash flows relating to any additional payments (optional). |
     /// </summary>
     [DataContract(Name = "InflationSwap")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentType")]
@@ -39,10 +39,10 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="InflationSwap" /> class.
         /// </summary>
         /// <param name="startDate">The start date of the instrument. This is normally synonymous with the trade-date. (required).</param>
-        /// <param name="maturityDate">The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount. For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it. (required).</param>
+        /// <param name="maturityDate">The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.  For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as  Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it. (required).</param>
         /// <param name="inflationLeg">inflationLeg (required).</param>
         /// <param name="fixedLeg">fixedLeg (required).</param>
-        /// <param name="additionalPayments">Optional additional payments at a given date e.g. to level off an uneven inflation swap. The dates must be distinct and either all payments are Pay or all payments are Receive..</param>
+        /// <param name="additionalPayments">Optional additional payments at a given date e.g. to level off an uneven inflation swap.  The dates must be distinct and either all payments are Pay or all payments are Receive..</param>
         /// <param name="timeZoneConventions">timeZoneConventions.</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit, FlexibleRepo (required) (default to &quot;InflationSwap&quot;).</param>
         public InflationSwap(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), InflationLeg inflationLeg = default(InflationLeg), FixedLeg fixedLeg = default(FixedLeg), List<AdditionalPayment> additionalPayments = default(List<AdditionalPayment>), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
@@ -73,9 +73,9 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset StartDate { get; set; }
 
         /// <summary>
-        /// The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount. For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it.
+        /// The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.  For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as  Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it.
         /// </summary>
-        /// <value>The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount. For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it.</value>
+        /// <value>The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.  For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as  Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it.</value>
         [DataMember(Name = "maturityDate", IsRequired = true, EmitDefaultValue = true)]
         public DateTimeOffset MaturityDate { get; set; }
 
@@ -92,9 +92,9 @@ namespace Lusid.Sdk.Model
         public FixedLeg FixedLeg { get; set; }
 
         /// <summary>
-        /// Optional additional payments at a given date e.g. to level off an uneven inflation swap. The dates must be distinct and either all payments are Pay or all payments are Receive.
+        /// Optional additional payments at a given date e.g. to level off an uneven inflation swap.  The dates must be distinct and either all payments are Pay or all payments are Receive.
         /// </summary>
-        /// <value>Optional additional payments at a given date e.g. to level off an uneven inflation swap. The dates must be distinct and either all payments are Pay or all payments are Receive.</value>
+        /// <value>Optional additional payments at a given date e.g. to level off an uneven inflation swap.  The dates must be distinct and either all payments are Pay or all payments are Receive.</value>
         [DataMember(Name = "additionalPayments", EmitDefaultValue = true)]
         public List<AdditionalPayment> AdditionalPayments { get; set; }
 

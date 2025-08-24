@@ -24,7 +24,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Definition of FlexibleRepoCollateralEvent which represents a single collateral transfer as part of a repo contract modelled as a FlexibleRepo, either as part of the purchase leg or repurchase leg, or any early closure.
+    /// Definition of FlexibleRepoCollateralEvent which represents a single collateral transfer as part of a repo contract  modelled as a FlexibleRepo, either as part of the purchase leg or repurchase leg, or any early closure.
     /// </summary>
     [DataContract(Name = "FlexibleRepoCollateralEvent")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentEventType")]
@@ -40,7 +40,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="settlementDate">Date at which the transfer of units settles. This is a required field..</param>
         /// <param name="entitlementDate">Date at which the recipient of the collateral is entitled to the units being transferred. This is a required field..</param>
-        /// <param name="amount">The total amount of collateral being transferred as part of the repo contract. Signed to indicate direction of transfer. This is a required field. (required).</param>
+        /// <param name="amount">The total amount of collateral being transferred as part of the repo contract.  Signed to indicate direction of transfer. This is a required field. (required).</param>
         /// <param name="collateralInstrument">collateralInstrument (required).</param>
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent (required) (default to &quot;FlexibleRepoCollateralEvent&quot;).</param>
         public FlexibleRepoCollateralEvent(DateTimeOffset settlementDate = default(DateTimeOffset), DateTimeOffset entitlementDate = default(DateTimeOffset), decimal amount = default(decimal), NewInstrument collateralInstrument = default(NewInstrument), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
@@ -71,9 +71,9 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset EntitlementDate { get; set; }
 
         /// <summary>
-        /// The total amount of collateral being transferred as part of the repo contract. Signed to indicate direction of transfer. This is a required field.
+        /// The total amount of collateral being transferred as part of the repo contract.  Signed to indicate direction of transfer. This is a required field.
         /// </summary>
-        /// <value>The total amount of collateral being transferred as part of the repo contract. Signed to indicate direction of transfer. This is a required field.</value>
+        /// <value>The total amount of collateral being transferred as part of the repo contract.  Signed to indicate direction of transfer. This is a required field.</value>
         [DataMember(Name = "amount", IsRequired = true, EmitDefaultValue = true)]
         public decimal Amount { get; set; }
 

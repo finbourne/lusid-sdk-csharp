@@ -24,7 +24,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Represents a dependency that could not be understood as an externally exposed dependency. If this is an unexpected dependency, then please contact support.
+    /// Represents a dependency that could not be understood as an externally exposed dependency.  If this is an unexpected dependency, then please contact support.
     /// </summary>
     [DataContract(Name = "OpaqueDependency")]
     [JsonConverter(typeof(JsonSubtypes), "DependencyType")]

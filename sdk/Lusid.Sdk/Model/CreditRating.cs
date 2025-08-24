@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Object describing a credit rating, which assesses the stability and credit worthiness of a legal entity and hence its likelihood of defaulting on its outstanding obligations (typically debt).
+    /// Object describing a credit rating,  which assesses the stability and credit worthiness of a legal entity  and hence its likelihood of defaulting on its outstanding obligations (typically debt).
     /// </summary>
     [DataContract(Name = "CreditRating")]
     public partial class CreditRating : IEquatable<CreditRating>, IValidatableObject

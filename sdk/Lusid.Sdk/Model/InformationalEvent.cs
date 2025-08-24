@@ -24,7 +24,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// A generic event derived from the economic definition of an instrument. This should be considered purely informational; any data provided by this event is not guaranteed to be processable by LUSID.
+    /// A generic event derived from the economic definition of an instrument. This should be considered purely  informational; any data provided by this event is not guaranteed to be processable by LUSID.
     /// </summary>
     [DataContract(Name = "InformationalEvent")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentEventType")]
@@ -38,7 +38,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InformationalEvent" /> class.
         /// </summary>
-        /// <param name="anchorDate">In the case of a point event, the single date on which the event occurs. In the case of an event which is spread over a window, e.g. a barrier or American option, the start of that window. (required).</param>
+        /// <param name="anchorDate">In the case of a point event, the single date on which the event occurs. In the case of an event which is  spread over a window, e.g. a barrier or American option, the start of that window. (required).</param>
         /// <param name="diagnostics">diagnostics.</param>
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent (required) (default to &quot;InformationalEvent&quot;).</param>
         public InformationalEvent(DateTimeOffset anchorDate = default(DateTimeOffset), ResultValueDictionary diagnostics = default(ResultValueDictionary), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
@@ -63,16 +63,16 @@ namespace Lusid.Sdk.Model
             return false;
         }
         /// <summary>
-        /// In the case of a point event, the single date on which the event occurs. In the case of an event which is spread over a window, e.g. a barrier or American option, the start of that window.
+        /// In the case of a point event, the single date on which the event occurs. In the case of an event which is  spread over a window, e.g. a barrier or American option, the start of that window.
         /// </summary>
-        /// <value>In the case of a point event, the single date on which the event occurs. In the case of an event which is spread over a window, e.g. a barrier or American option, the start of that window.</value>
+        /// <value>In the case of a point event, the single date on which the event occurs. In the case of an event which is  spread over a window, e.g. a barrier or American option, the start of that window.</value>
         [DataMember(Name = "anchorDate", IsRequired = true, EmitDefaultValue = true)]
         public DateTimeOffset AnchorDate { get; set; }
 
         /// <summary>
-        /// In the case of a point event this is identical to the anchor date. In the case of an event that is spread over a window, this is the end of that window.
+        /// In the case of a point event this is identical to the anchor date. In the case of an event that is spread over a window,  this is the end of that window.
         /// </summary>
-        /// <value>In the case of a point event this is identical to the anchor date. In the case of an event that is spread over a window, this is the end of that window.</value>
+        /// <value>In the case of a point event this is identical to the anchor date. In the case of an event that is spread over a window,  this is the end of that window.</value>
         [DataMember(Name = "eventWindowEnd", EmitDefaultValue = false)]
         public DateTimeOffset EventWindowEnd { get; private set; }
 

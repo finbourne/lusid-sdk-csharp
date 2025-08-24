@@ -24,7 +24,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// A condition to be evaluated. Each supported CriterionType has a corresponding schema.
+    /// A condition to be evaluated.  Each supported CriterionType has a corresponding schema.
     /// </summary>
     [DataContract(Name = "MatchCriterion")]
     [JsonConverter(typeof(JsonSubtypes), "CriterionType")]

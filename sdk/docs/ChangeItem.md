@@ -1,5 +1,5 @@
 # Lusid.Sdk.Model.ChangeItem
-Information about a change to a field / property. At least one of 'PreviousValue' or 'NewValue' will be set.
+Information about a change to a field / property.  At least one of 'PreviousValue' or 'NewValue' will be set.
 
 ## Properties
 

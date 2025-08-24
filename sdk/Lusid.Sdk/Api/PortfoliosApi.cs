@@ -35,7 +35,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] BatchUpsertPortfolioAccessMetadata: Upsert multiple Portfolio Access Metadata Rules to multiple Portfolios
         /// </summary>
         /// <remarks>
-        /// Update or insert multiple Access Metadata rules for multiple Portfolios. Items will be updated if they already exist and inserted if they do not. No other items will be affected  The response will return the successfully updated or inserted Portfolio Access Metadata Rules or a failure message if unsuccessful              Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched
+        /// Update or insert multiple Access Metadata rules for multiple Portfolios. Items will be updated if they already exist  and inserted if they do not. No other items will be affected    The response will return the successfully updated or inserted Portfolio Access Metadata Rules or a failure message if unsuccessful                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The Access Metadata Rules to upsert and the Portfolio identifiers to upsert for</param>
@@ -50,7 +50,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] BatchUpsertPortfolioAccessMetadata: Upsert multiple Portfolio Access Metadata Rules to multiple Portfolios
         /// </summary>
         /// <remarks>
-        /// Update or insert multiple Access Metadata rules for multiple Portfolios. Items will be updated if they already exist and inserted if they do not. No other items will be affected  The response will return the successfully updated or inserted Portfolio Access Metadata Rules or a failure message if unsuccessful              Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched
+        /// Update or insert multiple Access Metadata rules for multiple Portfolios. Items will be updated if they already exist  and inserted if they do not. No other items will be affected    The response will return the successfully updated or inserted Portfolio Access Metadata Rules or a failure message if unsuccessful                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The Access Metadata Rules to upsert and the Portfolio identifiers to upsert for</param>
@@ -128,7 +128,7 @@ namespace Lusid.Sdk.Api
         /// DeletePortfolio: Delete portfolio
         /// </summary>
         /// <remarks>
-        /// Delete a particular portfolio.              The deletion will take effect from the portfolio&#39;s creation datetime. This means that the portfolio will no longer exist at any effective datetime, as per the asAt datetime of deletion.
+        /// Delete a particular portfolio.                The deletion will take effect from the portfolio&#39;s creation datetime. This means that the portfolio will no longer exist at any effective datetime, as per the asAt datetime of deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
@@ -142,7 +142,7 @@ namespace Lusid.Sdk.Api
         /// DeletePortfolio: Delete portfolio
         /// </summary>
         /// <remarks>
-        /// Delete a particular portfolio.              The deletion will take effect from the portfolio&#39;s creation datetime. This means that the portfolio will no longer exist at any effective datetime, as per the asAt datetime of deletion.
+        /// Delete a particular portfolio.                The deletion will take effect from the portfolio&#39;s creation datetime. This means that the portfolio will no longer exist at any effective datetime, as per the asAt datetime of deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
@@ -155,13 +155,13 @@ namespace Lusid.Sdk.Api
         /// DeletePortfolioProperties: Delete portfolio properties
         /// </summary>
         /// <remarks>
-        /// Delete one or more properties from a particular portfolio. If the properties are time-variant then an effective datetime from which to delete properties must be specified. If the properties are perpetual then it is invalid to specify an effective datetime for deletion.
+        /// Delete one or more properties from a particular portfolio. If the properties are time-variant then an effective datetime from which  to delete properties must be specified. If the properties are perpetual then it is invalid to specify an effective datetime for deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
         /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
-        /// <param name="propertyKeys">The property keys of the properties to delete. These must take the format             {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. Each property must be from the &#39;Portfolio&#39; domain.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.             The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is             before the time-variant property exists then a failure is returned. Do not specify this parameter if any of             the properties to delete are perpetual. (optional)</param>
+        /// <param name="propertyKeys">The property keys of the properties to delete. These must take the format              {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. Each property must be from the &#39;Portfolio&#39; domain.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
@@ -171,13 +171,13 @@ namespace Lusid.Sdk.Api
         /// DeletePortfolioProperties: Delete portfolio properties
         /// </summary>
         /// <remarks>
-        /// Delete one or more properties from a particular portfolio. If the properties are time-variant then an effective datetime from which to delete properties must be specified. If the properties are perpetual then it is invalid to specify an effective datetime for deletion.
+        /// Delete one or more properties from a particular portfolio. If the properties are time-variant then an effective datetime from which  to delete properties must be specified. If the properties are perpetual then it is invalid to specify an effective datetime for deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
         /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
-        /// <param name="propertyKeys">The property keys of the properties to delete. These must take the format             {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. Each property must be from the &#39;Portfolio&#39; domain.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.             The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is             before the time-variant property exists then a failure is returned. Do not specify this parameter if any of             the properties to delete are perpetual. (optional)</param>
+        /// <param name="propertyKeys">The property keys of the properties to delete. These must take the format              {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. Each property must be from the &#39;Portfolio&#39; domain.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
@@ -223,7 +223,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] GetAggregatedReturnsDispersionMetrics: Get the Aggregated Returns Dispersion metric
         /// </summary>
         /// <remarks>
-        /// Calculate the dispersion metric with the Aggregate Returns which are on the specified portfolio.            This works only for composites which have at least 6 constituents for a full year in.
+        /// Calculate the dispersion metric with the Aggregate Returns which are on the specified portfolio.             This works only for composites which have at least 6 constituents for a full year in.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Portfolio.</param>
@@ -239,7 +239,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] GetAggregatedReturnsDispersionMetrics: Get the Aggregated Returns Dispersion metric
         /// </summary>
         /// <remarks>
-        /// Calculate the dispersion metric with the Aggregate Returns which are on the specified portfolio.            This works only for composites which have at least 6 constituents for a full year in.
+        /// Calculate the dispersion metric with the Aggregate Returns which are on the specified portfolio.             This works only for composites which have at least 6 constituents for a full year in.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Portfolio.</param>
@@ -329,8 +329,8 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the portfolio definition. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the portfolio definition. Defaults to returning the latest version of the portfolio definition if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Portfolio&#39; domain to decorate onto the portfolio,             or from any domain that supports relationships to decorate onto related entities. These must take the format             {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the portfolio in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Portfolio&#39; domain to decorate onto the portfolio,              or from any domain that supports relationships to decorate onto related entities. These must take the format              {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the portfolio in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Portfolio</returns>
@@ -347,8 +347,8 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the portfolio definition. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the portfolio definition. Defaults to returning the latest version of the portfolio definition if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Portfolio&#39; domain to decorate onto the portfolio,             or from any domain that supports relationships to decorate onto related entities. These must take the format             {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the portfolio in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Portfolio&#39; domain to decorate onto the portfolio,              or from any domain that supports relationships to decorate onto related entities. These must take the format              {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the portfolio in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Portfolio</returns>
@@ -368,7 +368,7 @@ namespace Lusid.Sdk.Api
         /// <param name="recipeIdCode">The Recipe Code for getting the fx rates (optional)</param>
         /// <param name="fromEffectiveAt">The start date from which to calculate the Returns. (optional)</param>
         /// <param name="toEffectiveAt">The end date for which to calculate the Returns. (optional)</param>
-        /// <param name="compositeMethod">The method used to calculate the Portfolio performance:             Equal/Asset. (optional)</param>
+        /// <param name="compositeMethod">The method used to calculate the Portfolio performance:              Equal/Asset. (optional)</param>
         /// <param name="period">The type of the returns used to calculate the aggregation result: Daily/Monthly. (optional)</param>
         /// <param name="outputFrequency">The type of calculated output: Daily/Weekly/Monthly/Quarterly/Half-Yearly/Yearly. (optional)</param>
         /// <param name="metrics">Determines what type of returns should be calculated, see https://support.lusid.com/knowledgebase/article/KA-01675/en-us for a list of available metrics. (optional)</param>
@@ -394,7 +394,7 @@ namespace Lusid.Sdk.Api
         /// <param name="recipeIdCode">The Recipe Code for getting the fx rates (optional)</param>
         /// <param name="fromEffectiveAt">The start date from which to calculate the Returns. (optional)</param>
         /// <param name="toEffectiveAt">The end date for which to calculate the Returns. (optional)</param>
-        /// <param name="compositeMethod">The method used to calculate the Portfolio performance:             Equal/Asset. (optional)</param>
+        /// <param name="compositeMethod">The method used to calculate the Portfolio performance:              Equal/Asset. (optional)</param>
         /// <param name="period">The type of the returns used to calculate the aggregation result: Daily/Monthly. (optional)</param>
         /// <param name="outputFrequency">The type of calculated output: Daily/Weekly/Monthly/Quarterly/Half-Yearly/Yearly. (optional)</param>
         /// <param name="metrics">Determines what type of returns should be calculated, see https://support.lusid.com/knowledgebase/article/KA-01675/en-us for a list of available metrics. (optional)</param>
@@ -450,7 +450,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
         /// <param name="fromAsAt">The lower bound asAt datetime (inclusive) from which to retrieve commands. There is no lower bound if this is not specified. (optional)</param>
         /// <param name="toAsAt">The upper bound asAt datetime (inclusive) from which to retrieve commands. There is no upper bound if this is not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the User ID, specify \&quot;userId.id eq &#39;string&#39;\&quot;.             For more information about filtering, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the User ID, specify \&quot;userId.id eq &#39;string&#39;\&quot;.              For more information about filtering, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing commands; this value is returned from the previous call. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 500 if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -469,7 +469,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
         /// <param name="fromAsAt">The lower bound asAt datetime (inclusive) from which to retrieve commands. There is no lower bound if this is not specified. (optional)</param>
         /// <param name="toAsAt">The upper bound asAt datetime (inclusive) from which to retrieve commands. There is no upper bound if this is not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the User ID, specify \&quot;userId.id eq &#39;string&#39;\&quot;.             For more information about filtering, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the User ID, specify \&quot;userId.id eq &#39;string&#39;\&quot;.              For more information about filtering, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing commands; this value is returned from the previous call. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 500 if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -547,11 +547,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
         /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
-        /// <param name="propertyKey">The property key of the property whose history to show.             This must be from the &#39;Portfolio&#39; domain and in the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;.</param>
+        /// <param name="propertyKey">The property key of the property whose history to show.              This must be from the &#39;Portfolio&#39; domain and in the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;.</param>
         /// <param name="portfolioEffectiveAt">The effective datetime used to resolve the portfolio. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to show the history. Defaults to returning the current datetime if not supplied. (optional)</param>
-        /// <param name="filter">Expression to filter the results. For more information about filtering,             see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing properties; this value is returned from             the previous call. If a pagination token is provided, the filter, portfolioEffectiveAt, and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="filter">Expression to filter the results. For more information about filtering,              see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing properties; this value is returned from              the previous call. If a pagination token is provided, the filter, portfolioEffectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -567,11 +567,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
         /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
-        /// <param name="propertyKey">The property key of the property whose history to show.             This must be from the &#39;Portfolio&#39; domain and in the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;.</param>
+        /// <param name="propertyKey">The property key of the property whose history to show.              This must be from the &#39;Portfolio&#39; domain and in the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;.</param>
         /// <param name="portfolioEffectiveAt">The effective datetime used to resolve the portfolio. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to show the history. Defaults to returning the current datetime if not supplied. (optional)</param>
-        /// <param name="filter">Expression to filter the results. For more information about filtering,             see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing properties; this value is returned from             the previous call. If a pagination token is provided, the filter, portfolioEffectiveAt, and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="filter">Expression to filter the results. For more information about filtering,              see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing properties; this value is returned from              the previous call. If a pagination token is provided, the filter, portfolioEffectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -589,7 +589,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve relations. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve relations. Defaults to returning the latest LUSID AsAt time if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the relations. Provide a null or empty string for this field until further notice. (optional)</param>
-        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.             These must be from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example             &#39;Person/CompanyDetails/Role&#39;. Only identifier types provided will be used to look up relevant entities in relations. If not applicable, provide an empty array. (optional)</param>
+        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.              These must be from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example              &#39;Person/CompanyDetails/Role&#39;. Only identifier types provided will be used to look up relevant entities in relations. If not applicable, provide an empty array. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfRelation</returns>
@@ -607,7 +607,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve relations. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve relations. Defaults to returning the latest LUSID AsAt time if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the relations. Provide a null or empty string for this field until further notice. (optional)</param>
-        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.             These must be from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example             &#39;Person/CompanyDetails/Role&#39;. Only identifier types provided will be used to look up relevant entities in relations. If not applicable, provide an empty array. (optional)</param>
+        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.              These must be from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example              &#39;Person/CompanyDetails/Role&#39;. Only identifier types provided will be used to look up relevant entities in relations. If not applicable, provide an empty array. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfRelation</returns>
@@ -624,7 +624,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve relationships. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve relationships. Defaults to returning the latest LUSID AsAt time if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the relationships. Provide a null or empty string for this field until further notice. (optional)</param>
-        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.             These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example             &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. (optional)</param>
+        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.              These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example              &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfRelationship</returns>
@@ -642,7 +642,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve relationships. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve relationships. Defaults to returning the latest LUSID AsAt time if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the relationships. Provide a null or empty string for this field until further notice. (optional)</param>
-        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.             These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example             &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. (optional)</param>
+        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.              These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example              &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfRelationship</returns>
@@ -690,7 +690,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] GetPortfoliosAccessMetadataByKey: Get an entry identified by a metadataKey in the access metadata object
         /// </summary>
         /// <remarks>
-        /// Get a specific portfolio access metadata rule by specifying the corresponding identifier parts              No matching will be performed through this endpoint. To retrieve a rule, it is necessary to specify, exactly, the identifier of the rule
+        /// Get a specific portfolio access metadata rule by specifying the corresponding identifier parts                No matching will be performed through this endpoint. To retrieve a rule, it is necessary to specify, exactly, the identifier of the rule
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Portfolio Access Metadata Rule to retrieve.</param>
@@ -707,7 +707,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] GetPortfoliosAccessMetadataByKey: Get an entry identified by a metadataKey in the access metadata object
         /// </summary>
         /// <remarks>
-        /// Get a specific portfolio access metadata rule by specifying the corresponding identifier parts              No matching will be performed through this endpoint. To retrieve a rule, it is necessary to specify, exactly, the identifier of the rule
+        /// Get a specific portfolio access metadata rule by specifying the corresponding identifier parts                No matching will be performed through this endpoint. To retrieve a rule, it is necessary to specify, exactly, the identifier of the rule
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Portfolio Access Metadata Rule to retrieve.</param>
@@ -730,9 +730,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
         /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the instructions. Defaults to latest if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing instructions; this value is returned from the previous call.             If a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing instructions; this value is returned from the previous call.              If a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -750,9 +750,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
         /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the instructions. Defaults to latest if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing instructions; this value is returned from the previous call.             If a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing instructions; this value is returned from the previous call.              If a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -800,15 +800,15 @@ namespace Lusid.Sdk.Api
         /// List all the portfolios matching particular criteria.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the portfolios. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the portfolios. Defaults to returning the latest version             of each portfolio if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing portfolios; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the portfolios. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the portfolios. Defaults to returning the latest version              of each portfolio if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing portfolios; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the transaction type, specify \&quot;type eq &#39;Transaction&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the transaction type, specify \&quot;type eq &#39;Transaction&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="query">Expression specifying the criteria that the returned portfolios must meet. For example, to see which             portfolios have holdings in instruments with a LusidInstrumentId (LUID) of &#39;LUID_PPA8HI6M&#39; or a Figi of &#39;BBG000BLNNH6&#39;,             specify \&quot;instrument.identifiers in ((&#39;LusidInstrumentId&#39;, &#39;LUID_PPA8HI6M&#39;), (&#39;Figi&#39;, &#39;BBG000BLNNH6&#39;))\&quot;. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Portfolio&#39; domain to decorate onto each portfolio,             or from any domain that supports relationships to decorate onto related entities. These must take the             format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the portfolios in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="query">Expression specifying the criteria that the returned portfolios must meet. For example, to see which              portfolios have holdings in instruments with a LusidInstrumentId (LUID) of &#39;LUID_PPA8HI6M&#39; or a Figi of &#39;BBG000BLNNH6&#39;,              specify \&quot;instrument.identifiers in ((&#39;LusidInstrumentId&#39;, &#39;LUID_PPA8HI6M&#39;), (&#39;Figi&#39;, &#39;BBG000BLNNH6&#39;))\&quot;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Portfolio&#39; domain to decorate onto each portfolio,              or from any domain that supports relationships to decorate onto related entities. These must take the              format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the portfolios in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfPortfolio</returns>
@@ -821,15 +821,15 @@ namespace Lusid.Sdk.Api
         /// List all the portfolios matching particular criteria.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the portfolios. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the portfolios. Defaults to returning the latest version             of each portfolio if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing portfolios; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the portfolios. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the portfolios. Defaults to returning the latest version              of each portfolio if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing portfolios; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the transaction type, specify \&quot;type eq &#39;Transaction&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the transaction type, specify \&quot;type eq &#39;Transaction&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="query">Expression specifying the criteria that the returned portfolios must meet. For example, to see which             portfolios have holdings in instruments with a LusidInstrumentId (LUID) of &#39;LUID_PPA8HI6M&#39; or a Figi of &#39;BBG000BLNNH6&#39;,             specify \&quot;instrument.identifiers in ((&#39;LusidInstrumentId&#39;, &#39;LUID_PPA8HI6M&#39;), (&#39;Figi&#39;, &#39;BBG000BLNNH6&#39;))\&quot;. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Portfolio&#39; domain to decorate onto each portfolio,             or from any domain that supports relationships to decorate onto related entities. These must take the             format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the portfolios in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="query">Expression specifying the criteria that the returned portfolios must meet. For example, to see which              portfolios have holdings in instruments with a LusidInstrumentId (LUID) of &#39;LUID_PPA8HI6M&#39; or a Figi of &#39;BBG000BLNNH6&#39;,              specify \&quot;instrument.identifiers in ((&#39;LusidInstrumentId&#39;, &#39;LUID_PPA8HI6M&#39;), (&#39;Figi&#39;, &#39;BBG000BLNNH6&#39;))\&quot;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Portfolio&#39; domain to decorate onto each portfolio,              or from any domain that supports relationships to decorate onto related entities. These must take the              format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the portfolios in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfPortfolio</returns>
@@ -842,14 +842,14 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope whose portfolios to list.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the portfolios. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the portfolios. Defaults to returning the latest version             of each portfolio if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing portfolios. This value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the portfolios. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the portfolios. Defaults to returning the latest version              of each portfolio if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing portfolios. This  value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt  and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to return only transactions with a transaction type of &#39;Buy&#39;, specify \&quot;type eq &#39;Buy&#39;\&quot;.             For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to return only transactions with a transaction type of &#39;Buy&#39;, specify \&quot;type eq &#39;Buy&#39;\&quot;.              For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Portfolio&#39; domain to decorate onto each portfolio,             or from any domain that supports relationships to decorate onto related entities. These must take the             format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the portfolios in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Portfolio&#39; domain to decorate onto each portfolio,              or from any domain that supports relationships to decorate onto related entities. These must take the              format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the portfolios in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfPortfolio</returns>
@@ -863,14 +863,14 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope whose portfolios to list.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the portfolios. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the portfolios. Defaults to returning the latest version             of each portfolio if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing portfolios. This value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the portfolios. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the portfolios. Defaults to returning the latest version              of each portfolio if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing portfolios. This  value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt  and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to return only transactions with a transaction type of &#39;Buy&#39;, specify \&quot;type eq &#39;Buy&#39;\&quot;.             For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to return only transactions with a transaction type of &#39;Buy&#39;, specify \&quot;type eq &#39;Buy&#39;\&quot;.              For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Portfolio&#39; domain to decorate onto each portfolio,             or from any domain that supports relationships to decorate onto related entities. These must take the             format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the portfolios in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Portfolio&#39; domain to decorate onto each portfolio,              or from any domain that supports relationships to decorate onto related entities. These must take the              format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the portfolios in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfPortfolio</returns>
@@ -883,7 +883,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
-        /// <param name="code">The code of the portfolio. Together with the             scope this uniquely identifies the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the              scope this uniquely identifies the portfolio.</param>
         /// <param name="operation">The json patch document. For more check: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -898,7 +898,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
-        /// <param name="code">The code of the portfolio. Together with the             scope this uniquely identifies the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the              scope this uniquely identifies the portfolio.</param>
         /// <param name="operation">The json patch document. For more check: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -908,7 +908,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] PatchPortfolioAccessMetadata: Patch Access Metadata rules for a Portfolio.
         /// </summary>
         /// <remarks>
-        /// Patch Portfolio Access Metadata Rules in a single scope. The behaviour is defined by the JSON Patch specification.              Currently only &#39;add&#39; is a supported operation on the patch document.  Currently only valid metadata keys are supported paths on the patch document.  The response will return any affected Portfolio Access Metadata rules or a failure message if unsuccessful.  It is important to always check to verify success (or failure).              Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
+        /// Patch Portfolio Access Metadata Rules in a single scope.  The behaviour is defined by the JSON Patch specification.                Currently only &#39;add&#39; is a supported operation on the patch document.    Currently only valid metadata keys are supported paths on the patch document.    The response will return any affected Portfolio Access Metadata rules or a failure message if unsuccessful.    It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Portfolio Access Metadata Rule.</param>
@@ -925,7 +925,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] PatchPortfolioAccessMetadata: Patch Access Metadata rules for a Portfolio.
         /// </summary>
         /// <remarks>
-        /// Patch Portfolio Access Metadata Rules in a single scope. The behaviour is defined by the JSON Patch specification.              Currently only &#39;add&#39; is a supported operation on the patch document.  Currently only valid metadata keys are supported paths on the patch document.  The response will return any affected Portfolio Access Metadata rules or a failure message if unsuccessful.  It is important to always check to verify success (or failure).              Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
+        /// Patch Portfolio Access Metadata Rules in a single scope.  The behaviour is defined by the JSON Patch specification.                Currently only &#39;add&#39; is a supported operation on the patch document.    Currently only valid metadata keys are supported paths on the patch document.    The response will return any affected Portfolio Access Metadata rules or a failure message if unsuccessful.    It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Portfolio Access Metadata Rule.</param>
@@ -941,13 +941,13 @@ namespace Lusid.Sdk.Api
         /// UpdatePortfolio: Update portfolio
         /// </summary>
         /// <remarks>
-        /// Update the definition of a particular portfolio.              Note that not all elements of a portfolio definition are modifiable due to the potential implications for data already stored.
+        /// Update the definition of a particular portfolio.                Note that not all elements of a portfolio definition are  modifiable due to the potential implications for data already stored.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
         /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
         /// <param name="updatePortfolioRequest">The updated portfolio definition.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to update the definition. Defaults to the current              LUSID system datetime if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to update the definition. Defaults to the current               LUSID system datetime if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Portfolio</returns>
@@ -957,13 +957,13 @@ namespace Lusid.Sdk.Api
         /// UpdatePortfolio: Update portfolio
         /// </summary>
         /// <remarks>
-        /// Update the definition of a particular portfolio.              Note that not all elements of a portfolio definition are modifiable due to the potential implications for data already stored.
+        /// Update the definition of a particular portfolio.                Note that not all elements of a portfolio definition are  modifiable due to the potential implications for data already stored.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
         /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
         /// <param name="updatePortfolioRequest">The updated portfolio definition.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to update the definition. Defaults to the current              LUSID system datetime if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to update the definition. Defaults to the current               LUSID system datetime if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Portfolio</returns>
@@ -1005,7 +1005,7 @@ namespace Lusid.Sdk.Api
         /// UpsertPortfolioAccessMetadata: Upsert a Portfolio Access Metadata Rule associated with specific metadataKey. This creates or updates the data in LUSID.
         /// </summary>
         /// <remarks>
-        /// Update or insert one Portfolio Access Metadata Rule in a single scope. An item will be updated if it already exists and inserted if it does not.  The response will return the successfully updated or inserted Portfolio Access Metadata Rule or failure message if unsuccessful  It is important to always check to verify success (or failure).              Multiple rules for a metadataKey can exists with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched
+        /// Update or insert one Portfolio Access Metadata Rule in a single scope. An item will be updated if it already exists  and inserted if it does not.    The response will return the successfully updated or inserted Portfolio Access Metadata Rule or failure message if unsuccessful    It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exists with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope to use when updating or inserting the Portfolio Access Metadata Rule.</param>
@@ -1023,7 +1023,7 @@ namespace Lusid.Sdk.Api
         /// UpsertPortfolioAccessMetadata: Upsert a Portfolio Access Metadata Rule associated with specific metadataKey. This creates or updates the data in LUSID.
         /// </summary>
         /// <remarks>
-        /// Update or insert one Portfolio Access Metadata Rule in a single scope. An item will be updated if it already exists and inserted if it does not.  The response will return the successfully updated or inserted Portfolio Access Metadata Rule or failure message if unsuccessful  It is important to always check to verify success (or failure).              Multiple rules for a metadataKey can exists with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched
+        /// Update or insert one Portfolio Access Metadata Rule in a single scope. An item will be updated if it already exists  and inserted if it does not.    The response will return the successfully updated or inserted Portfolio Access Metadata Rule or failure message if unsuccessful    It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exists with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope to use when updating or inserting the Portfolio Access Metadata Rule.</param>
@@ -1040,12 +1040,12 @@ namespace Lusid.Sdk.Api
         /// UpsertPortfolioProperties: Upsert portfolio properties
         /// </summary>
         /// <remarks>
-        /// Create or update one or more properties for a particular portfolio. A property is updated if it already exists and created if it does not. All properties must be from the &#39;Portfolio&#39; domain.              Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime until which it is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// Create or update one or more properties for a particular portfolio. A property is updated if it  already exists and created if it does not. All properties must be from the &#39;Portfolio&#39; domain.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which it is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
         /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
-        /// <param name="requestBody">The properties to be created or updated. Each property in              the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code}, for example              &#39;Portfolio/Manager/Id&#39;.</param>
+        /// <param name="requestBody">The properties to be created or updated. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code}, for example               &#39;Portfolio/Manager/Id&#39;.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PortfolioProperties</returns>
@@ -1055,12 +1055,12 @@ namespace Lusid.Sdk.Api
         /// UpsertPortfolioProperties: Upsert portfolio properties
         /// </summary>
         /// <remarks>
-        /// Create or update one or more properties for a particular portfolio. A property is updated if it already exists and created if it does not. All properties must be from the &#39;Portfolio&#39; domain.              Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime until which it is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// Create or update one or more properties for a particular portfolio. A property is updated if it  already exists and created if it does not. All properties must be from the &#39;Portfolio&#39; domain.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which it is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
         /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
-        /// <param name="requestBody">The properties to be created or updated. Each property in              the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code}, for example              &#39;Portfolio/Manager/Id&#39;.</param>
+        /// <param name="requestBody">The properties to be created or updated. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code}, for example               &#39;Portfolio/Manager/Id&#39;.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PortfolioProperties</returns>
@@ -1111,7 +1111,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] BatchUpsertPortfolioAccessMetadata: Upsert multiple Portfolio Access Metadata Rules to multiple Portfolios
         /// </summary>
         /// <remarks>
-        /// Update or insert multiple Access Metadata rules for multiple Portfolios. Items will be updated if they already exist and inserted if they do not. No other items will be affected  The response will return the successfully updated or inserted Portfolio Access Metadata Rules or a failure message if unsuccessful              Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched
+        /// Update or insert multiple Access Metadata rules for multiple Portfolios. Items will be updated if they already exist  and inserted if they do not. No other items will be affected    The response will return the successfully updated or inserted Portfolio Access Metadata Rules or a failure message if unsuccessful                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The Access Metadata Rules to upsert and the Portfolio identifiers to upsert for</param>
@@ -1127,7 +1127,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] BatchUpsertPortfolioAccessMetadata: Upsert multiple Portfolio Access Metadata Rules to multiple Portfolios
         /// </summary>
         /// <remarks>
-        /// Update or insert multiple Access Metadata rules for multiple Portfolios. Items will be updated if they already exist and inserted if they do not. No other items will be affected  The response will return the successfully updated or inserted Portfolio Access Metadata Rules or a failure message if unsuccessful              Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched
+        /// Update or insert multiple Access Metadata rules for multiple Portfolios. Items will be updated if they already exist  and inserted if they do not. No other items will be affected    The response will return the successfully updated or inserted Portfolio Access Metadata Rules or a failure message if unsuccessful                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The Access Metadata Rules to upsert and the Portfolio identifiers to upsert for</param>
@@ -1210,7 +1210,7 @@ namespace Lusid.Sdk.Api
         /// DeletePortfolio: Delete portfolio
         /// </summary>
         /// <remarks>
-        /// Delete a particular portfolio.              The deletion will take effect from the portfolio&#39;s creation datetime. This means that the portfolio will no longer exist at any effective datetime, as per the asAt datetime of deletion.
+        /// Delete a particular portfolio.                The deletion will take effect from the portfolio&#39;s creation datetime. This means that the portfolio will no longer exist at any effective datetime, as per the asAt datetime of deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
@@ -1225,7 +1225,7 @@ namespace Lusid.Sdk.Api
         /// DeletePortfolio: Delete portfolio
         /// </summary>
         /// <remarks>
-        /// Delete a particular portfolio.              The deletion will take effect from the portfolio&#39;s creation datetime. This means that the portfolio will no longer exist at any effective datetime, as per the asAt datetime of deletion.
+        /// Delete a particular portfolio.                The deletion will take effect from the portfolio&#39;s creation datetime. This means that the portfolio will no longer exist at any effective datetime, as per the asAt datetime of deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
@@ -1239,13 +1239,13 @@ namespace Lusid.Sdk.Api
         /// DeletePortfolioProperties: Delete portfolio properties
         /// </summary>
         /// <remarks>
-        /// Delete one or more properties from a particular portfolio. If the properties are time-variant then an effective datetime from which to delete properties must be specified. If the properties are perpetual then it is invalid to specify an effective datetime for deletion.
+        /// Delete one or more properties from a particular portfolio. If the properties are time-variant then an effective datetime from which  to delete properties must be specified. If the properties are perpetual then it is invalid to specify an effective datetime for deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
         /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
-        /// <param name="propertyKeys">The property keys of the properties to delete. These must take the format             {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. Each property must be from the &#39;Portfolio&#39; domain.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.             The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is             before the time-variant property exists then a failure is returned. Do not specify this parameter if any of             the properties to delete are perpetual. (optional)</param>
+        /// <param name="propertyKeys">The property keys of the properties to delete. These must take the format              {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. Each property must be from the &#39;Portfolio&#39; domain.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1256,13 +1256,13 @@ namespace Lusid.Sdk.Api
         /// DeletePortfolioProperties: Delete portfolio properties
         /// </summary>
         /// <remarks>
-        /// Delete one or more properties from a particular portfolio. If the properties are time-variant then an effective datetime from which to delete properties must be specified. If the properties are perpetual then it is invalid to specify an effective datetime for deletion.
+        /// Delete one or more properties from a particular portfolio. If the properties are time-variant then an effective datetime from which  to delete properties must be specified. If the properties are perpetual then it is invalid to specify an effective datetime for deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
         /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
-        /// <param name="propertyKeys">The property keys of the properties to delete. These must take the format             {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. Each property must be from the &#39;Portfolio&#39; domain.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.             The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is             before the time-variant property exists then a failure is returned. Do not specify this parameter if any of             the properties to delete are perpetual. (optional)</param>
+        /// <param name="propertyKeys">The property keys of the properties to delete. These must take the format              {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. Each property must be from the &#39;Portfolio&#39; domain.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1311,7 +1311,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] GetAggregatedReturnsDispersionMetrics: Get the Aggregated Returns Dispersion metric
         /// </summary>
         /// <remarks>
-        /// Calculate the dispersion metric with the Aggregate Returns which are on the specified portfolio.            This works only for composites which have at least 6 constituents for a full year in.
+        /// Calculate the dispersion metric with the Aggregate Returns which are on the specified portfolio.             This works only for composites which have at least 6 constituents for a full year in.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Portfolio.</param>
@@ -1328,7 +1328,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] GetAggregatedReturnsDispersionMetrics: Get the Aggregated Returns Dispersion metric
         /// </summary>
         /// <remarks>
-        /// Calculate the dispersion metric with the Aggregate Returns which are on the specified portfolio.            This works only for composites which have at least 6 constituents for a full year in.
+        /// Calculate the dispersion metric with the Aggregate Returns which are on the specified portfolio.             This works only for composites which have at least 6 constituents for a full year in.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Portfolio.</param>
@@ -1423,8 +1423,8 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the portfolio definition. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the portfolio definition. Defaults to returning the latest version of the portfolio definition if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Portfolio&#39; domain to decorate onto the portfolio,             or from any domain that supports relationships to decorate onto related entities. These must take the format             {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the portfolio in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Portfolio&#39; domain to decorate onto the portfolio,              or from any domain that supports relationships to decorate onto related entities. These must take the format              {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the portfolio in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1442,8 +1442,8 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the portfolio definition. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the portfolio definition. Defaults to returning the latest version of the portfolio definition if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Portfolio&#39; domain to decorate onto the portfolio,             or from any domain that supports relationships to decorate onto related entities. These must take the format             {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the portfolio in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Portfolio&#39; domain to decorate onto the portfolio,              or from any domain that supports relationships to decorate onto related entities. These must take the format              {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the portfolio in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1464,7 +1464,7 @@ namespace Lusid.Sdk.Api
         /// <param name="recipeIdCode">The Recipe Code for getting the fx rates (optional)</param>
         /// <param name="fromEffectiveAt">The start date from which to calculate the Returns. (optional)</param>
         /// <param name="toEffectiveAt">The end date for which to calculate the Returns. (optional)</param>
-        /// <param name="compositeMethod">The method used to calculate the Portfolio performance:             Equal/Asset. (optional)</param>
+        /// <param name="compositeMethod">The method used to calculate the Portfolio performance:              Equal/Asset. (optional)</param>
         /// <param name="period">The type of the returns used to calculate the aggregation result: Daily/Monthly. (optional)</param>
         /// <param name="outputFrequency">The type of calculated output: Daily/Weekly/Monthly/Quarterly/Half-Yearly/Yearly. (optional)</param>
         /// <param name="metrics">Determines what type of returns should be calculated, see https://support.lusid.com/knowledgebase/article/KA-01675/en-us for a list of available metrics. (optional)</param>
@@ -1491,7 +1491,7 @@ namespace Lusid.Sdk.Api
         /// <param name="recipeIdCode">The Recipe Code for getting the fx rates (optional)</param>
         /// <param name="fromEffectiveAt">The start date from which to calculate the Returns. (optional)</param>
         /// <param name="toEffectiveAt">The end date for which to calculate the Returns. (optional)</param>
-        /// <param name="compositeMethod">The method used to calculate the Portfolio performance:             Equal/Asset. (optional)</param>
+        /// <param name="compositeMethod">The method used to calculate the Portfolio performance:              Equal/Asset. (optional)</param>
         /// <param name="period">The type of the returns used to calculate the aggregation result: Daily/Monthly. (optional)</param>
         /// <param name="outputFrequency">The type of calculated output: Daily/Weekly/Monthly/Quarterly/Half-Yearly/Yearly. (optional)</param>
         /// <param name="metrics">Determines what type of returns should be calculated, see https://support.lusid.com/knowledgebase/article/KA-01675/en-us for a list of available metrics. (optional)</param>
@@ -1550,7 +1550,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
         /// <param name="fromAsAt">The lower bound asAt datetime (inclusive) from which to retrieve commands. There is no lower bound if this is not specified. (optional)</param>
         /// <param name="toAsAt">The upper bound asAt datetime (inclusive) from which to retrieve commands. There is no upper bound if this is not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the User ID, specify \&quot;userId.id eq &#39;string&#39;\&quot;.             For more information about filtering, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the User ID, specify \&quot;userId.id eq &#39;string&#39;\&quot;.              For more information about filtering, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing commands; this value is returned from the previous call. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 500 if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1570,7 +1570,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
         /// <param name="fromAsAt">The lower bound asAt datetime (inclusive) from which to retrieve commands. There is no lower bound if this is not specified. (optional)</param>
         /// <param name="toAsAt">The upper bound asAt datetime (inclusive) from which to retrieve commands. There is no upper bound if this is not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the User ID, specify \&quot;userId.id eq &#39;string&#39;\&quot;.             For more information about filtering, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the User ID, specify \&quot;userId.id eq &#39;string&#39;\&quot;.              For more information about filtering, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing commands; this value is returned from the previous call. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 500 if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1653,11 +1653,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
         /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
-        /// <param name="propertyKey">The property key of the property whose history to show.             This must be from the &#39;Portfolio&#39; domain and in the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;.</param>
+        /// <param name="propertyKey">The property key of the property whose history to show.              This must be from the &#39;Portfolio&#39; domain and in the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;.</param>
         /// <param name="portfolioEffectiveAt">The effective datetime used to resolve the portfolio. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to show the history. Defaults to returning the current datetime if not supplied. (optional)</param>
-        /// <param name="filter">Expression to filter the results. For more information about filtering,             see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing properties; this value is returned from             the previous call. If a pagination token is provided, the filter, portfolioEffectiveAt, and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="filter">Expression to filter the results. For more information about filtering,              see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing properties; this value is returned from              the previous call. If a pagination token is provided, the filter, portfolioEffectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1674,11 +1674,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
         /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
-        /// <param name="propertyKey">The property key of the property whose history to show.             This must be from the &#39;Portfolio&#39; domain and in the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;.</param>
+        /// <param name="propertyKey">The property key of the property whose history to show.              This must be from the &#39;Portfolio&#39; domain and in the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;.</param>
         /// <param name="portfolioEffectiveAt">The effective datetime used to resolve the portfolio. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to show the history. Defaults to returning the current datetime if not supplied. (optional)</param>
-        /// <param name="filter">Expression to filter the results. For more information about filtering,             see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing properties; this value is returned from             the previous call. If a pagination token is provided, the filter, portfolioEffectiveAt, and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="filter">Expression to filter the results. For more information about filtering,              see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing properties; this value is returned from              the previous call. If a pagination token is provided, the filter, portfolioEffectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1697,7 +1697,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve relations. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve relations. Defaults to returning the latest LUSID AsAt time if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the relations. Provide a null or empty string for this field until further notice. (optional)</param>
-        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.             These must be from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example             &#39;Person/CompanyDetails/Role&#39;. Only identifier types provided will be used to look up relevant entities in relations. If not applicable, provide an empty array. (optional)</param>
+        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.              These must be from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example              &#39;Person/CompanyDetails/Role&#39;. Only identifier types provided will be used to look up relevant entities in relations. If not applicable, provide an empty array. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1716,7 +1716,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve relations. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve relations. Defaults to returning the latest LUSID AsAt time if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the relations. Provide a null or empty string for this field until further notice. (optional)</param>
-        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.             These must be from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example             &#39;Person/CompanyDetails/Role&#39;. Only identifier types provided will be used to look up relevant entities in relations. If not applicable, provide an empty array. (optional)</param>
+        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.              These must be from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example              &#39;Person/CompanyDetails/Role&#39;. Only identifier types provided will be used to look up relevant entities in relations. If not applicable, provide an empty array. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1734,7 +1734,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve relationships. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve relationships. Defaults to returning the latest LUSID AsAt time if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the relationships. Provide a null or empty string for this field until further notice. (optional)</param>
-        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.             These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example             &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. (optional)</param>
+        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.              These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example              &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1753,7 +1753,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve relationships. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve relationships. Defaults to returning the latest LUSID AsAt time if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the relationships. Provide a null or empty string for this field until further notice. (optional)</param>
-        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.             These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example             &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. (optional)</param>
+        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.              These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example              &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1804,7 +1804,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] GetPortfoliosAccessMetadataByKey: Get an entry identified by a metadataKey in the access metadata object
         /// </summary>
         /// <remarks>
-        /// Get a specific portfolio access metadata rule by specifying the corresponding identifier parts              No matching will be performed through this endpoint. To retrieve a rule, it is necessary to specify, exactly, the identifier of the rule
+        /// Get a specific portfolio access metadata rule by specifying the corresponding identifier parts                No matching will be performed through this endpoint. To retrieve a rule, it is necessary to specify, exactly, the identifier of the rule
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Portfolio Access Metadata Rule to retrieve.</param>
@@ -1822,7 +1822,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] GetPortfoliosAccessMetadataByKey: Get an entry identified by a metadataKey in the access metadata object
         /// </summary>
         /// <remarks>
-        /// Get a specific portfolio access metadata rule by specifying the corresponding identifier parts              No matching will be performed through this endpoint. To retrieve a rule, it is necessary to specify, exactly, the identifier of the rule
+        /// Get a specific portfolio access metadata rule by specifying the corresponding identifier parts                No matching will be performed through this endpoint. To retrieve a rule, it is necessary to specify, exactly, the identifier of the rule
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Portfolio Access Metadata Rule to retrieve.</param>
@@ -1846,9 +1846,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
         /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the instructions. Defaults to latest if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing instructions; this value is returned from the previous call.             If a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing instructions; this value is returned from the previous call.              If a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1867,9 +1867,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
         /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the instructions. Defaults to latest if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing instructions; this value is returned from the previous call.             If a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing instructions; this value is returned from the previous call.              If a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1920,15 +1920,15 @@ namespace Lusid.Sdk.Api
         /// List all the portfolios matching particular criteria.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the portfolios. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the portfolios. Defaults to returning the latest version             of each portfolio if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing portfolios; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the portfolios. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the portfolios. Defaults to returning the latest version              of each portfolio if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing portfolios; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the transaction type, specify \&quot;type eq &#39;Transaction&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the transaction type, specify \&quot;type eq &#39;Transaction&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="query">Expression specifying the criteria that the returned portfolios must meet. For example, to see which             portfolios have holdings in instruments with a LusidInstrumentId (LUID) of &#39;LUID_PPA8HI6M&#39; or a Figi of &#39;BBG000BLNNH6&#39;,             specify \&quot;instrument.identifiers in ((&#39;LusidInstrumentId&#39;, &#39;LUID_PPA8HI6M&#39;), (&#39;Figi&#39;, &#39;BBG000BLNNH6&#39;))\&quot;. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Portfolio&#39; domain to decorate onto each portfolio,             or from any domain that supports relationships to decorate onto related entities. These must take the             format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the portfolios in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="query">Expression specifying the criteria that the returned portfolios must meet. For example, to see which              portfolios have holdings in instruments with a LusidInstrumentId (LUID) of &#39;LUID_PPA8HI6M&#39; or a Figi of &#39;BBG000BLNNH6&#39;,              specify \&quot;instrument.identifiers in ((&#39;LusidInstrumentId&#39;, &#39;LUID_PPA8HI6M&#39;), (&#39;Figi&#39;, &#39;BBG000BLNNH6&#39;))\&quot;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Portfolio&#39; domain to decorate onto each portfolio,              or from any domain that supports relationships to decorate onto related entities. These must take the              format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the portfolios in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1942,15 +1942,15 @@ namespace Lusid.Sdk.Api
         /// List all the portfolios matching particular criteria.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the portfolios. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the portfolios. Defaults to returning the latest version             of each portfolio if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing portfolios; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the portfolios. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the portfolios. Defaults to returning the latest version              of each portfolio if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing portfolios; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the transaction type, specify \&quot;type eq &#39;Transaction&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the transaction type, specify \&quot;type eq &#39;Transaction&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="query">Expression specifying the criteria that the returned portfolios must meet. For example, to see which             portfolios have holdings in instruments with a LusidInstrumentId (LUID) of &#39;LUID_PPA8HI6M&#39; or a Figi of &#39;BBG000BLNNH6&#39;,             specify \&quot;instrument.identifiers in ((&#39;LusidInstrumentId&#39;, &#39;LUID_PPA8HI6M&#39;), (&#39;Figi&#39;, &#39;BBG000BLNNH6&#39;))\&quot;. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Portfolio&#39; domain to decorate onto each portfolio,             or from any domain that supports relationships to decorate onto related entities. These must take the             format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the portfolios in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="query">Expression specifying the criteria that the returned portfolios must meet. For example, to see which              portfolios have holdings in instruments with a LusidInstrumentId (LUID) of &#39;LUID_PPA8HI6M&#39; or a Figi of &#39;BBG000BLNNH6&#39;,              specify \&quot;instrument.identifiers in ((&#39;LusidInstrumentId&#39;, &#39;LUID_PPA8HI6M&#39;), (&#39;Figi&#39;, &#39;BBG000BLNNH6&#39;))\&quot;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Portfolio&#39; domain to decorate onto each portfolio,              or from any domain that supports relationships to decorate onto related entities. These must take the              format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the portfolios in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1964,14 +1964,14 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope whose portfolios to list.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the portfolios. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the portfolios. Defaults to returning the latest version             of each portfolio if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing portfolios. This value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the portfolios. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the portfolios. Defaults to returning the latest version              of each portfolio if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing portfolios. This  value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt  and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to return only transactions with a transaction type of &#39;Buy&#39;, specify \&quot;type eq &#39;Buy&#39;\&quot;.             For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to return only transactions with a transaction type of &#39;Buy&#39;, specify \&quot;type eq &#39;Buy&#39;\&quot;.              For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Portfolio&#39; domain to decorate onto each portfolio,             or from any domain that supports relationships to decorate onto related entities. These must take the             format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the portfolios in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Portfolio&#39; domain to decorate onto each portfolio,              or from any domain that supports relationships to decorate onto related entities. These must take the              format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the portfolios in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1986,14 +1986,14 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope whose portfolios to list.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the portfolios. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the portfolios. Defaults to returning the latest version             of each portfolio if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing portfolios. This value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the portfolios. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the portfolios. Defaults to returning the latest version              of each portfolio if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing portfolios. This  value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt  and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to return only transactions with a transaction type of &#39;Buy&#39;, specify \&quot;type eq &#39;Buy&#39;\&quot;.             For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to return only transactions with a transaction type of &#39;Buy&#39;, specify \&quot;type eq &#39;Buy&#39;\&quot;.              For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Portfolio&#39; domain to decorate onto each portfolio,             or from any domain that supports relationships to decorate onto related entities. These must take the             format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the portfolios in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Portfolio&#39; domain to decorate onto each portfolio,              or from any domain that supports relationships to decorate onto related entities. These must take the              format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the portfolios in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2007,7 +2007,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
-        /// <param name="code">The code of the portfolio. Together with the             scope this uniquely identifies the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the              scope this uniquely identifies the portfolio.</param>
         /// <param name="operation">The json patch document. For more check: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2023,7 +2023,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
-        /// <param name="code">The code of the portfolio. Together with the             scope this uniquely identifies the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the              scope this uniquely identifies the portfolio.</param>
         /// <param name="operation">The json patch document. For more check: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2034,7 +2034,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] PatchPortfolioAccessMetadata: Patch Access Metadata rules for a Portfolio.
         /// </summary>
         /// <remarks>
-        /// Patch Portfolio Access Metadata Rules in a single scope. The behaviour is defined by the JSON Patch specification.              Currently only &#39;add&#39; is a supported operation on the patch document.  Currently only valid metadata keys are supported paths on the patch document.  The response will return any affected Portfolio Access Metadata rules or a failure message if unsuccessful.  It is important to always check to verify success (or failure).              Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
+        /// Patch Portfolio Access Metadata Rules in a single scope.  The behaviour is defined by the JSON Patch specification.                Currently only &#39;add&#39; is a supported operation on the patch document.    Currently only valid metadata keys are supported paths on the patch document.    The response will return any affected Portfolio Access Metadata rules or a failure message if unsuccessful.    It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Portfolio Access Metadata Rule.</param>
@@ -2052,7 +2052,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] PatchPortfolioAccessMetadata: Patch Access Metadata rules for a Portfolio.
         /// </summary>
         /// <remarks>
-        /// Patch Portfolio Access Metadata Rules in a single scope. The behaviour is defined by the JSON Patch specification.              Currently only &#39;add&#39; is a supported operation on the patch document.  Currently only valid metadata keys are supported paths on the patch document.  The response will return any affected Portfolio Access Metadata rules or a failure message if unsuccessful.  It is important to always check to verify success (or failure).              Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
+        /// Patch Portfolio Access Metadata Rules in a single scope.  The behaviour is defined by the JSON Patch specification.                Currently only &#39;add&#39; is a supported operation on the patch document.    Currently only valid metadata keys are supported paths on the patch document.    The response will return any affected Portfolio Access Metadata rules or a failure message if unsuccessful.    It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Portfolio Access Metadata Rule.</param>
@@ -2069,13 +2069,13 @@ namespace Lusid.Sdk.Api
         /// UpdatePortfolio: Update portfolio
         /// </summary>
         /// <remarks>
-        /// Update the definition of a particular portfolio.              Note that not all elements of a portfolio definition are modifiable due to the potential implications for data already stored.
+        /// Update the definition of a particular portfolio.                Note that not all elements of a portfolio definition are  modifiable due to the potential implications for data already stored.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
         /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
         /// <param name="updatePortfolioRequest">The updated portfolio definition.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to update the definition. Defaults to the current              LUSID system datetime if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to update the definition. Defaults to the current               LUSID system datetime if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2086,13 +2086,13 @@ namespace Lusid.Sdk.Api
         /// UpdatePortfolio: Update portfolio
         /// </summary>
         /// <remarks>
-        /// Update the definition of a particular portfolio.              Note that not all elements of a portfolio definition are modifiable due to the potential implications for data already stored.
+        /// Update the definition of a particular portfolio.                Note that not all elements of a portfolio definition are  modifiable due to the potential implications for data already stored.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
         /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
         /// <param name="updatePortfolioRequest">The updated portfolio definition.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to update the definition. Defaults to the current              LUSID system datetime if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to update the definition. Defaults to the current               LUSID system datetime if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2137,7 +2137,7 @@ namespace Lusid.Sdk.Api
         /// UpsertPortfolioAccessMetadata: Upsert a Portfolio Access Metadata Rule associated with specific metadataKey. This creates or updates the data in LUSID.
         /// </summary>
         /// <remarks>
-        /// Update or insert one Portfolio Access Metadata Rule in a single scope. An item will be updated if it already exists and inserted if it does not.  The response will return the successfully updated or inserted Portfolio Access Metadata Rule or failure message if unsuccessful  It is important to always check to verify success (or failure).              Multiple rules for a metadataKey can exists with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched
+        /// Update or insert one Portfolio Access Metadata Rule in a single scope. An item will be updated if it already exists  and inserted if it does not.    The response will return the successfully updated or inserted Portfolio Access Metadata Rule or failure message if unsuccessful    It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exists with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope to use when updating or inserting the Portfolio Access Metadata Rule.</param>
@@ -2156,7 +2156,7 @@ namespace Lusid.Sdk.Api
         /// UpsertPortfolioAccessMetadata: Upsert a Portfolio Access Metadata Rule associated with specific metadataKey. This creates or updates the data in LUSID.
         /// </summary>
         /// <remarks>
-        /// Update or insert one Portfolio Access Metadata Rule in a single scope. An item will be updated if it already exists and inserted if it does not.  The response will return the successfully updated or inserted Portfolio Access Metadata Rule or failure message if unsuccessful  It is important to always check to verify success (or failure).              Multiple rules for a metadataKey can exists with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched
+        /// Update or insert one Portfolio Access Metadata Rule in a single scope. An item will be updated if it already exists  and inserted if it does not.    The response will return the successfully updated or inserted Portfolio Access Metadata Rule or failure message if unsuccessful    It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exists with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope to use when updating or inserting the Portfolio Access Metadata Rule.</param>
@@ -2174,12 +2174,12 @@ namespace Lusid.Sdk.Api
         /// UpsertPortfolioProperties: Upsert portfolio properties
         /// </summary>
         /// <remarks>
-        /// Create or update one or more properties for a particular portfolio. A property is updated if it already exists and created if it does not. All properties must be from the &#39;Portfolio&#39; domain.              Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime until which it is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// Create or update one or more properties for a particular portfolio. A property is updated if it  already exists and created if it does not. All properties must be from the &#39;Portfolio&#39; domain.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which it is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
         /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
-        /// <param name="requestBody">The properties to be created or updated. Each property in              the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code}, for example              &#39;Portfolio/Manager/Id&#39;.</param>
+        /// <param name="requestBody">The properties to be created or updated. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code}, for example               &#39;Portfolio/Manager/Id&#39;.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2190,12 +2190,12 @@ namespace Lusid.Sdk.Api
         /// UpsertPortfolioProperties: Upsert portfolio properties
         /// </summary>
         /// <remarks>
-        /// Create or update one or more properties for a particular portfolio. A property is updated if it already exists and created if it does not. All properties must be from the &#39;Portfolio&#39; domain.              Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime until which it is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// Create or update one or more properties for a particular portfolio. A property is updated if it  already exists and created if it does not. All properties must be from the &#39;Portfolio&#39; domain.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which it is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
         /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
-        /// <param name="requestBody">The properties to be created or updated. Each property in              the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code}, for example              &#39;Portfolio/Manager/Id&#39;.</param>
+        /// <param name="requestBody">The properties to be created or updated. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code}, for example               &#39;Portfolio/Manager/Id&#39;.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2360,7 +2360,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] BatchUpsertPortfolioAccessMetadata: Upsert multiple Portfolio Access Metadata Rules to multiple Portfolios Update or insert multiple Access Metadata rules for multiple Portfolios. Items will be updated if they already exist and inserted if they do not. No other items will be affected  The response will return the successfully updated or inserted Portfolio Access Metadata Rules or a failure message if unsuccessful              Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched
+        /// [EARLY ACCESS] BatchUpsertPortfolioAccessMetadata: Upsert multiple Portfolio Access Metadata Rules to multiple Portfolios Update or insert multiple Access Metadata rules for multiple Portfolios. Items will be updated if they already exist  and inserted if they do not. No other items will be affected    The response will return the successfully updated or inserted Portfolio Access Metadata Rules or a failure message if unsuccessful                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The Access Metadata Rules to upsert and the Portfolio identifiers to upsert for</param>
@@ -2376,7 +2376,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] BatchUpsertPortfolioAccessMetadata: Upsert multiple Portfolio Access Metadata Rules to multiple Portfolios Update or insert multiple Access Metadata rules for multiple Portfolios. Items will be updated if they already exist and inserted if they do not. No other items will be affected  The response will return the successfully updated or inserted Portfolio Access Metadata Rules or a failure message if unsuccessful              Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched
+        /// [EARLY ACCESS] BatchUpsertPortfolioAccessMetadata: Upsert multiple Portfolio Access Metadata Rules to multiple Portfolios Update or insert multiple Access Metadata rules for multiple Portfolios. Items will be updated if they already exist  and inserted if they do not. No other items will be affected    The response will return the successfully updated or inserted Portfolio Access Metadata Rules or a failure message if unsuccessful                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The Access Metadata Rules to upsert and the Portfolio identifiers to upsert for</param>
@@ -2476,7 +2476,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] BatchUpsertPortfolioAccessMetadata: Upsert multiple Portfolio Access Metadata Rules to multiple Portfolios Update or insert multiple Access Metadata rules for multiple Portfolios. Items will be updated if they already exist and inserted if they do not. No other items will be affected  The response will return the successfully updated or inserted Portfolio Access Metadata Rules or a failure message if unsuccessful              Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched
+        /// [EARLY ACCESS] BatchUpsertPortfolioAccessMetadata: Upsert multiple Portfolio Access Metadata Rules to multiple Portfolios Update or insert multiple Access Metadata rules for multiple Portfolios. Items will be updated if they already exist  and inserted if they do not. No other items will be affected    The response will return the successfully updated or inserted Portfolio Access Metadata Rules or a failure message if unsuccessful                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The Access Metadata Rules to upsert and the Portfolio identifiers to upsert for</param>
@@ -2493,7 +2493,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] BatchUpsertPortfolioAccessMetadata: Upsert multiple Portfolio Access Metadata Rules to multiple Portfolios Update or insert multiple Access Metadata rules for multiple Portfolios. Items will be updated if they already exist and inserted if they do not. No other items will be affected  The response will return the successfully updated or inserted Portfolio Access Metadata Rules or a failure message if unsuccessful              Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched
+        /// [EARLY ACCESS] BatchUpsertPortfolioAccessMetadata: Upsert multiple Portfolio Access Metadata Rules to multiple Portfolios Update or insert multiple Access Metadata rules for multiple Portfolios. Items will be updated if they already exist  and inserted if they do not. No other items will be affected    The response will return the successfully updated or inserted Portfolio Access Metadata Rules or a failure message if unsuccessful                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The Access Metadata Rules to upsert and the Portfolio identifiers to upsert for</param>
@@ -3112,7 +3112,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// DeletePortfolio: Delete portfolio Delete a particular portfolio.              The deletion will take effect from the portfolio&#39;s creation datetime. This means that the portfolio will no longer exist at any effective datetime, as per the asAt datetime of deletion.
+        /// DeletePortfolio: Delete portfolio Delete a particular portfolio.                The deletion will take effect from the portfolio&#39;s creation datetime. This means that the portfolio will no longer exist at any effective datetime, as per the asAt datetime of deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
@@ -3127,7 +3127,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// DeletePortfolio: Delete portfolio Delete a particular portfolio.              The deletion will take effect from the portfolio&#39;s creation datetime. This means that the portfolio will no longer exist at any effective datetime, as per the asAt datetime of deletion.
+        /// DeletePortfolio: Delete portfolio Delete a particular portfolio.                The deletion will take effect from the portfolio&#39;s creation datetime. This means that the portfolio will no longer exist at any effective datetime, as per the asAt datetime of deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
@@ -3221,7 +3221,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// DeletePortfolio: Delete portfolio Delete a particular portfolio.              The deletion will take effect from the portfolio&#39;s creation datetime. This means that the portfolio will no longer exist at any effective datetime, as per the asAt datetime of deletion.
+        /// DeletePortfolio: Delete portfolio Delete a particular portfolio.                The deletion will take effect from the portfolio&#39;s creation datetime. This means that the portfolio will no longer exist at any effective datetime, as per the asAt datetime of deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
@@ -3237,7 +3237,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// DeletePortfolio: Delete portfolio Delete a particular portfolio.              The deletion will take effect from the portfolio&#39;s creation datetime. This means that the portfolio will no longer exist at any effective datetime, as per the asAt datetime of deletion.
+        /// DeletePortfolio: Delete portfolio Delete a particular portfolio.                The deletion will take effect from the portfolio&#39;s creation datetime. This means that the portfolio will no longer exist at any effective datetime, as per the asAt datetime of deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
@@ -3334,13 +3334,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// DeletePortfolioProperties: Delete portfolio properties Delete one or more properties from a particular portfolio. If the properties are time-variant then an effective datetime from which to delete properties must be specified. If the properties are perpetual then it is invalid to specify an effective datetime for deletion.
+        /// DeletePortfolioProperties: Delete portfolio properties Delete one or more properties from a particular portfolio. If the properties are time-variant then an effective datetime from which  to delete properties must be specified. If the properties are perpetual then it is invalid to specify an effective datetime for deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
         /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
-        /// <param name="propertyKeys">The property keys of the properties to delete. These must take the format             {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. Each property must be from the &#39;Portfolio&#39; domain.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.             The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is             before the time-variant property exists then a failure is returned. Do not specify this parameter if any of             the properties to delete are perpetual. (optional)</param>
+        /// <param name="propertyKeys">The property keys of the properties to delete. These must take the format              {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. Each property must be from the &#39;Portfolio&#39; domain.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
@@ -3351,13 +3351,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// DeletePortfolioProperties: Delete portfolio properties Delete one or more properties from a particular portfolio. If the properties are time-variant then an effective datetime from which to delete properties must be specified. If the properties are perpetual then it is invalid to specify an effective datetime for deletion.
+        /// DeletePortfolioProperties: Delete portfolio properties Delete one or more properties from a particular portfolio. If the properties are time-variant then an effective datetime from which  to delete properties must be specified. If the properties are perpetual then it is invalid to specify an effective datetime for deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
         /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
-        /// <param name="propertyKeys">The property keys of the properties to delete. These must take the format             {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. Each property must be from the &#39;Portfolio&#39; domain.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.             The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is             before the time-variant property exists then a failure is returned. Do not specify this parameter if any of             the properties to delete are perpetual. (optional)</param>
+        /// <param name="propertyKeys">The property keys of the properties to delete. These must take the format              {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. Each property must be from the &#39;Portfolio&#39; domain.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
@@ -3458,13 +3458,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// DeletePortfolioProperties: Delete portfolio properties Delete one or more properties from a particular portfolio. If the properties are time-variant then an effective datetime from which to delete properties must be specified. If the properties are perpetual then it is invalid to specify an effective datetime for deletion.
+        /// DeletePortfolioProperties: Delete portfolio properties Delete one or more properties from a particular portfolio. If the properties are time-variant then an effective datetime from which  to delete properties must be specified. If the properties are perpetual then it is invalid to specify an effective datetime for deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
         /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
-        /// <param name="propertyKeys">The property keys of the properties to delete. These must take the format             {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. Each property must be from the &#39;Portfolio&#39; domain.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.             The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is             before the time-variant property exists then a failure is returned. Do not specify this parameter if any of             the properties to delete are perpetual. (optional)</param>
+        /// <param name="propertyKeys">The property keys of the properties to delete. These must take the format              {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. Each property must be from the &#39;Portfolio&#39; domain.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -3476,13 +3476,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// DeletePortfolioProperties: Delete portfolio properties Delete one or more properties from a particular portfolio. If the properties are time-variant then an effective datetime from which to delete properties must be specified. If the properties are perpetual then it is invalid to specify an effective datetime for deletion.
+        /// DeletePortfolioProperties: Delete portfolio properties Delete one or more properties from a particular portfolio. If the properties are time-variant then an effective datetime from which  to delete properties must be specified. If the properties are perpetual then it is invalid to specify an effective datetime for deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
         /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
-        /// <param name="propertyKeys">The property keys of the properties to delete. These must take the format             {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. Each property must be from the &#39;Portfolio&#39; domain.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.             The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is             before the time-variant property exists then a failure is returned. Do not specify this parameter if any of             the properties to delete are perpetual. (optional)</param>
+        /// <param name="propertyKeys">The property keys of the properties to delete. These must take the format              {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. Each property must be from the &#39;Portfolio&#39; domain.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -3892,7 +3892,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetAggregatedReturnsDispersionMetrics: Get the Aggregated Returns Dispersion metric Calculate the dispersion metric with the Aggregate Returns which are on the specified portfolio.            This works only for composites which have at least 6 constituents for a full year in.
+        /// [EARLY ACCESS] GetAggregatedReturnsDispersionMetrics: Get the Aggregated Returns Dispersion metric Calculate the dispersion metric with the Aggregate Returns which are on the specified portfolio.             This works only for composites which have at least 6 constituents for a full year in.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Portfolio.</param>
@@ -3909,7 +3909,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetAggregatedReturnsDispersionMetrics: Get the Aggregated Returns Dispersion metric Calculate the dispersion metric with the Aggregate Returns which are on the specified portfolio.            This works only for composites which have at least 6 constituents for a full year in.
+        /// [EARLY ACCESS] GetAggregatedReturnsDispersionMetrics: Get the Aggregated Returns Dispersion metric Calculate the dispersion metric with the Aggregate Returns which are on the specified portfolio.             This works only for composites which have at least 6 constituents for a full year in.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Portfolio.</param>
@@ -4020,7 +4020,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetAggregatedReturnsDispersionMetrics: Get the Aggregated Returns Dispersion metric Calculate the dispersion metric with the Aggregate Returns which are on the specified portfolio.            This works only for composites which have at least 6 constituents for a full year in.
+        /// [EARLY ACCESS] GetAggregatedReturnsDispersionMetrics: Get the Aggregated Returns Dispersion metric Calculate the dispersion metric with the Aggregate Returns which are on the specified portfolio.             This works only for composites which have at least 6 constituents for a full year in.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Portfolio.</param>
@@ -4038,7 +4038,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetAggregatedReturnsDispersionMetrics: Get the Aggregated Returns Dispersion metric Calculate the dispersion metric with the Aggregate Returns which are on the specified portfolio.            This works only for composites which have at least 6 constituents for a full year in.
+        /// [EARLY ACCESS] GetAggregatedReturnsDispersionMetrics: Get the Aggregated Returns Dispersion metric Calculate the dispersion metric with the Aggregate Returns which are on the specified portfolio.             This works only for composites which have at least 6 constituents for a full year in.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Portfolio.</param>
@@ -4707,8 +4707,8 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the portfolio definition. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the portfolio definition. Defaults to returning the latest version of the portfolio definition if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Portfolio&#39; domain to decorate onto the portfolio,             or from any domain that supports relationships to decorate onto related entities. These must take the format             {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the portfolio in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Portfolio&#39; domain to decorate onto the portfolio,              or from any domain that supports relationships to decorate onto related entities. These must take the format              {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the portfolio in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Portfolio</returns>
@@ -4726,8 +4726,8 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the portfolio definition. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the portfolio definition. Defaults to returning the latest version of the portfolio definition if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Portfolio&#39; domain to decorate onto the portfolio,             or from any domain that supports relationships to decorate onto related entities. These must take the format             {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the portfolio in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Portfolio&#39; domain to decorate onto the portfolio,              or from any domain that supports relationships to decorate onto related entities. These must take the format              {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the portfolio in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Portfolio</returns>
@@ -4840,8 +4840,8 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the portfolio definition. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the portfolio definition. Defaults to returning the latest version of the portfolio definition if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Portfolio&#39; domain to decorate onto the portfolio,             or from any domain that supports relationships to decorate onto related entities. These must take the format             {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the portfolio in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Portfolio&#39; domain to decorate onto the portfolio,              or from any domain that supports relationships to decorate onto related entities. These must take the format              {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the portfolio in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -4860,8 +4860,8 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the portfolio definition. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the portfolio definition. Defaults to returning the latest version of the portfolio definition if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Portfolio&#39; domain to decorate onto the portfolio,             or from any domain that supports relationships to decorate onto related entities. These must take the format             {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the portfolio in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Portfolio&#39; domain to decorate onto the portfolio,              or from any domain that supports relationships to decorate onto related entities. These must take the format              {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the portfolio in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -4981,7 +4981,7 @@ namespace Lusid.Sdk.Api
         /// <param name="recipeIdCode">The Recipe Code for getting the fx rates (optional)</param>
         /// <param name="fromEffectiveAt">The start date from which to calculate the Returns. (optional)</param>
         /// <param name="toEffectiveAt">The end date for which to calculate the Returns. (optional)</param>
-        /// <param name="compositeMethod">The method used to calculate the Portfolio performance:             Equal/Asset. (optional)</param>
+        /// <param name="compositeMethod">The method used to calculate the Portfolio performance:              Equal/Asset. (optional)</param>
         /// <param name="period">The type of the returns used to calculate the aggregation result: Daily/Monthly. (optional)</param>
         /// <param name="outputFrequency">The type of calculated output: Daily/Weekly/Monthly/Quarterly/Half-Yearly/Yearly. (optional)</param>
         /// <param name="metrics">Determines what type of returns should be calculated, see https://support.lusid.com/knowledgebase/article/KA-01675/en-us for a list of available metrics. (optional)</param>
@@ -5008,7 +5008,7 @@ namespace Lusid.Sdk.Api
         /// <param name="recipeIdCode">The Recipe Code for getting the fx rates (optional)</param>
         /// <param name="fromEffectiveAt">The start date from which to calculate the Returns. (optional)</param>
         /// <param name="toEffectiveAt">The end date for which to calculate the Returns. (optional)</param>
-        /// <param name="compositeMethod">The method used to calculate the Portfolio performance:             Equal/Asset. (optional)</param>
+        /// <param name="compositeMethod">The method used to calculate the Portfolio performance:              Equal/Asset. (optional)</param>
         /// <param name="period">The type of the returns used to calculate the aggregation result: Daily/Monthly. (optional)</param>
         /// <param name="outputFrequency">The type of calculated output: Daily/Weekly/Monthly/Quarterly/Half-Yearly/Yearly. (optional)</param>
         /// <param name="metrics">Determines what type of returns should be calculated, see https://support.lusid.com/knowledgebase/article/KA-01675/en-us for a list of available metrics. (optional)</param>
@@ -5168,7 +5168,7 @@ namespace Lusid.Sdk.Api
         /// <param name="recipeIdCode">The Recipe Code for getting the fx rates (optional)</param>
         /// <param name="fromEffectiveAt">The start date from which to calculate the Returns. (optional)</param>
         /// <param name="toEffectiveAt">The end date for which to calculate the Returns. (optional)</param>
-        /// <param name="compositeMethod">The method used to calculate the Portfolio performance:             Equal/Asset. (optional)</param>
+        /// <param name="compositeMethod">The method used to calculate the Portfolio performance:              Equal/Asset. (optional)</param>
         /// <param name="period">The type of the returns used to calculate the aggregation result: Daily/Monthly. (optional)</param>
         /// <param name="outputFrequency">The type of calculated output: Daily/Weekly/Monthly/Quarterly/Half-Yearly/Yearly. (optional)</param>
         /// <param name="metrics">Determines what type of returns should be calculated, see https://support.lusid.com/knowledgebase/article/KA-01675/en-us for a list of available metrics. (optional)</param>
@@ -5196,7 +5196,7 @@ namespace Lusid.Sdk.Api
         /// <param name="recipeIdCode">The Recipe Code for getting the fx rates (optional)</param>
         /// <param name="fromEffectiveAt">The start date from which to calculate the Returns. (optional)</param>
         /// <param name="toEffectiveAt">The end date for which to calculate the Returns. (optional)</param>
-        /// <param name="compositeMethod">The method used to calculate the Portfolio performance:             Equal/Asset. (optional)</param>
+        /// <param name="compositeMethod">The method used to calculate the Portfolio performance:              Equal/Asset. (optional)</param>
         /// <param name="period">The type of the returns used to calculate the aggregation result: Daily/Monthly. (optional)</param>
         /// <param name="outputFrequency">The type of calculated output: Daily/Weekly/Monthly/Quarterly/Half-Yearly/Yearly. (optional)</param>
         /// <param name="metrics">Determines what type of returns should be calculated, see https://support.lusid.com/knowledgebase/article/KA-01675/en-us for a list of available metrics. (optional)</param>
@@ -5639,7 +5639,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
         /// <param name="fromAsAt">The lower bound asAt datetime (inclusive) from which to retrieve commands. There is no lower bound if this is not specified. (optional)</param>
         /// <param name="toAsAt">The upper bound asAt datetime (inclusive) from which to retrieve commands. There is no upper bound if this is not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the User ID, specify \&quot;userId.id eq &#39;string&#39;\&quot;.             For more information about filtering, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the User ID, specify \&quot;userId.id eq &#39;string&#39;\&quot;.              For more information about filtering, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing commands; this value is returned from the previous call. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 500 if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -5659,7 +5659,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
         /// <param name="fromAsAt">The lower bound asAt datetime (inclusive) from which to retrieve commands. There is no lower bound if this is not specified. (optional)</param>
         /// <param name="toAsAt">The upper bound asAt datetime (inclusive) from which to retrieve commands. There is no upper bound if this is not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the User ID, specify \&quot;userId.id eq &#39;string&#39;\&quot;.             For more information about filtering, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the User ID, specify \&quot;userId.id eq &#39;string&#39;\&quot;.              For more information about filtering, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing commands; this value is returned from the previous call. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 500 if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -5778,7 +5778,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
         /// <param name="fromAsAt">The lower bound asAt datetime (inclusive) from which to retrieve commands. There is no lower bound if this is not specified. (optional)</param>
         /// <param name="toAsAt">The upper bound asAt datetime (inclusive) from which to retrieve commands. There is no upper bound if this is not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the User ID, specify \&quot;userId.id eq &#39;string&#39;\&quot;.             For more information about filtering, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the User ID, specify \&quot;userId.id eq &#39;string&#39;\&quot;.              For more information about filtering, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing commands; this value is returned from the previous call. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 500 if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -5799,7 +5799,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
         /// <param name="fromAsAt">The lower bound asAt datetime (inclusive) from which to retrieve commands. There is no lower bound if this is not specified. (optional)</param>
         /// <param name="toAsAt">The upper bound asAt datetime (inclusive) from which to retrieve commands. There is no upper bound if this is not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the User ID, specify \&quot;userId.id eq &#39;string&#39;\&quot;.             For more information about filtering, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the User ID, specify \&quot;userId.id eq &#39;string&#39;\&quot;.              For more information about filtering, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing commands; this value is returned from the previous call. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 500 if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -6411,11 +6411,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
         /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
-        /// <param name="propertyKey">The property key of the property whose history to show.             This must be from the &#39;Portfolio&#39; domain and in the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;.</param>
+        /// <param name="propertyKey">The property key of the property whose history to show.              This must be from the &#39;Portfolio&#39; domain and in the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;.</param>
         /// <param name="portfolioEffectiveAt">The effective datetime used to resolve the portfolio. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to show the history. Defaults to returning the current datetime if not supplied. (optional)</param>
-        /// <param name="filter">Expression to filter the results. For more information about filtering,             see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing properties; this value is returned from             the previous call. If a pagination token is provided, the filter, portfolioEffectiveAt, and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="filter">Expression to filter the results. For more information about filtering,              see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing properties; this value is returned from              the previous call. If a pagination token is provided, the filter, portfolioEffectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -6432,11 +6432,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
         /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
-        /// <param name="propertyKey">The property key of the property whose history to show.             This must be from the &#39;Portfolio&#39; domain and in the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;.</param>
+        /// <param name="propertyKey">The property key of the property whose history to show.              This must be from the &#39;Portfolio&#39; domain and in the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;.</param>
         /// <param name="portfolioEffectiveAt">The effective datetime used to resolve the portfolio. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to show the history. Defaults to returning the current datetime if not supplied. (optional)</param>
-        /// <param name="filter">Expression to filter the results. For more information about filtering,             see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing properties; this value is returned from             the previous call. If a pagination token is provided, the filter, portfolioEffectiveAt, and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="filter">Expression to filter the results. For more information about filtering,              see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing properties; this value is returned from              the previous call. If a pagination token is provided, the filter, portfolioEffectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -6559,11 +6559,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
         /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
-        /// <param name="propertyKey">The property key of the property whose history to show.             This must be from the &#39;Portfolio&#39; domain and in the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;.</param>
+        /// <param name="propertyKey">The property key of the property whose history to show.              This must be from the &#39;Portfolio&#39; domain and in the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;.</param>
         /// <param name="portfolioEffectiveAt">The effective datetime used to resolve the portfolio. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to show the history. Defaults to returning the current datetime if not supplied. (optional)</param>
-        /// <param name="filter">Expression to filter the results. For more information about filtering,             see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing properties; this value is returned from             the previous call. If a pagination token is provided, the filter, portfolioEffectiveAt, and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="filter">Expression to filter the results. For more information about filtering,              see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing properties; this value is returned from              the previous call. If a pagination token is provided, the filter, portfolioEffectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -6581,11 +6581,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
         /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
-        /// <param name="propertyKey">The property key of the property whose history to show.             This must be from the &#39;Portfolio&#39; domain and in the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;.</param>
+        /// <param name="propertyKey">The property key of the property whose history to show.              This must be from the &#39;Portfolio&#39; domain and in the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;.</param>
         /// <param name="portfolioEffectiveAt">The effective datetime used to resolve the portfolio. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to show the history. Defaults to returning the current datetime if not supplied. (optional)</param>
-        /// <param name="filter">Expression to filter the results. For more information about filtering,             see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing properties; this value is returned from             the previous call. If a pagination token is provided, the filter, portfolioEffectiveAt, and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="filter">Expression to filter the results. For more information about filtering,              see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing properties; this value is returned from              the previous call. If a pagination token is provided, the filter, portfolioEffectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -6714,7 +6714,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve relations. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve relations. Defaults to returning the latest LUSID AsAt time if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the relations. Provide a null or empty string for this field until further notice. (optional)</param>
-        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.             These must be from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example             &#39;Person/CompanyDetails/Role&#39;. Only identifier types provided will be used to look up relevant entities in relations. If not applicable, provide an empty array. (optional)</param>
+        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.              These must be from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example              &#39;Person/CompanyDetails/Role&#39;. Only identifier types provided will be used to look up relevant entities in relations. If not applicable, provide an empty array. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfRelation</returns>
@@ -6733,7 +6733,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve relations. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve relations. Defaults to returning the latest LUSID AsAt time if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the relations. Provide a null or empty string for this field until further notice. (optional)</param>
-        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.             These must be from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example             &#39;Person/CompanyDetails/Role&#39;. Only identifier types provided will be used to look up relevant entities in relations. If not applicable, provide an empty array. (optional)</param>
+        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.              These must be from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example              &#39;Person/CompanyDetails/Role&#39;. Only identifier types provided will be used to look up relevant entities in relations. If not applicable, provide an empty array. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfRelation</returns>
@@ -6847,7 +6847,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve relations. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve relations. Defaults to returning the latest LUSID AsAt time if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the relations. Provide a null or empty string for this field until further notice. (optional)</param>
-        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.             These must be from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example             &#39;Person/CompanyDetails/Role&#39;. Only identifier types provided will be used to look up relevant entities in relations. If not applicable, provide an empty array. (optional)</param>
+        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.              These must be from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example              &#39;Person/CompanyDetails/Role&#39;. Only identifier types provided will be used to look up relevant entities in relations. If not applicable, provide an empty array. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -6867,7 +6867,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve relations. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve relations. Defaults to returning the latest LUSID AsAt time if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the relations. Provide a null or empty string for this field until further notice. (optional)</param>
-        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.             These must be from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example             &#39;Person/CompanyDetails/Role&#39;. Only identifier types provided will be used to look up relevant entities in relations. If not applicable, provide an empty array. (optional)</param>
+        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.              These must be from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example              &#39;Person/CompanyDetails/Role&#39;. Only identifier types provided will be used to look up relevant entities in relations. If not applicable, provide an empty array. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -6984,7 +6984,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve relationships. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve relationships. Defaults to returning the latest LUSID AsAt time if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the relationships. Provide a null or empty string for this field until further notice. (optional)</param>
-        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.             These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example             &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. (optional)</param>
+        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.              These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example              &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfRelationship</returns>
@@ -7003,7 +7003,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve relationships. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve relationships. Defaults to returning the latest LUSID AsAt time if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the relationships. Provide a null or empty string for this field until further notice. (optional)</param>
-        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.             These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example             &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. (optional)</param>
+        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.              These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example              &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfRelationship</returns>
@@ -7117,7 +7117,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve relationships. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve relationships. Defaults to returning the latest LUSID AsAt time if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the relationships. Provide a null or empty string for this field until further notice. (optional)</param>
-        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.             These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example             &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. (optional)</param>
+        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.              These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example              &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -7137,7 +7137,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve relationships. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve relationships. Defaults to returning the latest LUSID AsAt time if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the relationships. Provide a null or empty string for this field until further notice. (optional)</param>
-        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.             These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example             &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. (optional)</param>
+        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.              These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example              &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -7552,7 +7552,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetPortfoliosAccessMetadataByKey: Get an entry identified by a metadataKey in the access metadata object Get a specific portfolio access metadata rule by specifying the corresponding identifier parts              No matching will be performed through this endpoint. To retrieve a rule, it is necessary to specify, exactly, the identifier of the rule
+        /// [EARLY ACCESS] GetPortfoliosAccessMetadataByKey: Get an entry identified by a metadataKey in the access metadata object Get a specific portfolio access metadata rule by specifying the corresponding identifier parts                No matching will be performed through this endpoint. To retrieve a rule, it is necessary to specify, exactly, the identifier of the rule
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Portfolio Access Metadata Rule to retrieve.</param>
@@ -7570,7 +7570,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetPortfoliosAccessMetadataByKey: Get an entry identified by a metadataKey in the access metadata object Get a specific portfolio access metadata rule by specifying the corresponding identifier parts              No matching will be performed through this endpoint. To retrieve a rule, it is necessary to specify, exactly, the identifier of the rule
+        /// [EARLY ACCESS] GetPortfoliosAccessMetadataByKey: Get an entry identified by a metadataKey in the access metadata object Get a specific portfolio access metadata rule by specifying the corresponding identifier parts                No matching will be performed through this endpoint. To retrieve a rule, it is necessary to specify, exactly, the identifier of the rule
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Portfolio Access Metadata Rule to retrieve.</param>
@@ -7682,7 +7682,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetPortfoliosAccessMetadataByKey: Get an entry identified by a metadataKey in the access metadata object Get a specific portfolio access metadata rule by specifying the corresponding identifier parts              No matching will be performed through this endpoint. To retrieve a rule, it is necessary to specify, exactly, the identifier of the rule
+        /// [EARLY ACCESS] GetPortfoliosAccessMetadataByKey: Get an entry identified by a metadataKey in the access metadata object Get a specific portfolio access metadata rule by specifying the corresponding identifier parts                No matching will be performed through this endpoint. To retrieve a rule, it is necessary to specify, exactly, the identifier of the rule
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Portfolio Access Metadata Rule to retrieve.</param>
@@ -7701,7 +7701,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetPortfoliosAccessMetadataByKey: Get an entry identified by a metadataKey in the access metadata object Get a specific portfolio access metadata rule by specifying the corresponding identifier parts              No matching will be performed through this endpoint. To retrieve a rule, it is necessary to specify, exactly, the identifier of the rule
+        /// [EARLY ACCESS] GetPortfoliosAccessMetadataByKey: Get an entry identified by a metadataKey in the access metadata object Get a specific portfolio access metadata rule by specifying the corresponding identifier parts                No matching will be performed through this endpoint. To retrieve a rule, it is necessary to specify, exactly, the identifier of the rule
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Portfolio Access Metadata Rule to retrieve.</param>
@@ -7823,9 +7823,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
         /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the instructions. Defaults to latest if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing instructions; this value is returned from the previous call.             If a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing instructions; this value is returned from the previous call.              If a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -7844,9 +7844,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
         /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the instructions. Defaults to latest if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing instructions; this value is returned from the previous call.             If a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing instructions; this value is returned from the previous call.              If a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -7968,9 +7968,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
         /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the instructions. Defaults to latest if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing instructions; this value is returned from the previous call.             If a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing instructions; this value is returned from the previous call.              If a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -7990,9 +7990,9 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
         /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the instructions. Defaults to latest if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing instructions; this value is returned from the previous call.             If a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing instructions; this value is returned from the previous call.              If a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -8383,15 +8383,15 @@ namespace Lusid.Sdk.Api
         /// ListPortfolios: List portfolios List all the portfolios matching particular criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the portfolios. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the portfolios. Defaults to returning the latest version             of each portfolio if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing portfolios; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the portfolios. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the portfolios. Defaults to returning the latest version              of each portfolio if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing portfolios; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the transaction type, specify \&quot;type eq &#39;Transaction&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the transaction type, specify \&quot;type eq &#39;Transaction&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="query">Expression specifying the criteria that the returned portfolios must meet. For example, to see which             portfolios have holdings in instruments with a LusidInstrumentId (LUID) of &#39;LUID_PPA8HI6M&#39; or a Figi of &#39;BBG000BLNNH6&#39;,             specify \&quot;instrument.identifiers in ((&#39;LusidInstrumentId&#39;, &#39;LUID_PPA8HI6M&#39;), (&#39;Figi&#39;, &#39;BBG000BLNNH6&#39;))\&quot;. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Portfolio&#39; domain to decorate onto each portfolio,             or from any domain that supports relationships to decorate onto related entities. These must take the             format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the portfolios in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="query">Expression specifying the criteria that the returned portfolios must meet. For example, to see which              portfolios have holdings in instruments with a LusidInstrumentId (LUID) of &#39;LUID_PPA8HI6M&#39; or a Figi of &#39;BBG000BLNNH6&#39;,              specify \&quot;instrument.identifiers in ((&#39;LusidInstrumentId&#39;, &#39;LUID_PPA8HI6M&#39;), (&#39;Figi&#39;, &#39;BBG000BLNNH6&#39;))\&quot;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Portfolio&#39; domain to decorate onto each portfolio,              or from any domain that supports relationships to decorate onto related entities. These must take the              format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the portfolios in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfPortfolio</returns>
@@ -8405,15 +8405,15 @@ namespace Lusid.Sdk.Api
         /// ListPortfolios: List portfolios List all the portfolios matching particular criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the portfolios. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the portfolios. Defaults to returning the latest version             of each portfolio if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing portfolios; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the portfolios. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the portfolios. Defaults to returning the latest version              of each portfolio if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing portfolios; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the transaction type, specify \&quot;type eq &#39;Transaction&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the transaction type, specify \&quot;type eq &#39;Transaction&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="query">Expression specifying the criteria that the returned portfolios must meet. For example, to see which             portfolios have holdings in instruments with a LusidInstrumentId (LUID) of &#39;LUID_PPA8HI6M&#39; or a Figi of &#39;BBG000BLNNH6&#39;,             specify \&quot;instrument.identifiers in ((&#39;LusidInstrumentId&#39;, &#39;LUID_PPA8HI6M&#39;), (&#39;Figi&#39;, &#39;BBG000BLNNH6&#39;))\&quot;. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Portfolio&#39; domain to decorate onto each portfolio,             or from any domain that supports relationships to decorate onto related entities. These must take the             format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the portfolios in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="query">Expression specifying the criteria that the returned portfolios must meet. For example, to see which              portfolios have holdings in instruments with a LusidInstrumentId (LUID) of &#39;LUID_PPA8HI6M&#39; or a Figi of &#39;BBG000BLNNH6&#39;,              specify \&quot;instrument.identifiers in ((&#39;LusidInstrumentId&#39;, &#39;LUID_PPA8HI6M&#39;), (&#39;Figi&#39;, &#39;BBG000BLNNH6&#39;))\&quot;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Portfolio&#39; domain to decorate onto each portfolio,              or from any domain that supports relationships to decorate onto related entities. These must take the              format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the portfolios in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfPortfolio</returns>
@@ -8528,15 +8528,15 @@ namespace Lusid.Sdk.Api
         /// ListPortfolios: List portfolios List all the portfolios matching particular criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the portfolios. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the portfolios. Defaults to returning the latest version             of each portfolio if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing portfolios; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the portfolios. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the portfolios. Defaults to returning the latest version              of each portfolio if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing portfolios; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the transaction type, specify \&quot;type eq &#39;Transaction&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the transaction type, specify \&quot;type eq &#39;Transaction&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="query">Expression specifying the criteria that the returned portfolios must meet. For example, to see which             portfolios have holdings in instruments with a LusidInstrumentId (LUID) of &#39;LUID_PPA8HI6M&#39; or a Figi of &#39;BBG000BLNNH6&#39;,             specify \&quot;instrument.identifiers in ((&#39;LusidInstrumentId&#39;, &#39;LUID_PPA8HI6M&#39;), (&#39;Figi&#39;, &#39;BBG000BLNNH6&#39;))\&quot;. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Portfolio&#39; domain to decorate onto each portfolio,             or from any domain that supports relationships to decorate onto related entities. These must take the             format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the portfolios in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="query">Expression specifying the criteria that the returned portfolios must meet. For example, to see which              portfolios have holdings in instruments with a LusidInstrumentId (LUID) of &#39;LUID_PPA8HI6M&#39; or a Figi of &#39;BBG000BLNNH6&#39;,              specify \&quot;instrument.identifiers in ((&#39;LusidInstrumentId&#39;, &#39;LUID_PPA8HI6M&#39;), (&#39;Figi&#39;, &#39;BBG000BLNNH6&#39;))\&quot;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Portfolio&#39; domain to decorate onto each portfolio,              or from any domain that supports relationships to decorate onto related entities. These must take the              format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the portfolios in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -8551,15 +8551,15 @@ namespace Lusid.Sdk.Api
         /// ListPortfolios: List portfolios List all the portfolios matching particular criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the portfolios. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the portfolios. Defaults to returning the latest version             of each portfolio if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing portfolios; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the portfolios. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the portfolios. Defaults to returning the latest version              of each portfolio if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing portfolios; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the transaction type, specify \&quot;type eq &#39;Transaction&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the transaction type, specify \&quot;type eq &#39;Transaction&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="query">Expression specifying the criteria that the returned portfolios must meet. For example, to see which             portfolios have holdings in instruments with a LusidInstrumentId (LUID) of &#39;LUID_PPA8HI6M&#39; or a Figi of &#39;BBG000BLNNH6&#39;,             specify \&quot;instrument.identifiers in ((&#39;LusidInstrumentId&#39;, &#39;LUID_PPA8HI6M&#39;), (&#39;Figi&#39;, &#39;BBG000BLNNH6&#39;))\&quot;. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Portfolio&#39; domain to decorate onto each portfolio,             or from any domain that supports relationships to decorate onto related entities. These must take the             format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the portfolios in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="query">Expression specifying the criteria that the returned portfolios must meet. For example, to see which              portfolios have holdings in instruments with a LusidInstrumentId (LUID) of &#39;LUID_PPA8HI6M&#39; or a Figi of &#39;BBG000BLNNH6&#39;,              specify \&quot;instrument.identifiers in ((&#39;LusidInstrumentId&#39;, &#39;LUID_PPA8HI6M&#39;), (&#39;Figi&#39;, &#39;BBG000BLNNH6&#39;))\&quot;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Portfolio&#39; domain to decorate onto each portfolio,              or from any domain that supports relationships to decorate onto related entities. These must take the              format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the portfolios in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -8678,14 +8678,14 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope whose portfolios to list.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the portfolios. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the portfolios. Defaults to returning the latest version             of each portfolio if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing portfolios. This value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the portfolios. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the portfolios. Defaults to returning the latest version              of each portfolio if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing portfolios. This  value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt  and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to return only transactions with a transaction type of &#39;Buy&#39;, specify \&quot;type eq &#39;Buy&#39;\&quot;.             For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to return only transactions with a transaction type of &#39;Buy&#39;, specify \&quot;type eq &#39;Buy&#39;\&quot;.              For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Portfolio&#39; domain to decorate onto each portfolio,             or from any domain that supports relationships to decorate onto related entities. These must take the             format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the portfolios in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Portfolio&#39; domain to decorate onto each portfolio,              or from any domain that supports relationships to decorate onto related entities. These must take the              format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the portfolios in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfPortfolio</returns>
@@ -8700,14 +8700,14 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope whose portfolios to list.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the portfolios. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the portfolios. Defaults to returning the latest version             of each portfolio if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing portfolios. This value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the portfolios. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the portfolios. Defaults to returning the latest version              of each portfolio if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing portfolios. This  value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt  and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to return only transactions with a transaction type of &#39;Buy&#39;, specify \&quot;type eq &#39;Buy&#39;\&quot;.             For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to return only transactions with a transaction type of &#39;Buy&#39;, specify \&quot;type eq &#39;Buy&#39;\&quot;.              For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Portfolio&#39; domain to decorate onto each portfolio,             or from any domain that supports relationships to decorate onto related entities. These must take the             format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the portfolios in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Portfolio&#39; domain to decorate onto each portfolio,              or from any domain that supports relationships to decorate onto related entities. These must take the              format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the portfolios in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfPortfolio</returns>
@@ -8826,14 +8826,14 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope whose portfolios to list.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the portfolios. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the portfolios. Defaults to returning the latest version             of each portfolio if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing portfolios. This value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the portfolios. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the portfolios. Defaults to returning the latest version              of each portfolio if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing portfolios. This  value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt  and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to return only transactions with a transaction type of &#39;Buy&#39;, specify \&quot;type eq &#39;Buy&#39;\&quot;.             For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to return only transactions with a transaction type of &#39;Buy&#39;, specify \&quot;type eq &#39;Buy&#39;\&quot;.              For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Portfolio&#39; domain to decorate onto each portfolio,             or from any domain that supports relationships to decorate onto related entities. These must take the             format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the portfolios in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Portfolio&#39; domain to decorate onto each portfolio,              or from any domain that supports relationships to decorate onto related entities. These must take the              format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the portfolios in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -8849,14 +8849,14 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope whose portfolios to list.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the portfolios. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the portfolios. Defaults to returning the latest version             of each portfolio if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing portfolios. This value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the portfolios. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the portfolios. Defaults to returning the latest version              of each portfolio if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing portfolios. This  value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt  and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to return only transactions with a transaction type of &#39;Buy&#39;, specify \&quot;type eq &#39;Buy&#39;\&quot;.             For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to return only transactions with a transaction type of &#39;Buy&#39;, specify \&quot;type eq &#39;Buy&#39;\&quot;.              For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Portfolio&#39; domain to decorate onto each portfolio,             or from any domain that supports relationships to decorate onto related entities. These must take the             format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the portfolios in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Portfolio&#39; domain to decorate onto each portfolio,              or from any domain that supports relationships to decorate onto related entities. These must take the              format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the portfolios in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -8978,7 +8978,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
-        /// <param name="code">The code of the portfolio. Together with the             scope this uniquely identifies the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the              scope this uniquely identifies the portfolio.</param>
         /// <param name="operation">The json patch document. For more check: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -8994,7 +8994,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
-        /// <param name="code">The code of the portfolio. Together with the             scope this uniquely identifies the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the              scope this uniquely identifies the portfolio.</param>
         /// <param name="operation">The json patch document. For more check: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -9100,7 +9100,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
-        /// <param name="code">The code of the portfolio. Together with the             scope this uniquely identifies the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the              scope this uniquely identifies the portfolio.</param>
         /// <param name="operation">The json patch document. For more check: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -9117,7 +9117,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
-        /// <param name="code">The code of the portfolio. Together with the             scope this uniquely identifies the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the              scope this uniquely identifies the portfolio.</param>
         /// <param name="operation">The json patch document. For more check: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -9222,7 +9222,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] PatchPortfolioAccessMetadata: Patch Access Metadata rules for a Portfolio. Patch Portfolio Access Metadata Rules in a single scope. The behaviour is defined by the JSON Patch specification.              Currently only &#39;add&#39; is a supported operation on the patch document.  Currently only valid metadata keys are supported paths on the patch document.  The response will return any affected Portfolio Access Metadata rules or a failure message if unsuccessful.  It is important to always check to verify success (or failure).              Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
+        /// [EARLY ACCESS] PatchPortfolioAccessMetadata: Patch Access Metadata rules for a Portfolio. Patch Portfolio Access Metadata Rules in a single scope.  The behaviour is defined by the JSON Patch specification.                Currently only &#39;add&#39; is a supported operation on the patch document.    Currently only valid metadata keys are supported paths on the patch document.    The response will return any affected Portfolio Access Metadata rules or a failure message if unsuccessful.    It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Portfolio Access Metadata Rule.</param>
@@ -9240,7 +9240,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] PatchPortfolioAccessMetadata: Patch Access Metadata rules for a Portfolio. Patch Portfolio Access Metadata Rules in a single scope. The behaviour is defined by the JSON Patch specification.              Currently only &#39;add&#39; is a supported operation on the patch document.  Currently only valid metadata keys are supported paths on the patch document.  The response will return any affected Portfolio Access Metadata rules or a failure message if unsuccessful.  It is important to always check to verify success (or failure).              Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
+        /// [EARLY ACCESS] PatchPortfolioAccessMetadata: Patch Access Metadata rules for a Portfolio. Patch Portfolio Access Metadata Rules in a single scope.  The behaviour is defined by the JSON Patch specification.                Currently only &#39;add&#39; is a supported operation on the patch document.    Currently only valid metadata keys are supported paths on the patch document.    The response will return any affected Portfolio Access Metadata rules or a failure message if unsuccessful.    It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Portfolio Access Metadata Rule.</param>
@@ -9356,7 +9356,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] PatchPortfolioAccessMetadata: Patch Access Metadata rules for a Portfolio. Patch Portfolio Access Metadata Rules in a single scope. The behaviour is defined by the JSON Patch specification.              Currently only &#39;add&#39; is a supported operation on the patch document.  Currently only valid metadata keys are supported paths on the patch document.  The response will return any affected Portfolio Access Metadata rules or a failure message if unsuccessful.  It is important to always check to verify success (or failure).              Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
+        /// [EARLY ACCESS] PatchPortfolioAccessMetadata: Patch Access Metadata rules for a Portfolio. Patch Portfolio Access Metadata Rules in a single scope.  The behaviour is defined by the JSON Patch specification.                Currently only &#39;add&#39; is a supported operation on the patch document.    Currently only valid metadata keys are supported paths on the patch document.    The response will return any affected Portfolio Access Metadata rules or a failure message if unsuccessful.    It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Portfolio Access Metadata Rule.</param>
@@ -9375,7 +9375,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] PatchPortfolioAccessMetadata: Patch Access Metadata rules for a Portfolio. Patch Portfolio Access Metadata Rules in a single scope. The behaviour is defined by the JSON Patch specification.              Currently only &#39;add&#39; is a supported operation on the patch document.  Currently only valid metadata keys are supported paths on the patch document.  The response will return any affected Portfolio Access Metadata rules or a failure message if unsuccessful.  It is important to always check to verify success (or failure).              Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
+        /// [EARLY ACCESS] PatchPortfolioAccessMetadata: Patch Access Metadata rules for a Portfolio. Patch Portfolio Access Metadata Rules in a single scope.  The behaviour is defined by the JSON Patch specification.                Currently only &#39;add&#39; is a supported operation on the patch document.    Currently only valid metadata keys are supported paths on the patch document.    The response will return any affected Portfolio Access Metadata rules or a failure message if unsuccessful.    It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Portfolio Access Metadata Rule.</param>
@@ -9494,13 +9494,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// UpdatePortfolio: Update portfolio Update the definition of a particular portfolio.              Note that not all elements of a portfolio definition are modifiable due to the potential implications for data already stored.
+        /// UpdatePortfolio: Update portfolio Update the definition of a particular portfolio.                Note that not all elements of a portfolio definition are  modifiable due to the potential implications for data already stored.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
         /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
         /// <param name="updatePortfolioRequest">The updated portfolio definition.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to update the definition. Defaults to the current              LUSID system datetime if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to update the definition. Defaults to the current               LUSID system datetime if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Portfolio</returns>
@@ -9511,13 +9511,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// UpdatePortfolio: Update portfolio Update the definition of a particular portfolio.              Note that not all elements of a portfolio definition are modifiable due to the potential implications for data already stored.
+        /// UpdatePortfolio: Update portfolio Update the definition of a particular portfolio.                Note that not all elements of a portfolio definition are  modifiable due to the potential implications for data already stored.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
         /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
         /// <param name="updatePortfolioRequest">The updated portfolio definition.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to update the definition. Defaults to the current              LUSID system datetime if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to update the definition. Defaults to the current               LUSID system datetime if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Portfolio</returns>
@@ -9622,13 +9622,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// UpdatePortfolio: Update portfolio Update the definition of a particular portfolio.              Note that not all elements of a portfolio definition are modifiable due to the potential implications for data already stored.
+        /// UpdatePortfolio: Update portfolio Update the definition of a particular portfolio.                Note that not all elements of a portfolio definition are  modifiable due to the potential implications for data already stored.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
         /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
         /// <param name="updatePortfolioRequest">The updated portfolio definition.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to update the definition. Defaults to the current              LUSID system datetime if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to update the definition. Defaults to the current               LUSID system datetime if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -9640,13 +9640,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// UpdatePortfolio: Update portfolio Update the definition of a particular portfolio.              Note that not all elements of a portfolio definition are modifiable due to the potential implications for data already stored.
+        /// UpdatePortfolio: Update portfolio Update the definition of a particular portfolio.                Note that not all elements of a portfolio definition are  modifiable due to the potential implications for data already stored.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
         /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
         /// <param name="updatePortfolioRequest">The updated portfolio definition.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to update the definition. Defaults to the current              LUSID system datetime if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to update the definition. Defaults to the current               LUSID system datetime if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -10032,7 +10032,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// UpsertPortfolioAccessMetadata: Upsert a Portfolio Access Metadata Rule associated with specific metadataKey. This creates or updates the data in LUSID. Update or insert one Portfolio Access Metadata Rule in a single scope. An item will be updated if it already exists and inserted if it does not.  The response will return the successfully updated or inserted Portfolio Access Metadata Rule or failure message if unsuccessful  It is important to always check to verify success (or failure).              Multiple rules for a metadataKey can exists with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched
+        /// UpsertPortfolioAccessMetadata: Upsert a Portfolio Access Metadata Rule associated with specific metadataKey. This creates or updates the data in LUSID. Update or insert one Portfolio Access Metadata Rule in a single scope. An item will be updated if it already exists  and inserted if it does not.    The response will return the successfully updated or inserted Portfolio Access Metadata Rule or failure message if unsuccessful    It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exists with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope to use when updating or inserting the Portfolio Access Metadata Rule.</param>
@@ -10051,7 +10051,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// UpsertPortfolioAccessMetadata: Upsert a Portfolio Access Metadata Rule associated with specific metadataKey. This creates or updates the data in LUSID. Update or insert one Portfolio Access Metadata Rule in a single scope. An item will be updated if it already exists and inserted if it does not.  The response will return the successfully updated or inserted Portfolio Access Metadata Rule or failure message if unsuccessful  It is important to always check to verify success (or failure).              Multiple rules for a metadataKey can exists with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched
+        /// UpsertPortfolioAccessMetadata: Upsert a Portfolio Access Metadata Rule associated with specific metadataKey. This creates or updates the data in LUSID. Update or insert one Portfolio Access Metadata Rule in a single scope. An item will be updated if it already exists  and inserted if it does not.    The response will return the successfully updated or inserted Portfolio Access Metadata Rule or failure message if unsuccessful    It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exists with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope to use when updating or inserting the Portfolio Access Metadata Rule.</param>
@@ -10175,7 +10175,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// UpsertPortfolioAccessMetadata: Upsert a Portfolio Access Metadata Rule associated with specific metadataKey. This creates or updates the data in LUSID. Update or insert one Portfolio Access Metadata Rule in a single scope. An item will be updated if it already exists and inserted if it does not.  The response will return the successfully updated or inserted Portfolio Access Metadata Rule or failure message if unsuccessful  It is important to always check to verify success (or failure).              Multiple rules for a metadataKey can exists with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched
+        /// UpsertPortfolioAccessMetadata: Upsert a Portfolio Access Metadata Rule associated with specific metadataKey. This creates or updates the data in LUSID. Update or insert one Portfolio Access Metadata Rule in a single scope. An item will be updated if it already exists  and inserted if it does not.    The response will return the successfully updated or inserted Portfolio Access Metadata Rule or failure message if unsuccessful    It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exists with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope to use when updating or inserting the Portfolio Access Metadata Rule.</param>
@@ -10195,7 +10195,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// UpsertPortfolioAccessMetadata: Upsert a Portfolio Access Metadata Rule associated with specific metadataKey. This creates or updates the data in LUSID. Update or insert one Portfolio Access Metadata Rule in a single scope. An item will be updated if it already exists and inserted if it does not.  The response will return the successfully updated or inserted Portfolio Access Metadata Rule or failure message if unsuccessful  It is important to always check to verify success (or failure).              Multiple rules for a metadataKey can exists with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched
+        /// UpsertPortfolioAccessMetadata: Upsert a Portfolio Access Metadata Rule associated with specific metadataKey. This creates or updates the data in LUSID. Update or insert one Portfolio Access Metadata Rule in a single scope. An item will be updated if it already exists  and inserted if it does not.    The response will return the successfully updated or inserted Portfolio Access Metadata Rule or failure message if unsuccessful    It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exists with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope to use when updating or inserting the Portfolio Access Metadata Rule.</param>
@@ -10322,12 +10322,12 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// UpsertPortfolioProperties: Upsert portfolio properties Create or update one or more properties for a particular portfolio. A property is updated if it already exists and created if it does not. All properties must be from the &#39;Portfolio&#39; domain.              Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime until which it is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// UpsertPortfolioProperties: Upsert portfolio properties Create or update one or more properties for a particular portfolio. A property is updated if it  already exists and created if it does not. All properties must be from the &#39;Portfolio&#39; domain.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which it is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
         /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
-        /// <param name="requestBody">The properties to be created or updated. Each property in              the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code}, for example              &#39;Portfolio/Manager/Id&#39;.</param>
+        /// <param name="requestBody">The properties to be created or updated. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code}, for example               &#39;Portfolio/Manager/Id&#39;.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PortfolioProperties</returns>
@@ -10338,12 +10338,12 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// UpsertPortfolioProperties: Upsert portfolio properties Create or update one or more properties for a particular portfolio. A property is updated if it already exists and created if it does not. All properties must be from the &#39;Portfolio&#39; domain.              Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime until which it is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// UpsertPortfolioProperties: Upsert portfolio properties Create or update one or more properties for a particular portfolio. A property is updated if it  already exists and created if it does not. All properties must be from the &#39;Portfolio&#39; domain.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which it is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
         /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
-        /// <param name="requestBody">The properties to be created or updated. Each property in              the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code}, for example              &#39;Portfolio/Manager/Id&#39;.</param>
+        /// <param name="requestBody">The properties to be created or updated. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code}, for example               &#39;Portfolio/Manager/Id&#39;.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PortfolioProperties</returns>
@@ -10444,12 +10444,12 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// UpsertPortfolioProperties: Upsert portfolio properties Create or update one or more properties for a particular portfolio. A property is updated if it already exists and created if it does not. All properties must be from the &#39;Portfolio&#39; domain.              Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime until which it is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// UpsertPortfolioProperties: Upsert portfolio properties Create or update one or more properties for a particular portfolio. A property is updated if it  already exists and created if it does not. All properties must be from the &#39;Portfolio&#39; domain.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which it is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
         /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
-        /// <param name="requestBody">The properties to be created or updated. Each property in              the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code}, for example              &#39;Portfolio/Manager/Id&#39;.</param>
+        /// <param name="requestBody">The properties to be created or updated. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code}, for example               &#39;Portfolio/Manager/Id&#39;.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -10461,12 +10461,12 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// UpsertPortfolioProperties: Upsert portfolio properties Create or update one or more properties for a particular portfolio. A property is updated if it already exists and created if it does not. All properties must be from the &#39;Portfolio&#39; domain.              Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime until which it is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// UpsertPortfolioProperties: Upsert portfolio properties Create or update one or more properties for a particular portfolio. A property is updated if it  already exists and created if it does not. All properties must be from the &#39;Portfolio&#39; domain.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which it is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
         /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
-        /// <param name="requestBody">The properties to be created or updated. Each property in              the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code}, for example              &#39;Portfolio/Manager/Id&#39;.</param>
+        /// <param name="requestBody">The properties to be created or updated. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code}, for example               &#39;Portfolio/Manager/Id&#39;.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>

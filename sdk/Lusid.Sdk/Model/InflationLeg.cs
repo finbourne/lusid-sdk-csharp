@@ -24,7 +24,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// LUSID representation of an Inflation Leg. This leg instrument is part of the InflationSwap instrument, but can also be used as a standalone instrument. The implementation supports the following inflation leg types: * Zero Coupon inflation leg (CPI Leg), with a single payment at maturity. * Year on Year inflation leg * LPI Swap Leg (capped and floored YoY)
+    /// LUSID representation of an Inflation Leg.  This leg instrument is part of the InflationSwap instrument, but can also be used as a standalone instrument.  The implementation supports the following inflation leg types:  * Zero Coupon inflation leg (CPI Leg), with a single payment at maturity.  * Year on Year inflation leg  * LPI Swap Leg (capped and floored YoY)
     /// </summary>
     [DataContract(Name = "InflationLeg")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentType")]
@@ -39,15 +39,15 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="InflationLeg" /> class.
         /// </summary>
         /// <param name="startDate">The start date of the instrument. This is normally synonymous with the trade-date. (required).</param>
-        /// <param name="maturityDate">The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount. For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it. (required).</param>
+        /// <param name="maturityDate">The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.  For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as  Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it. (required).</param>
         /// <param name="flowConventions">flowConventions (required).</param>
-        /// <param name="baseCPI">Optional BaseCPI, if specified it will be used in place of BaseCPI(StartDate). This should not be required for standard inflation swaps..</param>
-        /// <param name="calculationType">The calculation type. ZeroCoupon is used for CPILegs where there is a single payment at maturity of Notional * (CPI(T) / CPI(T0) - 1) where CPI(T0) is the BaseCPI of this leg YearOnYear is used for YoY and LPI swap legs where there is a series of annual payments Notional * dayCount * (CPI(t) / CPI(t-1) - 1) If a cap and floor is added to this it becomes an LPI swap leg. Compounded is used for inflation swap legs where there is a series of annual payments Notional * dayCount * (CPI(t) / CPI(T0) - 1) i.e. the BaseCPI is used every year. These swaps are not as common as CPI or  Supported string (enumeration) values are: [ZeroCoupon, YearOnYear, Compounded]. (required).</param>
+        /// <param name="baseCPI">Optional BaseCPI, if specified it will be used in place of BaseCPI(StartDate).  This should not be required for standard inflation swaps..</param>
+        /// <param name="calculationType">The calculation type.  ZeroCoupon is used for CPILegs where there is a single payment at maturity of  Notional * (CPI(T) / CPI(T0) - 1)  where CPI(T0) is the BaseCPI of this leg  YearOnYear is used for YoY and LPI swap legs where there is a series of annual payments  Notional * dayCount * (CPI(t) / CPI(t-1) - 1)  If a cap and floor is added to this it becomes an LPI swap leg.  Compounded is used for inflation swap legs where there is a series of annual payments  Notional * dayCount * (CPI(t) / CPI(T0) - 1)  i.e. the BaseCPI is used every year. These swaps are not as common as CPI or    Supported string (enumeration) values are: [ZeroCoupon, YearOnYear, Compounded]. (required).</param>
         /// <param name="capRate">Optional cap, needed for LPI Legs or CPI Legs with Caps.</param>
         /// <param name="floorRate">Optional floor, needed for LPI Legs or CPI Legs with Floors..</param>
         /// <param name="inflationIndexConventions">inflationIndexConventions (required).</param>
         /// <param name="notional">The notional (required).</param>
-        /// <param name="payReceive">PayReceive flag for the inflation leg. This field is optional and defaults to Pay.  Supported string (enumeration) values are: [Pay, Receive]..</param>
+        /// <param name="payReceive">PayReceive flag for the inflation leg.  This field is optional and defaults to Pay.    Supported string (enumeration) values are: [Pay, Receive]..</param>
         /// <param name="timeZoneConventions">timeZoneConventions.</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit, FlexibleRepo (required) (default to &quot;InflationLeg&quot;).</param>
         public InflationLeg(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), FlowConventions flowConventions = default(FlowConventions), decimal? baseCPI = default(decimal?), string calculationType = default(string), decimal? capRate = default(decimal?), decimal? floorRate = default(decimal?), InflationIndexConventions inflationIndexConventions = default(InflationIndexConventions), decimal notional = default(decimal), string payReceive = default(string), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
@@ -88,9 +88,9 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset StartDate { get; set; }
 
         /// <summary>
-        /// The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount. For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it.
+        /// The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.  For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as  Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it.
         /// </summary>
-        /// <value>The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount. For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it.</value>
+        /// <value>The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.  For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as  Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it.</value>
         [DataMember(Name = "maturityDate", IsRequired = true, EmitDefaultValue = true)]
         public DateTimeOffset MaturityDate { get; set; }
 
@@ -101,16 +101,16 @@ namespace Lusid.Sdk.Model
         public FlowConventions FlowConventions { get; set; }
 
         /// <summary>
-        /// Optional BaseCPI, if specified it will be used in place of BaseCPI(StartDate). This should not be required for standard inflation swaps.
+        /// Optional BaseCPI, if specified it will be used in place of BaseCPI(StartDate).  This should not be required for standard inflation swaps.
         /// </summary>
-        /// <value>Optional BaseCPI, if specified it will be used in place of BaseCPI(StartDate). This should not be required for standard inflation swaps.</value>
+        /// <value>Optional BaseCPI, if specified it will be used in place of BaseCPI(StartDate).  This should not be required for standard inflation swaps.</value>
         [DataMember(Name = "baseCPI", EmitDefaultValue = true)]
         public decimal? BaseCPI { get; set; }
 
         /// <summary>
-        /// The calculation type. ZeroCoupon is used for CPILegs where there is a single payment at maturity of Notional * (CPI(T) / CPI(T0) - 1) where CPI(T0) is the BaseCPI of this leg YearOnYear is used for YoY and LPI swap legs where there is a series of annual payments Notional * dayCount * (CPI(t) / CPI(t-1) - 1) If a cap and floor is added to this it becomes an LPI swap leg. Compounded is used for inflation swap legs where there is a series of annual payments Notional * dayCount * (CPI(t) / CPI(T0) - 1) i.e. the BaseCPI is used every year. These swaps are not as common as CPI or  Supported string (enumeration) values are: [ZeroCoupon, YearOnYear, Compounded].
+        /// The calculation type.  ZeroCoupon is used for CPILegs where there is a single payment at maturity of  Notional * (CPI(T) / CPI(T0) - 1)  where CPI(T0) is the BaseCPI of this leg  YearOnYear is used for YoY and LPI swap legs where there is a series of annual payments  Notional * dayCount * (CPI(t) / CPI(t-1) - 1)  If a cap and floor is added to this it becomes an LPI swap leg.  Compounded is used for inflation swap legs where there is a series of annual payments  Notional * dayCount * (CPI(t) / CPI(T0) - 1)  i.e. the BaseCPI is used every year. These swaps are not as common as CPI or    Supported string (enumeration) values are: [ZeroCoupon, YearOnYear, Compounded].
         /// </summary>
-        /// <value>The calculation type. ZeroCoupon is used for CPILegs where there is a single payment at maturity of Notional * (CPI(T) / CPI(T0) - 1) where CPI(T0) is the BaseCPI of this leg YearOnYear is used for YoY and LPI swap legs where there is a series of annual payments Notional * dayCount * (CPI(t) / CPI(t-1) - 1) If a cap and floor is added to this it becomes an LPI swap leg. Compounded is used for inflation swap legs where there is a series of annual payments Notional * dayCount * (CPI(t) / CPI(T0) - 1) i.e. the BaseCPI is used every year. These swaps are not as common as CPI or  Supported string (enumeration) values are: [ZeroCoupon, YearOnYear, Compounded].</value>
+        /// <value>The calculation type.  ZeroCoupon is used for CPILegs where there is a single payment at maturity of  Notional * (CPI(T) / CPI(T0) - 1)  where CPI(T0) is the BaseCPI of this leg  YearOnYear is used for YoY and LPI swap legs where there is a series of annual payments  Notional * dayCount * (CPI(t) / CPI(t-1) - 1)  If a cap and floor is added to this it becomes an LPI swap leg.  Compounded is used for inflation swap legs where there is a series of annual payments  Notional * dayCount * (CPI(t) / CPI(T0) - 1)  i.e. the BaseCPI is used every year. These swaps are not as common as CPI or    Supported string (enumeration) values are: [ZeroCoupon, YearOnYear, Compounded].</value>
         [DataMember(Name = "calculationType", IsRequired = true, EmitDefaultValue = true)]
         public string CalculationType { get; set; }
 
@@ -142,9 +142,9 @@ namespace Lusid.Sdk.Model
         public decimal Notional { get; set; }
 
         /// <summary>
-        /// PayReceive flag for the inflation leg. This field is optional and defaults to Pay.  Supported string (enumeration) values are: [Pay, Receive].
+        /// PayReceive flag for the inflation leg.  This field is optional and defaults to Pay.    Supported string (enumeration) values are: [Pay, Receive].
         /// </summary>
-        /// <value>PayReceive flag for the inflation leg. This field is optional and defaults to Pay.  Supported string (enumeration) values are: [Pay, Receive].</value>
+        /// <value>PayReceive flag for the inflation leg.  This field is optional and defaults to Pay.    Supported string (enumeration) values are: [Pay, Receive].</value>
         [DataMember(Name = "payReceive", EmitDefaultValue = true)]
         public string PayReceive { get; set; }
 

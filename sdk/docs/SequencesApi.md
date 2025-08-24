@@ -173,7 +173,7 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SequencesApi>();
             var scope = "scope_example";  // string | Scope of the sequence.
-            var code = "code_example";  // string | Code of the sequence. This together with stated scope uniquely             identifies the sequence.
+            var code = "code_example";  // string | Code of the sequence. This together with stated scope uniquely              identifies the sequence.
 
             try
             {
@@ -220,7 +220,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **scope** | **string** | Scope of the sequence. |  |
-| **code** | **string** | Code of the sequence. This together with stated scope uniquely             identifies the sequence. |  |
+| **code** | **string** | Code of the sequence. This together with stated scope uniquely              identifies the sequence. |  |
 
 ### Return type
 
@@ -288,9 +288,9 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SequencesApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SequencesApi>();
-            var page = "page_example";  // string? | The pagination token to use to continue listing sequences from a previous call to list sequences. This value is returned from the previous call. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing sequences from a previous call to list sequences. This  value is returned from the previous call. (optional) 
             var limit = 56;  // int? | When paginating, limit the number of returned results to this many. Defaults to 500 if not specified. (optional) 
-            var filter = "filter_example";  // string? | Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the result set.               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
 
             try
             {
@@ -336,9 +336,9 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **page** | **string?** | The pagination token to use to continue listing sequences from a previous call to list sequences. This value is returned from the previous call. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing sequences from a previous call to list sequences. This  value is returned from the previous call. | [optional]  |
 | **limit** | **int?** | When paginating, limit the number of returned results to this many. Defaults to 500 if not specified. | [optional]  |
-| **filter** | **string?** | Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
+| **filter** | **string?** | Expression to filter the result set.               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
 
 ### Return type
 
@@ -407,7 +407,7 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SequencesApi>();
             var scope = "scope_example";  // string | Scope of the sequence.
-            var code = "code_example";  // string | Code of the sequence. This together with stated scope uniquely             identifies the sequence.
+            var code = "code_example";  // string | Code of the sequence. This together with stated scope uniquely              identifies the sequence.
             var batch = 56;  // int? | Number of sequences items to return for the specified sequence. Default to 1 if not specified. (optional) 
 
             try
@@ -455,7 +455,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **scope** | **string** | Scope of the sequence. |  |
-| **code** | **string** | Code of the sequence. This together with stated scope uniquely             identifies the sequence. |  |
+| **code** | **string** | Code of the sequence. This together with stated scope uniquely              identifies the sequence. |  |
 | **batch** | **int?** | Number of sequences items to return for the specified sequence. Default to 1 if not specified. | [optional]  |
 
 ### Return type

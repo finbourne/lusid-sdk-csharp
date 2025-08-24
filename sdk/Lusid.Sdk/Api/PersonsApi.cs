@@ -35,12 +35,12 @@ namespace Lusid.Sdk.Api
         /// DeletePerson: Delete person
         /// </summary>
         /// <remarks>
-        /// Delete a person. Deletion will be valid from the person&#39;s creation datetime. This means that the person will no longer exist at any effective datetime from the asAt datetime of deletion.
+        /// Delete a person. Deletion will be valid from the person&#39;s creation datetime.  This means that the person will no longer exist at any effective datetime from the asAt datetime of deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">The scope of the person identifier type.</param>
         /// <param name="idTypeCode">The code of the person identifier type.</param>
-        /// <param name="code">Code of the person under specified identifier type scope and code. This together with defined             identifier type uniquely identifies the person to delete.</param>
+        /// <param name="code">Code of the person under specified identifier type scope and code. This together with defined              identifier type uniquely identifies the person to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
@@ -50,12 +50,12 @@ namespace Lusid.Sdk.Api
         /// DeletePerson: Delete person
         /// </summary>
         /// <remarks>
-        /// Delete a person. Deletion will be valid from the person&#39;s creation datetime. This means that the person will no longer exist at any effective datetime from the asAt datetime of deletion.
+        /// Delete a person. Deletion will be valid from the person&#39;s creation datetime.  This means that the person will no longer exist at any effective datetime from the asAt datetime of deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">The scope of the person identifier type.</param>
         /// <param name="idTypeCode">The code of the person identifier type.</param>
-        /// <param name="code">Code of the person under specified identifier type scope and code. This together with defined             identifier type uniquely identifies the person to delete.</param>
+        /// <param name="code">Code of the person under specified identifier type scope and code. This together with defined              identifier type uniquely identifies the person to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
@@ -64,7 +64,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] DeletePersonAccessMetadata: Delete a Person Access Metadata entry
         /// </summary>
         /// <remarks>
-        /// Deletes the Person Access Metadata entry that exactly matches the provided identifier parts.  It is important to always check to verify success (or failure).
+        /// Deletes the Person Access Metadata entry that exactly matches the provided identifier parts.    It is important to always check to verify success (or failure).
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier.</param>
@@ -82,7 +82,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] DeletePersonAccessMetadata: Delete a Person Access Metadata entry
         /// </summary>
         /// <remarks>
-        /// Deletes the Person Access Metadata entry that exactly matches the provided identifier parts.  It is important to always check to verify success (or failure).
+        /// Deletes the Person Access Metadata entry that exactly matches the provided identifier parts.    It is important to always check to verify success (or failure).
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier.</param>
@@ -104,9 +104,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
-        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely             identifies the person.</param>
-        /// <param name="propertyKeys">The property keys of the identifiers to delete. These take the format             {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;. Each property must be from the \&quot;Person\&quot; domain. Identifiers or identifiers not specified in request will not be changed.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to delete the identifiers. Defaults to the current LUSID system datetime if not specified.             Must not include an effective datetime if identifiers are perpetual. (optional)</param>
+        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the person.</param>
+        /// <param name="propertyKeys">The property keys of the identifiers to delete. These take the format              {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;. Each property must be from the \&quot;Person\&quot; domain. Identifiers or identifiers not specified in request will not be changed.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to delete the identifiers. Defaults to the current LUSID system datetime if not specified.              Must not include an effective datetime if identifiers are perpetual. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
@@ -121,9 +121,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
-        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely             identifies the person.</param>
-        /// <param name="propertyKeys">The property keys of the identifiers to delete. These take the format             {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;. Each property must be from the \&quot;Person\&quot; domain. Identifiers or identifiers not specified in request will not be changed.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to delete the identifiers. Defaults to the current LUSID system datetime if not specified.             Must not include an effective datetime if identifiers are perpetual. (optional)</param>
+        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the person.</param>
+        /// <param name="propertyKeys">The property keys of the identifiers to delete. These take the format              {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;. Each property must be from the \&quot;Person\&quot; domain. Identifiers or identifiers not specified in request will not be changed.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to delete the identifiers. Defaults to the current LUSID system datetime if not specified.              Must not include an effective datetime if identifiers are perpetual. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
@@ -137,9 +137,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
-        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely             identifies the person.</param>
-        /// <param name="propertyKeys">The property keys of the person&#39;s properties to delete. These take the format             {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;. Each property must be from the \&quot;Person\&quot; domain. Properties or identifiers not specified in request will not be changed.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.             The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is             before the time-variant property exists then a failure is returned. Do not specify this parameter if any of             the properties to delete are perpetual. (optional)</param>
+        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the person.</param>
+        /// <param name="propertyKeys">The property keys of the person&#39;s properties to delete. These take the format              {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;. Each property must be from the \&quot;Person\&quot; domain. Properties or identifiers not specified in request will not be changed.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
@@ -154,9 +154,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
-        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely             identifies the person.</param>
-        /// <param name="propertyKeys">The property keys of the person&#39;s properties to delete. These take the format             {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;. Each property must be from the \&quot;Person\&quot; domain. Properties or identifiers not specified in request will not be changed.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.             The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is             before the time-variant property exists then a failure is returned. Do not specify this parameter if any of             the properties to delete are perpetual. (optional)</param>
+        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the person.</param>
+        /// <param name="propertyKeys">The property keys of the person&#39;s properties to delete. These take the format              {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;. Each property must be from the \&quot;Person\&quot; domain. Properties or identifiers not specified in request will not be changed.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
@@ -203,11 +203,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
-        /// <param name="code">Code of the person under specified scope and code. This together with stated identifier type uniquely             identifies the person.</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Person\&quot; domain to decorate onto the person,              or from any domain that supports relationships to decorate onto related entities.             These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. (optional)</param>
+        /// <param name="code">Code of the person under specified scope and code. This together with stated identifier type uniquely              identifies the person.</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Person\&quot; domain to decorate onto the person,               or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. (optional)</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the person. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the person. Defaults to return the latest version of the person if not specified. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the person in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the person in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Person</returns>
@@ -222,11 +222,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
-        /// <param name="code">Code of the person under specified scope and code. This together with stated identifier type uniquely             identifies the person.</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Person\&quot; domain to decorate onto the person,              or from any domain that supports relationships to decorate onto related entities.             These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. (optional)</param>
+        /// <param name="code">Code of the person under specified scope and code. This together with stated identifier type uniquely              identifies the person.</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Person\&quot; domain to decorate onto the person,               or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. (optional)</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the person. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the person. Defaults to return the latest version of the person if not specified. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the person in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the person in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Person</returns>
@@ -235,7 +235,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] GetPersonAccessMetadataByKey: Get an entry identified by a metadataKey in the Access Metadata of a Person
         /// </summary>
         /// <remarks>
-        /// Get a specific Person Access Metadata by specifying the corresponding identifier parts and Person code              No matching will be performed through this endpoint. To retrieve an entry, it is necessary to specify, exactly, the identifier of the entry
+        /// Get a specific Person Access Metadata by specifying the corresponding identifier parts and Person code                No matching will be performed through this endpoint. To retrieve an entry, it is necessary to specify, exactly, the identifier of the entry
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier.</param>
@@ -253,7 +253,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] GetPersonAccessMetadataByKey: Get an entry identified by a metadataKey in the Access Metadata of a Person
         /// </summary>
         /// <remarks>
-        /// Get a specific Person Access Metadata by specifying the corresponding identifier parts and Person code              No matching will be performed through this endpoint. To retrieve an entry, it is necessary to specify, exactly, the identifier of the entry
+        /// Get a specific Person Access Metadata by specifying the corresponding identifier parts and Person code                No matching will be performed through this endpoint. To retrieve an entry, it is necessary to specify, exactly, the identifier of the entry
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier.</param>
@@ -276,10 +276,10 @@ namespace Lusid.Sdk.Api
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
         /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely identifies the person.</param>
-        /// <param name="propertyKey">The property key of the property that will have its history shown. These must be in the format {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;.             Each property must be from the \&quot;Person\&quot; domain.</param>
+        /// <param name="propertyKey">The property key of the property that will have its history shown. These must be in the format {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;.              Each property must be from the \&quot;Person\&quot; domain.</param>
         /// <param name="asAt">The asAt datetime at which to list the person&#39;s property history. Defaults to return the current datetime if not supplied. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing properties from a previous call to get property time series.             This value is returned from the previous call. If a pagination token is provided the filter and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing properties from a previous call to get property time series.              This value is returned from the previous call. If a pagination token is provided the filter and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -296,10 +296,10 @@ namespace Lusid.Sdk.Api
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
         /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely identifies the person.</param>
-        /// <param name="propertyKey">The property key of the property that will have its history shown. These must be in the format {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;.             Each property must be from the \&quot;Person\&quot; domain.</param>
+        /// <param name="propertyKey">The property key of the property that will have its history shown. These must be in the format {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;.              Each property must be from the \&quot;Person\&quot; domain.</param>
         /// <param name="asAt">The asAt datetime at which to list the person&#39;s property history. Defaults to return the current datetime if not supplied. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing properties from a previous call to get property time series.             This value is returned from the previous call. If a pagination token is provided the filter and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing properties from a previous call to get property time series.              This value is returned from the previous call. If a pagination token is provided the filter and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -314,11 +314,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
-        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely             identifies the person.</param>
+        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the person.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to get relations. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the person&#39;s relations. Defaults to return the latest LUSID AsAt time if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the relations. Users should provide null or empty string for this field until further notice. (optional)</param>
-        /// <param name="identifierTypes">Identifiers types (as property keys) used for referencing Persons or Legal Entities. These take the format             {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;. They must be from the \&quot;Person\&quot; or \&quot;LegalEntity\&quot; domain.             Only identifier types stated will be used to look up relevant entities in relations. If not applicable, provide an empty array. (optional)</param>
+        /// <param name="identifierTypes">Identifiers types (as property keys) used for referencing Persons or Legal Entities. These take the format              {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;. They must be from the \&quot;Person\&quot; or \&quot;LegalEntity\&quot; domain.              Only identifier types stated will be used to look up relevant entities in relations. If not applicable, provide an empty array. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfRelation</returns>
@@ -333,11 +333,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
-        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely             identifies the person.</param>
+        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the person.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to get relations. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the person&#39;s relations. Defaults to return the latest LUSID AsAt time if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the relations. Users should provide null or empty string for this field until further notice. (optional)</param>
-        /// <param name="identifierTypes">Identifiers types (as property keys) used for referencing Persons or Legal Entities. These take the format             {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;. They must be from the \&quot;Person\&quot; or \&quot;LegalEntity\&quot; domain.             Only identifier types stated will be used to look up relevant entities in relations. If not applicable, provide an empty array. (optional)</param>
+        /// <param name="identifierTypes">Identifiers types (as property keys) used for referencing Persons or Legal Entities. These take the format              {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;. They must be from the \&quot;Person\&quot; or \&quot;LegalEntity\&quot; domain.              Only identifier types stated will be used to look up relevant entities in relations. If not applicable, provide an empty array. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfRelation</returns>
@@ -351,11 +351,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person&#39;s identifier type.</param>
         /// <param name="idTypeCode">Code of the person&#39;s identifier type.</param>
-        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely             identifies the person.</param>
+        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the person.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to get relationships. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve relationships. Defaults to return the latest LUSID AsAt time if not specified. (optional)</param>
         /// <param name="filter">Expression to filter relationships. Users should provide null or empty string for this field until further notice. (optional)</param>
-        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.             These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example             &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. (optional)</param>
+        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.              These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example              &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfRelationship</returns>
@@ -370,11 +370,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person&#39;s identifier type.</param>
         /// <param name="idTypeCode">Code of the person&#39;s identifier type.</param>
-        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely             identifies the person.</param>
+        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the person.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to get relationships. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve relationships. Defaults to return the latest LUSID AsAt time if not specified. (optional)</param>
         /// <param name="filter">Expression to filter relationships. Users should provide null or empty string for this field until further notice. (optional)</param>
-        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.             These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example             &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. (optional)</param>
+        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.              These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example              &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfRelationship</returns>
@@ -386,13 +386,13 @@ namespace Lusid.Sdk.Api
         /// List all persons which the user is entitled to see.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the people. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the people. Defaults to return the latest version             of each people if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing persons from a previous call to list persons. This             value is returned from the previous call. If a pagination token is provided the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the people. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the people. Defaults to return the latest version              of each people if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing persons from a previous call to list persons. This              value is returned from the previous call. If a pagination token is provided the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 5000 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              For example, to filter on the display name, use \&quot;displayName eq &#39;John&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Person\&quot; domain to decorate onto each person,              or from any domain that supports relationships to decorate onto related entities.             These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the persons in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.               For example, to filter on the display name, use \&quot;displayName eq &#39;John&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Person\&quot; domain to decorate onto each person,               or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the persons in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfPerson</returns>
@@ -405,13 +405,13 @@ namespace Lusid.Sdk.Api
         /// List all persons which the user is entitled to see.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the people. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the people. Defaults to return the latest version             of each people if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing persons from a previous call to list persons. This             value is returned from the previous call. If a pagination token is provided the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the people. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the people. Defaults to return the latest version              of each people if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing persons from a previous call to list persons. This              value is returned from the previous call. If a pagination token is provided the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 5000 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              For example, to filter on the display name, use \&quot;displayName eq &#39;John&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Person\&quot; domain to decorate onto each person,              or from any domain that supports relationships to decorate onto related entities.             These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the persons in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.               For example, to filter on the display name, use \&quot;displayName eq &#39;John&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Person\&quot; domain to decorate onto each person,               or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the persons in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfPerson</returns>
@@ -425,13 +425,13 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the people. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the people. Defaults to return the latest version             of each people if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing persons from a previous call to list persons. This             value is returned from the previous call. If a pagination token is provided the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the people. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the people. Defaults to return the latest version              of each people if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing persons from a previous call to list persons. This              value is returned from the previous call. If a pagination token is provided the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              For example, to filter on the LUPID, use \&quot;lusidPersonId eq &#39;string&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Person\&quot; domain to decorate onto each person,              or from any domain that supports relationships to decorate onto related entities.             These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the persons in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.               For example, to filter on the LUPID, use \&quot;lusidPersonId eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Person\&quot; domain to decorate onto each person,               or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the persons in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfPerson</returns>
@@ -446,13 +446,13 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the people. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the people. Defaults to return the latest version             of each people if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing persons from a previous call to list persons. This             value is returned from the previous call. If a pagination token is provided the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the people. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the people. Defaults to return the latest version              of each people if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing persons from a previous call to list persons. This              value is returned from the previous call. If a pagination token is provided the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              For example, to filter on the LUPID, use \&quot;lusidPersonId eq &#39;string&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Person\&quot; domain to decorate onto each person,              or from any domain that supports relationships to decorate onto related entities.             These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the persons in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.               For example, to filter on the LUPID, use \&quot;lusidPersonId eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Person\&quot; domain to decorate onto each person,               or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the persons in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfPerson</returns>
@@ -461,7 +461,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] PatchPersonAccessMetadata: Patch Access Metadata rules for a Person.
         /// </summary>
         /// <remarks>
-        /// Patch Person Access Metadata Rules in a single scope. The behaviour is defined by the JSON Patch specification.              Currently only &#39;add&#39; is a supported operation on the patch document.  Currently only valid metadata keys are supported paths on the patch document.              The response will return any affected Person Access Metadata rules or a failure message if unsuccessful.              It is important to always check to verify success (or failure).              Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
+        /// Patch Person Access Metadata Rules in a single scope.  The behaviour is defined by the JSON Patch specification.                Currently only &#39;add&#39; is a supported operation on the patch document.    Currently only valid metadata keys are supported paths on the patch document.                The response will return any affected Person Access Metadata rules or a failure message if unsuccessful.                It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier.</param>
@@ -479,7 +479,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] PatchPersonAccessMetadata: Patch Access Metadata rules for a Person.
         /// </summary>
         /// <remarks>
-        /// Patch Person Access Metadata Rules in a single scope. The behaviour is defined by the JSON Patch specification.              Currently only &#39;add&#39; is a supported operation on the patch document.  Currently only valid metadata keys are supported paths on the patch document.              The response will return any affected Person Access Metadata rules or a failure message if unsuccessful.              It is important to always check to verify success (or failure).              Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
+        /// Patch Person Access Metadata Rules in a single scope.  The behaviour is defined by the JSON Patch specification.                Currently only &#39;add&#39; is a supported operation on the patch document.    Currently only valid metadata keys are supported paths on the patch document.                The response will return any affected Person Access Metadata rules or a failure message if unsuccessful.                It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier.</param>
@@ -501,7 +501,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
-        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely             identifies the person.</param>
+        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the person.</param>
         /// <param name="setPersonIdentifiersRequest">Request containing identifiers to set for the person. Identifiers not specified in request will not be changed.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -517,7 +517,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
-        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely             identifies the person.</param>
+        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the person.</param>
         /// <param name="setPersonIdentifiersRequest">Request containing identifiers to set for the person. Identifiers not specified in request will not be changed.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -532,7 +532,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
-        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely             identifies the person.</param>
+        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the person.</param>
         /// <param name="setPersonPropertiesRequest">Request containing properties to set for the person. Properties not specified in request will not be changed.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -548,7 +548,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
-        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely             identifies the person.</param>
+        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the person.</param>
         /// <param name="setPersonPropertiesRequest">Request containing properties to set for the person. Properties not specified in request will not be changed.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -583,7 +583,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] UpsertPersonAccessMetadata: Upsert a Person Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.
         /// </summary>
         /// <remarks>
-        /// Update or insert one Person Access Metadata entry in a single scope. An item will be updated if it already exists and inserted if it does not.              The response will return the successfully updated or inserted Person Access Metadata rule or failure message if unsuccessful.              It is important to always check to verify success (or failure).              Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
+        /// Update or insert one Person Access Metadata entry in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted Person Access Metadata rule or failure message if unsuccessful.                It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier.</param>
@@ -602,7 +602,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] UpsertPersonAccessMetadata: Upsert a Person Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.
         /// </summary>
         /// <remarks>
-        /// Update or insert one Person Access Metadata entry in a single scope. An item will be updated if it already exists and inserted if it does not.              The response will return the successfully updated or inserted Person Access Metadata rule or failure message if unsuccessful.              It is important to always check to verify success (or failure).              Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
+        /// Update or insert one Person Access Metadata entry in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted Person Access Metadata rule or failure message if unsuccessful.                It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier.</param>
@@ -656,12 +656,12 @@ namespace Lusid.Sdk.Api
         /// DeletePerson: Delete person
         /// </summary>
         /// <remarks>
-        /// Delete a person. Deletion will be valid from the person&#39;s creation datetime. This means that the person will no longer exist at any effective datetime from the asAt datetime of deletion.
+        /// Delete a person. Deletion will be valid from the person&#39;s creation datetime.  This means that the person will no longer exist at any effective datetime from the asAt datetime of deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">The scope of the person identifier type.</param>
         /// <param name="idTypeCode">The code of the person identifier type.</param>
-        /// <param name="code">Code of the person under specified identifier type scope and code. This together with defined             identifier type uniquely identifies the person to delete.</param>
+        /// <param name="code">Code of the person under specified identifier type scope and code. This together with defined              identifier type uniquely identifies the person to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -672,12 +672,12 @@ namespace Lusid.Sdk.Api
         /// DeletePerson: Delete person
         /// </summary>
         /// <remarks>
-        /// Delete a person. Deletion will be valid from the person&#39;s creation datetime. This means that the person will no longer exist at any effective datetime from the asAt datetime of deletion.
+        /// Delete a person. Deletion will be valid from the person&#39;s creation datetime.  This means that the person will no longer exist at any effective datetime from the asAt datetime of deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">The scope of the person identifier type.</param>
         /// <param name="idTypeCode">The code of the person identifier type.</param>
-        /// <param name="code">Code of the person under specified identifier type scope and code. This together with defined             identifier type uniquely identifies the person to delete.</param>
+        /// <param name="code">Code of the person under specified identifier type scope and code. This together with defined              identifier type uniquely identifies the person to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -687,7 +687,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] DeletePersonAccessMetadata: Delete a Person Access Metadata entry
         /// </summary>
         /// <remarks>
-        /// Deletes the Person Access Metadata entry that exactly matches the provided identifier parts.  It is important to always check to verify success (or failure).
+        /// Deletes the Person Access Metadata entry that exactly matches the provided identifier parts.    It is important to always check to verify success (or failure).
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier.</param>
@@ -706,7 +706,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] DeletePersonAccessMetadata: Delete a Person Access Metadata entry
         /// </summary>
         /// <remarks>
-        /// Deletes the Person Access Metadata entry that exactly matches the provided identifier parts.  It is important to always check to verify success (or failure).
+        /// Deletes the Person Access Metadata entry that exactly matches the provided identifier parts.    It is important to always check to verify success (or failure).
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier.</param>
@@ -729,9 +729,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
-        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely             identifies the person.</param>
-        /// <param name="propertyKeys">The property keys of the identifiers to delete. These take the format             {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;. Each property must be from the \&quot;Person\&quot; domain. Identifiers or identifiers not specified in request will not be changed.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to delete the identifiers. Defaults to the current LUSID system datetime if not specified.             Must not include an effective datetime if identifiers are perpetual. (optional)</param>
+        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the person.</param>
+        /// <param name="propertyKeys">The property keys of the identifiers to delete. These take the format              {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;. Each property must be from the \&quot;Person\&quot; domain. Identifiers or identifiers not specified in request will not be changed.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to delete the identifiers. Defaults to the current LUSID system datetime if not specified.              Must not include an effective datetime if identifiers are perpetual. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -747,9 +747,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
-        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely             identifies the person.</param>
-        /// <param name="propertyKeys">The property keys of the identifiers to delete. These take the format             {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;. Each property must be from the \&quot;Person\&quot; domain. Identifiers or identifiers not specified in request will not be changed.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to delete the identifiers. Defaults to the current LUSID system datetime if not specified.             Must not include an effective datetime if identifiers are perpetual. (optional)</param>
+        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the person.</param>
+        /// <param name="propertyKeys">The property keys of the identifiers to delete. These take the format              {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;. Each property must be from the \&quot;Person\&quot; domain. Identifiers or identifiers not specified in request will not be changed.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to delete the identifiers. Defaults to the current LUSID system datetime if not specified.              Must not include an effective datetime if identifiers are perpetual. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -764,9 +764,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
-        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely             identifies the person.</param>
-        /// <param name="propertyKeys">The property keys of the person&#39;s properties to delete. These take the format             {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;. Each property must be from the \&quot;Person\&quot; domain. Properties or identifiers not specified in request will not be changed.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.             The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is             before the time-variant property exists then a failure is returned. Do not specify this parameter if any of             the properties to delete are perpetual. (optional)</param>
+        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the person.</param>
+        /// <param name="propertyKeys">The property keys of the person&#39;s properties to delete. These take the format              {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;. Each property must be from the \&quot;Person\&quot; domain. Properties or identifiers not specified in request will not be changed.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -782,9 +782,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
-        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely             identifies the person.</param>
-        /// <param name="propertyKeys">The property keys of the person&#39;s properties to delete. These take the format             {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;. Each property must be from the \&quot;Person\&quot; domain. Properties or identifiers not specified in request will not be changed.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.             The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is             before the time-variant property exists then a failure is returned. Do not specify this parameter if any of             the properties to delete are perpetual. (optional)</param>
+        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the person.</param>
+        /// <param name="propertyKeys">The property keys of the person&#39;s properties to delete. These take the format              {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;. Each property must be from the \&quot;Person\&quot; domain. Properties or identifiers not specified in request will not be changed.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -834,11 +834,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
-        /// <param name="code">Code of the person under specified scope and code. This together with stated identifier type uniquely             identifies the person.</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Person\&quot; domain to decorate onto the person,              or from any domain that supports relationships to decorate onto related entities.             These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. (optional)</param>
+        /// <param name="code">Code of the person under specified scope and code. This together with stated identifier type uniquely              identifies the person.</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Person\&quot; domain to decorate onto the person,               or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. (optional)</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the person. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the person. Defaults to return the latest version of the person if not specified. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the person in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the person in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -854,11 +854,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
-        /// <param name="code">Code of the person under specified scope and code. This together with stated identifier type uniquely             identifies the person.</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Person\&quot; domain to decorate onto the person,              or from any domain that supports relationships to decorate onto related entities.             These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. (optional)</param>
+        /// <param name="code">Code of the person under specified scope and code. This together with stated identifier type uniquely              identifies the person.</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Person\&quot; domain to decorate onto the person,               or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. (optional)</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the person. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the person. Defaults to return the latest version of the person if not specified. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the person in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the person in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -868,7 +868,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] GetPersonAccessMetadataByKey: Get an entry identified by a metadataKey in the Access Metadata of a Person
         /// </summary>
         /// <remarks>
-        /// Get a specific Person Access Metadata by specifying the corresponding identifier parts and Person code              No matching will be performed through this endpoint. To retrieve an entry, it is necessary to specify, exactly, the identifier of the entry
+        /// Get a specific Person Access Metadata by specifying the corresponding identifier parts and Person code                No matching will be performed through this endpoint. To retrieve an entry, it is necessary to specify, exactly, the identifier of the entry
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier.</param>
@@ -887,7 +887,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] GetPersonAccessMetadataByKey: Get an entry identified by a metadataKey in the Access Metadata of a Person
         /// </summary>
         /// <remarks>
-        /// Get a specific Person Access Metadata by specifying the corresponding identifier parts and Person code              No matching will be performed through this endpoint. To retrieve an entry, it is necessary to specify, exactly, the identifier of the entry
+        /// Get a specific Person Access Metadata by specifying the corresponding identifier parts and Person code                No matching will be performed through this endpoint. To retrieve an entry, it is necessary to specify, exactly, the identifier of the entry
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier.</param>
@@ -911,10 +911,10 @@ namespace Lusid.Sdk.Api
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
         /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely identifies the person.</param>
-        /// <param name="propertyKey">The property key of the property that will have its history shown. These must be in the format {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;.             Each property must be from the \&quot;Person\&quot; domain.</param>
+        /// <param name="propertyKey">The property key of the property that will have its history shown. These must be in the format {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;.              Each property must be from the \&quot;Person\&quot; domain.</param>
         /// <param name="asAt">The asAt datetime at which to list the person&#39;s property history. Defaults to return the current datetime if not supplied. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing properties from a previous call to get property time series.             This value is returned from the previous call. If a pagination token is provided the filter and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing properties from a previous call to get property time series.              This value is returned from the previous call. If a pagination token is provided the filter and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -932,10 +932,10 @@ namespace Lusid.Sdk.Api
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
         /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely identifies the person.</param>
-        /// <param name="propertyKey">The property key of the property that will have its history shown. These must be in the format {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;.             Each property must be from the \&quot;Person\&quot; domain.</param>
+        /// <param name="propertyKey">The property key of the property that will have its history shown. These must be in the format {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;.              Each property must be from the \&quot;Person\&quot; domain.</param>
         /// <param name="asAt">The asAt datetime at which to list the person&#39;s property history. Defaults to return the current datetime if not supplied. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing properties from a previous call to get property time series.             This value is returned from the previous call. If a pagination token is provided the filter and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing properties from a previous call to get property time series.              This value is returned from the previous call. If a pagination token is provided the filter and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -951,11 +951,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
-        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely             identifies the person.</param>
+        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the person.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to get relations. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the person&#39;s relations. Defaults to return the latest LUSID AsAt time if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the relations. Users should provide null or empty string for this field until further notice. (optional)</param>
-        /// <param name="identifierTypes">Identifiers types (as property keys) used for referencing Persons or Legal Entities. These take the format             {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;. They must be from the \&quot;Person\&quot; or \&quot;LegalEntity\&quot; domain.             Only identifier types stated will be used to look up relevant entities in relations. If not applicable, provide an empty array. (optional)</param>
+        /// <param name="identifierTypes">Identifiers types (as property keys) used for referencing Persons or Legal Entities. These take the format              {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;. They must be from the \&quot;Person\&quot; or \&quot;LegalEntity\&quot; domain.              Only identifier types stated will be used to look up relevant entities in relations. If not applicable, provide an empty array. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -971,11 +971,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
-        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely             identifies the person.</param>
+        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the person.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to get relations. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the person&#39;s relations. Defaults to return the latest LUSID AsAt time if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the relations. Users should provide null or empty string for this field until further notice. (optional)</param>
-        /// <param name="identifierTypes">Identifiers types (as property keys) used for referencing Persons or Legal Entities. These take the format             {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;. They must be from the \&quot;Person\&quot; or \&quot;LegalEntity\&quot; domain.             Only identifier types stated will be used to look up relevant entities in relations. If not applicable, provide an empty array. (optional)</param>
+        /// <param name="identifierTypes">Identifiers types (as property keys) used for referencing Persons or Legal Entities. These take the format              {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;. They must be from the \&quot;Person\&quot; or \&quot;LegalEntity\&quot; domain.              Only identifier types stated will be used to look up relevant entities in relations. If not applicable, provide an empty array. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -990,11 +990,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person&#39;s identifier type.</param>
         /// <param name="idTypeCode">Code of the person&#39;s identifier type.</param>
-        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely             identifies the person.</param>
+        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the person.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to get relationships. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve relationships. Defaults to return the latest LUSID AsAt time if not specified. (optional)</param>
         /// <param name="filter">Expression to filter relationships. Users should provide null or empty string for this field until further notice. (optional)</param>
-        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.             These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example             &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. (optional)</param>
+        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.              These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example              &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1010,11 +1010,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person&#39;s identifier type.</param>
         /// <param name="idTypeCode">Code of the person&#39;s identifier type.</param>
-        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely             identifies the person.</param>
+        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the person.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to get relationships. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve relationships. Defaults to return the latest LUSID AsAt time if not specified. (optional)</param>
         /// <param name="filter">Expression to filter relationships. Users should provide null or empty string for this field until further notice. (optional)</param>
-        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.             These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example             &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. (optional)</param>
+        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.              These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example              &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1027,13 +1027,13 @@ namespace Lusid.Sdk.Api
         /// List all persons which the user is entitled to see.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the people. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the people. Defaults to return the latest version             of each people if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing persons from a previous call to list persons. This             value is returned from the previous call. If a pagination token is provided the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the people. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the people. Defaults to return the latest version              of each people if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing persons from a previous call to list persons. This              value is returned from the previous call. If a pagination token is provided the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 5000 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              For example, to filter on the display name, use \&quot;displayName eq &#39;John&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Person\&quot; domain to decorate onto each person,              or from any domain that supports relationships to decorate onto related entities.             These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the persons in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.               For example, to filter on the display name, use \&quot;displayName eq &#39;John&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Person\&quot; domain to decorate onto each person,               or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the persons in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1047,13 +1047,13 @@ namespace Lusid.Sdk.Api
         /// List all persons which the user is entitled to see.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the people. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the people. Defaults to return the latest version             of each people if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing persons from a previous call to list persons. This             value is returned from the previous call. If a pagination token is provided the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the people. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the people. Defaults to return the latest version              of each people if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing persons from a previous call to list persons. This              value is returned from the previous call. If a pagination token is provided the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 5000 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              For example, to filter on the display name, use \&quot;displayName eq &#39;John&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Person\&quot; domain to decorate onto each person,              or from any domain that supports relationships to decorate onto related entities.             These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the persons in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.               For example, to filter on the display name, use \&quot;displayName eq &#39;John&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Person\&quot; domain to decorate onto each person,               or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the persons in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1068,13 +1068,13 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the people. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the people. Defaults to return the latest version             of each people if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing persons from a previous call to list persons. This             value is returned from the previous call. If a pagination token is provided the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the people. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the people. Defaults to return the latest version              of each people if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing persons from a previous call to list persons. This              value is returned from the previous call. If a pagination token is provided the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              For example, to filter on the LUPID, use \&quot;lusidPersonId eq &#39;string&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Person\&quot; domain to decorate onto each person,              or from any domain that supports relationships to decorate onto related entities.             These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the persons in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.               For example, to filter on the LUPID, use \&quot;lusidPersonId eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Person\&quot; domain to decorate onto each person,               or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the persons in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1090,13 +1090,13 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the people. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the people. Defaults to return the latest version             of each people if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing persons from a previous call to list persons. This             value is returned from the previous call. If a pagination token is provided the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the people. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the people. Defaults to return the latest version              of each people if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing persons from a previous call to list persons. This              value is returned from the previous call. If a pagination token is provided the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              For example, to filter on the LUPID, use \&quot;lusidPersonId eq &#39;string&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Person\&quot; domain to decorate onto each person,              or from any domain that supports relationships to decorate onto related entities.             These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the persons in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.               For example, to filter on the LUPID, use \&quot;lusidPersonId eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Person\&quot; domain to decorate onto each person,               or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the persons in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1106,7 +1106,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] PatchPersonAccessMetadata: Patch Access Metadata rules for a Person.
         /// </summary>
         /// <remarks>
-        /// Patch Person Access Metadata Rules in a single scope. The behaviour is defined by the JSON Patch specification.              Currently only &#39;add&#39; is a supported operation on the patch document.  Currently only valid metadata keys are supported paths on the patch document.              The response will return any affected Person Access Metadata rules or a failure message if unsuccessful.              It is important to always check to verify success (or failure).              Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
+        /// Patch Person Access Metadata Rules in a single scope.  The behaviour is defined by the JSON Patch specification.                Currently only &#39;add&#39; is a supported operation on the patch document.    Currently only valid metadata keys are supported paths on the patch document.                The response will return any affected Person Access Metadata rules or a failure message if unsuccessful.                It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier.</param>
@@ -1125,7 +1125,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] PatchPersonAccessMetadata: Patch Access Metadata rules for a Person.
         /// </summary>
         /// <remarks>
-        /// Patch Person Access Metadata Rules in a single scope. The behaviour is defined by the JSON Patch specification.              Currently only &#39;add&#39; is a supported operation on the patch document.  Currently only valid metadata keys are supported paths on the patch document.              The response will return any affected Person Access Metadata rules or a failure message if unsuccessful.              It is important to always check to verify success (or failure).              Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
+        /// Patch Person Access Metadata Rules in a single scope.  The behaviour is defined by the JSON Patch specification.                Currently only &#39;add&#39; is a supported operation on the patch document.    Currently only valid metadata keys are supported paths on the patch document.                The response will return any affected Person Access Metadata rules or a failure message if unsuccessful.                It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier.</param>
@@ -1148,7 +1148,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
-        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely             identifies the person.</param>
+        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the person.</param>
         /// <param name="setPersonIdentifiersRequest">Request containing identifiers to set for the person. Identifiers not specified in request will not be changed.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1165,7 +1165,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
-        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely             identifies the person.</param>
+        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the person.</param>
         /// <param name="setPersonIdentifiersRequest">Request containing identifiers to set for the person. Identifiers not specified in request will not be changed.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1181,7 +1181,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
-        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely             identifies the person.</param>
+        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the person.</param>
         /// <param name="setPersonPropertiesRequest">Request containing properties to set for the person. Properties not specified in request will not be changed.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1198,7 +1198,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
-        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely             identifies the person.</param>
+        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the person.</param>
         /// <param name="setPersonPropertiesRequest">Request containing properties to set for the person. Properties not specified in request will not be changed.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1236,7 +1236,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] UpsertPersonAccessMetadata: Upsert a Person Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.
         /// </summary>
         /// <remarks>
-        /// Update or insert one Person Access Metadata entry in a single scope. An item will be updated if it already exists and inserted if it does not.              The response will return the successfully updated or inserted Person Access Metadata rule or failure message if unsuccessful.              It is important to always check to verify success (or failure).              Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
+        /// Update or insert one Person Access Metadata entry in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted Person Access Metadata rule or failure message if unsuccessful.                It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier.</param>
@@ -1256,7 +1256,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] UpsertPersonAccessMetadata: Upsert a Person Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.
         /// </summary>
         /// <remarks>
-        /// Update or insert one Person Access Metadata entry in a single scope. An item will be updated if it already exists and inserted if it does not.              The response will return the successfully updated or inserted Person Access Metadata rule or failure message if unsuccessful.              It is important to always check to verify success (or failure).              Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
+        /// Update or insert one Person Access Metadata entry in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted Person Access Metadata rule or failure message if unsuccessful.                It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier.</param>
@@ -1424,12 +1424,12 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// DeletePerson: Delete person Delete a person. Deletion will be valid from the person&#39;s creation datetime. This means that the person will no longer exist at any effective datetime from the asAt datetime of deletion.
+        /// DeletePerson: Delete person Delete a person. Deletion will be valid from the person&#39;s creation datetime.  This means that the person will no longer exist at any effective datetime from the asAt datetime of deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">The scope of the person identifier type.</param>
         /// <param name="idTypeCode">The code of the person identifier type.</param>
-        /// <param name="code">Code of the person under specified identifier type scope and code. This together with defined             identifier type uniquely identifies the person to delete.</param>
+        /// <param name="code">Code of the person under specified identifier type scope and code. This together with defined              identifier type uniquely identifies the person to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
@@ -1440,12 +1440,12 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// DeletePerson: Delete person Delete a person. Deletion will be valid from the person&#39;s creation datetime. This means that the person will no longer exist at any effective datetime from the asAt datetime of deletion.
+        /// DeletePerson: Delete person Delete a person. Deletion will be valid from the person&#39;s creation datetime.  This means that the person will no longer exist at any effective datetime from the asAt datetime of deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">The scope of the person identifier type.</param>
         /// <param name="idTypeCode">The code of the person identifier type.</param>
-        /// <param name="code">Code of the person under specified identifier type scope and code. This together with defined             identifier type uniquely identifies the person to delete.</param>
+        /// <param name="code">Code of the person under specified identifier type scope and code. This together with defined              identifier type uniquely identifies the person to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
@@ -1542,12 +1542,12 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// DeletePerson: Delete person Delete a person. Deletion will be valid from the person&#39;s creation datetime. This means that the person will no longer exist at any effective datetime from the asAt datetime of deletion.
+        /// DeletePerson: Delete person Delete a person. Deletion will be valid from the person&#39;s creation datetime.  This means that the person will no longer exist at any effective datetime from the asAt datetime of deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">The scope of the person identifier type.</param>
         /// <param name="idTypeCode">The code of the person identifier type.</param>
-        /// <param name="code">Code of the person under specified identifier type scope and code. This together with defined             identifier type uniquely identifies the person to delete.</param>
+        /// <param name="code">Code of the person under specified identifier type scope and code. This together with defined              identifier type uniquely identifies the person to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1559,12 +1559,12 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// DeletePerson: Delete person Delete a person. Deletion will be valid from the person&#39;s creation datetime. This means that the person will no longer exist at any effective datetime from the asAt datetime of deletion.
+        /// DeletePerson: Delete person Delete a person. Deletion will be valid from the person&#39;s creation datetime.  This means that the person will no longer exist at any effective datetime from the asAt datetime of deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">The scope of the person identifier type.</param>
         /// <param name="idTypeCode">The code of the person identifier type.</param>
-        /// <param name="code">Code of the person under specified identifier type scope and code. This together with defined             identifier type uniquely identifies the person to delete.</param>
+        /// <param name="code">Code of the person under specified identifier type scope and code. This together with defined              identifier type uniquely identifies the person to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1664,7 +1664,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeletePersonAccessMetadata: Delete a Person Access Metadata entry Deletes the Person Access Metadata entry that exactly matches the provided identifier parts.  It is important to always check to verify success (or failure).
+        /// [EARLY ACCESS] DeletePersonAccessMetadata: Delete a Person Access Metadata entry Deletes the Person Access Metadata entry that exactly matches the provided identifier parts.    It is important to always check to verify success (or failure).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier.</param>
@@ -1683,7 +1683,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeletePersonAccessMetadata: Delete a Person Access Metadata entry Deletes the Person Access Metadata entry that exactly matches the provided identifier parts.  It is important to always check to verify success (or failure).
+        /// [EARLY ACCESS] DeletePersonAccessMetadata: Delete a Person Access Metadata entry Deletes the Person Access Metadata entry that exactly matches the provided identifier parts.    It is important to always check to verify success (or failure).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier.</param>
@@ -1803,7 +1803,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeletePersonAccessMetadata: Delete a Person Access Metadata entry Deletes the Person Access Metadata entry that exactly matches the provided identifier parts.  It is important to always check to verify success (or failure).
+        /// [EARLY ACCESS] DeletePersonAccessMetadata: Delete a Person Access Metadata entry Deletes the Person Access Metadata entry that exactly matches the provided identifier parts.    It is important to always check to verify success (or failure).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier.</param>
@@ -1823,7 +1823,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeletePersonAccessMetadata: Delete a Person Access Metadata entry Deletes the Person Access Metadata entry that exactly matches the provided identifier parts.  It is important to always check to verify success (or failure).
+        /// [EARLY ACCESS] DeletePersonAccessMetadata: Delete a Person Access Metadata entry Deletes the Person Access Metadata entry that exactly matches the provided identifier parts.    It is important to always check to verify success (or failure).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier.</param>
@@ -1951,9 +1951,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
-        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely             identifies the person.</param>
-        /// <param name="propertyKeys">The property keys of the identifiers to delete. These take the format             {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;. Each property must be from the \&quot;Person\&quot; domain. Identifiers or identifiers not specified in request will not be changed.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to delete the identifiers. Defaults to the current LUSID system datetime if not specified.             Must not include an effective datetime if identifiers are perpetual. (optional)</param>
+        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the person.</param>
+        /// <param name="propertyKeys">The property keys of the identifiers to delete. These take the format              {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;. Each property must be from the \&quot;Person\&quot; domain. Identifiers or identifiers not specified in request will not be changed.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to delete the identifiers. Defaults to the current LUSID system datetime if not specified.              Must not include an effective datetime if identifiers are perpetual. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
@@ -1969,9 +1969,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
-        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely             identifies the person.</param>
-        /// <param name="propertyKeys">The property keys of the identifiers to delete. These take the format             {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;. Each property must be from the \&quot;Person\&quot; domain. Identifiers or identifiers not specified in request will not be changed.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to delete the identifiers. Defaults to the current LUSID system datetime if not specified.             Must not include an effective datetime if identifiers are perpetual. (optional)</param>
+        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the person.</param>
+        /// <param name="propertyKeys">The property keys of the identifiers to delete. These take the format              {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;. Each property must be from the \&quot;Person\&quot; domain. Identifiers or identifiers not specified in request will not be changed.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to delete the identifiers. Defaults to the current LUSID system datetime if not specified.              Must not include an effective datetime if identifiers are perpetual. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
@@ -2084,9 +2084,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
-        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely             identifies the person.</param>
-        /// <param name="propertyKeys">The property keys of the identifiers to delete. These take the format             {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;. Each property must be from the \&quot;Person\&quot; domain. Identifiers or identifiers not specified in request will not be changed.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to delete the identifiers. Defaults to the current LUSID system datetime if not specified.             Must not include an effective datetime if identifiers are perpetual. (optional)</param>
+        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the person.</param>
+        /// <param name="propertyKeys">The property keys of the identifiers to delete. These take the format              {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;. Each property must be from the \&quot;Person\&quot; domain. Identifiers or identifiers not specified in request will not be changed.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to delete the identifiers. Defaults to the current LUSID system datetime if not specified.              Must not include an effective datetime if identifiers are perpetual. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2103,9 +2103,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
-        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely             identifies the person.</param>
-        /// <param name="propertyKeys">The property keys of the identifiers to delete. These take the format             {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;. Each property must be from the \&quot;Person\&quot; domain. Identifiers or identifiers not specified in request will not be changed.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to delete the identifiers. Defaults to the current LUSID system datetime if not specified.             Must not include an effective datetime if identifiers are perpetual. (optional)</param>
+        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the person.</param>
+        /// <param name="propertyKeys">The property keys of the identifiers to delete. These take the format              {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;. Each property must be from the \&quot;Person\&quot; domain. Identifiers or identifiers not specified in request will not be changed.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to delete the identifiers. Defaults to the current LUSID system datetime if not specified.              Must not include an effective datetime if identifiers are perpetual. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2221,9 +2221,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
-        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely             identifies the person.</param>
-        /// <param name="propertyKeys">The property keys of the person&#39;s properties to delete. These take the format             {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;. Each property must be from the \&quot;Person\&quot; domain. Properties or identifiers not specified in request will not be changed.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.             The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is             before the time-variant property exists then a failure is returned. Do not specify this parameter if any of             the properties to delete are perpetual. (optional)</param>
+        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the person.</param>
+        /// <param name="propertyKeys">The property keys of the person&#39;s properties to delete. These take the format              {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;. Each property must be from the \&quot;Person\&quot; domain. Properties or identifiers not specified in request will not be changed.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
@@ -2239,9 +2239,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
-        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely             identifies the person.</param>
-        /// <param name="propertyKeys">The property keys of the person&#39;s properties to delete. These take the format             {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;. Each property must be from the \&quot;Person\&quot; domain. Properties or identifiers not specified in request will not be changed.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.             The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is             before the time-variant property exists then a failure is returned. Do not specify this parameter if any of             the properties to delete are perpetual. (optional)</param>
+        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the person.</param>
+        /// <param name="propertyKeys">The property keys of the person&#39;s properties to delete. These take the format              {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;. Each property must be from the \&quot;Person\&quot; domain. Properties or identifiers not specified in request will not be changed.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
@@ -2354,9 +2354,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
-        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely             identifies the person.</param>
-        /// <param name="propertyKeys">The property keys of the person&#39;s properties to delete. These take the format             {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;. Each property must be from the \&quot;Person\&quot; domain. Properties or identifiers not specified in request will not be changed.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.             The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is             before the time-variant property exists then a failure is returned. Do not specify this parameter if any of             the properties to delete are perpetual. (optional)</param>
+        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the person.</param>
+        /// <param name="propertyKeys">The property keys of the person&#39;s properties to delete. These take the format              {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;. Each property must be from the \&quot;Person\&quot; domain. Properties or identifiers not specified in request will not be changed.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2373,9 +2373,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
-        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely             identifies the person.</param>
-        /// <param name="propertyKeys">The property keys of the person&#39;s properties to delete. These take the format             {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;. Each property must be from the \&quot;Person\&quot; domain. Properties or identifiers not specified in request will not be changed.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.             The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is             before the time-variant property exists then a failure is returned. Do not specify this parameter if any of             the properties to delete are perpetual. (optional)</param>
+        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the person.</param>
+        /// <param name="propertyKeys">The property keys of the person&#39;s properties to delete. These take the format              {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;. Each property must be from the \&quot;Person\&quot; domain. Properties or identifiers not specified in request will not be changed.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2755,11 +2755,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
-        /// <param name="code">Code of the person under specified scope and code. This together with stated identifier type uniquely             identifies the person.</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Person\&quot; domain to decorate onto the person,              or from any domain that supports relationships to decorate onto related entities.             These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. (optional)</param>
+        /// <param name="code">Code of the person under specified scope and code. This together with stated identifier type uniquely              identifies the person.</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Person\&quot; domain to decorate onto the person,               or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. (optional)</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the person. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the person. Defaults to return the latest version of the person if not specified. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the person in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the person in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Person</returns>
@@ -2775,11 +2775,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
-        /// <param name="code">Code of the person under specified scope and code. This together with stated identifier type uniquely             identifies the person.</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Person\&quot; domain to decorate onto the person,              or from any domain that supports relationships to decorate onto related entities.             These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. (optional)</param>
+        /// <param name="code">Code of the person under specified scope and code. This together with stated identifier type uniquely              identifies the person.</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Person\&quot; domain to decorate onto the person,               or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. (optional)</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the person. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the person. Defaults to return the latest version of the person if not specified. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the person in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the person in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Person</returns>
@@ -2897,11 +2897,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
-        /// <param name="code">Code of the person under specified scope and code. This together with stated identifier type uniquely             identifies the person.</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Person\&quot; domain to decorate onto the person,              or from any domain that supports relationships to decorate onto related entities.             These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. (optional)</param>
+        /// <param name="code">Code of the person under specified scope and code. This together with stated identifier type uniquely              identifies the person.</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Person\&quot; domain to decorate onto the person,               or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. (optional)</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the person. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the person. Defaults to return the latest version of the person if not specified. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the person in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the person in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2918,11 +2918,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
-        /// <param name="code">Code of the person under specified scope and code. This together with stated identifier type uniquely             identifies the person.</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Person\&quot; domain to decorate onto the person,              or from any domain that supports relationships to decorate onto related entities.             These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. (optional)</param>
+        /// <param name="code">Code of the person under specified scope and code. This together with stated identifier type uniquely              identifies the person.</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Person\&quot; domain to decorate onto the person,               or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. (optional)</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the person. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the person. Defaults to return the latest version of the person if not specified. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the person in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the person in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -3038,7 +3038,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetPersonAccessMetadataByKey: Get an entry identified by a metadataKey in the Access Metadata of a Person Get a specific Person Access Metadata by specifying the corresponding identifier parts and Person code              No matching will be performed through this endpoint. To retrieve an entry, it is necessary to specify, exactly, the identifier of the entry
+        /// [EARLY ACCESS] GetPersonAccessMetadataByKey: Get an entry identified by a metadataKey in the Access Metadata of a Person Get a specific Person Access Metadata by specifying the corresponding identifier parts and Person code                No matching will be performed through this endpoint. To retrieve an entry, it is necessary to specify, exactly, the identifier of the entry
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier.</param>
@@ -3057,7 +3057,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetPersonAccessMetadataByKey: Get an entry identified by a metadataKey in the Access Metadata of a Person Get a specific Person Access Metadata by specifying the corresponding identifier parts and Person code              No matching will be performed through this endpoint. To retrieve an entry, it is necessary to specify, exactly, the identifier of the entry
+        /// [EARLY ACCESS] GetPersonAccessMetadataByKey: Get an entry identified by a metadataKey in the Access Metadata of a Person Get a specific Person Access Metadata by specifying the corresponding identifier parts and Person code                No matching will be performed through this endpoint. To retrieve an entry, it is necessary to specify, exactly, the identifier of the entry
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier.</param>
@@ -3177,7 +3177,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetPersonAccessMetadataByKey: Get an entry identified by a metadataKey in the Access Metadata of a Person Get a specific Person Access Metadata by specifying the corresponding identifier parts and Person code              No matching will be performed through this endpoint. To retrieve an entry, it is necessary to specify, exactly, the identifier of the entry
+        /// [EARLY ACCESS] GetPersonAccessMetadataByKey: Get an entry identified by a metadataKey in the Access Metadata of a Person Get a specific Person Access Metadata by specifying the corresponding identifier parts and Person code                No matching will be performed through this endpoint. To retrieve an entry, it is necessary to specify, exactly, the identifier of the entry
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier.</param>
@@ -3197,7 +3197,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetPersonAccessMetadataByKey: Get an entry identified by a metadataKey in the Access Metadata of a Person Get a specific Person Access Metadata by specifying the corresponding identifier parts and Person code              No matching will be performed through this endpoint. To retrieve an entry, it is necessary to specify, exactly, the identifier of the entry
+        /// [EARLY ACCESS] GetPersonAccessMetadataByKey: Get an entry identified by a metadataKey in the Access Metadata of a Person Get a specific Person Access Metadata by specifying the corresponding identifier parts and Person code                No matching will be performed through this endpoint. To retrieve an entry, it is necessary to specify, exactly, the identifier of the entry
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier.</param>
@@ -3326,10 +3326,10 @@ namespace Lusid.Sdk.Api
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
         /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely identifies the person.</param>
-        /// <param name="propertyKey">The property key of the property that will have its history shown. These must be in the format {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;.             Each property must be from the \&quot;Person\&quot; domain.</param>
+        /// <param name="propertyKey">The property key of the property that will have its history shown. These must be in the format {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;.              Each property must be from the \&quot;Person\&quot; domain.</param>
         /// <param name="asAt">The asAt datetime at which to list the person&#39;s property history. Defaults to return the current datetime if not supplied. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing properties from a previous call to get property time series.             This value is returned from the previous call. If a pagination token is provided the filter and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing properties from a previous call to get property time series.              This value is returned from the previous call. If a pagination token is provided the filter and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -3347,10 +3347,10 @@ namespace Lusid.Sdk.Api
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
         /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely identifies the person.</param>
-        /// <param name="propertyKey">The property key of the property that will have its history shown. These must be in the format {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;.             Each property must be from the \&quot;Person\&quot; domain.</param>
+        /// <param name="propertyKey">The property key of the property that will have its history shown. These must be in the format {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;.              Each property must be from the \&quot;Person\&quot; domain.</param>
         /// <param name="asAt">The asAt datetime at which to list the person&#39;s property history. Defaults to return the current datetime if not supplied. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing properties from a previous call to get property time series.             This value is returned from the previous call. If a pagination token is provided the filter and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing properties from a previous call to get property time series.              This value is returned from the previous call. If a pagination token is provided the filter and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -3477,10 +3477,10 @@ namespace Lusid.Sdk.Api
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
         /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely identifies the person.</param>
-        /// <param name="propertyKey">The property key of the property that will have its history shown. These must be in the format {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;.             Each property must be from the \&quot;Person\&quot; domain.</param>
+        /// <param name="propertyKey">The property key of the property that will have its history shown. These must be in the format {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;.              Each property must be from the \&quot;Person\&quot; domain.</param>
         /// <param name="asAt">The asAt datetime at which to list the person&#39;s property history. Defaults to return the current datetime if not supplied. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing properties from a previous call to get property time series.             This value is returned from the previous call. If a pagination token is provided the filter and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing properties from a previous call to get property time series.              This value is returned from the previous call. If a pagination token is provided the filter and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3499,10 +3499,10 @@ namespace Lusid.Sdk.Api
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
         /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely identifies the person.</param>
-        /// <param name="propertyKey">The property key of the property that will have its history shown. These must be in the format {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;.             Each property must be from the \&quot;Person\&quot; domain.</param>
+        /// <param name="propertyKey">The property key of the property that will have its history shown. These must be in the format {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;.              Each property must be from the \&quot;Person\&quot; domain.</param>
         /// <param name="asAt">The asAt datetime at which to list the person&#39;s property history. Defaults to return the current datetime if not supplied. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing properties from a previous call to get property time series.             This value is returned from the previous call. If a pagination token is provided the filter and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing properties from a previous call to get property time series.              This value is returned from the previous call. If a pagination token is provided the filter and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3631,11 +3631,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
-        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely             identifies the person.</param>
+        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the person.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to get relations. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the person&#39;s relations. Defaults to return the latest LUSID AsAt time if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the relations. Users should provide null or empty string for this field until further notice. (optional)</param>
-        /// <param name="identifierTypes">Identifiers types (as property keys) used for referencing Persons or Legal Entities. These take the format             {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;. They must be from the \&quot;Person\&quot; or \&quot;LegalEntity\&quot; domain.             Only identifier types stated will be used to look up relevant entities in relations. If not applicable, provide an empty array. (optional)</param>
+        /// <param name="identifierTypes">Identifiers types (as property keys) used for referencing Persons or Legal Entities. These take the format              {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;. They must be from the \&quot;Person\&quot; or \&quot;LegalEntity\&quot; domain.              Only identifier types stated will be used to look up relevant entities in relations. If not applicable, provide an empty array. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfRelation</returns>
@@ -3651,11 +3651,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
-        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely             identifies the person.</param>
+        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the person.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to get relations. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the person&#39;s relations. Defaults to return the latest LUSID AsAt time if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the relations. Users should provide null or empty string for this field until further notice. (optional)</param>
-        /// <param name="identifierTypes">Identifiers types (as property keys) used for referencing Persons or Legal Entities. These take the format             {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;. They must be from the \&quot;Person\&quot; or \&quot;LegalEntity\&quot; domain.             Only identifier types stated will be used to look up relevant entities in relations. If not applicable, provide an empty array. (optional)</param>
+        /// <param name="identifierTypes">Identifiers types (as property keys) used for referencing Persons or Legal Entities. These take the format              {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;. They must be from the \&quot;Person\&quot; or \&quot;LegalEntity\&quot; domain.              Only identifier types stated will be used to look up relevant entities in relations. If not applicable, provide an empty array. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfRelation</returns>
@@ -3773,11 +3773,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
-        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely             identifies the person.</param>
+        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the person.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to get relations. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the person&#39;s relations. Defaults to return the latest LUSID AsAt time if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the relations. Users should provide null or empty string for this field until further notice. (optional)</param>
-        /// <param name="identifierTypes">Identifiers types (as property keys) used for referencing Persons or Legal Entities. These take the format             {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;. They must be from the \&quot;Person\&quot; or \&quot;LegalEntity\&quot; domain.             Only identifier types stated will be used to look up relevant entities in relations. If not applicable, provide an empty array. (optional)</param>
+        /// <param name="identifierTypes">Identifiers types (as property keys) used for referencing Persons or Legal Entities. These take the format              {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;. They must be from the \&quot;Person\&quot; or \&quot;LegalEntity\&quot; domain.              Only identifier types stated will be used to look up relevant entities in relations. If not applicable, provide an empty array. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -3794,11 +3794,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
-        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely             identifies the person.</param>
+        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the person.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to get relations. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the person&#39;s relations. Defaults to return the latest LUSID AsAt time if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the relations. Users should provide null or empty string for this field until further notice. (optional)</param>
-        /// <param name="identifierTypes">Identifiers types (as property keys) used for referencing Persons or Legal Entities. These take the format             {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;. They must be from the \&quot;Person\&quot; or \&quot;LegalEntity\&quot; domain.             Only identifier types stated will be used to look up relevant entities in relations. If not applicable, provide an empty array. (optional)</param>
+        /// <param name="identifierTypes">Identifiers types (as property keys) used for referencing Persons or Legal Entities. These take the format              {domain}/{scope}/{code} e.g. \&quot;Person/CompanyDetails/Role\&quot;. They must be from the \&quot;Person\&quot; or \&quot;LegalEntity\&quot; domain.              Only identifier types stated will be used to look up relevant entities in relations. If not applicable, provide an empty array. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -3919,11 +3919,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person&#39;s identifier type.</param>
         /// <param name="idTypeCode">Code of the person&#39;s identifier type.</param>
-        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely             identifies the person.</param>
+        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the person.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to get relationships. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve relationships. Defaults to return the latest LUSID AsAt time if not specified. (optional)</param>
         /// <param name="filter">Expression to filter relationships. Users should provide null or empty string for this field until further notice. (optional)</param>
-        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.             These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example             &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. (optional)</param>
+        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.              These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example              &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfRelationship</returns>
@@ -3939,11 +3939,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person&#39;s identifier type.</param>
         /// <param name="idTypeCode">Code of the person&#39;s identifier type.</param>
-        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely             identifies the person.</param>
+        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the person.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to get relationships. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve relationships. Defaults to return the latest LUSID AsAt time if not specified. (optional)</param>
         /// <param name="filter">Expression to filter relationships. Users should provide null or empty string for this field until further notice. (optional)</param>
-        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.             These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example             &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. (optional)</param>
+        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.              These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example              &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfRelationship</returns>
@@ -4061,11 +4061,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person&#39;s identifier type.</param>
         /// <param name="idTypeCode">Code of the person&#39;s identifier type.</param>
-        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely             identifies the person.</param>
+        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the person.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to get relationships. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve relationships. Defaults to return the latest LUSID AsAt time if not specified. (optional)</param>
         /// <param name="filter">Expression to filter relationships. Users should provide null or empty string for this field until further notice. (optional)</param>
-        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.             These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example             &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. (optional)</param>
+        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.              These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example              &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -4082,11 +4082,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person&#39;s identifier type.</param>
         /// <param name="idTypeCode">Code of the person&#39;s identifier type.</param>
-        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely             identifies the person.</param>
+        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the person.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to get relationships. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve relationships. Defaults to return the latest LUSID AsAt time if not specified. (optional)</param>
         /// <param name="filter">Expression to filter relationships. Users should provide null or empty string for this field until further notice. (optional)</param>
-        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.             These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example             &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. (optional)</param>
+        /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.              These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example              &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -4205,13 +4205,13 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] ListAllPersons: List All Persons List all persons which the user is entitled to see.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the people. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the people. Defaults to return the latest version             of each people if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing persons from a previous call to list persons. This             value is returned from the previous call. If a pagination token is provided the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the people. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the people. Defaults to return the latest version              of each people if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing persons from a previous call to list persons. This              value is returned from the previous call. If a pagination token is provided the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 5000 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              For example, to filter on the display name, use \&quot;displayName eq &#39;John&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Person\&quot; domain to decorate onto each person,              or from any domain that supports relationships to decorate onto related entities.             These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the persons in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.               For example, to filter on the display name, use \&quot;displayName eq &#39;John&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Person\&quot; domain to decorate onto each person,               or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the persons in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfPerson</returns>
@@ -4225,13 +4225,13 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] ListAllPersons: List All Persons List all persons which the user is entitled to see.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the people. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the people. Defaults to return the latest version             of each people if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing persons from a previous call to list persons. This             value is returned from the previous call. If a pagination token is provided the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the people. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the people. Defaults to return the latest version              of each people if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing persons from a previous call to list persons. This              value is returned from the previous call. If a pagination token is provided the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 5000 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              For example, to filter on the display name, use \&quot;displayName eq &#39;John&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Person\&quot; domain to decorate onto each person,              or from any domain that supports relationships to decorate onto related entities.             These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the persons in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.               For example, to filter on the display name, use \&quot;displayName eq &#39;John&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Person\&quot; domain to decorate onto each person,               or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the persons in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfPerson</returns>
@@ -4338,13 +4338,13 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] ListAllPersons: List All Persons List all persons which the user is entitled to see.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the people. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the people. Defaults to return the latest version             of each people if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing persons from a previous call to list persons. This             value is returned from the previous call. If a pagination token is provided the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the people. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the people. Defaults to return the latest version              of each people if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing persons from a previous call to list persons. This              value is returned from the previous call. If a pagination token is provided the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 5000 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              For example, to filter on the display name, use \&quot;displayName eq &#39;John&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Person\&quot; domain to decorate onto each person,              or from any domain that supports relationships to decorate onto related entities.             These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the persons in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.               For example, to filter on the display name, use \&quot;displayName eq &#39;John&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Person\&quot; domain to decorate onto each person,               or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the persons in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -4359,13 +4359,13 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] ListAllPersons: List All Persons List all persons which the user is entitled to see.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the people. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the people. Defaults to return the latest version             of each people if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing persons from a previous call to list persons. This             value is returned from the previous call. If a pagination token is provided the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the people. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the people. Defaults to return the latest version              of each people if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing persons from a previous call to list persons. This              value is returned from the previous call. If a pagination token is provided the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 5000 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              For example, to filter on the display name, use \&quot;displayName eq &#39;John&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Person\&quot; domain to decorate onto each person,              or from any domain that supports relationships to decorate onto related entities.             These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the persons in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.               For example, to filter on the display name, use \&quot;displayName eq &#39;John&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Person\&quot; domain to decorate onto each person,               or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the persons in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -4477,13 +4477,13 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the people. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the people. Defaults to return the latest version             of each people if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing persons from a previous call to list persons. This             value is returned from the previous call. If a pagination token is provided the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the people. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the people. Defaults to return the latest version              of each people if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing persons from a previous call to list persons. This              value is returned from the previous call. If a pagination token is provided the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              For example, to filter on the LUPID, use \&quot;lusidPersonId eq &#39;string&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Person\&quot; domain to decorate onto each person,              or from any domain that supports relationships to decorate onto related entities.             These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the persons in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.               For example, to filter on the LUPID, use \&quot;lusidPersonId eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Person\&quot; domain to decorate onto each person,               or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the persons in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfPerson</returns>
@@ -4499,13 +4499,13 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the people. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the people. Defaults to return the latest version             of each people if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing persons from a previous call to list persons. This             value is returned from the previous call. If a pagination token is provided the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the people. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the people. Defaults to return the latest version              of each people if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing persons from a previous call to list persons. This              value is returned from the previous call. If a pagination token is provided the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              For example, to filter on the LUPID, use \&quot;lusidPersonId eq &#39;string&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Person\&quot; domain to decorate onto each person,              or from any domain that supports relationships to decorate onto related entities.             These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the persons in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.               For example, to filter on the LUPID, use \&quot;lusidPersonId eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Person\&quot; domain to decorate onto each person,               or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the persons in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfPerson</returns>
@@ -4628,13 +4628,13 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the people. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the people. Defaults to return the latest version             of each people if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing persons from a previous call to list persons. This             value is returned from the previous call. If a pagination token is provided the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the people. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the people. Defaults to return the latest version              of each people if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing persons from a previous call to list persons. This              value is returned from the previous call. If a pagination token is provided the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              For example, to filter on the LUPID, use \&quot;lusidPersonId eq &#39;string&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Person\&quot; domain to decorate onto each person,              or from any domain that supports relationships to decorate onto related entities.             These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the persons in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.               For example, to filter on the LUPID, use \&quot;lusidPersonId eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Person\&quot; domain to decorate onto each person,               or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the persons in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -4651,13 +4651,13 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the people. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the people. Defaults to return the latest version             of each people if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing persons from a previous call to list persons. This             value is returned from the previous call. If a pagination token is provided the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the people. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the people. Defaults to return the latest version              of each people if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing persons from a previous call to list persons. This              value is returned from the previous call. If a pagination token is provided the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              For example, to filter on the LUPID, use \&quot;lusidPersonId eq &#39;string&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Person\&quot; domain to decorate onto each person,              or from any domain that supports relationships to decorate onto related entities.             These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the persons in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.               For example, to filter on the LUPID, use \&quot;lusidPersonId eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Person\&quot; domain to decorate onto each person,               or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;Person/ContactDetails/Address\&quot;. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the persons in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -4778,7 +4778,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] PatchPersonAccessMetadata: Patch Access Metadata rules for a Person. Patch Person Access Metadata Rules in a single scope. The behaviour is defined by the JSON Patch specification.              Currently only &#39;add&#39; is a supported operation on the patch document.  Currently only valid metadata keys are supported paths on the patch document.              The response will return any affected Person Access Metadata rules or a failure message if unsuccessful.              It is important to always check to verify success (or failure).              Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
+        /// [EARLY ACCESS] PatchPersonAccessMetadata: Patch Access Metadata rules for a Person. Patch Person Access Metadata Rules in a single scope.  The behaviour is defined by the JSON Patch specification.                Currently only &#39;add&#39; is a supported operation on the patch document.    Currently only valid metadata keys are supported paths on the patch document.                The response will return any affected Person Access Metadata rules or a failure message if unsuccessful.                It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier.</param>
@@ -4797,7 +4797,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] PatchPersonAccessMetadata: Patch Access Metadata rules for a Person. Patch Person Access Metadata Rules in a single scope. The behaviour is defined by the JSON Patch specification.              Currently only &#39;add&#39; is a supported operation on the patch document.  Currently only valid metadata keys are supported paths on the patch document.              The response will return any affected Person Access Metadata rules or a failure message if unsuccessful.              It is important to always check to verify success (or failure).              Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
+        /// [EARLY ACCESS] PatchPersonAccessMetadata: Patch Access Metadata rules for a Person. Patch Person Access Metadata Rules in a single scope.  The behaviour is defined by the JSON Patch specification.                Currently only &#39;add&#39; is a supported operation on the patch document.    Currently only valid metadata keys are supported paths on the patch document.                The response will return any affected Person Access Metadata rules or a failure message if unsuccessful.                It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier.</param>
@@ -4921,7 +4921,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] PatchPersonAccessMetadata: Patch Access Metadata rules for a Person. Patch Person Access Metadata Rules in a single scope. The behaviour is defined by the JSON Patch specification.              Currently only &#39;add&#39; is a supported operation on the patch document.  Currently only valid metadata keys are supported paths on the patch document.              The response will return any affected Person Access Metadata rules or a failure message if unsuccessful.              It is important to always check to verify success (or failure).              Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
+        /// [EARLY ACCESS] PatchPersonAccessMetadata: Patch Access Metadata rules for a Person. Patch Person Access Metadata Rules in a single scope.  The behaviour is defined by the JSON Patch specification.                Currently only &#39;add&#39; is a supported operation on the patch document.    Currently only valid metadata keys are supported paths on the patch document.                The response will return any affected Person Access Metadata rules or a failure message if unsuccessful.                It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier.</param>
@@ -4941,7 +4941,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] PatchPersonAccessMetadata: Patch Access Metadata rules for a Person. Patch Person Access Metadata Rules in a single scope. The behaviour is defined by the JSON Patch specification.              Currently only &#39;add&#39; is a supported operation on the patch document.  Currently only valid metadata keys are supported paths on the patch document.              The response will return any affected Person Access Metadata rules or a failure message if unsuccessful.              It is important to always check to verify success (or failure).              Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
+        /// [EARLY ACCESS] PatchPersonAccessMetadata: Patch Access Metadata rules for a Person. Patch Person Access Metadata Rules in a single scope.  The behaviour is defined by the JSON Patch specification.                Currently only &#39;add&#39; is a supported operation on the patch document.    Currently only valid metadata keys are supported paths on the patch document.                The response will return any affected Person Access Metadata rules or a failure message if unsuccessful.                It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier.</param>
@@ -5073,7 +5073,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
-        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely             identifies the person.</param>
+        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the person.</param>
         /// <param name="setPersonIdentifiersRequest">Request containing identifiers to set for the person. Identifiers not specified in request will not be changed.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -5090,7 +5090,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
-        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely             identifies the person.</param>
+        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the person.</param>
         /// <param name="setPersonIdentifiersRequest">Request containing identifiers to set for the person. Identifiers not specified in request will not be changed.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -5204,7 +5204,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
-        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely             identifies the person.</param>
+        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the person.</param>
         /// <param name="setPersonIdentifiersRequest">Request containing identifiers to set for the person. Identifiers not specified in request will not be changed.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -5222,7 +5222,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
-        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely             identifies the person.</param>
+        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the person.</param>
         /// <param name="setPersonIdentifiersRequest">Request containing identifiers to set for the person. Identifiers not specified in request will not be changed.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -5339,7 +5339,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
-        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely             identifies the person.</param>
+        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the person.</param>
         /// <param name="setPersonPropertiesRequest">Request containing properties to set for the person. Properties not specified in request will not be changed.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -5356,7 +5356,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
-        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely             identifies the person.</param>
+        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the person.</param>
         /// <param name="setPersonPropertiesRequest">Request containing properties to set for the person. Properties not specified in request will not be changed.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -5470,7 +5470,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
-        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely             identifies the person.</param>
+        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the person.</param>
         /// <param name="setPersonPropertiesRequest">Request containing properties to set for the person. Properties not specified in request will not be changed.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -5488,7 +5488,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier type.</param>
         /// <param name="idTypeCode">Code of the person identifier type.</param>
-        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely             identifies the person.</param>
+        /// <param name="code">Code of the person under specified identifier type&#39;s scope and code. This together with stated identifier type uniquely              identifies the person.</param>
         /// <param name="setPersonPropertiesRequest">Request containing properties to set for the person. Properties not specified in request will not be changed.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -5812,7 +5812,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertPersonAccessMetadata: Upsert a Person Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID. Update or insert one Person Access Metadata entry in a single scope. An item will be updated if it already exists and inserted if it does not.              The response will return the successfully updated or inserted Person Access Metadata rule or failure message if unsuccessful.              It is important to always check to verify success (or failure).              Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
+        /// [EARLY ACCESS] UpsertPersonAccessMetadata: Upsert a Person Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID. Update or insert one Person Access Metadata entry in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted Person Access Metadata rule or failure message if unsuccessful.                It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier.</param>
@@ -5832,7 +5832,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertPersonAccessMetadata: Upsert a Person Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID. Update or insert one Person Access Metadata entry in a single scope. An item will be updated if it already exists and inserted if it does not.              The response will return the successfully updated or inserted Person Access Metadata rule or failure message if unsuccessful.              It is important to always check to verify success (or failure).              Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
+        /// [EARLY ACCESS] UpsertPersonAccessMetadata: Upsert a Person Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID. Update or insert one Person Access Metadata entry in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted Person Access Metadata rule or failure message if unsuccessful.                It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier.</param>
@@ -5964,7 +5964,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertPersonAccessMetadata: Upsert a Person Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID. Update or insert one Person Access Metadata entry in a single scope. An item will be updated if it already exists and inserted if it does not.              The response will return the successfully updated or inserted Person Access Metadata rule or failure message if unsuccessful.              It is important to always check to verify success (or failure).              Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
+        /// [EARLY ACCESS] UpsertPersonAccessMetadata: Upsert a Person Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID. Update or insert one Person Access Metadata entry in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted Person Access Metadata rule or failure message if unsuccessful.                It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier.</param>
@@ -5985,7 +5985,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertPersonAccessMetadata: Upsert a Person Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID. Update or insert one Person Access Metadata entry in a single scope. An item will be updated if it already exists and inserted if it does not.              The response will return the successfully updated or inserted Person Access Metadata rule or failure message if unsuccessful.              It is important to always check to verify success (or failure).              Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
+        /// [EARLY ACCESS] UpsertPersonAccessMetadata: Upsert a Person Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID. Update or insert one Person Access Metadata entry in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted Person Access Metadata rule or failure message if unsuccessful.                It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the person identifier.</param>

@@ -18,7 +18,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 GetCustomEntityByEntityUniqueId: Get a Custom Entity instance by its EntityUniqueId
 
-Retrieve a particular Custom Entity instance. If the Custom Entity is deleted, this will return the state of the Custom Entity immediately prior to deletion.
+Retrieve a particular Custom Entity instance.  If the Custom Entity is deleted, this will return the state of the Custom Entity immediately prior to deletion.
 
 ### Example
 ```csharp
@@ -138,7 +138,7 @@ catch (ApiException e)
 
 GetDataTypeByEntityUniqueId: Get DataType by EntityUniqueId
 
-Retrieve the definition of a particular DataType. If the DataType is deleted, this will return the state of the DataType immediately prior to deletion.
+Retrieve the definition of a particular DataType.  If the DataType is deleted, this will return the state of the DataType immediately prior to deletion.
 
 ### Example
 ```csharp
@@ -300,9 +300,9 @@ namespace Examples
             var entityType = "entityType_example";  // string | The type of the entity to list the change history for.
             var entityUniqueId = "entityUniqueId_example";  // string | The universally unique identifier of the entity.
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list change history information. Defaults to return the change history at the latest datetime if not specified. (optional) 
-            var page = "page_example";  // string? | The pagination token to use to continue listing change history information from a previous call to list change             history information. This value is returned from the previous call. If a pagination token is provided the filter, sortBy             and asAt fields must not have changed since the original request. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing change history information from a previous call to list change              history information. This value is returned from the previous call. If a pagination token is provided the filter, sortBy              and asAt fields must not have changed since the original request. (optional) 
             var limit = 56;  // int? | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional) 
-            var filter = "filter_example";  // string? | Expression to filter the result set.             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
             var sortBy = new List<string>?(); // List<string>? | A list of field names suffixed by \" ASC\" or \" DESC\" (optional) 
 
             try
@@ -352,9 +352,9 @@ catch (ApiException e)
 | **entityType** | **string** | The type of the entity to list the change history for. |  |
 | **entityUniqueId** | **string** | The universally unique identifier of the entity. |  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to list change history information. Defaults to return the change history at the latest datetime if not specified. | [optional]  |
-| **page** | **string?** | The pagination token to use to continue listing change history information from a previous call to list change             history information. This value is returned from the previous call. If a pagination token is provided the filter, sortBy             and asAt fields must not have changed since the original request. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing change history information from a previous call to list change              history information. This value is returned from the previous call. If a pagination token is provided the filter, sortBy              and asAt fields must not have changed since the original request. | [optional]  |
 | **limit** | **int?** | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. | [optional]  |
-| **filter** | **string?** | Expression to filter the result set.             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
+| **filter** | **string?** | Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
 | **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; | [optional]  |
 
 ### Return type
@@ -382,7 +382,7 @@ catch (ApiException e)
 
 GetInstrumentByEntityUniqueId: Get instrument by EntityUniqueId
 
-Retrieve the definition of a particular instrument. If the instrument is deleted, this will return the state of the instrument immediately prior to deletion.
+Retrieve the definition of a particular instrument.  If the instrument is deleted, this will return the state of the instrument immediately prior to deletion.
 
 ### Example
 ```csharp
@@ -502,7 +502,7 @@ catch (ApiException e)
 
 GetPortfolioByEntityUniqueId: Get portfolio by EntityUniqueId
 
-Retrieve the definition of a particular portfolio. If the portfolio is deleted, this will return the state of the portfolio immediately prior to deletion.
+Retrieve the definition of a particular portfolio.  If the portfolio is deleted, this will return the state of the portfolio immediately prior to deletion.
 
 ### Example
 ```csharp
@@ -622,7 +622,7 @@ catch (ApiException e)
 
 GetPortfolioChanges: Get the next change to each portfolio in a scope.
 
-Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time. Includes changes from parent portfolios in different scopes. Excludes changes from subscriptions (e.g corporate actions).
+Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time.  Includes changes from parent portfolios in different scopes.  Excludes changes from subscriptions (e.g corporate actions).
 
 ### Example
 ```csharp
@@ -740,7 +740,7 @@ catch (ApiException e)
 
 GetPropertyDefinitionByEntityUniqueId: Get property definition by EntityUniqueId
 
-Retrieve a particular property definition. If the property definition is deleted, this will return the state of the property definition immediately prior to deletion.
+Retrieve a particular property definition.  If the property definition is deleted, this will return the state of the property definition immediately prior to deletion.
 
 ### Example
 ```csharp

@@ -37,7 +37,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="OptionExerciseElection" /> class.
         /// </summary>
         /// <param name="electionKey">Unique key associated to this election (required).</param>
-        /// <param name="isDefault">Is this election automatically applied in the absence of an election having been made. May only be true for one election if multiple are provided..</param>
+        /// <param name="isDefault">Is this election automatically applied in the absence of an election having been made.  May only be true for one election if multiple are provided..</param>
         /// <param name="isChosen">Is this the election that has been explicitly chosen from multiple options..</param>
         public OptionExerciseElection(string electionKey = default(string), bool isDefault = default(bool), bool isChosen = default(bool))
         {
@@ -59,9 +59,9 @@ namespace Lusid.Sdk.Model
         public string ElectionKey { get; set; }
 
         /// <summary>
-        /// Is this election automatically applied in the absence of an election having been made. May only be true for one election if multiple are provided.
+        /// Is this election automatically applied in the absence of an election having been made.  May only be true for one election if multiple are provided.
         /// </summary>
-        /// <value>Is this election automatically applied in the absence of an election having been made. May only be true for one election if multiple are provided.</value>
+        /// <value>Is this election automatically applied in the absence of an election having been made.  May only be true for one election if multiple are provided.</value>
         [DataMember(Name = "isDefault", EmitDefaultValue = true)]
         public bool IsDefault { get; set; }
 

@@ -39,7 +39,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="AppendFxForwardCurveByQuoteReference" /> class.
         /// </summary>
         /// <param name="tenor">Tenor for which the forward rate applies. (required).</param>
-        /// <param name="quoteReference">A collection of identifiers for the tenor, which will be used to query the LUSID Quote Store to resolve the actual rates. The keys must be chosen from the following enumeration: [LusidInstrumentId, Isin, Sedol, Cusip, ClientInternal, Figi, RIC, QuotePermId, REDCode, BBGId, ICECode].  For example:  \&quot;quoteReference\&quot;: {\&quot;ClientInternal\&quot;: \&quot;SomeIdentifierForTenor\&quot;} (required).</param>
+        /// <param name="quoteReference">A collection of identifiers for the tenor, which will be used to query the LUSID Quote Store to resolve the actual rates.  The keys must be chosen from the following enumeration:  [LusidInstrumentId, Isin, Sedol, Cusip, ClientInternal, Figi, RIC, QuotePermId, REDCode, BBGId, ICECode].    For example:    \&quot;quoteReference\&quot;: {\&quot;ClientInternal\&quot;: \&quot;SomeIdentifierForTenor\&quot;} (required).</param>
         /// <param name="marketDataType">The available values are: AppendFxForwardCurveByQuoteReference, AppendFxForwardCurveData, AppendFxForwardPipsCurveData, AppendFxForwardTenorCurveData, AppendFxForwardTenorPipsCurveData (required) (default to &quot;AppendFxForwardCurveByQuoteReference&quot;).</param>
         public AppendFxForwardCurveByQuoteReference(string tenor = default(string), Dictionary<string, string> quoteReference = default(Dictionary<string, string>), MarketDataTypeEnum marketDataType = default(MarketDataTypeEnum)) : base(marketDataType)
         {
@@ -65,9 +65,9 @@ namespace Lusid.Sdk.Model
         public string Tenor { get; set; }
 
         /// <summary>
-        /// A collection of identifiers for the tenor, which will be used to query the LUSID Quote Store to resolve the actual rates. The keys must be chosen from the following enumeration: [LusidInstrumentId, Isin, Sedol, Cusip, ClientInternal, Figi, RIC, QuotePermId, REDCode, BBGId, ICECode].  For example:  \&quot;quoteReference\&quot;: {\&quot;ClientInternal\&quot;: \&quot;SomeIdentifierForTenor\&quot;}
+        /// A collection of identifiers for the tenor, which will be used to query the LUSID Quote Store to resolve the actual rates.  The keys must be chosen from the following enumeration:  [LusidInstrumentId, Isin, Sedol, Cusip, ClientInternal, Figi, RIC, QuotePermId, REDCode, BBGId, ICECode].    For example:    \&quot;quoteReference\&quot;: {\&quot;ClientInternal\&quot;: \&quot;SomeIdentifierForTenor\&quot;}
         /// </summary>
-        /// <value>A collection of identifiers for the tenor, which will be used to query the LUSID Quote Store to resolve the actual rates. The keys must be chosen from the following enumeration: [LusidInstrumentId, Isin, Sedol, Cusip, ClientInternal, Figi, RIC, QuotePermId, REDCode, BBGId, ICECode].  For example:  \&quot;quoteReference\&quot;: {\&quot;ClientInternal\&quot;: \&quot;SomeIdentifierForTenor\&quot;}</value>
+        /// <value>A collection of identifiers for the tenor, which will be used to query the LUSID Quote Store to resolve the actual rates.  The keys must be chosen from the following enumeration:  [LusidInstrumentId, Isin, Sedol, Cusip, ClientInternal, Figi, RIC, QuotePermId, REDCode, BBGId, ICECode].    For example:    \&quot;quoteReference\&quot;: {\&quot;ClientInternal\&quot;: \&quot;SomeIdentifierForTenor\&quot;}</value>
         [DataMember(Name = "quoteReference", IsRequired = true, EmitDefaultValue = true)]
         public Dictionary<string, string> QuoteReference { get; set; }
 

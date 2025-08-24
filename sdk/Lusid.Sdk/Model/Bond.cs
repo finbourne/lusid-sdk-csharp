@@ -39,16 +39,16 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="Bond" /> class.
         /// </summary>
         /// <param name="startDate">The Start date of the bond, this is normally when accrual of the first coupon begins. (required).</param>
-        /// <param name="maturityDate">The Maturity date of the bond, this is when the last coupon accrual period ends. Note that while most bonds have their last payment on this date there are some cases where the final payment is the next working day. (required).</param>
+        /// <param name="maturityDate">The Maturity date of the bond, this is when the last coupon accrual period ends.  Note that while most bonds have their last payment on this date there are some cases where the final payment is the next working day. (required).</param>
         /// <param name="domCcy">The domestic currency of the instrument. This should be the same as the Currency set on the FlowConventions. (required).</param>
         /// <param name="flowConventions">flowConventions (required).</param>
-        /// <param name="principal">The face-value or principal for the bond at outset. This might be reduced through its lifetime in the event of amortisation or similar. (required).</param>
+        /// <param name="principal">The face-value or principal for the bond at outset.  This might be reduced through its lifetime in the event of amortisation or similar. (required).</param>
         /// <param name="couponRate">Simple coupon rate. (required).</param>
         /// <param name="identifiers">External market codes and identifiers for the bond, e.g. ISIN..</param>
-        /// <param name="exDividendDays">Optional. Number of calendar days in the ex-dividend period. If the settlement date falls in the ex-dividend period then the coupon paid is zero and the accrued interest is negative. If set, this must be a non-negative number. If not set, or set to 0, then there is no ex-dividend period.              NOTE: This field is deprecated.  If you wish to set the ExDividendDays on a bond, please use the ExDividendConfiguration..</param>
+        /// <param name="exDividendDays">Optional. Number of calendar days in the ex-dividend period.  If the settlement date falls in the ex-dividend period then the coupon paid is zero and the accrued interest is negative.  If set, this must be a non-negative number.  If not set, or set to 0, then there is no ex-dividend period.                NOTE: This field is deprecated.  If you wish to set the ExDividendDays on a bond, please use the ExDividendConfiguration..</param>
         /// <param name="initialCouponDate">Optional and to be DEPRECATED. If set, this is the date at which the bond begins to accrue interest. Instead, this information should be entered in the field StartDate..</param>
-        /// <param name="firstCouponPayDate">The date that the first coupon of the bond is paid. This is required for bonds that have a long first coupon or short first coupon. The first coupon pay date is used as an anchor to compare with the start date and determine if this is a long/short coupon period..</param>
-        /// <param name="calculationType">The calculation type applied to the bond coupon amount. This is required for bonds that have a particular type of computing the period coupon, such as simple compounding, irregular coupons etc. The default CalculationType is &#x60;Standard&#x60;, which returns a coupon amount equal to Principal * Coupon Rate / Coupon Frequency. Coupon Frequency is 12M / Payment Frequency. Payment Frequency can be 1M, 3M, 6M, 12M etc. So Coupon Frequency can be 12, 4, 2, 1 respectively.  Supported string (enumeration) values are: [Standard, DayCountCoupon, NoCalculationFloater, BrazilFixedCoupon, StandardWithCappedAccruedInterest]..</param>
+        /// <param name="firstCouponPayDate">The date that the first coupon of the bond is paid. This is required for bonds that have a long first coupon or short first coupon. The first coupon pay date is used  as an anchor to compare with the start date and determine if this is a long/short coupon period..</param>
+        /// <param name="calculationType">The calculation type applied to the bond coupon amount. This is required for bonds that have a particular type of computing the period coupon, such as simple compounding,  irregular coupons etc.  The default CalculationType is &#x60;Standard&#x60;, which returns a coupon amount equal to Principal * Coupon Rate / Coupon Frequency. Coupon Frequency is 12M / Payment Frequency.  Payment Frequency can be 1M, 3M, 6M, 12M etc. So Coupon Frequency can be 12, 4, 2, 1 respectively.    Supported string (enumeration) values are: [Standard, DayCountCoupon, NoCalculationFloater, BrazilFixedCoupon, StandardWithCappedAccruedInterest]..</param>
         /// <param name="roundingConventions">Rounding conventions for analytics, if any..</param>
         /// <param name="exDividendConfiguration">exDividendConfiguration.</param>
         /// <param name="originalIssuePrice">The price the bond was issued at. This is to be entered as a percentage of par, for example a value of 98.5 would represent 98.5%..</param>
@@ -93,9 +93,9 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset StartDate { get; set; }
 
         /// <summary>
-        /// The Maturity date of the bond, this is when the last coupon accrual period ends. Note that while most bonds have their last payment on this date there are some cases where the final payment is the next working day.
+        /// The Maturity date of the bond, this is when the last coupon accrual period ends.  Note that while most bonds have their last payment on this date there are some cases where the final payment is the next working day.
         /// </summary>
-        /// <value>The Maturity date of the bond, this is when the last coupon accrual period ends. Note that while most bonds have their last payment on this date there are some cases where the final payment is the next working day.</value>
+        /// <value>The Maturity date of the bond, this is when the last coupon accrual period ends.  Note that while most bonds have their last payment on this date there are some cases where the final payment is the next working day.</value>
         [DataMember(Name = "maturityDate", IsRequired = true, EmitDefaultValue = true)]
         public DateTimeOffset MaturityDate { get; set; }
 
@@ -113,9 +113,9 @@ namespace Lusid.Sdk.Model
         public FlowConventions FlowConventions { get; set; }
 
         /// <summary>
-        /// The face-value or principal for the bond at outset. This might be reduced through its lifetime in the event of amortisation or similar.
+        /// The face-value or principal for the bond at outset.  This might be reduced through its lifetime in the event of amortisation or similar.
         /// </summary>
-        /// <value>The face-value or principal for the bond at outset. This might be reduced through its lifetime in the event of amortisation or similar.</value>
+        /// <value>The face-value or principal for the bond at outset.  This might be reduced through its lifetime in the event of amortisation or similar.</value>
         [DataMember(Name = "principal", IsRequired = true, EmitDefaultValue = true)]
         public decimal Principal { get; set; }
 
@@ -134,9 +134,9 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, string> Identifiers { get; set; }
 
         /// <summary>
-        /// Optional. Number of calendar days in the ex-dividend period. If the settlement date falls in the ex-dividend period then the coupon paid is zero and the accrued interest is negative. If set, this must be a non-negative number. If not set, or set to 0, then there is no ex-dividend period.              NOTE: This field is deprecated.  If you wish to set the ExDividendDays on a bond, please use the ExDividendConfiguration.
+        /// Optional. Number of calendar days in the ex-dividend period.  If the settlement date falls in the ex-dividend period then the coupon paid is zero and the accrued interest is negative.  If set, this must be a non-negative number.  If not set, or set to 0, then there is no ex-dividend period.                NOTE: This field is deprecated.  If you wish to set the ExDividendDays on a bond, please use the ExDividendConfiguration.
         /// </summary>
-        /// <value>Optional. Number of calendar days in the ex-dividend period. If the settlement date falls in the ex-dividend period then the coupon paid is zero and the accrued interest is negative. If set, this must be a non-negative number. If not set, or set to 0, then there is no ex-dividend period.              NOTE: This field is deprecated.  If you wish to set the ExDividendDays on a bond, please use the ExDividendConfiguration.</value>
+        /// <value>Optional. Number of calendar days in the ex-dividend period.  If the settlement date falls in the ex-dividend period then the coupon paid is zero and the accrued interest is negative.  If set, this must be a non-negative number.  If not set, or set to 0, then there is no ex-dividend period.                NOTE: This field is deprecated.  If you wish to set the ExDividendDays on a bond, please use the ExDividendConfiguration.</value>
         [DataMember(Name = "exDividendDays", EmitDefaultValue = true)]
         public int? ExDividendDays { get; set; }
 
@@ -148,16 +148,16 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset? InitialCouponDate { get; set; }
 
         /// <summary>
-        /// The date that the first coupon of the bond is paid. This is required for bonds that have a long first coupon or short first coupon. The first coupon pay date is used as an anchor to compare with the start date and determine if this is a long/short coupon period.
+        /// The date that the first coupon of the bond is paid. This is required for bonds that have a long first coupon or short first coupon. The first coupon pay date is used  as an anchor to compare with the start date and determine if this is a long/short coupon period.
         /// </summary>
-        /// <value>The date that the first coupon of the bond is paid. This is required for bonds that have a long first coupon or short first coupon. The first coupon pay date is used as an anchor to compare with the start date and determine if this is a long/short coupon period.</value>
+        /// <value>The date that the first coupon of the bond is paid. This is required for bonds that have a long first coupon or short first coupon. The first coupon pay date is used  as an anchor to compare with the start date and determine if this is a long/short coupon period.</value>
         [DataMember(Name = "firstCouponPayDate", EmitDefaultValue = true)]
         public DateTimeOffset? FirstCouponPayDate { get; set; }
 
         /// <summary>
-        /// The calculation type applied to the bond coupon amount. This is required for bonds that have a particular type of computing the period coupon, such as simple compounding, irregular coupons etc. The default CalculationType is &#x60;Standard&#x60;, which returns a coupon amount equal to Principal * Coupon Rate / Coupon Frequency. Coupon Frequency is 12M / Payment Frequency. Payment Frequency can be 1M, 3M, 6M, 12M etc. So Coupon Frequency can be 12, 4, 2, 1 respectively.  Supported string (enumeration) values are: [Standard, DayCountCoupon, NoCalculationFloater, BrazilFixedCoupon, StandardWithCappedAccruedInterest].
+        /// The calculation type applied to the bond coupon amount. This is required for bonds that have a particular type of computing the period coupon, such as simple compounding,  irregular coupons etc.  The default CalculationType is &#x60;Standard&#x60;, which returns a coupon amount equal to Principal * Coupon Rate / Coupon Frequency. Coupon Frequency is 12M / Payment Frequency.  Payment Frequency can be 1M, 3M, 6M, 12M etc. So Coupon Frequency can be 12, 4, 2, 1 respectively.    Supported string (enumeration) values are: [Standard, DayCountCoupon, NoCalculationFloater, BrazilFixedCoupon, StandardWithCappedAccruedInterest].
         /// </summary>
-        /// <value>The calculation type applied to the bond coupon amount. This is required for bonds that have a particular type of computing the period coupon, such as simple compounding, irregular coupons etc. The default CalculationType is &#x60;Standard&#x60;, which returns a coupon amount equal to Principal * Coupon Rate / Coupon Frequency. Coupon Frequency is 12M / Payment Frequency. Payment Frequency can be 1M, 3M, 6M, 12M etc. So Coupon Frequency can be 12, 4, 2, 1 respectively.  Supported string (enumeration) values are: [Standard, DayCountCoupon, NoCalculationFloater, BrazilFixedCoupon, StandardWithCappedAccruedInterest].</value>
+        /// <value>The calculation type applied to the bond coupon amount. This is required for bonds that have a particular type of computing the period coupon, such as simple compounding,  irregular coupons etc.  The default CalculationType is &#x60;Standard&#x60;, which returns a coupon amount equal to Principal * Coupon Rate / Coupon Frequency. Coupon Frequency is 12M / Payment Frequency.  Payment Frequency can be 1M, 3M, 6M, 12M etc. So Coupon Frequency can be 12, 4, 2, 1 respectively.    Supported string (enumeration) values are: [Standard, DayCountCoupon, NoCalculationFloater, BrazilFixedCoupon, StandardWithCappedAccruedInterest].</value>
         [DataMember(Name = "calculationType", EmitDefaultValue = true)]
         public string CalculationType { get; set; }
 

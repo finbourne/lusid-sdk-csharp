@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Counterparty Agreement that is to be stored in the convention data store. There must be only one of these present.
+    /// Counterparty Agreement that is to be stored in the convention data store.  There must be only one of these present.
     /// </summary>
     [DataContract(Name = "UpsertCounterpartyAgreementRequest")]
     public partial class UpsertCounterpartyAgreementRequest : IEquatable<UpsertCounterpartyAgreementRequest>, IValidatableObject

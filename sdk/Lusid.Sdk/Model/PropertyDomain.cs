@@ -23,9 +23,9 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// See https://wiki.finbourne.com/information/domain-model-properties              Each domain refers to a logical set of properties which reside within it.
+    /// See https://wiki.finbourne.com/information/domain-model-properties                Each domain refers to a logical set of properties which reside within it.
     /// </summary>
-    /// <value>See https://wiki.finbourne.com/information/domain-model-properties              Each domain refers to a logical set of properties which reside within it.</value>
+    /// <value>See https://wiki.finbourne.com/information/domain-model-properties                Each domain refers to a logical set of properties which reside within it.</value>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum PropertyDomain
     {

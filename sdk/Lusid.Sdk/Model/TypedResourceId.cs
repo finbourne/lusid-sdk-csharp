@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Represents the user-defined identifier for a Legal Entity or Person. Users can define their own, scoped identifiers for Legal Entities and Persons using identifier properties. For example, when used to identify a Person, the identifier defined by Person/myScope/username would be represented as  {    \&quot;idTypeScope\&quot;: \&quot;myScope\&quot;,    \&quot;idTypeCode\&quot;: \&quot;username\&quot;,    \&quot;code\&quot;: \&quot;john_doe_001\&quot;  }
+    /// Represents the user-defined identifier for a Legal Entity or Person.  Users can define their own, scoped identifiers for Legal Entities and Persons using identifier properties.  For example,  when used to identify a Person, the identifier defined by Person/myScope/username would be represented as   {     \&quot;idTypeScope\&quot;: \&quot;myScope\&quot;,     \&quot;idTypeCode\&quot;: \&quot;username\&quot;,     \&quot;code\&quot;: \&quot;john_doe_001\&quot;   }
     /// </summary>
     [DataContract(Name = "TypedResourceId")]
     public partial class TypedResourceId : IEquatable<TypedResourceId>, IValidatableObject
@@ -37,7 +37,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="TypedResourceId" /> class.
         /// </summary>
         /// <param name="idTypeScope">The scope of the identifier&#39;s (property) definition. (required).</param>
-        /// <param name="idTypeCode">The code of identifier&#39;s (property) definition. This describes what the identifier represents. For a Person this might be a username, nationalInsuranceNumber or similar. For a Legal Entity, this might be a registeredCompanyNumber or LEI. (required).</param>
+        /// <param name="idTypeCode">The code of identifier&#39;s (property) definition. This describes what the identifier represents.  For a Person this might be a username, nationalInsuranceNumber or similar.  For a Legal Entity, this might be a registeredCompanyNumber or LEI. (required).</param>
         /// <param name="code">The value of the user-defined identifier in respect of the entity. (required).</param>
         public TypedResourceId(string idTypeScope = default(string), string idTypeCode = default(string), string code = default(string))
         {
@@ -69,9 +69,9 @@ namespace Lusid.Sdk.Model
         public string IdTypeScope { get; set; }
 
         /// <summary>
-        /// The code of identifier&#39;s (property) definition. This describes what the identifier represents. For a Person this might be a username, nationalInsuranceNumber or similar. For a Legal Entity, this might be a registeredCompanyNumber or LEI.
+        /// The code of identifier&#39;s (property) definition. This describes what the identifier represents.  For a Person this might be a username, nationalInsuranceNumber or similar.  For a Legal Entity, this might be a registeredCompanyNumber or LEI.
         /// </summary>
-        /// <value>The code of identifier&#39;s (property) definition. This describes what the identifier represents. For a Person this might be a username, nationalInsuranceNumber or similar. For a Legal Entity, this might be a registeredCompanyNumber or LEI.</value>
+        /// <value>The code of identifier&#39;s (property) definition. This describes what the identifier represents.  For a Person this might be a username, nationalInsuranceNumber or similar.  For a Legal Entity, this might be a registeredCompanyNumber or LEI.</value>
         [DataMember(Name = "idTypeCode", IsRequired = true, EmitDefaultValue = true)]
         public string IdTypeCode { get; set; }
 

@@ -31,9 +31,9 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AggregationOptions" /> class.
         /// </summary>
-        /// <param name="useAnsiLikeSyntax">Should the aggregation behave like ANSI Sql or MySql with respect to a conceptual request which is equivalent to \&quot;select a,sum(a) from results\&quot;; ANSI Sql would report an error if a was not unique where MySql would simply view a,suma(a) as equivalent to firstof(a),sum(a)..</param>
-        /// <param name="allowPartialEntitlementSuccess">In the case of valuing a portfolio group where some, but not all entitlements fail, should the aggregation return the valuations applied only to those portfolios where entitlements checks succeeded..</param>
-        /// <param name="applyIso4217Rounding">Various results that are units of currency might need to be rounded. This will round according to the ISO4217 standard number of decimal places for a currency..</param>
+        /// <param name="useAnsiLikeSyntax">Should the aggregation behave like ANSI Sql or MySql with respect to a conceptual request which is equivalent to \&quot;select a,sum(a) from results\&quot;;  ANSI Sql would report an error if a was not unique where MySql would simply view a,suma(a) as equivalent to firstof(a),sum(a)..</param>
+        /// <param name="allowPartialEntitlementSuccess">In the case of valuing a portfolio group where some, but not all entitlements fail, should the aggregation return the valuations  applied only to those portfolios where entitlements checks succeeded..</param>
+        /// <param name="applyIso4217Rounding">Various results that are units of currency might need to be rounded.  This will round according to the ISO4217 standard number of decimal places for a currency..</param>
         public AggregationOptions(bool useAnsiLikeSyntax = default(bool), bool allowPartialEntitlementSuccess = default(bool), bool applyIso4217Rounding = default(bool))
         {
             this.UseAnsiLikeSyntax = useAnsiLikeSyntax;
@@ -42,23 +42,23 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// Should the aggregation behave like ANSI Sql or MySql with respect to a conceptual request which is equivalent to \&quot;select a,sum(a) from results\&quot;; ANSI Sql would report an error if a was not unique where MySql would simply view a,suma(a) as equivalent to firstof(a),sum(a).
+        /// Should the aggregation behave like ANSI Sql or MySql with respect to a conceptual request which is equivalent to \&quot;select a,sum(a) from results\&quot;;  ANSI Sql would report an error if a was not unique where MySql would simply view a,suma(a) as equivalent to firstof(a),sum(a).
         /// </summary>
-        /// <value>Should the aggregation behave like ANSI Sql or MySql with respect to a conceptual request which is equivalent to \&quot;select a,sum(a) from results\&quot;; ANSI Sql would report an error if a was not unique where MySql would simply view a,suma(a) as equivalent to firstof(a),sum(a).</value>
+        /// <value>Should the aggregation behave like ANSI Sql or MySql with respect to a conceptual request which is equivalent to \&quot;select a,sum(a) from results\&quot;;  ANSI Sql would report an error if a was not unique where MySql would simply view a,suma(a) as equivalent to firstof(a),sum(a).</value>
         [DataMember(Name = "useAnsiLikeSyntax", EmitDefaultValue = true)]
         public bool UseAnsiLikeSyntax { get; set; }
 
         /// <summary>
-        /// In the case of valuing a portfolio group where some, but not all entitlements fail, should the aggregation return the valuations applied only to those portfolios where entitlements checks succeeded.
+        /// In the case of valuing a portfolio group where some, but not all entitlements fail, should the aggregation return the valuations  applied only to those portfolios where entitlements checks succeeded.
         /// </summary>
-        /// <value>In the case of valuing a portfolio group where some, but not all entitlements fail, should the aggregation return the valuations applied only to those portfolios where entitlements checks succeeded.</value>
+        /// <value>In the case of valuing a portfolio group where some, but not all entitlements fail, should the aggregation return the valuations  applied only to those portfolios where entitlements checks succeeded.</value>
         [DataMember(Name = "allowPartialEntitlementSuccess", EmitDefaultValue = true)]
         public bool AllowPartialEntitlementSuccess { get; set; }
 
         /// <summary>
-        /// Various results that are units of currency might need to be rounded. This will round according to the ISO4217 standard number of decimal places for a currency.
+        /// Various results that are units of currency might need to be rounded.  This will round according to the ISO4217 standard number of decimal places for a currency.
         /// </summary>
-        /// <value>Various results that are units of currency might need to be rounded. This will round according to the ISO4217 standard number of decimal places for a currency.</value>
+        /// <value>Various results that are units of currency might need to be rounded.  This will round according to the ISO4217 standard number of decimal places for a currency.</value>
         [DataMember(Name = "applyIso4217Rounding", EmitDefaultValue = true)]
         public bool ApplyIso4217Rounding { get; set; }
 

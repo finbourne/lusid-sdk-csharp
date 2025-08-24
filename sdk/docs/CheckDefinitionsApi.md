@@ -16,7 +16,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 [EXPERIMENTAL] CreateCheckDefinition: Create a Check Definition
 
-Creates a Check Definition. Returns the created Check Definition at the current effectiveAt. Note that Check Definitions are mono-temporal, however they can have Time-Variant Properties. Upserted Properties will be returned at the latest AsAt and EffectiveAt
+Creates a Check Definition. Returns the created Check Definition at the current effectiveAt.  Note that Check Definitions are mono-temporal, however they can have Time-Variant Properties.  Upserted Properties will be returned at the latest AsAt and EffectiveAt
 
 ### Example
 ```csharp
@@ -130,7 +130,7 @@ catch (ApiException e)
 
 [EXPERIMENTAL] DeleteCheckDefinition: Deletes a particular Check Definition
 
-The deletion will take effect from the Check Definition deletion datetime. i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
+The deletion will take effect from the Check Definition deletion datetime.  i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
 
 ### Example
 ```csharp
@@ -172,7 +172,7 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CheckDefinitionsApi>();
             var scope = "scope_example";  // string | The scope of the specified Check Definition.
-            var code = "code_example";  // string | The code of the specified Check Definition. Together with the domain and scope this uniquely             identifies the Check Definition.
+            var code = "code_example";  // string | The code of the specified Check Definition. Together with the domain and scope this uniquely              identifies the Check Definition.
 
             try
             {
@@ -219,7 +219,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **scope** | **string** | The scope of the specified Check Definition. |  |
-| **code** | **string** | The code of the specified Check Definition. Together with the domain and scope this uniquely             identifies the Check Definition. |  |
+| **code** | **string** | The code of the specified Check Definition. Together with the domain and scope this uniquely              identifies the Check Definition. |  |
 
 ### Return type
 
@@ -246,7 +246,7 @@ catch (ApiException e)
 
 [EXPERIMENTAL] GetCheckDefinition: Get a single Check Definition by scope and code.
 
-Retrieves one Check Definition by scope and code. Check Definitions are mono-temporal. The EffectiveAt is only applied to Time-Variant Properties.
+Retrieves one Check Definition by scope and code.  Check Definitions are mono-temporal. The EffectiveAt is only applied to Time-Variant Properties.
 
 ### Example
 ```csharp
@@ -288,10 +288,10 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CheckDefinitionsApi>();
             var scope = "scope_example";  // string | The scope of the specified Check Definition.
-            var code = "code_example";  // string | The code of the specified Check Definition. Together with the scope this uniquely             identifies the Check Definition.
-            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the Check Definition definition. Defaults to return             the latest version of the definition if not specified. (optional) 
-            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to retrieve the check definition properties.             Defaults to the current LUSID system datetime if not specified. (optional) 
-            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'CheckDefinition' domain to decorate onto             the Check Definition.             These must have the format {domain}/{scope}/{code}, for example 'CheckDefinition/system/Name'. (optional) 
+            var code = "code_example";  // string | The code of the specified Check Definition. Together with the scope this uniquely              identifies the Check Definition.
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the Check Definition definition. Defaults to return              the latest version of the definition if not specified. (optional) 
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to retrieve the check definition properties.              Defaults to the current LUSID system datetime if not specified. (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'CheckDefinition' domain to decorate onto              the Check Definition.              These must have the format {domain}/{scope}/{code}, for example 'CheckDefinition/system/Name'. (optional) 
 
             try
             {
@@ -338,10 +338,10 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **scope** | **string** | The scope of the specified Check Definition. |  |
-| **code** | **string** | The code of the specified Check Definition. Together with the scope this uniquely             identifies the Check Definition. |  |
-| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the Check Definition definition. Defaults to return             the latest version of the definition if not specified. | [optional]  |
-| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to retrieve the check definition properties.             Defaults to the current LUSID system datetime if not specified. | [optional]  |
-| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;CheckDefinition&#39; domain to decorate onto             the Check Definition.             These must have the format {domain}/{scope}/{code}, for example &#39;CheckDefinition/system/Name&#39;. | [optional]  |
+| **code** | **string** | The code of the specified Check Definition. Together with the scope this uniquely              identifies the Check Definition. |  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the Check Definition definition. Defaults to return              the latest version of the definition if not specified. | [optional]  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to retrieve the check definition properties.              Defaults to the current LUSID system datetime if not specified. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;CheckDefinition&#39; domain to decorate onto              the Check Definition.              These must have the format {domain}/{scope}/{code}, for example &#39;CheckDefinition/system/Name&#39;. | [optional]  |
 
 ### Return type
 
@@ -410,12 +410,12 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CheckDefinitionsApi>();
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the Check Definitions. Defaults to returning the latest version of each Check Definition if not specified. (optional) 
-            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to list the Check Definitions.             Note that Check Definitions are monotemporal, the effectiveAt is for Timevariant Properties on the Check Definition only.             Defaults to the current LUSID system datetime if not specified. (optional) 
-            var page = "page_example";  // string? | The pagination token to use to continue listing Check Definitions; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional) 
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to list the Check Definitions.              Note that Check Definitions are monotemporal, the effectiveAt is for Timevariant Properties on the Check Definition only.              Defaults to the current LUSID system datetime if not specified. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing Check Definitions; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional) 
             var limit = 56;  // int? | When paginating, limit the results to this number. Defaults to 100 if not specified. (optional) 
-            var filter = "filter_example";  // string? | Expression to filter the results.             For example, to filter on the displayName, specify \"displayName eq 'MyCheckDefinition'\". For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the results.              For example, to filter on the displayName, specify \"displayName eq 'MyCheckDefinition'\". For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional) 
             var sortBy = new List<string>?(); // List<string>? | A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\" (optional) 
-            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'CheckDefinition' domain to decorate onto each Check Definition.             These must take the format {domain}/{scope}/{code}, for example 'CheckDefinition/Account/id'. (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'CheckDefinition' domain to decorate onto each Check Definition.              These must take the format {domain}/{scope}/{code}, for example 'CheckDefinition/Account/id'. (optional) 
 
             try
             {
@@ -462,12 +462,12 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to list the Check Definitions. Defaults to returning the latest version of each Check Definition if not specified. | [optional]  |
-| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to list the Check Definitions.             Note that Check Definitions are monotemporal, the effectiveAt is for Timevariant Properties on the Check Definition only.             Defaults to the current LUSID system datetime if not specified. | [optional]  |
-| **page** | **string?** | The pagination token to use to continue listing Check Definitions; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. | [optional]  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to list the Check Definitions.              Note that Check Definitions are monotemporal, the effectiveAt is for Timevariant Properties on the Check Definition only.              Defaults to the current LUSID system datetime if not specified. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing Check Definitions; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. | [optional]  |
 | **limit** | **int?** | When paginating, limit the results to this number. Defaults to 100 if not specified. | [optional]  |
-| **filter** | **string?** | Expression to filter the results.             For example, to filter on the displayName, specify \&quot;displayName eq &#39;MyCheckDefinition&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional]  |
+| **filter** | **string?** | Expression to filter the results.              For example, to filter on the displayName, specify \&quot;displayName eq &#39;MyCheckDefinition&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional]  |
 | **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; | [optional]  |
-| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;CheckDefinition&#39; domain to decorate onto each Check Definition.             These must take the format {domain}/{scope}/{code}, for example &#39;CheckDefinition/Account/id&#39;. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;CheckDefinition&#39; domain to decorate onto each Check Definition.              These must take the format {domain}/{scope}/{code}, for example &#39;CheckDefinition/Account/id&#39;. | [optional]  |
 
 ### Return type
 
@@ -494,7 +494,7 @@ catch (ApiException e)
 
 [EXPERIMENTAL] UpdateCheckDefinition: Update Check Definition defined by scope and code
 
-Overwrites an existing Check Definition Update request has the same required fields as Create apart from the id. Returns the updated Check Definition at the current effectiveAt. Note that Check Definitions are mono-temporal, however they can have Time-Variant Properties. Updated Properties will be returned at the latest AsAt and EffectiveAt
+Overwrites an existing Check Definition  Update request has the same required fields as Create apart from the id.  Returns the updated Check Definition at the current effectiveAt.  Note that Check Definitions are mono-temporal, however they can have Time-Variant Properties.  Updated Properties will be returned at the latest AsAt and EffectiveAt
 
 ### Example
 ```csharp

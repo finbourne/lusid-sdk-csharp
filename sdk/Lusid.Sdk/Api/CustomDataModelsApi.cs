@@ -35,7 +35,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] BatchAmend: Batch amend entities Custom Data Model membership.
         /// </summary>
         /// <remarks>
-        /// Add/Remove entities to/from a Custom Data Model in a single operation.              Each amendment request must be keyed by a unique correlation ID.  This id is ephemeral and is not stored by LUSID. It serves only as a way to easily identify each amendment in the response.              Note: If using partial failure modes, then it is important to check the response body for failures as any failures will still return a 200 status code.
+        /// Add/Remove entities to/from a Custom Data Model in a single operation.                Each amendment request must be keyed by a unique correlation ID.  This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each amendment in the response.                Note: If using partial failure modes, then it is important to check the response body for failures as any  failures will still return a 200 status code.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial.</param>
@@ -49,7 +49,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] BatchAmend: Batch amend entities Custom Data Model membership.
         /// </summary>
         /// <remarks>
-        /// Add/Remove entities to/from a Custom Data Model in a single operation.              Each amendment request must be keyed by a unique correlation ID.  This id is ephemeral and is not stored by LUSID. It serves only as a way to easily identify each amendment in the response.              Note: If using partial failure modes, then it is important to check the response body for failures as any failures will still return a 200 status code.
+        /// Add/Remove entities to/from a Custom Data Model in a single operation.                Each amendment request must be keyed by a unique correlation ID.  This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each amendment in the response.                Note: If using partial failure modes, then it is important to check the response body for failures as any  failures will still return a 200 status code.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial.</param>
@@ -89,7 +89,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] DeleteCustomDataModel: Delete a Custom Data Model
         /// </summary>
         /// <remarks>
-        /// Delete a Custom Data Model. The data model will remain viewable at previous as at times, but will no longer be part of any hierarchies.
+        /// Delete a Custom Data Model. The data model will remain viewable at previous as at times, but will no longer  be part of any hierarchies.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The entity type of the Data Model.</param>
@@ -104,7 +104,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] DeleteCustomDataModel: Delete a Custom Data Model
         /// </summary>
         /// <remarks>
-        /// Delete a Custom Data Model. The data model will remain viewable at previous as at times, but will no longer be part of any hierarchies.
+        /// Delete a Custom Data Model. The data model will remain viewable at previous as at times, but will no longer  be part of any hierarchies.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The entity type of the Data Model.</param>
@@ -124,7 +124,7 @@ namespace Lusid.Sdk.Api
         /// <param name="entityType">The entity type of the Data Model.</param>
         /// <param name="scope">The scope of the specified Data Model.</param>
         /// <param name="code">The code of the specified Data Model.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Data Model. Defaults to return             the latest version of the Data Model if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Data Model. Defaults to return              the latest version of the Data Model if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>CustomDataModel</returns>
@@ -140,7 +140,7 @@ namespace Lusid.Sdk.Api
         /// <param name="entityType">The entity type of the Data Model.</param>
         /// <param name="scope">The scope of the specified Data Model.</param>
         /// <param name="code">The code of the specified Data Model.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Data Model. Defaults to return             the latest version of the Data Model if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Data Model. Defaults to return              the latest version of the Data Model if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of CustomDataModel</returns>
@@ -152,7 +152,7 @@ namespace Lusid.Sdk.Api
         /// Lists the data model summaries within their hierarchical structure.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Data Model. Defaults to return             the latest version of the Data Model if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Data Model. Defaults to return              the latest version of the Data Model if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results. Only EntityType is supported (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -166,7 +166,7 @@ namespace Lusid.Sdk.Api
         /// Lists the data model summaries within their hierarchical structure.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Data Model. Defaults to return             the latest version of the Data Model if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Data Model. Defaults to return              the latest version of the Data Model if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results. Only EntityType is supported (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -239,7 +239,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] BatchAmend: Batch amend entities Custom Data Model membership.
         /// </summary>
         /// <remarks>
-        /// Add/Remove entities to/from a Custom Data Model in a single operation.              Each amendment request must be keyed by a unique correlation ID.  This id is ephemeral and is not stored by LUSID. It serves only as a way to easily identify each amendment in the response.              Note: If using partial failure modes, then it is important to check the response body for failures as any failures will still return a 200 status code.
+        /// Add/Remove entities to/from a Custom Data Model in a single operation.                Each amendment request must be keyed by a unique correlation ID.  This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each amendment in the response.                Note: If using partial failure modes, then it is important to check the response body for failures as any  failures will still return a 200 status code.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial.</param>
@@ -254,7 +254,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] BatchAmend: Batch amend entities Custom Data Model membership.
         /// </summary>
         /// <remarks>
-        /// Add/Remove entities to/from a Custom Data Model in a single operation.              Each amendment request must be keyed by a unique correlation ID.  This id is ephemeral and is not stored by LUSID. It serves only as a way to easily identify each amendment in the response.              Note: If using partial failure modes, then it is important to check the response body for failures as any failures will still return a 200 status code.
+        /// Add/Remove entities to/from a Custom Data Model in a single operation.                Each amendment request must be keyed by a unique correlation ID.  This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each amendment in the response.                Note: If using partial failure modes, then it is important to check the response body for failures as any  failures will still return a 200 status code.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial.</param>
@@ -297,7 +297,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] DeleteCustomDataModel: Delete a Custom Data Model
         /// </summary>
         /// <remarks>
-        /// Delete a Custom Data Model. The data model will remain viewable at previous as at times, but will no longer be part of any hierarchies.
+        /// Delete a Custom Data Model. The data model will remain viewable at previous as at times, but will no longer  be part of any hierarchies.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The entity type of the Data Model.</param>
@@ -313,7 +313,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] DeleteCustomDataModel: Delete a Custom Data Model
         /// </summary>
         /// <remarks>
-        /// Delete a Custom Data Model. The data model will remain viewable at previous as at times, but will no longer be part of any hierarchies.
+        /// Delete a Custom Data Model. The data model will remain viewable at previous as at times, but will no longer  be part of any hierarchies.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The entity type of the Data Model.</param>
@@ -334,7 +334,7 @@ namespace Lusid.Sdk.Api
         /// <param name="entityType">The entity type of the Data Model.</param>
         /// <param name="scope">The scope of the specified Data Model.</param>
         /// <param name="code">The code of the specified Data Model.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Data Model. Defaults to return             the latest version of the Data Model if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Data Model. Defaults to return              the latest version of the Data Model if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -351,7 +351,7 @@ namespace Lusid.Sdk.Api
         /// <param name="entityType">The entity type of the Data Model.</param>
         /// <param name="scope">The scope of the specified Data Model.</param>
         /// <param name="code">The code of the specified Data Model.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Data Model. Defaults to return             the latest version of the Data Model if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Data Model. Defaults to return              the latest version of the Data Model if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -364,7 +364,7 @@ namespace Lusid.Sdk.Api
         /// Lists the data model summaries within their hierarchical structure.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Data Model. Defaults to return             the latest version of the Data Model if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Data Model. Defaults to return              the latest version of the Data Model if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results. Only EntityType is supported (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -379,7 +379,7 @@ namespace Lusid.Sdk.Api
         /// Lists the data model summaries within their hierarchical structure.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Data Model. Defaults to return             the latest version of the Data Model if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Data Model. Defaults to return              the latest version of the Data Model if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results. Only EntityType is supported (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -568,7 +568,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] BatchAmend: Batch amend entities Custom Data Model membership. Add/Remove entities to/from a Custom Data Model in a single operation.              Each amendment request must be keyed by a unique correlation ID.  This id is ephemeral and is not stored by LUSID. It serves only as a way to easily identify each amendment in the response.              Note: If using partial failure modes, then it is important to check the response body for failures as any failures will still return a 200 status code.
+        /// [EXPERIMENTAL] BatchAmend: Batch amend entities Custom Data Model membership. Add/Remove entities to/from a Custom Data Model in a single operation.                Each amendment request must be keyed by a unique correlation ID.  This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each amendment in the response.                Note: If using partial failure modes, then it is important to check the response body for failures as any  failures will still return a 200 status code.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial.</param>
@@ -583,7 +583,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] BatchAmend: Batch amend entities Custom Data Model membership. Add/Remove entities to/from a Custom Data Model in a single operation.              Each amendment request must be keyed by a unique correlation ID.  This id is ephemeral and is not stored by LUSID. It serves only as a way to easily identify each amendment in the response.              Note: If using partial failure modes, then it is important to check the response body for failures as any failures will still return a 200 status code.
+        /// [EXPERIMENTAL] BatchAmend: Batch amend entities Custom Data Model membership. Add/Remove entities to/from a Custom Data Model in a single operation.                Each amendment request must be keyed by a unique correlation ID.  This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each amendment in the response.                Note: If using partial failure modes, then it is important to check the response body for failures as any  failures will still return a 200 status code.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial.</param>
@@ -681,7 +681,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] BatchAmend: Batch amend entities Custom Data Model membership. Add/Remove entities to/from a Custom Data Model in a single operation.              Each amendment request must be keyed by a unique correlation ID.  This id is ephemeral and is not stored by LUSID. It serves only as a way to easily identify each amendment in the response.              Note: If using partial failure modes, then it is important to check the response body for failures as any failures will still return a 200 status code.
+        /// [EXPERIMENTAL] BatchAmend: Batch amend entities Custom Data Model membership. Add/Remove entities to/from a Custom Data Model in a single operation.                Each amendment request must be keyed by a unique correlation ID.  This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each amendment in the response.                Note: If using partial failure modes, then it is important to check the response body for failures as any  failures will still return a 200 status code.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial.</param>
@@ -697,7 +697,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] BatchAmend: Batch amend entities Custom Data Model membership. Add/Remove entities to/from a Custom Data Model in a single operation.              Each amendment request must be keyed by a unique correlation ID.  This id is ephemeral and is not stored by LUSID. It serves only as a way to easily identify each amendment in the response.              Note: If using partial failure modes, then it is important to check the response body for failures as any failures will still return a 200 status code.
+        /// [EXPERIMENTAL] BatchAmend: Batch amend entities Custom Data Model membership. Add/Remove entities to/from a Custom Data Model in a single operation.                Each amendment request must be keyed by a unique correlation ID.  This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each amendment in the response.                Note: If using partial failure modes, then it is important to check the response body for failures as any  failures will still return a 200 status code.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial.</param>
@@ -1016,7 +1016,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteCustomDataModel: Delete a Custom Data Model Delete a Custom Data Model. The data model will remain viewable at previous as at times, but will no longer be part of any hierarchies.
+        /// [EXPERIMENTAL] DeleteCustomDataModel: Delete a Custom Data Model Delete a Custom Data Model. The data model will remain viewable at previous as at times, but will no longer  be part of any hierarchies.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The entity type of the Data Model.</param>
@@ -1032,7 +1032,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteCustomDataModel: Delete a Custom Data Model Delete a Custom Data Model. The data model will remain viewable at previous as at times, but will no longer be part of any hierarchies.
+        /// [EXPERIMENTAL] DeleteCustomDataModel: Delete a Custom Data Model Delete a Custom Data Model. The data model will remain viewable at previous as at times, but will no longer  be part of any hierarchies.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The entity type of the Data Model.</param>
@@ -1134,7 +1134,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteCustomDataModel: Delete a Custom Data Model Delete a Custom Data Model. The data model will remain viewable at previous as at times, but will no longer be part of any hierarchies.
+        /// [EXPERIMENTAL] DeleteCustomDataModel: Delete a Custom Data Model Delete a Custom Data Model. The data model will remain viewable at previous as at times, but will no longer  be part of any hierarchies.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The entity type of the Data Model.</param>
@@ -1151,7 +1151,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteCustomDataModel: Delete a Custom Data Model Delete a Custom Data Model. The data model will remain viewable at previous as at times, but will no longer be part of any hierarchies.
+        /// [EXPERIMENTAL] DeleteCustomDataModel: Delete a Custom Data Model Delete a Custom Data Model. The data model will remain viewable at previous as at times, but will no longer  be part of any hierarchies.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The entity type of the Data Model.</param>
@@ -1262,7 +1262,7 @@ namespace Lusid.Sdk.Api
         /// <param name="entityType">The entity type of the Data Model.</param>
         /// <param name="scope">The scope of the specified Data Model.</param>
         /// <param name="code">The code of the specified Data Model.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Data Model. Defaults to return             the latest version of the Data Model if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Data Model. Defaults to return              the latest version of the Data Model if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>CustomDataModel</returns>
@@ -1279,7 +1279,7 @@ namespace Lusid.Sdk.Api
         /// <param name="entityType">The entity type of the Data Model.</param>
         /// <param name="scope">The scope of the specified Data Model.</param>
         /// <param name="code">The code of the specified Data Model.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Data Model. Defaults to return             the latest version of the Data Model if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Data Model. Defaults to return              the latest version of the Data Model if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of CustomDataModel</returns>
@@ -1386,7 +1386,7 @@ namespace Lusid.Sdk.Api
         /// <param name="entityType">The entity type of the Data Model.</param>
         /// <param name="scope">The scope of the specified Data Model.</param>
         /// <param name="code">The code of the specified Data Model.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Data Model. Defaults to return             the latest version of the Data Model if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Data Model. Defaults to return              the latest version of the Data Model if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1404,7 +1404,7 @@ namespace Lusid.Sdk.Api
         /// <param name="entityType">The entity type of the Data Model.</param>
         /// <param name="scope">The scope of the specified Data Model.</param>
         /// <param name="code">The code of the specified Data Model.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Data Model. Defaults to return             the latest version of the Data Model if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Data Model. Defaults to return              the latest version of the Data Model if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1511,7 +1511,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListDataModelHierarchies: List Custom Data Model hierarchies. Lists the data model summaries within their hierarchical structure.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Data Model. Defaults to return             the latest version of the Data Model if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Data Model. Defaults to return              the latest version of the Data Model if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results. Only EntityType is supported (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1526,7 +1526,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListDataModelHierarchies: List Custom Data Model hierarchies. Lists the data model summaries within their hierarchical structure.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Data Model. Defaults to return             the latest version of the Data Model if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Data Model. Defaults to return              the latest version of the Data Model if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results. Only EntityType is supported (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1614,7 +1614,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListDataModelHierarchies: List Custom Data Model hierarchies. Lists the data model summaries within their hierarchical structure.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Data Model. Defaults to return             the latest version of the Data Model if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Data Model. Defaults to return              the latest version of the Data Model if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results. Only EntityType is supported (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1630,7 +1630,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListDataModelHierarchies: List Custom Data Model hierarchies. Lists the data model summaries within their hierarchical structure.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Data Model. Defaults to return             the latest version of the Data Model if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Data Model. Defaults to return              the latest version of the Data Model if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results. Only EntityType is supported (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>

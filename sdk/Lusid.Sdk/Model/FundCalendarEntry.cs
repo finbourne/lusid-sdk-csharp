@@ -72,9 +72,10 @@ namespace Lusid.Sdk.Model
         /// <param name="entryType">The type of the Fund Calendar Entry. Only &#39;ValuationPoint&#39; currently supported. The available values are: ValuationPointFundCalendarEntry, BookmarkFundCalendarEntry (required).</param>
         /// <param name="status">The status of the Fund Calendar Entry. Can be &#39;Estimate&#39;, &#39;Candidate&#39; or &#39;Final&#39;..</param>
         /// <param name="applyClearDown">Set to true if that closed period shoould have the clear down applied. (required).</param>
+        /// <param name="properties">The properties for the Calendar Entry. These will be from the &#39;ClosedPeriod&#39; domain..</param>
         /// <param name="varVersion">varVersion (required).</param>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested asAt datetime..</param>
-        public FundCalendarEntry(string code = default(string), string displayName = default(string), string description = default(string), string navTypeCode = default(string), DateTimeOffset effectiveAt = default(DateTimeOffset), DateTimeOffset asAt = default(DateTimeOffset), EntryTypeEnum entryType = default(EntryTypeEnum), string status = default(string), bool applyClearDown = default(bool), ModelVersion varVersion = default(ModelVersion), string href = default(string))
+        public FundCalendarEntry(string code = default(string), string displayName = default(string), string description = default(string), string navTypeCode = default(string), DateTimeOffset effectiveAt = default(DateTimeOffset), DateTimeOffset asAt = default(DateTimeOffset), EntryTypeEnum entryType = default(EntryTypeEnum), string status = default(string), bool applyClearDown = default(bool), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion varVersion = default(ModelVersion), string href = default(string))
         {
             // to ensure "code" is required (not null)
             if (code == null)
@@ -106,6 +107,7 @@ namespace Lusid.Sdk.Model
             this.Description = description;
             this.EffectiveAt = effectiveAt;
             this.Status = status;
+            this.Properties = properties;
             this.Href = href;
         }
 
@@ -166,6 +168,13 @@ namespace Lusid.Sdk.Model
         public bool ApplyClearDown { get; set; }
 
         /// <summary>
+        /// The properties for the Calendar Entry. These will be from the &#39;ClosedPeriod&#39; domain.
+        /// </summary>
+        /// <value>The properties for the Calendar Entry. These will be from the &#39;ClosedPeriod&#39; domain.</value>
+        [DataMember(Name = "properties", EmitDefaultValue = true)]
+        public Dictionary<string, Property> Properties { get; set; }
+
+        /// <summary>
         /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = true)]
@@ -195,6 +204,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  EntryType: ").Append(EntryType).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  ApplyClearDown: ").Append(ApplyClearDown).Append("\n");
+            sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("}\n");
@@ -276,6 +286,12 @@ namespace Lusid.Sdk.Model
                     this.ApplyClearDown.Equals(input.ApplyClearDown)
                 ) && 
                 (
+                    this.Properties == input.Properties ||
+                    this.Properties != null &&
+                    input.Properties != null &&
+                    this.Properties.SequenceEqual(input.Properties)
+                ) && 
+                (
                     this.VarVersion == input.VarVersion ||
                     (this.VarVersion != null &&
                     this.VarVersion.Equals(input.VarVersion))
@@ -326,6 +342,10 @@ namespace Lusid.Sdk.Model
                     hashCode = (hashCode * 59) + this.Status.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.ApplyClearDown.GetHashCode();
+                if (this.Properties != null)
+                {
+                    hashCode = (hashCode * 59) + this.Properties.GetHashCode();
+                }
                 if (this.VarVersion != null)
                 {
                     hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();

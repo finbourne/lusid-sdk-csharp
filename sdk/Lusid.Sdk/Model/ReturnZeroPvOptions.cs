@@ -31,16 +31,16 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ReturnZeroPvOptions" /> class.
         /// </summary>
-        /// <param name="instrumentMatured">Indicates whether attempting to value an instrument after its maturity date should produce a failure (false) or a zero PV (true)..</param>
+        /// <param name="instrumentMatured">Indicates whether attempting to value an instrument after its maturity date should produce a failure (false)  or a zero PV (true)..</param>
         public ReturnZeroPvOptions(bool instrumentMatured = default(bool))
         {
             this.InstrumentMatured = instrumentMatured;
         }
 
         /// <summary>
-        /// Indicates whether attempting to value an instrument after its maturity date should produce a failure (false) or a zero PV (true).
+        /// Indicates whether attempting to value an instrument after its maturity date should produce a failure (false)  or a zero PV (true).
         /// </summary>
-        /// <value>Indicates whether attempting to value an instrument after its maturity date should produce a failure (false) or a zero PV (true).</value>
+        /// <value>Indicates whether attempting to value an instrument after its maturity date should produce a failure (false)  or a zero PV (true).</value>
         [DataMember(Name = "instrumentMatured", EmitDefaultValue = true)]
         public bool InstrumentMatured { get; set; }
 

@@ -15,7 +15,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 [EARLY ACCESS] DeleteAllocation: Delete allocation
 
-Delete an allocation. Deletion will be valid from the allocation's creation datetime. This means that the allocation will no longer exist at any effective datetime from the asAt datetime of deletion.
+Delete an allocation. Deletion will be valid from the allocation's creation datetime.  This means that the allocation will no longer exist at any effective datetime from the asAt datetime of deletion.
 
 ### Example
 ```csharp
@@ -175,7 +175,7 @@ namespace Examples
             var scope = "scope_example";  // string | The scope to which the allocation belongs.
             var code = "code_example";  // string | The allocation's unique identifier.
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the allocation. Defaults to return the latest version of the allocation if not specified. (optional) 
-            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the \"Allocations\" domain to decorate onto the allocation.             These take the format {domain}/{scope}/{code} e.g. \"Allocations/system/Name\". (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the \"Allocations\" domain to decorate onto the allocation.              These take the format {domain}/{scope}/{code} e.g. \"Allocations/system/Name\". (optional) 
 
             try
             {
@@ -224,7 +224,7 @@ catch (ApiException e)
 | **scope** | **string** | The scope to which the allocation belongs. |  |
 | **code** | **string** | The allocation&#39;s unique identifier. |  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the allocation. Defaults to return the latest version of the allocation if not specified. | [optional]  |
-| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the \&quot;Allocations\&quot; domain to decorate onto the allocation.             These take the format {domain}/{scope}/{code} e.g. \&quot;Allocations/system/Name\&quot;. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the \&quot;Allocations\&quot; domain to decorate onto the allocation.              These take the format {domain}/{scope}/{code} e.g. \&quot;Allocations/system/Name\&quot;. | [optional]  |
 
 ### Return type
 
@@ -293,11 +293,11 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<AllocationsApi>();
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the allocation. Defaults to return the latest version of the allocation if not specified. (optional) 
-            var page = "page_example";  // string? | The pagination token to use to continue listing allocations from a previous call to list allocations.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields             must not have changed since the original request. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing allocations from a previous call to list allocations.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional) 
             var sortBy = new List<string>?(); // List<string>? | A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\". (optional) 
             var limit = 56;  // int? | When paginating, limit the number of returned results to this many. (optional) 
-            var filter = "filter_example";  // string? | Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional) 
-            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the \"Allocations\" domain to decorate onto each allocation.                 These take the format {domain}/{scope}/{code} e.g. \"Allocations/system/Name\".                 All properties, except derived properties, are returned by default, without specifying here. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the \"Allocations\" domain to decorate onto each allocation.                  These take the format {domain}/{scope}/{code} e.g. \"Allocations/system/Name\".                  All properties, except derived properties, are returned by default, without specifying here. (optional) 
 
             try
             {
@@ -344,11 +344,11 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the allocation. Defaults to return the latest version of the allocation if not specified. | [optional]  |
-| **page** | **string?** | The pagination token to use to continue listing allocations from a previous call to list allocations.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields             must not have changed since the original request. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing allocations from a previous call to list allocations.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. | [optional]  |
 | **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. | [optional]  |
 | **limit** | **int?** | When paginating, limit the number of returned results to this many. | [optional]  |
-| **filter** | **string?** | Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
-| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the \&quot;Allocations\&quot; domain to decorate onto each allocation.                 These take the format {domain}/{scope}/{code} e.g. \&quot;Allocations/system/Name\&quot;.                 All properties, except derived properties, are returned by default, without specifying here. | [optional]  |
+| **filter** | **string?** | Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the \&quot;Allocations\&quot; domain to decorate onto each allocation.                  These take the format {domain}/{scope}/{code} e.g. \&quot;Allocations/system/Name\&quot;.                  All properties, except derived properties, are returned by default, without specifying here. | [optional]  |
 
 ### Return type
 
@@ -418,7 +418,7 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<AllocationsApi>();
             var allocationSetRequest = new AllocationSetRequest(); // AllocationSetRequest | The collection of allocation requests.
             var verificationAsAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | An optional verification asAt; individual upserts will fail if an existing entity has been updated between the verification asAt and time of upsert. (optional) 
-            var retryWithoutChangedEntities = false;  // bool? | Optionally choose to keep retrying upsert for remaining entities if some are being updated concurrently. If set to true, any entities that have             changed since the verificationAsAt will be dropped from the set of allocations to upsert and the upsert will be retried. The response will only contain the allocations in the original request             that have been successfully upserted. (optional)  (default to false)
+            var retryWithoutChangedEntities = false;  // bool? | Optionally choose to keep retrying upsert for remaining entities if some are being updated concurrently. If set to true, any entities that have              changed since the verificationAsAt will be dropped from the set of allocations to upsert and the upsert will be retried. The response will only contain the allocations in the original request              that have been successfully upserted. (optional)  (default to false)
 
             try
             {
@@ -466,7 +466,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **allocationSetRequest** | [**AllocationSetRequest**](AllocationSetRequest.md) | The collection of allocation requests. |  |
 | **verificationAsAt** | **DateTimeOffset?** | An optional verification asAt; individual upserts will fail if an existing entity has been updated between the verification asAt and time of upsert. | [optional]  |
-| **retryWithoutChangedEntities** | **bool?** | Optionally choose to keep retrying upsert for remaining entities if some are being updated concurrently. If set to true, any entities that have             changed since the verificationAsAt will be dropped from the set of allocations to upsert and the upsert will be retried. The response will only contain the allocations in the original request             that have been successfully upserted. | [optional] [default to false] |
+| **retryWithoutChangedEntities** | **bool?** | Optionally choose to keep retrying upsert for remaining entities if some are being updated concurrently. If set to true, any entities that have              changed since the verificationAsAt will be dropped from the set of allocations to upsert and the upsert will be retried. The response will only contain the allocations in the original request              that have been successfully upserted. | [optional] [default to false] |
 
 ### Return type
 

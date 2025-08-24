@@ -1,5 +1,5 @@
 # Lusid.Sdk.Model.FutureExpiryEvent
-Definition of a Future Expiry Event. This is an event that describes the expiry of a Future instrument.
+Definition of a Future Expiry Event.  This is an event that describes the expiry of a Future instrument.
 
 ## Properties
 

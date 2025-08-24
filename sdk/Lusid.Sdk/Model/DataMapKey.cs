@@ -31,7 +31,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DataMapKey" /> class.
         /// </summary>
-        /// <param name="varVersion">The version of the mappings. It is possible that a client will wish to update mappings over time. The version identifies the MAJOR.MINOR.PATCH version of the mappings that the client assigns it..</param>
+        /// <param name="varVersion">The version of the mappings. It is possible that a client will wish to update mappings over time. The version identifies the MAJOR.MINOR.PATCH version  of the mappings that the client assigns it..</param>
         /// <param name="code">A unique name to semantically identify the mapping set..</param>
         public DataMapKey(string varVersion = default(string), string code = default(string))
         {
@@ -40,9 +40,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The version of the mappings. It is possible that a client will wish to update mappings over time. The version identifies the MAJOR.MINOR.PATCH version of the mappings that the client assigns it.
+        /// The version of the mappings. It is possible that a client will wish to update mappings over time. The version identifies the MAJOR.MINOR.PATCH version  of the mappings that the client assigns it.
         /// </summary>
-        /// <value>The version of the mappings. It is possible that a client will wish to update mappings over time. The version identifies the MAJOR.MINOR.PATCH version of the mappings that the client assigns it.</value>
+        /// <value>The version of the mappings. It is possible that a client will wish to update mappings over time. The version identifies the MAJOR.MINOR.PATCH version  of the mappings that the client assigns it.</value>
         [DataMember(Name = "version", EmitDefaultValue = true)]
         public string VarVersion { get; set; }
 

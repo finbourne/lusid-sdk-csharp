@@ -141,7 +141,7 @@ catch (ApiException e)
 
 [EARLY ACCESS] CancelOrders: Cancel existing orders
 
-The response returns both the collection of successfully canceled orders, as well as those that failed. For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.
+The response returns both the collection of successfully canceled orders, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
 
 ### Example
 ```csharp
@@ -255,7 +255,7 @@ catch (ApiException e)
 
 [EARLY ACCESS] CancelOrdersAndMoveRemaining: Cancel existing orders and move any unplaced quantities to new orders in new blocks
 
-Cancels existing orders, reducing their quantities to those aleady placed. Any remaining quantities are moved to new orders in new blocks. The placed quantities are distributed to the cancelled orders on a pro-rata basis.
+Cancels existing orders, reducing their quantities to those aleady placed. Any remaining quantities are moved  to new orders in new blocks. The placed quantities are distributed to the cancelled orders on a pro-rata basis.
 
 ### Example
 ```csharp
@@ -369,7 +369,7 @@ catch (ApiException e)
 
 [EARLY ACCESS] CancelPlacements: Cancel existing placements
 
-The response returns both the collection of successfully canceled placements, as well as those that failed. For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.
+The response returns both the collection of successfully canceled placements, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
 
 ### Example
 ```csharp
@@ -483,7 +483,7 @@ catch (ApiException e)
 
 CreateOrders: Upsert a Block and associated orders
 
-Create orders, and blocks if they don't already exist. This will fail if the block exists and already references orders with differing blocking fields.
+Create orders, and blocks if they don't already exist.  This will fail if the block exists and already references orders with differing blocking fields.
 
 ### Example
 ```csharp
@@ -640,7 +640,7 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<OrderManagementApi>();
             var scope = "scope_example";  // string | The scope of the order.
             var code = "code_example";  // string | The code of the order.
-            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the history of the order and related entities. Defaults             to return the latest version if not specified. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the history of the order and related entities. Defaults              to return the latest version if not specified. (optional) 
 
             try
             {
@@ -688,7 +688,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **scope** | **string** | The scope of the order. |  |
 | **code** | **string** | The code of the order. |  |
-| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the history of the order and related entities. Defaults             to return the latest version if not specified. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the history of the order and related entities. Defaults              to return the latest version if not specified. | [optional]  |
 
 ### Return type
 
@@ -716,7 +716,7 @@ catch (ApiException e)
 
 [EARLY ACCESS] MoveOrders: Move orders to new or existing block
 
-Move an order to a block, creating the block if it does not already exist.  This will fail if the block exists and already references orders with differing fields to the upsert request.
+Move an order to a block, creating the block if it does not already exist.   This will fail if the block exists and already references orders with differing fields to the upsert request.
 
 ### Example
 ```csharp
@@ -986,7 +986,7 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<OrderManagementApi>();
             var resourceId = new List<ResourceId>(); // List<ResourceId> | The List of Placement IDs for which you wish to allocate Executions.
-            var allocationAlgorithm = "allocationAlgorithm_example";  // string? | A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \"PR-FIFO\". This defaults to \"PR-FIFO\". (optional) 
+            var allocationAlgorithm = "allocationAlgorithm_example";  // string? | A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \"PR-FIFO\".  This defaults to \"PR-FIFO\". (optional) 
 
             try
             {
@@ -1033,7 +1033,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **resourceId** | [**List&lt;ResourceId&gt;**](ResourceId.md) | The List of Placement IDs for which you wish to allocate Executions. |  |
-| **allocationAlgorithm** | **string?** | A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \&quot;PR-FIFO\&quot;. This defaults to \&quot;PR-FIFO\&quot;. | [optional]  |
+| **allocationAlgorithm** | **string?** | A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \&quot;PR-FIFO\&quot;.  This defaults to \&quot;PR-FIFO\&quot;. | [optional]  |
 
 ### Return type
 
@@ -1060,7 +1060,7 @@ catch (ApiException e)
 
 [EXPERIMENTAL] SweepBlocks: Sweeps specified blocks, for each block that meets the requirements. The request may be partially successful.
 
-The requirements are: <list type=\"bullet\"><term>The block exists.</term><term>All orders have state \"Closed\", \"Cancelled\", \"Canceled\" or \"Booked\".</term><term>All placements have state \"Allocated\" or \"Over-allocated\".</term><term>All allocations have state \"Closed\", \"Cancelled\", \"Canceled\" or \"Booked\".</term><term>No execution or allocation has been modified since the passed LatestAllowableModificationTime.</term></list>
+The requirements are:  <list type=\"bullet\"><term>The block exists.</term><term>All orders have state \"Closed\", \"Cancelled\", \"Canceled\" or \"Booked\".</term><term>All placements have state \"Allocated\" or \"Over-allocated\".</term><term>All allocations have state \"Closed\", \"Cancelled\", \"Canceled\" or \"Booked\".</term><term>No execution or allocation has been modified since the passed LatestAllowableModificationTime.</term></list>
 
 ### Example
 ```csharp
@@ -1174,7 +1174,7 @@ catch (ApiException e)
 
 [EARLY ACCESS] UpdateOrders: Update existing orders
 
-The response returns both the collection of successfully updated orders, as well as those that failed. For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.
+The response returns both the collection of successfully updated orders, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
 
 ### Example
 ```csharp
@@ -1288,7 +1288,7 @@ catch (ApiException e)
 
 [EARLY ACCESS] UpdatePlacements: Update existing placements
 
-The response returns both the collection of successfully updated placements, as well as those that failed. For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.
+The response returns both the collection of successfully updated placements, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
 
 ### Example
 ```csharp

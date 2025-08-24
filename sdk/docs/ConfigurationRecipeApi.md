@@ -22,7 +22,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 DeleteConfigurationRecipe: Delete a Configuration Recipe, assuming that it is present.
 
-Delete the specified Configuration Recipe from a single scope.              The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.              It is important to always check for any unsuccessful response.
+Delete the specified Configuration Recipe from a single scope.                The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.                It is important to always check for any unsuccessful response.
 
 ### Example
 ```csharp
@@ -138,7 +138,7 @@ catch (ApiException e)
 
 DeleteRecipeComposer: Delete a Recipe Composer, assuming that it is present.
 
-Delete the specified Recipe Composer from a single scope.              The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.              It is important to always check for any unsuccessful response.
+Delete the specified Recipe Composer from a single scope.                The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.                It is important to always check for any unsuccessful response.
 
 ### Example
 ```csharp
@@ -254,7 +254,7 @@ catch (ApiException e)
 
 GetConfigurationRecipe: Get Configuration Recipe
 
-Get a Configuration Recipe from a single scope.              The response will return either the recipe that has been stored, or a failure explaining why the request was unsuccessful.              It is important to always check for any unsuccessful requests (failures).
+Get a Configuration Recipe from a single scope.                The response will return either the recipe that has been stored, or a failure explaining why the request was unsuccessful.                It is important to always check for any unsuccessful requests (failures).
 
 ### Example
 ```csharp
@@ -490,7 +490,7 @@ catch (ApiException e)
 
 GetRecipeComposer: Get Recipe Composer
 
-Get a Recipe Composer from a single scope.              The response will return either the recipe composer that has been stored, or a failure explaining why the request was unsuccessful.              It is important to always check for any unsuccessful requests (failures).
+Get a Recipe Composer from a single scope.                The response will return either the recipe composer that has been stored, or a failure explaining why the request was unsuccessful.                It is important to always check for any unsuccessful requests (failures).
 
 ### Example
 ```csharp
@@ -764,7 +764,7 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ConfigurationRecipeApi>();
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the Configuration Recipes. Defaults to latest if not specified. (optional) 
-            var filter = "filter_example";  // string? | Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional) 
 
             try
             {
@@ -811,7 +811,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to list the Configuration Recipes. Defaults to latest if not specified. | [optional]  |
-| **filter** | **string?** | Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
+| **filter** | **string?** | Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
 
 ### Return type
 
@@ -838,7 +838,7 @@ catch (ApiException e)
 
 ListDerivedRecipes: List the complete set of all Configuration Recipes, both from the configuration recipe store and also from expanded recipe composers.
 
-This endpoints returns a union of the output of ListConfigurationRecipes and the resolved Recipe Composers from the ListRecipeComposers endpoints. Recipe Composers that fail to generate a valid Configuration Recipe will not be reported.
+This endpoints returns a union of the output of ListConfigurationRecipes and the resolved Recipe Composers from the ListRecipeComposers endpoints.  Recipe Composers that fail to generate a valid Configuration Recipe will not be reported.
 
 ### Example
 ```csharp
@@ -1070,7 +1070,7 @@ catch (ApiException e)
 
 UpsertConfigurationRecipe: Upsert a Configuration Recipe. This creates or updates the data in Lusid.
 
-Update or insert one Configuration Recipe in a single scope. An item will be updated if it already exists and inserted if it does not.              The response will return the successfully updated or inserted Configuration Recipe or failure message if unsuccessful              It is important to always check to verify success (or failure).
+Update or insert one Configuration Recipe in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted Configuration Recipe or failure message if unsuccessful                It is important to always check to verify success (or failure).
 
 ### Example
 ```csharp
@@ -1184,7 +1184,7 @@ catch (ApiException e)
 
 UpsertRecipeComposer: Upsert a Recipe Composer. This creates or updates the data in Lusid.
 
-Update or insert one Recipe Composer in a single scope. An item will be updated if it already exists and inserted if it does not.              The response will return the successfully updated or inserted Recipe Composer or failure message if unsuccessful              It is important to always check to verify success (or failure).
+Update or insert one Recipe Composer in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted Recipe Composer or failure message if unsuccessful                It is important to always check to verify success (or failure).
 
 ### Example
 ```csharp

@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// An Allocation of a certain quantity of a specific instrument against an originating Order.
+    /// An Allocation of a certain quantity of a specific instrument against an originating  Order.
     /// </summary>
     [DataContract(Name = "Allocation")]
     public partial class Allocation : IEquatable<Allocation>, IValidatableObject

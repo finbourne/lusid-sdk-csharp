@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// It is possible to control which supplier is used for a given asset class. This field is deprecated in favour of market data rules, which subsumes its functionality.
+    /// It is possible to control which supplier is used for a given asset class.  This field is deprecated in favour of market data rules, which subsumes its functionality.
     /// </summary>
     [DataContract(Name = "MarketContext_suppliers")]
     public partial class MarketContextSuppliers : IEquatable<MarketContextSuppliers>, IValidatableObject

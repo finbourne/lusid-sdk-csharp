@@ -35,7 +35,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] CalculateOrderDates: Calculate the key dates associated with transfer agency orders
         /// </summary>
         /// <remarks>
-        /// The response contains both the collection of successfully calculated dates and any failed calculations, each in the form of a dictionary keyed by the request&#39;s keys. For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.
+        /// The response contains both the collection of successfully calculated dates and any failed calculations,  each in the form of a dictionary keyed by the request&#39;s keys.  For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the dates used for calculation</param>
@@ -48,7 +48,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] CalculateOrderDates: Calculate the key dates associated with transfer agency orders
         /// </summary>
         /// <remarks>
-        /// The response contains both the collection of successfully calculated dates and any failed calculations, each in the form of a dictionary keyed by the request&#39;s keys. For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.
+        /// The response contains both the collection of successfully calculated dates and any failed calculations,  each in the form of a dictionary keyed by the request&#39;s keys.  For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the dates used for calculation</param>
@@ -69,7 +69,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] CalculateOrderDates: Calculate the key dates associated with transfer agency orders
         /// </summary>
         /// <remarks>
-        /// The response contains both the collection of successfully calculated dates and any failed calculations, each in the form of a dictionary keyed by the request&#39;s keys. For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.
+        /// The response contains both the collection of successfully calculated dates and any failed calculations,  each in the form of a dictionary keyed by the request&#39;s keys.  For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the dates used for calculation</param>
@@ -83,7 +83,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] CalculateOrderDates: Calculate the key dates associated with transfer agency orders
         /// </summary>
         /// <remarks>
-        /// The response contains both the collection of successfully calculated dates and any failed calculations, each in the form of a dictionary keyed by the request&#39;s keys. For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.
+        /// The response contains both the collection of successfully calculated dates and any failed calculations,  each in the form of a dictionary keyed by the request&#39;s keys.  For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the dates used for calculation</param>
@@ -216,7 +216,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CalculateOrderDates: Calculate the key dates associated with transfer agency orders The response contains both the collection of successfully calculated dates and any failed calculations, each in the form of a dictionary keyed by the request&#39;s keys. For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.
+        /// [EXPERIMENTAL] CalculateOrderDates: Calculate the key dates associated with transfer agency orders The response contains both the collection of successfully calculated dates and any failed calculations,  each in the form of a dictionary keyed by the request&#39;s keys.  For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the dates used for calculation</param>
@@ -230,7 +230,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CalculateOrderDates: Calculate the key dates associated with transfer agency orders The response contains both the collection of successfully calculated dates and any failed calculations, each in the form of a dictionary keyed by the request&#39;s keys. For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.
+        /// [EXPERIMENTAL] CalculateOrderDates: Calculate the key dates associated with transfer agency orders The response contains both the collection of successfully calculated dates and any failed calculations,  each in the form of a dictionary keyed by the request&#39;s keys.  For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the dates used for calculation</param>
@@ -320,7 +320,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CalculateOrderDates: Calculate the key dates associated with transfer agency orders The response contains both the collection of successfully calculated dates and any failed calculations, each in the form of a dictionary keyed by the request&#39;s keys. For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.
+        /// [EXPERIMENTAL] CalculateOrderDates: Calculate the key dates associated with transfer agency orders The response contains both the collection of successfully calculated dates and any failed calculations,  each in the form of a dictionary keyed by the request&#39;s keys.  For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the dates used for calculation</param>
@@ -335,7 +335,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CalculateOrderDates: Calculate the key dates associated with transfer agency orders The response contains both the collection of successfully calculated dates and any failed calculations, each in the form of a dictionary keyed by the request&#39;s keys. For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.
+        /// [EXPERIMENTAL] CalculateOrderDates: Calculate the key dates associated with transfer agency orders The response contains both the collection of successfully calculated dates and any failed calculations,  each in the form of a dictionary keyed by the request&#39;s keys.  For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the dates used for calculation</param>

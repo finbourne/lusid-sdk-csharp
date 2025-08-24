@@ -20,7 +20,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 [EARLY ACCESS] CreateDataType: Create data type definition
 
-Create a new data type definition  Data types cannot be created in either the \"default\" or \"system\" scopes.
+Create a new data type definition    Data types cannot be created in either the \"default\" or \"system\" scopes.
 
 ### Example
 ```csharp
@@ -134,7 +134,7 @@ catch (ApiException e)
 
 DeleteDataType: Delete a data type definition.
 
-Delete an existing data type definition.  Data types cannot be deleted in either the \"default\" or \"system\" scopes, scopes beginning with \"LUSID-\", or data types that are in use on a property definition.
+Delete an existing data type definition.    Data types cannot be deleted in either the \"default\" or \"system\" scopes, scopes beginning with \"LUSID-\",  or data types that are in use on a property definition.
 
 ### Example
 ```csharp
@@ -293,7 +293,7 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<DataTypesApi>();
             var scope = "scope_example";  // string | The scope of the data type
             var code = "code_example";  // string | The code of the data type
-            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the data type definition. Defaults to             return the latest version of the instrument definition if not specified. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the data type definition. Defaults to              return the latest version of the instrument definition if not specified. (optional) 
 
             try
             {
@@ -341,7 +341,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **scope** | **string** | The scope of the data type |  |
 | **code** | **string** | The code of the data type |  |
-| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the data type definition. Defaults to             return the latest version of the instrument definition if not specified. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the data type definition. Defaults to              return the latest version of the instrument definition if not specified. | [optional]  |
 
 ### Return type
 
@@ -412,7 +412,7 @@ namespace Examples
             var scope = "scope_example";  // string | The scope of the data type
             var code = "code_example";  // string | The code of the data type
             var units = new List<string>?(); // List<string>? | One or more unit identifiers for which the definition is being requested (optional) 
-            var filter = "filter_example";  // string? | Optional. Expression to filter the result set.              For example, to filter on the Schema, use \"schema eq 'string'\"             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
+            var filter = "filter_example";  // string? | Optional. Expression to filter the result set.               For example, to filter on the Schema, use \"schema eq 'string'\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | Optional. The as at of the requested data type (optional) 
 
             try
@@ -462,7 +462,7 @@ catch (ApiException e)
 | **scope** | **string** | The scope of the data type |  |
 | **code** | **string** | The code of the data type |  |
 | **units** | [**List&lt;string&gt;?**](string.md) | One or more unit identifiers for which the definition is being requested | [optional]  |
-| **filter** | **string?** | Optional. Expression to filter the result set.              For example, to filter on the Schema, use \&quot;schema eq &#39;string&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
+| **filter** | **string?** | Optional. Expression to filter the result set.               For example, to filter on the Schema, use \&quot;schema eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
 | **asAt** | **DateTimeOffset?** | Optional. The as at of the requested data type | [optional]  |
 
 ### Return type
@@ -531,10 +531,10 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<DataTypesApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<DataTypesApi>();
-            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the data type summaries. Defaults to returning the latest version              of each summary if not specified. (optional) 
-            var page = "page_example";  // string? | The pagination token to use to continue listing data type summaries. This value is returned from the previous call. If a pagination token is provided, the filter, sortBy and asAt fields must not have changed since the original request. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the data type summaries. Defaults to returning the latest version               of each summary if not specified. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing data type summaries. This  value is returned from the previous call. If a pagination token is provided, the filter, sortBy  and asAt fields must not have changed since the original request. (optional) 
             var limit = 56;  // int? | When paginating, limit the results to this number. Defaults to 100 if not specified. (optional) 
-            var filter = "filter_example";  // string? | Optional. Expression to filter the result set.               For example, to filter on the Scope, use \"id.scope eq 'myscope'\", to filter on Schema, use \"schema eq 'string'\",              to filter on AcceptableValues use \"acceptableValues any (~ eq 'value')\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
+            var filter = "filter_example";  // string? | Optional. Expression to filter the result set.                For example, to filter on the Scope, use \"id.scope eq 'myscope'\", to filter on Schema, use \"schema eq 'string'\",               to filter on AcceptableValues use \"acceptableValues any (~ eq 'value')\"               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
             var sortBy = new List<string>?(); // List<string>? | A list of field names to sort by, each suffixed by \" ASC\" or \" DESC\" (optional) 
 
             try
@@ -581,10 +581,10 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **asAt** | **DateTimeOffset?** | The asAt datetime at which to list the data type summaries. Defaults to returning the latest version              of each summary if not specified. | [optional]  |
-| **page** | **string?** | The pagination token to use to continue listing data type summaries. This value is returned from the previous call. If a pagination token is provided, the filter, sortBy and asAt fields must not have changed since the original request. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to list the data type summaries. Defaults to returning the latest version               of each summary if not specified. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing data type summaries. This  value is returned from the previous call. If a pagination token is provided, the filter, sortBy  and asAt fields must not have changed since the original request. | [optional]  |
 | **limit** | **int?** | When paginating, limit the results to this number. Defaults to 100 if not specified. | [optional]  |
-| **filter** | **string?** | Optional. Expression to filter the result set.               For example, to filter on the Scope, use \&quot;id.scope eq &#39;myscope&#39;\&quot;, to filter on Schema, use \&quot;schema eq &#39;string&#39;\&quot;,              to filter on AcceptableValues use \&quot;acceptableValues any (~ eq &#39;value&#39;)\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
+| **filter** | **string?** | Optional. Expression to filter the result set.                For example, to filter on the Scope, use \&quot;id.scope eq &#39;myscope&#39;\&quot;, to filter on Schema, use \&quot;schema eq &#39;string&#39;\&quot;,               to filter on AcceptableValues use \&quot;acceptableValues any (~ eq &#39;value&#39;)\&quot;               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
 | **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; | [optional]  |
 
 ### Return type
@@ -658,7 +658,7 @@ namespace Examples
             var includeSystem = true;  // bool? | Whether to additionally include those data types in the \"system\" scope (optional) 
             var sortBy = new List<string>?(); // List<string>? | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
             var limit = 56;  // int? | Optional. When paginating, limit the number of returned results to this many. (optional) 
-            var filter = "filter_example";  // string? | Optional. Expression to filter the result set.             For example, to filter on the Display Name, use \"displayName eq 'string'\"             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
+            var filter = "filter_example";  // string? | Optional. Expression to filter the result set.              For example, to filter on the Display Name, use \"displayName eq 'string'\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
 
             try
             {
@@ -709,7 +709,7 @@ catch (ApiException e)
 | **includeSystem** | **bool?** | Whether to additionally include those data types in the \&quot;system\&quot; scope | [optional]  |
 | **sortBy** | [**List&lt;string&gt;?**](string.md) | Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional]  |
 | **limit** | **int?** | Optional. When paginating, limit the number of returned results to this many. | [optional]  |
-| **filter** | **string?** | Optional. Expression to filter the result set.             For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
+| **filter** | **string?** | Optional. Expression to filter the result set.              For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
 
 ### Return type
 
@@ -736,7 +736,7 @@ catch (ApiException e)
 
 [EARLY ACCESS] UpdateDataType: Update data type definition
 
-Update the definition of the specified existing data type  Not all elements within a data type definition are modifiable due to the potential implications for data already stored against the types
+Update the definition of the specified existing data type    Not all elements within a data type definition are modifiable due to the potential implications for data  already stored against the types
 
 ### Example
 ```csharp

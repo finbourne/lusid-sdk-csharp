@@ -40,7 +40,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="identifiers">identifiers.</param>
         /// <param name="domCcy">The domestic currency of the instrument. (required).</param>
-        /// <param name="lotSize">Deprecated: Use TradingConventions field instead Equity LotSize, the minimum number of shares that can be bought at once. Optional, if set must be non-negative, if not set defaults to 1.  Note this property does not impact valuation. From a LUSID analytics perspective, it is purely informational..</param>
+        /// <param name="lotSize">Deprecated: Use TradingConventions field instead  Equity LotSize, the minimum number of shares that can be bought at once.  Optional, if set must be non-negative, if not set defaults to 1.    Note this property does not impact valuation. From a LUSID analytics perspective, it is purely informational..</param>
         /// <param name="timeZoneConventions">timeZoneConventions.</param>
         /// <param name="tradingConventions">tradingConventions.</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit, FlexibleRepo (required) (default to &quot;Equity&quot;).</param>
@@ -72,9 +72,9 @@ namespace Lusid.Sdk.Model
         public string DomCcy { get; set; }
 
         /// <summary>
-        /// Deprecated: Use TradingConventions field instead Equity LotSize, the minimum number of shares that can be bought at once. Optional, if set must be non-negative, if not set defaults to 1.  Note this property does not impact valuation. From a LUSID analytics perspective, it is purely informational.
+        /// Deprecated: Use TradingConventions field instead  Equity LotSize, the minimum number of shares that can be bought at once.  Optional, if set must be non-negative, if not set defaults to 1.    Note this property does not impact valuation. From a LUSID analytics perspective, it is purely informational.
         /// </summary>
-        /// <value>Deprecated: Use TradingConventions field instead Equity LotSize, the minimum number of shares that can be bought at once. Optional, if set must be non-negative, if not set defaults to 1.  Note this property does not impact valuation. From a LUSID analytics perspective, it is purely informational.</value>
+        /// <value>Deprecated: Use TradingConventions field instead  Equity LotSize, the minimum number of shares that can be bought at once.  Optional, if set must be non-negative, if not set defaults to 1.    Note this property does not impact valuation. From a LUSID analytics perspective, it is purely informational.</value>
         [DataMember(Name = "lotSize", EmitDefaultValue = true)]
         public int LotSize { get; set; }
 

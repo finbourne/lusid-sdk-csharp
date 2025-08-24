@@ -32,9 +32,9 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="BondConversionEntry" /> class.
         /// </summary>
         /// <param name="date">The date at which the bond can be converted.</param>
-        /// <param name="denomination">The number of shares to be issued on conversion will be equal to the denomination of the bond divided by the conversion price. Two (and only two) entries out of (Price, Ratio, Denomination) must be provided. So, to allow one entry out of the three to not be provided, we make all the three nullable defaulting to zero and during validation we check if there is exactly one of the three equal to zero..</param>
-        /// <param name="price">The conversion price Two (and only two) entries out of (Price, Ratio, Denomination) must be provided. So, to allow one entry out of the three to not be provided, we make all the three nullable defaulting to zero and during validation we check if there is exactly one of the three equal to zero..</param>
-        /// <param name="ratio">The number of common shares received at the time of conversion for each convertible bond Two (and only two) entries out of (Price, Ratio, Denomination) must be provided. So, to allow one entry out of the three to not be provided, we make all the three nullable defaulting to zero and during validation we check if there is exactly one of the three equal to zero..</param>
+        /// <param name="denomination">The number of shares to be issued on conversion will be equal to the denomination of the  bond divided by the conversion price.  Two (and only two) entries out of (Price, Ratio, Denomination) must be provided.  So, to allow one entry out of the three to not be provided, we make all the three  nullable defaulting to zero and during validation we check if there is exactly one  of the three equal to zero..</param>
+        /// <param name="price">The conversion price  Two (and only two) entries out of (Price, Ratio, Denomination) must be provided.  So, to allow one entry out of the three to not be provided, we make all the three  nullable defaulting to zero and during validation we check if there is exactly one  of the three equal to zero..</param>
+        /// <param name="ratio">The number of common shares received at the time of conversion for each convertible bond  Two (and only two) entries out of (Price, Ratio, Denomination) must be provided.  So, to allow one entry out of the three to not be provided, we make all the three  nullable defaulting to zero and during validation we check if there is exactly one  of the three equal to zero..</param>
         public BondConversionEntry(DateTimeOffset date = default(DateTimeOffset), decimal denomination = default(decimal), decimal price = default(decimal), decimal ratio = default(decimal))
         {
             this.Date = date;
@@ -51,23 +51,23 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset Date { get; set; }
 
         /// <summary>
-        /// The number of shares to be issued on conversion will be equal to the denomination of the bond divided by the conversion price. Two (and only two) entries out of (Price, Ratio, Denomination) must be provided. So, to allow one entry out of the three to not be provided, we make all the three nullable defaulting to zero and during validation we check if there is exactly one of the three equal to zero.
+        /// The number of shares to be issued on conversion will be equal to the denomination of the  bond divided by the conversion price.  Two (and only two) entries out of (Price, Ratio, Denomination) must be provided.  So, to allow one entry out of the three to not be provided, we make all the three  nullable defaulting to zero and during validation we check if there is exactly one  of the three equal to zero.
         /// </summary>
-        /// <value>The number of shares to be issued on conversion will be equal to the denomination of the bond divided by the conversion price. Two (and only two) entries out of (Price, Ratio, Denomination) must be provided. So, to allow one entry out of the three to not be provided, we make all the three nullable defaulting to zero and during validation we check if there is exactly one of the three equal to zero.</value>
+        /// <value>The number of shares to be issued on conversion will be equal to the denomination of the  bond divided by the conversion price.  Two (and only two) entries out of (Price, Ratio, Denomination) must be provided.  So, to allow one entry out of the three to not be provided, we make all the three  nullable defaulting to zero and during validation we check if there is exactly one  of the three equal to zero.</value>
         [DataMember(Name = "denomination", EmitDefaultValue = true)]
         public decimal Denomination { get; set; }
 
         /// <summary>
-        /// The conversion price Two (and only two) entries out of (Price, Ratio, Denomination) must be provided. So, to allow one entry out of the three to not be provided, we make all the three nullable defaulting to zero and during validation we check if there is exactly one of the three equal to zero.
+        /// The conversion price  Two (and only two) entries out of (Price, Ratio, Denomination) must be provided.  So, to allow one entry out of the three to not be provided, we make all the three  nullable defaulting to zero and during validation we check if there is exactly one  of the three equal to zero.
         /// </summary>
-        /// <value>The conversion price Two (and only two) entries out of (Price, Ratio, Denomination) must be provided. So, to allow one entry out of the three to not be provided, we make all the three nullable defaulting to zero and during validation we check if there is exactly one of the three equal to zero.</value>
+        /// <value>The conversion price  Two (and only two) entries out of (Price, Ratio, Denomination) must be provided.  So, to allow one entry out of the three to not be provided, we make all the three  nullable defaulting to zero and during validation we check if there is exactly one  of the three equal to zero.</value>
         [DataMember(Name = "price", EmitDefaultValue = true)]
         public decimal Price { get; set; }
 
         /// <summary>
-        /// The number of common shares received at the time of conversion for each convertible bond Two (and only two) entries out of (Price, Ratio, Denomination) must be provided. So, to allow one entry out of the three to not be provided, we make all the three nullable defaulting to zero and during validation we check if there is exactly one of the three equal to zero.
+        /// The number of common shares received at the time of conversion for each convertible bond  Two (and only two) entries out of (Price, Ratio, Denomination) must be provided.  So, to allow one entry out of the three to not be provided, we make all the three  nullable defaulting to zero and during validation we check if there is exactly one  of the three equal to zero.
         /// </summary>
-        /// <value>The number of common shares received at the time of conversion for each convertible bond Two (and only two) entries out of (Price, Ratio, Denomination) must be provided. So, to allow one entry out of the three to not be provided, we make all the three nullable defaulting to zero and during validation we check if there is exactly one of the three equal to zero.</value>
+        /// <value>The number of common shares received at the time of conversion for each convertible bond  Two (and only two) entries out of (Price, Ratio, Denomination) must be provided.  So, to allow one entry out of the three to not be provided, we make all the three  nullable defaulting to zero and during validation we check if there is exactly one  of the three equal to zero.</value>
         [DataMember(Name = "ratio", EmitDefaultValue = true)]
         public decimal Ratio { get; set; }
 

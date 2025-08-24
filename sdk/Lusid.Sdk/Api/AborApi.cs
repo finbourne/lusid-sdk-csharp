@@ -154,7 +154,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Abor. Together with the scope this uniquely identifies the Abor.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the Abor properties. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Abor definition. Defaults to returning the latest version of the Abor definition if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Abor&#39; domain to decorate onto the Abor.             These must take the format {domain}/{scope}/{code}, for example &#39;Abor/Manager/Id&#39;. If no properties are specified, then no properties will be returned. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Abor&#39; domain to decorate onto the Abor.              These must take the format {domain}/{scope}/{code}, for example &#39;Abor/Manager/Id&#39;. If no properties are specified, then no properties will be returned. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Abor</returns>
@@ -171,7 +171,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Abor. Together with the scope this uniquely identifies the Abor.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the Abor properties. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Abor definition. Defaults to returning the latest version of the Abor definition if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Abor&#39; domain to decorate onto the Abor.             These must take the format {domain}/{scope}/{code}, for example &#39;Abor/Manager/Id&#39;. If no properties are specified, then no properties will be returned. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Abor&#39; domain to decorate onto the Abor.              These must take the format {domain}/{scope}/{code}, for example &#39;Abor/Manager/Id&#39;. If no properties are specified, then no properties will be returned. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Abor</returns>
@@ -211,13 +211,13 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetJournalEntryLines: Get the Journal Entry lines for the given Abor.
         /// </summary>
         /// <remarks>
-        /// Gets the Journal Entry lines for the given Abor              The Journal Entry lines have been generated from transactions and translated via posting rules
+        /// Gets the Journal Entry lines for the given Abor                The Journal Entry lines have been generated from transactions and translated via posting rules
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
         /// <param name="code">The code of the Abor. Together with the scope is creating the unique identifier for the given Abor.</param>
         /// <param name="journalEntryLinesQueryParameters">The query parameters used in running the generation of the Journal Entry lines.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve Journal Entry lines. Defaults to returning the latest version              of each transaction if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve Journal Entry lines. Defaults to returning the latest version               of each transaction if not specified. (optional)</param>
         /// <param name="filter">\&quot;Expression to filter the result set.\&quot; (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing Journal Entry lines from a previous call to GetJournalEntryLines. (optional)</param>
@@ -230,13 +230,13 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetJournalEntryLines: Get the Journal Entry lines for the given Abor.
         /// </summary>
         /// <remarks>
-        /// Gets the Journal Entry lines for the given Abor              The Journal Entry lines have been generated from transactions and translated via posting rules
+        /// Gets the Journal Entry lines for the given Abor                The Journal Entry lines have been generated from transactions and translated via posting rules
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
         /// <param name="code">The code of the Abor. Together with the scope is creating the unique identifier for the given Abor.</param>
         /// <param name="journalEntryLinesQueryParameters">The query parameters used in running the generation of the Journal Entry lines.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve Journal Entry lines. Defaults to returning the latest version              of each transaction if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve Journal Entry lines. Defaults to returning the latest version               of each transaction if not specified. (optional)</param>
         /// <param name="filter">\&quot;Expression to filter the result set.\&quot; (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing Journal Entry lines from a previous call to GetJournalEntryLines. (optional)</param>
@@ -248,16 +248,16 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetTrialBalance: Get the Trial Balance for the given Abor.
         /// </summary>
         /// <remarks>
-        /// Gets the Trial Balance for the given Abor.  The Trial Balance has been generated from transactions, translated via Posting Rules and aggregated based on a General Ledger Profile (where specified).
+        /// Gets the Trial Balance for the given Abor.    The Trial Balance has been generated from transactions, translated via Posting Rules  and aggregated based on a General Ledger Profile (where specified).
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
         /// <param name="code">The code of the Abor. Together with the scope this uniquely identifies the Abor.</param>
         /// <param name="trialBalanceQueryParameters">The query parameters used in running the generation of the Trial Balance.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Trial Balance.             Defaults to returning the latest version if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results by.             For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
-        /// <param name="limit">When paginating, limit the number of returned results to this many.             Defaults to 100 if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Trial Balances.             This token is returned from the previous call.             If a pagination token is provided, the filter, effectiveAt and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Trial Balance.              Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results by.              For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many.              Defaults to 100 if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Trial Balances.              This token is returned from the previous call.              If a pagination token is provided, the filter, effectiveAt and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>VersionedResourceListOfTrialBalance</returns>
@@ -267,16 +267,16 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetTrialBalance: Get the Trial Balance for the given Abor.
         /// </summary>
         /// <remarks>
-        /// Gets the Trial Balance for the given Abor.  The Trial Balance has been generated from transactions, translated via Posting Rules and aggregated based on a General Ledger Profile (where specified).
+        /// Gets the Trial Balance for the given Abor.    The Trial Balance has been generated from transactions, translated via Posting Rules  and aggregated based on a General Ledger Profile (where specified).
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
         /// <param name="code">The code of the Abor. Together with the scope this uniquely identifies the Abor.</param>
         /// <param name="trialBalanceQueryParameters">The query parameters used in running the generation of the Trial Balance.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Trial Balance.             Defaults to returning the latest version if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results by.             For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
-        /// <param name="limit">When paginating, limit the number of returned results to this many.             Defaults to 100 if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Trial Balances.             This token is returned from the previous call.             If a pagination token is provided, the filter, effectiveAt and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Trial Balance.              Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results by.              For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many.              Defaults to 100 if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Trial Balances.              This token is returned from the previous call.              If a pagination token is provided, the filter, effectiveAt and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of VersionedResourceListOfTrialBalance</returns>
@@ -288,13 +288,13 @@ namespace Lusid.Sdk.Api
         /// List all the Abors matching particular criteria.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Abor. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Abor. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to list the Abor. Defaults to returning the latest version of each Abor if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Abor; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Abor; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the Abor type, specify \&quot;id.Code eq &#39;Abor1&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the Abor type, specify \&quot;id.Code eq &#39;Abor1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Abor&#39; domain to decorate onto each Abor.             These must take the format {domain}/{scope}/{code}, for example &#39;Abor/Manager/Id&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Abor&#39; domain to decorate onto each Abor.              These must take the format {domain}/{scope}/{code}, for example &#39;Abor/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfAbor</returns>
@@ -307,13 +307,13 @@ namespace Lusid.Sdk.Api
         /// List all the Abors matching particular criteria.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Abor. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Abor. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to list the Abor. Defaults to returning the latest version of each Abor if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Abor; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Abor; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the Abor type, specify \&quot;id.Code eq &#39;Abor1&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the Abor type, specify \&quot;id.Code eq &#39;Abor1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Abor&#39; domain to decorate onto each Abor.             These must take the format {domain}/{scope}/{code}, for example &#39;Abor/Manager/Id&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Abor&#39; domain to decorate onto each Abor.              These must take the format {domain}/{scope}/{code}, for example &#39;Abor/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfAbor</returns>
@@ -327,13 +327,13 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
         /// <param name="code">The code of the Abor.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Diary Entries. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Diary Entries. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to list the DiaryEntry. Defaults to returning the latest version of each DiaryEntry if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing diary entries; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing diary entries; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the DiaryEntry type, specify \&quot;type eq &#39;PeriodBoundary&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the DiaryEntry type, specify \&quot;type eq &#39;PeriodBoundary&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;DiaryEntry&#39; domain to decorate onto each DiaryEntry.             These must take the format {domain}/{scope}/{code}, for example &#39;DiaryEntry/Report/Id&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;DiaryEntry&#39; domain to decorate onto each DiaryEntry.              These must take the format {domain}/{scope}/{code}, for example &#39;DiaryEntry/Report/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfDiaryEntry</returns>
@@ -348,13 +348,13 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
         /// <param name="code">The code of the Abor.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Diary Entries. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Diary Entries. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to list the DiaryEntry. Defaults to returning the latest version of each DiaryEntry if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing diary entries; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing diary entries; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the DiaryEntry type, specify \&quot;type eq &#39;PeriodBoundary&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the DiaryEntry type, specify \&quot;type eq &#39;PeriodBoundary&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;DiaryEntry&#39; domain to decorate onto each DiaryEntry.             These must take the format {domain}/{scope}/{code}, for example &#39;DiaryEntry/Report/Id&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;DiaryEntry&#39; domain to decorate onto each DiaryEntry.              These must take the format {domain}/{scope}/{code}, for example &#39;DiaryEntry/Report/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfDiaryEntry</returns>
@@ -396,7 +396,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
-        /// <param name="code">The code of the Abor. Together with the             scope this uniquely identifies the Abor.</param>
+        /// <param name="code">The code of the Abor. Together with the              scope this uniquely identifies the Abor.</param>
         /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -411,7 +411,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
-        /// <param name="code">The code of the Abor. Together with the             scope this uniquely identifies the Abor.</param>
+        /// <param name="code">The code of the Abor. Together with the              scope this uniquely identifies the Abor.</param>
         /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -450,12 +450,12 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] UpsertAborProperties: Upsert Abor properties
         /// </summary>
         /// <remarks>
-        /// Update or insert one or more properties onto a single Abor. A property will be updated if it already exists and inserted if it does not. All properties must be of the domain &#39;Abor&#39;.              Upserting a property that exists for an Abor, with a null value, will delete the instance of the property for that group.              Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// Update or insert one or more properties onto a single Abor. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Abor&#39;.                Upserting a property that exists for an Abor, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor to update or insert the properties onto.</param>
         /// <param name="code">The code of the Abor to update or insert the properties onto. Together with the scope this uniquely identifies the Abor.</param>
-        /// <param name="requestBody">The properties to be updated or inserted onto the Abor. Each property in              the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;Abor/Manager/Id\&quot;. (optional)</param>
+        /// <param name="requestBody">The properties to be updated or inserted onto the Abor. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;Abor/Manager/Id\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>AborProperties</returns>
@@ -465,12 +465,12 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] UpsertAborProperties: Upsert Abor properties
         /// </summary>
         /// <remarks>
-        /// Update or insert one or more properties onto a single Abor. A property will be updated if it already exists and inserted if it does not. All properties must be of the domain &#39;Abor&#39;.              Upserting a property that exists for an Abor, with a null value, will delete the instance of the property for that group.              Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// Update or insert one or more properties onto a single Abor. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Abor&#39;.                Upserting a property that exists for an Abor, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor to update or insert the properties onto.</param>
         /// <param name="code">The code of the Abor to update or insert the properties onto. Together with the scope this uniquely identifies the Abor.</param>
-        /// <param name="requestBody">The properties to be updated or inserted onto the Abor. Each property in              the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;Abor/Manager/Id\&quot;. (optional)</param>
+        /// <param name="requestBody">The properties to be updated or inserted onto the Abor. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;Abor/Manager/Id\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AborProperties</returns>
@@ -615,7 +615,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Abor. Together with the scope this uniquely identifies the Abor.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the Abor properties. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Abor definition. Defaults to returning the latest version of the Abor definition if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Abor&#39; domain to decorate onto the Abor.             These must take the format {domain}/{scope}/{code}, for example &#39;Abor/Manager/Id&#39;. If no properties are specified, then no properties will be returned. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Abor&#39; domain to decorate onto the Abor.              These must take the format {domain}/{scope}/{code}, for example &#39;Abor/Manager/Id&#39;. If no properties are specified, then no properties will be returned. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -633,7 +633,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Abor. Together with the scope this uniquely identifies the Abor.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the Abor properties. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Abor definition. Defaults to returning the latest version of the Abor definition if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Abor&#39; domain to decorate onto the Abor.             These must take the format {domain}/{scope}/{code}, for example &#39;Abor/Manager/Id&#39;. If no properties are specified, then no properties will be returned. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Abor&#39; domain to decorate onto the Abor.              These must take the format {domain}/{scope}/{code}, for example &#39;Abor/Manager/Id&#39;. If no properties are specified, then no properties will be returned. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -676,13 +676,13 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetJournalEntryLines: Get the Journal Entry lines for the given Abor.
         /// </summary>
         /// <remarks>
-        /// Gets the Journal Entry lines for the given Abor              The Journal Entry lines have been generated from transactions and translated via posting rules
+        /// Gets the Journal Entry lines for the given Abor                The Journal Entry lines have been generated from transactions and translated via posting rules
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
         /// <param name="code">The code of the Abor. Together with the scope is creating the unique identifier for the given Abor.</param>
         /// <param name="journalEntryLinesQueryParameters">The query parameters used in running the generation of the Journal Entry lines.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve Journal Entry lines. Defaults to returning the latest version              of each transaction if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve Journal Entry lines. Defaults to returning the latest version               of each transaction if not specified. (optional)</param>
         /// <param name="filter">\&quot;Expression to filter the result set.\&quot; (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing Journal Entry lines from a previous call to GetJournalEntryLines. (optional)</param>
@@ -696,13 +696,13 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetJournalEntryLines: Get the Journal Entry lines for the given Abor.
         /// </summary>
         /// <remarks>
-        /// Gets the Journal Entry lines for the given Abor              The Journal Entry lines have been generated from transactions and translated via posting rules
+        /// Gets the Journal Entry lines for the given Abor                The Journal Entry lines have been generated from transactions and translated via posting rules
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
         /// <param name="code">The code of the Abor. Together with the scope is creating the unique identifier for the given Abor.</param>
         /// <param name="journalEntryLinesQueryParameters">The query parameters used in running the generation of the Journal Entry lines.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve Journal Entry lines. Defaults to returning the latest version              of each transaction if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve Journal Entry lines. Defaults to returning the latest version               of each transaction if not specified. (optional)</param>
         /// <param name="filter">\&quot;Expression to filter the result set.\&quot; (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing Journal Entry lines from a previous call to GetJournalEntryLines. (optional)</param>
@@ -715,16 +715,16 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetTrialBalance: Get the Trial Balance for the given Abor.
         /// </summary>
         /// <remarks>
-        /// Gets the Trial Balance for the given Abor.  The Trial Balance has been generated from transactions, translated via Posting Rules and aggregated based on a General Ledger Profile (where specified).
+        /// Gets the Trial Balance for the given Abor.    The Trial Balance has been generated from transactions, translated via Posting Rules  and aggregated based on a General Ledger Profile (where specified).
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
         /// <param name="code">The code of the Abor. Together with the scope this uniquely identifies the Abor.</param>
         /// <param name="trialBalanceQueryParameters">The query parameters used in running the generation of the Trial Balance.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Trial Balance.             Defaults to returning the latest version if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results by.             For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
-        /// <param name="limit">When paginating, limit the number of returned results to this many.             Defaults to 100 if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Trial Balances.             This token is returned from the previous call.             If a pagination token is provided, the filter, effectiveAt and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Trial Balance.              Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results by.              For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many.              Defaults to 100 if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Trial Balances.              This token is returned from the previous call.              If a pagination token is provided, the filter, effectiveAt and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -735,16 +735,16 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetTrialBalance: Get the Trial Balance for the given Abor.
         /// </summary>
         /// <remarks>
-        /// Gets the Trial Balance for the given Abor.  The Trial Balance has been generated from transactions, translated via Posting Rules and aggregated based on a General Ledger Profile (where specified).
+        /// Gets the Trial Balance for the given Abor.    The Trial Balance has been generated from transactions, translated via Posting Rules  and aggregated based on a General Ledger Profile (where specified).
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
         /// <param name="code">The code of the Abor. Together with the scope this uniquely identifies the Abor.</param>
         /// <param name="trialBalanceQueryParameters">The query parameters used in running the generation of the Trial Balance.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Trial Balance.             Defaults to returning the latest version if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results by.             For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
-        /// <param name="limit">When paginating, limit the number of returned results to this many.             Defaults to 100 if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Trial Balances.             This token is returned from the previous call.             If a pagination token is provided, the filter, effectiveAt and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Trial Balance.              Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results by.              For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many.              Defaults to 100 if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Trial Balances.              This token is returned from the previous call.              If a pagination token is provided, the filter, effectiveAt and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -757,13 +757,13 @@ namespace Lusid.Sdk.Api
         /// List all the Abors matching particular criteria.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Abor. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Abor. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to list the Abor. Defaults to returning the latest version of each Abor if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Abor; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Abor; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the Abor type, specify \&quot;id.Code eq &#39;Abor1&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the Abor type, specify \&quot;id.Code eq &#39;Abor1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Abor&#39; domain to decorate onto each Abor.             These must take the format {domain}/{scope}/{code}, for example &#39;Abor/Manager/Id&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Abor&#39; domain to decorate onto each Abor.              These must take the format {domain}/{scope}/{code}, for example &#39;Abor/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -777,13 +777,13 @@ namespace Lusid.Sdk.Api
         /// List all the Abors matching particular criteria.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Abor. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Abor. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to list the Abor. Defaults to returning the latest version of each Abor if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Abor; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Abor; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the Abor type, specify \&quot;id.Code eq &#39;Abor1&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the Abor type, specify \&quot;id.Code eq &#39;Abor1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Abor&#39; domain to decorate onto each Abor.             These must take the format {domain}/{scope}/{code}, for example &#39;Abor/Manager/Id&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Abor&#39; domain to decorate onto each Abor.              These must take the format {domain}/{scope}/{code}, for example &#39;Abor/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -798,13 +798,13 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
         /// <param name="code">The code of the Abor.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Diary Entries. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Diary Entries. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to list the DiaryEntry. Defaults to returning the latest version of each DiaryEntry if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing diary entries; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing diary entries; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the DiaryEntry type, specify \&quot;type eq &#39;PeriodBoundary&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the DiaryEntry type, specify \&quot;type eq &#39;PeriodBoundary&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;DiaryEntry&#39; domain to decorate onto each DiaryEntry.             These must take the format {domain}/{scope}/{code}, for example &#39;DiaryEntry/Report/Id&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;DiaryEntry&#39; domain to decorate onto each DiaryEntry.              These must take the format {domain}/{scope}/{code}, for example &#39;DiaryEntry/Report/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -820,13 +820,13 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
         /// <param name="code">The code of the Abor.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Diary Entries. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Diary Entries. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to list the DiaryEntry. Defaults to returning the latest version of each DiaryEntry if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing diary entries; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing diary entries; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the DiaryEntry type, specify \&quot;type eq &#39;PeriodBoundary&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the DiaryEntry type, specify \&quot;type eq &#39;PeriodBoundary&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;DiaryEntry&#39; domain to decorate onto each DiaryEntry.             These must take the format {domain}/{scope}/{code}, for example &#39;DiaryEntry/Report/Id&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;DiaryEntry&#39; domain to decorate onto each DiaryEntry.              These must take the format {domain}/{scope}/{code}, for example &#39;DiaryEntry/Report/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -871,7 +871,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
-        /// <param name="code">The code of the Abor. Together with the             scope this uniquely identifies the Abor.</param>
+        /// <param name="code">The code of the Abor. Together with the              scope this uniquely identifies the Abor.</param>
         /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -887,7 +887,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
-        /// <param name="code">The code of the Abor. Together with the             scope this uniquely identifies the Abor.</param>
+        /// <param name="code">The code of the Abor. Together with the              scope this uniquely identifies the Abor.</param>
         /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -929,12 +929,12 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] UpsertAborProperties: Upsert Abor properties
         /// </summary>
         /// <remarks>
-        /// Update or insert one or more properties onto a single Abor. A property will be updated if it already exists and inserted if it does not. All properties must be of the domain &#39;Abor&#39;.              Upserting a property that exists for an Abor, with a null value, will delete the instance of the property for that group.              Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// Update or insert one or more properties onto a single Abor. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Abor&#39;.                Upserting a property that exists for an Abor, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor to update or insert the properties onto.</param>
         /// <param name="code">The code of the Abor to update or insert the properties onto. Together with the scope this uniquely identifies the Abor.</param>
-        /// <param name="requestBody">The properties to be updated or inserted onto the Abor. Each property in              the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;Abor/Manager/Id\&quot;. (optional)</param>
+        /// <param name="requestBody">The properties to be updated or inserted onto the Abor. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;Abor/Manager/Id\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -945,12 +945,12 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] UpsertAborProperties: Upsert Abor properties
         /// </summary>
         /// <remarks>
-        /// Update or insert one or more properties onto a single Abor. A property will be updated if it already exists and inserted if it does not. All properties must be of the domain &#39;Abor&#39;.              Upserting a property that exists for an Abor, with a null value, will delete the instance of the property for that group.              Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// Update or insert one or more properties onto a single Abor. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Abor&#39;.                Upserting a property that exists for an Abor, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor to update or insert the properties onto.</param>
         /// <param name="code">The code of the Abor to update or insert the properties onto. Together with the scope this uniquely identifies the Abor.</param>
-        /// <param name="requestBody">The properties to be updated or inserted onto the Abor. Each property in              the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;Abor/Manager/Id\&quot;. (optional)</param>
+        /// <param name="requestBody">The properties to be updated or inserted onto the Abor. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;Abor/Manager/Id\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2035,7 +2035,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Abor. Together with the scope this uniquely identifies the Abor.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the Abor properties. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Abor definition. Defaults to returning the latest version of the Abor definition if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Abor&#39; domain to decorate onto the Abor.             These must take the format {domain}/{scope}/{code}, for example &#39;Abor/Manager/Id&#39;. If no properties are specified, then no properties will be returned. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Abor&#39; domain to decorate onto the Abor.              These must take the format {domain}/{scope}/{code}, for example &#39;Abor/Manager/Id&#39;. If no properties are specified, then no properties will be returned. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Abor</returns>
@@ -2053,7 +2053,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Abor. Together with the scope this uniquely identifies the Abor.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the Abor properties. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Abor definition. Defaults to returning the latest version of the Abor definition if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Abor&#39; domain to decorate onto the Abor.             These must take the format {domain}/{scope}/{code}, for example &#39;Abor/Manager/Id&#39;. If no properties are specified, then no properties will be returned. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Abor&#39; domain to decorate onto the Abor.              These must take the format {domain}/{scope}/{code}, for example &#39;Abor/Manager/Id&#39;. If no properties are specified, then no properties will be returned. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Abor</returns>
@@ -2162,7 +2162,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Abor. Together with the scope this uniquely identifies the Abor.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the Abor properties. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Abor definition. Defaults to returning the latest version of the Abor definition if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Abor&#39; domain to decorate onto the Abor.             These must take the format {domain}/{scope}/{code}, for example &#39;Abor/Manager/Id&#39;. If no properties are specified, then no properties will be returned. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Abor&#39; domain to decorate onto the Abor.              These must take the format {domain}/{scope}/{code}, for example &#39;Abor/Manager/Id&#39;. If no properties are specified, then no properties will be returned. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2181,7 +2181,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Abor. Together with the scope this uniquely identifies the Abor.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the Abor properties. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Abor definition. Defaults to returning the latest version of the Abor definition if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Abor&#39; domain to decorate onto the Abor.             These must take the format {domain}/{scope}/{code}, for example &#39;Abor/Manager/Id&#39;. If no properties are specified, then no properties will be returned. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Abor&#39; domain to decorate onto the Abor.              These must take the format {domain}/{scope}/{code}, for example &#39;Abor/Manager/Id&#39;. If no properties are specified, then no properties will be returned. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2532,13 +2532,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetJournalEntryLines: Get the Journal Entry lines for the given Abor. Gets the Journal Entry lines for the given Abor              The Journal Entry lines have been generated from transactions and translated via posting rules
+        /// [EXPERIMENTAL] GetJournalEntryLines: Get the Journal Entry lines for the given Abor. Gets the Journal Entry lines for the given Abor                The Journal Entry lines have been generated from transactions and translated via posting rules
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
         /// <param name="code">The code of the Abor. Together with the scope is creating the unique identifier for the given Abor.</param>
         /// <param name="journalEntryLinesQueryParameters">The query parameters used in running the generation of the Journal Entry lines.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve Journal Entry lines. Defaults to returning the latest version              of each transaction if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve Journal Entry lines. Defaults to returning the latest version               of each transaction if not specified. (optional)</param>
         /// <param name="filter">\&quot;Expression to filter the result set.\&quot; (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing Journal Entry lines from a previous call to GetJournalEntryLines. (optional)</param>
@@ -2552,13 +2552,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetJournalEntryLines: Get the Journal Entry lines for the given Abor. Gets the Journal Entry lines for the given Abor              The Journal Entry lines have been generated from transactions and translated via posting rules
+        /// [EXPERIMENTAL] GetJournalEntryLines: Get the Journal Entry lines for the given Abor. Gets the Journal Entry lines for the given Abor                The Journal Entry lines have been generated from transactions and translated via posting rules
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
         /// <param name="code">The code of the Abor. Together with the scope is creating the unique identifier for the given Abor.</param>
         /// <param name="journalEntryLinesQueryParameters">The query parameters used in running the generation of the Journal Entry lines.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve Journal Entry lines. Defaults to returning the latest version              of each transaction if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve Journal Entry lines. Defaults to returning the latest version               of each transaction if not specified. (optional)</param>
         /// <param name="filter">\&quot;Expression to filter the result set.\&quot; (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing Journal Entry lines from a previous call to GetJournalEntryLines. (optional)</param>
@@ -2678,13 +2678,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetJournalEntryLines: Get the Journal Entry lines for the given Abor. Gets the Journal Entry lines for the given Abor              The Journal Entry lines have been generated from transactions and translated via posting rules
+        /// [EXPERIMENTAL] GetJournalEntryLines: Get the Journal Entry lines for the given Abor. Gets the Journal Entry lines for the given Abor                The Journal Entry lines have been generated from transactions and translated via posting rules
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
         /// <param name="code">The code of the Abor. Together with the scope is creating the unique identifier for the given Abor.</param>
         /// <param name="journalEntryLinesQueryParameters">The query parameters used in running the generation of the Journal Entry lines.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve Journal Entry lines. Defaults to returning the latest version              of each transaction if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve Journal Entry lines. Defaults to returning the latest version               of each transaction if not specified. (optional)</param>
         /// <param name="filter">\&quot;Expression to filter the result set.\&quot; (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing Journal Entry lines from a previous call to GetJournalEntryLines. (optional)</param>
@@ -2699,13 +2699,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetJournalEntryLines: Get the Journal Entry lines for the given Abor. Gets the Journal Entry lines for the given Abor              The Journal Entry lines have been generated from transactions and translated via posting rules
+        /// [EXPERIMENTAL] GetJournalEntryLines: Get the Journal Entry lines for the given Abor. Gets the Journal Entry lines for the given Abor                The Journal Entry lines have been generated from transactions and translated via posting rules
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
         /// <param name="code">The code of the Abor. Together with the scope is creating the unique identifier for the given Abor.</param>
         /// <param name="journalEntryLinesQueryParameters">The query parameters used in running the generation of the Journal Entry lines.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve Journal Entry lines. Defaults to returning the latest version              of each transaction if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve Journal Entry lines. Defaults to returning the latest version               of each transaction if not specified. (optional)</param>
         /// <param name="filter">\&quot;Expression to filter the result set.\&quot; (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing Journal Entry lines from a previous call to GetJournalEntryLines. (optional)</param>
@@ -2828,16 +2828,16 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTrialBalance: Get the Trial Balance for the given Abor. Gets the Trial Balance for the given Abor.  The Trial Balance has been generated from transactions, translated via Posting Rules and aggregated based on a General Ledger Profile (where specified).
+        /// [EXPERIMENTAL] GetTrialBalance: Get the Trial Balance for the given Abor. Gets the Trial Balance for the given Abor.    The Trial Balance has been generated from transactions, translated via Posting Rules  and aggregated based on a General Ledger Profile (where specified).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
         /// <param name="code">The code of the Abor. Together with the scope this uniquely identifies the Abor.</param>
         /// <param name="trialBalanceQueryParameters">The query parameters used in running the generation of the Trial Balance.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Trial Balance.             Defaults to returning the latest version if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results by.             For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
-        /// <param name="limit">When paginating, limit the number of returned results to this many.             Defaults to 100 if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Trial Balances.             This token is returned from the previous call.             If a pagination token is provided, the filter, effectiveAt and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Trial Balance.              Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results by.              For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many.              Defaults to 100 if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Trial Balances.              This token is returned from the previous call.              If a pagination token is provided, the filter, effectiveAt and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>VersionedResourceListOfTrialBalance</returns>
@@ -2848,16 +2848,16 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTrialBalance: Get the Trial Balance for the given Abor. Gets the Trial Balance for the given Abor.  The Trial Balance has been generated from transactions, translated via Posting Rules and aggregated based on a General Ledger Profile (where specified).
+        /// [EXPERIMENTAL] GetTrialBalance: Get the Trial Balance for the given Abor. Gets the Trial Balance for the given Abor.    The Trial Balance has been generated from transactions, translated via Posting Rules  and aggregated based on a General Ledger Profile (where specified).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
         /// <param name="code">The code of the Abor. Together with the scope this uniquely identifies the Abor.</param>
         /// <param name="trialBalanceQueryParameters">The query parameters used in running the generation of the Trial Balance.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Trial Balance.             Defaults to returning the latest version if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results by.             For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
-        /// <param name="limit">When paginating, limit the number of returned results to this many.             Defaults to 100 if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Trial Balances.             This token is returned from the previous call.             If a pagination token is provided, the filter, effectiveAt and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Trial Balance.              Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results by.              For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many.              Defaults to 100 if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Trial Balances.              This token is returned from the previous call.              If a pagination token is provided, the filter, effectiveAt and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of VersionedResourceListOfTrialBalance</returns>
@@ -2974,16 +2974,16 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTrialBalance: Get the Trial Balance for the given Abor. Gets the Trial Balance for the given Abor.  The Trial Balance has been generated from transactions, translated via Posting Rules and aggregated based on a General Ledger Profile (where specified).
+        /// [EXPERIMENTAL] GetTrialBalance: Get the Trial Balance for the given Abor. Gets the Trial Balance for the given Abor.    The Trial Balance has been generated from transactions, translated via Posting Rules  and aggregated based on a General Ledger Profile (where specified).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
         /// <param name="code">The code of the Abor. Together with the scope this uniquely identifies the Abor.</param>
         /// <param name="trialBalanceQueryParameters">The query parameters used in running the generation of the Trial Balance.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Trial Balance.             Defaults to returning the latest version if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results by.             For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
-        /// <param name="limit">When paginating, limit the number of returned results to this many.             Defaults to 100 if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Trial Balances.             This token is returned from the previous call.             If a pagination token is provided, the filter, effectiveAt and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Trial Balance.              Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results by.              For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many.              Defaults to 100 if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Trial Balances.              This token is returned from the previous call.              If a pagination token is provided, the filter, effectiveAt and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2995,16 +2995,16 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTrialBalance: Get the Trial Balance for the given Abor. Gets the Trial Balance for the given Abor.  The Trial Balance has been generated from transactions, translated via Posting Rules and aggregated based on a General Ledger Profile (where specified).
+        /// [EXPERIMENTAL] GetTrialBalance: Get the Trial Balance for the given Abor. Gets the Trial Balance for the given Abor.    The Trial Balance has been generated from transactions, translated via Posting Rules  and aggregated based on a General Ledger Profile (where specified).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
         /// <param name="code">The code of the Abor. Together with the scope this uniquely identifies the Abor.</param>
         /// <param name="trialBalanceQueryParameters">The query parameters used in running the generation of the Trial Balance.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Trial Balance.             Defaults to returning the latest version if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results by.             For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
-        /// <param name="limit">When paginating, limit the number of returned results to this many.             Defaults to 100 if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Trial Balances.             This token is returned from the previous call.             If a pagination token is provided, the filter, effectiveAt and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Trial Balance.              Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results by.              For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many.              Defaults to 100 if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Trial Balances.              This token is returned from the previous call.              If a pagination token is provided, the filter, effectiveAt and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -3127,13 +3127,13 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListAbors: List Abors. List all the Abors matching particular criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Abor. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Abor. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to list the Abor. Defaults to returning the latest version of each Abor if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Abor; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Abor; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the Abor type, specify \&quot;id.Code eq &#39;Abor1&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the Abor type, specify \&quot;id.Code eq &#39;Abor1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Abor&#39; domain to decorate onto each Abor.             These must take the format {domain}/{scope}/{code}, for example &#39;Abor/Manager/Id&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Abor&#39; domain to decorate onto each Abor.              These must take the format {domain}/{scope}/{code}, for example &#39;Abor/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfAbor</returns>
@@ -3147,13 +3147,13 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListAbors: List Abors. List all the Abors matching particular criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Abor. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Abor. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to list the Abor. Defaults to returning the latest version of each Abor if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Abor; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Abor; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the Abor type, specify \&quot;id.Code eq &#39;Abor1&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the Abor type, specify \&quot;id.Code eq &#39;Abor1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Abor&#39; domain to decorate onto each Abor.             These must take the format {domain}/{scope}/{code}, for example &#39;Abor/Manager/Id&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Abor&#39; domain to decorate onto each Abor.              These must take the format {domain}/{scope}/{code}, for example &#39;Abor/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfAbor</returns>
@@ -3260,13 +3260,13 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListAbors: List Abors. List all the Abors matching particular criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Abor. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Abor. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to list the Abor. Defaults to returning the latest version of each Abor if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Abor; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Abor; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the Abor type, specify \&quot;id.Code eq &#39;Abor1&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the Abor type, specify \&quot;id.Code eq &#39;Abor1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Abor&#39; domain to decorate onto each Abor.             These must take the format {domain}/{scope}/{code}, for example &#39;Abor/Manager/Id&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Abor&#39; domain to decorate onto each Abor.              These must take the format {domain}/{scope}/{code}, for example &#39;Abor/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -3281,13 +3281,13 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListAbors: List Abors. List all the Abors matching particular criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Abor. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Abor. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to list the Abor. Defaults to returning the latest version of each Abor if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Abor; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Abor; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the Abor type, specify \&quot;id.Code eq &#39;Abor1&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the Abor type, specify \&quot;id.Code eq &#39;Abor1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Abor&#39; domain to decorate onto each Abor.             These must take the format {domain}/{scope}/{code}, for example &#39;Abor/Manager/Id&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Abor&#39; domain to decorate onto each Abor.              These must take the format {domain}/{scope}/{code}, for example &#39;Abor/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -3399,13 +3399,13 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
         /// <param name="code">The code of the Abor.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Diary Entries. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Diary Entries. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to list the DiaryEntry. Defaults to returning the latest version of each DiaryEntry if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing diary entries; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing diary entries; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the DiaryEntry type, specify \&quot;type eq &#39;PeriodBoundary&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the DiaryEntry type, specify \&quot;type eq &#39;PeriodBoundary&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;DiaryEntry&#39; domain to decorate onto each DiaryEntry.             These must take the format {domain}/{scope}/{code}, for example &#39;DiaryEntry/Report/Id&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;DiaryEntry&#39; domain to decorate onto each DiaryEntry.              These must take the format {domain}/{scope}/{code}, for example &#39;DiaryEntry/Report/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfDiaryEntry</returns>
@@ -3421,13 +3421,13 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
         /// <param name="code">The code of the Abor.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Diary Entries. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Diary Entries. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to list the DiaryEntry. Defaults to returning the latest version of each DiaryEntry if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing diary entries; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing diary entries; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the DiaryEntry type, specify \&quot;type eq &#39;PeriodBoundary&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the DiaryEntry type, specify \&quot;type eq &#39;PeriodBoundary&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;DiaryEntry&#39; domain to decorate onto each DiaryEntry.             These must take the format {domain}/{scope}/{code}, for example &#39;DiaryEntry/Report/Id&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;DiaryEntry&#39; domain to decorate onto each DiaryEntry.              These must take the format {domain}/{scope}/{code}, for example &#39;DiaryEntry/Report/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfDiaryEntry</returns>
@@ -3550,13 +3550,13 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
         /// <param name="code">The code of the Abor.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Diary Entries. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Diary Entries. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to list the DiaryEntry. Defaults to returning the latest version of each DiaryEntry if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing diary entries; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing diary entries; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the DiaryEntry type, specify \&quot;type eq &#39;PeriodBoundary&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the DiaryEntry type, specify \&quot;type eq &#39;PeriodBoundary&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;DiaryEntry&#39; domain to decorate onto each DiaryEntry.             These must take the format {domain}/{scope}/{code}, for example &#39;DiaryEntry/Report/Id&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;DiaryEntry&#39; domain to decorate onto each DiaryEntry.              These must take the format {domain}/{scope}/{code}, for example &#39;DiaryEntry/Report/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -3573,13 +3573,13 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
         /// <param name="code">The code of the Abor.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Diary Entries. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Diary Entries. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to list the DiaryEntry. Defaults to returning the latest version of each DiaryEntry if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing diary entries; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing diary entries; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the DiaryEntry type, specify \&quot;type eq &#39;PeriodBoundary&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the DiaryEntry type, specify \&quot;type eq &#39;PeriodBoundary&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;DiaryEntry&#39; domain to decorate onto each DiaryEntry.             These must take the format {domain}/{scope}/{code}, for example &#39;DiaryEntry/Report/Id&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;DiaryEntry&#39; domain to decorate onto each DiaryEntry.              These must take the format {domain}/{scope}/{code}, for example &#39;DiaryEntry/Report/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -3940,7 +3940,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
-        /// <param name="code">The code of the Abor. Together with the             scope this uniquely identifies the Abor.</param>
+        /// <param name="code">The code of the Abor. Together with the              scope this uniquely identifies the Abor.</param>
         /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -3956,7 +3956,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
-        /// <param name="code">The code of the Abor. Together with the             scope this uniquely identifies the Abor.</param>
+        /// <param name="code">The code of the Abor. Together with the              scope this uniquely identifies the Abor.</param>
         /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -4062,7 +4062,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
-        /// <param name="code">The code of the Abor. Together with the             scope this uniquely identifies the Abor.</param>
+        /// <param name="code">The code of the Abor. Together with the              scope this uniquely identifies the Abor.</param>
         /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -4079,7 +4079,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
-        /// <param name="code">The code of the Abor. Together with the             scope this uniquely identifies the Abor.</param>
+        /// <param name="code">The code of the Abor. Together with the              scope this uniquely identifies the Abor.</param>
         /// <param name="operation">The json patch document. For more information see: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -4420,12 +4420,12 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertAborProperties: Upsert Abor properties Update or insert one or more properties onto a single Abor. A property will be updated if it already exists and inserted if it does not. All properties must be of the domain &#39;Abor&#39;.              Upserting a property that exists for an Abor, with a null value, will delete the instance of the property for that group.              Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// [EXPERIMENTAL] UpsertAborProperties: Upsert Abor properties Update or insert one or more properties onto a single Abor. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Abor&#39;.                Upserting a property that exists for an Abor, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor to update or insert the properties onto.</param>
         /// <param name="code">The code of the Abor to update or insert the properties onto. Together with the scope this uniquely identifies the Abor.</param>
-        /// <param name="requestBody">The properties to be updated or inserted onto the Abor. Each property in              the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;Abor/Manager/Id\&quot;. (optional)</param>
+        /// <param name="requestBody">The properties to be updated or inserted onto the Abor. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;Abor/Manager/Id\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>AborProperties</returns>
@@ -4436,12 +4436,12 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertAborProperties: Upsert Abor properties Update or insert one or more properties onto a single Abor. A property will be updated if it already exists and inserted if it does not. All properties must be of the domain &#39;Abor&#39;.              Upserting a property that exists for an Abor, with a null value, will delete the instance of the property for that group.              Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// [EXPERIMENTAL] UpsertAborProperties: Upsert Abor properties Update or insert one or more properties onto a single Abor. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Abor&#39;.                Upserting a property that exists for an Abor, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor to update or insert the properties onto.</param>
         /// <param name="code">The code of the Abor to update or insert the properties onto. Together with the scope this uniquely identifies the Abor.</param>
-        /// <param name="requestBody">The properties to be updated or inserted onto the Abor. Each property in              the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;Abor/Manager/Id\&quot;. (optional)</param>
+        /// <param name="requestBody">The properties to be updated or inserted onto the Abor. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;Abor/Manager/Id\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AborProperties</returns>
@@ -4536,12 +4536,12 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertAborProperties: Upsert Abor properties Update or insert one or more properties onto a single Abor. A property will be updated if it already exists and inserted if it does not. All properties must be of the domain &#39;Abor&#39;.              Upserting a property that exists for an Abor, with a null value, will delete the instance of the property for that group.              Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// [EXPERIMENTAL] UpsertAborProperties: Upsert Abor properties Update or insert one or more properties onto a single Abor. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Abor&#39;.                Upserting a property that exists for an Abor, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor to update or insert the properties onto.</param>
         /// <param name="code">The code of the Abor to update or insert the properties onto. Together with the scope this uniquely identifies the Abor.</param>
-        /// <param name="requestBody">The properties to be updated or inserted onto the Abor. Each property in              the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;Abor/Manager/Id\&quot;. (optional)</param>
+        /// <param name="requestBody">The properties to be updated or inserted onto the Abor. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;Abor/Manager/Id\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -4553,12 +4553,12 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertAborProperties: Upsert Abor properties Update or insert one or more properties onto a single Abor. A property will be updated if it already exists and inserted if it does not. All properties must be of the domain &#39;Abor&#39;.              Upserting a property that exists for an Abor, with a null value, will delete the instance of the property for that group.              Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// [EXPERIMENTAL] UpsertAborProperties: Upsert Abor properties Update or insert one or more properties onto a single Abor. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Abor&#39;.                Upserting a property that exists for an Abor, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor to update or insert the properties onto.</param>
         /// <param name="code">The code of the Abor to update or insert the properties onto. Together with the scope this uniquely identifies the Abor.</param>
-        /// <param name="requestBody">The properties to be updated or inserted onto the Abor. Each property in              the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;Abor/Manager/Id\&quot;. (optional)</param>
+        /// <param name="requestBody">The properties to be updated or inserted onto the Abor. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;Abor/Manager/Id\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>

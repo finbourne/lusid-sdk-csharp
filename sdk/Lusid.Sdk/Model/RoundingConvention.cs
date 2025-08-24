@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Certain bonds will follow certain rounding conventions. For example, Thai government bonds will round accrued interest and cashflow values 2dp, whereas for French government bonds, the rounding is to 7dp.
+    /// Certain bonds will follow certain rounding conventions.  For example, Thai government bonds will round accrued interest and cashflow values 2dp, whereas for  French government bonds, the rounding is to 7dp.
     /// </summary>
     [DataContract(Name = "RoundingConvention")]
     public partial class RoundingConvention : IEquatable<RoundingConvention>, IValidatableObject
@@ -31,10 +31,10 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RoundingConvention" /> class.
         /// </summary>
-        /// <param name="faceValue">The face value to round against. The number to be rounded is scaled to this face value before being rounded, and then re-scaled to the holding amount. For example if rounding an accrued interest value using a FaceValue of 1,000, but 10,000 units are held, then the initial calculated value would be divided by 10,000, then multiplied by 1,000 and rounded per the convention. The result of this would then be divided by 1,000 and multiplied by 10,000 to get the final value..</param>
+        /// <param name="faceValue">The face value to round against.  The number to be rounded is scaled to this face value before being rounded, and then re-scaled to the holding amount.  For example if rounding an accrued interest value using a FaceValue of 1,000, but 10,000 units are held,  then the initial calculated value would be divided by 10,000, then multiplied by 1,000 and rounded per the convention.  The result of this would then be divided by 1,000 and multiplied by 10,000 to get the final value..</param>
         /// <param name="precision">The precision of the rounding.  The decimal places to which the rounding takes place..</param>
-        /// <param name="roundingTarget">The target of the rounding convention. Accepted values are &#39;AccruedInterest&#39;, &#39;Cashflows&#39;, or &#39;All&#39;  Supported string (enumeration) values are: [All, AccruedInterest, Cashflows]..</param>
-        /// <param name="roundingType">The type of rounding.  e.g. Round Up, Round Down  Supported string (enumeration) values are: [Down, Up, Floor, Ceiling, Nearest]..</param>
+        /// <param name="roundingTarget">The target of the rounding convention.  Accepted values are &#39;AccruedInterest&#39;, &#39;Cashflows&#39;, or &#39;All&#39;    Supported string (enumeration) values are: [All, AccruedInterest, Cashflows]..</param>
+        /// <param name="roundingType">The type of rounding.  e.g. Round Up, Round Down    Supported string (enumeration) values are: [Down, Up, Floor, Ceiling, Nearest]..</param>
         public RoundingConvention(decimal faceValue = default(decimal), int precision = default(int), string roundingTarget = default(string), string roundingType = default(string))
         {
             this.FaceValue = faceValue;
@@ -44,9 +44,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The face value to round against. The number to be rounded is scaled to this face value before being rounded, and then re-scaled to the holding amount. For example if rounding an accrued interest value using a FaceValue of 1,000, but 10,000 units are held, then the initial calculated value would be divided by 10,000, then multiplied by 1,000 and rounded per the convention. The result of this would then be divided by 1,000 and multiplied by 10,000 to get the final value.
+        /// The face value to round against.  The number to be rounded is scaled to this face value before being rounded, and then re-scaled to the holding amount.  For example if rounding an accrued interest value using a FaceValue of 1,000, but 10,000 units are held,  then the initial calculated value would be divided by 10,000, then multiplied by 1,000 and rounded per the convention.  The result of this would then be divided by 1,000 and multiplied by 10,000 to get the final value.
         /// </summary>
-        /// <value>The face value to round against. The number to be rounded is scaled to this face value before being rounded, and then re-scaled to the holding amount. For example if rounding an accrued interest value using a FaceValue of 1,000, but 10,000 units are held, then the initial calculated value would be divided by 10,000, then multiplied by 1,000 and rounded per the convention. The result of this would then be divided by 1,000 and multiplied by 10,000 to get the final value.</value>
+        /// <value>The face value to round against.  The number to be rounded is scaled to this face value before being rounded, and then re-scaled to the holding amount.  For example if rounding an accrued interest value using a FaceValue of 1,000, but 10,000 units are held,  then the initial calculated value would be divided by 10,000, then multiplied by 1,000 and rounded per the convention.  The result of this would then be divided by 1,000 and multiplied by 10,000 to get the final value.</value>
         /// <example>100</example>
         [DataMember(Name = "faceValue", EmitDefaultValue = true)]
         public decimal FaceValue { get; set; }
@@ -60,16 +60,16 @@ namespace Lusid.Sdk.Model
         public int Precision { get; set; }
 
         /// <summary>
-        /// The target of the rounding convention. Accepted values are &#39;AccruedInterest&#39;, &#39;Cashflows&#39;, or &#39;All&#39;  Supported string (enumeration) values are: [All, AccruedInterest, Cashflows].
+        /// The target of the rounding convention.  Accepted values are &#39;AccruedInterest&#39;, &#39;Cashflows&#39;, or &#39;All&#39;    Supported string (enumeration) values are: [All, AccruedInterest, Cashflows].
         /// </summary>
-        /// <value>The target of the rounding convention. Accepted values are &#39;AccruedInterest&#39;, &#39;Cashflows&#39;, or &#39;All&#39;  Supported string (enumeration) values are: [All, AccruedInterest, Cashflows].</value>
+        /// <value>The target of the rounding convention.  Accepted values are &#39;AccruedInterest&#39;, &#39;Cashflows&#39;, or &#39;All&#39;    Supported string (enumeration) values are: [All, AccruedInterest, Cashflows].</value>
         [DataMember(Name = "roundingTarget", EmitDefaultValue = true)]
         public string RoundingTarget { get; set; }
 
         /// <summary>
-        /// The type of rounding.  e.g. Round Up, Round Down  Supported string (enumeration) values are: [Down, Up, Floor, Ceiling, Nearest].
+        /// The type of rounding.  e.g. Round Up, Round Down    Supported string (enumeration) values are: [Down, Up, Floor, Ceiling, Nearest].
         /// </summary>
-        /// <value>The type of rounding.  e.g. Round Up, Round Down  Supported string (enumeration) values are: [Down, Up, Floor, Ceiling, Nearest].</value>
+        /// <value>The type of rounding.  e.g. Round Up, Round Down    Supported string (enumeration) values are: [Down, Up, Floor, Ceiling, Nearest].</value>
         [DataMember(Name = "roundingType", EmitDefaultValue = true)]
         public string RoundingType { get; set; }
 

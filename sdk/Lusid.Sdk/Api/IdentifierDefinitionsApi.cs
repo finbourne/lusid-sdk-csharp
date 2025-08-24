@@ -60,7 +60,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] DeleteIdentifierDefinition: Delete a particular Identifier Definition
         /// </summary>
         /// <remarks>
-        /// The deletion will take effect from the Identifier Definition deletion datetime. i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
+        /// The deletion will take effect from the Identifier Definition deletion datetime.  i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">The type of entity to which the identifier relates</param>
@@ -75,7 +75,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] DeleteIdentifierDefinition: Delete a particular Identifier Definition
         /// </summary>
         /// <remarks>
-        /// The deletion will take effect from the Identifier Definition deletion datetime. i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
+        /// The deletion will take effect from the Identifier Definition deletion datetime.  i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">The type of entity to which the identifier relates</param>
@@ -89,15 +89,15 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetIdentifierDefinition: Get a single Identifier Definition
         /// </summary>
         /// <remarks>
-        /// Get a single Identifier Definition using domain, identifierScope, identifierType, and an optional asAt             - defaulting to latest if not specified
+        /// Get a single Identifier Definition using domain, identifierScope, identifierType, and an optional asAt              - defaulting to latest if not specified
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">The type of entity to which the identifier relates.</param>
         /// <param name="identifierScope">The scope that the identifier exists in</param>
         /// <param name="identifierType">What the identifier represents. Together with \&quot;domain\&quot; and \&quot;identifierScope\&quot; this uniquely identifies the identifier definition</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Identifier Definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effectiveAt datetime at which to retrieve the Identifier Definitions.             Since Identifier Definitions exist for all effective time, this will only apply to properties (if requested)             on the Identifier Definition. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;IdentifierDefinition&#39; domain to decorate onto the Identifier Definition.             These must take the format {domain}/{scope}/{code}. If no properties are specified, then no properties will be returned. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Identifier Definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effectiveAt datetime at which to retrieve the Identifier Definitions.              Since Identifier Definitions exist for all effective time, this will only apply to properties (if requested)              on the Identifier Definition. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;IdentifierDefinition&#39; domain to decorate onto the Identifier Definition.              These must take the format {domain}/{scope}/{code}. If no properties are specified, then no properties will be returned. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>IdentifierDefinition</returns>
@@ -107,15 +107,15 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetIdentifierDefinition: Get a single Identifier Definition
         /// </summary>
         /// <remarks>
-        /// Get a single Identifier Definition using domain, identifierScope, identifierType, and an optional asAt             - defaulting to latest if not specified
+        /// Get a single Identifier Definition using domain, identifierScope, identifierType, and an optional asAt              - defaulting to latest if not specified
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">The type of entity to which the identifier relates.</param>
         /// <param name="identifierScope">The scope that the identifier exists in</param>
         /// <param name="identifierType">What the identifier represents. Together with \&quot;domain\&quot; and \&quot;identifierScope\&quot; this uniquely identifies the identifier definition</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Identifier Definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effectiveAt datetime at which to retrieve the Identifier Definitions.             Since Identifier Definitions exist for all effective time, this will only apply to properties (if requested)             on the Identifier Definition. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;IdentifierDefinition&#39; domain to decorate onto the Identifier Definition.             These must take the format {domain}/{scope}/{code}. If no properties are specified, then no properties will be returned. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Identifier Definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effectiveAt datetime at which to retrieve the Identifier Definitions.              Since Identifier Definitions exist for all effective time, this will only apply to properties (if requested)              on the Identifier Definition. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;IdentifierDefinition&#39; domain to decorate onto the Identifier Definition.              These must take the format {domain}/{scope}/{code}. If no properties are specified, then no properties will be returned. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of IdentifierDefinition</returns>
@@ -124,16 +124,16 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListIdentifierDefinitions: List Identifier Definitions
         /// </summary>
         /// <remarks>
-        /// Retrieves all Identifier Definitions that fit the filter, in a specific order if sortBy is provided Supports pagination
+        /// Retrieves all Identifier Definitions that fit the filter, in a specific order if sortBy is provided  Supports pagination
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effectiveAt datetime at which to retrieve the Identifier Definitions.             Since Identifier Definitions exist for all effective time, this will only apply to properties (if requested)             on the Identifier Definition. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Identifier Definitions. Defaults to return the latest             version of the Identifier Definitions if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Identifier Definitions from a previous call to list             Identifier Definitions. This value is returned from the previous call. If a pagination token is provided the sortBy,             filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effectiveAt datetime at which to retrieve the Identifier Definitions.              Since Identifier Definitions exist for all effective time, this will only apply to properties (if requested)              on the Identifier Definition. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Identifier Definitions. Defaults to return the latest              version of the Identifier Definitions if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Identifier Definitions from a previous call to list              Identifier Definitions. This value is returned from the previous call. If a pagination token is provided the sortBy,              filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many per page. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;IdentifierDefinition&#39; domain to decorate onto the Identifier Definition.             These must take the format {domain}/{scope}/{code}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;IdentifierDefinition&#39; domain to decorate onto the Identifier Definition.              These must take the format {domain}/{scope}/{code}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfIdentifierDefinition</returns>
@@ -143,16 +143,16 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListIdentifierDefinitions: List Identifier Definitions
         /// </summary>
         /// <remarks>
-        /// Retrieves all Identifier Definitions that fit the filter, in a specific order if sortBy is provided Supports pagination
+        /// Retrieves all Identifier Definitions that fit the filter, in a specific order if sortBy is provided  Supports pagination
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effectiveAt datetime at which to retrieve the Identifier Definitions.             Since Identifier Definitions exist for all effective time, this will only apply to properties (if requested)             on the Identifier Definition. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Identifier Definitions. Defaults to return the latest             version of the Identifier Definitions if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Identifier Definitions from a previous call to list             Identifier Definitions. This value is returned from the previous call. If a pagination token is provided the sortBy,             filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effectiveAt datetime at which to retrieve the Identifier Definitions.              Since Identifier Definitions exist for all effective time, this will only apply to properties (if requested)              on the Identifier Definition. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Identifier Definitions. Defaults to return the latest              version of the Identifier Definitions if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Identifier Definitions from a previous call to list              Identifier Definitions. This value is returned from the previous call. If a pagination token is provided the sortBy,              filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many per page. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;IdentifierDefinition&#39; domain to decorate onto the Identifier Definition.             These must take the format {domain}/{scope}/{code}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;IdentifierDefinition&#39; domain to decorate onto the Identifier Definition.              These must take the format {domain}/{scope}/{code}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfIdentifierDefinition</returns>
@@ -228,7 +228,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] DeleteIdentifierDefinition: Delete a particular Identifier Definition
         /// </summary>
         /// <remarks>
-        /// The deletion will take effect from the Identifier Definition deletion datetime. i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
+        /// The deletion will take effect from the Identifier Definition deletion datetime.  i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">The type of entity to which the identifier relates</param>
@@ -244,7 +244,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] DeleteIdentifierDefinition: Delete a particular Identifier Definition
         /// </summary>
         /// <remarks>
-        /// The deletion will take effect from the Identifier Definition deletion datetime. i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
+        /// The deletion will take effect from the Identifier Definition deletion datetime.  i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">The type of entity to which the identifier relates</param>
@@ -259,15 +259,15 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetIdentifierDefinition: Get a single Identifier Definition
         /// </summary>
         /// <remarks>
-        /// Get a single Identifier Definition using domain, identifierScope, identifierType, and an optional asAt             - defaulting to latest if not specified
+        /// Get a single Identifier Definition using domain, identifierScope, identifierType, and an optional asAt              - defaulting to latest if not specified
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">The type of entity to which the identifier relates.</param>
         /// <param name="identifierScope">The scope that the identifier exists in</param>
         /// <param name="identifierType">What the identifier represents. Together with \&quot;domain\&quot; and \&quot;identifierScope\&quot; this uniquely identifies the identifier definition</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Identifier Definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effectiveAt datetime at which to retrieve the Identifier Definitions.             Since Identifier Definitions exist for all effective time, this will only apply to properties (if requested)             on the Identifier Definition. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;IdentifierDefinition&#39; domain to decorate onto the Identifier Definition.             These must take the format {domain}/{scope}/{code}. If no properties are specified, then no properties will be returned. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Identifier Definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effectiveAt datetime at which to retrieve the Identifier Definitions.              Since Identifier Definitions exist for all effective time, this will only apply to properties (if requested)              on the Identifier Definition. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;IdentifierDefinition&#39; domain to decorate onto the Identifier Definition.              These must take the format {domain}/{scope}/{code}. If no properties are specified, then no properties will be returned. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -278,15 +278,15 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetIdentifierDefinition: Get a single Identifier Definition
         /// </summary>
         /// <remarks>
-        /// Get a single Identifier Definition using domain, identifierScope, identifierType, and an optional asAt             - defaulting to latest if not specified
+        /// Get a single Identifier Definition using domain, identifierScope, identifierType, and an optional asAt              - defaulting to latest if not specified
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">The type of entity to which the identifier relates.</param>
         /// <param name="identifierScope">The scope that the identifier exists in</param>
         /// <param name="identifierType">What the identifier represents. Together with \&quot;domain\&quot; and \&quot;identifierScope\&quot; this uniquely identifies the identifier definition</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Identifier Definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effectiveAt datetime at which to retrieve the Identifier Definitions.             Since Identifier Definitions exist for all effective time, this will only apply to properties (if requested)             on the Identifier Definition. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;IdentifierDefinition&#39; domain to decorate onto the Identifier Definition.             These must take the format {domain}/{scope}/{code}. If no properties are specified, then no properties will be returned. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Identifier Definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effectiveAt datetime at which to retrieve the Identifier Definitions.              Since Identifier Definitions exist for all effective time, this will only apply to properties (if requested)              on the Identifier Definition. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;IdentifierDefinition&#39; domain to decorate onto the Identifier Definition.              These must take the format {domain}/{scope}/{code}. If no properties are specified, then no properties will be returned. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -296,16 +296,16 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListIdentifierDefinitions: List Identifier Definitions
         /// </summary>
         /// <remarks>
-        /// Retrieves all Identifier Definitions that fit the filter, in a specific order if sortBy is provided Supports pagination
+        /// Retrieves all Identifier Definitions that fit the filter, in a specific order if sortBy is provided  Supports pagination
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effectiveAt datetime at which to retrieve the Identifier Definitions.             Since Identifier Definitions exist for all effective time, this will only apply to properties (if requested)             on the Identifier Definition. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Identifier Definitions. Defaults to return the latest             version of the Identifier Definitions if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Identifier Definitions from a previous call to list             Identifier Definitions. This value is returned from the previous call. If a pagination token is provided the sortBy,             filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effectiveAt datetime at which to retrieve the Identifier Definitions.              Since Identifier Definitions exist for all effective time, this will only apply to properties (if requested)              on the Identifier Definition. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Identifier Definitions. Defaults to return the latest              version of the Identifier Definitions if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Identifier Definitions from a previous call to list              Identifier Definitions. This value is returned from the previous call. If a pagination token is provided the sortBy,              filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many per page. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;IdentifierDefinition&#39; domain to decorate onto the Identifier Definition.             These must take the format {domain}/{scope}/{code}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;IdentifierDefinition&#39; domain to decorate onto the Identifier Definition.              These must take the format {domain}/{scope}/{code}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -316,16 +316,16 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListIdentifierDefinitions: List Identifier Definitions
         /// </summary>
         /// <remarks>
-        /// Retrieves all Identifier Definitions that fit the filter, in a specific order if sortBy is provided Supports pagination
+        /// Retrieves all Identifier Definitions that fit the filter, in a specific order if sortBy is provided  Supports pagination
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effectiveAt datetime at which to retrieve the Identifier Definitions.             Since Identifier Definitions exist for all effective time, this will only apply to properties (if requested)             on the Identifier Definition. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Identifier Definitions. Defaults to return the latest             version of the Identifier Definitions if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Identifier Definitions from a previous call to list             Identifier Definitions. This value is returned from the previous call. If a pagination token is provided the sortBy,             filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effectiveAt datetime at which to retrieve the Identifier Definitions.              Since Identifier Definitions exist for all effective time, this will only apply to properties (if requested)              on the Identifier Definition. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Identifier Definitions. Defaults to return the latest              version of the Identifier Definitions if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Identifier Definitions from a previous call to list              Identifier Definitions. This value is returned from the previous call. If a pagination token is provided the sortBy,              filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many per page. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;IdentifierDefinition&#39; domain to decorate onto the Identifier Definition.             These must take the format {domain}/{scope}/{code}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;IdentifierDefinition&#39; domain to decorate onto the Identifier Definition.              These must take the format {domain}/{scope}/{code}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -688,7 +688,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteIdentifierDefinition: Delete a particular Identifier Definition The deletion will take effect from the Identifier Definition deletion datetime. i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
+        /// [EXPERIMENTAL] DeleteIdentifierDefinition: Delete a particular Identifier Definition The deletion will take effect from the Identifier Definition deletion datetime.  i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">The type of entity to which the identifier relates</param>
@@ -704,7 +704,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteIdentifierDefinition: Delete a particular Identifier Definition The deletion will take effect from the Identifier Definition deletion datetime. i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
+        /// [EXPERIMENTAL] DeleteIdentifierDefinition: Delete a particular Identifier Definition The deletion will take effect from the Identifier Definition deletion datetime.  i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">The type of entity to which the identifier relates</param>
@@ -806,7 +806,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteIdentifierDefinition: Delete a particular Identifier Definition The deletion will take effect from the Identifier Definition deletion datetime. i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
+        /// [EXPERIMENTAL] DeleteIdentifierDefinition: Delete a particular Identifier Definition The deletion will take effect from the Identifier Definition deletion datetime.  i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">The type of entity to which the identifier relates</param>
@@ -823,7 +823,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteIdentifierDefinition: Delete a particular Identifier Definition The deletion will take effect from the Identifier Definition deletion datetime. i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
+        /// [EXPERIMENTAL] DeleteIdentifierDefinition: Delete a particular Identifier Definition The deletion will take effect from the Identifier Definition deletion datetime.  i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">The type of entity to which the identifier relates</param>
@@ -928,15 +928,15 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetIdentifierDefinition: Get a single Identifier Definition Get a single Identifier Definition using domain, identifierScope, identifierType, and an optional asAt             - defaulting to latest if not specified
+        /// [EXPERIMENTAL] GetIdentifierDefinition: Get a single Identifier Definition Get a single Identifier Definition using domain, identifierScope, identifierType, and an optional asAt              - defaulting to latest if not specified
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">The type of entity to which the identifier relates.</param>
         /// <param name="identifierScope">The scope that the identifier exists in</param>
         /// <param name="identifierType">What the identifier represents. Together with \&quot;domain\&quot; and \&quot;identifierScope\&quot; this uniquely identifies the identifier definition</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Identifier Definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effectiveAt datetime at which to retrieve the Identifier Definitions.             Since Identifier Definitions exist for all effective time, this will only apply to properties (if requested)             on the Identifier Definition. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;IdentifierDefinition&#39; domain to decorate onto the Identifier Definition.             These must take the format {domain}/{scope}/{code}. If no properties are specified, then no properties will be returned. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Identifier Definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effectiveAt datetime at which to retrieve the Identifier Definitions.              Since Identifier Definitions exist for all effective time, this will only apply to properties (if requested)              on the Identifier Definition. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;IdentifierDefinition&#39; domain to decorate onto the Identifier Definition.              These must take the format {domain}/{scope}/{code}. If no properties are specified, then no properties will be returned. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>IdentifierDefinition</returns>
@@ -947,15 +947,15 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetIdentifierDefinition: Get a single Identifier Definition Get a single Identifier Definition using domain, identifierScope, identifierType, and an optional asAt             - defaulting to latest if not specified
+        /// [EXPERIMENTAL] GetIdentifierDefinition: Get a single Identifier Definition Get a single Identifier Definition using domain, identifierScope, identifierType, and an optional asAt              - defaulting to latest if not specified
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">The type of entity to which the identifier relates.</param>
         /// <param name="identifierScope">The scope that the identifier exists in</param>
         /// <param name="identifierType">What the identifier represents. Together with \&quot;domain\&quot; and \&quot;identifierScope\&quot; this uniquely identifies the identifier definition</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Identifier Definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effectiveAt datetime at which to retrieve the Identifier Definitions.             Since Identifier Definitions exist for all effective time, this will only apply to properties (if requested)             on the Identifier Definition. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;IdentifierDefinition&#39; domain to decorate onto the Identifier Definition.             These must take the format {domain}/{scope}/{code}. If no properties are specified, then no properties will be returned. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Identifier Definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effectiveAt datetime at which to retrieve the Identifier Definitions.              Since Identifier Definitions exist for all effective time, this will only apply to properties (if requested)              on the Identifier Definition. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;IdentifierDefinition&#39; domain to decorate onto the Identifier Definition.              These must take the format {domain}/{scope}/{code}. If no properties are specified, then no properties will be returned. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of IdentifierDefinition</returns>
@@ -1064,15 +1064,15 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetIdentifierDefinition: Get a single Identifier Definition Get a single Identifier Definition using domain, identifierScope, identifierType, and an optional asAt             - defaulting to latest if not specified
+        /// [EXPERIMENTAL] GetIdentifierDefinition: Get a single Identifier Definition Get a single Identifier Definition using domain, identifierScope, identifierType, and an optional asAt              - defaulting to latest if not specified
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">The type of entity to which the identifier relates.</param>
         /// <param name="identifierScope">The scope that the identifier exists in</param>
         /// <param name="identifierType">What the identifier represents. Together with \&quot;domain\&quot; and \&quot;identifierScope\&quot; this uniquely identifies the identifier definition</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Identifier Definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effectiveAt datetime at which to retrieve the Identifier Definitions.             Since Identifier Definitions exist for all effective time, this will only apply to properties (if requested)             on the Identifier Definition. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;IdentifierDefinition&#39; domain to decorate onto the Identifier Definition.             These must take the format {domain}/{scope}/{code}. If no properties are specified, then no properties will be returned. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Identifier Definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effectiveAt datetime at which to retrieve the Identifier Definitions.              Since Identifier Definitions exist for all effective time, this will only apply to properties (if requested)              on the Identifier Definition. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;IdentifierDefinition&#39; domain to decorate onto the Identifier Definition.              These must take the format {domain}/{scope}/{code}. If no properties are specified, then no properties will be returned. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1084,15 +1084,15 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetIdentifierDefinition: Get a single Identifier Definition Get a single Identifier Definition using domain, identifierScope, identifierType, and an optional asAt             - defaulting to latest if not specified
+        /// [EXPERIMENTAL] GetIdentifierDefinition: Get a single Identifier Definition Get a single Identifier Definition using domain, identifierScope, identifierType, and an optional asAt              - defaulting to latest if not specified
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">The type of entity to which the identifier relates.</param>
         /// <param name="identifierScope">The scope that the identifier exists in</param>
         /// <param name="identifierType">What the identifier represents. Together with \&quot;domain\&quot; and \&quot;identifierScope\&quot; this uniquely identifies the identifier definition</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Identifier Definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effectiveAt datetime at which to retrieve the Identifier Definitions.             Since Identifier Definitions exist for all effective time, this will only apply to properties (if requested)             on the Identifier Definition. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;IdentifierDefinition&#39; domain to decorate onto the Identifier Definition.             These must take the format {domain}/{scope}/{code}. If no properties are specified, then no properties will be returned. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Identifier Definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effectiveAt datetime at which to retrieve the Identifier Definitions.              Since Identifier Definitions exist for all effective time, this will only apply to properties (if requested)              on the Identifier Definition. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;IdentifierDefinition&#39; domain to decorate onto the Identifier Definition.              These must take the format {domain}/{scope}/{code}. If no properties are specified, then no properties will be returned. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1204,16 +1204,16 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListIdentifierDefinitions: List Identifier Definitions Retrieves all Identifier Definitions that fit the filter, in a specific order if sortBy is provided Supports pagination
+        /// [EXPERIMENTAL] ListIdentifierDefinitions: List Identifier Definitions Retrieves all Identifier Definitions that fit the filter, in a specific order if sortBy is provided  Supports pagination
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effectiveAt datetime at which to retrieve the Identifier Definitions.             Since Identifier Definitions exist for all effective time, this will only apply to properties (if requested)             on the Identifier Definition. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Identifier Definitions. Defaults to return the latest             version of the Identifier Definitions if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Identifier Definitions from a previous call to list             Identifier Definitions. This value is returned from the previous call. If a pagination token is provided the sortBy,             filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effectiveAt datetime at which to retrieve the Identifier Definitions.              Since Identifier Definitions exist for all effective time, this will only apply to properties (if requested)              on the Identifier Definition. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Identifier Definitions. Defaults to return the latest              version of the Identifier Definitions if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Identifier Definitions from a previous call to list              Identifier Definitions. This value is returned from the previous call. If a pagination token is provided the sortBy,              filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many per page. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;IdentifierDefinition&#39; domain to decorate onto the Identifier Definition.             These must take the format {domain}/{scope}/{code}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;IdentifierDefinition&#39; domain to decorate onto the Identifier Definition.              These must take the format {domain}/{scope}/{code}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfIdentifierDefinition</returns>
@@ -1224,16 +1224,16 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListIdentifierDefinitions: List Identifier Definitions Retrieves all Identifier Definitions that fit the filter, in a specific order if sortBy is provided Supports pagination
+        /// [EXPERIMENTAL] ListIdentifierDefinitions: List Identifier Definitions Retrieves all Identifier Definitions that fit the filter, in a specific order if sortBy is provided  Supports pagination
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effectiveAt datetime at which to retrieve the Identifier Definitions.             Since Identifier Definitions exist for all effective time, this will only apply to properties (if requested)             on the Identifier Definition. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Identifier Definitions. Defaults to return the latest             version of the Identifier Definitions if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Identifier Definitions from a previous call to list             Identifier Definitions. This value is returned from the previous call. If a pagination token is provided the sortBy,             filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effectiveAt datetime at which to retrieve the Identifier Definitions.              Since Identifier Definitions exist for all effective time, this will only apply to properties (if requested)              on the Identifier Definition. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Identifier Definitions. Defaults to return the latest              version of the Identifier Definitions if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Identifier Definitions from a previous call to list              Identifier Definitions. This value is returned from the previous call. If a pagination token is provided the sortBy,              filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many per page. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;IdentifierDefinition&#39; domain to decorate onto the Identifier Definition.             These must take the format {domain}/{scope}/{code}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;IdentifierDefinition&#39; domain to decorate onto the Identifier Definition.              These must take the format {domain}/{scope}/{code}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfIdentifierDefinition</returns>
@@ -1337,16 +1337,16 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListIdentifierDefinitions: List Identifier Definitions Retrieves all Identifier Definitions that fit the filter, in a specific order if sortBy is provided Supports pagination
+        /// [EXPERIMENTAL] ListIdentifierDefinitions: List Identifier Definitions Retrieves all Identifier Definitions that fit the filter, in a specific order if sortBy is provided  Supports pagination
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effectiveAt datetime at which to retrieve the Identifier Definitions.             Since Identifier Definitions exist for all effective time, this will only apply to properties (if requested)             on the Identifier Definition. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Identifier Definitions. Defaults to return the latest             version of the Identifier Definitions if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Identifier Definitions from a previous call to list             Identifier Definitions. This value is returned from the previous call. If a pagination token is provided the sortBy,             filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effectiveAt datetime at which to retrieve the Identifier Definitions.              Since Identifier Definitions exist for all effective time, this will only apply to properties (if requested)              on the Identifier Definition. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Identifier Definitions. Defaults to return the latest              version of the Identifier Definitions if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Identifier Definitions from a previous call to list              Identifier Definitions. This value is returned from the previous call. If a pagination token is provided the sortBy,              filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many per page. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;IdentifierDefinition&#39; domain to decorate onto the Identifier Definition.             These must take the format {domain}/{scope}/{code}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;IdentifierDefinition&#39; domain to decorate onto the Identifier Definition.              These must take the format {domain}/{scope}/{code}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1358,16 +1358,16 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListIdentifierDefinitions: List Identifier Definitions Retrieves all Identifier Definitions that fit the filter, in a specific order if sortBy is provided Supports pagination
+        /// [EXPERIMENTAL] ListIdentifierDefinitions: List Identifier Definitions Retrieves all Identifier Definitions that fit the filter, in a specific order if sortBy is provided  Supports pagination
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effectiveAt datetime at which to retrieve the Identifier Definitions.             Since Identifier Definitions exist for all effective time, this will only apply to properties (if requested)             on the Identifier Definition. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Identifier Definitions. Defaults to return the latest             version of the Identifier Definitions if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Identifier Definitions from a previous call to list             Identifier Definitions. This value is returned from the previous call. If a pagination token is provided the sortBy,             filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effectiveAt datetime at which to retrieve the Identifier Definitions.              Since Identifier Definitions exist for all effective time, this will only apply to properties (if requested)              on the Identifier Definition. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Identifier Definitions. Defaults to return the latest              version of the Identifier Definitions if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Identifier Definitions from a previous call to list              Identifier Definitions. This value is returned from the previous call. If a pagination token is provided the sortBy,              filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many per page. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;IdentifierDefinition&#39; domain to decorate onto the Identifier Definition.             These must take the format {domain}/{scope}/{code}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;IdentifierDefinition&#39; domain to decorate onto the Identifier Definition.              These must take the format {domain}/{scope}/{code}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>

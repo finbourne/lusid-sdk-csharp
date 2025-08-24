@@ -24,7 +24,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// LUSID representation of an Exchange Traded Option. Including, but not limited to, Equity Options, Bond Options, Index Options, Future Options, and Interest Rate Options.
+    /// LUSID representation of an Exchange Traded Option.  Including, but not limited to, Equity Options, Bond Options, Index Options, Future Options, and Interest Rate Options.
     /// </summary>
     [DataContract(Name = "ExchangeTradedOption")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentType")]

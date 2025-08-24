@@ -24,7 +24,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// LUSID representation of an Equity Swap.              This instrument has multiple legs, to see how legs are used in LUSID see [knowledge base article KA-02252](https://support.lusid.com/knowledgebase/article/KA-02252).              | Leg Index | Leg Identifier | Description | | - -- -- -- -- | - -- -- -- -- -- -- - | - -- -- -- -- -- | | 1 | EquityLeg | Cash flows relating to the performance of the underlying equity. | | 2 | FundingLeg | The funding leg of the swap. | | 3 | EquityDividendLeg | Cash flows relating to dividend payments on the underlying equity (optional). | | 4 | AdditionalPayments | Cash flows relating to any additional payments (optional). |
+    /// LUSID representation of an Equity Swap.                This instrument has multiple legs, to see how legs are used in LUSID see [knowledge base article KA-02252](https://support.lusid.com/knowledgebase/article/KA-02252).                | Leg Index | Leg Identifier | Description |  | - -- -- -- -- | - -- -- -- -- -- -- - | - -- -- -- -- -- |  | 1 | EquityLeg | Cash flows relating to the performance of the underlying equity. |  | 2 | FundingLeg | The funding leg of the swap. |  | 3 | EquityDividendLeg | Cash flows relating to dividend payments on the underlying equity (optional). |  | 4 | AdditionalPayments | Cash flows relating to any additional payments (optional). |
     /// </summary>
     [DataContract(Name = "EquitySwap")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentType")]
@@ -39,17 +39,17 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="EquitySwap" /> class.
         /// </summary>
         /// <param name="startDate">The start date of the EquitySwap. (required).</param>
-        /// <param name="maturityDate">The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount. For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it. (required).</param>
+        /// <param name="maturityDate">The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.  For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as  Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it. (required).</param>
         /// <param name="code">The code of the underlying. (required).</param>
         /// <param name="equityFlowConventions">equityFlowConventions (required).</param>
         /// <param name="fundingLeg">fundingLeg (required).</param>
         /// <param name="includeDividends">Dividend inclusion flag, if true dividends are included in the equity leg (total return). (required).</param>
         /// <param name="initialPrice">The initial equity price of the Equity Swap. (required).</param>
-        /// <param name="notionalReset">Notional reset flag, if true the notional of the funding leg is reset at the start of every coupon to match the value of the equity leg (equity price at start of coupon times quantity). (required).</param>
+        /// <param name="notionalReset">Notional reset flag, if true the notional of the funding leg is reset at the start of every  coupon to match the value of the equity leg (equity price at start of coupon times quantity). (required).</param>
         /// <param name="quantity">The quantity or number of shares in the Equity Swap. (required).</param>
-        /// <param name="underlyingIdentifier">External market codes and identifiers for the EquitySwap, e.g. RIC.  Supported string (enumeration) values are: [LusidInstrumentId, Isin, Sedol, Cusip, ClientInternal, Figi, RIC, QuotePermId, REDCode, BBGId, ICECode]. (required).</param>
-        /// <param name="equitySwapDividendPaymentTiming">Determines how the payment of dividends is handled for the equity swap. Defaults to paying at the next Equity coupon date.              Supported string (enumeration) values are: [PayAtNextEquityCouponDate, PayAtMaturityOfSwap, PayAtNextFundingLegCouponDate, PayAtPaymentDateOfDividendEvent]..</param>
-        /// <param name="additionalPayments">Optional additional payments at a given date e.g. to level off an uneven equity swap. The dates must be distinct and either all payments are Pay or all payments are Receive..</param>
+        /// <param name="underlyingIdentifier">External market codes and identifiers for the EquitySwap, e.g. RIC.    Supported string (enumeration) values are: [LusidInstrumentId, Isin, Sedol, Cusip, ClientInternal, Figi, RIC, QuotePermId, REDCode, BBGId, ICECode]. (required).</param>
+        /// <param name="equitySwapDividendPaymentTiming">Determines how the payment of dividends is handled for the equity swap.  Defaults to paying at the next Equity coupon date.                Supported string (enumeration) values are: [PayAtNextEquityCouponDate, PayAtMaturityOfSwap, PayAtNextFundingLegCouponDate, PayAtPaymentDateOfDividendEvent]..</param>
+        /// <param name="additionalPayments">Optional additional payments at a given date e.g. to level off an uneven equity swap.  The dates must be distinct and either all payments are Pay or all payments are Receive..</param>
         /// <param name="timeZoneConventions">timeZoneConventions.</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit, FlexibleRepo (required) (default to &quot;EquitySwap&quot;).</param>
         public EquitySwap(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), string code = default(string), FlowConventions equityFlowConventions = default(FlowConventions), InstrumentLeg fundingLeg = default(InstrumentLeg), bool includeDividends = default(bool), decimal initialPrice = default(decimal), bool notionalReset = default(bool), decimal quantity = default(decimal), string underlyingIdentifier = default(string), string equitySwapDividendPaymentTiming = default(string), List<AdditionalPayment> additionalPayments = default(List<AdditionalPayment>), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
@@ -97,9 +97,9 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset StartDate { get; set; }
 
         /// <summary>
-        /// The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount. For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it.
+        /// The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.  For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as  Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it.
         /// </summary>
-        /// <value>The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount. For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it.</value>
+        /// <value>The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.  For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as  Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it.</value>
         [DataMember(Name = "maturityDate", IsRequired = true, EmitDefaultValue = true)]
         public DateTimeOffset MaturityDate { get; set; }
 
@@ -137,9 +137,9 @@ namespace Lusid.Sdk.Model
         public decimal InitialPrice { get; set; }
 
         /// <summary>
-        /// Notional reset flag, if true the notional of the funding leg is reset at the start of every coupon to match the value of the equity leg (equity price at start of coupon times quantity).
+        /// Notional reset flag, if true the notional of the funding leg is reset at the start of every  coupon to match the value of the equity leg (equity price at start of coupon times quantity).
         /// </summary>
-        /// <value>Notional reset flag, if true the notional of the funding leg is reset at the start of every coupon to match the value of the equity leg (equity price at start of coupon times quantity).</value>
+        /// <value>Notional reset flag, if true the notional of the funding leg is reset at the start of every  coupon to match the value of the equity leg (equity price at start of coupon times quantity).</value>
         [DataMember(Name = "notionalReset", IsRequired = true, EmitDefaultValue = true)]
         public bool NotionalReset { get; set; }
 
@@ -151,23 +151,23 @@ namespace Lusid.Sdk.Model
         public decimal Quantity { get; set; }
 
         /// <summary>
-        /// External market codes and identifiers for the EquitySwap, e.g. RIC.  Supported string (enumeration) values are: [LusidInstrumentId, Isin, Sedol, Cusip, ClientInternal, Figi, RIC, QuotePermId, REDCode, BBGId, ICECode].
+        /// External market codes and identifiers for the EquitySwap, e.g. RIC.    Supported string (enumeration) values are: [LusidInstrumentId, Isin, Sedol, Cusip, ClientInternal, Figi, RIC, QuotePermId, REDCode, BBGId, ICECode].
         /// </summary>
-        /// <value>External market codes and identifiers for the EquitySwap, e.g. RIC.  Supported string (enumeration) values are: [LusidInstrumentId, Isin, Sedol, Cusip, ClientInternal, Figi, RIC, QuotePermId, REDCode, BBGId, ICECode].</value>
+        /// <value>External market codes and identifiers for the EquitySwap, e.g. RIC.    Supported string (enumeration) values are: [LusidInstrumentId, Isin, Sedol, Cusip, ClientInternal, Figi, RIC, QuotePermId, REDCode, BBGId, ICECode].</value>
         [DataMember(Name = "underlyingIdentifier", IsRequired = true, EmitDefaultValue = true)]
         public string UnderlyingIdentifier { get; set; }
 
         /// <summary>
-        /// Determines how the payment of dividends is handled for the equity swap. Defaults to paying at the next Equity coupon date.              Supported string (enumeration) values are: [PayAtNextEquityCouponDate, PayAtMaturityOfSwap, PayAtNextFundingLegCouponDate, PayAtPaymentDateOfDividendEvent].
+        /// Determines how the payment of dividends is handled for the equity swap.  Defaults to paying at the next Equity coupon date.                Supported string (enumeration) values are: [PayAtNextEquityCouponDate, PayAtMaturityOfSwap, PayAtNextFundingLegCouponDate, PayAtPaymentDateOfDividendEvent].
         /// </summary>
-        /// <value>Determines how the payment of dividends is handled for the equity swap. Defaults to paying at the next Equity coupon date.              Supported string (enumeration) values are: [PayAtNextEquityCouponDate, PayAtMaturityOfSwap, PayAtNextFundingLegCouponDate, PayAtPaymentDateOfDividendEvent].</value>
+        /// <value>Determines how the payment of dividends is handled for the equity swap.  Defaults to paying at the next Equity coupon date.                Supported string (enumeration) values are: [PayAtNextEquityCouponDate, PayAtMaturityOfSwap, PayAtNextFundingLegCouponDate, PayAtPaymentDateOfDividendEvent].</value>
         [DataMember(Name = "equitySwapDividendPaymentTiming", EmitDefaultValue = true)]
         public string EquitySwapDividendPaymentTiming { get; set; }
 
         /// <summary>
-        /// Optional additional payments at a given date e.g. to level off an uneven equity swap. The dates must be distinct and either all payments are Pay or all payments are Receive.
+        /// Optional additional payments at a given date e.g. to level off an uneven equity swap.  The dates must be distinct and either all payments are Pay or all payments are Receive.
         /// </summary>
-        /// <value>Optional additional payments at a given date e.g. to level off an uneven equity swap. The dates must be distinct and either all payments are Pay or all payments are Receive.</value>
+        /// <value>Optional additional payments at a given date e.g. to level off an uneven equity swap.  The dates must be distinct and either all payments are Pay or all payments are Receive.</value>
         [DataMember(Name = "additionalPayments", EmitDefaultValue = true)]
         public List<AdditionalPayment> AdditionalPayments { get; set; }
 

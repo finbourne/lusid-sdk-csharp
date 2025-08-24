@@ -172,7 +172,7 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<RelationshipDefinitionsApi>();
             var scope = "scope_example";  // string | The scope of the relationship definition to be deleted.
-            var code = "code_example";  // string | The code of the relationship definition to be deleted. Together with the domain and scope this uniquely             identifies the relationship.
+            var code = "code_example";  // string | The code of the relationship definition to be deleted. Together with the domain and scope this uniquely              identifies the relationship.
 
             try
             {
@@ -219,7 +219,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **scope** | **string** | The scope of the relationship definition to be deleted. |  |
-| **code** | **string** | The code of the relationship definition to be deleted. Together with the domain and scope this uniquely             identifies the relationship. |  |
+| **code** | **string** | The code of the relationship definition to be deleted. Together with the domain and scope this uniquely              identifies the relationship. |  |
 
 ### Return type
 
@@ -288,8 +288,8 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<RelationshipDefinitionsApi>();
             var scope = "scope_example";  // string | The scope of the specified relationship definition.
-            var code = "code_example";  // string | The code of the specified relationship definition. Together with the domain and scope this uniquely             identifies the relationship definition.
-            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the relationship definition. Defaults to return             the latest version of the definition if not specified. (optional) 
+            var code = "code_example";  // string | The code of the specified relationship definition. Together with the domain and scope this uniquely              identifies the relationship definition.
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the relationship definition. Defaults to return              the latest version of the definition if not specified. (optional) 
 
             try
             {
@@ -336,8 +336,8 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **scope** | **string** | The scope of the specified relationship definition. |  |
-| **code** | **string** | The code of the specified relationship definition. Together with the domain and scope this uniquely             identifies the relationship definition. |  |
-| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the relationship definition. Defaults to return             the latest version of the definition if not specified. | [optional]  |
+| **code** | **string** | The code of the specified relationship definition. Together with the domain and scope this uniquely              identifies the relationship definition. |  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the relationship definition. Defaults to return              the latest version of the definition if not specified. | [optional]  |
 
 ### Return type
 
@@ -405,10 +405,10 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<RelationshipDefinitionsApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<RelationshipDefinitionsApi>();
-            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the relationship definitions. Defaults to return             the latest version of each definition if not specified. (optional) 
-            var page = "page_example";  // string? | The pagination token to use to continue listing relationship definitions from a previous call to list relationship definitions. This value is returned from the previous call. If a pagination token is provided the filter, sortBy and asAt field must not have changed since the original request. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the relationship definitions. Defaults to return              the latest version of each definition if not specified. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing relationship definitions from a previous call to list relationship definitions. This  value is returned from the previous call. If a pagination token is provided the filter, sortBy and asAt field  must not have changed since the original request. (optional) 
             var limit = 56;  // int? | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional) 
-            var filter = "filter_example";  // string? | Expression to filter the result set.             For example, to filter on the Scope, use \"scope eq 'ExampleScope'\"             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the result set.              For example, to filter on the Scope, use \"scope eq 'ExampleScope'\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
             var sortBy = new List<string>?(); // List<string>? | A list of field names to sort by, each suffixed by \" ASC\" or \" DESC\" (optional) 
 
             try
@@ -455,10 +455,10 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the relationship definitions. Defaults to return             the latest version of each definition if not specified. | [optional]  |
-| **page** | **string?** | The pagination token to use to continue listing relationship definitions from a previous call to list relationship definitions. This value is returned from the previous call. If a pagination token is provided the filter, sortBy and asAt field must not have changed since the original request. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the relationship definitions. Defaults to return              the latest version of each definition if not specified. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing relationship definitions from a previous call to list relationship definitions. This  value is returned from the previous call. If a pagination token is provided the filter, sortBy and asAt field  must not have changed since the original request. | [optional]  |
 | **limit** | **int?** | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. | [optional]  |
-| **filter** | **string?** | Expression to filter the result set.             For example, to filter on the Scope, use \&quot;scope eq &#39;ExampleScope&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
+| **filter** | **string?** | Expression to filter the result set.              For example, to filter on the Scope, use \&quot;scope eq &#39;ExampleScope&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
 | **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; | [optional]  |
 
 ### Return type
@@ -486,7 +486,7 @@ catch (ApiException e)
 
 [EARLY ACCESS] UpdateRelationshipDefinition: Update Relationship Definition
 
-Update the definition of a specified existing relationship. Not all elements within a relationship definition are modifiable due to the potential implications for values already stored against the relationship.
+Update the definition of a specified existing relationship. Not all elements within a relationship definition  are modifiable due to the potential implications for values already stored against the relationship.
 
 ### Example
 ```csharp
@@ -528,7 +528,7 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<RelationshipDefinitionsApi>();
             var scope = "scope_example";  // string | The scope of the relationship definition being updated.
-            var code = "code_example";  // string | The code of the relationship definition being updated. Together with the scope this uniquely             identifies the relationship definition.
+            var code = "code_example";  // string | The code of the relationship definition being updated. Together with the scope this uniquely              identifies the relationship definition.
             var updateRelationshipDefinitionRequest = new UpdateRelationshipDefinitionRequest(); // UpdateRelationshipDefinitionRequest | The details of relationship definition to update.
 
             try
@@ -576,7 +576,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **scope** | **string** | The scope of the relationship definition being updated. |  |
-| **code** | **string** | The code of the relationship definition being updated. Together with the scope this uniquely             identifies the relationship definition. |  |
+| **code** | **string** | The code of the relationship definition being updated. Together with the scope this uniquely              identifies the relationship definition. |  |
 | **updateRelationshipDefinitionRequest** | [**UpdateRelationshipDefinitionRequest**](UpdateRelationshipDefinitionRequest.md) | The details of relationship definition to update. |  |
 
 ### Return type

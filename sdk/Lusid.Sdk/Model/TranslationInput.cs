@@ -36,7 +36,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TranslationInput" /> class.
         /// </summary>
-        /// <param name="entity">The serialised entity to be passed to the translation script. This could represent e.g. an instrument in any dialect. (required).</param>
+        /// <param name="entity">The serialised entity to be passed to the translation script. This could represent e.g. an instrument in any  dialect. (required).</param>
         public TranslationInput(string entity = default(string))
         {
             // to ensure "entity" is required (not null)
@@ -48,9 +48,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The serialised entity to be passed to the translation script. This could represent e.g. an instrument in any dialect.
+        /// The serialised entity to be passed to the translation script. This could represent e.g. an instrument in any  dialect.
         /// </summary>
-        /// <value>The serialised entity to be passed to the translation script. This could represent e.g. an instrument in any dialect.</value>
+        /// <value>The serialised entity to be passed to the translation script. This could represent e.g. an instrument in any  dialect.</value>
         [DataMember(Name = "entity", IsRequired = true, EmitDefaultValue = true)]
         public string Entity { get; set; }
 

@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// An access control value. Provider should only be used if you are a service provider licensing data. In that case the provider value must match your domain.
+    /// An access control value. Provider should only be used if you are a service provider licensing data. In that case  the provider value must match your domain.
     /// </summary>
     [DataContract(Name = "AccessMetadataValue")]
     public partial class AccessMetadataValue : IEquatable<AccessMetadataValue>, IValidatableObject

@@ -31,15 +31,15 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ValuationSchedule" /> class.
         /// </summary>
-        /// <param name="effectiveFrom">If present, the EffectiveFrom and EffectiveAt dates are interpreted as a range of dates for which to perform a valuation. In this case, valuation is calculated for the portfolio(s) for each business day in the given range..</param>
+        /// <param name="effectiveFrom">If present, the EffectiveFrom and EffectiveAt dates are interpreted as a range of dates for which to perform a valuation.  In this case, valuation is calculated for the portfolio(s) for each business day in the given range..</param>
         /// <param name="effectiveAt">The market data time, i.e. the time to run the valuation request effective of..</param>
         /// <param name="tenor">Tenor, e.g \&quot;1D\&quot;, \&quot;1M\&quot; to be used in generating the date schedule when effectiveFrom and effectiveAt are both given and are not the same..</param>
-        /// <param name="rollConvention">When Tenor is given and is \&quot;1M\&quot; or longer, this specifies the rule which should be used to generate the date schedule.   For example, \&quot;EndOfMonth\&quot; to generate end of month dates, or \&quot;1\&quot; to specify the first day of the applicable month..</param>
-        /// <param name="holidayCalendars">The holiday calendar(s) that should be used in determining the date schedule. Holiday calendar(s) are supplied by their names, for example, \&quot;CoppClark\&quot;.  Note that when the calendars are not available (e.g. when the user has insufficient permissions),  a recipe setting will be used to determine whether the whole batch should then fail or whether the calendar not being available should simply be ignored..</param>
+        /// <param name="rollConvention">When Tenor is given and is \&quot;1M\&quot; or longer, this specifies the rule which should be used to generate the date schedule.    For example, \&quot;EndOfMonth\&quot; to generate end of month dates, or \&quot;1\&quot; to specify the first day of the applicable month..</param>
+        /// <param name="holidayCalendars">The holiday calendar(s) that should be used in determining the date schedule.  Holiday calendar(s) are supplied by their names, for example, \&quot;CoppClark\&quot;.   Note that when the calendars are not available (e.g. when the user has insufficient permissions),   a recipe setting will be used to determine whether the whole batch should then fail or whether the calendar not being available should simply be ignored..</param>
         /// <param name="valuationDateTimes">If given, this is the exact set of dates on which to perform a valuation. This will replace/override all other specified values if given..</param>
-        /// <param name="businessDayConvention">When Tenor is given and is not equal to \&quot;1D\&quot;, there may be cases where \&quot;date + tenor\&quot; land on non-business days around month end. In that case, the BusinessDayConvention, e.g. modified following \&quot;MF\&quot; would be applied to determine the next GBD..</param>
+        /// <param name="businessDayConvention">When Tenor is given and is not equal to \&quot;1D\&quot;, there may be cases where \&quot;date + tenor\&quot; land on non-business days around month end.  In that case, the BusinessDayConvention, e.g. modified following \&quot;MF\&quot; would be applied to determine the next GBD..</param>
         /// <param name="timelineId">timelineId.</param>
-        /// <param name="closedPeriodId">Unique identifier for a closed period within a given timeline. If this field is specified, the TimelineId field must also be specified. If given, this field defines the effective date of the request as the EffectiveEnd of the given closed period..</param>
+        /// <param name="closedPeriodId">Unique identifier for a closed period within a given timeline. If this field is specified, the TimelineId  field must also be specified. If given, this field defines the effective date of the request as the  EffectiveEnd of the given closed period..</param>
         public ValuationSchedule(DateTimeOrCutLabel effectiveFrom = default(DateTimeOrCutLabel), DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), string tenor = default(string), string rollConvention = default(string), List<string> holidayCalendars = default(List<string>), List<string> valuationDateTimes = default(List<string>), string businessDayConvention = default(string), ResourceId timelineId = default(ResourceId), string closedPeriodId = default(string))
         {
             this.EffectiveFrom = effectiveFrom;
@@ -54,9 +54,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// If present, the EffectiveFrom and EffectiveAt dates are interpreted as a range of dates for which to perform a valuation. In this case, valuation is calculated for the portfolio(s) for each business day in the given range.
+        /// If present, the EffectiveFrom and EffectiveAt dates are interpreted as a range of dates for which to perform a valuation.  In this case, valuation is calculated for the portfolio(s) for each business day in the given range.
         /// </summary>
-        /// <value>If present, the EffectiveFrom and EffectiveAt dates are interpreted as a range of dates for which to perform a valuation. In this case, valuation is calculated for the portfolio(s) for each business day in the given range.</value>
+        /// <value>If present, the EffectiveFrom and EffectiveAt dates are interpreted as a range of dates for which to perform a valuation.  In this case, valuation is calculated for the portfolio(s) for each business day in the given range.</value>
         [DataMember(Name = "effectiveFrom", EmitDefaultValue = true)]
         public DateTimeOrCutLabel EffectiveFrom { get; set; }
 
@@ -75,16 +75,16 @@ namespace Lusid.Sdk.Model
         public string Tenor { get; set; }
 
         /// <summary>
-        /// When Tenor is given and is \&quot;1M\&quot; or longer, this specifies the rule which should be used to generate the date schedule.   For example, \&quot;EndOfMonth\&quot; to generate end of month dates, or \&quot;1\&quot; to specify the first day of the applicable month.
+        /// When Tenor is given and is \&quot;1M\&quot; or longer, this specifies the rule which should be used to generate the date schedule.    For example, \&quot;EndOfMonth\&quot; to generate end of month dates, or \&quot;1\&quot; to specify the first day of the applicable month.
         /// </summary>
-        /// <value>When Tenor is given and is \&quot;1M\&quot; or longer, this specifies the rule which should be used to generate the date schedule.   For example, \&quot;EndOfMonth\&quot; to generate end of month dates, or \&quot;1\&quot; to specify the first day of the applicable month.</value>
+        /// <value>When Tenor is given and is \&quot;1M\&quot; or longer, this specifies the rule which should be used to generate the date schedule.    For example, \&quot;EndOfMonth\&quot; to generate end of month dates, or \&quot;1\&quot; to specify the first day of the applicable month.</value>
         [DataMember(Name = "rollConvention", EmitDefaultValue = true)]
         public string RollConvention { get; set; }
 
         /// <summary>
-        /// The holiday calendar(s) that should be used in determining the date schedule. Holiday calendar(s) are supplied by their names, for example, \&quot;CoppClark\&quot;.  Note that when the calendars are not available (e.g. when the user has insufficient permissions),  a recipe setting will be used to determine whether the whole batch should then fail or whether the calendar not being available should simply be ignored.
+        /// The holiday calendar(s) that should be used in determining the date schedule.  Holiday calendar(s) are supplied by their names, for example, \&quot;CoppClark\&quot;.   Note that when the calendars are not available (e.g. when the user has insufficient permissions),   a recipe setting will be used to determine whether the whole batch should then fail or whether the calendar not being available should simply be ignored.
         /// </summary>
-        /// <value>The holiday calendar(s) that should be used in determining the date schedule. Holiday calendar(s) are supplied by their names, for example, \&quot;CoppClark\&quot;.  Note that when the calendars are not available (e.g. when the user has insufficient permissions),  a recipe setting will be used to determine whether the whole batch should then fail or whether the calendar not being available should simply be ignored.</value>
+        /// <value>The holiday calendar(s) that should be used in determining the date schedule.  Holiday calendar(s) are supplied by their names, for example, \&quot;CoppClark\&quot;.   Note that when the calendars are not available (e.g. when the user has insufficient permissions),   a recipe setting will be used to determine whether the whole batch should then fail or whether the calendar not being available should simply be ignored.</value>
         [DataMember(Name = "holidayCalendars", EmitDefaultValue = true)]
         public List<string> HolidayCalendars { get; set; }
 
@@ -96,9 +96,9 @@ namespace Lusid.Sdk.Model
         public List<string> ValuationDateTimes { get; set; }
 
         /// <summary>
-        /// When Tenor is given and is not equal to \&quot;1D\&quot;, there may be cases where \&quot;date + tenor\&quot; land on non-business days around month end. In that case, the BusinessDayConvention, e.g. modified following \&quot;MF\&quot; would be applied to determine the next GBD.
+        /// When Tenor is given and is not equal to \&quot;1D\&quot;, there may be cases where \&quot;date + tenor\&quot; land on non-business days around month end.  In that case, the BusinessDayConvention, e.g. modified following \&quot;MF\&quot; would be applied to determine the next GBD.
         /// </summary>
-        /// <value>When Tenor is given and is not equal to \&quot;1D\&quot;, there may be cases where \&quot;date + tenor\&quot; land on non-business days around month end. In that case, the BusinessDayConvention, e.g. modified following \&quot;MF\&quot; would be applied to determine the next GBD.</value>
+        /// <value>When Tenor is given and is not equal to \&quot;1D\&quot;, there may be cases where \&quot;date + tenor\&quot; land on non-business days around month end.  In that case, the BusinessDayConvention, e.g. modified following \&quot;MF\&quot; would be applied to determine the next GBD.</value>
         [DataMember(Name = "businessDayConvention", EmitDefaultValue = true)]
         public string BusinessDayConvention { get; set; }
 
@@ -109,9 +109,9 @@ namespace Lusid.Sdk.Model
         public ResourceId TimelineId { get; set; }
 
         /// <summary>
-        /// Unique identifier for a closed period within a given timeline. If this field is specified, the TimelineId field must also be specified. If given, this field defines the effective date of the request as the EffectiveEnd of the given closed period.
+        /// Unique identifier for a closed period within a given timeline. If this field is specified, the TimelineId  field must also be specified. If given, this field defines the effective date of the request as the  EffectiveEnd of the given closed period.
         /// </summary>
-        /// <value>Unique identifier for a closed period within a given timeline. If this field is specified, the TimelineId field must also be specified. If given, this field defines the effective date of the request as the EffectiveEnd of the given closed period.</value>
+        /// <value>Unique identifier for a closed period within a given timeline. If this field is specified, the TimelineId  field must also be specified. If given, this field defines the effective date of the request as the  EffectiveEnd of the given closed period.</value>
         [DataMember(Name = "closedPeriodId", EmitDefaultValue = true)]
         public string ClosedPeriodId { get; set; }
 

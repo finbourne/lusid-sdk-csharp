@@ -24,7 +24,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Definition of an Expiry Event This is an event that describes the expiry of the instrument.
+    /// Definition of an Expiry Event  This is an event that describes the expiry of the instrument.
     /// </summary>
     [DataContract(Name = "ExpiryEvent")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentEventType")]

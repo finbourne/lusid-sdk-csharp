@@ -1,5 +1,5 @@
 # Lusid.Sdk.Model.TermDepositInterestEvent
-Definition of a Term Deposit Interest Event. This is an event that describes the occurence of interest on a term deposit ().
+Definition of a Term Deposit Interest Event.  This is an event that describes the occurence of interest on a term deposit ().
 
 ## Properties
 

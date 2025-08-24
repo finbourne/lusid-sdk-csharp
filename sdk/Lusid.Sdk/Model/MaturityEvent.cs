@@ -24,7 +24,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Definition of a Maturity Event This is an event that describes the maturity of the instrument.
+    /// Definition of a Maturity Event  This is an event that describes the maturity of the instrument.
     /// </summary>
     [DataContract(Name = "MaturityEvent")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentEventType")]

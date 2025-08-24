@@ -15,7 +15,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 [EARLY ACCESS] DeleteOrder: Delete order
 
-Delete an order. Deletion will be valid from the order's creation datetime. This means that the order will no longer exist at any effective datetime from the asAt datetime of deletion.
+Delete an order. Deletion will be valid from the order's creation datetime.  This means that the order will no longer exist at any effective datetime from the asAt datetime of deletion.
 
 ### Example
 ```csharp
@@ -175,7 +175,7 @@ namespace Examples
             var scope = "scope_example";  // string | The scope to which the order belongs.
             var code = "code_example";  // string | The order's unique identifier.
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the order. Defaults to return the latest version of the order if not specified. (optional) 
-            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the \"Orders\" domain to decorate onto the order.             These take the format {domain}/{scope}/{code} e.g. \"Orders/system/Name\". (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the \"Orders\" domain to decorate onto the order.              These take the format {domain}/{scope}/{code} e.g. \"Orders/system/Name\". (optional) 
 
             try
             {
@@ -224,7 +224,7 @@ catch (ApiException e)
 | **scope** | **string** | The scope to which the order belongs. |  |
 | **code** | **string** | The order&#39;s unique identifier. |  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the order. Defaults to return the latest version of the order if not specified. | [optional]  |
-| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the \&quot;Orders\&quot; domain to decorate onto the order.             These take the format {domain}/{scope}/{code} e.g. \&quot;Orders/system/Name\&quot;. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the \&quot;Orders\&quot; domain to decorate onto the order.              These take the format {domain}/{scope}/{code} e.g. \&quot;Orders/system/Name\&quot;. | [optional]  |
 
 ### Return type
 
@@ -293,11 +293,11 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<OrdersApi>();
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the order. Defaults to return the latest version of the order if not specified. (optional) 
-            var page = "page_example";  // string? | The pagination token to use to continue listing orders from a previous call to list orders.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields             must not have changed since the original request. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing orders from a previous call to list orders.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional) 
             var sortBy = new List<string>?(); // List<string>? | A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\". (optional) 
             var limit = 56;  // int? | When paginating, limit the number of returned results to this many. (optional) 
-            var filter = "filter_example";  // string? | Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional) 
-            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the \"Orders\" domain to decorate onto each order.                 These take the format {domain}/{scope}/{code} e.g. \"Orders/system/Name\".                 All properties, except derived properties, are returned by default, without specifying here. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the \"Orders\" domain to decorate onto each order.                  These take the format {domain}/{scope}/{code} e.g. \"Orders/system/Name\".                  All properties, except derived properties, are returned by default, without specifying here. (optional) 
             var dataModelScope = "dataModelScope_example";  // string? | The optional scope of a Custom Data Model to use (optional) 
             var dataModelCode = "dataModelCode_example";  // string? | The optional code of a Custom Data Model to use (optional) 
             var membershipType = "membershipType_example";  // string? | The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional) 
@@ -347,11 +347,11 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the order. Defaults to return the latest version of the order if not specified. | [optional]  |
-| **page** | **string?** | The pagination token to use to continue listing orders from a previous call to list orders.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields             must not have changed since the original request. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing orders from a previous call to list orders.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. | [optional]  |
 | **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. | [optional]  |
 | **limit** | **int?** | When paginating, limit the number of returned results to this many. | [optional]  |
-| **filter** | **string?** | Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
-| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the \&quot;Orders\&quot; domain to decorate onto each order.                 These take the format {domain}/{scope}/{code} e.g. \&quot;Orders/system/Name\&quot;.                 All properties, except derived properties, are returned by default, without specifying here. | [optional]  |
+| **filter** | **string?** | Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the \&quot;Orders\&quot; domain to decorate onto each order.                  These take the format {domain}/{scope}/{code} e.g. \&quot;Orders/system/Name\&quot;.                  All properties, except derived properties, are returned by default, without specifying here. | [optional]  |
 | **dataModelScope** | **string?** | The optional scope of a Custom Data Model to use | [optional]  |
 | **dataModelCode** | **string?** | The optional code of a Custom Data Model to use | [optional]  |
 | **membershipType** | **string?** | The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. | [optional]  |

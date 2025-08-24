@@ -19,7 +19,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 [EXPERIMENTAL] DeleteLegacyComplianceRule: Deletes a compliance rule.
 
-Deletes the rule for all effective time.              The rule will remain viewable at previous as at times, and as part of the results of compliance runs, but it will no longer be considered in new compliance runs.              This cannot be undone.
+Deletes the rule for all effective time.                The rule will remain viewable at previous as at times, and as part of the results of compliance runs, but it  will no longer be considered in new compliance runs.                This cannot be undone.
 
 ### Example
 ```csharp
@@ -298,8 +298,8 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<LegacyComplianceApi>();
             var scope = "scope_example";  // string | The compliance rule scope.
             var code = "code_example";  // string | The compliance rule code.
-            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to retrieve the rule definition. Defaults to the current LUSID system datetime if not specified. (optional) 
-            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not specified. (optional) 
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to retrieve the rule definition. Defaults to the current LUSID  system datetime if not specified. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not  specified. (optional) 
 
             try
             {
@@ -347,8 +347,8 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **scope** | **string** | The compliance rule scope. |  |
 | **code** | **string** | The compliance rule code. |  |
-| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to retrieve the rule definition. Defaults to the current LUSID system datetime if not specified. | [optional]  |
-| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not specified. | [optional]  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to retrieve the rule definition. Defaults to the current LUSID  system datetime if not specified. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the rule definition. Defaults to returning the latest version if not  specified. | [optional]  |
 
 ### Return type
 
@@ -375,7 +375,7 @@ catch (ApiException e)
 
 [EXPERIMENTAL] GetLegacyComplianceRunResults: Get the details of a single compliance run.
 
-Use this endpoint to fetch the detail associated with a specific compliance run, including a breakdown of the passing state of each rule, portfolio combination.
+Use this endpoint to fetch the detail associated with a specific compliance run, including a breakdown  of the passing state of each rule, portfolio combination.
 
 ### Example
 ```csharp
@@ -417,7 +417,7 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<LegacyComplianceApi>();
             var runId = "runId_example";  // string | The unique identifier of the compliance run requested.
-            var page = "page_example";  // string? | The pagination token to use to continue listing compliance rule results from a previous call to list compliance rule result.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields             must not have changed since the original request. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing compliance rule results from a previous call to list compliance rule result.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. (optional) 
             var limit = 56;  // int? | When paginating, limit the number of returned results to this many. (optional) 
             var filter = "filter_example";  // string? | Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
 
@@ -466,7 +466,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **runId** | **string** | The unique identifier of the compliance run requested. |  |
-| **page** | **string?** | The pagination token to use to continue listing compliance rule results from a previous call to list compliance rule result.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields             must not have changed since the original request. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing compliance rule results from a previous call to list compliance rule result.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. | [optional]  |
 | **limit** | **int?** | When paginating, limit the number of returned results to this many. | [optional]  |
 | **filter** | **string?** | Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
 
@@ -495,7 +495,7 @@ catch (ApiException e)
 
 [EXPERIMENTAL] ListLegacyComplianceRules: List compliance rules, with optional filtering.
 
-For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914.
+For more information about filtering results,  see https://support.lusid.com/knowledgebase/article/KA-01914.
 
 ### Example
 ```csharp
@@ -536,9 +536,9 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<LegacyComplianceApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<LegacyComplianceApi>();
-            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID system datetime if not specified. (optional) 
-            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not specified. (optional) 
-            var page = "page_example";  // string? | The pagination token to use to continue listing entities; this value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the original request. (optional) 
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID  system datetime if not specified. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not  specified. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing entities; this value is returned from the previous call. If  a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the  original request. (optional) 
             var limit = 56;  // int? | When paginating, limit the results to this number. Defaults to 100 if not specified. (optional) 
             var filter = "filter_example";  // string? | Expression to filter the results. (optional) 
 
@@ -586,9 +586,9 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID system datetime if not specified. | [optional]  |
-| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not specified. | [optional]  |
-| **page** | **string?** | The pagination token to use to continue listing entities; this value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the original request. | [optional]  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to retrieve the rule definitions. Defaults to the current LUSID  system datetime if not specified. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the rule definitions. Defaults to returning the latest version if not  specified. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing entities; this value is returned from the previous call. If  a pagination token is provided, the filter, effectiveAt and asAt fields must not have changed since the  original request. | [optional]  |
 | **limit** | **int?** | When paginating, limit the results to this number. Defaults to 100 if not specified. | [optional]  |
 | **filter** | **string?** | Expression to filter the results. | [optional]  |
 
@@ -659,7 +659,7 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<LegacyComplianceApi>();
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | Optional. The time at which to get results from. Default : latest (optional) 
-            var page = "page_example";  // string? | The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields             must not have changed since the original request. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. (optional) 
             var limit = 56;  // int? | When paginating, limit the number of returned results to this many. (optional) 
             var filter = "filter_example";  // string? | Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
 
@@ -708,7 +708,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **asAt** | **DateTimeOffset?** | Optional. The time at which to get results from. Default : latest | [optional]  |
-| **page** | **string?** | The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields             must not have changed since the original request. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. | [optional]  |
 | **limit** | **int?** | When paginating, limit the number of returned results to this many. | [optional]  |
 | **filter** | **string?** | Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
 
@@ -857,7 +857,7 @@ catch (ApiException e)
 
 [EXPERIMENTAL] UpsertLegacyComplianceRules: Upsert compliance rules.
 
-To upsert a new rule, the code field must be left empty, a code will then be assigned and returned as part of the response. To update an existing rule, include the rule code. It is possible to both create and update compliance rules in the same request.              The upsert is transactional - either all create/update operations will succeed or none of them will.
+To upsert a new rule, the code field must be left empty, a code will then be assigned and returned as part  of the response. To update an existing rule, include the rule code. It is possible to both create and update  compliance rules in the same request.                The upsert is transactional - either all create/update operations will succeed or none of them will.
 
 ### Example
 ```csharp
@@ -898,8 +898,8 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<LegacyComplianceApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<LegacyComplianceApi>();
-            var requestBody = new Dictionary<string, ComplianceRuleUpsertRequest>(); // Dictionary<string, ComplianceRuleUpsertRequest> | A dictionary of upsert request identifiers to rule upsert requests. The request              identifiers are valid for the request only and can be used to link the upserted compliance rule to the code              of a created compliance rule.
-            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which the rule will take effect. Defaults to the current LUSID system datetime if not specified. In the case of an update, the changes will take place from this effective time until the next effective time that the rule as been upserted at. For example, consider a rule that already exists, and has previously had an update applied so that the definition will change on the first day of the coming month. An upsert effective from the current day will only change the definition until the first day of the coming month. An additional upsert at the same time (first day of the month) is required if the newly-updated definition is to supersede the future definition. (optional) 
+            var requestBody = new Dictionary<string, ComplianceRuleUpsertRequest>(); // Dictionary<string, ComplianceRuleUpsertRequest> | A dictionary of upsert request identifiers to rule upsert requests. The request               identifiers are valid for the request only and can be used to link the upserted compliance rule to the code               of a created compliance rule.
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which the rule will take effect. Defaults to the current LUSID  system datetime if not specified. In the case of an update, the changes will take place from this effective  time until the next effective time that the rule as been upserted at. For example, consider a rule that  already exists, and has previously had an update applied so that the definition will change on the first day  of the coming month. An upsert effective from the current day will only change the definition until the  first day of the coming month. An additional upsert at the same time (first day of the month) is required  if the newly-updated definition is to supersede the future definition. (optional) 
 
             try
             {
@@ -945,8 +945,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **requestBody** | [**Dictionary&lt;string, ComplianceRuleUpsertRequest&gt;**](ComplianceRuleUpsertRequest.md) | A dictionary of upsert request identifiers to rule upsert requests. The request              identifiers are valid for the request only and can be used to link the upserted compliance rule to the code              of a created compliance rule. |  |
-| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which the rule will take effect. Defaults to the current LUSID system datetime if not specified. In the case of an update, the changes will take place from this effective time until the next effective time that the rule as been upserted at. For example, consider a rule that already exists, and has previously had an update applied so that the definition will change on the first day of the coming month. An upsert effective from the current day will only change the definition until the first day of the coming month. An additional upsert at the same time (first day of the month) is required if the newly-updated definition is to supersede the future definition. | [optional]  |
+| **requestBody** | [**Dictionary&lt;string, ComplianceRuleUpsertRequest&gt;**](ComplianceRuleUpsertRequest.md) | A dictionary of upsert request identifiers to rule upsert requests. The request               identifiers are valid for the request only and can be used to link the upserted compliance rule to the code               of a created compliance rule. |  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which the rule will take effect. Defaults to the current LUSID  system datetime if not specified. In the case of an update, the changes will take place from this effective  time until the next effective time that the rule as been upserted at. For example, consider a rule that  already exists, and has previously had an update applied so that the definition will change on the first day  of the coming month. An upsert effective from the current day will only change the definition until the  first day of the coming month. An additional upsert at the same time (first day of the month) is required  if the newly-updated definition is to supersede the future definition. | [optional]  |
 
 ### Return type
 

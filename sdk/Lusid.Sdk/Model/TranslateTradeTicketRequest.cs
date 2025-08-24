@@ -36,7 +36,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TranslateTradeTicketRequest" /> class.
         /// </summary>
-        /// <param name="tickets">The collection of trade tickets to translate.              Each trade ticket should be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID. It serves only as a way to easily identify each instrument in the response. (required).</param>
+        /// <param name="tickets">The collection of trade tickets to translate.                Each trade ticket should be keyed by a unique correlation id. This id is ephemeral  and is not stored by LUSID. It serves only as a way to easily identify each instrument in the response. (required).</param>
         /// <param name="dialect">The target dialect that the given instruments should be translated to. (required).</param>
         public TranslateTradeTicketRequest(Dictionary<string, TradeTicket> tickets = default(Dictionary<string, TradeTicket>), string dialect = default(string))
         {
@@ -55,9 +55,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The collection of trade tickets to translate.              Each trade ticket should be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID. It serves only as a way to easily identify each instrument in the response.
+        /// The collection of trade tickets to translate.                Each trade ticket should be keyed by a unique correlation id. This id is ephemeral  and is not stored by LUSID. It serves only as a way to easily identify each instrument in the response.
         /// </summary>
-        /// <value>The collection of trade tickets to translate.              Each trade ticket should be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID. It serves only as a way to easily identify each instrument in the response.</value>
+        /// <value>The collection of trade tickets to translate.                Each trade ticket should be keyed by a unique correlation id. This id is ephemeral  and is not stored by LUSID. It serves only as a way to easily identify each instrument in the response.</value>
         [DataMember(Name = "tickets", IsRequired = true, EmitDefaultValue = true)]
         public Dictionary<string, TradeTicket> Tickets { get; set; }
 

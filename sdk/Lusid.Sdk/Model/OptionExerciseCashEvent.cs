@@ -41,11 +41,11 @@ namespace Lusid.Sdk.Model
         /// <param name="cashFlowPerUnit">The cashflow per unit.</param>
         /// <param name="exerciseDate">The exercise date of the option..</param>
         /// <param name="deliveryDate">The delivery date of the option..</param>
-        /// <param name="exerciseType">The optionality type of the underlying option e.g. American, European.  Supported string (enumeration) values are: [European, Bermudan, American]. (required).</param>
+        /// <param name="exerciseType">The optionality type of the underlying option e.g. American, European.    Supported string (enumeration) values are: [European, Bermudan, American]. (required).</param>
         /// <param name="maturityDate">The maturity date of the option..</param>
-        /// <param name="moneyness">The moneyness of the option e.g. InTheMoney, OutOfTheMoney.  Supported string (enumeration) values are: [InTheMoney, OutOfTheMoney, AtTheMoney]..</param>
+        /// <param name="moneyness">The moneyness of the option e.g. InTheMoney, OutOfTheMoney.    Supported string (enumeration) values are: [InTheMoney, OutOfTheMoney, AtTheMoney]..</param>
         /// <param name="optionExerciseElections">Option exercise election for this OptionExercisePhysicalEvent..</param>
-        /// <param name="optionType">Type of optionality that is present e.g. call, put.  Supported string (enumeration) values are: [Call, Put]. (required).</param>
+        /// <param name="optionType">Type of optionality that is present e.g. call, put.    Supported string (enumeration) values are: [Call, Put]. (required).</param>
         /// <param name="startDate">The start date of the option..</param>
         /// <param name="strikeCurrency">The strike currency of the equity option. (required).</param>
         /// <param name="strikePerUnit">The strike of the equity option times the number of shares to exchange if exercised. (required).</param>
@@ -104,9 +104,9 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset? DeliveryDate { get; set; }
 
         /// <summary>
-        /// The optionality type of the underlying option e.g. American, European.  Supported string (enumeration) values are: [European, Bermudan, American].
+        /// The optionality type of the underlying option e.g. American, European.    Supported string (enumeration) values are: [European, Bermudan, American].
         /// </summary>
-        /// <value>The optionality type of the underlying option e.g. American, European.  Supported string (enumeration) values are: [European, Bermudan, American].</value>
+        /// <value>The optionality type of the underlying option e.g. American, European.    Supported string (enumeration) values are: [European, Bermudan, American].</value>
         [DataMember(Name = "exerciseType", IsRequired = true, EmitDefaultValue = true)]
         public string ExerciseType { get; set; }
 
@@ -118,9 +118,9 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset MaturityDate { get; set; }
 
         /// <summary>
-        /// The moneyness of the option e.g. InTheMoney, OutOfTheMoney.  Supported string (enumeration) values are: [InTheMoney, OutOfTheMoney, AtTheMoney].
+        /// The moneyness of the option e.g. InTheMoney, OutOfTheMoney.    Supported string (enumeration) values are: [InTheMoney, OutOfTheMoney, AtTheMoney].
         /// </summary>
-        /// <value>The moneyness of the option e.g. InTheMoney, OutOfTheMoney.  Supported string (enumeration) values are: [InTheMoney, OutOfTheMoney, AtTheMoney].</value>
+        /// <value>The moneyness of the option e.g. InTheMoney, OutOfTheMoney.    Supported string (enumeration) values are: [InTheMoney, OutOfTheMoney, AtTheMoney].</value>
         [DataMember(Name = "moneyness", EmitDefaultValue = true)]
         public string Moneyness { get; set; }
 
@@ -132,9 +132,9 @@ namespace Lusid.Sdk.Model
         public List<OptionExerciseElection> OptionExerciseElections { get; set; }
 
         /// <summary>
-        /// Type of optionality that is present e.g. call, put.  Supported string (enumeration) values are: [Call, Put].
+        /// Type of optionality that is present e.g. call, put.    Supported string (enumeration) values are: [Call, Put].
         /// </summary>
-        /// <value>Type of optionality that is present e.g. call, put.  Supported string (enumeration) values are: [Call, Put].</value>
+        /// <value>Type of optionality that is present e.g. call, put.    Supported string (enumeration) values are: [Call, Put].</value>
         [DataMember(Name = "optionType", IsRequired = true, EmitDefaultValue = true)]
         public string OptionType { get; set; }
 

@@ -39,9 +39,9 @@ namespace Lusid.Sdk.Model
         /// <param name="bookmarkCode">Unique code for the Bookmark. (required).</param>
         /// <param name="displayName">Identifiable Name assigned to the Bookmark. (required).</param>
         /// <param name="description">Description assigned to the Bookmark..</param>
-        /// <param name="effectiveAt">The effective time of the diary entry. (required).</param>
-        /// <param name="queryAsAt">The query time of the diary entry. Defaults to latest..</param>
-        /// <param name="properties">A set of properties for the diary entry..</param>
+        /// <param name="effectiveAt">The effective time of the Bookmark. (required).</param>
+        /// <param name="queryAsAt">The query time of the Bookmark. Defaults to latest..</param>
+        /// <param name="properties">A set of properties for the Bookmark..</param>
         public UpsertFundBookmarkRequest(string bookmarkCode = default(string), string displayName = default(string), string description = default(string), DateTimeOffset effectiveAt = default(DateTimeOffset), DateTimeOffset? queryAsAt = default(DateTimeOffset?), Dictionary<string, Property> properties = default(Dictionary<string, Property>))
         {
             // to ensure "bookmarkCode" is required (not null)
@@ -84,23 +84,23 @@ namespace Lusid.Sdk.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// The effective time of the diary entry.
+        /// The effective time of the Bookmark.
         /// </summary>
-        /// <value>The effective time of the diary entry.</value>
+        /// <value>The effective time of the Bookmark.</value>
         [DataMember(Name = "effectiveAt", IsRequired = true, EmitDefaultValue = true)]
         public DateTimeOffset EffectiveAt { get; set; }
 
         /// <summary>
-        /// The query time of the diary entry. Defaults to latest.
+        /// The query time of the Bookmark. Defaults to latest.
         /// </summary>
-        /// <value>The query time of the diary entry. Defaults to latest.</value>
+        /// <value>The query time of the Bookmark. Defaults to latest.</value>
         [DataMember(Name = "queryAsAt", EmitDefaultValue = true)]
         public DateTimeOffset? QueryAsAt { get; set; }
 
         /// <summary>
-        /// A set of properties for the diary entry.
+        /// A set of properties for the Bookmark.
         /// </summary>
-        /// <value>A set of properties for the diary entry.</value>
+        /// <value>A set of properties for the Bookmark.</value>
         [DataMember(Name = "properties", EmitDefaultValue = true)]
         public Dictionary<string, Property> Properties { get; set; }
 

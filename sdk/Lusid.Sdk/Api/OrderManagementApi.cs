@@ -64,7 +64,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] CancelOrders: Cancel existing orders
         /// </summary>
         /// <remarks>
-        /// The response returns both the collection of successfully canceled orders, as well as those that failed. For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.
+        /// The response returns both the collection of successfully canceled orders, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the ids of the orders to be cancelled.</param>
@@ -77,7 +77,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] CancelOrders: Cancel existing orders
         /// </summary>
         /// <remarks>
-        /// The response returns both the collection of successfully canceled orders, as well as those that failed. For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.
+        /// The response returns both the collection of successfully canceled orders, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the ids of the orders to be cancelled.</param>
@@ -89,7 +89,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] CancelOrdersAndMoveRemaining: Cancel existing orders and move any unplaced quantities to new orders in new blocks
         /// </summary>
         /// <remarks>
-        /// Cancels existing orders, reducing their quantities to those aleady placed. Any remaining quantities are moved to new orders in new blocks. The placed quantities are distributed to the cancelled orders on a pro-rata basis.
+        /// Cancels existing orders, reducing their quantities to those aleady placed. Any remaining quantities are moved  to new orders in new blocks. The placed quantities are distributed to the cancelled orders on a pro-rata basis.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the orders to be cancelled, and the destinations of remaining quantities.</param>
@@ -102,7 +102,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] CancelOrdersAndMoveRemaining: Cancel existing orders and move any unplaced quantities to new orders in new blocks
         /// </summary>
         /// <remarks>
-        /// Cancels existing orders, reducing their quantities to those aleady placed. Any remaining quantities are moved to new orders in new blocks. The placed quantities are distributed to the cancelled orders on a pro-rata basis.
+        /// Cancels existing orders, reducing their quantities to those aleady placed. Any remaining quantities are moved  to new orders in new blocks. The placed quantities are distributed to the cancelled orders on a pro-rata basis.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the orders to be cancelled, and the destinations of remaining quantities.</param>
@@ -114,7 +114,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] CancelPlacements: Cancel existing placements
         /// </summary>
         /// <remarks>
-        /// The response returns both the collection of successfully canceled placements, as well as those that failed. For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.
+        /// The response returns both the collection of successfully canceled placements, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the ids of the placements to be cancelled.</param>
@@ -127,7 +127,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] CancelPlacements: Cancel existing placements
         /// </summary>
         /// <remarks>
-        /// The response returns both the collection of successfully canceled placements, as well as those that failed. For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.
+        /// The response returns both the collection of successfully canceled placements, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the ids of the placements to be cancelled.</param>
@@ -139,7 +139,7 @@ namespace Lusid.Sdk.Api
         /// CreateOrders: Upsert a Block and associated orders
         /// </summary>
         /// <remarks>
-        /// Create orders, and blocks if they don&#39;t already exist. This will fail if the block exists and already references orders with differing blocking fields.
+        /// Create orders, and blocks if they don&#39;t already exist.  This will fail if the block exists and already references orders with differing blocking fields.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="blockAndOrdersCreateRequest">The collection of block and orders requests.</param>
@@ -152,7 +152,7 @@ namespace Lusid.Sdk.Api
         /// CreateOrders: Upsert a Block and associated orders
         /// </summary>
         /// <remarks>
-        /// Create orders, and blocks if they don&#39;t already exist. This will fail if the block exists and already references orders with differing blocking fields.
+        /// Create orders, and blocks if they don&#39;t already exist.  This will fail if the block exists and already references orders with differing blocking fields.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="blockAndOrdersCreateRequest">The collection of block and orders requests.</param>
@@ -169,7 +169,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the order.</param>
         /// <param name="code">The code of the order.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the history of the order and related entities. Defaults             to return the latest version if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the history of the order and related entities. Defaults              to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfChangeIntervalWithOrderManagementDetail</returns>
@@ -184,7 +184,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the order.</param>
         /// <param name="code">The code of the order.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the history of the order and related entities. Defaults             to return the latest version if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the history of the order and related entities. Defaults              to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfChangeIntervalWithOrderManagementDetail</returns>
@@ -193,7 +193,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] MoveOrders: Move orders to new or existing block
         /// </summary>
         /// <remarks>
-        /// Move an order to a block, creating the block if it does not already exist.  This will fail if the block exists and already references orders with differing fields to the upsert request.
+        /// Move an order to a block, creating the block if it does not already exist.   This will fail if the block exists and already references orders with differing fields to the upsert request.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="moveOrdersToDifferentBlocksRequest">The collection of order and destination block ids.</param>
@@ -206,7 +206,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] MoveOrders: Move orders to new or existing block
         /// </summary>
         /// <remarks>
-        /// Move an order to a block, creating the block if it does not already exist.  This will fail if the block exists and already references orders with differing fields to the upsert request.
+        /// Move an order to a block, creating the block if it does not already exist.   This will fail if the block exists and already references orders with differing fields to the upsert request.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="moveOrdersToDifferentBlocksRequest">The collection of order and destination block ids.</param>
@@ -247,7 +247,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="resourceId">The List of Placement IDs for which you wish to allocate Executions.</param>
-        /// <param name="allocationAlgorithm">A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \&quot;PR-FIFO\&quot;. This defaults to \&quot;PR-FIFO\&quot;. (optional)</param>
+        /// <param name="allocationAlgorithm">A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \&quot;PR-FIFO\&quot;.  This defaults to \&quot;PR-FIFO\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>AllocationServiceRunResponse</returns>
@@ -261,7 +261,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="resourceId">The List of Placement IDs for which you wish to allocate Executions.</param>
-        /// <param name="allocationAlgorithm">A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \&quot;PR-FIFO\&quot;. This defaults to \&quot;PR-FIFO\&quot;. (optional)</param>
+        /// <param name="allocationAlgorithm">A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \&quot;PR-FIFO\&quot;.  This defaults to \&quot;PR-FIFO\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AllocationServiceRunResponse</returns>
@@ -270,7 +270,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] SweepBlocks: Sweeps specified blocks, for each block that meets the requirements. The request may be partially successful.
         /// </summary>
         /// <remarks>
-        /// The requirements are: &lt;list type&#x3D;\&quot;bullet\&quot;&gt;&lt;term&gt;The block exists.&lt;/term&gt;&lt;term&gt;All orders have state \&quot;Closed\&quot;, \&quot;Cancelled\&quot;, \&quot;Canceled\&quot; or \&quot;Booked\&quot;.&lt;/term&gt;&lt;term&gt;All placements have state \&quot;Allocated\&quot; or \&quot;Over-allocated\&quot;.&lt;/term&gt;&lt;term&gt;All allocations have state \&quot;Closed\&quot;, \&quot;Cancelled\&quot;, \&quot;Canceled\&quot; or \&quot;Booked\&quot;.&lt;/term&gt;&lt;term&gt;No execution or allocation has been modified since the passed LatestAllowableModificationTime.&lt;/term&gt;&lt;/list&gt;
+        /// The requirements are:  &lt;list type&#x3D;\&quot;bullet\&quot;&gt;&lt;term&gt;The block exists.&lt;/term&gt;&lt;term&gt;All orders have state \&quot;Closed\&quot;, \&quot;Cancelled\&quot;, \&quot;Canceled\&quot; or \&quot;Booked\&quot;.&lt;/term&gt;&lt;term&gt;All placements have state \&quot;Allocated\&quot; or \&quot;Over-allocated\&quot;.&lt;/term&gt;&lt;term&gt;All allocations have state \&quot;Closed\&quot;, \&quot;Cancelled\&quot;, \&quot;Canceled\&quot; or \&quot;Booked\&quot;.&lt;/term&gt;&lt;term&gt;No execution or allocation has been modified since the passed LatestAllowableModificationTime.&lt;/term&gt;&lt;/list&gt;
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sweepBlocksRequest"></param>
@@ -283,7 +283,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] SweepBlocks: Sweeps specified blocks, for each block that meets the requirements. The request may be partially successful.
         /// </summary>
         /// <remarks>
-        /// The requirements are: &lt;list type&#x3D;\&quot;bullet\&quot;&gt;&lt;term&gt;The block exists.&lt;/term&gt;&lt;term&gt;All orders have state \&quot;Closed\&quot;, \&quot;Cancelled\&quot;, \&quot;Canceled\&quot; or \&quot;Booked\&quot;.&lt;/term&gt;&lt;term&gt;All placements have state \&quot;Allocated\&quot; or \&quot;Over-allocated\&quot;.&lt;/term&gt;&lt;term&gt;All allocations have state \&quot;Closed\&quot;, \&quot;Cancelled\&quot;, \&quot;Canceled\&quot; or \&quot;Booked\&quot;.&lt;/term&gt;&lt;term&gt;No execution or allocation has been modified since the passed LatestAllowableModificationTime.&lt;/term&gt;&lt;/list&gt;
+        /// The requirements are:  &lt;list type&#x3D;\&quot;bullet\&quot;&gt;&lt;term&gt;The block exists.&lt;/term&gt;&lt;term&gt;All orders have state \&quot;Closed\&quot;, \&quot;Cancelled\&quot;, \&quot;Canceled\&quot; or \&quot;Booked\&quot;.&lt;/term&gt;&lt;term&gt;All placements have state \&quot;Allocated\&quot; or \&quot;Over-allocated\&quot;.&lt;/term&gt;&lt;term&gt;All allocations have state \&quot;Closed\&quot;, \&quot;Cancelled\&quot;, \&quot;Canceled\&quot; or \&quot;Booked\&quot;.&lt;/term&gt;&lt;term&gt;No execution or allocation has been modified since the passed LatestAllowableModificationTime.&lt;/term&gt;&lt;/list&gt;
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sweepBlocksRequest"></param>
@@ -295,7 +295,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] UpdateOrders: Update existing orders
         /// </summary>
         /// <remarks>
-        /// The response returns both the collection of successfully updated orders, as well as those that failed. For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.
+        /// The response returns both the collection of successfully updated orders, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the orders to be updated.</param>
@@ -308,7 +308,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] UpdateOrders: Update existing orders
         /// </summary>
         /// <remarks>
-        /// The response returns both the collection of successfully updated orders, as well as those that failed. For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.
+        /// The response returns both the collection of successfully updated orders, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the orders to be updated.</param>
@@ -320,7 +320,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] UpdatePlacements: Update existing placements
         /// </summary>
         /// <remarks>
-        /// The response returns both the collection of successfully updated placements, as well as those that failed. For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.
+        /// The response returns both the collection of successfully updated placements, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the placements to be updated.</param>
@@ -333,7 +333,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] UpdatePlacements: Update existing placements
         /// </summary>
         /// <remarks>
-        /// The response returns both the collection of successfully updated placements, as well as those that failed. For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.
+        /// The response returns both the collection of successfully updated placements, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the placements to be updated.</param>
@@ -385,7 +385,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] CancelOrders: Cancel existing orders
         /// </summary>
         /// <remarks>
-        /// The response returns both the collection of successfully canceled orders, as well as those that failed. For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.
+        /// The response returns both the collection of successfully canceled orders, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the ids of the orders to be cancelled.</param>
@@ -399,7 +399,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] CancelOrders: Cancel existing orders
         /// </summary>
         /// <remarks>
-        /// The response returns both the collection of successfully canceled orders, as well as those that failed. For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.
+        /// The response returns both the collection of successfully canceled orders, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the ids of the orders to be cancelled.</param>
@@ -412,7 +412,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] CancelOrdersAndMoveRemaining: Cancel existing orders and move any unplaced quantities to new orders in new blocks
         /// </summary>
         /// <remarks>
-        /// Cancels existing orders, reducing their quantities to those aleady placed. Any remaining quantities are moved to new orders in new blocks. The placed quantities are distributed to the cancelled orders on a pro-rata basis.
+        /// Cancels existing orders, reducing their quantities to those aleady placed. Any remaining quantities are moved  to new orders in new blocks. The placed quantities are distributed to the cancelled orders on a pro-rata basis.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the orders to be cancelled, and the destinations of remaining quantities.</param>
@@ -426,7 +426,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] CancelOrdersAndMoveRemaining: Cancel existing orders and move any unplaced quantities to new orders in new blocks
         /// </summary>
         /// <remarks>
-        /// Cancels existing orders, reducing their quantities to those aleady placed. Any remaining quantities are moved to new orders in new blocks. The placed quantities are distributed to the cancelled orders on a pro-rata basis.
+        /// Cancels existing orders, reducing their quantities to those aleady placed. Any remaining quantities are moved  to new orders in new blocks. The placed quantities are distributed to the cancelled orders on a pro-rata basis.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the orders to be cancelled, and the destinations of remaining quantities.</param>
@@ -439,7 +439,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] CancelPlacements: Cancel existing placements
         /// </summary>
         /// <remarks>
-        /// The response returns both the collection of successfully canceled placements, as well as those that failed. For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.
+        /// The response returns both the collection of successfully canceled placements, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the ids of the placements to be cancelled.</param>
@@ -453,7 +453,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] CancelPlacements: Cancel existing placements
         /// </summary>
         /// <remarks>
-        /// The response returns both the collection of successfully canceled placements, as well as those that failed. For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.
+        /// The response returns both the collection of successfully canceled placements, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the ids of the placements to be cancelled.</param>
@@ -466,7 +466,7 @@ namespace Lusid.Sdk.Api
         /// CreateOrders: Upsert a Block and associated orders
         /// </summary>
         /// <remarks>
-        /// Create orders, and blocks if they don&#39;t already exist. This will fail if the block exists and already references orders with differing blocking fields.
+        /// Create orders, and blocks if they don&#39;t already exist.  This will fail if the block exists and already references orders with differing blocking fields.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="blockAndOrdersCreateRequest">The collection of block and orders requests.</param>
@@ -480,7 +480,7 @@ namespace Lusid.Sdk.Api
         /// CreateOrders: Upsert a Block and associated orders
         /// </summary>
         /// <remarks>
-        /// Create orders, and blocks if they don&#39;t already exist. This will fail if the block exists and already references orders with differing blocking fields.
+        /// Create orders, and blocks if they don&#39;t already exist.  This will fail if the block exists and already references orders with differing blocking fields.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="blockAndOrdersCreateRequest">The collection of block and orders requests.</param>
@@ -498,7 +498,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the order.</param>
         /// <param name="code">The code of the order.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the history of the order and related entities. Defaults             to return the latest version if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the history of the order and related entities. Defaults              to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -514,7 +514,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the order.</param>
         /// <param name="code">The code of the order.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the history of the order and related entities. Defaults             to return the latest version if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the history of the order and related entities. Defaults              to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -524,7 +524,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] MoveOrders: Move orders to new or existing block
         /// </summary>
         /// <remarks>
-        /// Move an order to a block, creating the block if it does not already exist.  This will fail if the block exists and already references orders with differing fields to the upsert request.
+        /// Move an order to a block, creating the block if it does not already exist.   This will fail if the block exists and already references orders with differing fields to the upsert request.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="moveOrdersToDifferentBlocksRequest">The collection of order and destination block ids.</param>
@@ -538,7 +538,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] MoveOrders: Move orders to new or existing block
         /// </summary>
         /// <remarks>
-        /// Move an order to a block, creating the block if it does not already exist.  This will fail if the block exists and already references orders with differing fields to the upsert request.
+        /// Move an order to a block, creating the block if it does not already exist.   This will fail if the block exists and already references orders with differing fields to the upsert request.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="moveOrdersToDifferentBlocksRequest">The collection of order and destination block ids.</param>
@@ -582,7 +582,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="resourceId">The List of Placement IDs for which you wish to allocate Executions.</param>
-        /// <param name="allocationAlgorithm">A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \&quot;PR-FIFO\&quot;. This defaults to \&quot;PR-FIFO\&quot;. (optional)</param>
+        /// <param name="allocationAlgorithm">A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \&quot;PR-FIFO\&quot;.  This defaults to \&quot;PR-FIFO\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -597,7 +597,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="resourceId">The List of Placement IDs for which you wish to allocate Executions.</param>
-        /// <param name="allocationAlgorithm">A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \&quot;PR-FIFO\&quot;. This defaults to \&quot;PR-FIFO\&quot;. (optional)</param>
+        /// <param name="allocationAlgorithm">A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \&quot;PR-FIFO\&quot;.  This defaults to \&quot;PR-FIFO\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -607,7 +607,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] SweepBlocks: Sweeps specified blocks, for each block that meets the requirements. The request may be partially successful.
         /// </summary>
         /// <remarks>
-        /// The requirements are: &lt;list type&#x3D;\&quot;bullet\&quot;&gt;&lt;term&gt;The block exists.&lt;/term&gt;&lt;term&gt;All orders have state \&quot;Closed\&quot;, \&quot;Cancelled\&quot;, \&quot;Canceled\&quot; or \&quot;Booked\&quot;.&lt;/term&gt;&lt;term&gt;All placements have state \&quot;Allocated\&quot; or \&quot;Over-allocated\&quot;.&lt;/term&gt;&lt;term&gt;All allocations have state \&quot;Closed\&quot;, \&quot;Cancelled\&quot;, \&quot;Canceled\&quot; or \&quot;Booked\&quot;.&lt;/term&gt;&lt;term&gt;No execution or allocation has been modified since the passed LatestAllowableModificationTime.&lt;/term&gt;&lt;/list&gt;
+        /// The requirements are:  &lt;list type&#x3D;\&quot;bullet\&quot;&gt;&lt;term&gt;The block exists.&lt;/term&gt;&lt;term&gt;All orders have state \&quot;Closed\&quot;, \&quot;Cancelled\&quot;, \&quot;Canceled\&quot; or \&quot;Booked\&quot;.&lt;/term&gt;&lt;term&gt;All placements have state \&quot;Allocated\&quot; or \&quot;Over-allocated\&quot;.&lt;/term&gt;&lt;term&gt;All allocations have state \&quot;Closed\&quot;, \&quot;Cancelled\&quot;, \&quot;Canceled\&quot; or \&quot;Booked\&quot;.&lt;/term&gt;&lt;term&gt;No execution or allocation has been modified since the passed LatestAllowableModificationTime.&lt;/term&gt;&lt;/list&gt;
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sweepBlocksRequest"></param>
@@ -621,7 +621,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] SweepBlocks: Sweeps specified blocks, for each block that meets the requirements. The request may be partially successful.
         /// </summary>
         /// <remarks>
-        /// The requirements are: &lt;list type&#x3D;\&quot;bullet\&quot;&gt;&lt;term&gt;The block exists.&lt;/term&gt;&lt;term&gt;All orders have state \&quot;Closed\&quot;, \&quot;Cancelled\&quot;, \&quot;Canceled\&quot; or \&quot;Booked\&quot;.&lt;/term&gt;&lt;term&gt;All placements have state \&quot;Allocated\&quot; or \&quot;Over-allocated\&quot;.&lt;/term&gt;&lt;term&gt;All allocations have state \&quot;Closed\&quot;, \&quot;Cancelled\&quot;, \&quot;Canceled\&quot; or \&quot;Booked\&quot;.&lt;/term&gt;&lt;term&gt;No execution or allocation has been modified since the passed LatestAllowableModificationTime.&lt;/term&gt;&lt;/list&gt;
+        /// The requirements are:  &lt;list type&#x3D;\&quot;bullet\&quot;&gt;&lt;term&gt;The block exists.&lt;/term&gt;&lt;term&gt;All orders have state \&quot;Closed\&quot;, \&quot;Cancelled\&quot;, \&quot;Canceled\&quot; or \&quot;Booked\&quot;.&lt;/term&gt;&lt;term&gt;All placements have state \&quot;Allocated\&quot; or \&quot;Over-allocated\&quot;.&lt;/term&gt;&lt;term&gt;All allocations have state \&quot;Closed\&quot;, \&quot;Cancelled\&quot;, \&quot;Canceled\&quot; or \&quot;Booked\&quot;.&lt;/term&gt;&lt;term&gt;No execution or allocation has been modified since the passed LatestAllowableModificationTime.&lt;/term&gt;&lt;/list&gt;
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sweepBlocksRequest"></param>
@@ -634,7 +634,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] UpdateOrders: Update existing orders
         /// </summary>
         /// <remarks>
-        /// The response returns both the collection of successfully updated orders, as well as those that failed. For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.
+        /// The response returns both the collection of successfully updated orders, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the orders to be updated.</param>
@@ -648,7 +648,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] UpdateOrders: Update existing orders
         /// </summary>
         /// <remarks>
-        /// The response returns both the collection of successfully updated orders, as well as those that failed. For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.
+        /// The response returns both the collection of successfully updated orders, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the orders to be updated.</param>
@@ -661,7 +661,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] UpdatePlacements: Update existing placements
         /// </summary>
         /// <remarks>
-        /// The response returns both the collection of successfully updated placements, as well as those that failed. For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.
+        /// The response returns both the collection of successfully updated placements, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the placements to be updated.</param>
@@ -675,7 +675,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] UpdatePlacements: Update existing placements
         /// </summary>
         /// <remarks>
-        /// The response returns both the collection of successfully updated placements, as well as those that failed. For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.
+        /// The response returns both the collection of successfully updated placements, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the placements to be updated.</param>
@@ -1044,7 +1044,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] CancelOrders: Cancel existing orders The response returns both the collection of successfully canceled orders, as well as those that failed. For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.
+        /// [EARLY ACCESS] CancelOrders: Cancel existing orders The response returns both the collection of successfully canceled orders, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the ids of the orders to be cancelled.</param>
@@ -1058,7 +1058,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] CancelOrders: Cancel existing orders The response returns both the collection of successfully canceled orders, as well as those that failed. For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.
+        /// [EARLY ACCESS] CancelOrders: Cancel existing orders The response returns both the collection of successfully canceled orders, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the ids of the orders to be cancelled.</param>
@@ -1148,7 +1148,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] CancelOrders: Cancel existing orders The response returns both the collection of successfully canceled orders, as well as those that failed. For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.
+        /// [EARLY ACCESS] CancelOrders: Cancel existing orders The response returns both the collection of successfully canceled orders, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the ids of the orders to be cancelled.</param>
@@ -1163,7 +1163,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] CancelOrders: Cancel existing orders The response returns both the collection of successfully canceled orders, as well as those that failed. For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.
+        /// [EARLY ACCESS] CancelOrders: Cancel existing orders The response returns both the collection of successfully canceled orders, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the ids of the orders to be cancelled.</param>
@@ -1256,7 +1256,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] CancelOrdersAndMoveRemaining: Cancel existing orders and move any unplaced quantities to new orders in new blocks Cancels existing orders, reducing their quantities to those aleady placed. Any remaining quantities are moved to new orders in new blocks. The placed quantities are distributed to the cancelled orders on a pro-rata basis.
+        /// [EARLY ACCESS] CancelOrdersAndMoveRemaining: Cancel existing orders and move any unplaced quantities to new orders in new blocks Cancels existing orders, reducing their quantities to those aleady placed. Any remaining quantities are moved  to new orders in new blocks. The placed quantities are distributed to the cancelled orders on a pro-rata basis.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the orders to be cancelled, and the destinations of remaining quantities.</param>
@@ -1270,7 +1270,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] CancelOrdersAndMoveRemaining: Cancel existing orders and move any unplaced quantities to new orders in new blocks Cancels existing orders, reducing their quantities to those aleady placed. Any remaining quantities are moved to new orders in new blocks. The placed quantities are distributed to the cancelled orders on a pro-rata basis.
+        /// [EARLY ACCESS] CancelOrdersAndMoveRemaining: Cancel existing orders and move any unplaced quantities to new orders in new blocks Cancels existing orders, reducing their quantities to those aleady placed. Any remaining quantities are moved  to new orders in new blocks. The placed quantities are distributed to the cancelled orders on a pro-rata basis.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the orders to be cancelled, and the destinations of remaining quantities.</param>
@@ -1360,7 +1360,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] CancelOrdersAndMoveRemaining: Cancel existing orders and move any unplaced quantities to new orders in new blocks Cancels existing orders, reducing their quantities to those aleady placed. Any remaining quantities are moved to new orders in new blocks. The placed quantities are distributed to the cancelled orders on a pro-rata basis.
+        /// [EARLY ACCESS] CancelOrdersAndMoveRemaining: Cancel existing orders and move any unplaced quantities to new orders in new blocks Cancels existing orders, reducing their quantities to those aleady placed. Any remaining quantities are moved  to new orders in new blocks. The placed quantities are distributed to the cancelled orders on a pro-rata basis.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the orders to be cancelled, and the destinations of remaining quantities.</param>
@@ -1375,7 +1375,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] CancelOrdersAndMoveRemaining: Cancel existing orders and move any unplaced quantities to new orders in new blocks Cancels existing orders, reducing their quantities to those aleady placed. Any remaining quantities are moved to new orders in new blocks. The placed quantities are distributed to the cancelled orders on a pro-rata basis.
+        /// [EARLY ACCESS] CancelOrdersAndMoveRemaining: Cancel existing orders and move any unplaced quantities to new orders in new blocks Cancels existing orders, reducing their quantities to those aleady placed. Any remaining quantities are moved  to new orders in new blocks. The placed quantities are distributed to the cancelled orders on a pro-rata basis.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the orders to be cancelled, and the destinations of remaining quantities.</param>
@@ -1468,7 +1468,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] CancelPlacements: Cancel existing placements The response returns both the collection of successfully canceled placements, as well as those that failed. For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.
+        /// [EARLY ACCESS] CancelPlacements: Cancel existing placements The response returns both the collection of successfully canceled placements, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the ids of the placements to be cancelled.</param>
@@ -1482,7 +1482,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] CancelPlacements: Cancel existing placements The response returns both the collection of successfully canceled placements, as well as those that failed. For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.
+        /// [EARLY ACCESS] CancelPlacements: Cancel existing placements The response returns both the collection of successfully canceled placements, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the ids of the placements to be cancelled.</param>
@@ -1572,7 +1572,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] CancelPlacements: Cancel existing placements The response returns both the collection of successfully canceled placements, as well as those that failed. For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.
+        /// [EARLY ACCESS] CancelPlacements: Cancel existing placements The response returns both the collection of successfully canceled placements, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the ids of the placements to be cancelled.</param>
@@ -1587,7 +1587,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] CancelPlacements: Cancel existing placements The response returns both the collection of successfully canceled placements, as well as those that failed. For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.
+        /// [EARLY ACCESS] CancelPlacements: Cancel existing placements The response returns both the collection of successfully canceled placements, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the ids of the placements to be cancelled.</param>
@@ -1680,7 +1680,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// CreateOrders: Upsert a Block and associated orders Create orders, and blocks if they don&#39;t already exist. This will fail if the block exists and already references orders with differing blocking fields.
+        /// CreateOrders: Upsert a Block and associated orders Create orders, and blocks if they don&#39;t already exist.  This will fail if the block exists and already references orders with differing blocking fields.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="blockAndOrdersCreateRequest">The collection of block and orders requests.</param>
@@ -1694,7 +1694,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// CreateOrders: Upsert a Block and associated orders Create orders, and blocks if they don&#39;t already exist. This will fail if the block exists and already references orders with differing blocking fields.
+        /// CreateOrders: Upsert a Block and associated orders Create orders, and blocks if they don&#39;t already exist.  This will fail if the block exists and already references orders with differing blocking fields.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="blockAndOrdersCreateRequest">The collection of block and orders requests.</param>
@@ -1784,7 +1784,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// CreateOrders: Upsert a Block and associated orders Create orders, and blocks if they don&#39;t already exist. This will fail if the block exists and already references orders with differing blocking fields.
+        /// CreateOrders: Upsert a Block and associated orders Create orders, and blocks if they don&#39;t already exist.  This will fail if the block exists and already references orders with differing blocking fields.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="blockAndOrdersCreateRequest">The collection of block and orders requests.</param>
@@ -1799,7 +1799,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// CreateOrders: Upsert a Block and associated orders Create orders, and blocks if they don&#39;t already exist. This will fail if the block exists and already references orders with differing blocking fields.
+        /// CreateOrders: Upsert a Block and associated orders Create orders, and blocks if they don&#39;t already exist.  This will fail if the block exists and already references orders with differing blocking fields.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="blockAndOrdersCreateRequest">The collection of block and orders requests.</param>
@@ -1897,7 +1897,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the order.</param>
         /// <param name="code">The code of the order.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the history of the order and related entities. Defaults             to return the latest version if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the history of the order and related entities. Defaults              to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfChangeIntervalWithOrderManagementDetail</returns>
@@ -1913,7 +1913,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the order.</param>
         /// <param name="code">The code of the order.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the history of the order and related entities. Defaults             to return the latest version if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the history of the order and related entities. Defaults              to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfChangeIntervalWithOrderManagementDetail</returns>
@@ -2012,7 +2012,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the order.</param>
         /// <param name="code">The code of the order.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the history of the order and related entities. Defaults             to return the latest version if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the history of the order and related entities. Defaults              to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2029,7 +2029,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the order.</param>
         /// <param name="code">The code of the order.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the history of the order and related entities. Defaults             to return the latest version if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the history of the order and related entities. Defaults              to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2126,7 +2126,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] MoveOrders: Move orders to new or existing block Move an order to a block, creating the block if it does not already exist.  This will fail if the block exists and already references orders with differing fields to the upsert request.
+        /// [EARLY ACCESS] MoveOrders: Move orders to new or existing block Move an order to a block, creating the block if it does not already exist.   This will fail if the block exists and already references orders with differing fields to the upsert request.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="moveOrdersToDifferentBlocksRequest">The collection of order and destination block ids.</param>
@@ -2140,7 +2140,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] MoveOrders: Move orders to new or existing block Move an order to a block, creating the block if it does not already exist.  This will fail if the block exists and already references orders with differing fields to the upsert request.
+        /// [EARLY ACCESS] MoveOrders: Move orders to new or existing block Move an order to a block, creating the block if it does not already exist.   This will fail if the block exists and already references orders with differing fields to the upsert request.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="moveOrdersToDifferentBlocksRequest">The collection of order and destination block ids.</param>
@@ -2230,7 +2230,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] MoveOrders: Move orders to new or existing block Move an order to a block, creating the block if it does not already exist.  This will fail if the block exists and already references orders with differing fields to the upsert request.
+        /// [EARLY ACCESS] MoveOrders: Move orders to new or existing block Move an order to a block, creating the block if it does not already exist.   This will fail if the block exists and already references orders with differing fields to the upsert request.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="moveOrdersToDifferentBlocksRequest">The collection of order and destination block ids.</param>
@@ -2245,7 +2245,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] MoveOrders: Move orders to new or existing block Move an order to a block, creating the block if it does not already exist.  This will fail if the block exists and already references orders with differing fields to the upsert request.
+        /// [EARLY ACCESS] MoveOrders: Move orders to new or existing block Move an order to a block, creating the block if it does not already exist.   This will fail if the block exists and already references orders with differing fields to the upsert request.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="moveOrdersToDifferentBlocksRequest">The collection of order and destination block ids.</param>
@@ -2542,7 +2542,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="resourceId">The List of Placement IDs for which you wish to allocate Executions.</param>
-        /// <param name="allocationAlgorithm">A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \&quot;PR-FIFO\&quot;. This defaults to \&quot;PR-FIFO\&quot;. (optional)</param>
+        /// <param name="allocationAlgorithm">A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \&quot;PR-FIFO\&quot;.  This defaults to \&quot;PR-FIFO\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>AllocationServiceRunResponse</returns>
@@ -2557,7 +2557,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="resourceId">The List of Placement IDs for which you wish to allocate Executions.</param>
-        /// <param name="allocationAlgorithm">A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \&quot;PR-FIFO\&quot;. This defaults to \&quot;PR-FIFO\&quot;. (optional)</param>
+        /// <param name="allocationAlgorithm">A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \&quot;PR-FIFO\&quot;.  This defaults to \&quot;PR-FIFO\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AllocationServiceRunResponse</returns>
@@ -2652,7 +2652,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="resourceId">The List of Placement IDs for which you wish to allocate Executions.</param>
-        /// <param name="allocationAlgorithm">A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \&quot;PR-FIFO\&quot;. This defaults to \&quot;PR-FIFO\&quot;. (optional)</param>
+        /// <param name="allocationAlgorithm">A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \&quot;PR-FIFO\&quot;.  This defaults to \&quot;PR-FIFO\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2668,7 +2668,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="resourceId">The List of Placement IDs for which you wish to allocate Executions.</param>
-        /// <param name="allocationAlgorithm">A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \&quot;PR-FIFO\&quot;. This defaults to \&quot;PR-FIFO\&quot;. (optional)</param>
+        /// <param name="allocationAlgorithm">A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \&quot;PR-FIFO\&quot;.  This defaults to \&quot;PR-FIFO\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2762,7 +2762,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] SweepBlocks: Sweeps specified blocks, for each block that meets the requirements. The request may be partially successful. The requirements are: &lt;list type&#x3D;\&quot;bullet\&quot;&gt;&lt;term&gt;The block exists.&lt;/term&gt;&lt;term&gt;All orders have state \&quot;Closed\&quot;, \&quot;Cancelled\&quot;, \&quot;Canceled\&quot; or \&quot;Booked\&quot;.&lt;/term&gt;&lt;term&gt;All placements have state \&quot;Allocated\&quot; or \&quot;Over-allocated\&quot;.&lt;/term&gt;&lt;term&gt;All allocations have state \&quot;Closed\&quot;, \&quot;Cancelled\&quot;, \&quot;Canceled\&quot; or \&quot;Booked\&quot;.&lt;/term&gt;&lt;term&gt;No execution or allocation has been modified since the passed LatestAllowableModificationTime.&lt;/term&gt;&lt;/list&gt;
+        /// [EXPERIMENTAL] SweepBlocks: Sweeps specified blocks, for each block that meets the requirements. The request may be partially successful. The requirements are:  &lt;list type&#x3D;\&quot;bullet\&quot;&gt;&lt;term&gt;The block exists.&lt;/term&gt;&lt;term&gt;All orders have state \&quot;Closed\&quot;, \&quot;Cancelled\&quot;, \&quot;Canceled\&quot; or \&quot;Booked\&quot;.&lt;/term&gt;&lt;term&gt;All placements have state \&quot;Allocated\&quot; or \&quot;Over-allocated\&quot;.&lt;/term&gt;&lt;term&gt;All allocations have state \&quot;Closed\&quot;, \&quot;Cancelled\&quot;, \&quot;Canceled\&quot; or \&quot;Booked\&quot;.&lt;/term&gt;&lt;term&gt;No execution or allocation has been modified since the passed LatestAllowableModificationTime.&lt;/term&gt;&lt;/list&gt;
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sweepBlocksRequest"></param>
@@ -2776,7 +2776,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] SweepBlocks: Sweeps specified blocks, for each block that meets the requirements. The request may be partially successful. The requirements are: &lt;list type&#x3D;\&quot;bullet\&quot;&gt;&lt;term&gt;The block exists.&lt;/term&gt;&lt;term&gt;All orders have state \&quot;Closed\&quot;, \&quot;Cancelled\&quot;, \&quot;Canceled\&quot; or \&quot;Booked\&quot;.&lt;/term&gt;&lt;term&gt;All placements have state \&quot;Allocated\&quot; or \&quot;Over-allocated\&quot;.&lt;/term&gt;&lt;term&gt;All allocations have state \&quot;Closed\&quot;, \&quot;Cancelled\&quot;, \&quot;Canceled\&quot; or \&quot;Booked\&quot;.&lt;/term&gt;&lt;term&gt;No execution or allocation has been modified since the passed LatestAllowableModificationTime.&lt;/term&gt;&lt;/list&gt;
+        /// [EXPERIMENTAL] SweepBlocks: Sweeps specified blocks, for each block that meets the requirements. The request may be partially successful. The requirements are:  &lt;list type&#x3D;\&quot;bullet\&quot;&gt;&lt;term&gt;The block exists.&lt;/term&gt;&lt;term&gt;All orders have state \&quot;Closed\&quot;, \&quot;Cancelled\&quot;, \&quot;Canceled\&quot; or \&quot;Booked\&quot;.&lt;/term&gt;&lt;term&gt;All placements have state \&quot;Allocated\&quot; or \&quot;Over-allocated\&quot;.&lt;/term&gt;&lt;term&gt;All allocations have state \&quot;Closed\&quot;, \&quot;Cancelled\&quot;, \&quot;Canceled\&quot; or \&quot;Booked\&quot;.&lt;/term&gt;&lt;term&gt;No execution or allocation has been modified since the passed LatestAllowableModificationTime.&lt;/term&gt;&lt;/list&gt;
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sweepBlocksRequest"></param>
@@ -2866,7 +2866,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] SweepBlocks: Sweeps specified blocks, for each block that meets the requirements. The request may be partially successful. The requirements are: &lt;list type&#x3D;\&quot;bullet\&quot;&gt;&lt;term&gt;The block exists.&lt;/term&gt;&lt;term&gt;All orders have state \&quot;Closed\&quot;, \&quot;Cancelled\&quot;, \&quot;Canceled\&quot; or \&quot;Booked\&quot;.&lt;/term&gt;&lt;term&gt;All placements have state \&quot;Allocated\&quot; or \&quot;Over-allocated\&quot;.&lt;/term&gt;&lt;term&gt;All allocations have state \&quot;Closed\&quot;, \&quot;Cancelled\&quot;, \&quot;Canceled\&quot; or \&quot;Booked\&quot;.&lt;/term&gt;&lt;term&gt;No execution or allocation has been modified since the passed LatestAllowableModificationTime.&lt;/term&gt;&lt;/list&gt;
+        /// [EXPERIMENTAL] SweepBlocks: Sweeps specified blocks, for each block that meets the requirements. The request may be partially successful. The requirements are:  &lt;list type&#x3D;\&quot;bullet\&quot;&gt;&lt;term&gt;The block exists.&lt;/term&gt;&lt;term&gt;All orders have state \&quot;Closed\&quot;, \&quot;Cancelled\&quot;, \&quot;Canceled\&quot; or \&quot;Booked\&quot;.&lt;/term&gt;&lt;term&gt;All placements have state \&quot;Allocated\&quot; or \&quot;Over-allocated\&quot;.&lt;/term&gt;&lt;term&gt;All allocations have state \&quot;Closed\&quot;, \&quot;Cancelled\&quot;, \&quot;Canceled\&quot; or \&quot;Booked\&quot;.&lt;/term&gt;&lt;term&gt;No execution or allocation has been modified since the passed LatestAllowableModificationTime.&lt;/term&gt;&lt;/list&gt;
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sweepBlocksRequest"></param>
@@ -2881,7 +2881,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] SweepBlocks: Sweeps specified blocks, for each block that meets the requirements. The request may be partially successful. The requirements are: &lt;list type&#x3D;\&quot;bullet\&quot;&gt;&lt;term&gt;The block exists.&lt;/term&gt;&lt;term&gt;All orders have state \&quot;Closed\&quot;, \&quot;Cancelled\&quot;, \&quot;Canceled\&quot; or \&quot;Booked\&quot;.&lt;/term&gt;&lt;term&gt;All placements have state \&quot;Allocated\&quot; or \&quot;Over-allocated\&quot;.&lt;/term&gt;&lt;term&gt;All allocations have state \&quot;Closed\&quot;, \&quot;Cancelled\&quot;, \&quot;Canceled\&quot; or \&quot;Booked\&quot;.&lt;/term&gt;&lt;term&gt;No execution or allocation has been modified since the passed LatestAllowableModificationTime.&lt;/term&gt;&lt;/list&gt;
+        /// [EXPERIMENTAL] SweepBlocks: Sweeps specified blocks, for each block that meets the requirements. The request may be partially successful. The requirements are:  &lt;list type&#x3D;\&quot;bullet\&quot;&gt;&lt;term&gt;The block exists.&lt;/term&gt;&lt;term&gt;All orders have state \&quot;Closed\&quot;, \&quot;Cancelled\&quot;, \&quot;Canceled\&quot; or \&quot;Booked\&quot;.&lt;/term&gt;&lt;term&gt;All placements have state \&quot;Allocated\&quot; or \&quot;Over-allocated\&quot;.&lt;/term&gt;&lt;term&gt;All allocations have state \&quot;Closed\&quot;, \&quot;Cancelled\&quot;, \&quot;Canceled\&quot; or \&quot;Booked\&quot;.&lt;/term&gt;&lt;term&gt;No execution or allocation has been modified since the passed LatestAllowableModificationTime.&lt;/term&gt;&lt;/list&gt;
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sweepBlocksRequest"></param>
@@ -2974,7 +2974,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpdateOrders: Update existing orders The response returns both the collection of successfully updated orders, as well as those that failed. For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.
+        /// [EARLY ACCESS] UpdateOrders: Update existing orders The response returns both the collection of successfully updated orders, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the orders to be updated.</param>
@@ -2988,7 +2988,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpdateOrders: Update existing orders The response returns both the collection of successfully updated orders, as well as those that failed. For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.
+        /// [EARLY ACCESS] UpdateOrders: Update existing orders The response returns both the collection of successfully updated orders, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the orders to be updated.</param>
@@ -3078,7 +3078,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpdateOrders: Update existing orders The response returns both the collection of successfully updated orders, as well as those that failed. For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.
+        /// [EARLY ACCESS] UpdateOrders: Update existing orders The response returns both the collection of successfully updated orders, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the orders to be updated.</param>
@@ -3093,7 +3093,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpdateOrders: Update existing orders The response returns both the collection of successfully updated orders, as well as those that failed. For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.
+        /// [EARLY ACCESS] UpdateOrders: Update existing orders The response returns both the collection of successfully updated orders, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the orders to be updated.</param>
@@ -3186,7 +3186,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpdatePlacements: Update existing placements The response returns both the collection of successfully updated placements, as well as those that failed. For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.
+        /// [EARLY ACCESS] UpdatePlacements: Update existing placements The response returns both the collection of successfully updated placements, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the placements to be updated.</param>
@@ -3200,7 +3200,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpdatePlacements: Update existing placements The response returns both the collection of successfully updated placements, as well as those that failed. For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.
+        /// [EARLY ACCESS] UpdatePlacements: Update existing placements The response returns both the collection of successfully updated placements, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the placements to be updated.</param>
@@ -3290,7 +3290,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpdatePlacements: Update existing placements The response returns both the collection of successfully updated placements, as well as those that failed. For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.
+        /// [EARLY ACCESS] UpdatePlacements: Update existing placements The response returns both the collection of successfully updated placements, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the placements to be updated.</param>
@@ -3305,7 +3305,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpdatePlacements: Update existing placements The response returns both the collection of successfully updated placements, as well as those that failed. For each failure, a reason is provided. It is important to check the failed set for unsuccessful results.
+        /// [EARLY ACCESS] UpdatePlacements: Update existing placements The response returns both the collection of successfully updated placements, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The request containing the placements to be updated.</param>

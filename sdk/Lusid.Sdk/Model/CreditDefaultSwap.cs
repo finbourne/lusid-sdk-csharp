@@ -24,7 +24,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// LUSID representation of a Credit Default Swap (CDS).              This instrument has multiple legs, to see how legs are used in LUSID see [knowledge base article KA-02252](https://support.lusid.com/knowledgebase/article/KA-02252).              | Leg Index | Leg Identifier | Description | | - -- -- -- -- | - -- -- -- -- -- -- - | - -- -- -- -- -- | | 1 | ProtectionLeg | Cash flows occurring in the case of default. | | 2 | PremiumLeg | The premium payments made by the protection buyer. | | 3 | AdditionalPayments | Cash flows relating to any additional payments (optional). |
+    /// LUSID representation of a Credit Default Swap (CDS).                This instrument has multiple legs, to see how legs are used in LUSID see [knowledge base article KA-02252](https://support.lusid.com/knowledgebase/article/KA-02252).                | Leg Index | Leg Identifier | Description |  | - -- -- -- -- | - -- -- -- -- -- -- - | - -- -- -- -- -- |  | 1 | ProtectionLeg | Cash flows occurring in the case of default. |  | 2 | PremiumLeg | The premium payments made by the protection buyer. |  | 3 | AdditionalPayments | Cash flows relating to any additional payments (optional). |
     /// </summary>
     [DataContract(Name = "CreditDefaultSwap")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentType")]
@@ -40,13 +40,13 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="ticker">A ticker to uniquely specify the entity against which the CDS is written. Defaults to \&quot;DefaultCDSTicker\&quot;. (default to &quot;DefaultCDSTicker&quot;).</param>
         /// <param name="startDate">The start date of the instrument. This is normally synonymous with the trade-date. (required).</param>
-        /// <param name="maturityDate">The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount. For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it. (required).</param>
+        /// <param name="maturityDate">The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.  For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as  Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it. (required).</param>
         /// <param name="flowConventions">flowConventions.</param>
-        /// <param name="couponRate">The coupon rate paid on each payment date of the premium leg as a fraction of 100 percent, e.g. \&quot;0.05\&quot; meaning 500 basis points or 5%. For a standard corporate CDS (North American) this must be either 100bps or 500bps. (required).</param>
+        /// <param name="couponRate">The coupon rate paid on each payment date of the premium leg as a fraction of 100 percent, e.g. \&quot;0.05\&quot; meaning 500 basis points or 5%.  For a standard corporate CDS (North American) this must be either 100bps or 500bps. (required).</param>
         /// <param name="conventionName">conventionName.</param>
         /// <param name="notional">The notional protected by the Credit Default Swap.</param>
         /// <param name="protectionDetailSpecification">protectionDetailSpecification.</param>
-        /// <param name="additionalPayments">Optional additional payments at a given date e.g. to level off an uneven swap. The dates must be distinct and either all payments are Pay or all payments are Receive..</param>
+        /// <param name="additionalPayments">Optional additional payments at a given date e.g. to level off an uneven swap.  The dates must be distinct and either all payments are Pay or all payments are Receive..</param>
         /// <param name="timeZoneConventions">timeZoneConventions.</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit, FlexibleRepo (required) (default to &quot;CreditDefaultSwap&quot;).</param>
         public CreditDefaultSwap(string ticker = @"DefaultCDSTicker", DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), CdsFlowConventions flowConventions = default(CdsFlowConventions), decimal couponRate = default(decimal), FlowConventionName conventionName = default(FlowConventionName), decimal? notional = default(decimal?), CdsProtectionDetailSpecification protectionDetailSpecification = default(CdsProtectionDetailSpecification), List<AdditionalPayment> additionalPayments = default(List<AdditionalPayment>), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
@@ -79,9 +79,9 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset StartDate { get; set; }
 
         /// <summary>
-        /// The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount. For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it.
+        /// The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.  For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as  Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it.
         /// </summary>
-        /// <value>The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount. For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it.</value>
+        /// <value>The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.  For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as  Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it.</value>
         [DataMember(Name = "maturityDate", IsRequired = true, EmitDefaultValue = true)]
         public DateTimeOffset MaturityDate { get; set; }
 
@@ -92,9 +92,9 @@ namespace Lusid.Sdk.Model
         public CdsFlowConventions FlowConventions { get; set; }
 
         /// <summary>
-        /// The coupon rate paid on each payment date of the premium leg as a fraction of 100 percent, e.g. \&quot;0.05\&quot; meaning 500 basis points or 5%. For a standard corporate CDS (North American) this must be either 100bps or 500bps.
+        /// The coupon rate paid on each payment date of the premium leg as a fraction of 100 percent, e.g. \&quot;0.05\&quot; meaning 500 basis points or 5%.  For a standard corporate CDS (North American) this must be either 100bps or 500bps.
         /// </summary>
-        /// <value>The coupon rate paid on each payment date of the premium leg as a fraction of 100 percent, e.g. \&quot;0.05\&quot; meaning 500 basis points or 5%. For a standard corporate CDS (North American) this must be either 100bps or 500bps.</value>
+        /// <value>The coupon rate paid on each payment date of the premium leg as a fraction of 100 percent, e.g. \&quot;0.05\&quot; meaning 500 basis points or 5%.  For a standard corporate CDS (North American) this must be either 100bps or 500bps.</value>
         [DataMember(Name = "couponRate", IsRequired = true, EmitDefaultValue = true)]
         public decimal CouponRate { get; set; }
 
@@ -118,9 +118,9 @@ namespace Lusid.Sdk.Model
         public CdsProtectionDetailSpecification ProtectionDetailSpecification { get; set; }
 
         /// <summary>
-        /// Optional additional payments at a given date e.g. to level off an uneven swap. The dates must be distinct and either all payments are Pay or all payments are Receive.
+        /// Optional additional payments at a given date e.g. to level off an uneven swap.  The dates must be distinct and either all payments are Pay or all payments are Receive.
         /// </summary>
-        /// <value>Optional additional payments at a given date e.g. to level off an uneven swap. The dates must be distinct and either all payments are Pay or all payments are Receive.</value>
+        /// <value>Optional additional payments at a given date e.g. to level off an uneven swap.  The dates must be distinct and either all payments are Pay or all payments are Receive.</value>
         [DataMember(Name = "additionalPayments", EmitDefaultValue = true)]
         public List<AdditionalPayment> AdditionalPayments { get; set; }
 

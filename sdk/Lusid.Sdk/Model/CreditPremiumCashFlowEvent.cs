@@ -24,7 +24,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Definition of a credit premium cash flow event. This event describes a premium cashflow for credit default instruments (CDS or CDX).
+    /// Definition of a credit premium cash flow event.  This event describes a premium cashflow for credit default instruments (CDS or CDX).
     /// </summary>
     [DataContract(Name = "CreditPremiumCashFlowEvent")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentEventType")]

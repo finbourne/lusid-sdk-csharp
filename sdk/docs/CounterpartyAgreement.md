@@ -1,5 +1,5 @@
 # Lusid.Sdk.Model.CounterpartyAgreement
-Represents the legal agreement between two parties engaged in an OTC transaction. A typical example would be a 2002 ISDA Master Agreement, signed by two legal entities on a given date.
+Represents the legal agreement between two parties engaged in an OTC transaction.  A typical example would be a 2002 ISDA Master Agreement, signed by two legal entities on a given date.
 
 ## Properties
 

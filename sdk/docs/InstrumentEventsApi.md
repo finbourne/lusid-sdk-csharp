@@ -58,8 +58,8 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<InstrumentEventsApi>();
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The as at time to use. (optional) 
-            var limit = 100;  // int? | Optional. When paginating, limit the number of returned results to this many. If not specified, a default of 100 is used. (optional)  (default to 100)
-            var page = "page_example";  // string? | Optional. The pagination token to use to continue listing items from a previous call. Page values are return from list calls, and must be supplied exactly as returned. Additionally, when specifying this (optional) 
+            var limit = 100;  // int? | Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 100 is used. (optional)  (default to 100)
+            var page = "page_example";  // string? | Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this (optional) 
             var queryApplicableInstrumentEventsRequest = new QueryApplicableInstrumentEventsRequest?(); // QueryApplicableInstrumentEventsRequest? | The filter parameters used to retrieve applicable instrument events. (optional) 
 
             try
@@ -107,8 +107,8 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **asAt** | **DateTimeOffset?** | The as at time to use. | [optional]  |
-| **limit** | **int?** | Optional. When paginating, limit the number of returned results to this many. If not specified, a default of 100 is used. | [optional] [default to 100] |
-| **page** | **string?** | Optional. The pagination token to use to continue listing items from a previous call. Page values are return from list calls, and must be supplied exactly as returned. Additionally, when specifying this | [optional]  |
+| **limit** | **int?** | Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 100 is used. | [optional] [default to 100] |
+| **page** | **string?** | Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this | [optional]  |
 | **queryApplicableInstrumentEventsRequest** | [**QueryApplicableInstrumentEventsRequest?**](QueryApplicableInstrumentEventsRequest?.md) | The filter parameters used to retrieve applicable instrument events. | [optional]  |
 
 ### Return type
@@ -291,8 +291,8 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<InstrumentEventsApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<InstrumentEventsApi>();
-            var limit = 1000;  // int? | Optional. When paginating, limit the number of returned results to this many. If not specified, a default of 1000 is used. (optional)  (default to 1000)
-            var page = "page_example";  // string? | Optional. The pagination token to use to continue listing items from a previous call. Page values are return from list calls, and must be supplied exactly as returned. Additionally, when specifying this value, queryBody, and limit must not be modified. (optional) 
+            var limit = 1000;  // int? | Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. (optional)  (default to 1000)
+            var page = "page_example";  // string? | Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, queryBody, and limit must not  be modified. (optional) 
             var queryCashFlowsRequest = new QueryCashFlowsRequest?(); // QueryCashFlowsRequest? | The filter parameters used to retrieve instrument events. (optional) 
 
             try
@@ -339,8 +339,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **limit** | **int?** | Optional. When paginating, limit the number of returned results to this many. If not specified, a default of 1000 is used. | [optional] [default to 1000] |
-| **page** | **string?** | Optional. The pagination token to use to continue listing items from a previous call. Page values are return from list calls, and must be supplied exactly as returned. Additionally, when specifying this value, queryBody, and limit must not be modified. | [optional]  |
+| **limit** | **int?** | Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. | [optional] [default to 1000] |
+| **page** | **string?** | Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, queryBody, and limit must not  be modified. | [optional]  |
 | **queryCashFlowsRequest** | [**QueryCashFlowsRequest?**](QueryCashFlowsRequest?.md) | The filter parameters used to retrieve instrument events. | [optional]  |
 
 ### Return type
@@ -409,8 +409,8 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<InstrumentEventsApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<InstrumentEventsApi>();
-            var limit = 1000;  // int? | Optional. When paginating, limit the number of returned results to this many. If not specified, a default of 1000 is used. (optional)  (default to 1000)
-            var page = "page_example";  // string? | Optional. The pagination token to use to continue listing items from a previous call. Page values are return from list calls, and must be supplied exactly as returned. Additionally, when specifying this value, queryBody, and limit must not be modified. (optional) 
+            var limit = 1000;  // int? | Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. (optional)  (default to 1000)
+            var page = "page_example";  // string? | Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, queryBody, and limit must not  be modified. (optional) 
             var queryInstrumentEventsRequest = new QueryInstrumentEventsRequest?(); // QueryInstrumentEventsRequest? | The filter parameters used to retrieve instrument events. (optional) 
 
             try
@@ -457,8 +457,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **limit** | **int?** | Optional. When paginating, limit the number of returned results to this many. If not specified, a default of 1000 is used. | [optional] [default to 1000] |
-| **page** | **string?** | Optional. The pagination token to use to continue listing items from a previous call. Page values are return from list calls, and must be supplied exactly as returned. Additionally, when specifying this value, queryBody, and limit must not be modified. | [optional]  |
+| **limit** | **int?** | Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. | [optional] [default to 1000] |
+| **page** | **string?** | Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, queryBody, and limit must not  be modified. | [optional]  |
 | **queryInstrumentEventsRequest** | [**QueryInstrumentEventsRequest?**](QueryInstrumentEventsRequest?.md) | The filter parameters used to retrieve instrument events. | [optional]  |
 
 ### Return type
@@ -486,7 +486,7 @@ catch (ApiException e)
 
 QueryTradeTickets: Returns a list of trade tickets based on the holdings of the portfolios and date range specified in the query.
 
-Returns a list of trade tickets based on the holdings of the portfolios and date range specified in the query.  These trade tickets are derived from events that involve transition of instrument states, such as transitions on exercise or default of an instrument. The trade tickets are to allow the new position to be created given the existing portfolio configuration.
+Returns a list of trade tickets based on the holdings of the portfolios and date range specified in the query.    These trade tickets are derived from events that involve transition of instrument states, such as transitions  on exercise or default of an instrument. The trade tickets are to allow the new position to be created given the  existing portfolio configuration.
 
 ### Example
 ```csharp
@@ -527,8 +527,8 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<InstrumentEventsApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<InstrumentEventsApi>();
-            var limit = 1000;  // int? | Optional. When paginating, limit the number of returned results to this many. If not specified, a default of 1000 is used. (optional)  (default to 1000)
-            var page = "page_example";  // string? | Optional. The pagination token to use to continue listing items from a previous call. Page values are return from list calls, and must be supplied exactly as returned. Additionally, when specifying this value, queryBody, and limit must not be modified. (optional) 
+            var limit = 1000;  // int? | Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. (optional)  (default to 1000)
+            var page = "page_example";  // string? | Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, queryBody, and limit must not  be modified. (optional) 
             var queryTradeTicketsRequest = new QueryTradeTicketsRequest?(); // QueryTradeTicketsRequest? | The filter parameters used to retrieve instrument events. (optional) 
 
             try
@@ -575,8 +575,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **limit** | **int?** | Optional. When paginating, limit the number of returned results to this many. If not specified, a default of 1000 is used. | [optional] [default to 1000] |
-| **page** | **string?** | Optional. The pagination token to use to continue listing items from a previous call. Page values are return from list calls, and must be supplied exactly as returned. Additionally, when specifying this value, queryBody, and limit must not be modified. | [optional]  |
+| **limit** | **int?** | Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. | [optional] [default to 1000] |
+| **page** | **string?** | Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, queryBody, and limit must not  be modified. | [optional]  |
 | **queryTradeTicketsRequest** | [**QueryTradeTicketsRequest?**](QueryTradeTicketsRequest?.md) | The filter parameters used to retrieve instrument events. | [optional]  |
 
 ### Return type

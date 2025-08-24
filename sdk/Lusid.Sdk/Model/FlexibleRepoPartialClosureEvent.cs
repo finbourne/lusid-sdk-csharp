@@ -24,7 +24,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Event representing the partial closure of a repurchase  agreement. Each event reduces the outstanding notional  and generates a corresponding receive-leg cashflow. The  final maturity cashflow is adjusted accordingly. If multiple events are created, their effects compound.  Once the total repaid amount reaches the original purchase  price, no further receive-leg cashflows are generated. Any  event exceeding the remaining notional is marked with a  diagnostic to indicate it is invalid due to excessive repayment. For example, for a repo with a 5% rate, 1% haircut and  collateral value of 100 (purchase price &#x3D; 99), a partial  closure of cash amount 10 followed by one of 100 results in  only the first event producing a cashflow. The second,  exceeding the remaining balance, is ignored and flagged  with a diagnostic. The remaining balance is settled at  maturity of the repurchase agreement. Specific to a  instrument.
+    /// Event representing the partial closure of a repurchase   agreement. Each event reduces the outstanding notional   and generates a corresponding receive-leg cashflow. The   final maturity cashflow is adjusted accordingly.  If multiple events are created, their effects compound.   Once the total repaid amount reaches the original purchase   price, no further receive-leg cashflows are generated. Any   event exceeding the remaining notional is marked with a   diagnostic to indicate it is invalid due to excessive repayment.  For example, for a repo with a 5% rate, 1% haircut and   collateral value of 100 (purchase price &#x3D; 99), a partial   closure of cash amount 10 followed by one of 100 results in   only the first event producing a cashflow. The second,   exceeding the remaining balance, is ignored and flagged   with a diagnostic. The remaining balance is settled at   maturity of the repurchase agreement.  Specific to a  instrument.
     /// </summary>
     [DataContract(Name = "FlexibleRepoPartialClosureEvent")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentEventType")]
@@ -38,10 +38,10 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FlexibleRepoPartialClosureEvent" /> class.
         /// </summary>
-        /// <param name="entitlementDate">Required property. The date on which the counterparties become entitled  to exchange cash as part of a partial closure of the  repurchase agreement. The date must be before or on  the settlement date, and on or before the maturity  date of the repo..</param>
-        /// <param name="settlementDate">Required property. The date on which the exchange of cash is settled.  The date must be on or after the entitlement date, and on or before the maturity date of the repo..</param>
-        /// <param name="amount">The amount of cash to be exchanged as part of a partial closure of the repurchase agreement. Either the absolute cash amount or a percentage of the remaining amount, depending on the AmountType. (required).</param>
-        /// <param name="amountType">AmountType of the cash amount to be exchanged as part of a partial closure of the repurchase agreement. Either percentage or absolute cash amount.  Supported string (enumeration) values are: [Percentage, Units]. (required).</param>
+        /// <param name="entitlementDate">Required property.  The date on which the counterparties become entitled   to exchange cash as part of a partial closure of the   repurchase agreement. The date must be before or on   the settlement date, and on or before the maturity   date of the repo..</param>
+        /// <param name="settlementDate">Required property.  The date on which the exchange of cash is settled.   The date must be on or after the entitlement date,  and on or before the maturity date of the repo..</param>
+        /// <param name="amount">The amount of cash to be exchanged as part of a partial closure of the repurchase agreement.  Either the absolute cash amount or a percentage of the remaining amount,  depending on the AmountType. (required).</param>
+        /// <param name="amountType">AmountType of the cash amount to be exchanged as part of a partial closure of the repurchase agreement.  Either percentage or absolute cash amount.    Supported string (enumeration) values are: [Percentage, Units]. (required).</param>
         /// <param name="partialClosureConstituents">List of the collateral instruments involved in this partial closure, along with how they are affected. (required).</param>
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent (required) (default to &quot;FlexibleRepoPartialClosureEvent&quot;).</param>
         public FlexibleRepoPartialClosureEvent(DateTimeOffset entitlementDate = default(DateTimeOffset), DateTimeOffset settlementDate = default(DateTimeOffset), decimal amount = default(decimal), string amountType = default(string), List<PartialClosureConstituent> partialClosureConstituents = default(List<PartialClosureConstituent>), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
@@ -64,30 +64,30 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// Required property. The date on which the counterparties become entitled  to exchange cash as part of a partial closure of the  repurchase agreement. The date must be before or on  the settlement date, and on or before the maturity  date of the repo.
+        /// Required property.  The date on which the counterparties become entitled   to exchange cash as part of a partial closure of the   repurchase agreement. The date must be before or on   the settlement date, and on or before the maturity   date of the repo.
         /// </summary>
-        /// <value>Required property. The date on which the counterparties become entitled  to exchange cash as part of a partial closure of the  repurchase agreement. The date must be before or on  the settlement date, and on or before the maturity  date of the repo.</value>
+        /// <value>Required property.  The date on which the counterparties become entitled   to exchange cash as part of a partial closure of the   repurchase agreement. The date must be before or on   the settlement date, and on or before the maturity   date of the repo.</value>
         [DataMember(Name = "entitlementDate", EmitDefaultValue = false)]
         public DateTimeOffset EntitlementDate { get; set; }
 
         /// <summary>
-        /// Required property. The date on which the exchange of cash is settled.  The date must be on or after the entitlement date, and on or before the maturity date of the repo.
+        /// Required property.  The date on which the exchange of cash is settled.   The date must be on or after the entitlement date,  and on or before the maturity date of the repo.
         /// </summary>
-        /// <value>Required property. The date on which the exchange of cash is settled.  The date must be on or after the entitlement date, and on or before the maturity date of the repo.</value>
+        /// <value>Required property.  The date on which the exchange of cash is settled.   The date must be on or after the entitlement date,  and on or before the maturity date of the repo.</value>
         [DataMember(Name = "settlementDate", EmitDefaultValue = false)]
         public DateTimeOffset SettlementDate { get; set; }
 
         /// <summary>
-        /// The amount of cash to be exchanged as part of a partial closure of the repurchase agreement. Either the absolute cash amount or a percentage of the remaining amount, depending on the AmountType.
+        /// The amount of cash to be exchanged as part of a partial closure of the repurchase agreement.  Either the absolute cash amount or a percentage of the remaining amount,  depending on the AmountType.
         /// </summary>
-        /// <value>The amount of cash to be exchanged as part of a partial closure of the repurchase agreement. Either the absolute cash amount or a percentage of the remaining amount, depending on the AmountType.</value>
+        /// <value>The amount of cash to be exchanged as part of a partial closure of the repurchase agreement.  Either the absolute cash amount or a percentage of the remaining amount,  depending on the AmountType.</value>
         [DataMember(Name = "amount", IsRequired = true, EmitDefaultValue = true)]
         public decimal Amount { get; set; }
 
         /// <summary>
-        /// AmountType of the cash amount to be exchanged as part of a partial closure of the repurchase agreement. Either percentage or absolute cash amount.  Supported string (enumeration) values are: [Percentage, Units].
+        /// AmountType of the cash amount to be exchanged as part of a partial closure of the repurchase agreement.  Either percentage or absolute cash amount.    Supported string (enumeration) values are: [Percentage, Units].
         /// </summary>
-        /// <value>AmountType of the cash amount to be exchanged as part of a partial closure of the repurchase agreement. Either percentage or absolute cash amount.  Supported string (enumeration) values are: [Percentage, Units].</value>
+        /// <value>AmountType of the cash amount to be exchanged as part of a partial closure of the repurchase agreement.  Either percentage or absolute cash amount.    Supported string (enumeration) values are: [Percentage, Units].</value>
         [DataMember(Name = "amountType", IsRequired = true, EmitDefaultValue = true)]
         public string AmountType { get; set; }
 

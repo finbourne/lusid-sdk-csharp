@@ -90,7 +90,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">The domain of the property to be deleted.</param>
         /// <param name="scope">The scope of the property to be deleted.</param>
-        /// <param name="code">The code of the property to be deleted. Together with the domain and scope this uniquely             identifies the property.</param>
+        /// <param name="code">The code of the property to be deleted. Together with the domain and scope this uniquely              identifies the property.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
@@ -105,7 +105,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">The domain of the property to be deleted.</param>
         /// <param name="scope">The scope of the property to be deleted.</param>
-        /// <param name="code">The code of the property to be deleted. Together with the domain and scope this uniquely             identifies the property.</param>
+        /// <param name="code">The code of the property to be deleted. Together with the domain and scope this uniquely              identifies the property.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
@@ -114,14 +114,14 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] DeletePropertyDefinitionProperties: Delete property definition properties
         /// </summary>
         /// <remarks>
-        /// Delete one or more properties from a single property definition. If the properties are time-variant then an effective date time from which the properties will be deleted must be specified. If the properties are perpetual then it is invalid to specify an effective date time for deletion.
+        /// Delete one or more properties from a single property definition. If the properties are time-variant then an effective date time from which the  properties will be deleted must be specified. If the properties are perpetual then it is invalid to specify an effective date time for deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">The domain of the property definition to delete properties from.</param>
         /// <param name="scope">The scope of the property definition to delete properties from.</param>
         /// <param name="code">The code of the property definition to delete properties from.</param>
-        /// <param name="requestBody">The property keys of the properties to delete. These must take the format             {domain}/{scope}/{code} e.g \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;. Each property must be from the \&quot;PropertyDefinition\&quot; domain.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.             The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is before             the time-variant property exists then a failure is returned. Do not specify this parameter if an of the properties to delete are perpetual. (optional)</param>
+        /// <param name="requestBody">The property keys of the properties to delete. These must take the format              {domain}/{scope}/{code} e.g \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;. Each property must be from the \&quot;PropertyDefinition\&quot; domain.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is before              the time-variant property exists then a failure is returned. Do not specify this parameter if an of the properties to delete are perpetual. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
@@ -131,14 +131,14 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] DeletePropertyDefinitionProperties: Delete property definition properties
         /// </summary>
         /// <remarks>
-        /// Delete one or more properties from a single property definition. If the properties are time-variant then an effective date time from which the properties will be deleted must be specified. If the properties are perpetual then it is invalid to specify an effective date time for deletion.
+        /// Delete one or more properties from a single property definition. If the properties are time-variant then an effective date time from which the  properties will be deleted must be specified. If the properties are perpetual then it is invalid to specify an effective date time for deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">The domain of the property definition to delete properties from.</param>
         /// <param name="scope">The scope of the property definition to delete properties from.</param>
         /// <param name="code">The code of the property definition to delete properties from.</param>
-        /// <param name="requestBody">The property keys of the properties to delete. These must take the format             {domain}/{scope}/{code} e.g \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;. Each property must be from the \&quot;PropertyDefinition\&quot; domain.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.             The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is before             the time-variant property exists then a failure is returned. Do not specify this parameter if an of the properties to delete are perpetual. (optional)</param>
+        /// <param name="requestBody">The property keys of the properties to delete. These must take the format              {domain}/{scope}/{code} e.g \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;. Each property must be from the \&quot;PropertyDefinition\&quot; domain.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is before              the time-variant property exists then a failure is returned. Do not specify this parameter if an of the properties to delete are perpetual. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
@@ -150,10 +150,10 @@ namespace Lusid.Sdk.Api
         /// Retrieve the definition of one or more specified properties.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="propertyKeys">One or more property keys which identify each property that a definition should             be retrieved for. The format for each property key is {domain}/{scope}/{code}, e.g. &#39;Portfolio/Manager/Id&#39;.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the property definitions. Defaults to return             the latest version of each definition if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              For example, to filter on the Lifetime, use \&quot;lifeTime eq &#39;Perpetual&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list properties attached to the Property Definition.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="propertyKeys">One or more property keys which identify each property that a definition should              be retrieved for. The format for each property key is {domain}/{scope}/{code}, e.g. &#39;Portfolio/Manager/Id&#39;.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the property definitions. Defaults to return              the latest version of each definition if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.               For example, to filter on the Lifetime, use \&quot;lifeTime eq &#39;Perpetual&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list properties attached to the Property Definition.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfPropertyDefinition</returns>
@@ -166,10 +166,10 @@ namespace Lusid.Sdk.Api
         /// Retrieve the definition of one or more specified properties.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="propertyKeys">One or more property keys which identify each property that a definition should             be retrieved for. The format for each property key is {domain}/{scope}/{code}, e.g. &#39;Portfolio/Manager/Id&#39;.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the property definitions. Defaults to return             the latest version of each definition if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              For example, to filter on the Lifetime, use \&quot;lifeTime eq &#39;Perpetual&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list properties attached to the Property Definition.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="propertyKeys">One or more property keys which identify each property that a definition should              be retrieved for. The format for each property key is {domain}/{scope}/{code}, e.g. &#39;Portfolio/Manager/Id&#39;.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the property definitions. Defaults to return              the latest version of each definition if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.               For example, to filter on the Lifetime, use \&quot;lifeTime eq &#39;Perpetual&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list properties attached to the Property Definition.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfPropertyDefinition</returns>
@@ -183,9 +183,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">The domain of the specified property.</param>
         /// <param name="scope">The scope of the specified property.</param>
-        /// <param name="code">The code of the specified property. Together with the domain and scope this uniquely             identifies the property.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the property definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list properties attached to the Property Definition.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="code">The code of the specified property. Together with the domain and scope this uniquely              identifies the property.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the property definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list properties attached to the Property Definition.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PropertyDefinition</returns>
@@ -200,9 +200,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">The domain of the specified property.</param>
         /// <param name="scope">The scope of the specified property.</param>
-        /// <param name="code">The code of the specified property. Together with the domain and scope this uniquely             identifies the property.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the property definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list properties attached to the Property Definition.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="code">The code of the specified property. Together with the domain and scope this uniquely              identifies the property.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the property definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list properties attached to the Property Definition.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PropertyDefinition</returns>
@@ -217,10 +217,10 @@ namespace Lusid.Sdk.Api
         /// <param name="domain">The domain of the property definition to which the property is attached</param>
         /// <param name="scope">The scope of the property definition to which the property is attached</param>
         /// <param name="code">The code of the property definition to which the property is attached</param>
-        /// <param name="propertyKey">The property key of the property whose history to show. This must be from the \&quot;Property Definition\&quot; domain and in the format             {domain}/{scope}/{code}, for example \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;.</param>
+        /// <param name="propertyKey">The property key of the property whose history to show. This must be from the \&quot;Property Definition\&quot; domain and in the format              {domain}/{scope}/{code}, for example \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;.</param>
         /// <param name="asAt">The asAt datetime at which to show the history. Defaults to the current datetime if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing properties from a previous call to get property time series.             This value is returned from the previous call. If a pagination token is provided the filter and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing properties from a previous call to get property time series.              This value is returned from the previous call. If a pagination token is provided the filter and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -237,10 +237,10 @@ namespace Lusid.Sdk.Api
         /// <param name="domain">The domain of the property definition to which the property is attached</param>
         /// <param name="scope">The scope of the property definition to which the property is attached</param>
         /// <param name="code">The code of the property definition to which the property is attached</param>
-        /// <param name="propertyKey">The property key of the property whose history to show. This must be from the \&quot;Property Definition\&quot; domain and in the format             {domain}/{scope}/{code}, for example \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;.</param>
+        /// <param name="propertyKey">The property key of the property whose history to show. This must be from the \&quot;Property Definition\&quot; domain and in the format              {domain}/{scope}/{code}, for example \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;.</param>
         /// <param name="asAt">The asAt datetime at which to show the history. Defaults to the current datetime if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing properties from a previous call to get property time series.             This value is returned from the previous call. If a pagination token is provided the filter and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing properties from a previous call to get property time series.              This value is returned from the previous call. If a pagination token is provided the filter and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -253,12 +253,12 @@ namespace Lusid.Sdk.Api
         /// List all the property definitions matching particular criteria.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the property definitions. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the property definitions. Defaults to returning the latest version             of each property definition if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Property Definition&#39; domain to decorate onto             property definitions. These must take the format             {domain}/{scope}/{code} e.g \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;. Each property must be from the \&quot;PropertyDefinition\&quot; domain. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing property definitions; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the property definitions. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the property definitions. Defaults to returning the latest version              of each property definition if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Property Definition&#39; domain to decorate onto              property definitions. These must take the format              {domain}/{scope}/{code} e.g \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;. Each property must be from the \&quot;PropertyDefinition\&quot; domain. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing property definitions; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the display name, specify \&quot;DisplayName eq &#39;DisplayName&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the display name, specify \&quot;DisplayName eq &#39;DisplayName&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -272,12 +272,12 @@ namespace Lusid.Sdk.Api
         /// List all the property definitions matching particular criteria.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the property definitions. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the property definitions. Defaults to returning the latest version             of each property definition if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Property Definition&#39; domain to decorate onto             property definitions. These must take the format             {domain}/{scope}/{code} e.g \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;. Each property must be from the \&quot;PropertyDefinition\&quot; domain. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing property definitions; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the property definitions. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the property definitions. Defaults to returning the latest version              of each property definition if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Property Definition&#39; domain to decorate onto              property definitions. These must take the format              {domain}/{scope}/{code} e.g \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;. Each property must be from the \&quot;PropertyDefinition\&quot; domain. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing property definitions; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the display name, specify \&quot;DisplayName eq &#39;DisplayName&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the display name, specify \&quot;DisplayName eq &#39;DisplayName&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -318,12 +318,12 @@ namespace Lusid.Sdk.Api
         /// UpdatePropertyDefinition: Update property definition
         /// </summary>
         /// <remarks>
-        /// Update the definition of a specified existing property. Not all elements within a property definition are modifiable due to the potential implications for values already stored against the property.
+        /// Update the definition of a specified existing property. Not all elements within a property definition  are modifiable due to the potential implications for values already stored against the property.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">The domain of the property being updated.</param>
         /// <param name="scope">The scope of the property being updated.</param>
-        /// <param name="code">The code of the property being updated. Together with the domain and scope this uniquely             identifies the property.</param>
+        /// <param name="code">The code of the property being updated. Together with the domain and scope this uniquely              identifies the property.</param>
         /// <param name="updatePropertyDefinitionRequest">The updated definition of the property.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -334,12 +334,12 @@ namespace Lusid.Sdk.Api
         /// UpdatePropertyDefinition: Update property definition
         /// </summary>
         /// <remarks>
-        /// Update the definition of a specified existing property. Not all elements within a property definition are modifiable due to the potential implications for values already stored against the property.
+        /// Update the definition of a specified existing property. Not all elements within a property definition  are modifiable due to the potential implications for values already stored against the property.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">The domain of the property being updated.</param>
         /// <param name="scope">The scope of the property being updated.</param>
-        /// <param name="code">The code of the property being updated. Together with the domain and scope this uniquely             identifies the property.</param>
+        /// <param name="code">The code of the property being updated. Together with the domain and scope this uniquely              identifies the property.</param>
         /// <param name="updatePropertyDefinitionRequest">The updated definition of the property.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -355,7 +355,7 @@ namespace Lusid.Sdk.Api
         /// <param name="domain">The domain of the specified property.</param>
         /// <param name="scope">The scope of the specified property.</param>
         /// <param name="code">The code of the specified property. Together with the domain and scope this uniquely</param>
-        /// <param name="requestBody">The properties to be created or updated. Each property in             the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code}, for example             &#39;PropertyDefinition/Manager/Id&#39;.</param>
+        /// <param name="requestBody">The properties to be created or updated. Each property in              the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code}, for example              &#39;PropertyDefinition/Manager/Id&#39;.</param>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial. (optional, default to &quot;Partial&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -372,7 +372,7 @@ namespace Lusid.Sdk.Api
         /// <param name="domain">The domain of the specified property.</param>
         /// <param name="scope">The scope of the specified property.</param>
         /// <param name="code">The code of the specified property. Together with the domain and scope this uniquely</param>
-        /// <param name="requestBody">The properties to be created or updated. Each property in             the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code}, for example             &#39;PropertyDefinition/Manager/Id&#39;.</param>
+        /// <param name="requestBody">The properties to be created or updated. Each property in              the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code}, for example              &#39;PropertyDefinition/Manager/Id&#39;.</param>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial. (optional, default to &quot;Partial&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -450,7 +450,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">The domain of the property to be deleted.</param>
         /// <param name="scope">The scope of the property to be deleted.</param>
-        /// <param name="code">The code of the property to be deleted. Together with the domain and scope this uniquely             identifies the property.</param>
+        /// <param name="code">The code of the property to be deleted. Together with the domain and scope this uniquely              identifies the property.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -466,7 +466,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">The domain of the property to be deleted.</param>
         /// <param name="scope">The scope of the property to be deleted.</param>
-        /// <param name="code">The code of the property to be deleted. Together with the domain and scope this uniquely             identifies the property.</param>
+        /// <param name="code">The code of the property to be deleted. Together with the domain and scope this uniquely              identifies the property.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -476,14 +476,14 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] DeletePropertyDefinitionProperties: Delete property definition properties
         /// </summary>
         /// <remarks>
-        /// Delete one or more properties from a single property definition. If the properties are time-variant then an effective date time from which the properties will be deleted must be specified. If the properties are perpetual then it is invalid to specify an effective date time for deletion.
+        /// Delete one or more properties from a single property definition. If the properties are time-variant then an effective date time from which the  properties will be deleted must be specified. If the properties are perpetual then it is invalid to specify an effective date time for deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">The domain of the property definition to delete properties from.</param>
         /// <param name="scope">The scope of the property definition to delete properties from.</param>
         /// <param name="code">The code of the property definition to delete properties from.</param>
-        /// <param name="requestBody">The property keys of the properties to delete. These must take the format             {domain}/{scope}/{code} e.g \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;. Each property must be from the \&quot;PropertyDefinition\&quot; domain.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.             The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is before             the time-variant property exists then a failure is returned. Do not specify this parameter if an of the properties to delete are perpetual. (optional)</param>
+        /// <param name="requestBody">The property keys of the properties to delete. These must take the format              {domain}/{scope}/{code} e.g \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;. Each property must be from the \&quot;PropertyDefinition\&quot; domain.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is before              the time-variant property exists then a failure is returned. Do not specify this parameter if an of the properties to delete are perpetual. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -494,14 +494,14 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] DeletePropertyDefinitionProperties: Delete property definition properties
         /// </summary>
         /// <remarks>
-        /// Delete one or more properties from a single property definition. If the properties are time-variant then an effective date time from which the properties will be deleted must be specified. If the properties are perpetual then it is invalid to specify an effective date time for deletion.
+        /// Delete one or more properties from a single property definition. If the properties are time-variant then an effective date time from which the  properties will be deleted must be specified. If the properties are perpetual then it is invalid to specify an effective date time for deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">The domain of the property definition to delete properties from.</param>
         /// <param name="scope">The scope of the property definition to delete properties from.</param>
         /// <param name="code">The code of the property definition to delete properties from.</param>
-        /// <param name="requestBody">The property keys of the properties to delete. These must take the format             {domain}/{scope}/{code} e.g \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;. Each property must be from the \&quot;PropertyDefinition\&quot; domain.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.             The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is before             the time-variant property exists then a failure is returned. Do not specify this parameter if an of the properties to delete are perpetual. (optional)</param>
+        /// <param name="requestBody">The property keys of the properties to delete. These must take the format              {domain}/{scope}/{code} e.g \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;. Each property must be from the \&quot;PropertyDefinition\&quot; domain.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is before              the time-variant property exists then a failure is returned. Do not specify this parameter if an of the properties to delete are perpetual. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -514,10 +514,10 @@ namespace Lusid.Sdk.Api
         /// Retrieve the definition of one or more specified properties.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="propertyKeys">One or more property keys which identify each property that a definition should             be retrieved for. The format for each property key is {domain}/{scope}/{code}, e.g. &#39;Portfolio/Manager/Id&#39;.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the property definitions. Defaults to return             the latest version of each definition if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              For example, to filter on the Lifetime, use \&quot;lifeTime eq &#39;Perpetual&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list properties attached to the Property Definition.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="propertyKeys">One or more property keys which identify each property that a definition should              be retrieved for. The format for each property key is {domain}/{scope}/{code}, e.g. &#39;Portfolio/Manager/Id&#39;.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the property definitions. Defaults to return              the latest version of each definition if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.               For example, to filter on the Lifetime, use \&quot;lifeTime eq &#39;Perpetual&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list properties attached to the Property Definition.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -531,10 +531,10 @@ namespace Lusid.Sdk.Api
         /// Retrieve the definition of one or more specified properties.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="propertyKeys">One or more property keys which identify each property that a definition should             be retrieved for. The format for each property key is {domain}/{scope}/{code}, e.g. &#39;Portfolio/Manager/Id&#39;.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the property definitions. Defaults to return             the latest version of each definition if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              For example, to filter on the Lifetime, use \&quot;lifeTime eq &#39;Perpetual&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list properties attached to the Property Definition.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="propertyKeys">One or more property keys which identify each property that a definition should              be retrieved for. The format for each property key is {domain}/{scope}/{code}, e.g. &#39;Portfolio/Manager/Id&#39;.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the property definitions. Defaults to return              the latest version of each definition if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.               For example, to filter on the Lifetime, use \&quot;lifeTime eq &#39;Perpetual&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list properties attached to the Property Definition.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -549,9 +549,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">The domain of the specified property.</param>
         /// <param name="scope">The scope of the specified property.</param>
-        /// <param name="code">The code of the specified property. Together with the domain and scope this uniquely             identifies the property.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the property definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list properties attached to the Property Definition.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="code">The code of the specified property. Together with the domain and scope this uniquely              identifies the property.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the property definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list properties attached to the Property Definition.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -567,9 +567,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">The domain of the specified property.</param>
         /// <param name="scope">The scope of the specified property.</param>
-        /// <param name="code">The code of the specified property. Together with the domain and scope this uniquely             identifies the property.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the property definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list properties attached to the Property Definition.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="code">The code of the specified property. Together with the domain and scope this uniquely              identifies the property.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the property definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list properties attached to the Property Definition.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -585,10 +585,10 @@ namespace Lusid.Sdk.Api
         /// <param name="domain">The domain of the property definition to which the property is attached</param>
         /// <param name="scope">The scope of the property definition to which the property is attached</param>
         /// <param name="code">The code of the property definition to which the property is attached</param>
-        /// <param name="propertyKey">The property key of the property whose history to show. This must be from the \&quot;Property Definition\&quot; domain and in the format             {domain}/{scope}/{code}, for example \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;.</param>
+        /// <param name="propertyKey">The property key of the property whose history to show. This must be from the \&quot;Property Definition\&quot; domain and in the format              {domain}/{scope}/{code}, for example \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;.</param>
         /// <param name="asAt">The asAt datetime at which to show the history. Defaults to the current datetime if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing properties from a previous call to get property time series.             This value is returned from the previous call. If a pagination token is provided the filter and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing properties from a previous call to get property time series.              This value is returned from the previous call. If a pagination token is provided the filter and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -606,10 +606,10 @@ namespace Lusid.Sdk.Api
         /// <param name="domain">The domain of the property definition to which the property is attached</param>
         /// <param name="scope">The scope of the property definition to which the property is attached</param>
         /// <param name="code">The code of the property definition to which the property is attached</param>
-        /// <param name="propertyKey">The property key of the property whose history to show. This must be from the \&quot;Property Definition\&quot; domain and in the format             {domain}/{scope}/{code}, for example \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;.</param>
+        /// <param name="propertyKey">The property key of the property whose history to show. This must be from the \&quot;Property Definition\&quot; domain and in the format              {domain}/{scope}/{code}, for example \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;.</param>
         /// <param name="asAt">The asAt datetime at which to show the history. Defaults to the current datetime if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing properties from a previous call to get property time series.             This value is returned from the previous call. If a pagination token is provided the filter and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing properties from a previous call to get property time series.              This value is returned from the previous call. If a pagination token is provided the filter and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -623,12 +623,12 @@ namespace Lusid.Sdk.Api
         /// List all the property definitions matching particular criteria.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the property definitions. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the property definitions. Defaults to returning the latest version             of each property definition if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Property Definition&#39; domain to decorate onto             property definitions. These must take the format             {domain}/{scope}/{code} e.g \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;. Each property must be from the \&quot;PropertyDefinition\&quot; domain. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing property definitions; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the property definitions. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the property definitions. Defaults to returning the latest version              of each property definition if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Property Definition&#39; domain to decorate onto              property definitions. These must take the format              {domain}/{scope}/{code} e.g \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;. Each property must be from the \&quot;PropertyDefinition\&quot; domain. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing property definitions; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the display name, specify \&quot;DisplayName eq &#39;DisplayName&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the display name, specify \&quot;DisplayName eq &#39;DisplayName&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -643,12 +643,12 @@ namespace Lusid.Sdk.Api
         /// List all the property definitions matching particular criteria.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the property definitions. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the property definitions. Defaults to returning the latest version             of each property definition if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Property Definition&#39; domain to decorate onto             property definitions. These must take the format             {domain}/{scope}/{code} e.g \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;. Each property must be from the \&quot;PropertyDefinition\&quot; domain. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing property definitions; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the property definitions. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the property definitions. Defaults to returning the latest version              of each property definition if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Property Definition&#39; domain to decorate onto              property definitions. These must take the format              {domain}/{scope}/{code} e.g \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;. Each property must be from the \&quot;PropertyDefinition\&quot; domain. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing property definitions; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the display name, specify \&quot;DisplayName eq &#39;DisplayName&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the display name, specify \&quot;DisplayName eq &#39;DisplayName&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -692,12 +692,12 @@ namespace Lusid.Sdk.Api
         /// UpdatePropertyDefinition: Update property definition
         /// </summary>
         /// <remarks>
-        /// Update the definition of a specified existing property. Not all elements within a property definition are modifiable due to the potential implications for values already stored against the property.
+        /// Update the definition of a specified existing property. Not all elements within a property definition  are modifiable due to the potential implications for values already stored against the property.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">The domain of the property being updated.</param>
         /// <param name="scope">The scope of the property being updated.</param>
-        /// <param name="code">The code of the property being updated. Together with the domain and scope this uniquely             identifies the property.</param>
+        /// <param name="code">The code of the property being updated. Together with the domain and scope this uniquely              identifies the property.</param>
         /// <param name="updatePropertyDefinitionRequest">The updated definition of the property.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -709,12 +709,12 @@ namespace Lusid.Sdk.Api
         /// UpdatePropertyDefinition: Update property definition
         /// </summary>
         /// <remarks>
-        /// Update the definition of a specified existing property. Not all elements within a property definition are modifiable due to the potential implications for values already stored against the property.
+        /// Update the definition of a specified existing property. Not all elements within a property definition  are modifiable due to the potential implications for values already stored against the property.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">The domain of the property being updated.</param>
         /// <param name="scope">The scope of the property being updated.</param>
-        /// <param name="code">The code of the property being updated. Together with the domain and scope this uniquely             identifies the property.</param>
+        /// <param name="code">The code of the property being updated. Together with the domain and scope this uniquely              identifies the property.</param>
         /// <param name="updatePropertyDefinitionRequest">The updated definition of the property.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -731,7 +731,7 @@ namespace Lusid.Sdk.Api
         /// <param name="domain">The domain of the specified property.</param>
         /// <param name="scope">The scope of the specified property.</param>
         /// <param name="code">The code of the specified property. Together with the domain and scope this uniquely</param>
-        /// <param name="requestBody">The properties to be created or updated. Each property in             the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code}, for example             &#39;PropertyDefinition/Manager/Id&#39;.</param>
+        /// <param name="requestBody">The properties to be created or updated. Each property in              the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code}, for example              &#39;PropertyDefinition/Manager/Id&#39;.</param>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial. (optional, default to &quot;Partial&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -749,7 +749,7 @@ namespace Lusid.Sdk.Api
         /// <param name="domain">The domain of the specified property.</param>
         /// <param name="scope">The scope of the specified property.</param>
         /// <param name="code">The code of the specified property. Together with the domain and scope this uniquely</param>
-        /// <param name="requestBody">The properties to be created or updated. Each property in             the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code}, for example             &#39;PropertyDefinition/Manager/Id&#39;.</param>
+        /// <param name="requestBody">The properties to be created or updated. Each property in              the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code}, for example              &#39;PropertyDefinition/Manager/Id&#39;.</param>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial. (optional, default to &quot;Partial&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1309,7 +1309,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">The domain of the property to be deleted.</param>
         /// <param name="scope">The scope of the property to be deleted.</param>
-        /// <param name="code">The code of the property to be deleted. Together with the domain and scope this uniquely             identifies the property.</param>
+        /// <param name="code">The code of the property to be deleted. Together with the domain and scope this uniquely              identifies the property.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
@@ -1325,7 +1325,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">The domain of the property to be deleted.</param>
         /// <param name="scope">The scope of the property to be deleted.</param>
-        /// <param name="code">The code of the property to be deleted. Together with the domain and scope this uniquely             identifies the property.</param>
+        /// <param name="code">The code of the property to be deleted. Together with the domain and scope this uniquely              identifies the property.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
@@ -1427,7 +1427,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">The domain of the property to be deleted.</param>
         /// <param name="scope">The scope of the property to be deleted.</param>
-        /// <param name="code">The code of the property to be deleted. Together with the domain and scope this uniquely             identifies the property.</param>
+        /// <param name="code">The code of the property to be deleted. Together with the domain and scope this uniquely              identifies the property.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1444,7 +1444,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">The domain of the property to be deleted.</param>
         /// <param name="scope">The scope of the property to be deleted.</param>
-        /// <param name="code">The code of the property to be deleted. Together with the domain and scope this uniquely             identifies the property.</param>
+        /// <param name="code">The code of the property to be deleted. Together with the domain and scope this uniquely              identifies the property.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1544,14 +1544,14 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeletePropertyDefinitionProperties: Delete property definition properties Delete one or more properties from a single property definition. If the properties are time-variant then an effective date time from which the properties will be deleted must be specified. If the properties are perpetual then it is invalid to specify an effective date time for deletion.
+        /// [EARLY ACCESS] DeletePropertyDefinitionProperties: Delete property definition properties Delete one or more properties from a single property definition. If the properties are time-variant then an effective date time from which the  properties will be deleted must be specified. If the properties are perpetual then it is invalid to specify an effective date time for deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">The domain of the property definition to delete properties from.</param>
         /// <param name="scope">The scope of the property definition to delete properties from.</param>
         /// <param name="code">The code of the property definition to delete properties from.</param>
-        /// <param name="requestBody">The property keys of the properties to delete. These must take the format             {domain}/{scope}/{code} e.g \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;. Each property must be from the \&quot;PropertyDefinition\&quot; domain.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.             The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is before             the time-variant property exists then a failure is returned. Do not specify this parameter if an of the properties to delete are perpetual. (optional)</param>
+        /// <param name="requestBody">The property keys of the properties to delete. These must take the format              {domain}/{scope}/{code} e.g \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;. Each property must be from the \&quot;PropertyDefinition\&quot; domain.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is before              the time-variant property exists then a failure is returned. Do not specify this parameter if an of the properties to delete are perpetual. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
@@ -1562,14 +1562,14 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeletePropertyDefinitionProperties: Delete property definition properties Delete one or more properties from a single property definition. If the properties are time-variant then an effective date time from which the properties will be deleted must be specified. If the properties are perpetual then it is invalid to specify an effective date time for deletion.
+        /// [EARLY ACCESS] DeletePropertyDefinitionProperties: Delete property definition properties Delete one or more properties from a single property definition. If the properties are time-variant then an effective date time from which the  properties will be deleted must be specified. If the properties are perpetual then it is invalid to specify an effective date time for deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">The domain of the property definition to delete properties from.</param>
         /// <param name="scope">The scope of the property definition to delete properties from.</param>
         /// <param name="code">The code of the property definition to delete properties from.</param>
-        /// <param name="requestBody">The property keys of the properties to delete. These must take the format             {domain}/{scope}/{code} e.g \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;. Each property must be from the \&quot;PropertyDefinition\&quot; domain.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.             The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is before             the time-variant property exists then a failure is returned. Do not specify this parameter if an of the properties to delete are perpetual. (optional)</param>
+        /// <param name="requestBody">The property keys of the properties to delete. These must take the format              {domain}/{scope}/{code} e.g \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;. Each property must be from the \&quot;PropertyDefinition\&quot; domain.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is before              the time-variant property exists then a failure is returned. Do not specify this parameter if an of the properties to delete are perpetual. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
@@ -1681,14 +1681,14 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeletePropertyDefinitionProperties: Delete property definition properties Delete one or more properties from a single property definition. If the properties are time-variant then an effective date time from which the properties will be deleted must be specified. If the properties are perpetual then it is invalid to specify an effective date time for deletion.
+        /// [EARLY ACCESS] DeletePropertyDefinitionProperties: Delete property definition properties Delete one or more properties from a single property definition. If the properties are time-variant then an effective date time from which the  properties will be deleted must be specified. If the properties are perpetual then it is invalid to specify an effective date time for deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">The domain of the property definition to delete properties from.</param>
         /// <param name="scope">The scope of the property definition to delete properties from.</param>
         /// <param name="code">The code of the property definition to delete properties from.</param>
-        /// <param name="requestBody">The property keys of the properties to delete. These must take the format             {domain}/{scope}/{code} e.g \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;. Each property must be from the \&quot;PropertyDefinition\&quot; domain.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.             The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is before             the time-variant property exists then a failure is returned. Do not specify this parameter if an of the properties to delete are perpetual. (optional)</param>
+        /// <param name="requestBody">The property keys of the properties to delete. These must take the format              {domain}/{scope}/{code} e.g \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;. Each property must be from the \&quot;PropertyDefinition\&quot; domain.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is before              the time-variant property exists then a failure is returned. Do not specify this parameter if an of the properties to delete are perpetual. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1700,14 +1700,14 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeletePropertyDefinitionProperties: Delete property definition properties Delete one or more properties from a single property definition. If the properties are time-variant then an effective date time from which the properties will be deleted must be specified. If the properties are perpetual then it is invalid to specify an effective date time for deletion.
+        /// [EARLY ACCESS] DeletePropertyDefinitionProperties: Delete property definition properties Delete one or more properties from a single property definition. If the properties are time-variant then an effective date time from which the  properties will be deleted must be specified. If the properties are perpetual then it is invalid to specify an effective date time for deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">The domain of the property definition to delete properties from.</param>
         /// <param name="scope">The scope of the property definition to delete properties from.</param>
         /// <param name="code">The code of the property definition to delete properties from.</param>
-        /// <param name="requestBody">The property keys of the properties to delete. These must take the format             {domain}/{scope}/{code} e.g \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;. Each property must be from the \&quot;PropertyDefinition\&quot; domain.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.             The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is before             the time-variant property exists then a failure is returned. Do not specify this parameter if an of the properties to delete are perpetual. (optional)</param>
+        /// <param name="requestBody">The property keys of the properties to delete. These must take the format              {domain}/{scope}/{code} e.g \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;. Each property must be from the \&quot;PropertyDefinition\&quot; domain.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is before              the time-variant property exists then a failure is returned. Do not specify this parameter if an of the properties to delete are perpetual. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1825,10 +1825,10 @@ namespace Lusid.Sdk.Api
         /// GetMultiplePropertyDefinitions: Get multiple property definitions Retrieve the definition of one or more specified properties.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="propertyKeys">One or more property keys which identify each property that a definition should             be retrieved for. The format for each property key is {domain}/{scope}/{code}, e.g. &#39;Portfolio/Manager/Id&#39;.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the property definitions. Defaults to return             the latest version of each definition if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              For example, to filter on the Lifetime, use \&quot;lifeTime eq &#39;Perpetual&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list properties attached to the Property Definition.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="propertyKeys">One or more property keys which identify each property that a definition should              be retrieved for. The format for each property key is {domain}/{scope}/{code}, e.g. &#39;Portfolio/Manager/Id&#39;.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the property definitions. Defaults to return              the latest version of each definition if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.               For example, to filter on the Lifetime, use \&quot;lifeTime eq &#39;Perpetual&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list properties attached to the Property Definition.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfPropertyDefinition</returns>
@@ -1842,10 +1842,10 @@ namespace Lusid.Sdk.Api
         /// GetMultiplePropertyDefinitions: Get multiple property definitions Retrieve the definition of one or more specified properties.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="propertyKeys">One or more property keys which identify each property that a definition should             be retrieved for. The format for each property key is {domain}/{scope}/{code}, e.g. &#39;Portfolio/Manager/Id&#39;.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the property definitions. Defaults to return             the latest version of each definition if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              For example, to filter on the Lifetime, use \&quot;lifeTime eq &#39;Perpetual&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list properties attached to the Property Definition.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="propertyKeys">One or more property keys which identify each property that a definition should              be retrieved for. The format for each property key is {domain}/{scope}/{code}, e.g. &#39;Portfolio/Manager/Id&#39;.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the property definitions. Defaults to return              the latest version of each definition if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.               For example, to filter on the Lifetime, use \&quot;lifeTime eq &#39;Perpetual&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list properties attached to the Property Definition.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfPropertyDefinition</returns>
@@ -1943,10 +1943,10 @@ namespace Lusid.Sdk.Api
         /// GetMultiplePropertyDefinitions: Get multiple property definitions Retrieve the definition of one or more specified properties.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="propertyKeys">One or more property keys which identify each property that a definition should             be retrieved for. The format for each property key is {domain}/{scope}/{code}, e.g. &#39;Portfolio/Manager/Id&#39;.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the property definitions. Defaults to return             the latest version of each definition if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              For example, to filter on the Lifetime, use \&quot;lifeTime eq &#39;Perpetual&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list properties attached to the Property Definition.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="propertyKeys">One or more property keys which identify each property that a definition should              be retrieved for. The format for each property key is {domain}/{scope}/{code}, e.g. &#39;Portfolio/Manager/Id&#39;.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the property definitions. Defaults to return              the latest version of each definition if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.               For example, to filter on the Lifetime, use \&quot;lifeTime eq &#39;Perpetual&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list properties attached to the Property Definition.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1961,10 +1961,10 @@ namespace Lusid.Sdk.Api
         /// GetMultiplePropertyDefinitions: Get multiple property definitions Retrieve the definition of one or more specified properties.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="propertyKeys">One or more property keys which identify each property that a definition should             be retrieved for. The format for each property key is {domain}/{scope}/{code}, e.g. &#39;Portfolio/Manager/Id&#39;.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the property definitions. Defaults to return             the latest version of each definition if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              For example, to filter on the Lifetime, use \&quot;lifeTime eq &#39;Perpetual&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list properties attached to the Property Definition.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="propertyKeys">One or more property keys which identify each property that a definition should              be retrieved for. The format for each property key is {domain}/{scope}/{code}, e.g. &#39;Portfolio/Manager/Id&#39;.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the property definitions. Defaults to return              the latest version of each definition if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.               For example, to filter on the Lifetime, use \&quot;lifeTime eq &#39;Perpetual&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list properties attached to the Property Definition.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2067,9 +2067,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">The domain of the specified property.</param>
         /// <param name="scope">The scope of the specified property.</param>
-        /// <param name="code">The code of the specified property. Together with the domain and scope this uniquely             identifies the property.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the property definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list properties attached to the Property Definition.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="code">The code of the specified property. Together with the domain and scope this uniquely              identifies the property.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the property definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list properties attached to the Property Definition.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PropertyDefinition</returns>
@@ -2085,9 +2085,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">The domain of the specified property.</param>
         /// <param name="scope">The scope of the specified property.</param>
-        /// <param name="code">The code of the specified property. Together with the domain and scope this uniquely             identifies the property.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the property definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list properties attached to the Property Definition.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="code">The code of the specified property. Together with the domain and scope this uniquely              identifies the property.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the property definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list properties attached to the Property Definition.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PropertyDefinition</returns>
@@ -2197,9 +2197,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">The domain of the specified property.</param>
         /// <param name="scope">The scope of the specified property.</param>
-        /// <param name="code">The code of the specified property. Together with the domain and scope this uniquely             identifies the property.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the property definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list properties attached to the Property Definition.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="code">The code of the specified property. Together with the domain and scope this uniquely              identifies the property.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the property definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list properties attached to the Property Definition.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2216,9 +2216,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">The domain of the specified property.</param>
         /// <param name="scope">The scope of the specified property.</param>
-        /// <param name="code">The code of the specified property. Together with the domain and scope this uniquely             identifies the property.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the property definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list properties attached to the Property Definition.             Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="code">The code of the specified property. Together with the domain and scope this uniquely              identifies the property.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the property definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list properties attached to the Property Definition.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2332,10 +2332,10 @@ namespace Lusid.Sdk.Api
         /// <param name="domain">The domain of the property definition to which the property is attached</param>
         /// <param name="scope">The scope of the property definition to which the property is attached</param>
         /// <param name="code">The code of the property definition to which the property is attached</param>
-        /// <param name="propertyKey">The property key of the property whose history to show. This must be from the \&quot;Property Definition\&quot; domain and in the format             {domain}/{scope}/{code}, for example \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;.</param>
+        /// <param name="propertyKey">The property key of the property whose history to show. This must be from the \&quot;Property Definition\&quot; domain and in the format              {domain}/{scope}/{code}, for example \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;.</param>
         /// <param name="asAt">The asAt datetime at which to show the history. Defaults to the current datetime if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing properties from a previous call to get property time series.             This value is returned from the previous call. If a pagination token is provided the filter and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing properties from a previous call to get property time series.              This value is returned from the previous call. If a pagination token is provided the filter and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2353,10 +2353,10 @@ namespace Lusid.Sdk.Api
         /// <param name="domain">The domain of the property definition to which the property is attached</param>
         /// <param name="scope">The scope of the property definition to which the property is attached</param>
         /// <param name="code">The code of the property definition to which the property is attached</param>
-        /// <param name="propertyKey">The property key of the property whose history to show. This must be from the \&quot;Property Definition\&quot; domain and in the format             {domain}/{scope}/{code}, for example \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;.</param>
+        /// <param name="propertyKey">The property key of the property whose history to show. This must be from the \&quot;Property Definition\&quot; domain and in the format              {domain}/{scope}/{code}, for example \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;.</param>
         /// <param name="asAt">The asAt datetime at which to show the history. Defaults to the current datetime if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing properties from a previous call to get property time series.             This value is returned from the previous call. If a pagination token is provided the filter and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing properties from a previous call to get property time series.              This value is returned from the previous call. If a pagination token is provided the filter and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2483,10 +2483,10 @@ namespace Lusid.Sdk.Api
         /// <param name="domain">The domain of the property definition to which the property is attached</param>
         /// <param name="scope">The scope of the property definition to which the property is attached</param>
         /// <param name="code">The code of the property definition to which the property is attached</param>
-        /// <param name="propertyKey">The property key of the property whose history to show. This must be from the \&quot;Property Definition\&quot; domain and in the format             {domain}/{scope}/{code}, for example \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;.</param>
+        /// <param name="propertyKey">The property key of the property whose history to show. This must be from the \&quot;Property Definition\&quot; domain and in the format              {domain}/{scope}/{code}, for example \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;.</param>
         /// <param name="asAt">The asAt datetime at which to show the history. Defaults to the current datetime if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing properties from a previous call to get property time series.             This value is returned from the previous call. If a pagination token is provided the filter and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing properties from a previous call to get property time series.              This value is returned from the previous call. If a pagination token is provided the filter and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2505,10 +2505,10 @@ namespace Lusid.Sdk.Api
         /// <param name="domain">The domain of the property definition to which the property is attached</param>
         /// <param name="scope">The scope of the property definition to which the property is attached</param>
         /// <param name="code">The code of the property definition to which the property is attached</param>
-        /// <param name="propertyKey">The property key of the property whose history to show. This must be from the \&quot;Property Definition\&quot; domain and in the format             {domain}/{scope}/{code}, for example \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;.</param>
+        /// <param name="propertyKey">The property key of the property whose history to show. This must be from the \&quot;Property Definition\&quot; domain and in the format              {domain}/{scope}/{code}, for example \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;.</param>
         /// <param name="asAt">The asAt datetime at which to show the history. Defaults to the current datetime if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing properties from a previous call to get property time series.             This value is returned from the previous call. If a pagination token is provided the filter and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing properties from a previous call to get property time series.              This value is returned from the previous call. If a pagination token is provided the filter and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2635,12 +2635,12 @@ namespace Lusid.Sdk.Api
         /// ListPropertyDefinitions: List property definitions List all the property definitions matching particular criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the property definitions. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the property definitions. Defaults to returning the latest version             of each property definition if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Property Definition&#39; domain to decorate onto             property definitions. These must take the format             {domain}/{scope}/{code} e.g \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;. Each property must be from the \&quot;PropertyDefinition\&quot; domain. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing property definitions; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the property definitions. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the property definitions. Defaults to returning the latest version              of each property definition if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Property Definition&#39; domain to decorate onto              property definitions. These must take the format              {domain}/{scope}/{code} e.g \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;. Each property must be from the \&quot;PropertyDefinition\&quot; domain. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing property definitions; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the display name, specify \&quot;DisplayName eq &#39;DisplayName&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the display name, specify \&quot;DisplayName eq &#39;DisplayName&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2655,12 +2655,12 @@ namespace Lusid.Sdk.Api
         /// ListPropertyDefinitions: List property definitions List all the property definitions matching particular criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the property definitions. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the property definitions. Defaults to returning the latest version             of each property definition if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Property Definition&#39; domain to decorate onto             property definitions. These must take the format             {domain}/{scope}/{code} e.g \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;. Each property must be from the \&quot;PropertyDefinition\&quot; domain. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing property definitions; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the property definitions. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the property definitions. Defaults to returning the latest version              of each property definition if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Property Definition&#39; domain to decorate onto              property definitions. These must take the format              {domain}/{scope}/{code} e.g \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;. Each property must be from the \&quot;PropertyDefinition\&quot; domain. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing property definitions; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the display name, specify \&quot;DisplayName eq &#39;DisplayName&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the display name, specify \&quot;DisplayName eq &#39;DisplayName&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2768,12 +2768,12 @@ namespace Lusid.Sdk.Api
         /// ListPropertyDefinitions: List property definitions List all the property definitions matching particular criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the property definitions. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the property definitions. Defaults to returning the latest version             of each property definition if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Property Definition&#39; domain to decorate onto             property definitions. These must take the format             {domain}/{scope}/{code} e.g \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;. Each property must be from the \&quot;PropertyDefinition\&quot; domain. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing property definitions; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the property definitions. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the property definitions. Defaults to returning the latest version              of each property definition if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Property Definition&#39; domain to decorate onto              property definitions. These must take the format              {domain}/{scope}/{code} e.g \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;. Each property must be from the \&quot;PropertyDefinition\&quot; domain. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing property definitions; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the display name, specify \&quot;DisplayName eq &#39;DisplayName&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the display name, specify \&quot;DisplayName eq &#39;DisplayName&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2789,12 +2789,12 @@ namespace Lusid.Sdk.Api
         /// ListPropertyDefinitions: List property definitions List all the property definitions matching particular criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the property definitions. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the property definitions. Defaults to returning the latest version             of each property definition if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Property Definition&#39; domain to decorate onto             property definitions. These must take the format             {domain}/{scope}/{code} e.g \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;. Each property must be from the \&quot;PropertyDefinition\&quot; domain. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing property definitions; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the property definitions. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the property definitions. Defaults to returning the latest version              of each property definition if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Property Definition&#39; domain to decorate onto              property definitions. These must take the format              {domain}/{scope}/{code} e.g \&quot;PropertyDefinition/myScope/someAttributeKey\&quot;. Each property must be from the \&quot;PropertyDefinition\&quot; domain. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing property definitions; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the display name, specify \&quot;DisplayName eq &#39;DisplayName&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the display name, specify \&quot;DisplayName eq &#39;DisplayName&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3168,12 +3168,12 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// UpdatePropertyDefinition: Update property definition Update the definition of a specified existing property. Not all elements within a property definition are modifiable due to the potential implications for values already stored against the property.
+        /// UpdatePropertyDefinition: Update property definition Update the definition of a specified existing property. Not all elements within a property definition  are modifiable due to the potential implications for values already stored against the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">The domain of the property being updated.</param>
         /// <param name="scope">The scope of the property being updated.</param>
-        /// <param name="code">The code of the property being updated. Together with the domain and scope this uniquely             identifies the property.</param>
+        /// <param name="code">The code of the property being updated. Together with the domain and scope this uniquely              identifies the property.</param>
         /// <param name="updatePropertyDefinitionRequest">The updated definition of the property.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -3185,12 +3185,12 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// UpdatePropertyDefinition: Update property definition Update the definition of a specified existing property. Not all elements within a property definition are modifiable due to the potential implications for values already stored against the property.
+        /// UpdatePropertyDefinition: Update property definition Update the definition of a specified existing property. Not all elements within a property definition  are modifiable due to the potential implications for values already stored against the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">The domain of the property being updated.</param>
         /// <param name="scope">The scope of the property being updated.</param>
-        /// <param name="code">The code of the property being updated. Together with the domain and scope this uniquely             identifies the property.</param>
+        /// <param name="code">The code of the property being updated. Together with the domain and scope this uniquely              identifies the property.</param>
         /// <param name="updatePropertyDefinitionRequest">The updated definition of the property.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -3299,12 +3299,12 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// UpdatePropertyDefinition: Update property definition Update the definition of a specified existing property. Not all elements within a property definition are modifiable due to the potential implications for values already stored against the property.
+        /// UpdatePropertyDefinition: Update property definition Update the definition of a specified existing property. Not all elements within a property definition  are modifiable due to the potential implications for values already stored against the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">The domain of the property being updated.</param>
         /// <param name="scope">The scope of the property being updated.</param>
-        /// <param name="code">The code of the property being updated. Together with the domain and scope this uniquely             identifies the property.</param>
+        /// <param name="code">The code of the property being updated. Together with the domain and scope this uniquely              identifies the property.</param>
         /// <param name="updatePropertyDefinitionRequest">The updated definition of the property.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3317,12 +3317,12 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// UpdatePropertyDefinition: Update property definition Update the definition of a specified existing property. Not all elements within a property definition are modifiable due to the potential implications for values already stored against the property.
+        /// UpdatePropertyDefinition: Update property definition Update the definition of a specified existing property. Not all elements within a property definition  are modifiable due to the potential implications for values already stored against the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">The domain of the property being updated.</param>
         /// <param name="scope">The scope of the property being updated.</param>
-        /// <param name="code">The code of the property being updated. Together with the domain and scope this uniquely             identifies the property.</param>
+        /// <param name="code">The code of the property being updated. Together with the domain and scope this uniquely              identifies the property.</param>
         /// <param name="updatePropertyDefinitionRequest">The updated definition of the property.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3440,7 +3440,7 @@ namespace Lusid.Sdk.Api
         /// <param name="domain">The domain of the specified property.</param>
         /// <param name="scope">The scope of the specified property.</param>
         /// <param name="code">The code of the specified property. Together with the domain and scope this uniquely</param>
-        /// <param name="requestBody">The properties to be created or updated. Each property in             the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code}, for example             &#39;PropertyDefinition/Manager/Id&#39;.</param>
+        /// <param name="requestBody">The properties to be created or updated. Each property in              the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code}, for example              &#39;PropertyDefinition/Manager/Id&#39;.</param>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial. (optional, default to &quot;Partial&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -3458,7 +3458,7 @@ namespace Lusid.Sdk.Api
         /// <param name="domain">The domain of the specified property.</param>
         /// <param name="scope">The scope of the specified property.</param>
         /// <param name="code">The code of the specified property. Together with the domain and scope this uniquely</param>
-        /// <param name="requestBody">The properties to be created or updated. Each property in             the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code}, for example             &#39;PropertyDefinition/Manager/Id&#39;.</param>
+        /// <param name="requestBody">The properties to be created or updated. Each property in              the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code}, for example              &#39;PropertyDefinition/Manager/Id&#39;.</param>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial. (optional, default to &quot;Partial&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -3577,7 +3577,7 @@ namespace Lusid.Sdk.Api
         /// <param name="domain">The domain of the specified property.</param>
         /// <param name="scope">The scope of the specified property.</param>
         /// <param name="code">The code of the specified property. Together with the domain and scope this uniquely</param>
-        /// <param name="requestBody">The properties to be created or updated. Each property in             the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code}, for example             &#39;PropertyDefinition/Manager/Id&#39;.</param>
+        /// <param name="requestBody">The properties to be created or updated. Each property in              the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code}, for example              &#39;PropertyDefinition/Manager/Id&#39;.</param>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial. (optional, default to &quot;Partial&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3596,7 +3596,7 @@ namespace Lusid.Sdk.Api
         /// <param name="domain">The domain of the specified property.</param>
         /// <param name="scope">The scope of the specified property.</param>
         /// <param name="code">The code of the specified property. Together with the domain and scope this uniquely</param>
-        /// <param name="requestBody">The properties to be created or updated. Each property in             the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code}, for example             &#39;PropertyDefinition/Manager/Id&#39;.</param>
+        /// <param name="requestBody">The properties to be created or updated. Each property in              the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code}, for example              &#39;PropertyDefinition/Manager/Id&#39;.</param>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial. (optional, default to &quot;Partial&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>

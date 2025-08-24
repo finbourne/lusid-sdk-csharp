@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// External market codes and identifiers for the equity, e.g. IBM. Required for valuation via SimpleStatic (look-up pricing). Valuation will not succeed without a matching quote.
+    /// External market codes and identifiers for the equity, e.g. IBM.  Required for valuation via SimpleStatic (look-up pricing).  Valuation will not succeed without a matching quote.
     /// </summary>
     [DataContract(Name = "WeightedInstrument_inLineLookupIdentifiers")]
     public partial class WeightedInstrumentInLineLookupIdentifiers : IEquatable<WeightedInstrumentInLineLookupIdentifiers>, IValidatableObject

@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// This request specifies single target holding. i.e. holding data that the system should match. And deletes previous adjustment made to that holding
+    /// This request specifies single target holding. i.e. holding data that the  system should match. And deletes previous adjustment made to that holding
     /// </summary>
     [DataContract(Name = "CancelSingleHoldingAdjustmentRequest")]
     public partial class CancelSingleHoldingAdjustmentRequest : IEquatable<CancelSingleHoldingAdjustmentRequest>, IValidatableObject

@@ -11,7 +11,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**GetReconciliationMapping**](ReconciliationsApi.md#getreconciliationmapping) | **GET** /api/portfolios/mapping/{scope}/{code} | [EARLY ACCESS] GetReconciliationMapping: Get a mapping |
 | [**ListReconciliationMappings**](ReconciliationsApi.md#listreconciliationmappings) | **GET** /api/portfolios/mapping | [EARLY ACCESS] ListReconciliationMappings: List the reconciliation mappings |
 | [**ListReconciliations**](ReconciliationsApi.md#listreconciliations) | **GET** /api/portfolios/$scheduledReconciliations | [EXPERIMENTAL] ListReconciliations: List scheduled reconciliations |
-| [**ReconcileGeneric**](ReconciliationsApi.md#reconcilegeneric) | **POST** /api/portfolios/$reconcileGeneric | ReconcileGeneric: Reconcile either holdings or valuations performed on one or two sets of holdings using one or two configuration recipes.              The output is configurable for various types of comparisons, to allow tolerances on numerical and date-time data or case-insensitivity on strings, and elision of resulting differences where they are &#39;empty&#39; or null or zero. |
+| [**ReconcileGeneric**](ReconciliationsApi.md#reconcilegeneric) | **POST** /api/portfolios/$reconcileGeneric | ReconcileGeneric: Reconcile either holdings or valuations performed on one or two sets of holdings using one or two configuration recipes.                The output is configurable for various types of comparisons, to allow tolerances on numerical and date-time data or case-insensitivity on strings,  and elision of resulting differences where they are &#39;empty&#39; or null or zero. |
 | [**ReconcileHoldings**](ReconciliationsApi.md#reconcileholdings) | **POST** /api/portfolios/$reconcileholdings | [EARLY ACCESS] ReconcileHoldings: Reconcile portfolio holdings |
 | [**ReconcileInline**](ReconciliationsApi.md#reconcileinline) | **POST** /api/portfolios/$reconcileInline | ReconcileInline: Reconcile valuations performed on one or two sets of inline instruments using one or two configuration recipes. |
 | [**ReconcileTransactions**](ReconciliationsApi.md#reconciletransactions) | **POST** /api/portfolios/$reconcileTransactions | [EARLY ACCESS] ReconcileTransactions: Perform a Transactions Reconciliation. |
@@ -419,7 +419,7 @@ namespace Examples
             var code = "code_example";  // string | The code of the scheduled reconciliation
             var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to retrieve the scheduled reconciliation. Defaults to the current LUSID system datetime if not specified. (optional) 
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the scheduled reconciliation. Defaults to returning the latest version of the reconciliation if not specified. (optional) 
-            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'Reconciliation' property domain to decorate onto the reconciliation.             These must take the form {domain}/{scope}/{code}, for example 'Reconciliation/Broker/Id'. (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'Reconciliation' property domain to decorate onto the reconciliation.              These must take the form {domain}/{scope}/{code}, for example 'Reconciliation/Broker/Id'. (optional) 
 
             try
             {
@@ -469,7 +469,7 @@ catch (ApiException e)
 | **code** | **string** | The code of the scheduled reconciliation |  |
 | **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to retrieve the scheduled reconciliation. Defaults to the current LUSID system datetime if not specified. | [optional]  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the scheduled reconciliation. Defaults to returning the latest version of the reconciliation if not specified. | [optional]  |
-| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;Reconciliation&#39; property domain to decorate onto the reconciliation.             These must take the form {domain}/{scope}/{code}, for example &#39;Reconciliation/Broker/Id&#39;. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;Reconciliation&#39; property domain to decorate onto the reconciliation.              These must take the form {domain}/{scope}/{code}, for example &#39;Reconciliation/Broker/Id&#39;. | [optional]  |
 
 ### Return type
 
@@ -653,7 +653,7 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ReconciliationsApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ReconciliationsApi>();
-            var reconciliationType = "reconciliationType_example";  // string? | Optional parameter to specify which type of mappings should be returned. Defaults to Transaction if not provided. (optional) 
+            var reconciliationType = "reconciliationType_example";  // string? | Optional parameter to specify which type of mappings should be returned.  Defaults to Transaction if not provided. (optional) 
 
             try
             {
@@ -699,7 +699,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **reconciliationType** | **string?** | Optional parameter to specify which type of mappings should be returned. Defaults to Transaction if not provided. | [optional]  |
+| **reconciliationType** | **string?** | Optional parameter to specify which type of mappings should be returned.  Defaults to Transaction if not provided. | [optional]  |
 
 ### Return type
 
@@ -767,12 +767,12 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ReconciliationsApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ReconciliationsApi>();
-            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to list the TimeVariant properties for the reconciliation. Defaults to the current LUSID             system datetime if not specified. (optional) 
-            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the reconciliation. Defaults to returning the latest version             of each reconciliation if not specified. (optional) 
-            var page = "page_example";  // string? | The pagination token to use to continue listing reconciliations; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional) 
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to list the TimeVariant properties for the reconciliation. Defaults to the current LUSID              system datetime if not specified. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the reconciliation. Defaults to returning the latest version              of each reconciliation if not specified. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing reconciliations; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional) 
             var limit = 56;  // int? | When paginating, limit the results to this number. Defaults to 100 if not specified. (optional) 
-            var filter = "filter_example";  // string? | Expression to filter the results.             For example, to filter on the reconciliation type, specify \"id.Code eq '001'\". For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional) 
-            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'Reconciliation' domain to decorate onto each reconciliation.             These must take the format {domain}/{scope}/{code}, for example 'Reconciliation/Broker/Id'. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the results.              For example, to filter on the reconciliation type, specify \"id.Code eq '001'\". For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'Reconciliation' domain to decorate onto each reconciliation.              These must take the format {domain}/{scope}/{code}, for example 'Reconciliation/Broker/Id'. (optional) 
 
             try
             {
@@ -818,12 +818,12 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to list the TimeVariant properties for the reconciliation. Defaults to the current LUSID             system datetime if not specified. | [optional]  |
-| **asAt** | **DateTimeOffset?** | The asAt datetime at which to list the reconciliation. Defaults to returning the latest version             of each reconciliation if not specified. | [optional]  |
-| **page** | **string?** | The pagination token to use to continue listing reconciliations; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. | [optional]  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to list the TimeVariant properties for the reconciliation. Defaults to the current LUSID              system datetime if not specified. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to list the reconciliation. Defaults to returning the latest version              of each reconciliation if not specified. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing reconciliations; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. | [optional]  |
 | **limit** | **int?** | When paginating, limit the results to this number. Defaults to 100 if not specified. | [optional]  |
-| **filter** | **string?** | Expression to filter the results.             For example, to filter on the reconciliation type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional]  |
-| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;Reconciliation&#39; domain to decorate onto each reconciliation.             These must take the format {domain}/{scope}/{code}, for example &#39;Reconciliation/Broker/Id&#39;. | [optional]  |
+| **filter** | **string?** | Expression to filter the results.              For example, to filter on the reconciliation type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;Reconciliation&#39; domain to decorate onto each reconciliation.              These must take the format {domain}/{scope}/{code}, for example &#39;Reconciliation/Broker/Id&#39;. | [optional]  |
 
 ### Return type
 
@@ -848,9 +848,9 @@ catch (ApiException e)
 # **ReconcileGeneric**
 > ReconciliationResponse ReconcileGeneric (ReconciliationRequest? reconciliationRequest = null)
 
-ReconcileGeneric: Reconcile either holdings or valuations performed on one or two sets of holdings using one or two configuration recipes.              The output is configurable for various types of comparisons, to allow tolerances on numerical and date-time data or case-insensitivity on strings, and elision of resulting differences where they are 'empty' or null or zero.
+ReconcileGeneric: Reconcile either holdings or valuations performed on one or two sets of holdings using one or two configuration recipes.                The output is configurable for various types of comparisons, to allow tolerances on numerical and date-time data or case-insensitivity on strings,  and elision of resulting differences where they are 'empty' or null or zero.
 
-Perform evaluation of one or two set of holdings (a portfolio of instruments) using one or two (potentially different) configuration recipes. Produce a breakdown of the resulting differences in evaluation that can be iterated through.
+Perform evaluation of one or two set of holdings (a portfolio of instruments) using one or two (potentially different) configuration recipes.  Produce a breakdown of the resulting differences in evaluation that can be iterated through.
 
 ### Example
 ```csharp
@@ -898,7 +898,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // ReconciliationResponse result = apiInstance.ReconcileGeneric(reconciliationRequest, opts: opts);
 
-                // ReconcileGeneric: Reconcile either holdings or valuations performed on one or two sets of holdings using one or two configuration recipes.              The output is configurable for various types of comparisons, to allow tolerances on numerical and date-time data or case-insensitivity on strings, and elision of resulting differences where they are 'empty' or null or zero.
+                // ReconcileGeneric: Reconcile either holdings or valuations performed on one or two sets of holdings using one or two configuration recipes.                The output is configurable for various types of comparisons, to allow tolerances on numerical and date-time data or case-insensitivity on strings,  and elision of resulting differences where they are 'empty' or null or zero.
                 ReconciliationResponse result = apiInstance.ReconcileGeneric(reconciliationRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -919,7 +919,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // ReconcileGeneric: Reconcile either holdings or valuations performed on one or two sets of holdings using one or two configuration recipes.              The output is configurable for various types of comparisons, to allow tolerances on numerical and date-time data or case-insensitivity on strings, and elision of resulting differences where they are 'empty' or null or zero.
+    // ReconcileGeneric: Reconcile either holdings or valuations performed on one or two sets of holdings using one or two configuration recipes.                The output is configurable for various types of comparisons, to allow tolerances on numerical and date-time data or case-insensitivity on strings,  and elision of resulting differences where they are 'empty' or null or zero.
     ApiResponse<ReconciliationResponse> response = apiInstance.ReconcileGenericWithHttpInfo(reconciliationRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1007,7 +1007,7 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ReconciliationsApi>();
             var sortBy = new List<string>?(); // List<string>? | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
             var limit = 56;  // int? | Optional. When paginating, limit the number of returned results to this many. (optional) 
-            var filter = "filter_example";  // string? | Optional. Expression to filter the result set.             For example, to filter on the left portfolio Code, use \"left.portfolioId.code eq 'string'\"             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
+            var filter = "filter_example";  // string? | Optional. Expression to filter the result set.              For example, to filter on the left portfolio Code, use \"left.portfolioId.code eq 'string'\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
             var portfoliosReconciliationRequest = new PortfoliosReconciliationRequest?(); // PortfoliosReconciliationRequest? | The specifications of the inputs to the reconciliation (optional) 
 
             try
@@ -1056,7 +1056,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **sortBy** | [**List&lt;string&gt;?**](string.md) | Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional]  |
 | **limit** | **int?** | Optional. When paginating, limit the number of returned results to this many. | [optional]  |
-| **filter** | **string?** | Optional. Expression to filter the result set.             For example, to filter on the left portfolio Code, use \&quot;left.portfolioId.code eq &#39;string&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
+| **filter** | **string?** | Optional. Expression to filter the result set.              For example, to filter on the left portfolio Code, use \&quot;left.portfolioId.code eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
 | **portfoliosReconciliationRequest** | [**PortfoliosReconciliationRequest?**](PortfoliosReconciliationRequest?.md) | The specifications of the inputs to the reconciliation | [optional]  |
 
 ### Return type
@@ -1198,7 +1198,7 @@ catch (ApiException e)
 
 [EARLY ACCESS] ReconcileTransactions: Perform a Transactions Reconciliation.
 
-Evaluates two sets of transactions to determine which transactions from each set likely match using the rules of a specified mapping.
+Evaluates two sets of transactions to determine which transactions from each set likely match  using the rules of a specified mapping.
 
 ### Example
 ```csharp
@@ -1312,7 +1312,7 @@ catch (ApiException e)
 
 [EXPERIMENTAL] ReconcileTransactionsV2: Perform a Transactions Reconciliation.
 
-Evaluates two sets of transactions to determine which transactions from each set likely match using the rules of a specified mapping.
+Evaluates two sets of transactions to determine which transactions from each set likely match  using the rules of a specified mapping.
 
 ### Example
 ```csharp
@@ -1658,7 +1658,7 @@ catch (ApiException e)
 
 [EARLY ACCESS] UpsertReconciliationMapping: Create or update a mapping
 
-If no mapping exists with the specified scope and code will create a new one. Else will update the existing mapping
+If no mapping exists with the specified scope and code will create a new one.  Else will update the existing mapping
 
 ### Example
 ```csharp

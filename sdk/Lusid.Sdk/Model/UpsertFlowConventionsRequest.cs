@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Flow conventions that is to be stored in the convention data store. Only one of these must be present.
+    /// Flow conventions that is to be stored in the convention data store.  Only one of these must be present.
     /// </summary>
     [DataContract(Name = "UpsertFlowConventionsRequest")]
     public partial class UpsertFlowConventionsRequest : IEquatable<UpsertFlowConventionsRequest>, IValidatableObject

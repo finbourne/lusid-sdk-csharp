@@ -1,5 +1,5 @@
 # Lusid.Sdk.Model.CreditPremiumCashFlowEvent
-Definition of a credit premium cash flow event. This event describes a premium cashflow for credit default instruments (CDS or CDX).
+Definition of a credit premium cash flow event.  This event describes a premium cashflow for credit default instruments (CDS or CDX).
 
 ## Properties
 

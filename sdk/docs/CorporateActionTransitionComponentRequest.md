@@ -1,5 +1,5 @@
 # Lusid.Sdk.Model.CorporateActionTransitionComponentRequest
-A single transition component request, when grouped with other transition component requests a corporate action transition request is formed.
+A single transition component request, when grouped with other transition component requests a corporate action  transition request is formed.
 
 ## Properties
 

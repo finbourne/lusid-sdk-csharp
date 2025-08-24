@@ -24,7 +24,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Definition of a Term Deposit Interest Event. This is an event that describes the occurence of principal on a term deposit ().
+    /// Definition of a Term Deposit Interest Event.  This is an event that describes the occurence of principal on a term deposit ().
     /// </summary>
     [DataContract(Name = "TermDepositPrincipalEvent")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentEventType")]

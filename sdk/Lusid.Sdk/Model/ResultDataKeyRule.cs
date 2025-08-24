@@ -41,7 +41,7 @@ namespace Lusid.Sdk.Model
         /// <param name="supplier">the result resource supplier (where the data comes from) (required).</param>
         /// <param name="dataScope">which is the scope in which the data should be found (required).</param>
         /// <param name="documentCode">document code that defines which document is desired (required).</param>
-        /// <param name="quoteInterval">Shorthand for the time interval used to select result data. This must be a dot-separated string             specifying a start and end date, for example &#39;5D.0D&#39; to look back 5 days from today (0 days ago)..</param>
+        /// <param name="quoteInterval">Shorthand for the time interval used to select result data. This must be a dot-separated string              specifying a start and end date, for example &#39;5D.0D&#39; to look back 5 days from today (0 days ago)..</param>
         /// <param name="asAt">The AsAt predicate specification..</param>
         /// <param name="resourceKey">The result data key that identifies the address pattern that this is a rule for (required).</param>
         /// <param name="documentResultType">documentResultType (required).</param>
@@ -106,9 +106,9 @@ namespace Lusid.Sdk.Model
         public string DocumentCode { get; set; }
 
         /// <summary>
-        /// Shorthand for the time interval used to select result data. This must be a dot-separated string             specifying a start and end date, for example &#39;5D.0D&#39; to look back 5 days from today (0 days ago).
+        /// Shorthand for the time interval used to select result data. This must be a dot-separated string              specifying a start and end date, for example &#39;5D.0D&#39; to look back 5 days from today (0 days ago).
         /// </summary>
-        /// <value>Shorthand for the time interval used to select result data. This must be a dot-separated string             specifying a start and end date, for example &#39;5D.0D&#39; to look back 5 days from today (0 days ago).</value>
+        /// <value>Shorthand for the time interval used to select result data. This must be a dot-separated string              specifying a start and end date, for example &#39;5D.0D&#39; to look back 5 days from today (0 days ago).</value>
         [DataMember(Name = "quoteInterval", EmitDefaultValue = true)]
         public string QuoteInterval { get; set; }
 

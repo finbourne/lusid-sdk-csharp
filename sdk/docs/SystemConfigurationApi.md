@@ -246,7 +246,7 @@ catch (ApiException e)
 
 [EXPERIMENTAL] DeleteTransactionConfigurationSource: Delete all transaction configurations for a source
 
-/// WARNING! Changing existing transaction types has a material impact on how data, new and old, is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
+/// WARNING! Changing existing transaction types has a material impact on how data, new and old,  is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
 
 ### Example
 ```csharp
@@ -402,7 +402,7 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SystemConfigurationApi>();
             var source = "source_example";  // string | The source for which to retrieve transaction configurations
-            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the transaction configurations.             Defaults to returning the latest version of the transaction configurations if not specified. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the transaction configurations.              Defaults to returning the latest version of the transaction configurations if not specified. (optional) 
 
             try
             {
@@ -449,7 +449,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **source** | **string** | The source for which to retrieve transaction configurations |  |
-| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the transaction configurations.             Defaults to returning the latest version of the transaction configurations if not specified. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the transaction configurations.              Defaults to returning the latest version of the transaction configurations if not specified. | [optional]  |
 
 ### Return type
 
@@ -476,7 +476,7 @@ catch (ApiException e)
 
 [EARLY ACCESS] ListConfigurationTransactionTypes: List transaction types
 
-Get the list of current transaction types. For information on the default transaction types provided with LUSID, see https://support.lusid.com/knowledgebase/article/KA-01873/.
+Get the list of current transaction types. For information on the default transaction types provided with  LUSID, see https://support.lusid.com/knowledgebase/article/KA-01873/.
 
 ### Example
 ```csharp
@@ -517,7 +517,7 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SystemConfigurationApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SystemConfigurationApi>();
-            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the transaction types. Defaults             to returning the latest versions if not specified. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the transaction types. Defaults              to returning the latest versions if not specified. (optional) 
 
             try
             {
@@ -563,7 +563,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the transaction types. Defaults             to returning the latest versions if not specified. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the transaction types. Defaults              to returning the latest versions if not specified. | [optional]  |
 
 ### Return type
 
@@ -590,7 +590,7 @@ catch (ApiException e)
 
 [EXPERIMENTAL] SetConfigurationTransactionTypes: Set transaction types
 
-Configure all existing transaction types. Note it is not possible to configure a single existing transaction type on its own.              WARNING! Changing existing transaction types has a material impact on how data, new and old, is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
+Configure all existing transaction types. Note it is not possible to configure a single existing transaction type on its own.                WARNING! Changing existing transaction types has a material impact on how data, new and old, is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
 
 ### Example
 ```csharp
@@ -704,7 +704,7 @@ catch (ApiException e)
 
 [EXPERIMENTAL] SetTransactionConfigurationSource: Set transaction types for a source
 
-This will replace all the existing transaction configurations for the given source              WARNING! Changing existing transaction types has a material impact on how data, new and old, is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
+This will replace all the existing transaction configurations for the given source                WARNING! Changing existing transaction types has a material impact on how data, new and old, is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
 
 ### Example
 ```csharp

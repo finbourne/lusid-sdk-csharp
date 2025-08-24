@@ -41,7 +41,7 @@ namespace Lusid.Sdk.Model
         /// <param name="costFactor">Optional. The fraction of cost that is transferred from the existing shares to the new shares..</param>
         /// <param name="electionKey">Unique key associated to this election. (required).</param>
         /// <param name="isChosen">Is this the election that has been explicitly chosen from multiple options..</param>
-        /// <param name="isDefault">Is this election automatically applied in the absence of an election having been made. May only be true for one election if multiple are provided..</param>
+        /// <param name="isDefault">Is this election automatically applied in the absence of an election having been made.  May only be true for one election if multiple are provided..</param>
         /// <param name="unitsRatio">unitsRatio (required).</param>
         public CashAndSecurityOfferElection(string cashOfferCurrency = default(string), decimal cashOfferPrice = default(decimal), decimal? costFactor = default(decimal?), string electionKey = default(string), bool isChosen = default(bool), bool isDefault = default(bool), UnitsRatio unitsRatio = default(UnitsRatio))
         {
@@ -105,9 +105,9 @@ namespace Lusid.Sdk.Model
         public bool IsChosen { get; set; }
 
         /// <summary>
-        /// Is this election automatically applied in the absence of an election having been made. May only be true for one election if multiple are provided.
+        /// Is this election automatically applied in the absence of an election having been made.  May only be true for one election if multiple are provided.
         /// </summary>
-        /// <value>Is this election automatically applied in the absence of an election having been made. May only be true for one election if multiple are provided.</value>
+        /// <value>Is this election automatically applied in the absence of an election having been made.  May only be true for one election if multiple are provided.</value>
         [DataMember(Name = "isDefault", EmitDefaultValue = true)]
         public bool IsDefault { get; set; }
 

@@ -24,7 +24,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Base class for representing instrument events in LUSID, such as dividends, stock splits, and option exercises. This base class should not be directly instantiated; each supported InstrumentEventType has a corresponding inherited class.
+    /// Base class for representing instrument events in LUSID, such as dividends, stock splits, and option exercises.  This base class should not be directly instantiated; each supported InstrumentEventType has a corresponding inherited class.
     /// </summary>
     [DataContract(Name = "InstrumentEvent")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentEventType")]

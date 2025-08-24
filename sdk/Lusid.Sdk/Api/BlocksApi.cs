@@ -35,7 +35,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] DeleteBlock: Delete block
         /// </summary>
         /// <remarks>
-        /// Delete an block. Deletion will be valid from the block&#39;s creation datetime. This means that the block will no longer exist at any effective datetime from the asAt datetime of deletion.
+        /// Delete an block. Deletion will be valid from the block&#39;s creation datetime.  This means that the block will no longer exist at any effective datetime from the asAt datetime of deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The block scope.</param>
@@ -49,7 +49,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] DeleteBlock: Delete block
         /// </summary>
         /// <remarks>
-        /// Delete an block. Deletion will be valid from the block&#39;s creation datetime. This means that the block will no longer exist at any effective datetime from the asAt datetime of deletion.
+        /// Delete an block. Deletion will be valid from the block&#39;s creation datetime.  This means that the block will no longer exist at any effective datetime from the asAt datetime of deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The block scope.</param>
@@ -68,7 +68,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope to which the block belongs.</param>
         /// <param name="code">The block&#39;s unique identifier.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the block. Defaults to return the latest version of the block if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Block\&quot; domain to decorate onto the block.             These take the format {domain}/{scope}/{code} e.g. \&quot;Block/system/Name\&quot;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Block\&quot; domain to decorate onto the block.              These take the format {domain}/{scope}/{code} e.g. \&quot;Block/system/Name\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Block</returns>
@@ -84,7 +84,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope to which the block belongs.</param>
         /// <param name="code">The block&#39;s unique identifier.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the block. Defaults to return the latest version of the block if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Block\&quot; domain to decorate onto the block.             These take the format {domain}/{scope}/{code} e.g. \&quot;Block/system/Name\&quot;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Block\&quot; domain to decorate onto the block.              These take the format {domain}/{scope}/{code} e.g. \&quot;Block/system/Name\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Block</returns>
@@ -97,11 +97,11 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the block. Defaults to return the latest version of the block if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing blocks from a previous call to list blocks.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing blocks from a previous call to list blocks.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Block\&quot; domain to decorate onto each block.                 These take the format {domain}/{scope}/{code} e.g. \&quot;Block/system/Name\&quot;.                 All properties, except derived properties, are returned by default, without specifying here. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Block\&quot; domain to decorate onto each block.                  These take the format {domain}/{scope}/{code} e.g. \&quot;Block/system/Name\&quot;.                  All properties, except derived properties, are returned by default, without specifying here. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfBlock</returns>
@@ -115,11 +115,11 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the block. Defaults to return the latest version of the block if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing blocks from a previous call to list blocks.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing blocks from a previous call to list blocks.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Block\&quot; domain to decorate onto each block.                 These take the format {domain}/{scope}/{code} e.g. \&quot;Block/system/Name\&quot;.                 All properties, except derived properties, are returned by default, without specifying here. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Block\&quot; domain to decorate onto each block.                  These take the format {domain}/{scope}/{code} e.g. \&quot;Block/system/Name\&quot;.                  All properties, except derived properties, are returned by default, without specifying here. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfBlock</returns>
@@ -162,7 +162,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] DeleteBlock: Delete block
         /// </summary>
         /// <remarks>
-        /// Delete an block. Deletion will be valid from the block&#39;s creation datetime. This means that the block will no longer exist at any effective datetime from the asAt datetime of deletion.
+        /// Delete an block. Deletion will be valid from the block&#39;s creation datetime.  This means that the block will no longer exist at any effective datetime from the asAt datetime of deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The block scope.</param>
@@ -177,7 +177,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] DeleteBlock: Delete block
         /// </summary>
         /// <remarks>
-        /// Delete an block. Deletion will be valid from the block&#39;s creation datetime. This means that the block will no longer exist at any effective datetime from the asAt datetime of deletion.
+        /// Delete an block. Deletion will be valid from the block&#39;s creation datetime.  This means that the block will no longer exist at any effective datetime from the asAt datetime of deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The block scope.</param>
@@ -197,7 +197,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope to which the block belongs.</param>
         /// <param name="code">The block&#39;s unique identifier.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the block. Defaults to return the latest version of the block if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Block\&quot; domain to decorate onto the block.             These take the format {domain}/{scope}/{code} e.g. \&quot;Block/system/Name\&quot;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Block\&quot; domain to decorate onto the block.              These take the format {domain}/{scope}/{code} e.g. \&quot;Block/system/Name\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -214,7 +214,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope to which the block belongs.</param>
         /// <param name="code">The block&#39;s unique identifier.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the block. Defaults to return the latest version of the block if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Block\&quot; domain to decorate onto the block.             These take the format {domain}/{scope}/{code} e.g. \&quot;Block/system/Name\&quot;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Block\&quot; domain to decorate onto the block.              These take the format {domain}/{scope}/{code} e.g. \&quot;Block/system/Name\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -228,11 +228,11 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the block. Defaults to return the latest version of the block if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing blocks from a previous call to list blocks.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing blocks from a previous call to list blocks.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Block\&quot; domain to decorate onto each block.                 These take the format {domain}/{scope}/{code} e.g. \&quot;Block/system/Name\&quot;.                 All properties, except derived properties, are returned by default, without specifying here. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Block\&quot; domain to decorate onto each block.                  These take the format {domain}/{scope}/{code} e.g. \&quot;Block/system/Name\&quot;.                  All properties, except derived properties, are returned by default, without specifying here. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -247,11 +247,11 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the block. Defaults to return the latest version of the block if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing blocks from a previous call to list blocks.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing blocks from a previous call to list blocks.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Block\&quot; domain to decorate onto each block.                 These take the format {domain}/{scope}/{code} e.g. \&quot;Block/system/Name\&quot;.                 All properties, except derived properties, are returned by default, without specifying here. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Block\&quot; domain to decorate onto each block.                  These take the format {domain}/{scope}/{code} e.g. \&quot;Block/system/Name\&quot;.                  All properties, except derived properties, are returned by default, without specifying here. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -408,7 +408,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteBlock: Delete block Delete an block. Deletion will be valid from the block&#39;s creation datetime. This means that the block will no longer exist at any effective datetime from the asAt datetime of deletion.
+        /// [EARLY ACCESS] DeleteBlock: Delete block Delete an block. Deletion will be valid from the block&#39;s creation datetime.  This means that the block will no longer exist at any effective datetime from the asAt datetime of deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The block scope.</param>
@@ -423,7 +423,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteBlock: Delete block Delete an block. Deletion will be valid from the block&#39;s creation datetime. This means that the block will no longer exist at any effective datetime from the asAt datetime of deletion.
+        /// [EARLY ACCESS] DeleteBlock: Delete block Delete an block. Deletion will be valid from the block&#39;s creation datetime.  This means that the block will no longer exist at any effective datetime from the asAt datetime of deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The block scope.</param>
@@ -517,7 +517,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteBlock: Delete block Delete an block. Deletion will be valid from the block&#39;s creation datetime. This means that the block will no longer exist at any effective datetime from the asAt datetime of deletion.
+        /// [EARLY ACCESS] DeleteBlock: Delete block Delete an block. Deletion will be valid from the block&#39;s creation datetime.  This means that the block will no longer exist at any effective datetime from the asAt datetime of deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The block scope.</param>
@@ -533,7 +533,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteBlock: Delete block Delete an block. Deletion will be valid from the block&#39;s creation datetime. This means that the block will no longer exist at any effective datetime from the asAt datetime of deletion.
+        /// [EARLY ACCESS] DeleteBlock: Delete block Delete an block. Deletion will be valid from the block&#39;s creation datetime.  This means that the block will no longer exist at any effective datetime from the asAt datetime of deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The block scope.</param>
@@ -636,7 +636,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope to which the block belongs.</param>
         /// <param name="code">The block&#39;s unique identifier.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the block. Defaults to return the latest version of the block if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Block\&quot; domain to decorate onto the block.             These take the format {domain}/{scope}/{code} e.g. \&quot;Block/system/Name\&quot;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Block\&quot; domain to decorate onto the block.              These take the format {domain}/{scope}/{code} e.g. \&quot;Block/system/Name\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Block</returns>
@@ -653,7 +653,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope to which the block belongs.</param>
         /// <param name="code">The block&#39;s unique identifier.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the block. Defaults to return the latest version of the block if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Block\&quot; domain to decorate onto the block.             These take the format {domain}/{scope}/{code} e.g. \&quot;Block/system/Name\&quot;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Block\&quot; domain to decorate onto the block.              These take the format {domain}/{scope}/{code} e.g. \&quot;Block/system/Name\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Block</returns>
@@ -757,7 +757,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope to which the block belongs.</param>
         /// <param name="code">The block&#39;s unique identifier.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the block. Defaults to return the latest version of the block if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Block\&quot; domain to decorate onto the block.             These take the format {domain}/{scope}/{code} e.g. \&quot;Block/system/Name\&quot;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Block\&quot; domain to decorate onto the block.              These take the format {domain}/{scope}/{code} e.g. \&quot;Block/system/Name\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -775,7 +775,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope to which the block belongs.</param>
         /// <param name="code">The block&#39;s unique identifier.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the block. Defaults to return the latest version of the block if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Block\&quot; domain to decorate onto the block.             These take the format {domain}/{scope}/{code} e.g. \&quot;Block/system/Name\&quot;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Block\&quot; domain to decorate onto the block.              These take the format {domain}/{scope}/{code} e.g. \&quot;Block/system/Name\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -880,11 +880,11 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the block. Defaults to return the latest version of the block if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing blocks from a previous call to list blocks.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing blocks from a previous call to list blocks.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Block\&quot; domain to decorate onto each block.                 These take the format {domain}/{scope}/{code} e.g. \&quot;Block/system/Name\&quot;.                 All properties, except derived properties, are returned by default, without specifying here. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Block\&quot; domain to decorate onto each block.                  These take the format {domain}/{scope}/{code} e.g. \&quot;Block/system/Name\&quot;.                  All properties, except derived properties, are returned by default, without specifying here. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfBlock</returns>
@@ -899,11 +899,11 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the block. Defaults to return the latest version of the block if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing blocks from a previous call to list blocks.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing blocks from a previous call to list blocks.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Block\&quot; domain to decorate onto each block.                 These take the format {domain}/{scope}/{code} e.g. \&quot;Block/system/Name\&quot;.                 All properties, except derived properties, are returned by default, without specifying here. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Block\&quot; domain to decorate onto each block.                  These take the format {domain}/{scope}/{code} e.g. \&quot;Block/system/Name\&quot;.                  All properties, except derived properties, are returned by default, without specifying here. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfBlock</returns>
@@ -1007,11 +1007,11 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the block. Defaults to return the latest version of the block if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing blocks from a previous call to list blocks.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing blocks from a previous call to list blocks.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Block\&quot; domain to decorate onto each block.                 These take the format {domain}/{scope}/{code} e.g. \&quot;Block/system/Name\&quot;.                 All properties, except derived properties, are returned by default, without specifying here. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Block\&quot; domain to decorate onto each block.                  These take the format {domain}/{scope}/{code} e.g. \&quot;Block/system/Name\&quot;.                  All properties, except derived properties, are returned by default, without specifying here. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1027,11 +1027,11 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the block. Defaults to return the latest version of the block if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing blocks from a previous call to list blocks.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing blocks from a previous call to list blocks.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Block\&quot; domain to decorate onto each block.                 These take the format {domain}/{scope}/{code} e.g. \&quot;Block/system/Name\&quot;.                 All properties, except derived properties, are returned by default, without specifying here. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Block\&quot; domain to decorate onto each block.                  These take the format {domain}/{scope}/{code} e.g. \&quot;Block/system/Name\&quot;.                  All properties, except derived properties, are returned by default, without specifying here. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>

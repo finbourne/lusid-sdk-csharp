@@ -149,11 +149,11 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] DeleteAccounts: Soft or hard delete multiple accounts
         /// </summary>
         /// <remarks>
-        /// Delete one or more account from the Chart of Accounts. Soft deletion marks the account as inactive While the Hard deletion is deleting the account.  The maximum number of accounts that this method can delete per request is 2,000.
+        /// Delete one or more account from the Chart of Accounts. Soft deletion marks the account as inactive  While the Hard deletion is deleting the account.  The maximum number of accounts that this method can delete per request is 2,000.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
-        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies             the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies              the Chart of Accounts.</param>
         /// <param name="requestBody">The codes of the accounts to delete.</param>
         /// <param name="deleteMode">The delete mode to use (defaults to &#39;Soft&#39;). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -165,11 +165,11 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] DeleteAccounts: Soft or hard delete multiple accounts
         /// </summary>
         /// <remarks>
-        /// Delete one or more account from the Chart of Accounts. Soft deletion marks the account as inactive While the Hard deletion is deleting the account.  The maximum number of accounts that this method can delete per request is 2,000.
+        /// Delete one or more account from the Chart of Accounts. Soft deletion marks the account as inactive  While the Hard deletion is deleting the account.  The maximum number of accounts that this method can delete per request is 2,000.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
-        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies             the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies              the Chart of Accounts.</param>
         /// <param name="requestBody">The codes of the accounts to delete.</param>
         /// <param name="deleteMode">The delete mode to use (defaults to &#39;Soft&#39;). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -302,7 +302,7 @@ namespace Lusid.Sdk.Api
         /// <param name="accountCode">The code of the Account.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the Account properties. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Account definition. Defaults to returning the latest version of the Account definition if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Account&#39; domain to decorate onto the Account.             These must take the format {domain}/{scope}/{code}, for example &#39;Account/Manager/Id&#39;. If no properties are specified, then no properties will be returned. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Account&#39; domain to decorate onto the Account.              These must take the format {domain}/{scope}/{code}, for example &#39;Account/Manager/Id&#39;. If no properties are specified, then no properties will be returned. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Account</returns>
@@ -320,7 +320,7 @@ namespace Lusid.Sdk.Api
         /// <param name="accountCode">The code of the Account.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the Account properties. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Account definition. Defaults to returning the latest version of the Account definition if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Account&#39; domain to decorate onto the Account.             These must take the format {domain}/{scope}/{code}, for example &#39;Account/Manager/Id&#39;. If no properties are specified, then no properties will be returned. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Account&#39; domain to decorate onto the Account.              These must take the format {domain}/{scope}/{code}, for example &#39;Account/Manager/Id&#39;. If no properties are specified, then no properties will be returned. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Account</returns>
@@ -369,7 +369,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the Chart of Accounts properties. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Chart of Accounts definition. Defaults to returning the latest version of the Chart of Accounts definition if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto the Chart of Accounts.             These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. If no properties are specified, then no properties will be returned. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto the Chart of Accounts.              These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. If no properties are specified, then no properties will be returned. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ChartOfAccounts</returns>
@@ -386,7 +386,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the Chart of Accounts properties. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Chart of Accounts definition. Defaults to returning the latest version of the Chart of Accounts definition if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto the Chart of Accounts.             These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. If no properties are specified, then no properties will be returned. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto the Chart of Accounts.              These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. If no properties are specified, then no properties will be returned. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ChartOfAccounts</returns>
@@ -523,13 +523,13 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
-        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies             the Chart of Accounts.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties decorated on Accounts. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Accounts. Defaults to             returning the latest version if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing charts of accounts; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies              the Chart of Accounts.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties decorated on Accounts. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Accounts. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing charts of accounts; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the Account type, specify \&quot;code eq &#39;001&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Account&#39; domain to decorate onto the Account.             These must have the format {domain}/{scope}/{code}, for example &#39;Account/system/Name&#39;. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the Account type, specify \&quot;code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Account&#39; domain to decorate onto the Account.              These must have the format {domain}/{scope}/{code}, for example &#39;Account/system/Name&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfAccount</returns>
@@ -543,13 +543,13 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
-        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies             the Chart of Accounts.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties decorated on Accounts. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Accounts. Defaults to             returning the latest version if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing charts of accounts; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies              the Chart of Accounts.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties decorated on Accounts. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Accounts. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing charts of accounts; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the Account type, specify \&quot;code eq &#39;001&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Account&#39; domain to decorate onto the Account.             These must have the format {domain}/{scope}/{code}, for example &#39;Account/system/Name&#39;. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the Account type, specify \&quot;code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Account&#39; domain to decorate onto the Account.              These must have the format {domain}/{scope}/{code}, for example &#39;Account/system/Name&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfAccount</returns>
@@ -561,13 +561,13 @@ namespace Lusid.Sdk.Api
         /// List all the Charts of Accounts matching particular criteria.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Chart Of Accounts. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the charts of accounts. Defaults to returning the latest version             of each Chart of Accounts if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing charts of accounts; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Chart Of Accounts. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the charts of accounts. Defaults to returning the latest version              of each Chart of Accounts if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing charts of accounts; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the Chart of Accounts type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the Chart of Accounts type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto each Chart of Accounts.             These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto each Chart of Accounts.              These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfChartOfAccounts</returns>
@@ -580,13 +580,13 @@ namespace Lusid.Sdk.Api
         /// List all the Charts of Accounts matching particular criteria.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Chart Of Accounts. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the charts of accounts. Defaults to returning the latest version             of each Chart of Accounts if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing charts of accounts; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Chart Of Accounts. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the charts of accounts. Defaults to returning the latest version              of each Chart of Accounts if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing charts of accounts; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the Chart of Accounts type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the Chart of Accounts type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto each Chart of Accounts.             These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto each Chart of Accounts.              These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfChartOfAccounts</returns>
@@ -601,10 +601,10 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Chart of Accounts.</param>
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="cleardownModuleCode">The code of the cleardown module.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to             returning the latest version if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing cleardown module rules; this             value is returned from the previous call. If a pagination token is provided, the filter             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing cleardown module rules; this              value is returned from the previous call. If a pagination token is provided, the filter              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfCleardownModuleRule</returns>
@@ -620,10 +620,10 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Chart of Accounts.</param>
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="cleardownModuleCode">The code of the cleardown module.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to             returning the latest version if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing cleardown module rules; this             value is returned from the previous call. If a pagination token is provided, the filter             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing cleardown module rules; this              value is returned from the previous call. If a pagination token is provided, the filter              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfCleardownModuleRule</returns>
@@ -637,10 +637,10 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
-        /// <param name="asAt">The asAt datetime at which to list the Cleardown Module. Defaults to returning the latest version             of each Cleardown Module if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Cleardown Modules; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the Cleardown Module. Defaults to returning the latest version              of each Cleardown Module if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Cleardown Modules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the Cleardown Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the Cleardown Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -656,10 +656,10 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
-        /// <param name="asAt">The asAt datetime at which to list the Cleardown Module. Defaults to returning the latest version             of each Cleardown Module if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Cleardown Modules; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the Cleardown Module. Defaults to returning the latest version              of each Cleardown Module if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Cleardown Modules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the Cleardown Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the Cleardown Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -675,9 +675,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Chart of Accounts</param>
         /// <param name="code">The code of the Chart of Accounts</param>
         /// <param name="asAt">The asAt datetime at which to list the General Ledger Profiles. Defaults to returning the latest version of each General Ledger Profile if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing General Ledger Profiles; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing General Ledger Profiles; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the General Ledger profiles type, specify \&quot;type eq &#39;PeriodBoundary&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the General Ledger profiles type, specify \&quot;type eq &#39;PeriodBoundary&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -694,9 +694,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Chart of Accounts</param>
         /// <param name="code">The code of the Chart of Accounts</param>
         /// <param name="asAt">The asAt datetime at which to list the General Ledger Profiles. Defaults to returning the latest version of each General Ledger Profile if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing General Ledger Profiles; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing General Ledger Profiles; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the General Ledger profiles type, specify \&quot;type eq &#39;PeriodBoundary&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the General Ledger profiles type, specify \&quot;type eq &#39;PeriodBoundary&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -712,10 +712,10 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Chart of Accounts.</param>
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="postingModuleCode">The code of the posting module.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to             returning the latest version if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing posting module rules; this             value is returned from the previous call. If a pagination token is provided, the filter             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing posting module rules; this              value is returned from the previous call. If a pagination token is provided, the filter              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfPostingModuleRule</returns>
@@ -731,10 +731,10 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Chart of Accounts.</param>
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="postingModuleCode">The code of the posting module.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to             returning the latest version if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing posting module rules; this             value is returned from the previous call. If a pagination token is provided, the filter             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing posting module rules; this              value is returned from the previous call. If a pagination token is provided, the filter              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfPostingModuleRule</returns>
@@ -748,10 +748,10 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
-        /// <param name="asAt">The asAt datetime at which to list the Posting Module. Defaults to returning the latest version             of each Posting Module if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Posting Modules; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the Posting Module. Defaults to returning the latest version              of each Posting Module if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Posting Modules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the Posting Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the Posting Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -767,10 +767,10 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
-        /// <param name="asAt">The asAt datetime at which to list the Posting Module. Defaults to returning the latest version             of each Posting Module if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Posting Modules; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the Posting Module. Defaults to returning the latest version              of each Posting Module if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Posting Modules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the Posting Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the Posting Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1026,13 +1026,13 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] UpsertAccountProperties: Upsert account properties
         /// </summary>
         /// <remarks>
-        /// Update or insert one or more properties onto a single account. A property will be updated if it already exists and inserted if it does not. All properties must be of the domain &#39;Account&#39;.              Upserting a property that exists for an account, with a null value, will delete the instance of the property for that group.              Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// Update or insert one or more properties onto a single account. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Account&#39;.                Upserting a property that exists for an account, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts to update or insert the properties onto.</param>
         /// <param name="code">The code of the Chart of Accounts to update or insert the properties onto. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="accountCode">The unique ID of the account to create or update properties for.</param>
-        /// <param name="requestBody">The properties to be updated or inserted onto the chart of account. Each property in              the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;Account/Manager/Id\&quot;. (optional)</param>
+        /// <param name="requestBody">The properties to be updated or inserted onto the chart of account. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;Account/Manager/Id\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>AccountProperties</returns>
@@ -1042,13 +1042,13 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] UpsertAccountProperties: Upsert account properties
         /// </summary>
         /// <remarks>
-        /// Update or insert one or more properties onto a single account. A property will be updated if it already exists and inserted if it does not. All properties must be of the domain &#39;Account&#39;.              Upserting a property that exists for an account, with a null value, will delete the instance of the property for that group.              Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// Update or insert one or more properties onto a single account. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Account&#39;.                Upserting a property that exists for an account, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts to update or insert the properties onto.</param>
         /// <param name="code">The code of the Chart of Accounts to update or insert the properties onto. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="accountCode">The unique ID of the account to create or update properties for.</param>
-        /// <param name="requestBody">The properties to be updated or inserted onto the chart of account. Each property in              the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;Account/Manager/Id\&quot;. (optional)</param>
+        /// <param name="requestBody">The properties to be updated or inserted onto the chart of account. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;Account/Manager/Id\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AccountProperties</returns>
@@ -1057,11 +1057,11 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] UpsertAccounts: Upsert Accounts
         /// </summary>
         /// <remarks>
-        /// Create or update accounts in the Chart of Accounts. An account will be updated if it already exists and created if it does not.  The maximum number of accounts that this method can upsert per request is 2,000.
+        /// Create or update accounts in the Chart of Accounts. An account will be updated  if it already exists and created if it does not.  The maximum number of accounts that this method can upsert per request is 2,000.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
-        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies             the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies              the Chart of Accounts.</param>
         /// <param name="account">A list of accounts to be created or updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1072,11 +1072,11 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] UpsertAccounts: Upsert Accounts
         /// </summary>
         /// <remarks>
-        /// Create or update accounts in the Chart of Accounts. An account will be updated if it already exists and created if it does not.  The maximum number of accounts that this method can upsert per request is 2,000.
+        /// Create or update accounts in the Chart of Accounts. An account will be updated  if it already exists and created if it does not.  The maximum number of accounts that this method can upsert per request is 2,000.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
-        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies             the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies              the Chart of Accounts.</param>
         /// <param name="account">A list of accounts to be created or updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1086,12 +1086,12 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] UpsertChartOfAccountsProperties: Upsert Chart of Accounts properties
         /// </summary>
         /// <remarks>
-        /// Update or insert one or more properties onto a single Chart of Accounts. A property will be updated if it already exists and inserted if it does not. All properties must be of the domain &#39;ChartOfAccounts&#39;.              Upserting a property that exists for a Chart of Accounts, with a null value, will delete the instance of the property for that group.              Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// Update or insert one or more properties onto a single Chart of Accounts. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;ChartOfAccounts&#39;.                Upserting a property that exists for a Chart of Accounts, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts to update or insert the properties onto.</param>
         /// <param name="code">The code of the Chart of Accounts to update or insert the properties onto. Together with the scope this uniquely identifies the Chart of Accounts.</param>
-        /// <param name="requestBody">The properties to be updated or inserted onto the chart of account. Each property in              the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;ChartOfAccounts/Manager/Id\&quot;. (optional)</param>
+        /// <param name="requestBody">The properties to be updated or inserted onto the chart of account. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;ChartOfAccounts/Manager/Id\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ChartOfAccountsProperties</returns>
@@ -1101,12 +1101,12 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] UpsertChartOfAccountsProperties: Upsert Chart of Accounts properties
         /// </summary>
         /// <remarks>
-        /// Update or insert one or more properties onto a single Chart of Accounts. A property will be updated if it already exists and inserted if it does not. All properties must be of the domain &#39;ChartOfAccounts&#39;.              Upserting a property that exists for a Chart of Accounts, with a null value, will delete the instance of the property for that group.              Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// Update or insert one or more properties onto a single Chart of Accounts. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;ChartOfAccounts&#39;.                Upserting a property that exists for a Chart of Accounts, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts to update or insert the properties onto.</param>
         /// <param name="code">The code of the Chart of Accounts to update or insert the properties onto. Together with the scope this uniquely identifies the Chart of Accounts.</param>
-        /// <param name="requestBody">The properties to be updated or inserted onto the chart of account. Each property in              the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;ChartOfAccounts/Manager/Id\&quot;. (optional)</param>
+        /// <param name="requestBody">The properties to be updated or inserted onto the chart of account. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;ChartOfAccounts/Manager/Id\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ChartOfAccountsProperties</returns>
@@ -1246,11 +1246,11 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] DeleteAccounts: Soft or hard delete multiple accounts
         /// </summary>
         /// <remarks>
-        /// Delete one or more account from the Chart of Accounts. Soft deletion marks the account as inactive While the Hard deletion is deleting the account.  The maximum number of accounts that this method can delete per request is 2,000.
+        /// Delete one or more account from the Chart of Accounts. Soft deletion marks the account as inactive  While the Hard deletion is deleting the account.  The maximum number of accounts that this method can delete per request is 2,000.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
-        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies             the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies              the Chart of Accounts.</param>
         /// <param name="requestBody">The codes of the accounts to delete.</param>
         /// <param name="deleteMode">The delete mode to use (defaults to &#39;Soft&#39;). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1263,11 +1263,11 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] DeleteAccounts: Soft or hard delete multiple accounts
         /// </summary>
         /// <remarks>
-        /// Delete one or more account from the Chart of Accounts. Soft deletion marks the account as inactive While the Hard deletion is deleting the account.  The maximum number of accounts that this method can delete per request is 2,000.
+        /// Delete one or more account from the Chart of Accounts. Soft deletion marks the account as inactive  While the Hard deletion is deleting the account.  The maximum number of accounts that this method can delete per request is 2,000.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
-        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies             the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies              the Chart of Accounts.</param>
         /// <param name="requestBody">The codes of the accounts to delete.</param>
         /// <param name="deleteMode">The delete mode to use (defaults to &#39;Soft&#39;). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1409,7 +1409,7 @@ namespace Lusid.Sdk.Api
         /// <param name="accountCode">The code of the Account.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the Account properties. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Account definition. Defaults to returning the latest version of the Account definition if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Account&#39; domain to decorate onto the Account.             These must take the format {domain}/{scope}/{code}, for example &#39;Account/Manager/Id&#39;. If no properties are specified, then no properties will be returned. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Account&#39; domain to decorate onto the Account.              These must take the format {domain}/{scope}/{code}, for example &#39;Account/Manager/Id&#39;. If no properties are specified, then no properties will be returned. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1428,7 +1428,7 @@ namespace Lusid.Sdk.Api
         /// <param name="accountCode">The code of the Account.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the Account properties. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Account definition. Defaults to returning the latest version of the Account definition if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Account&#39; domain to decorate onto the Account.             These must take the format {domain}/{scope}/{code}, for example &#39;Account/Manager/Id&#39;. If no properties are specified, then no properties will be returned. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Account&#39; domain to decorate onto the Account.              These must take the format {domain}/{scope}/{code}, for example &#39;Account/Manager/Id&#39;. If no properties are specified, then no properties will be returned. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1480,7 +1480,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the Chart of Accounts properties. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Chart of Accounts definition. Defaults to returning the latest version of the Chart of Accounts definition if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto the Chart of Accounts.             These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. If no properties are specified, then no properties will be returned. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto the Chart of Accounts.              These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. If no properties are specified, then no properties will be returned. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1498,7 +1498,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the Chart of Accounts properties. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Chart of Accounts definition. Defaults to returning the latest version of the Chart of Accounts definition if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto the Chart of Accounts.             These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. If no properties are specified, then no properties will be returned. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto the Chart of Accounts.              These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. If no properties are specified, then no properties will be returned. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1644,13 +1644,13 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
-        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies             the Chart of Accounts.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties decorated on Accounts. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Accounts. Defaults to             returning the latest version if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing charts of accounts; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies              the Chart of Accounts.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties decorated on Accounts. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Accounts. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing charts of accounts; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the Account type, specify \&quot;code eq &#39;001&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Account&#39; domain to decorate onto the Account.             These must have the format {domain}/{scope}/{code}, for example &#39;Account/system/Name&#39;. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the Account type, specify \&quot;code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Account&#39; domain to decorate onto the Account.              These must have the format {domain}/{scope}/{code}, for example &#39;Account/system/Name&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1665,13 +1665,13 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
-        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies             the Chart of Accounts.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties decorated on Accounts. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Accounts. Defaults to             returning the latest version if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing charts of accounts; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies              the Chart of Accounts.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties decorated on Accounts. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Accounts. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing charts of accounts; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the Account type, specify \&quot;code eq &#39;001&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Account&#39; domain to decorate onto the Account.             These must have the format {domain}/{scope}/{code}, for example &#39;Account/system/Name&#39;. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the Account type, specify \&quot;code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Account&#39; domain to decorate onto the Account.              These must have the format {domain}/{scope}/{code}, for example &#39;Account/system/Name&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1684,13 +1684,13 @@ namespace Lusid.Sdk.Api
         /// List all the Charts of Accounts matching particular criteria.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Chart Of Accounts. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the charts of accounts. Defaults to returning the latest version             of each Chart of Accounts if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing charts of accounts; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Chart Of Accounts. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the charts of accounts. Defaults to returning the latest version              of each Chart of Accounts if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing charts of accounts; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the Chart of Accounts type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the Chart of Accounts type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto each Chart of Accounts.             These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto each Chart of Accounts.              These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1704,13 +1704,13 @@ namespace Lusid.Sdk.Api
         /// List all the Charts of Accounts matching particular criteria.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Chart Of Accounts. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the charts of accounts. Defaults to returning the latest version             of each Chart of Accounts if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing charts of accounts; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Chart Of Accounts. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the charts of accounts. Defaults to returning the latest version              of each Chart of Accounts if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing charts of accounts; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the Chart of Accounts type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the Chart of Accounts type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto each Chart of Accounts.             These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto each Chart of Accounts.              These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1726,10 +1726,10 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Chart of Accounts.</param>
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="cleardownModuleCode">The code of the cleardown module.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to             returning the latest version if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing cleardown module rules; this             value is returned from the previous call. If a pagination token is provided, the filter             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing cleardown module rules; this              value is returned from the previous call. If a pagination token is provided, the filter              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1746,10 +1746,10 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Chart of Accounts.</param>
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="cleardownModuleCode">The code of the cleardown module.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to             returning the latest version if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing cleardown module rules; this             value is returned from the previous call. If a pagination token is provided, the filter             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing cleardown module rules; this              value is returned from the previous call. If a pagination token is provided, the filter              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1764,10 +1764,10 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
-        /// <param name="asAt">The asAt datetime at which to list the Cleardown Module. Defaults to returning the latest version             of each Cleardown Module if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Cleardown Modules; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the Cleardown Module. Defaults to returning the latest version              of each Cleardown Module if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Cleardown Modules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the Cleardown Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the Cleardown Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1784,10 +1784,10 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
-        /// <param name="asAt">The asAt datetime at which to list the Cleardown Module. Defaults to returning the latest version             of each Cleardown Module if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Cleardown Modules; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the Cleardown Module. Defaults to returning the latest version              of each Cleardown Module if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Cleardown Modules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the Cleardown Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the Cleardown Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1804,9 +1804,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Chart of Accounts</param>
         /// <param name="code">The code of the Chart of Accounts</param>
         /// <param name="asAt">The asAt datetime at which to list the General Ledger Profiles. Defaults to returning the latest version of each General Ledger Profile if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing General Ledger Profiles; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing General Ledger Profiles; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the General Ledger profiles type, specify \&quot;type eq &#39;PeriodBoundary&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the General Ledger profiles type, specify \&quot;type eq &#39;PeriodBoundary&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1824,9 +1824,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Chart of Accounts</param>
         /// <param name="code">The code of the Chart of Accounts</param>
         /// <param name="asAt">The asAt datetime at which to list the General Ledger Profiles. Defaults to returning the latest version of each General Ledger Profile if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing General Ledger Profiles; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing General Ledger Profiles; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the General Ledger profiles type, specify \&quot;type eq &#39;PeriodBoundary&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the General Ledger profiles type, specify \&quot;type eq &#39;PeriodBoundary&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1843,10 +1843,10 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Chart of Accounts.</param>
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="postingModuleCode">The code of the posting module.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to             returning the latest version if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing posting module rules; this             value is returned from the previous call. If a pagination token is provided, the filter             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing posting module rules; this              value is returned from the previous call. If a pagination token is provided, the filter              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1863,10 +1863,10 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Chart of Accounts.</param>
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="postingModuleCode">The code of the posting module.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to             returning the latest version if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing posting module rules; this             value is returned from the previous call. If a pagination token is provided, the filter             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing posting module rules; this              value is returned from the previous call. If a pagination token is provided, the filter              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1881,10 +1881,10 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
-        /// <param name="asAt">The asAt datetime at which to list the Posting Module. Defaults to returning the latest version             of each Posting Module if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Posting Modules; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the Posting Module. Defaults to returning the latest version              of each Posting Module if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Posting Modules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the Posting Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the Posting Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1901,10 +1901,10 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
-        /// <param name="asAt">The asAt datetime at which to list the Posting Module. Defaults to returning the latest version             of each Posting Module if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Posting Modules; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the Posting Module. Defaults to returning the latest version              of each Posting Module if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Posting Modules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the Posting Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the Posting Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2177,13 +2177,13 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] UpsertAccountProperties: Upsert account properties
         /// </summary>
         /// <remarks>
-        /// Update or insert one or more properties onto a single account. A property will be updated if it already exists and inserted if it does not. All properties must be of the domain &#39;Account&#39;.              Upserting a property that exists for an account, with a null value, will delete the instance of the property for that group.              Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// Update or insert one or more properties onto a single account. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Account&#39;.                Upserting a property that exists for an account, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts to update or insert the properties onto.</param>
         /// <param name="code">The code of the Chart of Accounts to update or insert the properties onto. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="accountCode">The unique ID of the account to create or update properties for.</param>
-        /// <param name="requestBody">The properties to be updated or inserted onto the chart of account. Each property in              the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;Account/Manager/Id\&quot;. (optional)</param>
+        /// <param name="requestBody">The properties to be updated or inserted onto the chart of account. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;Account/Manager/Id\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2194,13 +2194,13 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] UpsertAccountProperties: Upsert account properties
         /// </summary>
         /// <remarks>
-        /// Update or insert one or more properties onto a single account. A property will be updated if it already exists and inserted if it does not. All properties must be of the domain &#39;Account&#39;.              Upserting a property that exists for an account, with a null value, will delete the instance of the property for that group.              Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// Update or insert one or more properties onto a single account. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Account&#39;.                Upserting a property that exists for an account, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts to update or insert the properties onto.</param>
         /// <param name="code">The code of the Chart of Accounts to update or insert the properties onto. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="accountCode">The unique ID of the account to create or update properties for.</param>
-        /// <param name="requestBody">The properties to be updated or inserted onto the chart of account. Each property in              the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;Account/Manager/Id\&quot;. (optional)</param>
+        /// <param name="requestBody">The properties to be updated or inserted onto the chart of account. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;Account/Manager/Id\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2210,11 +2210,11 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] UpsertAccounts: Upsert Accounts
         /// </summary>
         /// <remarks>
-        /// Create or update accounts in the Chart of Accounts. An account will be updated if it already exists and created if it does not.  The maximum number of accounts that this method can upsert per request is 2,000.
+        /// Create or update accounts in the Chart of Accounts. An account will be updated  if it already exists and created if it does not.  The maximum number of accounts that this method can upsert per request is 2,000.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
-        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies             the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies              the Chart of Accounts.</param>
         /// <param name="account">A list of accounts to be created or updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2226,11 +2226,11 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] UpsertAccounts: Upsert Accounts
         /// </summary>
         /// <remarks>
-        /// Create or update accounts in the Chart of Accounts. An account will be updated if it already exists and created if it does not.  The maximum number of accounts that this method can upsert per request is 2,000.
+        /// Create or update accounts in the Chart of Accounts. An account will be updated  if it already exists and created if it does not.  The maximum number of accounts that this method can upsert per request is 2,000.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
-        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies             the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies              the Chart of Accounts.</param>
         /// <param name="account">A list of accounts to be created or updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2241,12 +2241,12 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] UpsertChartOfAccountsProperties: Upsert Chart of Accounts properties
         /// </summary>
         /// <remarks>
-        /// Update or insert one or more properties onto a single Chart of Accounts. A property will be updated if it already exists and inserted if it does not. All properties must be of the domain &#39;ChartOfAccounts&#39;.              Upserting a property that exists for a Chart of Accounts, with a null value, will delete the instance of the property for that group.              Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// Update or insert one or more properties onto a single Chart of Accounts. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;ChartOfAccounts&#39;.                Upserting a property that exists for a Chart of Accounts, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts to update or insert the properties onto.</param>
         /// <param name="code">The code of the Chart of Accounts to update or insert the properties onto. Together with the scope this uniquely identifies the Chart of Accounts.</param>
-        /// <param name="requestBody">The properties to be updated or inserted onto the chart of account. Each property in              the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;ChartOfAccounts/Manager/Id\&quot;. (optional)</param>
+        /// <param name="requestBody">The properties to be updated or inserted onto the chart of account. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;ChartOfAccounts/Manager/Id\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2257,12 +2257,12 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] UpsertChartOfAccountsProperties: Upsert Chart of Accounts properties
         /// </summary>
         /// <remarks>
-        /// Update or insert one or more properties onto a single Chart of Accounts. A property will be updated if it already exists and inserted if it does not. All properties must be of the domain &#39;ChartOfAccounts&#39;.              Upserting a property that exists for a Chart of Accounts, with a null value, will delete the instance of the property for that group.              Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// Update or insert one or more properties onto a single Chart of Accounts. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;ChartOfAccounts&#39;.                Upserting a property that exists for a Chart of Accounts, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts to update or insert the properties onto.</param>
         /// <param name="code">The code of the Chart of Accounts to update or insert the properties onto. Together with the scope this uniquely identifies the Chart of Accounts.</param>
-        /// <param name="requestBody">The properties to be updated or inserted onto the chart of account. Each property in              the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;ChartOfAccounts/Manager/Id\&quot;. (optional)</param>
+        /// <param name="requestBody">The properties to be updated or inserted onto the chart of account. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;ChartOfAccounts/Manager/Id\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -3366,11 +3366,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteAccounts: Soft or hard delete multiple accounts Delete one or more account from the Chart of Accounts. Soft deletion marks the account as inactive While the Hard deletion is deleting the account.  The maximum number of accounts that this method can delete per request is 2,000.
+        /// [EXPERIMENTAL] DeleteAccounts: Soft or hard delete multiple accounts Delete one or more account from the Chart of Accounts. Soft deletion marks the account as inactive  While the Hard deletion is deleting the account.  The maximum number of accounts that this method can delete per request is 2,000.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
-        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies             the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies              the Chart of Accounts.</param>
         /// <param name="requestBody">The codes of the accounts to delete.</param>
         /// <param name="deleteMode">The delete mode to use (defaults to &#39;Soft&#39;). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -3383,11 +3383,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteAccounts: Soft or hard delete multiple accounts Delete one or more account from the Chart of Accounts. Soft deletion marks the account as inactive While the Hard deletion is deleting the account.  The maximum number of accounts that this method can delete per request is 2,000.
+        /// [EXPERIMENTAL] DeleteAccounts: Soft or hard delete multiple accounts Delete one or more account from the Chart of Accounts. Soft deletion marks the account as inactive  While the Hard deletion is deleting the account.  The maximum number of accounts that this method can delete per request is 2,000.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
-        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies             the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies              the Chart of Accounts.</param>
         /// <param name="requestBody">The codes of the accounts to delete.</param>
         /// <param name="deleteMode">The delete mode to use (defaults to &#39;Soft&#39;). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -3494,11 +3494,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteAccounts: Soft or hard delete multiple accounts Delete one or more account from the Chart of Accounts. Soft deletion marks the account as inactive While the Hard deletion is deleting the account.  The maximum number of accounts that this method can delete per request is 2,000.
+        /// [EXPERIMENTAL] DeleteAccounts: Soft or hard delete multiple accounts Delete one or more account from the Chart of Accounts. Soft deletion marks the account as inactive  While the Hard deletion is deleting the account.  The maximum number of accounts that this method can delete per request is 2,000.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
-        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies             the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies              the Chart of Accounts.</param>
         /// <param name="requestBody">The codes of the accounts to delete.</param>
         /// <param name="deleteMode">The delete mode to use (defaults to &#39;Soft&#39;). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -3512,11 +3512,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteAccounts: Soft or hard delete multiple accounts Delete one or more account from the Chart of Accounts. Soft deletion marks the account as inactive While the Hard deletion is deleting the account.  The maximum number of accounts that this method can delete per request is 2,000.
+        /// [EXPERIMENTAL] DeleteAccounts: Soft or hard delete multiple accounts Delete one or more account from the Chart of Accounts. Soft deletion marks the account as inactive  While the Hard deletion is deleting the account.  The maximum number of accounts that this method can delete per request is 2,000.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
-        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies             the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies              the Chart of Accounts.</param>
         /// <param name="requestBody">The codes of the accounts to delete.</param>
         /// <param name="deleteMode">The delete mode to use (defaults to &#39;Soft&#39;). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -4576,7 +4576,7 @@ namespace Lusid.Sdk.Api
         /// <param name="accountCode">The code of the Account.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the Account properties. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Account definition. Defaults to returning the latest version of the Account definition if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Account&#39; domain to decorate onto the Account.             These must take the format {domain}/{scope}/{code}, for example &#39;Account/Manager/Id&#39;. If no properties are specified, then no properties will be returned. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Account&#39; domain to decorate onto the Account.              These must take the format {domain}/{scope}/{code}, for example &#39;Account/Manager/Id&#39;. If no properties are specified, then no properties will be returned. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Account</returns>
@@ -4595,7 +4595,7 @@ namespace Lusid.Sdk.Api
         /// <param name="accountCode">The code of the Account.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the Account properties. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Account definition. Defaults to returning the latest version of the Account definition if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Account&#39; domain to decorate onto the Account.             These must take the format {domain}/{scope}/{code}, for example &#39;Account/Manager/Id&#39;. If no properties are specified, then no properties will be returned. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Account&#39; domain to decorate onto the Account.              These must take the format {domain}/{scope}/{code}, for example &#39;Account/Manager/Id&#39;. If no properties are specified, then no properties will be returned. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Account</returns>
@@ -4712,7 +4712,7 @@ namespace Lusid.Sdk.Api
         /// <param name="accountCode">The code of the Account.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the Account properties. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Account definition. Defaults to returning the latest version of the Account definition if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Account&#39; domain to decorate onto the Account.             These must take the format {domain}/{scope}/{code}, for example &#39;Account/Manager/Id&#39;. If no properties are specified, then no properties will be returned. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Account&#39; domain to decorate onto the Account.              These must take the format {domain}/{scope}/{code}, for example &#39;Account/Manager/Id&#39;. If no properties are specified, then no properties will be returned. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -4732,7 +4732,7 @@ namespace Lusid.Sdk.Api
         /// <param name="accountCode">The code of the Account.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the Account properties. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Account definition. Defaults to returning the latest version of the Account definition if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Account&#39; domain to decorate onto the Account.             These must take the format {domain}/{scope}/{code}, for example &#39;Account/Manager/Id&#39;. If no properties are specified, then no properties will be returned. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Account&#39; domain to decorate onto the Account.              These must take the format {domain}/{scope}/{code}, for example &#39;Account/Manager/Id&#39;. If no properties are specified, then no properties will be returned. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -5115,7 +5115,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the Chart of Accounts properties. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Chart of Accounts definition. Defaults to returning the latest version of the Chart of Accounts definition if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto the Chart of Accounts.             These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. If no properties are specified, then no properties will be returned. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto the Chart of Accounts.              These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. If no properties are specified, then no properties will be returned. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ChartOfAccounts</returns>
@@ -5133,7 +5133,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the Chart of Accounts properties. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Chart of Accounts definition. Defaults to returning the latest version of the Chart of Accounts definition if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto the Chart of Accounts.             These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. If no properties are specified, then no properties will be returned. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto the Chart of Accounts.              These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. If no properties are specified, then no properties will be returned. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ChartOfAccounts</returns>
@@ -5242,7 +5242,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the Chart of Accounts properties. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Chart of Accounts definition. Defaults to returning the latest version of the Chart of Accounts definition if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto the Chart of Accounts.             These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. If no properties are specified, then no properties will be returned. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto the Chart of Accounts.              These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. If no properties are specified, then no properties will be returned. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -5261,7 +5261,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the Chart of Accounts properties. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Chart of Accounts definition. Defaults to returning the latest version of the Chart of Accounts definition if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto the Chart of Accounts.             These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. If no properties are specified, then no properties will be returned. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto the Chart of Accounts.              These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. If no properties are specified, then no properties will be returned. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -6372,13 +6372,13 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
-        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies             the Chart of Accounts.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties decorated on Accounts. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Accounts. Defaults to             returning the latest version if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing charts of accounts; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies              the Chart of Accounts.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties decorated on Accounts. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Accounts. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing charts of accounts; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the Account type, specify \&quot;code eq &#39;001&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Account&#39; domain to decorate onto the Account.             These must have the format {domain}/{scope}/{code}, for example &#39;Account/system/Name&#39;. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the Account type, specify \&quot;code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Account&#39; domain to decorate onto the Account.              These must have the format {domain}/{scope}/{code}, for example &#39;Account/system/Name&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfAccount</returns>
@@ -6393,13 +6393,13 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
-        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies             the Chart of Accounts.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties decorated on Accounts. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Accounts. Defaults to             returning the latest version if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing charts of accounts; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies              the Chart of Accounts.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties decorated on Accounts. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Accounts. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing charts of accounts; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the Account type, specify \&quot;code eq &#39;001&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Account&#39; domain to decorate onto the Account.             These must have the format {domain}/{scope}/{code}, for example &#39;Account/system/Name&#39;. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the Account type, specify \&quot;code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Account&#39; domain to decorate onto the Account.              These must have the format {domain}/{scope}/{code}, for example &#39;Account/system/Name&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfAccount</returns>
@@ -6517,13 +6517,13 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
-        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies             the Chart of Accounts.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties decorated on Accounts. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Accounts. Defaults to             returning the latest version if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing charts of accounts; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies              the Chart of Accounts.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties decorated on Accounts. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Accounts. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing charts of accounts; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the Account type, specify \&quot;code eq &#39;001&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Account&#39; domain to decorate onto the Account.             These must have the format {domain}/{scope}/{code}, for example &#39;Account/system/Name&#39;. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the Account type, specify \&quot;code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Account&#39; domain to decorate onto the Account.              These must have the format {domain}/{scope}/{code}, for example &#39;Account/system/Name&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -6539,13 +6539,13 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
-        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies             the Chart of Accounts.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties decorated on Accounts. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Accounts. Defaults to             returning the latest version if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing charts of accounts; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies              the Chart of Accounts.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties decorated on Accounts. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Accounts. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing charts of accounts; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the Account type, specify \&quot;code eq &#39;001&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Account&#39; domain to decorate onto the Account.             These must have the format {domain}/{scope}/{code}, for example &#39;Account/system/Name&#39;. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the Account type, specify \&quot;code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Account&#39; domain to decorate onto the Account.              These must have the format {domain}/{scope}/{code}, for example &#39;Account/system/Name&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -6665,13 +6665,13 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListChartsOfAccounts: List Charts of Accounts List all the Charts of Accounts matching particular criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Chart Of Accounts. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the charts of accounts. Defaults to returning the latest version             of each Chart of Accounts if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing charts of accounts; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Chart Of Accounts. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the charts of accounts. Defaults to returning the latest version              of each Chart of Accounts if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing charts of accounts; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the Chart of Accounts type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the Chart of Accounts type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto each Chart of Accounts.             These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto each Chart of Accounts.              These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfChartOfAccounts</returns>
@@ -6685,13 +6685,13 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListChartsOfAccounts: List Charts of Accounts List all the Charts of Accounts matching particular criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Chart Of Accounts. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the charts of accounts. Defaults to returning the latest version             of each Chart of Accounts if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing charts of accounts; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Chart Of Accounts. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the charts of accounts. Defaults to returning the latest version              of each Chart of Accounts if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing charts of accounts; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the Chart of Accounts type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the Chart of Accounts type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto each Chart of Accounts.             These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto each Chart of Accounts.              These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfChartOfAccounts</returns>
@@ -6798,13 +6798,13 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListChartsOfAccounts: List Charts of Accounts List all the Charts of Accounts matching particular criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Chart Of Accounts. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the charts of accounts. Defaults to returning the latest version             of each Chart of Accounts if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing charts of accounts; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Chart Of Accounts. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the charts of accounts. Defaults to returning the latest version              of each Chart of Accounts if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing charts of accounts; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the Chart of Accounts type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the Chart of Accounts type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto each Chart of Accounts.             These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto each Chart of Accounts.              These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -6819,13 +6819,13 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListChartsOfAccounts: List Charts of Accounts List all the Charts of Accounts matching particular criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Chart Of Accounts. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the charts of accounts. Defaults to returning the latest version             of each Chart of Accounts if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing charts of accounts; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Chart Of Accounts. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the charts of accounts. Defaults to returning the latest version              of each Chart of Accounts if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing charts of accounts; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the Chart of Accounts type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the Chart of Accounts type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto each Chart of Accounts.             These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto each Chart of Accounts.              These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -6938,10 +6938,10 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Chart of Accounts.</param>
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="cleardownModuleCode">The code of the cleardown module.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to             returning the latest version if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing cleardown module rules; this             value is returned from the previous call. If a pagination token is provided, the filter             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing cleardown module rules; this              value is returned from the previous call. If a pagination token is provided, the filter              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfCleardownModuleRule</returns>
@@ -6958,10 +6958,10 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Chart of Accounts.</param>
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="cleardownModuleCode">The code of the cleardown module.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to             returning the latest version if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing cleardown module rules; this             value is returned from the previous call. If a pagination token is provided, the filter             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing cleardown module rules; this              value is returned from the previous call. If a pagination token is provided, the filter              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfCleardownModuleRule</returns>
@@ -7080,10 +7080,10 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Chart of Accounts.</param>
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="cleardownModuleCode">The code of the cleardown module.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to             returning the latest version if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing cleardown module rules; this             value is returned from the previous call. If a pagination token is provided, the filter             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing cleardown module rules; this              value is returned from the previous call. If a pagination token is provided, the filter              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -7101,10 +7101,10 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Chart of Accounts.</param>
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="cleardownModuleCode">The code of the cleardown module.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to             returning the latest version if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing cleardown module rules; this             value is returned from the previous call. If a pagination token is provided, the filter             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing cleardown module rules; this              value is returned from the previous call. If a pagination token is provided, the filter              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -7225,10 +7225,10 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
-        /// <param name="asAt">The asAt datetime at which to list the Cleardown Module. Defaults to returning the latest version             of each Cleardown Module if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Cleardown Modules; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the Cleardown Module. Defaults to returning the latest version              of each Cleardown Module if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Cleardown Modules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the Cleardown Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the Cleardown Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -7245,10 +7245,10 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
-        /// <param name="asAt">The asAt datetime at which to list the Cleardown Module. Defaults to returning the latest version             of each Cleardown Module if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Cleardown Modules; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the Cleardown Module. Defaults to returning the latest version              of each Cleardown Module if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Cleardown Modules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the Cleardown Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the Cleardown Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -7364,10 +7364,10 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
-        /// <param name="asAt">The asAt datetime at which to list the Cleardown Module. Defaults to returning the latest version             of each Cleardown Module if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Cleardown Modules; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the Cleardown Module. Defaults to returning the latest version              of each Cleardown Module if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Cleardown Modules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the Cleardown Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the Cleardown Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -7385,10 +7385,10 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
-        /// <param name="asAt">The asAt datetime at which to list the Cleardown Module. Defaults to returning the latest version             of each Cleardown Module if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Cleardown Modules; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the Cleardown Module. Defaults to returning the latest version              of each Cleardown Module if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Cleardown Modules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the Cleardown Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the Cleardown Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -7508,9 +7508,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Chart of Accounts</param>
         /// <param name="code">The code of the Chart of Accounts</param>
         /// <param name="asAt">The asAt datetime at which to list the General Ledger Profiles. Defaults to returning the latest version of each General Ledger Profile if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing General Ledger Profiles; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing General Ledger Profiles; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the General Ledger profiles type, specify \&quot;type eq &#39;PeriodBoundary&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the General Ledger profiles type, specify \&quot;type eq &#39;PeriodBoundary&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -7528,9 +7528,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Chart of Accounts</param>
         /// <param name="code">The code of the Chart of Accounts</param>
         /// <param name="asAt">The asAt datetime at which to list the General Ledger Profiles. Defaults to returning the latest version of each General Ledger Profile if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing General Ledger Profiles; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing General Ledger Profiles; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the General Ledger profiles type, specify \&quot;type eq &#39;PeriodBoundary&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the General Ledger profiles type, specify \&quot;type eq &#39;PeriodBoundary&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -7647,9 +7647,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Chart of Accounts</param>
         /// <param name="code">The code of the Chart of Accounts</param>
         /// <param name="asAt">The asAt datetime at which to list the General Ledger Profiles. Defaults to returning the latest version of each General Ledger Profile if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing General Ledger Profiles; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing General Ledger Profiles; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the General Ledger profiles type, specify \&quot;type eq &#39;PeriodBoundary&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the General Ledger profiles type, specify \&quot;type eq &#39;PeriodBoundary&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -7668,9 +7668,9 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Chart of Accounts</param>
         /// <param name="code">The code of the Chart of Accounts</param>
         /// <param name="asAt">The asAt datetime at which to list the General Ledger Profiles. Defaults to returning the latest version of each General Ledger Profile if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing General Ledger Profiles; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing General Ledger Profiles; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the General Ledger profiles type, specify \&quot;type eq &#39;PeriodBoundary&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the General Ledger profiles type, specify \&quot;type eq &#39;PeriodBoundary&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -7790,10 +7790,10 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Chart of Accounts.</param>
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="postingModuleCode">The code of the posting module.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to             returning the latest version if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing posting module rules; this             value is returned from the previous call. If a pagination token is provided, the filter             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing posting module rules; this              value is returned from the previous call. If a pagination token is provided, the filter              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfPostingModuleRule</returns>
@@ -7810,10 +7810,10 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Chart of Accounts.</param>
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="postingModuleCode">The code of the posting module.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to             returning the latest version if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing posting module rules; this             value is returned from the previous call. If a pagination token is provided, the filter             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing posting module rules; this              value is returned from the previous call. If a pagination token is provided, the filter              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfPostingModuleRule</returns>
@@ -7932,10 +7932,10 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Chart of Accounts.</param>
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="postingModuleCode">The code of the posting module.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to             returning the latest version if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing posting module rules; this             value is returned from the previous call. If a pagination token is provided, the filter             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing posting module rules; this              value is returned from the previous call. If a pagination token is provided, the filter              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -7953,10 +7953,10 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Chart of Accounts.</param>
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="postingModuleCode">The code of the posting module.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to             returning the latest version if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing posting module rules; this             value is returned from the previous call. If a pagination token is provided, the filter             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing posting module rules; this              value is returned from the previous call. If a pagination token is provided, the filter              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the rule id, specify \&quot;ruleId eq &#39;rule 1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -8077,10 +8077,10 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
-        /// <param name="asAt">The asAt datetime at which to list the Posting Module. Defaults to returning the latest version             of each Posting Module if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Posting Modules; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the Posting Module. Defaults to returning the latest version              of each Posting Module if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Posting Modules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the Posting Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the Posting Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -8097,10 +8097,10 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
-        /// <param name="asAt">The asAt datetime at which to list the Posting Module. Defaults to returning the latest version             of each Posting Module if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Posting Modules; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the Posting Module. Defaults to returning the latest version              of each Posting Module if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Posting Modules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the Posting Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the Posting Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -8216,10 +8216,10 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
-        /// <param name="asAt">The asAt datetime at which to list the Posting Module. Defaults to returning the latest version             of each Posting Module if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Posting Modules; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the Posting Module. Defaults to returning the latest version              of each Posting Module if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Posting Modules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the Posting Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the Posting Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -8237,10 +8237,10 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
-        /// <param name="asAt">The asAt datetime at which to list the Posting Module. Defaults to returning the latest version             of each Posting Module if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Posting Modules; this             value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the Posting Module. Defaults to returning the latest version              of each Posting Module if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Posting Modules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.             For example, to filter on the Posting Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering             results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the Posting Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -10464,13 +10464,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertAccountProperties: Upsert account properties Update or insert one or more properties onto a single account. A property will be updated if it already exists and inserted if it does not. All properties must be of the domain &#39;Account&#39;.              Upserting a property that exists for an account, with a null value, will delete the instance of the property for that group.              Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// [EXPERIMENTAL] UpsertAccountProperties: Upsert account properties Update or insert one or more properties onto a single account. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Account&#39;.                Upserting a property that exists for an account, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts to update or insert the properties onto.</param>
         /// <param name="code">The code of the Chart of Accounts to update or insert the properties onto. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="accountCode">The unique ID of the account to create or update properties for.</param>
-        /// <param name="requestBody">The properties to be updated or inserted onto the chart of account. Each property in              the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;Account/Manager/Id\&quot;. (optional)</param>
+        /// <param name="requestBody">The properties to be updated or inserted onto the chart of account. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;Account/Manager/Id\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>AccountProperties</returns>
@@ -10481,13 +10481,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertAccountProperties: Upsert account properties Update or insert one or more properties onto a single account. A property will be updated if it already exists and inserted if it does not. All properties must be of the domain &#39;Account&#39;.              Upserting a property that exists for an account, with a null value, will delete the instance of the property for that group.              Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// [EXPERIMENTAL] UpsertAccountProperties: Upsert account properties Update or insert one or more properties onto a single account. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Account&#39;.                Upserting a property that exists for an account, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts to update or insert the properties onto.</param>
         /// <param name="code">The code of the Chart of Accounts to update or insert the properties onto. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="accountCode">The unique ID of the account to create or update properties for.</param>
-        /// <param name="requestBody">The properties to be updated or inserted onto the chart of account. Each property in              the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;Account/Manager/Id\&quot;. (optional)</param>
+        /// <param name="requestBody">The properties to be updated or inserted onto the chart of account. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;Account/Manager/Id\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AccountProperties</returns>
@@ -10589,13 +10589,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertAccountProperties: Upsert account properties Update or insert one or more properties onto a single account. A property will be updated if it already exists and inserted if it does not. All properties must be of the domain &#39;Account&#39;.              Upserting a property that exists for an account, with a null value, will delete the instance of the property for that group.              Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// [EXPERIMENTAL] UpsertAccountProperties: Upsert account properties Update or insert one or more properties onto a single account. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Account&#39;.                Upserting a property that exists for an account, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts to update or insert the properties onto.</param>
         /// <param name="code">The code of the Chart of Accounts to update or insert the properties onto. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="accountCode">The unique ID of the account to create or update properties for.</param>
-        /// <param name="requestBody">The properties to be updated or inserted onto the chart of account. Each property in              the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;Account/Manager/Id\&quot;. (optional)</param>
+        /// <param name="requestBody">The properties to be updated or inserted onto the chart of account. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;Account/Manager/Id\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -10607,13 +10607,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertAccountProperties: Upsert account properties Update or insert one or more properties onto a single account. A property will be updated if it already exists and inserted if it does not. All properties must be of the domain &#39;Account&#39;.              Upserting a property that exists for an account, with a null value, will delete the instance of the property for that group.              Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// [EXPERIMENTAL] UpsertAccountProperties: Upsert account properties Update or insert one or more properties onto a single account. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Account&#39;.                Upserting a property that exists for an account, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts to update or insert the properties onto.</param>
         /// <param name="code">The code of the Chart of Accounts to update or insert the properties onto. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="accountCode">The unique ID of the account to create or update properties for.</param>
-        /// <param name="requestBody">The properties to be updated or inserted onto the chart of account. Each property in              the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;Account/Manager/Id\&quot;. (optional)</param>
+        /// <param name="requestBody">The properties to be updated or inserted onto the chart of account. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;Account/Manager/Id\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -10718,11 +10718,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertAccounts: Upsert Accounts Create or update accounts in the Chart of Accounts. An account will be updated if it already exists and created if it does not.  The maximum number of accounts that this method can upsert per request is 2,000.
+        /// [EXPERIMENTAL] UpsertAccounts: Upsert Accounts Create or update accounts in the Chart of Accounts. An account will be updated  if it already exists and created if it does not.  The maximum number of accounts that this method can upsert per request is 2,000.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
-        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies             the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies              the Chart of Accounts.</param>
         /// <param name="account">A list of accounts to be created or updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -10734,11 +10734,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertAccounts: Upsert Accounts Create or update accounts in the Chart of Accounts. An account will be updated if it already exists and created if it does not.  The maximum number of accounts that this method can upsert per request is 2,000.
+        /// [EXPERIMENTAL] UpsertAccounts: Upsert Accounts Create or update accounts in the Chart of Accounts. An account will be updated  if it already exists and created if it does not.  The maximum number of accounts that this method can upsert per request is 2,000.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
-        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies             the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies              the Chart of Accounts.</param>
         /// <param name="account">A list of accounts to be created or updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -10840,11 +10840,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertAccounts: Upsert Accounts Create or update accounts in the Chart of Accounts. An account will be updated if it already exists and created if it does not.  The maximum number of accounts that this method can upsert per request is 2,000.
+        /// [EXPERIMENTAL] UpsertAccounts: Upsert Accounts Create or update accounts in the Chart of Accounts. An account will be updated  if it already exists and created if it does not.  The maximum number of accounts that this method can upsert per request is 2,000.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
-        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies             the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies              the Chart of Accounts.</param>
         /// <param name="account">A list of accounts to be created or updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -10857,11 +10857,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertAccounts: Upsert Accounts Create or update accounts in the Chart of Accounts. An account will be updated if it already exists and created if it does not.  The maximum number of accounts that this method can upsert per request is 2,000.
+        /// [EXPERIMENTAL] UpsertAccounts: Upsert Accounts Create or update accounts in the Chart of Accounts. An account will be updated  if it already exists and created if it does not.  The maximum number of accounts that this method can upsert per request is 2,000.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts.</param>
-        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies             the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies              the Chart of Accounts.</param>
         /// <param name="account">A list of accounts to be created or updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -10966,12 +10966,12 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertChartOfAccountsProperties: Upsert Chart of Accounts properties Update or insert one or more properties onto a single Chart of Accounts. A property will be updated if it already exists and inserted if it does not. All properties must be of the domain &#39;ChartOfAccounts&#39;.              Upserting a property that exists for a Chart of Accounts, with a null value, will delete the instance of the property for that group.              Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// [EXPERIMENTAL] UpsertChartOfAccountsProperties: Upsert Chart of Accounts properties Update or insert one or more properties onto a single Chart of Accounts. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;ChartOfAccounts&#39;.                Upserting a property that exists for a Chart of Accounts, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts to update or insert the properties onto.</param>
         /// <param name="code">The code of the Chart of Accounts to update or insert the properties onto. Together with the scope this uniquely identifies the Chart of Accounts.</param>
-        /// <param name="requestBody">The properties to be updated or inserted onto the chart of account. Each property in              the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;ChartOfAccounts/Manager/Id\&quot;. (optional)</param>
+        /// <param name="requestBody">The properties to be updated or inserted onto the chart of account. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;ChartOfAccounts/Manager/Id\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ChartOfAccountsProperties</returns>
@@ -10982,12 +10982,12 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertChartOfAccountsProperties: Upsert Chart of Accounts properties Update or insert one or more properties onto a single Chart of Accounts. A property will be updated if it already exists and inserted if it does not. All properties must be of the domain &#39;ChartOfAccounts&#39;.              Upserting a property that exists for a Chart of Accounts, with a null value, will delete the instance of the property for that group.              Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// [EXPERIMENTAL] UpsertChartOfAccountsProperties: Upsert Chart of Accounts properties Update or insert one or more properties onto a single Chart of Accounts. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;ChartOfAccounts&#39;.                Upserting a property that exists for a Chart of Accounts, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts to update or insert the properties onto.</param>
         /// <param name="code">The code of the Chart of Accounts to update or insert the properties onto. Together with the scope this uniquely identifies the Chart of Accounts.</param>
-        /// <param name="requestBody">The properties to be updated or inserted onto the chart of account. Each property in              the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;ChartOfAccounts/Manager/Id\&quot;. (optional)</param>
+        /// <param name="requestBody">The properties to be updated or inserted onto the chart of account. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;ChartOfAccounts/Manager/Id\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ChartOfAccountsProperties</returns>
@@ -11082,12 +11082,12 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertChartOfAccountsProperties: Upsert Chart of Accounts properties Update or insert one or more properties onto a single Chart of Accounts. A property will be updated if it already exists and inserted if it does not. All properties must be of the domain &#39;ChartOfAccounts&#39;.              Upserting a property that exists for a Chart of Accounts, with a null value, will delete the instance of the property for that group.              Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// [EXPERIMENTAL] UpsertChartOfAccountsProperties: Upsert Chart of Accounts properties Update or insert one or more properties onto a single Chart of Accounts. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;ChartOfAccounts&#39;.                Upserting a property that exists for a Chart of Accounts, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts to update or insert the properties onto.</param>
         /// <param name="code">The code of the Chart of Accounts to update or insert the properties onto. Together with the scope this uniquely identifies the Chart of Accounts.</param>
-        /// <param name="requestBody">The properties to be updated or inserted onto the chart of account. Each property in              the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;ChartOfAccounts/Manager/Id\&quot;. (optional)</param>
+        /// <param name="requestBody">The properties to be updated or inserted onto the chart of account. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;ChartOfAccounts/Manager/Id\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -11099,12 +11099,12 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertChartOfAccountsProperties: Upsert Chart of Accounts properties Update or insert one or more properties onto a single Chart of Accounts. A property will be updated if it already exists and inserted if it does not. All properties must be of the domain &#39;ChartOfAccounts&#39;.              Upserting a property that exists for a Chart of Accounts, with a null value, will delete the instance of the property for that group.              Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// [EXPERIMENTAL] UpsertChartOfAccountsProperties: Upsert Chart of Accounts properties Update or insert one or more properties onto a single Chart of Accounts. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;ChartOfAccounts&#39;.                Upserting a property that exists for a Chart of Accounts, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Chart of Accounts to update or insert the properties onto.</param>
         /// <param name="code">The code of the Chart of Accounts to update or insert the properties onto. Together with the scope this uniquely identifies the Chart of Accounts.</param>
-        /// <param name="requestBody">The properties to be updated or inserted onto the chart of account. Each property in              the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;ChartOfAccounts/Manager/Id\&quot;. (optional)</param>
+        /// <param name="requestBody">The properties to be updated or inserted onto the chart of account. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;ChartOfAccounts/Manager/Id\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>

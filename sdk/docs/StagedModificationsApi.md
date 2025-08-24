@@ -289,10 +289,10 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<StagedModificationsApi>();
             var id = "id_example";  // string | Unique Id for a staged modification..
-            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list changes. Defaults to return the latest version             of each staged change if not specified. (optional) 
-            var page = "page_example";  // string? | The pagination token to use to continue listing requested staged modification changes from a previous call to list requested             staged modifications. This value is returned from the previous call. If a pagination token is provided the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list changes. Defaults to return the latest version              of each staged change if not specified. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing requested staged modification changes from a previous call to list requested              staged modifications. This value is returned from the previous call. If a pagination token is provided the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional) 
             var limit = 56;  // int? | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional) 
-            var filter = "filter_example";  // string? | Expression to filter the result set.             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
             var sortBy = new List<string>?(); // List<string>? | A list of field names suffixed by \" ASC\" or \" DESC\" (optional) 
 
             try
@@ -340,10 +340,10 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **id** | **string** | Unique Id for a staged modification.. |  |
-| **asAt** | **DateTimeOffset?** | The asAt datetime at which to list changes. Defaults to return the latest version             of each staged change if not specified. | [optional]  |
-| **page** | **string?** | The pagination token to use to continue listing requested staged modification changes from a previous call to list requested             staged modifications. This value is returned from the previous call. If a pagination token is provided the filter, effectiveAt             and asAt fields must not have changed since the original request. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to list changes. Defaults to return the latest version              of each staged change if not specified. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing requested staged modification changes from a previous call to list requested              staged modifications. This value is returned from the previous call. If a pagination token is provided the filter, effectiveAt              and asAt fields must not have changed since the original request. | [optional]  |
 | **limit** | **int?** | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. | [optional]  |
-| **filter** | **string?** | Expression to filter the result set.             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
+| **filter** | **string?** | Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
 | **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; | [optional]  |
 
 ### Return type
@@ -412,10 +412,10 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<StagedModificationsApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<StagedModificationsApi>();
-            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list staged modifications. Defaults to return the latest version             of each staged modification if not specified. (optional) 
-            var page = "page_example";  // string? | The pagination token to use to continue listing staged modifications from a previous call to list staged modifications. This             value is returned from the previous call. If a pagination token is provided the filter, effectiveAt             and asAt fields must not have changed since the original request. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list staged modifications. Defaults to return the latest version              of each staged modification if not specified. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing staged modifications from a previous call to list staged modifications. This              value is returned from the previous call. If a pagination token is provided the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional) 
             var limit = 56;  // int? | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional) 
-            var filter = "filter_example";  // string? | Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the result set.               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
             var sortBy = new List<string>?(); // List<string>? | A list of field names suffixed by \" ASC\" or \" DESC\" (optional) 
 
             try
@@ -462,10 +462,10 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **asAt** | **DateTimeOffset?** | The asAt datetime at which to list staged modifications. Defaults to return the latest version             of each staged modification if not specified. | [optional]  |
-| **page** | **string?** | The pagination token to use to continue listing staged modifications from a previous call to list staged modifications. This             value is returned from the previous call. If a pagination token is provided the filter, effectiveAt             and asAt fields must not have changed since the original request. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to list staged modifications. Defaults to return the latest version              of each staged modification if not specified. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing staged modifications from a previous call to list staged modifications. This              value is returned from the previous call. If a pagination token is provided the filter, effectiveAt              and asAt fields must not have changed since the original request. | [optional]  |
 | **limit** | **int?** | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. | [optional]  |
-| **filter** | **string?** | Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
+| **filter** | **string?** | Expression to filter the result set.               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
 | **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; | [optional]  |
 
 ### Return type

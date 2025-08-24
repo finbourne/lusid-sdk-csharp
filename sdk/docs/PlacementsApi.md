@@ -15,7 +15,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 [EARLY ACCESS] DeletePlacement: Delete placement
 
-Delete an placement. Deletion will be valid from the placement's creation datetime. This means that the placement will no longer exist at any effective datetime from the asAt datetime of deletion.
+Delete an placement. Deletion will be valid from the placement's creation datetime.  This means that the placement will no longer exist at any effective datetime from the asAt datetime of deletion.
 
 ### Example
 ```csharp
@@ -175,7 +175,7 @@ namespace Examples
             var scope = "scope_example";  // string | The scope to which the placement belongs.
             var code = "code_example";  // string | The placement's unique identifier.
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the placement. Defaults to return the latest version of the placement if not specified. (optional) 
-            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the \"Placement\" domain to decorate onto the placement.  If none are given, all applied properties are returned.             These take the format {domain}/{scope}/{code} e.g. \"Placement/system/Name\". Property keys from the instrument domain can also be decorated             onto the placement, e.g. \"Instrument/default/Isin\". These are only decorated if requested. (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the \"Placement\" domain to decorate onto the placement.  If none are given, all applied properties are returned.              These take the format {domain}/{scope}/{code} e.g. \"Placement/system/Name\". Property keys from the instrument domain can also be decorated              onto the placement, e.g. \"Instrument/default/Isin\". These are only decorated if requested. (optional) 
 
             try
             {
@@ -224,7 +224,7 @@ catch (ApiException e)
 | **scope** | **string** | The scope to which the placement belongs. |  |
 | **code** | **string** | The placement&#39;s unique identifier. |  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the placement. Defaults to return the latest version of the placement if not specified. | [optional]  |
-| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the \&quot;Placement\&quot; domain to decorate onto the placement.  If none are given, all applied properties are returned.             These take the format {domain}/{scope}/{code} e.g. \&quot;Placement/system/Name\&quot;. Property keys from the instrument domain can also be decorated             onto the placement, e.g. \&quot;Instrument/default/Isin\&quot;. These are only decorated if requested. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the \&quot;Placement\&quot; domain to decorate onto the placement.  If none are given, all applied properties are returned.              These take the format {domain}/{scope}/{code} e.g. \&quot;Placement/system/Name\&quot;. Property keys from the instrument domain can also be decorated              onto the placement, e.g. \&quot;Instrument/default/Isin\&quot;. These are only decorated if requested. | [optional]  |
 
 ### Return type
 
@@ -293,11 +293,11 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PlacementsApi>();
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the placement. Defaults to return the latest version of the placement if not specified. (optional) 
-            var page = "page_example";  // string? | The pagination token to use to continue listing placements from a previous call to list placements.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields             must not have changed since the original request. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing placements from a previous call to list placements.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional) 
             var sortBy = new List<string>?(); // List<string>? | A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\". (optional) 
             var limit = 56;  // int? | When paginating, limit the number of returned results to this many. (optional) 
-            var filter = "filter_example";  // string? | Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional) 
-            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the \"Placement\" domain to decorate onto each placement.                 These take the format {domain}/{scope}/{code} e.g. \"Placement/system/Name\".                 All properties, except derived properties, are returned by default, without specifying here. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the \"Placement\" domain to decorate onto each placement.                  These take the format {domain}/{scope}/{code} e.g. \"Placement/system/Name\".                  All properties, except derived properties, are returned by default, without specifying here. (optional) 
 
             try
             {
@@ -344,11 +344,11 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the placement. Defaults to return the latest version of the placement if not specified. | [optional]  |
-| **page** | **string?** | The pagination token to use to continue listing placements from a previous call to list placements.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields             must not have changed since the original request. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing placements from a previous call to list placements.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. | [optional]  |
 | **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. | [optional]  |
 | **limit** | **int?** | When paginating, limit the number of returned results to this many. | [optional]  |
-| **filter** | **string?** | Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
-| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the \&quot;Placement\&quot; domain to decorate onto each placement.                 These take the format {domain}/{scope}/{code} e.g. \&quot;Placement/system/Name\&quot;.                 All properties, except derived properties, are returned by default, without specifying here. | [optional]  |
+| **filter** | **string?** | Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the \&quot;Placement\&quot; domain to decorate onto each placement.                  These take the format {domain}/{scope}/{code} e.g. \&quot;Placement/system/Name\&quot;.                  All properties, except derived properties, are returned by default, without specifying here. | [optional]  |
 
 ### Return type
 

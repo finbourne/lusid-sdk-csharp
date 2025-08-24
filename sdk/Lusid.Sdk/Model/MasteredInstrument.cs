@@ -133,9 +133,9 @@ namespace Lusid.Sdk.Model
             return false;
         }
         /// <summary>
-        /// Asset class of the underlying mastered instrument - read only field  Supported string (enumeration) values are: [InterestRates, FX, Inflation, Equities, Credit, Commodities, Money].
+        /// Asset class of the underlying mastered instrument - read only field    Supported string (enumeration) values are: [InterestRates, FX, Inflation, Equities, Credit, Commodities, Money].
         /// </summary>
-        /// <value>Asset class of the underlying mastered instrument - read only field  Supported string (enumeration) values are: [InterestRates, FX, Inflation, Equities, Credit, Commodities, Money].</value>
+        /// <value>Asset class of the underlying mastered instrument - read only field    Supported string (enumeration) values are: [InterestRates, FX, Inflation, Equities, Credit, Commodities, Money].</value>
         [DataMember(Name = "masteredAssetClass", EmitDefaultValue = true)]
         public string MasteredAssetClass { get; private set; }
 

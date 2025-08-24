@@ -137,7 +137,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="key">The key that uniquely identifies a queryable address in Lusid. (required).</param>
         /// <param name="op">The available values are: Sum, DefaultSum, Proportion, Average, Count, Min, Max, Value, SumOfPositiveValues, SumOfNegativeValues, SumOfAbsoluteValues, ProportionOfAbsoluteValues, SumCumulativeInAdvance, SumCumulativeInArrears (required).</param>
-        /// <param name="options">Additional options to apply when performing computations. Options that do not apply to the Key will be ignored. Option values can be boolean, numeric, string or date-time..</param>
+        /// <param name="options">Additional options to apply when performing computations. Options that do not apply to the Key will be  ignored. Option values can be boolean, numeric, string or date-time..</param>
         public AggregateSpec(string key = default(string), OpEnum op = default(OpEnum), Dictionary<string, Object> options = default(Dictionary<string, Object>))
         {
             // to ensure "key" is required (not null)
@@ -158,9 +158,9 @@ namespace Lusid.Sdk.Model
         public string Key { get; set; }
 
         /// <summary>
-        /// Additional options to apply when performing computations. Options that do not apply to the Key will be ignored. Option values can be boolean, numeric, string or date-time.
+        /// Additional options to apply when performing computations. Options that do not apply to the Key will be  ignored. Option values can be boolean, numeric, string or date-time.
         /// </summary>
-        /// <value>Additional options to apply when performing computations. Options that do not apply to the Key will be ignored. Option values can be boolean, numeric, string or date-time.</value>
+        /// <value>Additional options to apply when performing computations. Options that do not apply to the Key will be  ignored. Option values can be boolean, numeric, string or date-time.</value>
         [DataMember(Name = "options", EmitDefaultValue = true)]
         public Dictionary<string, Object> Options { get; set; }
 

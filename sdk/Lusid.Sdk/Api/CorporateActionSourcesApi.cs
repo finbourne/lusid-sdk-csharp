@@ -35,7 +35,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] BatchUpsertCorporateActions: Batch upsert corporate actions (instrument transition events) to corporate action source.
         /// </summary>
         /// <remarks>
-        /// Create or update one or more corporate actions in a particular corporate action source. Failures are identified in the body of the response.              If a corporate action is upserted at exactly the same effective datetime as a transaction for the same instrument, the corporate action takes precedence. Depending on the nature of the corporate action, this may mean it affects the transaction.              The maximum number of corporate actions that this method can upsert per request is 10,000.
+        /// Create or update one or more corporate actions in a particular corporate action source. Failures are identified in the body of the response.                If a corporate action is upserted at exactly the same effective datetime as a transaction for the same instrument, the corporate action takes precedence. Depending on the nature of the corporate action, this may mean it affects the transaction.                The maximum number of corporate actions that this method can upsert per request is 10,000.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of corporate action source</param>
@@ -50,7 +50,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] BatchUpsertCorporateActions: Batch upsert corporate actions (instrument transition events) to corporate action source.
         /// </summary>
         /// <remarks>
-        /// Create or update one or more corporate actions in a particular corporate action source. Failures are identified in the body of the response.              If a corporate action is upserted at exactly the same effective datetime as a transaction for the same instrument, the corporate action takes precedence. Depending on the nature of the corporate action, this may mean it affects the transaction.              The maximum number of corporate actions that this method can upsert per request is 10,000.
+        /// Create or update one or more corporate actions in a particular corporate action source. Failures are identified in the body of the response.                If a corporate action is upserted at exactly the same effective datetime as a transaction for the same instrument, the corporate action takes precedence. Depending on the nature of the corporate action, this may mean it affects the transaction.                The maximum number of corporate actions that this method can upsert per request is 10,000.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of corporate action source</param>
@@ -116,7 +116,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] DeleteCorporateActions: Delete corporate actions (instrument transition events) from a corporate action source
         /// </summary>
         /// <remarks>
-        /// Delete one or more corporate actions from a particular corporate action source.              The maximum number of corporate actions that this method can delete per request is 1,000.
+        /// Delete one or more corporate actions from a particular corporate action source.                The maximum number of corporate actions that this method can delete per request is 1,000.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the corporate action source</param>
@@ -131,7 +131,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] DeleteCorporateActions: Delete corporate actions (instrument transition events) from a corporate action source
         /// </summary>
         /// <remarks>
-        /// Delete one or more corporate actions from a particular corporate action source.              The maximum number of corporate actions that this method can delete per request is 1,000.
+        /// Delete one or more corporate actions from a particular corporate action source.                The maximum number of corporate actions that this method can delete per request is 1,000.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the corporate action source</param>
@@ -145,7 +145,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] DeleteInstrumentEvents: Delete instrument events from a corporate action source
         /// </summary>
         /// <remarks>
-        /// Delete one or more corporate actions from a particular corporate action source.              The maximum number of instrument events that this method can delete per request is 1,000.
+        /// Delete one or more corporate actions from a particular corporate action source.                The maximum number of instrument events that this method can delete per request is 1,000.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the corporate action source</param>
@@ -160,7 +160,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] DeleteInstrumentEvents: Delete instrument events from a corporate action source
         /// </summary>
         /// <remarks>
-        /// Delete one or more corporate actions from a particular corporate action source.              The maximum number of instrument events that this method can delete per request is 1,000.
+        /// Delete one or more corporate actions from a particular corporate action source.                The maximum number of instrument events that this method can delete per request is 1,000.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the corporate action source</param>
@@ -184,7 +184,7 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">Optional. The AsAt date of the data. (optional)</param>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the results to this number. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set.             For example, to filter on the Announcement Date, use \&quot;announcementDate eq &#39;2020-03-06&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the Announcement Date, use \&quot;announcementDate eq &#39;2020-03-06&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfCorporateAction</returns>
@@ -204,7 +204,7 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">Optional. The AsAt date of the data. (optional)</param>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the results to this number. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set.             For example, to filter on the Announcement Date, use \&quot;announcementDate eq &#39;2020-03-06&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the Announcement Date, use \&quot;announcementDate eq &#39;2020-03-06&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfCorporateAction</returns>
@@ -219,8 +219,8 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the corporate action source.</param>
         /// <param name="code">The code of the corporate action source.</param>
         /// <param name="asAt">Optional. The AsAt date of the data. (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default of 1000 is used. (optional, default to 1000)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are return from list calls, and must be supplied exactly as returned. Additionally, when specifying this value, asAt, filter and limit must not be modified. (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. (optional, default to 1000)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, asAt, filter and limit must not  be modified. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -237,8 +237,8 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the corporate action source.</param>
         /// <param name="code">The code of the corporate action source.</param>
         /// <param name="asAt">Optional. The AsAt date of the data. (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default of 1000 is used. (optional, default to 1000)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are return from list calls, and must be supplied exactly as returned. Additionally, when specifying this value, asAt, filter and limit must not be modified. (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. (optional, default to 1000)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, asAt, filter and limit must not  be modified. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -253,9 +253,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default of 100 is used. (optional, default to 100)</param>
-        /// <param name="filter">Optional. Expression to filter the result set. For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot; Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are return from list calls, and must be supplied exactly as returned. Additionally, when specifying this value, the filter, asAt, and limit must not be modified. (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 100 is used. (optional, default to 100)</param>
+        /// <param name="filter">Optional. Expression to filter the result set. For example, to  filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;  Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, the filter, asAt, and limit must not  be modified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfCorporateActionSource</returns>
@@ -270,9 +270,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default of 100 is used. (optional, default to 100)</param>
-        /// <param name="filter">Optional. Expression to filter the result set. For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot; Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are return from list calls, and must be supplied exactly as returned. Additionally, when specifying this value, the filter, asAt, and limit must not be modified. (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 100 is used. (optional, default to 100)</param>
+        /// <param name="filter">Optional. Expression to filter the result set. For example, to  filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;  Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, the filter, asAt, and limit must not  be modified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfCorporateActionSource</returns>
@@ -281,7 +281,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] UpsertInstrumentEvents: Upsert instrument events to the provided corporate actions source.
         /// </summary>
         /// <remarks>
-        /// Batch upsert instrument events to corporate action sources.              The maximum number of instrument events that this method can upsert per request is 10,000.
+        /// Batch upsert instrument events to corporate action sources.                The maximum number of instrument events that this method can upsert per request is 10,000.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the corporate action source.</param>
@@ -296,7 +296,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] UpsertInstrumentEvents: Upsert instrument events to the provided corporate actions source.
         /// </summary>
         /// <remarks>
-        /// Batch upsert instrument events to corporate action sources.              The maximum number of instrument events that this method can upsert per request is 10,000.
+        /// Batch upsert instrument events to corporate action sources.                The maximum number of instrument events that this method can upsert per request is 10,000.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the corporate action source.</param>
@@ -319,7 +319,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] BatchUpsertCorporateActions: Batch upsert corporate actions (instrument transition events) to corporate action source.
         /// </summary>
         /// <remarks>
-        /// Create or update one or more corporate actions in a particular corporate action source. Failures are identified in the body of the response.              If a corporate action is upserted at exactly the same effective datetime as a transaction for the same instrument, the corporate action takes precedence. Depending on the nature of the corporate action, this may mean it affects the transaction.              The maximum number of corporate actions that this method can upsert per request is 10,000.
+        /// Create or update one or more corporate actions in a particular corporate action source. Failures are identified in the body of the response.                If a corporate action is upserted at exactly the same effective datetime as a transaction for the same instrument, the corporate action takes precedence. Depending on the nature of the corporate action, this may mean it affects the transaction.                The maximum number of corporate actions that this method can upsert per request is 10,000.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of corporate action source</param>
@@ -335,7 +335,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] BatchUpsertCorporateActions: Batch upsert corporate actions (instrument transition events) to corporate action source.
         /// </summary>
         /// <remarks>
-        /// Create or update one or more corporate actions in a particular corporate action source. Failures are identified in the body of the response.              If a corporate action is upserted at exactly the same effective datetime as a transaction for the same instrument, the corporate action takes precedence. Depending on the nature of the corporate action, this may mean it affects the transaction.              The maximum number of corporate actions that this method can upsert per request is 10,000.
+        /// Create or update one or more corporate actions in a particular corporate action source. Failures are identified in the body of the response.                If a corporate action is upserted at exactly the same effective datetime as a transaction for the same instrument, the corporate action takes precedence. Depending on the nature of the corporate action, this may mean it affects the transaction.                The maximum number of corporate actions that this method can upsert per request is 10,000.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of corporate action source</param>
@@ -406,7 +406,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] DeleteCorporateActions: Delete corporate actions (instrument transition events) from a corporate action source
         /// </summary>
         /// <remarks>
-        /// Delete one or more corporate actions from a particular corporate action source.              The maximum number of corporate actions that this method can delete per request is 1,000.
+        /// Delete one or more corporate actions from a particular corporate action source.                The maximum number of corporate actions that this method can delete per request is 1,000.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the corporate action source</param>
@@ -422,7 +422,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] DeleteCorporateActions: Delete corporate actions (instrument transition events) from a corporate action source
         /// </summary>
         /// <remarks>
-        /// Delete one or more corporate actions from a particular corporate action source.              The maximum number of corporate actions that this method can delete per request is 1,000.
+        /// Delete one or more corporate actions from a particular corporate action source.                The maximum number of corporate actions that this method can delete per request is 1,000.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the corporate action source</param>
@@ -437,7 +437,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] DeleteInstrumentEvents: Delete instrument events from a corporate action source
         /// </summary>
         /// <remarks>
-        /// Delete one or more corporate actions from a particular corporate action source.              The maximum number of instrument events that this method can delete per request is 1,000.
+        /// Delete one or more corporate actions from a particular corporate action source.                The maximum number of instrument events that this method can delete per request is 1,000.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the corporate action source</param>
@@ -453,7 +453,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] DeleteInstrumentEvents: Delete instrument events from a corporate action source
         /// </summary>
         /// <remarks>
-        /// Delete one or more corporate actions from a particular corporate action source.              The maximum number of instrument events that this method can delete per request is 1,000.
+        /// Delete one or more corporate actions from a particular corporate action source.                The maximum number of instrument events that this method can delete per request is 1,000.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the corporate action source</param>
@@ -478,7 +478,7 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">Optional. The AsAt date of the data. (optional)</param>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the results to this number. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set.             For example, to filter on the Announcement Date, use \&quot;announcementDate eq &#39;2020-03-06&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the Announcement Date, use \&quot;announcementDate eq &#39;2020-03-06&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -499,7 +499,7 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">Optional. The AsAt date of the data. (optional)</param>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the results to this number. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set.             For example, to filter on the Announcement Date, use \&quot;announcementDate eq &#39;2020-03-06&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the Announcement Date, use \&quot;announcementDate eq &#39;2020-03-06&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -515,8 +515,8 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the corporate action source.</param>
         /// <param name="code">The code of the corporate action source.</param>
         /// <param name="asAt">Optional. The AsAt date of the data. (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default of 1000 is used. (optional, default to 1000)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are return from list calls, and must be supplied exactly as returned. Additionally, when specifying this value, asAt, filter and limit must not be modified. (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. (optional, default to 1000)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, asAt, filter and limit must not  be modified. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -534,8 +534,8 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the corporate action source.</param>
         /// <param name="code">The code of the corporate action source.</param>
         /// <param name="asAt">Optional. The AsAt date of the data. (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default of 1000 is used. (optional, default to 1000)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are return from list calls, and must be supplied exactly as returned. Additionally, when specifying this value, asAt, filter and limit must not be modified. (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. (optional, default to 1000)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, asAt, filter and limit must not  be modified. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -551,9 +551,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default of 100 is used. (optional, default to 100)</param>
-        /// <param name="filter">Optional. Expression to filter the result set. For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot; Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are return from list calls, and must be supplied exactly as returned. Additionally, when specifying this value, the filter, asAt, and limit must not be modified. (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 100 is used. (optional, default to 100)</param>
+        /// <param name="filter">Optional. Expression to filter the result set. For example, to  filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;  Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, the filter, asAt, and limit must not  be modified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -569,9 +569,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default of 100 is used. (optional, default to 100)</param>
-        /// <param name="filter">Optional. Expression to filter the result set. For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot; Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are return from list calls, and must be supplied exactly as returned. Additionally, when specifying this value, the filter, asAt, and limit must not be modified. (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 100 is used. (optional, default to 100)</param>
+        /// <param name="filter">Optional. Expression to filter the result set. For example, to  filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;  Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, the filter, asAt, and limit must not  be modified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -581,7 +581,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] UpsertInstrumentEvents: Upsert instrument events to the provided corporate actions source.
         /// </summary>
         /// <remarks>
-        /// Batch upsert instrument events to corporate action sources.              The maximum number of instrument events that this method can upsert per request is 10,000.
+        /// Batch upsert instrument events to corporate action sources.                The maximum number of instrument events that this method can upsert per request is 10,000.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the corporate action source.</param>
@@ -597,7 +597,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] UpsertInstrumentEvents: Upsert instrument events to the provided corporate actions source.
         /// </summary>
         /// <remarks>
-        /// Batch upsert instrument events to corporate action sources.              The maximum number of instrument events that this method can upsert per request is 10,000.
+        /// Batch upsert instrument events to corporate action sources.                The maximum number of instrument events that this method can upsert per request is 10,000.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the corporate action source.</param>
@@ -732,7 +732,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] BatchUpsertCorporateActions: Batch upsert corporate actions (instrument transition events) to corporate action source. Create or update one or more corporate actions in a particular corporate action source. Failures are identified in the body of the response.              If a corporate action is upserted at exactly the same effective datetime as a transaction for the same instrument, the corporate action takes precedence. Depending on the nature of the corporate action, this may mean it affects the transaction.              The maximum number of corporate actions that this method can upsert per request is 10,000.
+        /// [EARLY ACCESS] BatchUpsertCorporateActions: Batch upsert corporate actions (instrument transition events) to corporate action source. Create or update one or more corporate actions in a particular corporate action source. Failures are identified in the body of the response.                If a corporate action is upserted at exactly the same effective datetime as a transaction for the same instrument, the corporate action takes precedence. Depending on the nature of the corporate action, this may mean it affects the transaction.                The maximum number of corporate actions that this method can upsert per request is 10,000.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of corporate action source</param>
@@ -748,7 +748,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] BatchUpsertCorporateActions: Batch upsert corporate actions (instrument transition events) to corporate action source. Create or update one or more corporate actions in a particular corporate action source. Failures are identified in the body of the response.              If a corporate action is upserted at exactly the same effective datetime as a transaction for the same instrument, the corporate action takes precedence. Depending on the nature of the corporate action, this may mean it affects the transaction.              The maximum number of corporate actions that this method can upsert per request is 10,000.
+        /// [EARLY ACCESS] BatchUpsertCorporateActions: Batch upsert corporate actions (instrument transition events) to corporate action source. Create or update one or more corporate actions in a particular corporate action source. Failures are identified in the body of the response.                If a corporate action is upserted at exactly the same effective datetime as a transaction for the same instrument, the corporate action takes precedence. Depending on the nature of the corporate action, this may mean it affects the transaction.                The maximum number of corporate actions that this method can upsert per request is 10,000.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of corporate action source</param>
@@ -848,7 +848,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] BatchUpsertCorporateActions: Batch upsert corporate actions (instrument transition events) to corporate action source. Create or update one or more corporate actions in a particular corporate action source. Failures are identified in the body of the response.              If a corporate action is upserted at exactly the same effective datetime as a transaction for the same instrument, the corporate action takes precedence. Depending on the nature of the corporate action, this may mean it affects the transaction.              The maximum number of corporate actions that this method can upsert per request is 10,000.
+        /// [EARLY ACCESS] BatchUpsertCorporateActions: Batch upsert corporate actions (instrument transition events) to corporate action source. Create or update one or more corporate actions in a particular corporate action source. Failures are identified in the body of the response.                If a corporate action is upserted at exactly the same effective datetime as a transaction for the same instrument, the corporate action takes precedence. Depending on the nature of the corporate action, this may mean it affects the transaction.                The maximum number of corporate actions that this method can upsert per request is 10,000.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of corporate action source</param>
@@ -865,7 +865,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] BatchUpsertCorporateActions: Batch upsert corporate actions (instrument transition events) to corporate action source. Create or update one or more corporate actions in a particular corporate action source. Failures are identified in the body of the response.              If a corporate action is upserted at exactly the same effective datetime as a transaction for the same instrument, the corporate action takes precedence. Depending on the nature of the corporate action, this may mean it affects the transaction.              The maximum number of corporate actions that this method can upsert per request is 10,000.
+        /// [EARLY ACCESS] BatchUpsertCorporateActions: Batch upsert corporate actions (instrument transition events) to corporate action source. Create or update one or more corporate actions in a particular corporate action source. Failures are identified in the body of the response.                If a corporate action is upserted at exactly the same effective datetime as a transaction for the same instrument, the corporate action takes precedence. Depending on the nature of the corporate action, this may mean it affects the transaction.                The maximum number of corporate actions that this method can upsert per request is 10,000.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of corporate action source</param>
@@ -1402,7 +1402,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteCorporateActions: Delete corporate actions (instrument transition events) from a corporate action source Delete one or more corporate actions from a particular corporate action source.              The maximum number of corporate actions that this method can delete per request is 1,000.
+        /// [EARLY ACCESS] DeleteCorporateActions: Delete corporate actions (instrument transition events) from a corporate action source Delete one or more corporate actions from a particular corporate action source.                The maximum number of corporate actions that this method can delete per request is 1,000.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the corporate action source</param>
@@ -1418,7 +1418,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteCorporateActions: Delete corporate actions (instrument transition events) from a corporate action source Delete one or more corporate actions from a particular corporate action source.              The maximum number of corporate actions that this method can delete per request is 1,000.
+        /// [EARLY ACCESS] DeleteCorporateActions: Delete corporate actions (instrument transition events) from a corporate action source Delete one or more corporate actions from a particular corporate action source.                The maximum number of corporate actions that this method can delete per request is 1,000.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the corporate action source</param>
@@ -1520,7 +1520,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteCorporateActions: Delete corporate actions (instrument transition events) from a corporate action source Delete one or more corporate actions from a particular corporate action source.              The maximum number of corporate actions that this method can delete per request is 1,000.
+        /// [EARLY ACCESS] DeleteCorporateActions: Delete corporate actions (instrument transition events) from a corporate action source Delete one or more corporate actions from a particular corporate action source.                The maximum number of corporate actions that this method can delete per request is 1,000.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the corporate action source</param>
@@ -1537,7 +1537,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteCorporateActions: Delete corporate actions (instrument transition events) from a corporate action source Delete one or more corporate actions from a particular corporate action source.              The maximum number of corporate actions that this method can delete per request is 1,000.
+        /// [EARLY ACCESS] DeleteCorporateActions: Delete corporate actions (instrument transition events) from a corporate action source Delete one or more corporate actions from a particular corporate action source.                The maximum number of corporate actions that this method can delete per request is 1,000.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the corporate action source</param>
@@ -1642,7 +1642,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteInstrumentEvents: Delete instrument events from a corporate action source Delete one or more corporate actions from a particular corporate action source.              The maximum number of instrument events that this method can delete per request is 1,000.
+        /// [EARLY ACCESS] DeleteInstrumentEvents: Delete instrument events from a corporate action source Delete one or more corporate actions from a particular corporate action source.                The maximum number of instrument events that this method can delete per request is 1,000.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the corporate action source</param>
@@ -1658,7 +1658,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteInstrumentEvents: Delete instrument events from a corporate action source Delete one or more corporate actions from a particular corporate action source.              The maximum number of instrument events that this method can delete per request is 1,000.
+        /// [EARLY ACCESS] DeleteInstrumentEvents: Delete instrument events from a corporate action source Delete one or more corporate actions from a particular corporate action source.                The maximum number of instrument events that this method can delete per request is 1,000.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the corporate action source</param>
@@ -1760,7 +1760,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteInstrumentEvents: Delete instrument events from a corporate action source Delete one or more corporate actions from a particular corporate action source.              The maximum number of instrument events that this method can delete per request is 1,000.
+        /// [EARLY ACCESS] DeleteInstrumentEvents: Delete instrument events from a corporate action source Delete one or more corporate actions from a particular corporate action source.                The maximum number of instrument events that this method can delete per request is 1,000.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the corporate action source</param>
@@ -1777,7 +1777,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteInstrumentEvents: Delete instrument events from a corporate action source Delete one or more corporate actions from a particular corporate action source.              The maximum number of instrument events that this method can delete per request is 1,000.
+        /// [EARLY ACCESS] DeleteInstrumentEvents: Delete instrument events from a corporate action source Delete one or more corporate actions from a particular corporate action source.                The maximum number of instrument events that this method can delete per request is 1,000.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the corporate action source</param>
@@ -1892,7 +1892,7 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">Optional. The AsAt date of the data. (optional)</param>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the results to this number. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set.             For example, to filter on the Announcement Date, use \&quot;announcementDate eq &#39;2020-03-06&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the Announcement Date, use \&quot;announcementDate eq &#39;2020-03-06&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfCorporateAction</returns>
@@ -1913,7 +1913,7 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">Optional. The AsAt date of the data. (optional)</param>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the results to this number. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set.             For example, to filter on the Announcement Date, use \&quot;announcementDate eq &#39;2020-03-06&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the Announcement Date, use \&quot;announcementDate eq &#39;2020-03-06&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfCorporateAction</returns>
@@ -2037,7 +2037,7 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">Optional. The AsAt date of the data. (optional)</param>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the results to this number. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set.             For example, to filter on the Announcement Date, use \&quot;announcementDate eq &#39;2020-03-06&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the Announcement Date, use \&quot;announcementDate eq &#39;2020-03-06&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2059,7 +2059,7 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">Optional. The AsAt date of the data. (optional)</param>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the results to this number. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set.             For example, to filter on the Announcement Date, use \&quot;announcementDate eq &#39;2020-03-06&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the Announcement Date, use \&quot;announcementDate eq &#39;2020-03-06&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2182,8 +2182,8 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the corporate action source.</param>
         /// <param name="code">The code of the corporate action source.</param>
         /// <param name="asAt">Optional. The AsAt date of the data. (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default of 1000 is used. (optional, default to 1000)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are return from list calls, and must be supplied exactly as returned. Additionally, when specifying this value, asAt, filter and limit must not be modified. (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. (optional, default to 1000)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, asAt, filter and limit must not  be modified. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2201,8 +2201,8 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the corporate action source.</param>
         /// <param name="code">The code of the corporate action source.</param>
         /// <param name="asAt">Optional. The AsAt date of the data. (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default of 1000 is used. (optional, default to 1000)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are return from list calls, and must be supplied exactly as returned. Additionally, when specifying this value, asAt, filter and limit must not be modified. (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. (optional, default to 1000)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, asAt, filter and limit must not  be modified. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2315,8 +2315,8 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the corporate action source.</param>
         /// <param name="code">The code of the corporate action source.</param>
         /// <param name="asAt">Optional. The AsAt date of the data. (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default of 1000 is used. (optional, default to 1000)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are return from list calls, and must be supplied exactly as returned. Additionally, when specifying this value, asAt, filter and limit must not be modified. (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. (optional, default to 1000)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, asAt, filter and limit must not  be modified. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2335,8 +2335,8 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the corporate action source.</param>
         /// <param name="code">The code of the corporate action source.</param>
         /// <param name="asAt">Optional. The AsAt date of the data. (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default of 1000 is used. (optional, default to 1000)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are return from list calls, and must be supplied exactly as returned. Additionally, when specifying this value, asAt, filter and limit must not be modified. (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. (optional, default to 1000)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, asAt, filter and limit must not  be modified. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2451,9 +2451,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default of 100 is used. (optional, default to 100)</param>
-        /// <param name="filter">Optional. Expression to filter the result set. For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot; Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are return from list calls, and must be supplied exactly as returned. Additionally, when specifying this value, the filter, asAt, and limit must not be modified. (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 100 is used. (optional, default to 100)</param>
+        /// <param name="filter">Optional. Expression to filter the result set. For example, to  filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;  Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, the filter, asAt, and limit must not  be modified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfCorporateActionSource</returns>
@@ -2469,9 +2469,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default of 100 is used. (optional, default to 100)</param>
-        /// <param name="filter">Optional. Expression to filter the result set. For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot; Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are return from list calls, and must be supplied exactly as returned. Additionally, when specifying this value, the filter, asAt, and limit must not be modified. (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 100 is used. (optional, default to 100)</param>
+        /// <param name="filter">Optional. Expression to filter the result set. For example, to  filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;  Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, the filter, asAt, and limit must not  be modified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfCorporateActionSource</returns>
@@ -2572,9 +2572,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default of 100 is used. (optional, default to 100)</param>
-        /// <param name="filter">Optional. Expression to filter the result set. For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot; Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are return from list calls, and must be supplied exactly as returned. Additionally, when specifying this value, the filter, asAt, and limit must not be modified. (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 100 is used. (optional, default to 100)</param>
+        /// <param name="filter">Optional. Expression to filter the result set. For example, to  filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;  Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, the filter, asAt, and limit must not  be modified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2591,9 +2591,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default of 100 is used. (optional, default to 100)</param>
-        /// <param name="filter">Optional. Expression to filter the result set. For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot; Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are return from list calls, and must be supplied exactly as returned. Additionally, when specifying this value, the filter, asAt, and limit must not be modified. (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 100 is used. (optional, default to 100)</param>
+        /// <param name="filter">Optional. Expression to filter the result set. For example, to  filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;  Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, the filter, asAt, and limit must not  be modified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2692,7 +2692,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertInstrumentEvents: Upsert instrument events to the provided corporate actions source. Batch upsert instrument events to corporate action sources.              The maximum number of instrument events that this method can upsert per request is 10,000.
+        /// [EARLY ACCESS] UpsertInstrumentEvents: Upsert instrument events to the provided corporate actions source. Batch upsert instrument events to corporate action sources.                The maximum number of instrument events that this method can upsert per request is 10,000.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the corporate action source.</param>
@@ -2708,7 +2708,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertInstrumentEvents: Upsert instrument events to the provided corporate actions source. Batch upsert instrument events to corporate action sources.              The maximum number of instrument events that this method can upsert per request is 10,000.
+        /// [EARLY ACCESS] UpsertInstrumentEvents: Upsert instrument events to the provided corporate actions source. Batch upsert instrument events to corporate action sources.                The maximum number of instrument events that this method can upsert per request is 10,000.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the corporate action source.</param>
@@ -2808,7 +2808,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertInstrumentEvents: Upsert instrument events to the provided corporate actions source. Batch upsert instrument events to corporate action sources.              The maximum number of instrument events that this method can upsert per request is 10,000.
+        /// [EARLY ACCESS] UpsertInstrumentEvents: Upsert instrument events to the provided corporate actions source. Batch upsert instrument events to corporate action sources.                The maximum number of instrument events that this method can upsert per request is 10,000.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the corporate action source.</param>
@@ -2825,7 +2825,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertInstrumentEvents: Upsert instrument events to the provided corporate actions source. Batch upsert instrument events to corporate action sources.              The maximum number of instrument events that this method can upsert per request is 10,000.
+        /// [EARLY ACCESS] UpsertInstrumentEvents: Upsert instrument events to the provided corporate actions source. Batch upsert instrument events to corporate action sources.                The maximum number of instrument events that this method can upsert per request is 10,000.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the corporate action source.</param>

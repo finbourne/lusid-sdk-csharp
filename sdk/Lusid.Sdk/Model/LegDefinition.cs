@@ -40,17 +40,17 @@ namespace Lusid.Sdk.Model
         /// <param name="conventions">conventions.</param>
         /// <param name="indexConvention">indexConvention.</param>
         /// <param name="indexConventionName">indexConventionName.</param>
-        /// <param name="notionalExchangeType">what type of notional exchange does the leg have  Supported string (enumeration) values are: [None, Initial, Final, Both]. (required).</param>
-        /// <param name="payReceive">Is the leg to be paid or received  Supported string (enumeration) values are: [Pay, Receive]. (required).</param>
+        /// <param name="notionalExchangeType">what type of notional exchange does the leg have    Supported string (enumeration) values are: [None, Initial, Final, Both]. (required).</param>
+        /// <param name="payReceive">Is the leg to be paid or received    Supported string (enumeration) values are: [Pay, Receive]. (required).</param>
         /// <param name="rateOrSpread">Is there either a fixed rate (non-zero) or spread to be paid over the value of the leg. (required).</param>
-        /// <param name="resetConvention">Control how resets are generated relative to swap payment convention(s).  Supported string (enumeration) values are: [InAdvance, InArrears]..</param>
-        /// <param name="stubType">If a stub is required should it be at the front or back of the leg.  Supported string (enumeration) values are: [None, ShortFront, ShortBack, LongBack, LongFront, Both]. (required).</param>
+        /// <param name="resetConvention">Control how resets are generated relative to swap payment convention(s).    Supported string (enumeration) values are: [InAdvance, InArrears]..</param>
+        /// <param name="stubType">If a stub is required should it be at the front or back of the leg.    Supported string (enumeration) values are: [None, ShortFront, ShortBack, LongBack, LongFront, Both]. (required).</param>
         /// <param name="compounding">compounding.</param>
         /// <param name="amortisation">amortisation.</param>
-        /// <param name="firstRegularPaymentDate">Optional payment date of the first regular coupon. Must be greater than the StartDate. If set, the regular coupon schedule will be built such that the first regular coupon will end on this date. The start date of this coupon will be calculated as normal and a stub coupon will be created from the StartDate to the start of the first regular coupon..</param>
-        /// <param name="firstCouponType">Optional coupon type setting for the first coupon, can be used with Stub coupons. If set to \&quot;ProRata\&quot; (the default), the coupon year fraction is calculated as normal, however if set to \&quot;Full\&quot; the year fraction is overwritten with the standard year fraction for a regular ful\&quot; coupon. Note this does not use the day count convention but rather is defined directly from the tenor (i.e. a quarterly leg will be set to 0.25).  Supported string (enumeration) values are: [ProRata, Full]..</param>
-        /// <param name="lastRegularPaymentDate">Optional payment date of the last regular coupon. Must be less than the Maturity date. If set, the regular coupon schedule will be built up to this date and the final coupon will be a stub between this date and the Maturity date..</param>
-        /// <param name="lastCouponType">Optional coupon type setting for the last coupon, can be used with Stub coupons. If set to \&quot;ProRata\&quot; (the default), the coupon year fraction is calculated as normal, however if set to \&quot;Full\&quot; the year fraction is overwritten with the standard year fraction for a regular ful\&quot; coupon. Note this does not use the day count convention but rather is defined directly from the tenor (i.e. a quarterly leg will be set to 0.25).  Supported string (enumeration) values are: [ProRata, Full]..</param>
+        /// <param name="firstRegularPaymentDate">Optional payment date of the first regular coupon.  Must be greater than the StartDate.  If set, the regular coupon schedule will be built such that the first regular coupon  will end on this date. The start date of this coupon will be calculated as normal and  a stub coupon will be created from the StartDate to the start of the first regular coupon..</param>
+        /// <param name="firstCouponType">Optional coupon type setting for the first coupon, can be used with Stub coupons.  If set to \&quot;ProRata\&quot; (the default), the coupon year fraction is calculated as normal,  however if set to \&quot;Full\&quot; the year fraction is overwritten with the standard year fraction  for a regular ful\&quot; coupon. Note this does not use the day count convention but rather is defined  directly from the tenor (i.e. a quarterly leg will be set to 0.25).    Supported string (enumeration) values are: [ProRata, Full]..</param>
+        /// <param name="lastRegularPaymentDate">Optional payment date of the last regular coupon.  Must be less than the Maturity date.  If set, the regular coupon schedule will be built up to this date and the final  coupon will be a stub between this date and the Maturity date..</param>
+        /// <param name="lastCouponType">Optional coupon type setting for the last coupon, can be used with Stub coupons.  If set to \&quot;ProRata\&quot; (the default), the coupon year fraction is calculated as normal,  however if set to \&quot;Full\&quot; the year fraction is overwritten with the standard year fraction  for a regular ful\&quot; coupon. Note this does not use the day count convention but rather is defined  directly from the tenor (i.e. a quarterly leg will be set to 0.25).    Supported string (enumeration) values are: [ProRata, Full]..</param>
         /// <param name="fxLinkedNotionalSchedule">fxLinkedNotionalSchedule.</param>
         /// <param name="intermediateNotionalExchange">Indicates whether there are intermediate notional exchanges..</param>
         public LegDefinition(FlowConventionName conventionName = default(FlowConventionName), FlowConventions conventions = default(FlowConventions), IndexConvention indexConvention = default(IndexConvention), FlowConventionName indexConventionName = default(FlowConventionName), string notionalExchangeType = default(string), string payReceive = default(string), decimal rateOrSpread = default(decimal), string resetConvention = default(string), string stubType = default(string), Compounding compounding = default(Compounding), StepSchedule amortisation = default(StepSchedule), DateTimeOffset? firstRegularPaymentDate = default(DateTimeOffset?), string firstCouponType = default(string), DateTimeOffset? lastRegularPaymentDate = default(DateTimeOffset?), string lastCouponType = default(string), FxLinkedNotionalSchedule fxLinkedNotionalSchedule = default(FxLinkedNotionalSchedule), bool? intermediateNotionalExchange = default(bool?))
@@ -114,16 +114,16 @@ namespace Lusid.Sdk.Model
         public FlowConventionName IndexConventionName { get; set; }
 
         /// <summary>
-        /// what type of notional exchange does the leg have  Supported string (enumeration) values are: [None, Initial, Final, Both].
+        /// what type of notional exchange does the leg have    Supported string (enumeration) values are: [None, Initial, Final, Both].
         /// </summary>
-        /// <value>what type of notional exchange does the leg have  Supported string (enumeration) values are: [None, Initial, Final, Both].</value>
+        /// <value>what type of notional exchange does the leg have    Supported string (enumeration) values are: [None, Initial, Final, Both].</value>
         [DataMember(Name = "notionalExchangeType", IsRequired = true, EmitDefaultValue = true)]
         public string NotionalExchangeType { get; set; }
 
         /// <summary>
-        /// Is the leg to be paid or received  Supported string (enumeration) values are: [Pay, Receive].
+        /// Is the leg to be paid or received    Supported string (enumeration) values are: [Pay, Receive].
         /// </summary>
-        /// <value>Is the leg to be paid or received  Supported string (enumeration) values are: [Pay, Receive].</value>
+        /// <value>Is the leg to be paid or received    Supported string (enumeration) values are: [Pay, Receive].</value>
         [DataMember(Name = "payReceive", IsRequired = true, EmitDefaultValue = true)]
         public string PayReceive { get; set; }
 
@@ -135,16 +135,16 @@ namespace Lusid.Sdk.Model
         public decimal RateOrSpread { get; set; }
 
         /// <summary>
-        /// Control how resets are generated relative to swap payment convention(s).  Supported string (enumeration) values are: [InAdvance, InArrears].
+        /// Control how resets are generated relative to swap payment convention(s).    Supported string (enumeration) values are: [InAdvance, InArrears].
         /// </summary>
-        /// <value>Control how resets are generated relative to swap payment convention(s).  Supported string (enumeration) values are: [InAdvance, InArrears].</value>
+        /// <value>Control how resets are generated relative to swap payment convention(s).    Supported string (enumeration) values are: [InAdvance, InArrears].</value>
         [DataMember(Name = "resetConvention", EmitDefaultValue = true)]
         public string ResetConvention { get; set; }
 
         /// <summary>
-        /// If a stub is required should it be at the front or back of the leg.  Supported string (enumeration) values are: [None, ShortFront, ShortBack, LongBack, LongFront, Both].
+        /// If a stub is required should it be at the front or back of the leg.    Supported string (enumeration) values are: [None, ShortFront, ShortBack, LongBack, LongFront, Both].
         /// </summary>
-        /// <value>If a stub is required should it be at the front or back of the leg.  Supported string (enumeration) values are: [None, ShortFront, ShortBack, LongBack, LongFront, Both].</value>
+        /// <value>If a stub is required should it be at the front or back of the leg.    Supported string (enumeration) values are: [None, ShortFront, ShortBack, LongBack, LongFront, Both].</value>
         [DataMember(Name = "stubType", IsRequired = true, EmitDefaultValue = true)]
         public string StubType { get; set; }
 
@@ -161,30 +161,30 @@ namespace Lusid.Sdk.Model
         public StepSchedule Amortisation { get; set; }
 
         /// <summary>
-        /// Optional payment date of the first regular coupon. Must be greater than the StartDate. If set, the regular coupon schedule will be built such that the first regular coupon will end on this date. The start date of this coupon will be calculated as normal and a stub coupon will be created from the StartDate to the start of the first regular coupon.
+        /// Optional payment date of the first regular coupon.  Must be greater than the StartDate.  If set, the regular coupon schedule will be built such that the first regular coupon  will end on this date. The start date of this coupon will be calculated as normal and  a stub coupon will be created from the StartDate to the start of the first regular coupon.
         /// </summary>
-        /// <value>Optional payment date of the first regular coupon. Must be greater than the StartDate. If set, the regular coupon schedule will be built such that the first regular coupon will end on this date. The start date of this coupon will be calculated as normal and a stub coupon will be created from the StartDate to the start of the first regular coupon.</value>
+        /// <value>Optional payment date of the first regular coupon.  Must be greater than the StartDate.  If set, the regular coupon schedule will be built such that the first regular coupon  will end on this date. The start date of this coupon will be calculated as normal and  a stub coupon will be created from the StartDate to the start of the first regular coupon.</value>
         [DataMember(Name = "firstRegularPaymentDate", EmitDefaultValue = true)]
         public DateTimeOffset? FirstRegularPaymentDate { get; set; }
 
         /// <summary>
-        /// Optional coupon type setting for the first coupon, can be used with Stub coupons. If set to \&quot;ProRata\&quot; (the default), the coupon year fraction is calculated as normal, however if set to \&quot;Full\&quot; the year fraction is overwritten with the standard year fraction for a regular ful\&quot; coupon. Note this does not use the day count convention but rather is defined directly from the tenor (i.e. a quarterly leg will be set to 0.25).  Supported string (enumeration) values are: [ProRata, Full].
+        /// Optional coupon type setting for the first coupon, can be used with Stub coupons.  If set to \&quot;ProRata\&quot; (the default), the coupon year fraction is calculated as normal,  however if set to \&quot;Full\&quot; the year fraction is overwritten with the standard year fraction  for a regular ful\&quot; coupon. Note this does not use the day count convention but rather is defined  directly from the tenor (i.e. a quarterly leg will be set to 0.25).    Supported string (enumeration) values are: [ProRata, Full].
         /// </summary>
-        /// <value>Optional coupon type setting for the first coupon, can be used with Stub coupons. If set to \&quot;ProRata\&quot; (the default), the coupon year fraction is calculated as normal, however if set to \&quot;Full\&quot; the year fraction is overwritten with the standard year fraction for a regular ful\&quot; coupon. Note this does not use the day count convention but rather is defined directly from the tenor (i.e. a quarterly leg will be set to 0.25).  Supported string (enumeration) values are: [ProRata, Full].</value>
+        /// <value>Optional coupon type setting for the first coupon, can be used with Stub coupons.  If set to \&quot;ProRata\&quot; (the default), the coupon year fraction is calculated as normal,  however if set to \&quot;Full\&quot; the year fraction is overwritten with the standard year fraction  for a regular ful\&quot; coupon. Note this does not use the day count convention but rather is defined  directly from the tenor (i.e. a quarterly leg will be set to 0.25).    Supported string (enumeration) values are: [ProRata, Full].</value>
         [DataMember(Name = "firstCouponType", EmitDefaultValue = true)]
         public string FirstCouponType { get; set; }
 
         /// <summary>
-        /// Optional payment date of the last regular coupon. Must be less than the Maturity date. If set, the regular coupon schedule will be built up to this date and the final coupon will be a stub between this date and the Maturity date.
+        /// Optional payment date of the last regular coupon.  Must be less than the Maturity date.  If set, the regular coupon schedule will be built up to this date and the final  coupon will be a stub between this date and the Maturity date.
         /// </summary>
-        /// <value>Optional payment date of the last regular coupon. Must be less than the Maturity date. If set, the regular coupon schedule will be built up to this date and the final coupon will be a stub between this date and the Maturity date.</value>
+        /// <value>Optional payment date of the last regular coupon.  Must be less than the Maturity date.  If set, the regular coupon schedule will be built up to this date and the final  coupon will be a stub between this date and the Maturity date.</value>
         [DataMember(Name = "lastRegularPaymentDate", EmitDefaultValue = true)]
         public DateTimeOffset? LastRegularPaymentDate { get; set; }
 
         /// <summary>
-        /// Optional coupon type setting for the last coupon, can be used with Stub coupons. If set to \&quot;ProRata\&quot; (the default), the coupon year fraction is calculated as normal, however if set to \&quot;Full\&quot; the year fraction is overwritten with the standard year fraction for a regular ful\&quot; coupon. Note this does not use the day count convention but rather is defined directly from the tenor (i.e. a quarterly leg will be set to 0.25).  Supported string (enumeration) values are: [ProRata, Full].
+        /// Optional coupon type setting for the last coupon, can be used with Stub coupons.  If set to \&quot;ProRata\&quot; (the default), the coupon year fraction is calculated as normal,  however if set to \&quot;Full\&quot; the year fraction is overwritten with the standard year fraction  for a regular ful\&quot; coupon. Note this does not use the day count convention but rather is defined  directly from the tenor (i.e. a quarterly leg will be set to 0.25).    Supported string (enumeration) values are: [ProRata, Full].
         /// </summary>
-        /// <value>Optional coupon type setting for the last coupon, can be used with Stub coupons. If set to \&quot;ProRata\&quot; (the default), the coupon year fraction is calculated as normal, however if set to \&quot;Full\&quot; the year fraction is overwritten with the standard year fraction for a regular ful\&quot; coupon. Note this does not use the day count convention but rather is defined directly from the tenor (i.e. a quarterly leg will be set to 0.25).  Supported string (enumeration) values are: [ProRata, Full].</value>
+        /// <value>Optional coupon type setting for the last coupon, can be used with Stub coupons.  If set to \&quot;ProRata\&quot; (the default), the coupon year fraction is calculated as normal,  however if set to \&quot;Full\&quot; the year fraction is overwritten with the standard year fraction  for a regular ful\&quot; coupon. Note this does not use the day count convention but rather is defined  directly from the tenor (i.e. a quarterly leg will be set to 0.25).    Supported string (enumeration) values are: [ProRata, Full].</value>
         [DataMember(Name = "lastCouponType", EmitDefaultValue = true)]
         public string LastCouponType { get; set; }
 

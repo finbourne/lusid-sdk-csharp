@@ -24,7 +24,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// For indicating a dependency on an EquityCurve. E.g. When pricing an EquitySwap one may want to make predictions about the price of the underlying equity at future dates. If so, that model would declare an EquityCurve dependency so that it could obtain predictions from the EquityCurve.
+    /// For indicating a dependency on an EquityCurve.  E.g. When pricing an EquitySwap one may want to make predictions about the price of the underlying equity at future dates.  If so, that model would declare an EquityCurve dependency so that it could obtain predictions from the EquityCurve.
     /// </summary>
     [DataContract(Name = "EquityCurveDependency")]
     [JsonConverter(typeof(JsonSubtypes), "DependencyType")]
@@ -41,7 +41,7 @@ namespace Lusid.Sdk.Model
         /// <param name="marketIdentifier">Type of the code identifying the corresponding equity, e.g. ISIN or CUSIP (required).</param>
         /// <param name="code">The code identifying the corresponding equity, e.g. US0378331005 if the MarketIdentifier was set to ISIN (required).</param>
         /// <param name="curveType">The curve type of the EquityCurve required. E.g. EquityCurveByPrices (required).</param>
-        /// <param name="date">The effectiveDate of the entity that this is a dependency for. Unless there is an obvious date this should be, like for a historic reset, then this is the valuation date. (required).</param>
+        /// <param name="date">The effectiveDate of the entity that this is a dependency for.  Unless there is an obvious date this should be, like for a historic reset, then this is the valuation date. (required).</param>
         /// <param name="dependencyType">The available values are: OpaqueDependency, CashDependency, DiscountingDependency, EquityCurveDependency, EquityVolDependency, FxDependency, FxForwardsDependency, FxVolDependency, IndexProjectionDependency, IrVolDependency, QuoteDependency, Vendor, CalendarDependency, InflationFixingDependency (required) (default to &quot;EquityCurveDependency&quot;).</param>
         public EquityCurveDependency(string marketIdentifier = default(string), string code = default(string), string curveType = default(string), DateTimeOffset date = default(DateTimeOffset), DependencyTypeEnum dependencyType = default(DependencyTypeEnum)) : base(dependencyType)
         {
@@ -88,9 +88,9 @@ namespace Lusid.Sdk.Model
         public string CurveType { get; set; }
 
         /// <summary>
-        /// The effectiveDate of the entity that this is a dependency for. Unless there is an obvious date this should be, like for a historic reset, then this is the valuation date.
+        /// The effectiveDate of the entity that this is a dependency for.  Unless there is an obvious date this should be, like for a historic reset, then this is the valuation date.
         /// </summary>
-        /// <value>The effectiveDate of the entity that this is a dependency for. Unless there is an obvious date this should be, like for a historic reset, then this is the valuation date.</value>
+        /// <value>The effectiveDate of the entity that this is a dependency for.  Unless there is an obvious date this should be, like for a historic reset, then this is the valuation date.</value>
         [DataMember(Name = "date", IsRequired = true, EmitDefaultValue = true)]
         public DateTimeOffset Date { get; set; }
 

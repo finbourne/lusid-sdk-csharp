@@ -24,7 +24,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Definition of a Bond Coupon Event This is an event that describes the occurence of a cashflow due to a fixed rate bond coupon payment.
+    /// Definition of a Bond Coupon Event  This is an event that describes the occurence of a cashflow due to a fixed rate bond coupon payment.
     /// </summary>
     [DataContract(Name = "BondCouponEvent")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentEventType")]

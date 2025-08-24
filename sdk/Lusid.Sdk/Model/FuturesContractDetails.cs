@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Most, if not all, information about contracts is standardized. See, e.g. https://www.cmegroup.com/ for common codes and similar data. This appears to be in common use by well known market information providers, e.g. Bloomberg and Refinitiv.
+    /// Most, if not all, information about contracts is standardized. See, e.g. https://www.cmegroup.com/ for  common codes and similar data. This appears to be in common use by well known market information providers, e.g. Bloomberg and Refinitiv.
     /// </summary>
     [DataContract(Name = "FuturesContractDetails")]
     public partial class FuturesContractDetails : IEquatable<FuturesContractDetails>, IValidatableObject
@@ -38,11 +38,11 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="domCcy">Currency in which the contract is paid. (required).</param>
         /// <param name="fgnCcy">Currency of the underlying, for use with FX Futures.</param>
-        /// <param name="assetClass">The asset class of the underlying. Optional and will default to Unknown if not set.  Supported string (enumeration) values are: [InterestRates, FX, Inflation, Equities, Credit, Commodities, Money]..</param>
+        /// <param name="assetClass">The asset class of the underlying. Optional and will default to Unknown if not set.    Supported string (enumeration) values are: [InterestRates, FX, Inflation, Equities, Credit, Commodities, Money]..</param>
         /// <param name="contractCode">The contract code used by the exchange, e.g. “CL” for Crude Oil, “ES” for E-mini SP 500, “FGBL” for Bund Futures, etc. (required).</param>
-        /// <param name="contractMonth">Which month does the contract trade for.  Supported string (enumeration) values are: [F, G, H, J, K, M, N, Q, U, V, X, Z]..</param>
+        /// <param name="contractMonth">Which month does the contract trade for.    Supported string (enumeration) values are: [F, G, H, J, K, M, N, Q, U, V, X, Z]..</param>
         /// <param name="contractSize">Size of a single contract. (required).</param>
-        /// <param name="convention">If appropriate, the day count convention method used in pricing (rates futures). For more information on day counts, see [knowledge base article KA-01798](https://support.lusid.com/knowledgebase/article/KA-01798)              Supported string (enumeration) values are: [Actual360, Act360, MoneyMarket, Actual365, Act365, Thirty360, ThirtyU360, Bond, ThirtyE360, EuroBond, ActualActual, ActAct, ActActIsda, ActActIsma, ActActIcma, OneOne, Act364, Act365F, Act365L, Act365_25, Act252, Bus252, NL360, NL365, ActActAFB, Act365Cad, ThirtyActIsda, Thirty365Isda, ThirtyEActIsda, ThirtyE360Isda, ThirtyE365Isda, ThirtyU360EOM]..</param>
+        /// <param name="convention">If appropriate, the day count convention method used in pricing (rates futures).  For more information on day counts, see [knowledge base article KA-01798](https://support.lusid.com/knowledgebase/article/KA-01798)                Supported string (enumeration) values are: [Actual360, Act360, MoneyMarket, Actual365, Act365, Thirty360, ThirtyU360, Bond, ThirtyE360, EuroBond, ActualActual, ActAct, ActActIsda, ActActIsma, ActActIcma, OneOne, Act364, Act365F, Act365L, Act365_25, Act252, Bus252, NL360, NL365, ActActAFB, Act365Cad, ThirtyActIsda, Thirty365Isda, ThirtyEActIsda, ThirtyE360Isda, ThirtyE365Isda, ThirtyU360EOM]..</param>
         /// <param name="country">Country (code) for the exchange..</param>
         /// <param name="description">Description of contract..</param>
         /// <param name="exchangeCode">Exchange code for contract. This can be any string to uniquely identify the exchange (e.g. Exchange Name, MIC, BBG code). (required).</param>
@@ -50,7 +50,7 @@ namespace Lusid.Sdk.Model
         /// <param name="tickerStep">Minimal step size change in ticker..</param>
         /// <param name="unitValue">The value in the currency of a 1 unit change in the contract price..</param>
         /// <param name="calendars">Holiday calendars that apply to yield-to-price conversions (i.e. for BRL futures)..</param>
-        /// <param name="deliveryType">Delivery type to be used on settling the contract. Optional: Defaults to DeliveryType.Physical if not provided.  Supported string (enumeration) values are: [Cash, Physical]..</param>
+        /// <param name="deliveryType">Delivery type to be used on settling the contract.  Optional: Defaults to DeliveryType.Physical if not provided.    Supported string (enumeration) values are: [Cash, Physical]..</param>
         public FuturesContractDetails(string domCcy = default(string), string fgnCcy = default(string), string assetClass = default(string), string contractCode = default(string), string contractMonth = default(string), decimal contractSize = default(decimal), string convention = default(string), string country = default(string), string description = default(string), string exchangeCode = default(string), string exchangeName = default(string), decimal tickerStep = default(decimal), decimal unitValue = default(decimal), List<string> calendars = default(List<string>), string deliveryType = default(string))
         {
             // to ensure "domCcy" is required (not null)
@@ -100,9 +100,9 @@ namespace Lusid.Sdk.Model
         public string FgnCcy { get; set; }
 
         /// <summary>
-        /// The asset class of the underlying. Optional and will default to Unknown if not set.  Supported string (enumeration) values are: [InterestRates, FX, Inflation, Equities, Credit, Commodities, Money].
+        /// The asset class of the underlying. Optional and will default to Unknown if not set.    Supported string (enumeration) values are: [InterestRates, FX, Inflation, Equities, Credit, Commodities, Money].
         /// </summary>
-        /// <value>The asset class of the underlying. Optional and will default to Unknown if not set.  Supported string (enumeration) values are: [InterestRates, FX, Inflation, Equities, Credit, Commodities, Money].</value>
+        /// <value>The asset class of the underlying. Optional and will default to Unknown if not set.    Supported string (enumeration) values are: [InterestRates, FX, Inflation, Equities, Credit, Commodities, Money].</value>
         [DataMember(Name = "assetClass", EmitDefaultValue = true)]
         public string AssetClass { get; set; }
 
@@ -114,9 +114,9 @@ namespace Lusid.Sdk.Model
         public string ContractCode { get; set; }
 
         /// <summary>
-        /// Which month does the contract trade for.  Supported string (enumeration) values are: [F, G, H, J, K, M, N, Q, U, V, X, Z].
+        /// Which month does the contract trade for.    Supported string (enumeration) values are: [F, G, H, J, K, M, N, Q, U, V, X, Z].
         /// </summary>
-        /// <value>Which month does the contract trade for.  Supported string (enumeration) values are: [F, G, H, J, K, M, N, Q, U, V, X, Z].</value>
+        /// <value>Which month does the contract trade for.    Supported string (enumeration) values are: [F, G, H, J, K, M, N, Q, U, V, X, Z].</value>
         [DataMember(Name = "contractMonth", EmitDefaultValue = true)]
         public string ContractMonth { get; set; }
 
@@ -128,9 +128,9 @@ namespace Lusid.Sdk.Model
         public decimal ContractSize { get; set; }
 
         /// <summary>
-        /// If appropriate, the day count convention method used in pricing (rates futures). For more information on day counts, see [knowledge base article KA-01798](https://support.lusid.com/knowledgebase/article/KA-01798)              Supported string (enumeration) values are: [Actual360, Act360, MoneyMarket, Actual365, Act365, Thirty360, ThirtyU360, Bond, ThirtyE360, EuroBond, ActualActual, ActAct, ActActIsda, ActActIsma, ActActIcma, OneOne, Act364, Act365F, Act365L, Act365_25, Act252, Bus252, NL360, NL365, ActActAFB, Act365Cad, ThirtyActIsda, Thirty365Isda, ThirtyEActIsda, ThirtyE360Isda, ThirtyE365Isda, ThirtyU360EOM].
+        /// If appropriate, the day count convention method used in pricing (rates futures).  For more information on day counts, see [knowledge base article KA-01798](https://support.lusid.com/knowledgebase/article/KA-01798)                Supported string (enumeration) values are: [Actual360, Act360, MoneyMarket, Actual365, Act365, Thirty360, ThirtyU360, Bond, ThirtyE360, EuroBond, ActualActual, ActAct, ActActIsda, ActActIsma, ActActIcma, OneOne, Act364, Act365F, Act365L, Act365_25, Act252, Bus252, NL360, NL365, ActActAFB, Act365Cad, ThirtyActIsda, Thirty365Isda, ThirtyEActIsda, ThirtyE360Isda, ThirtyE365Isda, ThirtyU360EOM].
         /// </summary>
-        /// <value>If appropriate, the day count convention method used in pricing (rates futures). For more information on day counts, see [knowledge base article KA-01798](https://support.lusid.com/knowledgebase/article/KA-01798)              Supported string (enumeration) values are: [Actual360, Act360, MoneyMarket, Actual365, Act365, Thirty360, ThirtyU360, Bond, ThirtyE360, EuroBond, ActualActual, ActAct, ActActIsda, ActActIsma, ActActIcma, OneOne, Act364, Act365F, Act365L, Act365_25, Act252, Bus252, NL360, NL365, ActActAFB, Act365Cad, ThirtyActIsda, Thirty365Isda, ThirtyEActIsda, ThirtyE360Isda, ThirtyE365Isda, ThirtyU360EOM].</value>
+        /// <value>If appropriate, the day count convention method used in pricing (rates futures).  For more information on day counts, see [knowledge base article KA-01798](https://support.lusid.com/knowledgebase/article/KA-01798)                Supported string (enumeration) values are: [Actual360, Act360, MoneyMarket, Actual365, Act365, Thirty360, ThirtyU360, Bond, ThirtyE360, EuroBond, ActualActual, ActAct, ActActIsda, ActActIsma, ActActIcma, OneOne, Act364, Act365F, Act365L, Act365_25, Act252, Bus252, NL360, NL365, ActActAFB, Act365Cad, ThirtyActIsda, Thirty365Isda, ThirtyEActIsda, ThirtyE360Isda, ThirtyE365Isda, ThirtyU360EOM].</value>
         [DataMember(Name = "convention", EmitDefaultValue = true)]
         public string Convention { get; set; }
 
@@ -184,9 +184,9 @@ namespace Lusid.Sdk.Model
         public List<string> Calendars { get; set; }
 
         /// <summary>
-        /// Delivery type to be used on settling the contract. Optional: Defaults to DeliveryType.Physical if not provided.  Supported string (enumeration) values are: [Cash, Physical].
+        /// Delivery type to be used on settling the contract.  Optional: Defaults to DeliveryType.Physical if not provided.    Supported string (enumeration) values are: [Cash, Physical].
         /// </summary>
-        /// <value>Delivery type to be used on settling the contract. Optional: Defaults to DeliveryType.Physical if not provided.  Supported string (enumeration) values are: [Cash, Physical].</value>
+        /// <value>Delivery type to be used on settling the contract.  Optional: Defaults to DeliveryType.Physical if not provided.    Supported string (enumeration) values are: [Cash, Physical].</value>
         [DataMember(Name = "deliveryType", EmitDefaultValue = true)]
         public string DeliveryType { get; set; }
 

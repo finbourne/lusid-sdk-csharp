@@ -24,7 +24,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// LUSID representation of an FX Forward. Including FX Spot and Non-Deliverable Forwards.              This instrument has multiple legs, to see how legs are used in LUSID see [knowledge base article KA-02252](https://support.lusid.com/knowledgebase/article/KA-02252).              | Leg Index | Leg Identifier | Description | | - -- -- -- -- | - -- -- -- -- -- -- - | - -- -- -- -- -- | | 1 | DomesticLeg | Cash flows in the domestic currency of the forward. | | 2 | ForeignLeg | Cash flows in the foreign currency of the forward (not present for non-deliverable forwards). |
+    /// LUSID representation of an FX Forward.  Including FX Spot and Non-Deliverable Forwards.                This instrument has multiple legs, to see how legs are used in LUSID see [knowledge base article KA-02252](https://support.lusid.com/knowledgebase/article/KA-02252).                | Leg Index | Leg Identifier | Description |  | - -- -- -- -- | - -- -- -- -- -- -- - | - -- -- -- -- -- |  | 1 | DomesticLeg | Cash flows in the domestic currency of the forward. |  | 2 | ForeignLeg | Cash flows in the foreign currency of the forward (not present for non-deliverable forwards). |
     /// </summary>
     [DataContract(Name = "FxForward")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentType")]
@@ -39,16 +39,16 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="FxForward" /> class.
         /// </summary>
         /// <param name="startDate">The start date of the instrument. This is normally synonymous with the trade-date. (required).</param>
-        /// <param name="maturityDate">The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount. For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it. (required).</param>
+        /// <param name="maturityDate">The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.  For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as  Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it. (required).</param>
         /// <param name="domAmount">The amount that is to be paid in the domestic currency on the maturity date. (required).</param>
         /// <param name="domCcy">The domestic currency of the instrument. (required).</param>
         /// <param name="fgnAmount">The amount that is to be paid in the foreign currency on the maturity date. (required).</param>
-        /// <param name="fgnCcy">The foreign (other) currency of the instrument. In the NDF case, only payments are made in the domestic currency. For the outright forward, currencies are exchanged. (required).</param>
+        /// <param name="fgnCcy">The foreign (other) currency of the instrument. In the NDF case, only payments are made in the domestic currency.  For the outright forward, currencies are exchanged. (required).</param>
         /// <param name="refSpotRate">The reference Fx Spot rate for currency pair Foreign-Domestic that was seen on the trade start date (time)..</param>
-        /// <param name="isNdf">Is the contract an Fx-Forward of \&quot;Non-Deliverable\&quot; type, meaning a single payment in the domestic currency based on the change in fx-rate vs a reference rate is used..</param>
+        /// <param name="isNdf">Is the contract an Fx-Forward of \&quot;Non-Deliverable\&quot; type, meaning a single payment in the domestic currency based on the change in fx-rate vs  a reference rate is used..</param>
         /// <param name="fixingDate">The fixing date..</param>
-        /// <param name="settlementCcy">The settlement currency. If provided, present value will be calculated in settlement currency, otherwise the domestic currency. Applies only to non-deliverable FX Forwards..</param>
-        /// <param name="bookedAsSpot">Boolean flag for FX Forward transactions booked with Spot settlement. This will default to False if not provided. For information purposes only, this does not impact LUSID valuation, analytics, cashflows or events, but may be used by third party vendors..</param>
+        /// <param name="settlementCcy">The settlement currency.  If provided, present value will be calculated in settlement currency, otherwise the domestic currency. Applies only to non-deliverable FX Forwards..</param>
+        /// <param name="bookedAsSpot">Boolean flag for FX Forward transactions booked with Spot settlement. This will default to False if not provided.  For information purposes only, this does not impact LUSID valuation, analytics, cashflows or events, but may be used by third party vendors..</param>
         /// <param name="timeZoneConventions">timeZoneConventions.</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit, FlexibleRepo (required) (default to &quot;FxForward&quot;).</param>
         public FxForward(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), decimal domAmount = default(decimal), string domCcy = default(string), decimal fgnAmount = default(decimal), string fgnCcy = default(string), decimal refSpotRate = default(decimal), bool isNdf = default(bool), DateTimeOffset fixingDate = default(DateTimeOffset), string settlementCcy = default(string), bool bookedAsSpot = default(bool), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
@@ -85,9 +85,9 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset StartDate { get; set; }
 
         /// <summary>
-        /// The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount. For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it.
+        /// The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.  For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as  Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it.
         /// </summary>
-        /// <value>The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount. For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it.</value>
+        /// <value>The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.  For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as  Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it.</value>
         [DataMember(Name = "maturityDate", IsRequired = true, EmitDefaultValue = true)]
         public DateTimeOffset MaturityDate { get; set; }
 
@@ -113,9 +113,9 @@ namespace Lusid.Sdk.Model
         public decimal FgnAmount { get; set; }
 
         /// <summary>
-        /// The foreign (other) currency of the instrument. In the NDF case, only payments are made in the domestic currency. For the outright forward, currencies are exchanged.
+        /// The foreign (other) currency of the instrument. In the NDF case, only payments are made in the domestic currency.  For the outright forward, currencies are exchanged.
         /// </summary>
-        /// <value>The foreign (other) currency of the instrument. In the NDF case, only payments are made in the domestic currency. For the outright forward, currencies are exchanged.</value>
+        /// <value>The foreign (other) currency of the instrument. In the NDF case, only payments are made in the domestic currency.  For the outright forward, currencies are exchanged.</value>
         [DataMember(Name = "fgnCcy", IsRequired = true, EmitDefaultValue = true)]
         public string FgnCcy { get; set; }
 
@@ -127,9 +127,9 @@ namespace Lusid.Sdk.Model
         public decimal RefSpotRate { get; set; }
 
         /// <summary>
-        /// Is the contract an Fx-Forward of \&quot;Non-Deliverable\&quot; type, meaning a single payment in the domestic currency based on the change in fx-rate vs a reference rate is used.
+        /// Is the contract an Fx-Forward of \&quot;Non-Deliverable\&quot; type, meaning a single payment in the domestic currency based on the change in fx-rate vs  a reference rate is used.
         /// </summary>
-        /// <value>Is the contract an Fx-Forward of \&quot;Non-Deliverable\&quot; type, meaning a single payment in the domestic currency based on the change in fx-rate vs a reference rate is used.</value>
+        /// <value>Is the contract an Fx-Forward of \&quot;Non-Deliverable\&quot; type, meaning a single payment in the domestic currency based on the change in fx-rate vs  a reference rate is used.</value>
         [DataMember(Name = "isNdf", EmitDefaultValue = true)]
         public bool IsNdf { get; set; }
 
@@ -141,16 +141,16 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset FixingDate { get; set; }
 
         /// <summary>
-        /// The settlement currency. If provided, present value will be calculated in settlement currency, otherwise the domestic currency. Applies only to non-deliverable FX Forwards.
+        /// The settlement currency.  If provided, present value will be calculated in settlement currency, otherwise the domestic currency. Applies only to non-deliverable FX Forwards.
         /// </summary>
-        /// <value>The settlement currency. If provided, present value will be calculated in settlement currency, otherwise the domestic currency. Applies only to non-deliverable FX Forwards.</value>
+        /// <value>The settlement currency.  If provided, present value will be calculated in settlement currency, otherwise the domestic currency. Applies only to non-deliverable FX Forwards.</value>
         [DataMember(Name = "settlementCcy", EmitDefaultValue = true)]
         public string SettlementCcy { get; set; }
 
         /// <summary>
-        /// Boolean flag for FX Forward transactions booked with Spot settlement. This will default to False if not provided. For information purposes only, this does not impact LUSID valuation, analytics, cashflows or events, but may be used by third party vendors.
+        /// Boolean flag for FX Forward transactions booked with Spot settlement. This will default to False if not provided.  For information purposes only, this does not impact LUSID valuation, analytics, cashflows or events, but may be used by third party vendors.
         /// </summary>
-        /// <value>Boolean flag for FX Forward transactions booked with Spot settlement. This will default to False if not provided. For information purposes only, this does not impact LUSID valuation, analytics, cashflows or events, but may be used by third party vendors.</value>
+        /// <value>Boolean flag for FX Forward transactions booked with Spot settlement. This will default to False if not provided.  For information purposes only, this does not impact LUSID valuation, analytics, cashflows or events, but may be used by third party vendors.</value>
         [DataMember(Name = "bookedAsSpot", EmitDefaultValue = true)]
         public bool BookedAsSpot { get; set; }
 

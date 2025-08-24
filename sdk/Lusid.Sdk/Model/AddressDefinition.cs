@@ -97,8 +97,8 @@ namespace Lusid.Sdk.Model
         /// <param name="displayName">The display name of the address key..</param>
         /// <param name="type">The available values are: String, Int, Decimal, DateTime, Boolean, ResultValue, Result0D, Json.</param>
         /// <param name="description">The description for this result..</param>
-        /// <param name="lifeCycleStatus">What is the status of the address path. If it is not Production then it might be removed at some point in the future. See the removal date for the likely timing of that if any..</param>
-        /// <param name="removalDate">If the life-cycle status of the address is Deprecated then this is the date at which support of the address will be suspended. After that date it will be removed at the earliest possible point subject to any specific contractual support and development constraints..</param>
+        /// <param name="lifeCycleStatus">What is the status of the address path. If it is not Production then it might be removed at some point in the future.  See the removal date for the likely timing of that if any..</param>
+        /// <param name="removalDate">If the life-cycle status of the address is Deprecated then this is the date at which support of the address will be suspended.  After that date it will be removed at the earliest possible point subject to any specific contractual support and development constraints..</param>
         /// <param name="documentationLink">Contains a link to the documentation for this AddressDefinition in KnowledgeBase..</param>
         public AddressDefinition(string displayName = default(string), TypeEnum ?type = default(TypeEnum?), string description = default(string), string lifeCycleStatus = default(string), DateTimeOffset? removalDate = default(DateTimeOffset?), string documentationLink = default(string))
         {
@@ -125,16 +125,16 @@ namespace Lusid.Sdk.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// What is the status of the address path. If it is not Production then it might be removed at some point in the future. See the removal date for the likely timing of that if any.
+        /// What is the status of the address path. If it is not Production then it might be removed at some point in the future.  See the removal date for the likely timing of that if any.
         /// </summary>
-        /// <value>What is the status of the address path. If it is not Production then it might be removed at some point in the future. See the removal date for the likely timing of that if any.</value>
+        /// <value>What is the status of the address path. If it is not Production then it might be removed at some point in the future.  See the removal date for the likely timing of that if any.</value>
         [DataMember(Name = "lifeCycleStatus", EmitDefaultValue = true)]
         public string LifeCycleStatus { get; set; }
 
         /// <summary>
-        /// If the life-cycle status of the address is Deprecated then this is the date at which support of the address will be suspended. After that date it will be removed at the earliest possible point subject to any specific contractual support and development constraints.
+        /// If the life-cycle status of the address is Deprecated then this is the date at which support of the address will be suspended.  After that date it will be removed at the earliest possible point subject to any specific contractual support and development constraints.
         /// </summary>
-        /// <value>If the life-cycle status of the address is Deprecated then this is the date at which support of the address will be suspended. After that date it will be removed at the earliest possible point subject to any specific contractual support and development constraints.</value>
+        /// <value>If the life-cycle status of the address is Deprecated then this is the date at which support of the address will be suspended.  After that date it will be removed at the earliest possible point subject to any specific contractual support and development constraints.</value>
         [DataMember(Name = "removalDate", EmitDefaultValue = true)]
         public DateTimeOffset? RemovalDate { get; set; }
 

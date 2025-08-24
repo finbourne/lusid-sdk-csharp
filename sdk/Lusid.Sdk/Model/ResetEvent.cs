@@ -24,7 +24,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Definition of a reset event. This is an event that describes a reset or fixing for an instrument such as the floating payment on a swap cash flow.
+    /// Definition of a reset event.  This is an event that describes a reset or fixing for an instrument such as the floating payment on  a swap cash flow.
     /// </summary>
     [DataContract(Name = "ResetEvent")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentEventType")]

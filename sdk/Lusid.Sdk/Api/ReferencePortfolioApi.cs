@@ -66,10 +66,10 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the reference portfolio.</param>
-        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies             the reference portfolio.</param>
+        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio.</param>
         /// <param name="effectiveAt">The effective date of the constituents to retrieve. Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve constituents. Defaults to return the latest version             of each constituent if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; or &#39;ReferenceHolding&#39; domain to decorate onto             constituents. These take the format {domain}/{scope}/{code} e.g. &#39;Instrument/system/Name&#39; or             &#39;ReferenceHolding/strategy/quantsignal&#39;. Defaults to return all available instrument and reference holding properties if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve constituents. Defaults to return the latest version              of each constituent if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; or &#39;ReferenceHolding&#39; domain to decorate onto              constituents. These take the format {domain}/{scope}/{code} e.g. &#39;Instrument/system/Name&#39; or              &#39;ReferenceHolding/strategy/quantsignal&#39;. Defaults to return all available instrument and reference holding properties if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>GetReferencePortfolioConstituentsResponse</returns>
@@ -83,10 +83,10 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the reference portfolio.</param>
-        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies             the reference portfolio.</param>
+        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio.</param>
         /// <param name="effectiveAt">The effective date of the constituents to retrieve. Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve constituents. Defaults to return the latest version             of each constituent if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; or &#39;ReferenceHolding&#39; domain to decorate onto             constituents. These take the format {domain}/{scope}/{code} e.g. &#39;Instrument/system/Name&#39; or             &#39;ReferenceHolding/strategy/quantsignal&#39;. Defaults to return all available instrument and reference holding properties if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve constituents. Defaults to return the latest version              of each constituent if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; or &#39;ReferenceHolding&#39; domain to decorate onto              constituents. These take the format {domain}/{scope}/{code} e.g. &#39;Instrument/system/Name&#39; or              &#39;ReferenceHolding/strategy/quantsignal&#39;. Defaults to return all available instrument and reference holding properties if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GetReferencePortfolioConstituentsResponse</returns>
@@ -99,7 +99,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the reference portfolio.</param>
-        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies             the reference portfolio.</param>
+        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio.</param>
         /// <param name="fromEffectiveAt">Events between this time (inclusive) and the toEffectiveAt are returned.</param>
         /// <param name="toEffectiveAt">Events between this time (inclusive) and the fromEffectiveAt are returned.</param>
         /// <param name="asAtTime">The asAt time for which the result is valid. (optional)</param>
@@ -116,7 +116,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the reference portfolio.</param>
-        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies             the reference portfolio.</param>
+        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio.</param>
         /// <param name="fromEffectiveAt">Events between this time (inclusive) and the toEffectiveAt are returned.</param>
         /// <param name="toEffectiveAt">Events between this time (inclusive) and the fromEffectiveAt are returned.</param>
         /// <param name="asAtTime">The asAt time for which the result is valid. (optional)</param>
@@ -128,11 +128,11 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] UpsertReferencePortfolioConstituentProperties: Upsert constituent properties
         /// </summary>
         /// <remarks>
-        /// Create or update one or more constituent properties for a single constituent in the reference portfolio. Each property will be updated if it already exists, created if it does not and deleted if value is null. Both constituent and portfolio must exist at the time when properties are created or updated.
+        /// Create or update one or more constituent properties for a single constituent in the reference portfolio.  Each property will be updated if it already exists, created if it does not and deleted if value is null.  Both constituent and portfolio must exist at the time when properties are created or updated.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the reference portfolio.</param>
-        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies             the reference portfolio.</param>
+        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio.</param>
         /// <param name="upsertReferencePortfolioConstituentPropertiesRequest">The request to modify properties for the constituent.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -143,11 +143,11 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] UpsertReferencePortfolioConstituentProperties: Upsert constituent properties
         /// </summary>
         /// <remarks>
-        /// Create or update one or more constituent properties for a single constituent in the reference portfolio. Each property will be updated if it already exists, created if it does not and deleted if value is null. Both constituent and portfolio must exist at the time when properties are created or updated.
+        /// Create or update one or more constituent properties for a single constituent in the reference portfolio.  Each property will be updated if it already exists, created if it does not and deleted if value is null.  Both constituent and portfolio must exist at the time when properties are created or updated.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the reference portfolio.</param>
-        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies             the reference portfolio.</param>
+        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio.</param>
         /// <param name="upsertReferencePortfolioConstituentPropertiesRequest">The request to modify properties for the constituent.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -161,7 +161,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the reference portfolio.</param>
-        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies             the reference portfolio.</param>
+        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio.</param>
         /// <param name="upsertReferencePortfolioConstituentsRequest">The constituents to upload to the reference portfolio.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -176,7 +176,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the reference portfolio.</param>
-        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies             the reference portfolio.</param>
+        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio.</param>
         /// <param name="upsertReferencePortfolioConstituentsRequest">The constituents to upload to the reference portfolio.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -228,10 +228,10 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the reference portfolio.</param>
-        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies             the reference portfolio.</param>
+        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio.</param>
         /// <param name="effectiveAt">The effective date of the constituents to retrieve. Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve constituents. Defaults to return the latest version             of each constituent if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; or &#39;ReferenceHolding&#39; domain to decorate onto             constituents. These take the format {domain}/{scope}/{code} e.g. &#39;Instrument/system/Name&#39; or             &#39;ReferenceHolding/strategy/quantsignal&#39;. Defaults to return all available instrument and reference holding properties if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve constituents. Defaults to return the latest version              of each constituent if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; or &#39;ReferenceHolding&#39; domain to decorate onto              constituents. These take the format {domain}/{scope}/{code} e.g. &#39;Instrument/system/Name&#39; or              &#39;ReferenceHolding/strategy/quantsignal&#39;. Defaults to return all available instrument and reference holding properties if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -246,10 +246,10 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the reference portfolio.</param>
-        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies             the reference portfolio.</param>
+        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio.</param>
         /// <param name="effectiveAt">The effective date of the constituents to retrieve. Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve constituents. Defaults to return the latest version             of each constituent if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; or &#39;ReferenceHolding&#39; domain to decorate onto             constituents. These take the format {domain}/{scope}/{code} e.g. &#39;Instrument/system/Name&#39; or             &#39;ReferenceHolding/strategy/quantsignal&#39;. Defaults to return all available instrument and reference holding properties if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve constituents. Defaults to return the latest version              of each constituent if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; or &#39;ReferenceHolding&#39; domain to decorate onto              constituents. These take the format {domain}/{scope}/{code} e.g. &#39;Instrument/system/Name&#39; or              &#39;ReferenceHolding/strategy/quantsignal&#39;. Defaults to return all available instrument and reference holding properties if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -263,7 +263,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the reference portfolio.</param>
-        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies             the reference portfolio.</param>
+        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio.</param>
         /// <param name="fromEffectiveAt">Events between this time (inclusive) and the toEffectiveAt are returned.</param>
         /// <param name="toEffectiveAt">Events between this time (inclusive) and the fromEffectiveAt are returned.</param>
         /// <param name="asAtTime">The asAt time for which the result is valid. (optional)</param>
@@ -281,7 +281,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the reference portfolio.</param>
-        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies             the reference portfolio.</param>
+        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio.</param>
         /// <param name="fromEffectiveAt">Events between this time (inclusive) and the toEffectiveAt are returned.</param>
         /// <param name="toEffectiveAt">Events between this time (inclusive) and the fromEffectiveAt are returned.</param>
         /// <param name="asAtTime">The asAt time for which the result is valid. (optional)</param>
@@ -294,11 +294,11 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] UpsertReferencePortfolioConstituentProperties: Upsert constituent properties
         /// </summary>
         /// <remarks>
-        /// Create or update one or more constituent properties for a single constituent in the reference portfolio. Each property will be updated if it already exists, created if it does not and deleted if value is null. Both constituent and portfolio must exist at the time when properties are created or updated.
+        /// Create or update one or more constituent properties for a single constituent in the reference portfolio.  Each property will be updated if it already exists, created if it does not and deleted if value is null.  Both constituent and portfolio must exist at the time when properties are created or updated.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the reference portfolio.</param>
-        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies             the reference portfolio.</param>
+        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio.</param>
         /// <param name="upsertReferencePortfolioConstituentPropertiesRequest">The request to modify properties for the constituent.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -310,11 +310,11 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] UpsertReferencePortfolioConstituentProperties: Upsert constituent properties
         /// </summary>
         /// <remarks>
-        /// Create or update one or more constituent properties for a single constituent in the reference portfolio. Each property will be updated if it already exists, created if it does not and deleted if value is null. Both constituent and portfolio must exist at the time when properties are created or updated.
+        /// Create or update one or more constituent properties for a single constituent in the reference portfolio.  Each property will be updated if it already exists, created if it does not and deleted if value is null.  Both constituent and portfolio must exist at the time when properties are created or updated.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the reference portfolio.</param>
-        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies             the reference portfolio.</param>
+        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio.</param>
         /// <param name="upsertReferencePortfolioConstituentPropertiesRequest">The request to modify properties for the constituent.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -329,7 +329,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the reference portfolio.</param>
-        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies             the reference portfolio.</param>
+        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio.</param>
         /// <param name="upsertReferencePortfolioConstituentsRequest">The constituents to upload to the reference portfolio.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -345,7 +345,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the reference portfolio.</param>
-        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies             the reference portfolio.</param>
+        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio.</param>
         /// <param name="upsertReferencePortfolioConstituentsRequest">The constituents to upload to the reference portfolio.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -710,10 +710,10 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the reference portfolio.</param>
-        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies             the reference portfolio.</param>
+        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio.</param>
         /// <param name="effectiveAt">The effective date of the constituents to retrieve. Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve constituents. Defaults to return the latest version             of each constituent if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; or &#39;ReferenceHolding&#39; domain to decorate onto             constituents. These take the format {domain}/{scope}/{code} e.g. &#39;Instrument/system/Name&#39; or             &#39;ReferenceHolding/strategy/quantsignal&#39;. Defaults to return all available instrument and reference holding properties if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve constituents. Defaults to return the latest version              of each constituent if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; or &#39;ReferenceHolding&#39; domain to decorate onto              constituents. These take the format {domain}/{scope}/{code} e.g. &#39;Instrument/system/Name&#39; or              &#39;ReferenceHolding/strategy/quantsignal&#39;. Defaults to return all available instrument and reference holding properties if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>GetReferencePortfolioConstituentsResponse</returns>
@@ -728,10 +728,10 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the reference portfolio.</param>
-        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies             the reference portfolio.</param>
+        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio.</param>
         /// <param name="effectiveAt">The effective date of the constituents to retrieve. Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve constituents. Defaults to return the latest version             of each constituent if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; or &#39;ReferenceHolding&#39; domain to decorate onto             constituents. These take the format {domain}/{scope}/{code} e.g. &#39;Instrument/system/Name&#39; or             &#39;ReferenceHolding/strategy/quantsignal&#39;. Defaults to return all available instrument and reference holding properties if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve constituents. Defaults to return the latest version              of each constituent if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; or &#39;ReferenceHolding&#39; domain to decorate onto              constituents. These take the format {domain}/{scope}/{code} e.g. &#39;Instrument/system/Name&#39; or              &#39;ReferenceHolding/strategy/quantsignal&#39;. Defaults to return all available instrument and reference holding properties if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GetReferencePortfolioConstituentsResponse</returns>
@@ -837,10 +837,10 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the reference portfolio.</param>
-        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies             the reference portfolio.</param>
+        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio.</param>
         /// <param name="effectiveAt">The effective date of the constituents to retrieve. Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve constituents. Defaults to return the latest version             of each constituent if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; or &#39;ReferenceHolding&#39; domain to decorate onto             constituents. These take the format {domain}/{scope}/{code} e.g. &#39;Instrument/system/Name&#39; or             &#39;ReferenceHolding/strategy/quantsignal&#39;. Defaults to return all available instrument and reference holding properties if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve constituents. Defaults to return the latest version              of each constituent if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; or &#39;ReferenceHolding&#39; domain to decorate onto              constituents. These take the format {domain}/{scope}/{code} e.g. &#39;Instrument/system/Name&#39; or              &#39;ReferenceHolding/strategy/quantsignal&#39;. Defaults to return all available instrument and reference holding properties if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -856,10 +856,10 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the reference portfolio.</param>
-        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies             the reference portfolio.</param>
+        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio.</param>
         /// <param name="effectiveAt">The effective date of the constituents to retrieve. Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve constituents. Defaults to return the latest version             of each constituent if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; or &#39;ReferenceHolding&#39; domain to decorate onto             constituents. These take the format {domain}/{scope}/{code} e.g. &#39;Instrument/system/Name&#39; or             &#39;ReferenceHolding/strategy/quantsignal&#39;. Defaults to return all available instrument and reference holding properties if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve constituents. Defaults to return the latest version              of each constituent if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; or &#39;ReferenceHolding&#39; domain to decorate onto              constituents. These take the format {domain}/{scope}/{code} e.g. &#39;Instrument/system/Name&#39; or              &#39;ReferenceHolding/strategy/quantsignal&#39;. Defaults to return all available instrument and reference holding properties if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -968,7 +968,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the reference portfolio.</param>
-        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies             the reference portfolio.</param>
+        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio.</param>
         /// <param name="fromEffectiveAt">Events between this time (inclusive) and the toEffectiveAt are returned.</param>
         /// <param name="toEffectiveAt">Events between this time (inclusive) and the fromEffectiveAt are returned.</param>
         /// <param name="asAtTime">The asAt time for which the result is valid. (optional)</param>
@@ -986,7 +986,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the reference portfolio.</param>
-        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies             the reference portfolio.</param>
+        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio.</param>
         /// <param name="fromEffectiveAt">Events between this time (inclusive) and the toEffectiveAt are returned.</param>
         /// <param name="toEffectiveAt">Events between this time (inclusive) and the fromEffectiveAt are returned.</param>
         /// <param name="asAtTime">The asAt time for which the result is valid. (optional)</param>
@@ -1101,7 +1101,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the reference portfolio.</param>
-        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies             the reference portfolio.</param>
+        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio.</param>
         /// <param name="fromEffectiveAt">Events between this time (inclusive) and the toEffectiveAt are returned.</param>
         /// <param name="toEffectiveAt">Events between this time (inclusive) and the fromEffectiveAt are returned.</param>
         /// <param name="asAtTime">The asAt time for which the result is valid. (optional)</param>
@@ -1120,7 +1120,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the reference portfolio.</param>
-        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies             the reference portfolio.</param>
+        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio.</param>
         /// <param name="fromEffectiveAt">Events between this time (inclusive) and the toEffectiveAt are returned.</param>
         /// <param name="toEffectiveAt">Events between this time (inclusive) and the fromEffectiveAt are returned.</param>
         /// <param name="asAtTime">The asAt time for which the result is valid. (optional)</param>
@@ -1234,11 +1234,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertReferencePortfolioConstituentProperties: Upsert constituent properties Create or update one or more constituent properties for a single constituent in the reference portfolio. Each property will be updated if it already exists, created if it does not and deleted if value is null. Both constituent and portfolio must exist at the time when properties are created or updated.
+        /// [EARLY ACCESS] UpsertReferencePortfolioConstituentProperties: Upsert constituent properties Create or update one or more constituent properties for a single constituent in the reference portfolio.  Each property will be updated if it already exists, created if it does not and deleted if value is null.  Both constituent and portfolio must exist at the time when properties are created or updated.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the reference portfolio.</param>
-        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies             the reference portfolio.</param>
+        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio.</param>
         /// <param name="upsertReferencePortfolioConstituentPropertiesRequest">The request to modify properties for the constituent.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1250,11 +1250,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertReferencePortfolioConstituentProperties: Upsert constituent properties Create or update one or more constituent properties for a single constituent in the reference portfolio. Each property will be updated if it already exists, created if it does not and deleted if value is null. Both constituent and portfolio must exist at the time when properties are created or updated.
+        /// [EARLY ACCESS] UpsertReferencePortfolioConstituentProperties: Upsert constituent properties Create or update one or more constituent properties for a single constituent in the reference portfolio.  Each property will be updated if it already exists, created if it does not and deleted if value is null.  Both constituent and portfolio must exist at the time when properties are created or updated.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the reference portfolio.</param>
-        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies             the reference portfolio.</param>
+        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio.</param>
         /// <param name="upsertReferencePortfolioConstituentPropertiesRequest">The request to modify properties for the constituent.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1356,11 +1356,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertReferencePortfolioConstituentProperties: Upsert constituent properties Create or update one or more constituent properties for a single constituent in the reference portfolio. Each property will be updated if it already exists, created if it does not and deleted if value is null. Both constituent and portfolio must exist at the time when properties are created or updated.
+        /// [EARLY ACCESS] UpsertReferencePortfolioConstituentProperties: Upsert constituent properties Create or update one or more constituent properties for a single constituent in the reference portfolio.  Each property will be updated if it already exists, created if it does not and deleted if value is null.  Both constituent and portfolio must exist at the time when properties are created or updated.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the reference portfolio.</param>
-        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies             the reference portfolio.</param>
+        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio.</param>
         /// <param name="upsertReferencePortfolioConstituentPropertiesRequest">The request to modify properties for the constituent.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1373,11 +1373,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertReferencePortfolioConstituentProperties: Upsert constituent properties Create or update one or more constituent properties for a single constituent in the reference portfolio. Each property will be updated if it already exists, created if it does not and deleted if value is null. Both constituent and portfolio must exist at the time when properties are created or updated.
+        /// [EARLY ACCESS] UpsertReferencePortfolioConstituentProperties: Upsert constituent properties Create or update one or more constituent properties for a single constituent in the reference portfolio.  Each property will be updated if it already exists, created if it does not and deleted if value is null.  Both constituent and portfolio must exist at the time when properties are created or updated.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the reference portfolio.</param>
-        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies             the reference portfolio.</param>
+        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio.</param>
         /// <param name="upsertReferencePortfolioConstituentPropertiesRequest">The request to modify properties for the constituent.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1486,7 +1486,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the reference portfolio.</param>
-        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies             the reference portfolio.</param>
+        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio.</param>
         /// <param name="upsertReferencePortfolioConstituentsRequest">The constituents to upload to the reference portfolio.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1502,7 +1502,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the reference portfolio.</param>
-        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies             the reference portfolio.</param>
+        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio.</param>
         /// <param name="upsertReferencePortfolioConstituentsRequest">The constituents to upload to the reference portfolio.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1608,7 +1608,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the reference portfolio.</param>
-        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies             the reference portfolio.</param>
+        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio.</param>
         /// <param name="upsertReferencePortfolioConstituentsRequest">The constituents to upload to the reference portfolio.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1625,7 +1625,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the reference portfolio.</param>
-        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies             the reference portfolio.</param>
+        /// <param name="code">The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio.</param>
         /// <param name="upsertReferencePortfolioConstituentsRequest">The constituents to upload to the reference portfolio.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>

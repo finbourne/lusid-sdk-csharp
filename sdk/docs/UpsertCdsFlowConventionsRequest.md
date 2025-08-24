@@ -1,5 +1,5 @@
 # Lusid.Sdk.Model.UpsertCdsFlowConventionsRequest
-CDS Flow convention that is to be stored in the convention data store. Only one of these must be present.
+CDS Flow convention that is to be stored in the convention data store.  Only one of these must be present.
 
 ## Properties
 

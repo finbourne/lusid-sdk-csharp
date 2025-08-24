@@ -24,7 +24,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Base class for representing model options in LUSID, which provide config for instrument analytics. This base class should not be directly instantiated; each supported ModelOptionsType has a corresponding inherited class.
+    /// Base class for representing model options in LUSID, which provide config for instrument analytics.  This base class should not be directly instantiated; each supported ModelOptionsType has a corresponding inherited class.
     /// </summary>
     [DataContract(Name = "ModelOptions")]
     [JsonConverter(typeof(JsonSubtypes), "ModelOptionsType")]

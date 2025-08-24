@@ -1,5 +1,5 @@
 # Lusid.Sdk.Model.HoldingContext
-Holding context node. Contains settings that control how LUSID handles holdings within portfolios.
+Holding context node.  Contains settings that control how LUSID handles holdings within portfolios.
 
 ## Properties
 

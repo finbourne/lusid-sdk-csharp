@@ -24,7 +24,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Event to adjust the limit/balance of a LoanFacility. Used to initially set up the facility, but also used to increase/reduce the associated limit and balance.
+    /// Event to adjust the limit/balance of a LoanFacility.  Used to initially set up the facility, but also used to increase/reduce the associated limit and balance.
     /// </summary>
     [DataContract(Name = "AdjustGlobalCommitmentEvent")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentEventType")]
@@ -38,7 +38,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AdjustGlobalCommitmentEvent" /> class.
         /// </summary>
-        /// <param name="amount">Amount that the limit and balance are changed by. A positive number signifies an increase, and a negative number here signifies a decrease. (required).</param>
+        /// <param name="amount">Amount that the limit and balance are changed by.  A positive number signifies an increase, and a negative number here signifies a decrease. (required).</param>
         /// <param name="date">Date of the adjustment.  Signifies when the facility begins to accrue interest..</param>
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent (required) (default to &quot;AdjustGlobalCommitmentEvent&quot;).</param>
         public AdjustGlobalCommitmentEvent(decimal amount = default(decimal), DateTimeOffset date = default(DateTimeOffset), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
@@ -48,9 +48,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// Amount that the limit and balance are changed by. A positive number signifies an increase, and a negative number here signifies a decrease.
+        /// Amount that the limit and balance are changed by.  A positive number signifies an increase, and a negative number here signifies a decrease.
         /// </summary>
-        /// <value>Amount that the limit and balance are changed by. A positive number signifies an increase, and a negative number here signifies a decrease.</value>
+        /// <value>Amount that the limit and balance are changed by.  A positive number signifies an increase, and a negative number here signifies a decrease.</value>
         [DataMember(Name = "amount", IsRequired = true, EmitDefaultValue = true)]
         public decimal Amount { get; set; }
 

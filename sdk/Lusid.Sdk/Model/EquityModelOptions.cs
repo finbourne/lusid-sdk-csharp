@@ -38,7 +38,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EquityModelOptions" /> class.
         /// </summary>
-        /// <param name="equityForwardProjectionType">Determines how forward equity prices should be projected.              Supported string (enumeration) values are: [FlatForwardCurveFromSpot, EquityCurveByPrices, ForwardProjectedFromRatesCurve]. (required).</param>
+        /// <param name="equityForwardProjectionType">Determines how forward equity prices should be projected.                Supported string (enumeration) values are: [FlatForwardCurveFromSpot, EquityCurveByPrices, ForwardProjectedFromRatesCurve]. (required).</param>
         /// <param name="modelOptionsType">The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions (required) (default to &quot;EquityModelOptions&quot;).</param>
         public EquityModelOptions(string equityForwardProjectionType = default(string), ModelOptionsTypeEnum modelOptionsType = default(ModelOptionsTypeEnum)) : base(modelOptionsType)
         {
@@ -51,9 +51,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// Determines how forward equity prices should be projected.              Supported string (enumeration) values are: [FlatForwardCurveFromSpot, EquityCurveByPrices, ForwardProjectedFromRatesCurve].
+        /// Determines how forward equity prices should be projected.                Supported string (enumeration) values are: [FlatForwardCurveFromSpot, EquityCurveByPrices, ForwardProjectedFromRatesCurve].
         /// </summary>
-        /// <value>Determines how forward equity prices should be projected.              Supported string (enumeration) values are: [FlatForwardCurveFromSpot, EquityCurveByPrices, ForwardProjectedFromRatesCurve].</value>
+        /// <value>Determines how forward equity prices should be projected.                Supported string (enumeration) values are: [FlatForwardCurveFromSpot, EquityCurveByPrices, ForwardProjectedFromRatesCurve].</value>
         [DataMember(Name = "equityForwardProjectionType", IsRequired = true, EmitDefaultValue = true)]
         public string EquityForwardProjectionType { get; set; }
 

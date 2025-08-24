@@ -130,7 +130,7 @@ catch (ApiException e)
 
 [EXPERIMENTAL] DeleteIdentifierDefinition: Delete a particular Identifier Definition
 
-The deletion will take effect from the Identifier Definition deletion datetime. i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
+The deletion will take effect from the Identifier Definition deletion datetime.  i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
 
 ### Example
 ```csharp
@@ -248,7 +248,7 @@ catch (ApiException e)
 
 [EXPERIMENTAL] GetIdentifierDefinition: Get a single Identifier Definition
 
-Get a single Identifier Definition using domain, identifierScope, identifierType, and an optional asAt             - defaulting to latest if not specified
+Get a single Identifier Definition using domain, identifierScope, identifierType, and an optional asAt              - defaulting to latest if not specified
 
 ### Example
 ```csharp
@@ -292,9 +292,9 @@ namespace Examples
             var domain = "NotDefined";  // string | The type of entity to which the identifier relates.
             var identifierScope = "identifierScope_example";  // string | The scope that the identifier exists in
             var identifierType = "identifierType_example";  // string | What the identifier represents. Together with \"domain\" and \"identifierScope\" this uniquely identifies the identifier definition
-            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the Identifier Definition. Defaults to return             the latest version of the definition if not specified. (optional) 
-            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effectiveAt datetime at which to retrieve the Identifier Definitions.             Since Identifier Definitions exist for all effective time, this will only apply to properties (if requested)             on the Identifier Definition. (optional) 
-            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'IdentifierDefinition' domain to decorate onto the Identifier Definition.             These must take the format {domain}/{scope}/{code}. If no properties are specified, then no properties will be returned. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the Identifier Definition. Defaults to return              the latest version of the definition if not specified. (optional) 
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effectiveAt datetime at which to retrieve the Identifier Definitions.              Since Identifier Definitions exist for all effective time, this will only apply to properties (if requested)              on the Identifier Definition. (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'IdentifierDefinition' domain to decorate onto the Identifier Definition.              These must take the format {domain}/{scope}/{code}. If no properties are specified, then no properties will be returned. (optional) 
 
             try
             {
@@ -343,9 +343,9 @@ catch (ApiException e)
 | **domain** | **string** | The type of entity to which the identifier relates. |  |
 | **identifierScope** | **string** | The scope that the identifier exists in |  |
 | **identifierType** | **string** | What the identifier represents. Together with \&quot;domain\&quot; and \&quot;identifierScope\&quot; this uniquely identifies the identifier definition |  |
-| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the Identifier Definition. Defaults to return             the latest version of the definition if not specified. | [optional]  |
-| **effectiveAt** | **DateTimeOrCutLabel?** | The effectiveAt datetime at which to retrieve the Identifier Definitions.             Since Identifier Definitions exist for all effective time, this will only apply to properties (if requested)             on the Identifier Definition. | [optional]  |
-| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;IdentifierDefinition&#39; domain to decorate onto the Identifier Definition.             These must take the format {domain}/{scope}/{code}. If no properties are specified, then no properties will be returned. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the Identifier Definition. Defaults to return              the latest version of the definition if not specified. | [optional]  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effectiveAt datetime at which to retrieve the Identifier Definitions.              Since Identifier Definitions exist for all effective time, this will only apply to properties (if requested)              on the Identifier Definition. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;IdentifierDefinition&#39; domain to decorate onto the Identifier Definition.              These must take the format {domain}/{scope}/{code}. If no properties are specified, then no properties will be returned. | [optional]  |
 
 ### Return type
 
@@ -372,7 +372,7 @@ catch (ApiException e)
 
 [EXPERIMENTAL] ListIdentifierDefinitions: List Identifier Definitions
 
-Retrieves all Identifier Definitions that fit the filter, in a specific order if sortBy is provided Supports pagination
+Retrieves all Identifier Definitions that fit the filter, in a specific order if sortBy is provided  Supports pagination
 
 ### Example
 ```csharp
@@ -413,13 +413,13 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<IdentifierDefinitionsApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<IdentifierDefinitionsApi>();
-            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effectiveAt datetime at which to retrieve the Identifier Definitions.             Since Identifier Definitions exist for all effective time, this will only apply to properties (if requested)             on the Identifier Definition. (optional) 
-            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the Identifier Definitions. Defaults to return the latest             version of the Identifier Definitions if not specified. (optional) 
-            var page = "page_example";  // string? | The pagination token to use to continue listing Identifier Definitions from a previous call to list             Identifier Definitions. This value is returned from the previous call. If a pagination token is provided the sortBy,             filter, effectiveAt, and asAt fields must not have changed since the original request. (optional) 
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effectiveAt datetime at which to retrieve the Identifier Definitions.              Since Identifier Definitions exist for all effective time, this will only apply to properties (if requested)              on the Identifier Definition. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the Identifier Definitions. Defaults to return the latest              version of the Identifier Definitions if not specified. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing Identifier Definitions from a previous call to list              Identifier Definitions. This value is returned from the previous call. If a pagination token is provided the sortBy,              filter, effectiveAt, and asAt fields must not have changed since the original request. (optional) 
             var limit = 56;  // int? | When paginating, limit the number of returned results to this many per page. (optional) 
-            var filter = "filter_example";  // string? | Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional) 
             var sortBy = new List<string>?(); // List<string>? | A list of field names to sort by, each suffixed by \" ASC\" or \" DESC\" (optional) 
-            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'IdentifierDefinition' domain to decorate onto the Identifier Definition.             These must take the format {domain}/{scope}/{code}. (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'IdentifierDefinition' domain to decorate onto the Identifier Definition.              These must take the format {domain}/{scope}/{code}. (optional) 
 
             try
             {
@@ -465,13 +465,13 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **effectiveAt** | **DateTimeOrCutLabel?** | The effectiveAt datetime at which to retrieve the Identifier Definitions.             Since Identifier Definitions exist for all effective time, this will only apply to properties (if requested)             on the Identifier Definition. | [optional]  |
-| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the Identifier Definitions. Defaults to return the latest             version of the Identifier Definitions if not specified. | [optional]  |
-| **page** | **string?** | The pagination token to use to continue listing Identifier Definitions from a previous call to list             Identifier Definitions. This value is returned from the previous call. If a pagination token is provided the sortBy,             filter, effectiveAt, and asAt fields must not have changed since the original request. | [optional]  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effectiveAt datetime at which to retrieve the Identifier Definitions.              Since Identifier Definitions exist for all effective time, this will only apply to properties (if requested)              on the Identifier Definition. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the Identifier Definitions. Defaults to return the latest              version of the Identifier Definitions if not specified. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing Identifier Definitions from a previous call to list              Identifier Definitions. This value is returned from the previous call. If a pagination token is provided the sortBy,              filter, effectiveAt, and asAt fields must not have changed since the original request. | [optional]  |
 | **limit** | **int?** | When paginating, limit the number of returned results to this many per page. | [optional]  |
-| **filter** | **string?** | Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
+| **filter** | **string?** | Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
 | **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; | [optional]  |
-| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;IdentifierDefinition&#39; domain to decorate onto the Identifier Definition.             These must take the format {domain}/{scope}/{code}. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;IdentifierDefinition&#39; domain to decorate onto the Identifier Definition.              These must take the format {domain}/{scope}/{code}. | [optional]  |
 
 ### Return type
 

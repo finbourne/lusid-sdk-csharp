@@ -24,7 +24,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Definition of a Future Mark to Market Event. Represents &#39;Mark to Market&#39; daily settlement of Future instruments.
+    /// Definition of a Future Mark to Market Event.  Represents &#39;Mark to Market&#39; daily settlement of Future instruments.
     /// </summary>
     [DataContract(Name = "FutureMarkToMarketEvent")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentEventType")]

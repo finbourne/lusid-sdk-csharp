@@ -66,7 +66,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Scope of the sequence.</param>
-        /// <param name="code">Code of the sequence. This together with stated scope uniquely             identifies the sequence.</param>
+        /// <param name="code">Code of the sequence. This together with stated scope uniquely              identifies the sequence.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>SequenceDefinition</returns>
@@ -80,7 +80,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Scope of the sequence.</param>
-        /// <param name="code">Code of the sequence. This together with stated scope uniquely             identifies the sequence.</param>
+        /// <param name="code">Code of the sequence. This together with stated scope uniquely              identifies the sequence.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of SequenceDefinition</returns>
@@ -92,9 +92,9 @@ namespace Lusid.Sdk.Api
         /// List sequences which satisfies filtering criteria.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="page">The pagination token to use to continue listing sequences from a previous call to list sequences. This value is returned from the previous call. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing sequences from a previous call to list sequences. This  value is returned from the previous call. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 500 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfSequenceDefinition</returns>
@@ -107,9 +107,9 @@ namespace Lusid.Sdk.Api
         /// List sequences which satisfies filtering criteria.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="page">The pagination token to use to continue listing sequences from a previous call to list sequences. This value is returned from the previous call. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing sequences from a previous call to list sequences. This  value is returned from the previous call. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 500 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfSequenceDefinition</returns>
@@ -122,7 +122,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Scope of the sequence.</param>
-        /// <param name="code">Code of the sequence. This together with stated scope uniquely             identifies the sequence.</param>
+        /// <param name="code">Code of the sequence. This together with stated scope uniquely              identifies the sequence.</param>
         /// <param name="batch">Number of sequences items to return for the specified sequence. Default to 1 if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -137,7 +137,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Scope of the sequence.</param>
-        /// <param name="code">Code of the sequence. This together with stated scope uniquely             identifies the sequence.</param>
+        /// <param name="code">Code of the sequence. This together with stated scope uniquely              identifies the sequence.</param>
         /// <param name="batch">Number of sequences items to return for the specified sequence. Default to 1 if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -189,7 +189,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Scope of the sequence.</param>
-        /// <param name="code">Code of the sequence. This together with stated scope uniquely             identifies the sequence.</param>
+        /// <param name="code">Code of the sequence. This together with stated scope uniquely              identifies the sequence.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -204,7 +204,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Scope of the sequence.</param>
-        /// <param name="code">Code of the sequence. This together with stated scope uniquely             identifies the sequence.</param>
+        /// <param name="code">Code of the sequence. This together with stated scope uniquely              identifies the sequence.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -217,9 +217,9 @@ namespace Lusid.Sdk.Api
         /// List sequences which satisfies filtering criteria.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="page">The pagination token to use to continue listing sequences from a previous call to list sequences. This value is returned from the previous call. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing sequences from a previous call to list sequences. This  value is returned from the previous call. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 500 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -233,9 +233,9 @@ namespace Lusid.Sdk.Api
         /// List sequences which satisfies filtering criteria.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="page">The pagination token to use to continue listing sequences from a previous call to list sequences. This value is returned from the previous call. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing sequences from a previous call to list sequences. This  value is returned from the previous call. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 500 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -249,7 +249,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Scope of the sequence.</param>
-        /// <param name="code">Code of the sequence. This together with stated scope uniquely             identifies the sequence.</param>
+        /// <param name="code">Code of the sequence. This together with stated scope uniquely              identifies the sequence.</param>
         /// <param name="batch">Number of sequences items to return for the specified sequence. Default to 1 if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -265,7 +265,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Scope of the sequence.</param>
-        /// <param name="code">Code of the sequence. This together with stated scope uniquely             identifies the sequence.</param>
+        /// <param name="code">Code of the sequence. This together with stated scope uniquely              identifies the sequence.</param>
         /// <param name="batch">Number of sequences items to return for the specified sequence. Default to 1 if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -630,7 +630,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Scope of the sequence.</param>
-        /// <param name="code">Code of the sequence. This together with stated scope uniquely             identifies the sequence.</param>
+        /// <param name="code">Code of the sequence. This together with stated scope uniquely              identifies the sequence.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>SequenceDefinition</returns>
@@ -645,7 +645,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Scope of the sequence.</param>
-        /// <param name="code">Code of the sequence. This together with stated scope uniquely             identifies the sequence.</param>
+        /// <param name="code">Code of the sequence. This together with stated scope uniquely              identifies the sequence.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of SequenceDefinition</returns>
@@ -739,7 +739,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Scope of the sequence.</param>
-        /// <param name="code">Code of the sequence. This together with stated scope uniquely             identifies the sequence.</param>
+        /// <param name="code">Code of the sequence. This together with stated scope uniquely              identifies the sequence.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -755,7 +755,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Scope of the sequence.</param>
-        /// <param name="code">Code of the sequence. This together with stated scope uniquely             identifies the sequence.</param>
+        /// <param name="code">Code of the sequence. This together with stated scope uniquely              identifies the sequence.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -851,9 +851,9 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] ListSequences: List Sequences List sequences which satisfies filtering criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="page">The pagination token to use to continue listing sequences from a previous call to list sequences. This value is returned from the previous call. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing sequences from a previous call to list sequences. This  value is returned from the previous call. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 500 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfSequenceDefinition</returns>
@@ -867,9 +867,9 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] ListSequences: List Sequences List sequences which satisfies filtering criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="page">The pagination token to use to continue listing sequences from a previous call to list sequences. This value is returned from the previous call. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing sequences from a previous call to list sequences. This  value is returned from the previous call. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 500 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfSequenceDefinition</returns>
@@ -960,9 +960,9 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] ListSequences: List Sequences List sequences which satisfies filtering criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="page">The pagination token to use to continue listing sequences from a previous call to list sequences. This value is returned from the previous call. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing sequences from a previous call to list sequences. This  value is returned from the previous call. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 500 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -977,9 +977,9 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] ListSequences: List Sequences List sequences which satisfies filtering criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="page">The pagination token to use to continue listing sequences from a previous call to list sequences. This value is returned from the previous call. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing sequences from a previous call to list sequences. This  value is returned from the previous call. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 500 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1074,7 +1074,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Scope of the sequence.</param>
-        /// <param name="code">Code of the sequence. This together with stated scope uniquely             identifies the sequence.</param>
+        /// <param name="code">Code of the sequence. This together with stated scope uniquely              identifies the sequence.</param>
         /// <param name="batch">Number of sequences items to return for the specified sequence. Default to 1 if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1090,7 +1090,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Scope of the sequence.</param>
-        /// <param name="code">Code of the sequence. This together with stated scope uniquely             identifies the sequence.</param>
+        /// <param name="code">Code of the sequence. This together with stated scope uniquely              identifies the sequence.</param>
         /// <param name="batch">Number of sequences items to return for the specified sequence. Default to 1 if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1189,7 +1189,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Scope of the sequence.</param>
-        /// <param name="code">Code of the sequence. This together with stated scope uniquely             identifies the sequence.</param>
+        /// <param name="code">Code of the sequence. This together with stated scope uniquely              identifies the sequence.</param>
         /// <param name="batch">Number of sequences items to return for the specified sequence. Default to 1 if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1206,7 +1206,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Scope of the sequence.</param>
-        /// <param name="code">Code of the sequence. This together with stated scope uniquely             identifies the sequence.</param>
+        /// <param name="code">Code of the sequence. This together with stated scope uniquely              identifies the sequence.</param>
         /// <param name="batch">Number of sequences items to return for the specified sequence. Default to 1 if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>

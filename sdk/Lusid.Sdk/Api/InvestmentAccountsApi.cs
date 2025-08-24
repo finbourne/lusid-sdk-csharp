@@ -42,10 +42,10 @@ namespace Lusid.Sdk.Api
         /// <param name="identifierValue">Code of the investment account under specified identifier type&#39;s scope and code.</param>
         /// <param name="scope">The scope of the investment account entity.</param>
         /// <param name="identifierScope">Scope of the investment account identifier type.</param>
-        /// <param name="propertyKeys">A list of property keys or identifier types (as property keys) from the \&quot;InvestmentAccount\&quot; domain             to include for found investment account, or from any domain that supports relationships to decorate onto related entities.             These take the format {domain}/{scope}/{code} e.g. \&quot;InvestmentAccount/ContactDetails/Address\&quot;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys or identifier types (as property keys) from the \&quot;InvestmentAccount\&quot; domain              to include for found investment account, or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;InvestmentAccount/ContactDetails/Address\&quot;. (optional)</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the investment account. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the investment account. Defaults to return the latest version of the investment account if not specified. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the investment account in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the investment account in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>InvestmentAccount</returns>
@@ -62,10 +62,10 @@ namespace Lusid.Sdk.Api
         /// <param name="identifierValue">Code of the investment account under specified identifier type&#39;s scope and code.</param>
         /// <param name="scope">The scope of the investment account entity.</param>
         /// <param name="identifierScope">Scope of the investment account identifier type.</param>
-        /// <param name="propertyKeys">A list of property keys or identifier types (as property keys) from the \&quot;InvestmentAccount\&quot; domain             to include for found investment account, or from any domain that supports relationships to decorate onto related entities.             These take the format {domain}/{scope}/{code} e.g. \&quot;InvestmentAccount/ContactDetails/Address\&quot;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys or identifier types (as property keys) from the \&quot;InvestmentAccount\&quot; domain              to include for found investment account, or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;InvestmentAccount/ContactDetails/Address\&quot;. (optional)</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the investment account. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the investment account. Defaults to return the latest version of the investment account if not specified. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the investment account in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the investment account in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of InvestmentAccount</returns>
@@ -77,14 +77,14 @@ namespace Lusid.Sdk.Api
         /// List all investment accounts which the user is entitled to see.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the investment accounts. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the investment accounts. Defaults to return the latest version             of each investment accounts if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing investment accounts from a previous call to list investment accounts. This value is returned from the previous call. If a pagination token is provided the filter, effectiveAt, sortBy and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the investment accounts. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the investment accounts. Defaults to return the latest version              of each investment accounts if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing investment accounts from a previous call to list investment accounts. This  value is returned from the previous call. If a pagination token is provided the filter, effectiveAt, sortBy  and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 5000 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys or identifier types (as property keys) from the \&quot;InvestmentAccount\&quot; domain             to include for each investment account, or from any domain that supports relationships to decorate onto related entities.             These take the format {domain}/{scope}/{code} e.g. \&quot;InvestmentAccount/ContactDetails/Address\&quot;. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto each investment account in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys or identifier types (as property keys) from the \&quot;InvestmentAccount\&quot; domain              to include for each investment account, or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;InvestmentAccount/ContactDetails/Address\&quot;. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto each investment account in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfInvestmentAccount</returns>
@@ -97,14 +97,14 @@ namespace Lusid.Sdk.Api
         /// List all investment accounts which the user is entitled to see.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the investment accounts. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the investment accounts. Defaults to return the latest version             of each investment accounts if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing investment accounts from a previous call to list investment accounts. This value is returned from the previous call. If a pagination token is provided the filter, effectiveAt, sortBy and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the investment accounts. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the investment accounts. Defaults to return the latest version              of each investment accounts if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing investment accounts from a previous call to list investment accounts. This  value is returned from the previous call. If a pagination token is provided the filter, effectiveAt, sortBy  and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 5000 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys or identifier types (as property keys) from the \&quot;InvestmentAccount\&quot; domain             to include for each investment account, or from any domain that supports relationships to decorate onto related entities.             These take the format {domain}/{scope}/{code} e.g. \&quot;InvestmentAccount/ContactDetails/Address\&quot;. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto each investment account in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys or identifier types (as property keys) from the \&quot;InvestmentAccount\&quot; domain              to include for each investment account, or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;InvestmentAccount/ContactDetails/Address\&quot;. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto each investment account in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfInvestmentAccount</returns>
@@ -156,10 +156,10 @@ namespace Lusid.Sdk.Api
         /// <param name="identifierValue">Code of the investment account under specified identifier type&#39;s scope and code.</param>
         /// <param name="scope">The scope of the investment account entity.</param>
         /// <param name="identifierScope">Scope of the investment account identifier type.</param>
-        /// <param name="propertyKeys">A list of property keys or identifier types (as property keys) from the \&quot;InvestmentAccount\&quot; domain             to include for found investment account, or from any domain that supports relationships to decorate onto related entities.             These take the format {domain}/{scope}/{code} e.g. \&quot;InvestmentAccount/ContactDetails/Address\&quot;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys or identifier types (as property keys) from the \&quot;InvestmentAccount\&quot; domain              to include for found investment account, or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;InvestmentAccount/ContactDetails/Address\&quot;. (optional)</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the investment account. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the investment account. Defaults to return the latest version of the investment account if not specified. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the investment account in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the investment account in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -177,10 +177,10 @@ namespace Lusid.Sdk.Api
         /// <param name="identifierValue">Code of the investment account under specified identifier type&#39;s scope and code.</param>
         /// <param name="scope">The scope of the investment account entity.</param>
         /// <param name="identifierScope">Scope of the investment account identifier type.</param>
-        /// <param name="propertyKeys">A list of property keys or identifier types (as property keys) from the \&quot;InvestmentAccount\&quot; domain             to include for found investment account, or from any domain that supports relationships to decorate onto related entities.             These take the format {domain}/{scope}/{code} e.g. \&quot;InvestmentAccount/ContactDetails/Address\&quot;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys or identifier types (as property keys) from the \&quot;InvestmentAccount\&quot; domain              to include for found investment account, or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;InvestmentAccount/ContactDetails/Address\&quot;. (optional)</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the investment account. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the investment account. Defaults to return the latest version of the investment account if not specified. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the investment account in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the investment account in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -193,14 +193,14 @@ namespace Lusid.Sdk.Api
         /// List all investment accounts which the user is entitled to see.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the investment accounts. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the investment accounts. Defaults to return the latest version             of each investment accounts if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing investment accounts from a previous call to list investment accounts. This value is returned from the previous call. If a pagination token is provided the filter, effectiveAt, sortBy and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the investment accounts. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the investment accounts. Defaults to return the latest version              of each investment accounts if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing investment accounts from a previous call to list investment accounts. This  value is returned from the previous call. If a pagination token is provided the filter, effectiveAt, sortBy  and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 5000 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys or identifier types (as property keys) from the \&quot;InvestmentAccount\&quot; domain             to include for each investment account, or from any domain that supports relationships to decorate onto related entities.             These take the format {domain}/{scope}/{code} e.g. \&quot;InvestmentAccount/ContactDetails/Address\&quot;. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto each investment account in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys or identifier types (as property keys) from the \&quot;InvestmentAccount\&quot; domain              to include for each investment account, or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;InvestmentAccount/ContactDetails/Address\&quot;. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto each investment account in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -214,14 +214,14 @@ namespace Lusid.Sdk.Api
         /// List all investment accounts which the user is entitled to see.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the investment accounts. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the investment accounts. Defaults to return the latest version             of each investment accounts if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing investment accounts from a previous call to list investment accounts. This value is returned from the previous call. If a pagination token is provided the filter, effectiveAt, sortBy and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the investment accounts. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the investment accounts. Defaults to return the latest version              of each investment accounts if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing investment accounts from a previous call to list investment accounts. This  value is returned from the previous call. If a pagination token is provided the filter, effectiveAt, sortBy  and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 5000 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys or identifier types (as property keys) from the \&quot;InvestmentAccount\&quot; domain             to include for each investment account, or from any domain that supports relationships to decorate onto related entities.             These take the format {domain}/{scope}/{code} e.g. \&quot;InvestmentAccount/ContactDetails/Address\&quot;. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto each investment account in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys or identifier types (as property keys) from the \&quot;InvestmentAccount\&quot; domain              to include for each investment account, or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;InvestmentAccount/ContactDetails/Address\&quot;. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto each investment account in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -387,10 +387,10 @@ namespace Lusid.Sdk.Api
         /// <param name="identifierValue">Code of the investment account under specified identifier type&#39;s scope and code.</param>
         /// <param name="scope">The scope of the investment account entity.</param>
         /// <param name="identifierScope">Scope of the investment account identifier type.</param>
-        /// <param name="propertyKeys">A list of property keys or identifier types (as property keys) from the \&quot;InvestmentAccount\&quot; domain             to include for found investment account, or from any domain that supports relationships to decorate onto related entities.             These take the format {domain}/{scope}/{code} e.g. \&quot;InvestmentAccount/ContactDetails/Address\&quot;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys or identifier types (as property keys) from the \&quot;InvestmentAccount\&quot; domain              to include for found investment account, or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;InvestmentAccount/ContactDetails/Address\&quot;. (optional)</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the investment account. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the investment account. Defaults to return the latest version of the investment account if not specified. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the investment account in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the investment account in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>InvestmentAccount</returns>
@@ -408,10 +408,10 @@ namespace Lusid.Sdk.Api
         /// <param name="identifierValue">Code of the investment account under specified identifier type&#39;s scope and code.</param>
         /// <param name="scope">The scope of the investment account entity.</param>
         /// <param name="identifierScope">Scope of the investment account identifier type.</param>
-        /// <param name="propertyKeys">A list of property keys or identifier types (as property keys) from the \&quot;InvestmentAccount\&quot; domain             to include for found investment account, or from any domain that supports relationships to decorate onto related entities.             These take the format {domain}/{scope}/{code} e.g. \&quot;InvestmentAccount/ContactDetails/Address\&quot;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys or identifier types (as property keys) from the \&quot;InvestmentAccount\&quot; domain              to include for found investment account, or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;InvestmentAccount/ContactDetails/Address\&quot;. (optional)</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the investment account. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the investment account. Defaults to return the latest version of the investment account if not specified. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the investment account in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the investment account in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of InvestmentAccount</returns>
@@ -538,10 +538,10 @@ namespace Lusid.Sdk.Api
         /// <param name="identifierValue">Code of the investment account under specified identifier type&#39;s scope and code.</param>
         /// <param name="scope">The scope of the investment account entity.</param>
         /// <param name="identifierScope">Scope of the investment account identifier type.</param>
-        /// <param name="propertyKeys">A list of property keys or identifier types (as property keys) from the \&quot;InvestmentAccount\&quot; domain             to include for found investment account, or from any domain that supports relationships to decorate onto related entities.             These take the format {domain}/{scope}/{code} e.g. \&quot;InvestmentAccount/ContactDetails/Address\&quot;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys or identifier types (as property keys) from the \&quot;InvestmentAccount\&quot; domain              to include for found investment account, or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;InvestmentAccount/ContactDetails/Address\&quot;. (optional)</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the investment account. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the investment account. Defaults to return the latest version of the investment account if not specified. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the investment account in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the investment account in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -560,10 +560,10 @@ namespace Lusid.Sdk.Api
         /// <param name="identifierValue">Code of the investment account under specified identifier type&#39;s scope and code.</param>
         /// <param name="scope">The scope of the investment account entity.</param>
         /// <param name="identifierScope">Scope of the investment account identifier type.</param>
-        /// <param name="propertyKeys">A list of property keys or identifier types (as property keys) from the \&quot;InvestmentAccount\&quot; domain             to include for found investment account, or from any domain that supports relationships to decorate onto related entities.             These take the format {domain}/{scope}/{code} e.g. \&quot;InvestmentAccount/ContactDetails/Address\&quot;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys or identifier types (as property keys) from the \&quot;InvestmentAccount\&quot; domain              to include for found investment account, or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;InvestmentAccount/ContactDetails/Address\&quot;. (optional)</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the investment account. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the investment account. Defaults to return the latest version of the investment account if not specified. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto the investment account in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the investment account in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -689,14 +689,14 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListAllInvestmentAccounts: List Investment Accounts List all investment accounts which the user is entitled to see.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the investment accounts. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the investment accounts. Defaults to return the latest version             of each investment accounts if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing investment accounts from a previous call to list investment accounts. This value is returned from the previous call. If a pagination token is provided the filter, effectiveAt, sortBy and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the investment accounts. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the investment accounts. Defaults to return the latest version              of each investment accounts if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing investment accounts from a previous call to list investment accounts. This  value is returned from the previous call. If a pagination token is provided the filter, effectiveAt, sortBy  and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 5000 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys or identifier types (as property keys) from the \&quot;InvestmentAccount\&quot; domain             to include for each investment account, or from any domain that supports relationships to decorate onto related entities.             These take the format {domain}/{scope}/{code} e.g. \&quot;InvestmentAccount/ContactDetails/Address\&quot;. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto each investment account in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys or identifier types (as property keys) from the \&quot;InvestmentAccount\&quot; domain              to include for each investment account, or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;InvestmentAccount/ContactDetails/Address\&quot;. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto each investment account in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfInvestmentAccount</returns>
@@ -710,14 +710,14 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListAllInvestmentAccounts: List Investment Accounts List all investment accounts which the user is entitled to see.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the investment accounts. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the investment accounts. Defaults to return the latest version             of each investment accounts if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing investment accounts from a previous call to list investment accounts. This value is returned from the previous call. If a pagination token is provided the filter, effectiveAt, sortBy and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the investment accounts. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the investment accounts. Defaults to return the latest version              of each investment accounts if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing investment accounts from a previous call to list investment accounts. This  value is returned from the previous call. If a pagination token is provided the filter, effectiveAt, sortBy  and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 5000 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys or identifier types (as property keys) from the \&quot;InvestmentAccount\&quot; domain             to include for each investment account, or from any domain that supports relationships to decorate onto related entities.             These take the format {domain}/{scope}/{code} e.g. \&quot;InvestmentAccount/ContactDetails/Address\&quot;. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto each investment account in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys or identifier types (as property keys) from the \&quot;InvestmentAccount\&quot; domain              to include for each investment account, or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;InvestmentAccount/ContactDetails/Address\&quot;. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto each investment account in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfInvestmentAccount</returns>
@@ -828,14 +828,14 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListAllInvestmentAccounts: List Investment Accounts List all investment accounts which the user is entitled to see.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the investment accounts. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the investment accounts. Defaults to return the latest version             of each investment accounts if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing investment accounts from a previous call to list investment accounts. This value is returned from the previous call. If a pagination token is provided the filter, effectiveAt, sortBy and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the investment accounts. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the investment accounts. Defaults to return the latest version              of each investment accounts if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing investment accounts from a previous call to list investment accounts. This  value is returned from the previous call. If a pagination token is provided the filter, effectiveAt, sortBy  and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 5000 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys or identifier types (as property keys) from the \&quot;InvestmentAccount\&quot; domain             to include for each investment account, or from any domain that supports relationships to decorate onto related entities.             These take the format {domain}/{scope}/{code} e.g. \&quot;InvestmentAccount/ContactDetails/Address\&quot;. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto each investment account in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys or identifier types (as property keys) from the \&quot;InvestmentAccount\&quot; domain              to include for each investment account, or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;InvestmentAccount/ContactDetails/Address\&quot;. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto each investment account in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -850,14 +850,14 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListAllInvestmentAccounts: List Investment Accounts List all investment accounts which the user is entitled to see.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the investment accounts. Defaults to the current LUSID             system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the investment accounts. Defaults to return the latest version             of each investment accounts if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing investment accounts from a previous call to list investment accounts. This value is returned from the previous call. If a pagination token is provided the filter, effectiveAt, sortBy and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the investment accounts. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the investment accounts. Defaults to return the latest version              of each investment accounts if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing investment accounts from a previous call to list investment accounts. This  value is returned from the previous call. If a pagination token is provided the filter, effectiveAt, sortBy  and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 5000 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys or identifier types (as property keys) from the \&quot;InvestmentAccount\&quot; domain             to include for each investment account, or from any domain that supports relationships to decorate onto related entities.             These take the format {domain}/{scope}/{code} e.g. \&quot;InvestmentAccount/ContactDetails/Address\&quot;. (optional)</param>
-        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities             onto each investment account in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys or identifier types (as property keys) from the \&quot;InvestmentAccount\&quot; domain              to include for each investment account, or from any domain that supports relationships to decorate onto related entities.              These take the format {domain}/{scope}/{code} e.g. \&quot;InvestmentAccount/ContactDetails/Address\&quot;. (optional)</param>
+        /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto each investment account in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>

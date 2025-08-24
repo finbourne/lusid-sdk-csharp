@@ -37,9 +37,9 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="Collateral" /> class.
         /// </summary>
         /// <param name="buyerReceivesCashflows">Does the buyer of the FlexibleRepo receive the cashflows from any collateral instruments, or do they get paid to the seller. (required).</param>
-        /// <param name="buyerReceivesCorporateActionPayments">Does the buyer of the FlexibleRepo receive any dividend or cash payments as the result of a corporate action on any of the collateral instruments, or are these amounts paid to the seller. Referred to as \&quot;manufactured payments\&quot; in the UK, and valid only under a repo with GMRA in Europe (required).</param>
+        /// <param name="buyerReceivesCorporateActionPayments">Does the buyer of the FlexibleRepo receive any dividend or cash payments as the result of a corporate action  on any of the collateral instruments, or are these amounts paid to the seller.  Referred to as \&quot;manufactured payments\&quot; in the UK, and valid only under a repo with GMRA in Europe (required).</param>
         /// <param name="collateralInstruments">List of any collateral instruments..</param>
-        /// <param name="collateralValue">Total value of the collateral before any margin or haircut applied. Can be provided instead of PurchasePrice, so that PurchasePrice can be inferred from the CollateralValue and one of Haircut or Margin..</param>
+        /// <param name="collateralValue">Total value of the collateral before any margin or haircut applied.  Can be provided instead of PurchasePrice, so that PurchasePrice can be inferred from the CollateralValue and one of  Haircut or Margin..</param>
         public Collateral(bool buyerReceivesCashflows = default(bool), bool buyerReceivesCorporateActionPayments = default(bool), List<CollateralInstrument> collateralInstruments = default(List<CollateralInstrument>), decimal? collateralValue = default(decimal?))
         {
             this.BuyerReceivesCashflows = buyerReceivesCashflows;
@@ -56,9 +56,9 @@ namespace Lusid.Sdk.Model
         public bool BuyerReceivesCashflows { get; set; }
 
         /// <summary>
-        /// Does the buyer of the FlexibleRepo receive any dividend or cash payments as the result of a corporate action on any of the collateral instruments, or are these amounts paid to the seller. Referred to as \&quot;manufactured payments\&quot; in the UK, and valid only under a repo with GMRA in Europe
+        /// Does the buyer of the FlexibleRepo receive any dividend or cash payments as the result of a corporate action  on any of the collateral instruments, or are these amounts paid to the seller.  Referred to as \&quot;manufactured payments\&quot; in the UK, and valid only under a repo with GMRA in Europe
         /// </summary>
-        /// <value>Does the buyer of the FlexibleRepo receive any dividend or cash payments as the result of a corporate action on any of the collateral instruments, or are these amounts paid to the seller. Referred to as \&quot;manufactured payments\&quot; in the UK, and valid only under a repo with GMRA in Europe</value>
+        /// <value>Does the buyer of the FlexibleRepo receive any dividend or cash payments as the result of a corporate action  on any of the collateral instruments, or are these amounts paid to the seller.  Referred to as \&quot;manufactured payments\&quot; in the UK, and valid only under a repo with GMRA in Europe</value>
         [DataMember(Name = "buyerReceivesCorporateActionPayments", IsRequired = true, EmitDefaultValue = true)]
         public bool BuyerReceivesCorporateActionPayments { get; set; }
 
@@ -70,9 +70,9 @@ namespace Lusid.Sdk.Model
         public List<CollateralInstrument> CollateralInstruments { get; set; }
 
         /// <summary>
-        /// Total value of the collateral before any margin or haircut applied. Can be provided instead of PurchasePrice, so that PurchasePrice can be inferred from the CollateralValue and one of Haircut or Margin.
+        /// Total value of the collateral before any margin or haircut applied.  Can be provided instead of PurchasePrice, so that PurchasePrice can be inferred from the CollateralValue and one of  Haircut or Margin.
         /// </summary>
-        /// <value>Total value of the collateral before any margin or haircut applied. Can be provided instead of PurchasePrice, so that PurchasePrice can be inferred from the CollateralValue and one of Haircut or Margin.</value>
+        /// <value>Total value of the collateral before any margin or haircut applied.  Can be provided instead of PurchasePrice, so that PurchasePrice can be inferred from the CollateralValue and one of  Haircut or Margin.</value>
         [DataMember(Name = "collateralValue", EmitDefaultValue = true)]
         public decimal? CollateralValue { get; set; }
 

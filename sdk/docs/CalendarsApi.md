@@ -25,7 +25,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 [EARLY ACCESS] AddBusinessDaysToDate: Adds the requested number of Business Days to the provided date.
 
-A Business day is defined as a point in time that:     * Does not represent a day in the calendar's weekend     * Does not represent a day in the calendar's list of holidays (e.g. Christmas Day in the UK)               All dates specified must be UTC and the upper bound of a calendar is not inclusive               e.g. From: 2020-12-24-00-00-00:      Adding 3 business days returns 2020-12-30, assuming Saturday and Sunday are weekends, and the 25th and 28th are holidays.      Adding -2 business days returns 2020-12-22 under the same assumptions.              If the provided number of days to add is zero, returns a failure.
+A Business day is defined as a point in time that:      * Does not represent a day in the calendar's weekend      * Does not represent a day in the calendar's list of holidays (e.g. Christmas Day in the UK)                 All dates specified must be UTC and the upper bound of a calendar is not inclusive                 e.g. From: 2020-12-24-00-00-00:       Adding 3 business days returns 2020-12-30, assuming Saturday and Sunday are weekends, and the 25th and 28th are holidays.       Adding -2 business days returns 2020-12-22 under the same assumptions.                If the provided number of days to add is zero, returns a failure.
 
 ### Example
 ```csharp
@@ -141,7 +141,7 @@ catch (ApiException e)
 
 AddDateToCalendar: Add a date to a calendar
 
-Add an event to the calendar. These Events can be a maximum of 24 hours and must be specified in UTC. A local date will be calculated by the system and applied to the calendar before processing.
+Add an event to the calendar. These Events can be a maximum of 24 hours and must be specified in UTC.  A local date will be calculated by the system and applied to the calendar before processing.
 
 ### Example
 ```csharp
@@ -259,7 +259,7 @@ catch (ApiException e)
 
 BatchUpsertDatesForCalendar: Batch upsert dates to a calendar
 
-Create or update events in the calendar. These Events can be a maximum of 24 hours and must be specified in UTC. A local date will be calculated by the system and applied to the calendar before processing.
+Create or update events in the calendar. These Events can be a maximum of 24 hours and must be specified in UTC.  A local date will be calculated by the system and applied to the calendar before processing.
 
 ### Example
 ```csharp
@@ -845,7 +845,7 @@ catch (ApiException e)
 
 [EARLY ACCESS] GenerateSchedule: Generate an ordered schedule of dates.
 
-Returns an ordered array of dates. The dates will only fall on business days as defined by the scope and calendar codes in the valuation schedule.              Valuations are made at a frequency defined by the valuation schedule's tenor, e.g. every day (\"1D\"), every other week (\"2W\") etc. These dates will be adjusted onto business days as defined by the schedule's rollConvention.
+Returns an ordered array of dates. The dates will only fall on business  days as defined by the scope and calendar codes in the valuation schedule.                Valuations are made at a frequency defined by the valuation schedule's tenor, e.g. every day (\"1D\"),  every other week (\"2W\") etc. These dates will be adjusted onto business days as defined by the schedule's  rollConvention.
 
 ### Example
 ```csharp
@@ -1006,7 +1006,7 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CalendarsApi>();
             var scope = "scope_example";  // string | Scope of the calendar identifier
             var code = "code_example";  // string | Code of the calendar identifier
-            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the \"Calendar\" domain to decorate onto the calendar,              These take the format {domain}/{scope}/{code} e.g. \"Calendar/System/Name\". (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the \"Calendar\" domain to decorate onto the calendar,               These take the format {domain}/{scope}/{code} e.g. \"Calendar/System/Name\". (optional) 
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The AsAt datetime at which to retrieve the calendar (optional) 
 
             try
@@ -1055,7 +1055,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **scope** | **string** | Scope of the calendar identifier |  |
 | **code** | **string** | Code of the calendar identifier |  |
-| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the \&quot;Calendar\&quot; domain to decorate onto the calendar,              These take the format {domain}/{scope}/{code} e.g. \&quot;Calendar/System/Name\&quot;. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the \&quot;Calendar\&quot; domain to decorate onto the calendar,               These take the format {domain}/{scope}/{code} e.g. \&quot;Calendar/System/Name\&quot;. | [optional]  |
 | **asAt** | **DateTimeOffset?** | The AsAt datetime at which to retrieve the calendar | [optional]  |
 
 ### Return type
@@ -1083,7 +1083,7 @@ catch (ApiException e)
 
 [EARLY ACCESS] GetDates: Get dates for a specific calendar
 
-Get dates from a specific calendar within a specific window of effective time, at a point in AsAt time. Providing an id filter can further refine the results.
+Get dates from a specific calendar within a specific window of effective time, at a point in AsAt time.  Providing an id filter can further refine the results.
 
 ### Example
 ```csharp
@@ -1207,7 +1207,7 @@ catch (ApiException e)
 
 [EARLY ACCESS] IsBusinessDateTime: Check whether a DateTime is a \"Business DateTime\"
 
-A Business DateTime is defined as a point in time that:     * Does not represent a day that overlaps with the calendars WeekendMask     * If the calendar is a \"Holiday Calendar\" Does not overlap with any dates in the calendar     * If the calendar is a \"TradingHours Calendar\" Does overlap with a date in the calendar              All dates specified must be UTC and the upper bound of a calendar is not inclusive  e.g. From: 2020-12-25-00-00-00       To: 2020-12-26-00-00-00 IsBusinessDay(2020-12-26-00-00-00) == false
+A Business DateTime is defined as a point in time that:      * Does not represent a day that overlaps with the calendars WeekendMask      * If the calendar is a \"Holiday Calendar\" Does not overlap with any dates in the calendar      * If the calendar is a \"TradingHours Calendar\" Does overlap with a date in the calendar                All dates specified must be UTC and the upper bound of a calendar is not inclusive   e.g. From: 2020-12-25-00-00-00        To: 2020-12-26-00-00-00  IsBusinessDay(2020-12-26-00-00-00) == false
 
 ### Example
 ```csharp
@@ -1369,9 +1369,9 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CalendarsApi>();
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The AsAt datetime at which to retrieve the calendars (optional) 
-            var page = "page_example";  // string? | The pagination token to use to continue listing calendars from a previous call to list calendars.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields             must not have changed since the original request. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing calendars from a previous call to list calendars.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. (optional) 
             var limit = 56;  // int? | When paginating, limit the number of returned results to this many. (optional) 
-            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the \"Calendar\" domain to decorate onto the calendar,              These take the format {domain}/{scope}/{code} e.g. \"Calendar/System/Name\". (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the \"Calendar\" domain to decorate onto the calendar,               These take the format {domain}/{scope}/{code} e.g. \"Calendar/System/Name\". (optional) 
             var filter = "filter_example";  // string? | Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
 
             try
@@ -1419,9 +1419,9 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **asAt** | **DateTimeOffset?** | The AsAt datetime at which to retrieve the calendars | [optional]  |
-| **page** | **string?** | The pagination token to use to continue listing calendars from a previous call to list calendars.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields             must not have changed since the original request. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing calendars from a previous call to list calendars.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. | [optional]  |
 | **limit** | **int?** | When paginating, limit the number of returned results to this many. | [optional]  |
-| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the \&quot;Calendar\&quot; domain to decorate onto the calendar,              These take the format {domain}/{scope}/{code} e.g. \&quot;Calendar/System/Name\&quot;. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the \&quot;Calendar\&quot; domain to decorate onto the calendar,               These take the format {domain}/{scope}/{code} e.g. \&quot;Calendar/System/Name\&quot;. | [optional]  |
 | **filter** | **string?** | Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
 
 ### Return type
@@ -1492,9 +1492,9 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CalendarsApi>();
             var scope = "scope_example";  // string | Scope of the calendars
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The AsAt datetime at which to retrieve the calendars (optional) 
-            var page = "page_example";  // string? | The pagination token to use to continue listing calendars from a previous call to list calendars.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields             must not have changed since the original request. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing calendars from a previous call to list calendars.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. (optional) 
             var limit = 56;  // int? | When paginating, limit the number of returned results to this many. (optional) 
-            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the \"Calendar\" domain to decorate onto the calendar,              These take the format {domain}/{scope}/{code} e.g. \"Calendar/System/Name\". (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the \"Calendar\" domain to decorate onto the calendar,               These take the format {domain}/{scope}/{code} e.g. \"Calendar/System/Name\". (optional) 
             var filter = "filter_example";  // string? | Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
 
             try
@@ -1543,9 +1543,9 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **scope** | **string** | Scope of the calendars |  |
 | **asAt** | **DateTimeOffset?** | The AsAt datetime at which to retrieve the calendars | [optional]  |
-| **page** | **string?** | The pagination token to use to continue listing calendars from a previous call to list calendars.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields             must not have changed since the original request. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing calendars from a previous call to list calendars.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. | [optional]  |
 | **limit** | **int?** | When paginating, limit the number of returned results to this many. | [optional]  |
-| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the \&quot;Calendar\&quot; domain to decorate onto the calendar,              These take the format {domain}/{scope}/{code} e.g. \&quot;Calendar/System/Name\&quot;. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the \&quot;Calendar\&quot; domain to decorate onto the calendar,               These take the format {domain}/{scope}/{code} e.g. \&quot;Calendar/System/Name\&quot;. | [optional]  |
 | **filter** | **string?** | Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
 
 ### Return type

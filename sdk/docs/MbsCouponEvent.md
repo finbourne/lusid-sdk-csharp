@@ -1,5 +1,5 @@
 # Lusid.Sdk.Model.MbsCouponEvent
-Definition of an MBS Coupon Event This is an event that describes the occurence of a cashflow due to a mortgage-backed security coupon payment.
+Definition of an MBS Coupon Event  This is an event that describes the occurence of a cashflow due to a mortgage-backed security coupon payment.
 
 ## Properties
 

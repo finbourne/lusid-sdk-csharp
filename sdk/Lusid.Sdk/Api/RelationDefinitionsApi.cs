@@ -64,7 +64,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relation to be deleted.</param>
-        /// <param name="code">The code of the relation to be deleted. Together with the domain and scope this uniquely             identifies the relation.</param>
+        /// <param name="code">The code of the relation to be deleted. Together with the domain and scope this uniquely              identifies the relation.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
@@ -78,7 +78,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relation to be deleted.</param>
-        /// <param name="code">The code of the relation to be deleted. Together with the domain and scope this uniquely             identifies the relation.</param>
+        /// <param name="code">The code of the relation to be deleted. Together with the domain and scope this uniquely              identifies the relation.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
@@ -91,8 +91,8 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified relation.</param>
-        /// <param name="code">The code of the specified relation. Together with the domain and scope this uniquely             identifies the relation.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the relation definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
+        /// <param name="code">The code of the specified relation. Together with the domain and scope this uniquely              identifies the relation.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the relation definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>RelationDefinition</returns>
@@ -106,8 +106,8 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified relation.</param>
-        /// <param name="code">The code of the specified relation. Together with the domain and scope this uniquely             identifies the relation.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the relation definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
+        /// <param name="code">The code of the specified relation. Together with the domain and scope this uniquely              identifies the relation.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the relation definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of RelationDefinition</returns>
@@ -156,7 +156,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relation to be deleted.</param>
-        /// <param name="code">The code of the relation to be deleted. Together with the domain and scope this uniquely             identifies the relation.</param>
+        /// <param name="code">The code of the relation to be deleted. Together with the domain and scope this uniquely              identifies the relation.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -171,7 +171,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relation to be deleted.</param>
-        /// <param name="code">The code of the relation to be deleted. Together with the domain and scope this uniquely             identifies the relation.</param>
+        /// <param name="code">The code of the relation to be deleted. Together with the domain and scope this uniquely              identifies the relation.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -185,8 +185,8 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified relation.</param>
-        /// <param name="code">The code of the specified relation. Together with the domain and scope this uniquely             identifies the relation.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the relation definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
+        /// <param name="code">The code of the specified relation. Together with the domain and scope this uniquely              identifies the relation.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the relation definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -201,8 +201,8 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified relation.</param>
-        /// <param name="code">The code of the specified relation. Together with the domain and scope this uniquely             identifies the relation.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the relation definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
+        /// <param name="code">The code of the specified relation. Together with the domain and scope this uniquely              identifies the relation.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the relation definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -548,7 +548,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relation to be deleted.</param>
-        /// <param name="code">The code of the relation to be deleted. Together with the domain and scope this uniquely             identifies the relation.</param>
+        /// <param name="code">The code of the relation to be deleted. Together with the domain and scope this uniquely              identifies the relation.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
@@ -563,7 +563,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relation to be deleted.</param>
-        /// <param name="code">The code of the relation to be deleted. Together with the domain and scope this uniquely             identifies the relation.</param>
+        /// <param name="code">The code of the relation to be deleted. Together with the domain and scope this uniquely              identifies the relation.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
@@ -657,7 +657,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relation to be deleted.</param>
-        /// <param name="code">The code of the relation to be deleted. Together with the domain and scope this uniquely             identifies the relation.</param>
+        /// <param name="code">The code of the relation to be deleted. Together with the domain and scope this uniquely              identifies the relation.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -673,7 +673,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relation to be deleted.</param>
-        /// <param name="code">The code of the relation to be deleted. Together with the domain and scope this uniquely             identifies the relation.</param>
+        /// <param name="code">The code of the relation to be deleted. Together with the domain and scope this uniquely              identifies the relation.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -770,8 +770,8 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified relation.</param>
-        /// <param name="code">The code of the specified relation. Together with the domain and scope this uniquely             identifies the relation.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the relation definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
+        /// <param name="code">The code of the specified relation. Together with the domain and scope this uniquely              identifies the relation.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the relation definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>RelationDefinition</returns>
@@ -786,8 +786,8 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified relation.</param>
-        /// <param name="code">The code of the specified relation. Together with the domain and scope this uniquely             identifies the relation.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the relation definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
+        /// <param name="code">The code of the specified relation. Together with the domain and scope this uniquely              identifies the relation.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the relation definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of RelationDefinition</returns>
@@ -885,8 +885,8 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified relation.</param>
-        /// <param name="code">The code of the specified relation. Together with the domain and scope this uniquely             identifies the relation.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the relation definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
+        /// <param name="code">The code of the specified relation. Together with the domain and scope this uniquely              identifies the relation.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the relation definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -902,8 +902,8 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the specified relation.</param>
-        /// <param name="code">The code of the specified relation. Together with the domain and scope this uniquely             identifies the relation.</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the relation definition. Defaults to return             the latest version of the definition if not specified. (optional)</param>
+        /// <param name="code">The code of the specified relation. Together with the domain and scope this uniquely              identifies the relation.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the relation definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>

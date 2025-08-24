@@ -404,8 +404,8 @@ namespace Examples
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | Optional. The As At time at which listed Cut Labels are valid (optional) 
             var sortBy = new List<string>?(); // List<string>? | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
             var limit = 56;  // int? | Optional. When paginating, limit the number of returned results to this many. (optional) 
-            var filter = "filter_example";  // string? | Optional. Expression to filter the result set.             For example, to filter on code, use \"code eq 'string'\"             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
-            var page = "page_example";  // string? | The pagination token to use to continue listing cut labels from a previous call This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields must not have changed since the original request. (optional) 
+            var filter = "filter_example";  // string? | Optional. Expression to filter the result set.              For example, to filter on code, use \"code eq 'string'\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing cut labels from a previous call This value is returned from the previous call.  If a pagination token is provided the sortBy, filter, and asAt fields  must not have changed since the original request. (optional) 
 
             try
             {
@@ -454,8 +454,8 @@ catch (ApiException e)
 | **asAt** | **DateTimeOffset?** | Optional. The As At time at which listed Cut Labels are valid | [optional]  |
 | **sortBy** | [**List&lt;string&gt;?**](string.md) | Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional]  |
 | **limit** | **int?** | Optional. When paginating, limit the number of returned results to this many. | [optional]  |
-| **filter** | **string?** | Optional. Expression to filter the result set.             For example, to filter on code, use \&quot;code eq &#39;string&#39;\&quot;             Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
-| **page** | **string?** | The pagination token to use to continue listing cut labels from a previous call This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields must not have changed since the original request. | [optional]  |
+| **filter** | **string?** | Optional. Expression to filter the result set.              For example, to filter on code, use \&quot;code eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing cut labels from a previous call This value is returned from the previous call.  If a pagination token is provided the sortBy, filter, and asAt fields  must not have changed since the original request. | [optional]  |
 
 ### Return type
 

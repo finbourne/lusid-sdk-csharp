@@ -24,7 +24,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Definition of an exercise event. This is an event that occurs on transformation of an instrument owing to exercise. e.g. an option of some type into its underlying.
+    /// Definition of an exercise event.  This is an event that occurs on transformation of an instrument owing to exercise. e.g. an option of  some type into its underlying.
     /// </summary>
     [DataContract(Name = "ExerciseEvent")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentEventType")]

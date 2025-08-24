@@ -106,10 +106,10 @@ namespace Lusid.Sdk.Api
         /// List the stored dialects&#39; identifiers with pagination and filtering at the specified asAt time.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve the dialects.             Defaults to return the latest version of the dialect if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing dialect IDs from a previous call to list dialect IDs.             This value is returned from the previous call. If a pagination token is provided the filter and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the dialects.              Defaults to return the latest version of the dialect if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing dialect IDs from a previous call to list dialect IDs.              This value is returned from the previous call. If a pagination token is provided the filter and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfDialectId</returns>
@@ -122,10 +122,10 @@ namespace Lusid.Sdk.Api
         /// List the stored dialects&#39; identifiers with pagination and filtering at the specified asAt time.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve the dialects.             Defaults to return the latest version of the dialect if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing dialect IDs from a previous call to list dialect IDs.             This value is returned from the previous call. If a pagination token is provided the filter and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the dialects.              Defaults to return the latest version of the dialect if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing dialect IDs from a previous call to list dialect IDs.              This value is returned from the previous call. If a pagination token is provided the filter and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfDialectId</returns>
@@ -139,8 +139,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the script identifiers. Defaults to latest. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results. For example, Id.Version.Major eq 1 to list IDs with major version 1             or Id.Scope eq &#39;my-scripts&#39; to list result only for a particular scope. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing translation script IDs; this             value is returned from the previous call. If a pagination token is provided, the filter field             must not have changed since the original request. (optional)</param>
+        /// <param name="filter">Expression to filter the results. For example, Id.Version.Major eq 1 to list IDs with major version 1              or Id.Scope eq &#39;my-scripts&#39; to list result only for a particular scope. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing translation script IDs; this              value is returned from the previous call. If a pagination token is provided, the filter field              must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfTranslationScriptId</returns>
@@ -155,8 +155,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the script identifiers. Defaults to latest. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results. For example, Id.Version.Major eq 1 to list IDs with major version 1             or Id.Scope eq &#39;my-scripts&#39; to list result only for a particular scope. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing translation script IDs; this             value is returned from the previous call. If a pagination token is provided, the filter field             must not have changed since the original request. (optional)</param>
+        /// <param name="filter">Expression to filter the results. For example, Id.Version.Major eq 1 to list IDs with major version 1              or Id.Scope eq &#39;my-scripts&#39; to list result only for a particular scope. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing translation script IDs; this              value is returned from the previous call. If a pagination token is provided, the filter field              must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfTranslationScriptId</returns>
@@ -165,7 +165,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] TranslateEntities: Translate a collection of entities with a specified translation script.
         /// </summary>
         /// <remarks>
-        /// Run the provided translation request. The entities to translate are specified in the request body as a dictionary with (ephemeral) unique correlation IDs. The script to use and optional dialect to validate results against are sourced from the database.
+        /// Run the provided translation request. The entities to translate are specified in the request body as a  dictionary with (ephemeral) unique correlation IDs. The script to use and optional dialect to validate  results against are sourced from the database.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="translateEntitiesRequest">The entities to translate, along with identifiers for the script and (optional) dialect to use.</param>
@@ -178,7 +178,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] TranslateEntities: Translate a collection of entities with a specified translation script.
         /// </summary>
         /// <remarks>
-        /// Run the provided translation request. The entities to translate are specified in the request body as a dictionary with (ephemeral) unique correlation IDs. The script to use and optional dialect to validate results against are sourced from the database.
+        /// Run the provided translation request. The entities to translate are specified in the request body as a  dictionary with (ephemeral) unique correlation IDs. The script to use and optional dialect to validate  results against are sourced from the database.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="translateEntitiesRequest">The entities to translate, along with identifiers for the script and (optional) dialect to use.</param>
@@ -190,7 +190,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] TranslateEntitiesInlined: Translate a collection of entities, inlining the body of the translation script.
         /// </summary>
         /// <remarks>
-        /// Run the provided translation request. The entities to translate, script to use and dialect to validate results against are all specified in the request body. The entities are given as a dictionary with (ephemeral) unique correlation IDs.
+        /// Run the provided translation request. The entities to translate, script to use and dialect to validate results against  are all specified in the request body. The entities are given as a dictionary with (ephemeral) unique correlation IDs.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="translateEntitiesInlinedRequest">The entities to translate, along with the script to use and an optional schema for validation.</param>
@@ -203,7 +203,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] TranslateEntitiesInlined: Translate a collection of entities, inlining the body of the translation script.
         /// </summary>
         /// <remarks>
-        /// Run the provided translation request. The entities to translate, script to use and dialect to validate results against are all specified in the request body. The entities are given as a dictionary with (ephemeral) unique correlation IDs.
+        /// Run the provided translation request. The entities to translate, script to use and dialect to validate results against  are all specified in the request body. The entities are given as a dictionary with (ephemeral) unique correlation IDs.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="translateEntitiesInlinedRequest">The entities to translate, along with the script to use and an optional schema for validation.</param>
@@ -349,10 +349,10 @@ namespace Lusid.Sdk.Api
         /// List the stored dialects&#39; identifiers with pagination and filtering at the specified asAt time.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve the dialects.             Defaults to return the latest version of the dialect if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing dialect IDs from a previous call to list dialect IDs.             This value is returned from the previous call. If a pagination token is provided the filter and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the dialects.              Defaults to return the latest version of the dialect if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing dialect IDs from a previous call to list dialect IDs.              This value is returned from the previous call. If a pagination token is provided the filter and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -366,10 +366,10 @@ namespace Lusid.Sdk.Api
         /// List the stored dialects&#39; identifiers with pagination and filtering at the specified asAt time.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve the dialects.             Defaults to return the latest version of the dialect if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing dialect IDs from a previous call to list dialect IDs.             This value is returned from the previous call. If a pagination token is provided the filter and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the dialects.              Defaults to return the latest version of the dialect if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing dialect IDs from a previous call to list dialect IDs.              This value is returned from the previous call. If a pagination token is provided the filter and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -384,8 +384,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the script identifiers. Defaults to latest. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results. For example, Id.Version.Major eq 1 to list IDs with major version 1             or Id.Scope eq &#39;my-scripts&#39; to list result only for a particular scope. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing translation script IDs; this             value is returned from the previous call. If a pagination token is provided, the filter field             must not have changed since the original request. (optional)</param>
+        /// <param name="filter">Expression to filter the results. For example, Id.Version.Major eq 1 to list IDs with major version 1              or Id.Scope eq &#39;my-scripts&#39; to list result only for a particular scope. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing translation script IDs; this              value is returned from the previous call. If a pagination token is provided, the filter field              must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -401,8 +401,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the script identifiers. Defaults to latest. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results. For example, Id.Version.Major eq 1 to list IDs with major version 1             or Id.Scope eq &#39;my-scripts&#39; to list result only for a particular scope. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing translation script IDs; this             value is returned from the previous call. If a pagination token is provided, the filter field             must not have changed since the original request. (optional)</param>
+        /// <param name="filter">Expression to filter the results. For example, Id.Version.Major eq 1 to list IDs with major version 1              or Id.Scope eq &#39;my-scripts&#39; to list result only for a particular scope. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing translation script IDs; this              value is returned from the previous call. If a pagination token is provided, the filter field              must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -412,7 +412,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] TranslateEntities: Translate a collection of entities with a specified translation script.
         /// </summary>
         /// <remarks>
-        /// Run the provided translation request. The entities to translate are specified in the request body as a dictionary with (ephemeral) unique correlation IDs. The script to use and optional dialect to validate results against are sourced from the database.
+        /// Run the provided translation request. The entities to translate are specified in the request body as a  dictionary with (ephemeral) unique correlation IDs. The script to use and optional dialect to validate  results against are sourced from the database.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="translateEntitiesRequest">The entities to translate, along with identifiers for the script and (optional) dialect to use.</param>
@@ -426,7 +426,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] TranslateEntities: Translate a collection of entities with a specified translation script.
         /// </summary>
         /// <remarks>
-        /// Run the provided translation request. The entities to translate are specified in the request body as a dictionary with (ephemeral) unique correlation IDs. The script to use and optional dialect to validate results against are sourced from the database.
+        /// Run the provided translation request. The entities to translate are specified in the request body as a  dictionary with (ephemeral) unique correlation IDs. The script to use and optional dialect to validate  results against are sourced from the database.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="translateEntitiesRequest">The entities to translate, along with identifiers for the script and (optional) dialect to use.</param>
@@ -439,7 +439,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] TranslateEntitiesInlined: Translate a collection of entities, inlining the body of the translation script.
         /// </summary>
         /// <remarks>
-        /// Run the provided translation request. The entities to translate, script to use and dialect to validate results against are all specified in the request body. The entities are given as a dictionary with (ephemeral) unique correlation IDs.
+        /// Run the provided translation request. The entities to translate, script to use and dialect to validate results against  are all specified in the request body. The entities are given as a dictionary with (ephemeral) unique correlation IDs.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="translateEntitiesInlinedRequest">The entities to translate, along with the script to use and an optional schema for validation.</param>
@@ -453,7 +453,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] TranslateEntitiesInlined: Translate a collection of entities, inlining the body of the translation script.
         /// </summary>
         /// <remarks>
-        /// Run the provided translation request. The entities to translate, script to use and dialect to validate results against are all specified in the request body. The entities are given as a dictionary with (ephemeral) unique correlation IDs.
+        /// Run the provided translation request. The entities to translate, script to use and dialect to validate results against  are all specified in the request body. The entities are given as a dictionary with (ephemeral) unique correlation IDs.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="translateEntitiesInlinedRequest">The entities to translate, along with the script to use and an optional schema for validation.</param>
@@ -1201,10 +1201,10 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] ListDialectIds: List dialect identifiers matching an optional filter. List the stored dialects&#39; identifiers with pagination and filtering at the specified asAt time.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve the dialects.             Defaults to return the latest version of the dialect if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing dialect IDs from a previous call to list dialect IDs.             This value is returned from the previous call. If a pagination token is provided the filter and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the dialects.              Defaults to return the latest version of the dialect if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing dialect IDs from a previous call to list dialect IDs.              This value is returned from the previous call. If a pagination token is provided the filter and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfDialectId</returns>
@@ -1218,10 +1218,10 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] ListDialectIds: List dialect identifiers matching an optional filter. List the stored dialects&#39; identifiers with pagination and filtering at the specified asAt time.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve the dialects.             Defaults to return the latest version of the dialect if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing dialect IDs from a previous call to list dialect IDs.             This value is returned from the previous call. If a pagination token is provided the filter and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the dialects.              Defaults to return the latest version of the dialect if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing dialect IDs from a previous call to list dialect IDs.              This value is returned from the previous call. If a pagination token is provided the filter and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfDialectId</returns>
@@ -1316,10 +1316,10 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] ListDialectIds: List dialect identifiers matching an optional filter. List the stored dialects&#39; identifiers with pagination and filtering at the specified asAt time.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve the dialects.             Defaults to return the latest version of the dialect if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing dialect IDs from a previous call to list dialect IDs.             This value is returned from the previous call. If a pagination token is provided the filter and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the dialects.              Defaults to return the latest version of the dialect if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing dialect IDs from a previous call to list dialect IDs.              This value is returned from the previous call. If a pagination token is provided the filter and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1334,10 +1334,10 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] ListDialectIds: List dialect identifiers matching an optional filter. List the stored dialects&#39; identifiers with pagination and filtering at the specified asAt time.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to retrieve the dialects.             Defaults to return the latest version of the dialect if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing dialect IDs from a previous call to list dialect IDs.             This value is returned from the previous call. If a pagination token is provided the filter and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the dialects.              Defaults to return the latest version of the dialect if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing dialect IDs from a previous call to list dialect IDs.              This value is returned from the previous call. If a pagination token is provided the filter and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1437,8 +1437,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the script identifiers. Defaults to latest. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results. For example, Id.Version.Major eq 1 to list IDs with major version 1             or Id.Scope eq &#39;my-scripts&#39; to list result only for a particular scope. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing translation script IDs; this             value is returned from the previous call. If a pagination token is provided, the filter field             must not have changed since the original request. (optional)</param>
+        /// <param name="filter">Expression to filter the results. For example, Id.Version.Major eq 1 to list IDs with major version 1              or Id.Scope eq &#39;my-scripts&#39; to list result only for a particular scope. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing translation script IDs; this              value is returned from the previous call. If a pagination token is provided, the filter field              must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfTranslationScriptId</returns>
@@ -1454,8 +1454,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the script identifiers. Defaults to latest. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results. For example, Id.Version.Major eq 1 to list IDs with major version 1             or Id.Scope eq &#39;my-scripts&#39; to list result only for a particular scope. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing translation script IDs; this             value is returned from the previous call. If a pagination token is provided, the filter field             must not have changed since the original request. (optional)</param>
+        /// <param name="filter">Expression to filter the results. For example, Id.Version.Major eq 1 to list IDs with major version 1              or Id.Scope eq &#39;my-scripts&#39; to list result only for a particular scope. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing translation script IDs; this              value is returned from the previous call. If a pagination token is provided, the filter field              must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfTranslationScriptId</returns>
@@ -1552,8 +1552,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the script identifiers. Defaults to latest. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results. For example, Id.Version.Major eq 1 to list IDs with major version 1             or Id.Scope eq &#39;my-scripts&#39; to list result only for a particular scope. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing translation script IDs; this             value is returned from the previous call. If a pagination token is provided, the filter field             must not have changed since the original request. (optional)</param>
+        /// <param name="filter">Expression to filter the results. For example, Id.Version.Major eq 1 to list IDs with major version 1              or Id.Scope eq &#39;my-scripts&#39; to list result only for a particular scope. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing translation script IDs; this              value is returned from the previous call. If a pagination token is provided, the filter field              must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1570,8 +1570,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the script identifiers. Defaults to latest. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results. For example, Id.Version.Major eq 1 to list IDs with major version 1             or Id.Scope eq &#39;my-scripts&#39; to list result only for a particular scope. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing translation script IDs; this             value is returned from the previous call. If a pagination token is provided, the filter field             must not have changed since the original request. (optional)</param>
+        /// <param name="filter">Expression to filter the results. For example, Id.Version.Major eq 1 to list IDs with major version 1              or Id.Scope eq &#39;my-scripts&#39; to list result only for a particular scope. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing translation script IDs; this              value is returned from the previous call. If a pagination token is provided, the filter field              must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1666,7 +1666,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] TranslateEntities: Translate a collection of entities with a specified translation script. Run the provided translation request. The entities to translate are specified in the request body as a dictionary with (ephemeral) unique correlation IDs. The script to use and optional dialect to validate results against are sourced from the database.
+        /// [EARLY ACCESS] TranslateEntities: Translate a collection of entities with a specified translation script. Run the provided translation request. The entities to translate are specified in the request body as a  dictionary with (ephemeral) unique correlation IDs. The script to use and optional dialect to validate  results against are sourced from the database.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="translateEntitiesRequest">The entities to translate, along with identifiers for the script and (optional) dialect to use.</param>
@@ -1680,7 +1680,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] TranslateEntities: Translate a collection of entities with a specified translation script. Run the provided translation request. The entities to translate are specified in the request body as a dictionary with (ephemeral) unique correlation IDs. The script to use and optional dialect to validate results against are sourced from the database.
+        /// [EARLY ACCESS] TranslateEntities: Translate a collection of entities with a specified translation script. Run the provided translation request. The entities to translate are specified in the request body as a  dictionary with (ephemeral) unique correlation IDs. The script to use and optional dialect to validate  results against are sourced from the database.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="translateEntitiesRequest">The entities to translate, along with identifiers for the script and (optional) dialect to use.</param>
@@ -1770,7 +1770,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] TranslateEntities: Translate a collection of entities with a specified translation script. Run the provided translation request. The entities to translate are specified in the request body as a dictionary with (ephemeral) unique correlation IDs. The script to use and optional dialect to validate results against are sourced from the database.
+        /// [EARLY ACCESS] TranslateEntities: Translate a collection of entities with a specified translation script. Run the provided translation request. The entities to translate are specified in the request body as a  dictionary with (ephemeral) unique correlation IDs. The script to use and optional dialect to validate  results against are sourced from the database.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="translateEntitiesRequest">The entities to translate, along with identifiers for the script and (optional) dialect to use.</param>
@@ -1785,7 +1785,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] TranslateEntities: Translate a collection of entities with a specified translation script. Run the provided translation request. The entities to translate are specified in the request body as a dictionary with (ephemeral) unique correlation IDs. The script to use and optional dialect to validate results against are sourced from the database.
+        /// [EARLY ACCESS] TranslateEntities: Translate a collection of entities with a specified translation script. Run the provided translation request. The entities to translate are specified in the request body as a  dictionary with (ephemeral) unique correlation IDs. The script to use and optional dialect to validate  results against are sourced from the database.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="translateEntitiesRequest">The entities to translate, along with identifiers for the script and (optional) dialect to use.</param>
@@ -1878,7 +1878,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] TranslateEntitiesInlined: Translate a collection of entities, inlining the body of the translation script. Run the provided translation request. The entities to translate, script to use and dialect to validate results against are all specified in the request body. The entities are given as a dictionary with (ephemeral) unique correlation IDs.
+        /// [EARLY ACCESS] TranslateEntitiesInlined: Translate a collection of entities, inlining the body of the translation script. Run the provided translation request. The entities to translate, script to use and dialect to validate results against  are all specified in the request body. The entities are given as a dictionary with (ephemeral) unique correlation IDs.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="translateEntitiesInlinedRequest">The entities to translate, along with the script to use and an optional schema for validation.</param>
@@ -1892,7 +1892,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] TranslateEntitiesInlined: Translate a collection of entities, inlining the body of the translation script. Run the provided translation request. The entities to translate, script to use and dialect to validate results against are all specified in the request body. The entities are given as a dictionary with (ephemeral) unique correlation IDs.
+        /// [EARLY ACCESS] TranslateEntitiesInlined: Translate a collection of entities, inlining the body of the translation script. Run the provided translation request. The entities to translate, script to use and dialect to validate results against  are all specified in the request body. The entities are given as a dictionary with (ephemeral) unique correlation IDs.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="translateEntitiesInlinedRequest">The entities to translate, along with the script to use and an optional schema for validation.</param>
@@ -1982,7 +1982,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] TranslateEntitiesInlined: Translate a collection of entities, inlining the body of the translation script. Run the provided translation request. The entities to translate, script to use and dialect to validate results against are all specified in the request body. The entities are given as a dictionary with (ephemeral) unique correlation IDs.
+        /// [EARLY ACCESS] TranslateEntitiesInlined: Translate a collection of entities, inlining the body of the translation script. Run the provided translation request. The entities to translate, script to use and dialect to validate results against  are all specified in the request body. The entities are given as a dictionary with (ephemeral) unique correlation IDs.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="translateEntitiesInlinedRequest">The entities to translate, along with the script to use and an optional schema for validation.</param>
@@ -1997,7 +1997,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] TranslateEntitiesInlined: Translate a collection of entities, inlining the body of the translation script. Run the provided translation request. The entities to translate, script to use and dialect to validate results against are all specified in the request body. The entities are given as a dictionary with (ephemeral) unique correlation IDs.
+        /// [EARLY ACCESS] TranslateEntitiesInlined: Translate a collection of entities, inlining the body of the translation script. Run the provided translation request. The entities to translate, script to use and dialect to validate results against  are all specified in the request body. The entities are given as a dictionary with (ephemeral) unique correlation IDs.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="translateEntitiesInlinedRequest">The entities to translate, along with the script to use and an optional schema for validation.</param>

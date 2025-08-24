@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// The language/format of a translatable entity. Entities can be LUSID native or external and the Dialect describes 1) the system that understands the entity and 2) applicable validation for the entity, in the form of a schema.
+    /// The language/format of a translatable entity. Entities can be LUSID native or external and the Dialect describes  1) the system that understands the entity and  2) applicable validation for the entity, in the form of a schema.
     /// </summary>
     [DataContract(Name = "Dialect")]
     public partial class Dialect : IEquatable<Dialect>, IValidatableObject

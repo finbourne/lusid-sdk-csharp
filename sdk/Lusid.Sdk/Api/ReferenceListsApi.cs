@@ -95,9 +95,9 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list Reference Lists. Defaults to return the latest version of Reference Lists if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Reference Lists from a previous call to list Reference Lists.             This value is returned from the previous call. If a pagination token is provided, the filter, limit and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Reference Lists from a previous call to list Reference Lists.              This value is returned from the previous call. If a pagination token is provided, the filter, limit and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfReferenceListResponse</returns>
@@ -111,9 +111,9 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list Reference Lists. Defaults to return the latest version of Reference Lists if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Reference Lists from a previous call to list Reference Lists.             This value is returned from the previous call. If a pagination token is provided, the filter, limit and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Reference Lists from a previous call to list Reference Lists.              This value is returned from the previous call. If a pagination token is provided, the filter, limit and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfReferenceListResponse</returns>
@@ -220,9 +220,9 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list Reference Lists. Defaults to return the latest version of Reference Lists if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Reference Lists from a previous call to list Reference Lists.             This value is returned from the previous call. If a pagination token is provided, the filter, limit and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Reference Lists from a previous call to list Reference Lists.              This value is returned from the previous call. If a pagination token is provided, the filter, limit and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -237,9 +237,9 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list Reference Lists. Defaults to return the latest version of Reference Lists if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Reference Lists from a previous call to list Reference Lists.             This value is returned from the previous call. If a pagination token is provided, the filter, limit and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Reference Lists from a previous call to list Reference Lists.              This value is returned from the previous call. If a pagination token is provided, the filter, limit and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -856,9 +856,9 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list Reference Lists. Defaults to return the latest version of Reference Lists if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Reference Lists from a previous call to list Reference Lists.             This value is returned from the previous call. If a pagination token is provided, the filter, limit and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Reference Lists from a previous call to list Reference Lists.              This value is returned from the previous call. If a pagination token is provided, the filter, limit and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfReferenceListResponse</returns>
@@ -873,9 +873,9 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list Reference Lists. Defaults to return the latest version of Reference Lists if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Reference Lists from a previous call to list Reference Lists.             This value is returned from the previous call. If a pagination token is provided, the filter, limit and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Reference Lists from a previous call to list Reference Lists.              This value is returned from the previous call. If a pagination token is provided, the filter, limit and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfReferenceListResponse</returns>
@@ -971,9 +971,9 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list Reference Lists. Defaults to return the latest version of Reference Lists if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Reference Lists from a previous call to list Reference Lists.             This value is returned from the previous call. If a pagination token is provided, the filter, limit and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Reference Lists from a previous call to list Reference Lists.              This value is returned from the previous call. If a pagination token is provided, the filter, limit and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -989,9 +989,9 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list Reference Lists. Defaults to return the latest version of Reference Lists if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Reference Lists from a previous call to list Reference Lists.             This value is returned from the previous call. If a pagination token is provided, the filter, limit and asAt fields             must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Reference Lists from a previous call to list Reference Lists.              This value is returned from the previous call. If a pagination token is provided, the filter, limit and asAt fields              must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>

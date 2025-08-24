@@ -60,7 +60,7 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<InstrumentEventTypesApi>();
             var instrumentEventType = "instrumentEventType_example";  // string | The type of instrument events that the template is applied to.
-            var instrumentType = "instrumentType_example";  // string | The instrument type of the transaction template. The combination of the instrument             event type, instrument type and scope uniquely identifies a transaction template
+            var instrumentType = "instrumentType_example";  // string | The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template
             var scope = "scope_example";  // string | The scope in which the template lies.
             var transactionTemplateRequest = new TransactionTemplateRequest(); // TransactionTemplateRequest | A request defining a new transaction template to be created.
 
@@ -109,7 +109,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **instrumentEventType** | **string** | The type of instrument events that the template is applied to. |  |
-| **instrumentType** | **string** | The instrument type of the transaction template. The combination of the instrument             event type, instrument type and scope uniquely identifies a transaction template |  |
+| **instrumentType** | **string** | The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template |  |
 | **scope** | **string** | The scope in which the template lies. |  |
 | **transactionTemplateRequest** | [**TransactionTemplateRequest**](TransactionTemplateRequest.md) | A request defining a new transaction template to be created. |  |
 
@@ -180,7 +180,7 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<InstrumentEventTypesApi>();
             var instrumentEventType = "instrumentEventType_example";  // string | The type of instrument events that the template is applied to.
-            var instrumentType = "instrumentType_example";  // string | The instrument type of the transaction template. The combination of the instrument             event type, instrument type and scope uniquely identifies a transaction template
+            var instrumentType = "instrumentType_example";  // string | The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template
             var scope = "scope_example";  // string | The scope of the template.
 
             try
@@ -228,7 +228,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **instrumentEventType** | **string** | The type of instrument events that the template is applied to. |  |
-| **instrumentType** | **string** | The instrument type of the transaction template. The combination of the instrument             event type, instrument type and scope uniquely identifies a transaction template |  |
+| **instrumentType** | **string** | The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template |  |
 | **scope** | **string** | The scope of the template. |  |
 
 ### Return type
@@ -298,7 +298,7 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<InstrumentEventTypesApi>();
             var instrumentEventType = "instrumentEventType_example";  // string | The instrument event type of the transaction template
-            var instrumentType = "instrumentType_example";  // string | The instrument type of the transaction template. The combination of the instrument             event type, instrument type and scope uniquely identifies a transaction template
+            var instrumentType = "instrumentType_example";  // string | The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template
             var scope = "scope_example";  // string | The scope in which the template lies. When not supplied the scope is 'default'.
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The AsAt time of the requested Transaction Template (optional) 
 
@@ -347,7 +347,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **instrumentEventType** | **string** | The instrument event type of the transaction template |  |
-| **instrumentType** | **string** | The instrument type of the transaction template. The combination of the instrument             event type, instrument type and scope uniquely identifies a transaction template |  |
+| **instrumentType** | **string** | The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template |  |
 | **scope** | **string** | The scope in which the template lies. When not supplied the scope is &#39;default&#39;. |  |
 | **asAt** | **DateTimeOffset?** | The AsAt time of the requested Transaction Template | [optional]  |
 
@@ -532,9 +532,9 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<InstrumentEventTypesApi>();
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | AsAt of the request (optional) 
-            var page = "page_example";  // string? | The pagination token to use to continue listing Transaction Template Specifications from             a previous call to list Transaction Template Specifications.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt             fields must not have changed since the original request. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing Transaction Template Specifications from              a previous call to list Transaction Template Specifications.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt              fields must not have changed since the original request. (optional) 
             var limit = 56;  // int? | When paginating, limit the number of returned results to this many. (optional) 
-            var filter = "filter_example";  // string? | Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional) 
             var sortBy = new List<string>?(); // List<string>? | A list of field names to sort by, each suffixed by \" ASC\" or \" DESC\". (optional) 
 
             try
@@ -582,9 +582,9 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **asAt** | **DateTimeOffset?** | AsAt of the request | [optional]  |
-| **page** | **string?** | The pagination token to use to continue listing Transaction Template Specifications from             a previous call to list Transaction Template Specifications.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt             fields must not have changed since the original request. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing Transaction Template Specifications from              a previous call to list Transaction Template Specifications.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt              fields must not have changed since the original request. | [optional]  |
 | **limit** | **int?** | When paginating, limit the number of returned results to this many. | [optional]  |
-| **filter** | **string?** | Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
+| **filter** | **string?** | Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
 | **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. | [optional]  |
 
 ### Return type
@@ -654,9 +654,9 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<InstrumentEventTypesApi>();
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The AsAt time at which to retrieve the Transaction Templates (optional) 
-            var page = "page_example";  // string? | The pagination token to use to continue listing Transaction Templates from a previous call to list Transaction Templates.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, limit, and asAt fields             must not have changed since the original request. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing Transaction Templates from a previous call to list Transaction Templates.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, limit, and asAt fields              must not have changed since the original request. (optional) 
             var limit = 56;  // int? | When paginating, limit the number of returned results to this many. (optional) 
-            var filter = "filter_example";  // string? | Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional) 
             var sortBy = new List<string>?(); // List<string>? | A list of field names to sort by, each suffixed by \" ASC\" or \" DESC\" (optional) 
 
             try
@@ -704,9 +704,9 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **asAt** | **DateTimeOffset?** | The AsAt time at which to retrieve the Transaction Templates | [optional]  |
-| **page** | **string?** | The pagination token to use to continue listing Transaction Templates from a previous call to list Transaction Templates.             This value is returned from the previous call. If a pagination token is provided the sortBy, filter, limit, and asAt fields             must not have changed since the original request. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing Transaction Templates from a previous call to list Transaction Templates.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, limit, and asAt fields              must not have changed since the original request. | [optional]  |
 | **limit** | **int?** | When paginating, limit the number of returned results to this many. | [optional]  |
-| **filter** | **string?** | Expression to filter the result set. Read more about filtering results from LUSID here:             https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
+| **filter** | **string?** | Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
 | **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; | [optional]  |
 
 ### Return type
@@ -776,7 +776,7 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<InstrumentEventTypesApi>();
             var instrumentEventType = "instrumentEventType_example";  // string | The type of instrument events that the template is applied to.
-            var instrumentType = "instrumentType_example";  // string | The instrument type of the transaction template. The combination of the instrument             event type, instrument type and scope uniquely identifies a transaction template
+            var instrumentType = "instrumentType_example";  // string | The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template
             var scope = "scope_example";  // string | The scope in which the template lies.
             var transactionTemplateRequest = new TransactionTemplateRequest(); // TransactionTemplateRequest | A request defining the updated values for the transaction template.
 
@@ -825,7 +825,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **instrumentEventType** | **string** | The type of instrument events that the template is applied to. |  |
-| **instrumentType** | **string** | The instrument type of the transaction template. The combination of the instrument             event type, instrument type and scope uniquely identifies a transaction template |  |
+| **instrumentType** | **string** | The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template |  |
 | **scope** | **string** | The scope in which the template lies. |  |
 | **transactionTemplateRequest** | [**TransactionTemplateRequest**](TransactionTemplateRequest.md) | A request defining the updated values for the transaction template. |  |
 

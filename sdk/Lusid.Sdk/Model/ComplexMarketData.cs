@@ -24,7 +24,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Base class for representing complex market data in LUSID. Generally speaking, market data is complex when it cannot be represented as a single quote. Examples include discounting curves, projection curves, and volatility surfaces, which are used to compute instrument analytics. This base class should not be directly instantiated; each supported MarketDataType has a corresponding inherited class.
+    /// Base class for representing complex market data in LUSID.  Generally speaking, market data is complex when it cannot be represented as a single quote.  Examples include discounting curves, projection curves, and volatility surfaces, which are used to compute instrument analytics.  This base class should not be directly instantiated; each supported MarketDataType has a corresponding inherited class.
     /// </summary>
     [DataContract(Name = "ComplexMarketData")]
     [JsonConverter(typeof(JsonSubtypes), "MarketDataType")]

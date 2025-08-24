@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Holding context node. Contains settings that control how LUSID handles holdings within portfolios.
+    /// Holding context node.  Contains settings that control how LUSID handles holdings within portfolios.
     /// </summary>
     [DataContract(Name = "HoldingContext")]
     public partial class HoldingContext : IEquatable<HoldingContext>, IValidatableObject

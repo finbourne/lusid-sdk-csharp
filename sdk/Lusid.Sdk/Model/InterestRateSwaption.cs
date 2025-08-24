@@ -39,9 +39,9 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="InterestRateSwaption" /> class.
         /// </summary>
         /// <param name="startDate">The start date of the instrument. This is normally synonymous with the trade-date. (required).</param>
-        /// <param name="payOrReceiveFixed">Pay or Receive the fixed leg of the underlying swap.  Supported string (enumeration) values are: [Pay, Receive]. (required).</param>
+        /// <param name="payOrReceiveFixed">Pay or Receive the fixed leg of the underlying swap.    Supported string (enumeration) values are: [Pay, Receive]. (required).</param>
         /// <param name="premium">premium.</param>
-        /// <param name="deliveryMethod">How does the option settle  Supported string (enumeration) values are: [Cash, Physical]. (required).</param>
+        /// <param name="deliveryMethod">How does the option settle    Supported string (enumeration) values are: [Cash, Physical]. (required).</param>
         /// <param name="swap">swap (required).</param>
         /// <param name="timeZoneConventions">timeZoneConventions.</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit, FlexibleRepo (required) (default to &quot;InterestRateSwaption&quot;).</param>
@@ -78,9 +78,9 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset StartDate { get; set; }
 
         /// <summary>
-        /// Pay or Receive the fixed leg of the underlying swap.  Supported string (enumeration) values are: [Pay, Receive].
+        /// Pay or Receive the fixed leg of the underlying swap.    Supported string (enumeration) values are: [Pay, Receive].
         /// </summary>
-        /// <value>Pay or Receive the fixed leg of the underlying swap.  Supported string (enumeration) values are: [Pay, Receive].</value>
+        /// <value>Pay or Receive the fixed leg of the underlying swap.    Supported string (enumeration) values are: [Pay, Receive].</value>
         [DataMember(Name = "payOrReceiveFixed", IsRequired = true, EmitDefaultValue = true)]
         public string PayOrReceiveFixed { get; set; }
 
@@ -91,9 +91,9 @@ namespace Lusid.Sdk.Model
         public Premium Premium { get; set; }
 
         /// <summary>
-        /// How does the option settle  Supported string (enumeration) values are: [Cash, Physical].
+        /// How does the option settle    Supported string (enumeration) values are: [Cash, Physical].
         /// </summary>
-        /// <value>How does the option settle  Supported string (enumeration) values are: [Cash, Physical].</value>
+        /// <value>How does the option settle    Supported string (enumeration) values are: [Cash, Physical].</value>
         [DataMember(Name = "deliveryMethod", IsRequired = true, EmitDefaultValue = true)]
         public string DeliveryMethod { get; set; }
 

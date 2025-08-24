@@ -24,7 +24,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Definition of a CashFlow event. This is an event that describes the occurence of a cashflow and associated information.
+    /// Definition of a CashFlow event.  This is an event that describes the occurence of a cashflow and associated information.
     /// </summary>
     [DataContract(Name = "CashFlowEvent")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentEventType")]

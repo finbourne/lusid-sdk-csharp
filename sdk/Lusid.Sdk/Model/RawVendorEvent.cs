@@ -24,7 +24,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// A generic event derived from the economic definition of an instrument. This should be considered purely informational; any data provided by this event is not guaranteed to be processable by LUSID.
+    /// A generic event derived from the economic definition of an instrument. This should be considered purely  informational; any data provided by this event is not guaranteed to be processable by LUSID.
     /// </summary>
     [DataContract(Name = "RawVendorEvent")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentEventType")]

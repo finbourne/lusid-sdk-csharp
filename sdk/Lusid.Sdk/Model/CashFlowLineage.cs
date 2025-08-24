@@ -31,8 +31,8 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CashFlowLineage" /> class.
         /// </summary>
-        /// <param name="instrumentType">The instrument type of the instrument to which the cash flow belongs to. When upserting CashFlowValues, this should be null..</param>
-        /// <param name="cashFlowType">The cashflow type.When upserting CashFlowValues, this should be null, or one of [Unknown, Coupon, Notional, Premium, Principal, Protection, Cash].</param>
+        /// <param name="instrumentType">The instrument type of the instrument to which the cash flow belongs to. When upserting CashFlowValues, this  should be null..</param>
+        /// <param name="cashFlowType">The cashflow type.When upserting CashFlowValues, this should be null, or one of [Unknown, Coupon, Notional,  Premium, Principal, Protection, Cash].</param>
         /// <param name="instrumentId">The LUID of the instrument to which the cash flow belongs to. When upserting this should be null..</param>
         /// <param name="legId">The leg id to which the cash flow belongs to..</param>
         /// <param name="sourceTransactionId">The source transaction of the instrument to which the cash flow belongs to. When upserting this should be null.</param>
@@ -48,16 +48,16 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The instrument type of the instrument to which the cash flow belongs to. When upserting CashFlowValues, this should be null.
+        /// The instrument type of the instrument to which the cash flow belongs to. When upserting CashFlowValues, this  should be null.
         /// </summary>
-        /// <value>The instrument type of the instrument to which the cash flow belongs to. When upserting CashFlowValues, this should be null.</value>
+        /// <value>The instrument type of the instrument to which the cash flow belongs to. When upserting CashFlowValues, this  should be null.</value>
         [DataMember(Name = "instrumentType", EmitDefaultValue = true)]
         public string InstrumentType { get; set; }
 
         /// <summary>
-        /// The cashflow type.When upserting CashFlowValues, this should be null, or one of [Unknown, Coupon, Notional, Premium, Principal, Protection, Cash]
+        /// The cashflow type.When upserting CashFlowValues, this should be null, or one of [Unknown, Coupon, Notional,  Premium, Principal, Protection, Cash]
         /// </summary>
-        /// <value>The cashflow type.When upserting CashFlowValues, this should be null, or one of [Unknown, Coupon, Notional, Premium, Principal, Protection, Cash]</value>
+        /// <value>The cashflow type.When upserting CashFlowValues, this should be null, or one of [Unknown, Coupon, Notional,  Premium, Principal, Protection, Cash]</value>
         [DataMember(Name = "cashFlowType", EmitDefaultValue = true)]
         public string CashFlowType { get; set; }
 

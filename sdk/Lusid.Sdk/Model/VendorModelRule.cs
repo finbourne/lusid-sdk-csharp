@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// A rule that identifies the set of preferences to be used for a given library, model and instrument type. There can be many such rules, though only the first found for a given combination would be used.
+    /// A rule that identifies the set of preferences to be used for a given library, model and instrument type.  There can be many such rules, though only the first found for a given combination would be used.
     /// </summary>
     [DataContract(Name = "VendorModelRule")]
     public partial class VendorModelRule : IEquatable<VendorModelRule>, IValidatableObject
@@ -96,9 +96,9 @@ namespace Lusid.Sdk.Model
         /// <param name="supplier">The available values are: Lusid, RefinitivQps, RefinitivTracsWeb, VolMaster, IsdaCds, YieldBook, LusidCalc (required).</param>
         /// <param name="modelName">The vendor library model name (required).</param>
         /// <param name="instrumentType">The vendor library instrument type (required).</param>
-        /// <param name="parameters">THIS FIELD IS DEPRECATED - use ModelOptions The set of opaque model parameters, provided as a Json object, that is a string object which will internally be converted to a dictionary of string to object. Note that this is not intended as the final form of this object. It will be replaced with a more structured object as the set of parameters that are possible is better understood..</param>
+        /// <param name="parameters">THIS FIELD IS DEPRECATED - use ModelOptions  The set of opaque model parameters, provided as a Json object, that is a string object which will internally be converted to a dictionary of string to object.  Note that this is not intended as the final form of this object. It will be replaced with a more structured object as the set of parameters that are possible is  better understood..</param>
         /// <param name="modelOptions">modelOptions.</param>
-        /// <param name="instrumentId">This field should generally not be required. It indicates a specific case where there is a particular need to make a rule apply to only a single instrument specified by an identifier on that instrument such as its LUID. One particular example would be to control the behaviour of a look-through portfolio scaling methodology, such as where there is a mixture of indices and credit-debit portfolios where scaling on the sum of valuation would be deemed incorrectly for one set but desired in general..</param>
+        /// <param name="instrumentId">This field should generally not be required. It indicates a specific case where there is a particular need to make a rule apply to only a single instrument  specified by an identifier on that instrument such as its LUID. One particular example would be to control the behaviour of a look-through portfolio scaling  methodology, such as where there is a mixture of indices and credit-debit portfolios where scaling on the sum of valuation would be deemed incorrectly for one  set but desired in general..</param>
         /// <param name="addressKeyFilters">Condition for model selection. If a condition is satisfied the default model for valuation is overridden (for that instrument)..</param>
         public VendorModelRule(SupplierEnum supplier = default(SupplierEnum), string modelName = default(string), string instrumentType = default(string), string parameters = default(string), ModelOptions modelOptions = default(ModelOptions), string instrumentId = default(string), List<AddressKeyFilter> addressKeyFilters = default(List<AddressKeyFilter>))
         {
@@ -136,9 +136,9 @@ namespace Lusid.Sdk.Model
         public string InstrumentType { get; set; }
 
         /// <summary>
-        /// THIS FIELD IS DEPRECATED - use ModelOptions The set of opaque model parameters, provided as a Json object, that is a string object which will internally be converted to a dictionary of string to object. Note that this is not intended as the final form of this object. It will be replaced with a more structured object as the set of parameters that are possible is better understood.
+        /// THIS FIELD IS DEPRECATED - use ModelOptions  The set of opaque model parameters, provided as a Json object, that is a string object which will internally be converted to a dictionary of string to object.  Note that this is not intended as the final form of this object. It will be replaced with a more structured object as the set of parameters that are possible is  better understood.
         /// </summary>
-        /// <value>THIS FIELD IS DEPRECATED - use ModelOptions The set of opaque model parameters, provided as a Json object, that is a string object which will internally be converted to a dictionary of string to object. Note that this is not intended as the final form of this object. It will be replaced with a more structured object as the set of parameters that are possible is better understood.</value>
+        /// <value>THIS FIELD IS DEPRECATED - use ModelOptions  The set of opaque model parameters, provided as a Json object, that is a string object which will internally be converted to a dictionary of string to object.  Note that this is not intended as the final form of this object. It will be replaced with a more structured object as the set of parameters that are possible is  better understood.</value>
         [DataMember(Name = "parameters", EmitDefaultValue = true)]
         public string Parameters { get; set; }
 
@@ -149,9 +149,9 @@ namespace Lusid.Sdk.Model
         public ModelOptions ModelOptions { get; set; }
 
         /// <summary>
-        /// This field should generally not be required. It indicates a specific case where there is a particular need to make a rule apply to only a single instrument specified by an identifier on that instrument such as its LUID. One particular example would be to control the behaviour of a look-through portfolio scaling methodology, such as where there is a mixture of indices and credit-debit portfolios where scaling on the sum of valuation would be deemed incorrectly for one set but desired in general.
+        /// This field should generally not be required. It indicates a specific case where there is a particular need to make a rule apply to only a single instrument  specified by an identifier on that instrument such as its LUID. One particular example would be to control the behaviour of a look-through portfolio scaling  methodology, such as where there is a mixture of indices and credit-debit portfolios where scaling on the sum of valuation would be deemed incorrectly for one  set but desired in general.
         /// </summary>
-        /// <value>This field should generally not be required. It indicates a specific case where there is a particular need to make a rule apply to only a single instrument specified by an identifier on that instrument such as its LUID. One particular example would be to control the behaviour of a look-through portfolio scaling methodology, such as where there is a mixture of indices and credit-debit portfolios where scaling on the sum of valuation would be deemed incorrectly for one set but desired in general.</value>
+        /// <value>This field should generally not be required. It indicates a specific case where there is a particular need to make a rule apply to only a single instrument  specified by an identifier on that instrument such as its LUID. One particular example would be to control the behaviour of a look-through portfolio scaling  methodology, such as where there is a mixture of indices and credit-debit portfolios where scaling on the sum of valuation would be deemed incorrectly for one  set but desired in general.</value>
         [DataMember(Name = "instrumentId", EmitDefaultValue = true)]
         public string InstrumentId { get; set; }
 

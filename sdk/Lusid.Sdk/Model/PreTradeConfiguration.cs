@@ -36,7 +36,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PreTradeConfiguration" /> class.
         /// </summary>
-        /// <param name="includeEntityTypes">Controls whether Orders and Allocations orders are included in the Portfolio valuation done for this compliance run. Valid values are: None (to account for Transactions only), Allocations (to include Allocations and Transactions) and OrdersAndAllocations (to include Orders, Allocations and Transactions). (required).</param>
+        /// <param name="includeEntityTypes">Controls whether Orders and Allocations orders are included in the Portfolio valuation done for this compliance run.  Valid values are:  None (to account for Transactions only), Allocations (to include Allocations and Transactions) and  OrdersAndAllocations (to include Orders, Allocations and Transactions). (required).</param>
         public PreTradeConfiguration(string includeEntityTypes = default(string))
         {
             // to ensure "includeEntityTypes" is required (not null)
@@ -48,9 +48,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// Controls whether Orders and Allocations orders are included in the Portfolio valuation done for this compliance run. Valid values are: None (to account for Transactions only), Allocations (to include Allocations and Transactions) and OrdersAndAllocations (to include Orders, Allocations and Transactions).
+        /// Controls whether Orders and Allocations orders are included in the Portfolio valuation done for this compliance run.  Valid values are:  None (to account for Transactions only), Allocations (to include Allocations and Transactions) and  OrdersAndAllocations (to include Orders, Allocations and Transactions).
         /// </summary>
-        /// <value>Controls whether Orders and Allocations orders are included in the Portfolio valuation done for this compliance run. Valid values are: None (to account for Transactions only), Allocations (to include Allocations and Transactions) and OrdersAndAllocations (to include Orders, Allocations and Transactions).</value>
+        /// <value>Controls whether Orders and Allocations orders are included in the Portfolio valuation done for this compliance run.  Valid values are:  None (to account for Transactions only), Allocations (to include Allocations and Transactions) and  OrdersAndAllocations (to include Orders, Allocations and Transactions).</value>
         [DataMember(Name = "includeEntityTypes", IsRequired = true, EmitDefaultValue = true)]
         public string IncludeEntityTypes { get; set; }
 

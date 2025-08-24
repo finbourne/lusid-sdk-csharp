@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Encapsulates parts of a market data rule relating not to the nature of the market data requested, but rather the nature of the thing (instrument/model) that is requesting it. In the first instance, this includes the instrument type, asset class, and the currency of the underlying instrument. This can be used to differentiate requests for market data according to the source of the request. See MarketDataSpecificRule.
+    /// Encapsulates parts of a market data rule relating not to the nature of the market data requested, but rather the nature of the thing (instrument/model) that is requesting it.  In the first instance, this includes the instrument type, asset class, and the currency of the underlying instrument.  This can be used to differentiate requests for market data according to the source of the request. See MarketDataSpecificRule.
     /// </summary>
     [DataContract(Name = "DependencySourceFilter")]
     public partial class DependencySourceFilter : IEquatable<DependencySourceFilter>, IValidatableObject
@@ -31,11 +31,11 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DependencySourceFilter" /> class.
         /// </summary>
-        /// <param name="instrumentType">Specify that a rule should only apply if the market data is requested by an instrument of a given instrument type. If null, then no filtering on instrument type is applied..</param>
-        /// <param name="assetClass">Specify that a rule should only apply if the market data is requested by an instrument of a given asset class. If null, then no filtering on asset class is applied..</param>
-        /// <param name="domCcy">Specify that a rule should only apply if the market data is requested by an instrument with a given domestic currency. If null, then no filtering on currency is applied..</param>
-        /// <param name="longOrShortIndicator">Specify that a rule should apply if the market data is requested by a model with a given long or short indicator. If none, then no filtering on LongOrShortIndicator is applied..</param>
-        /// <param name="addressKeyFilters">Specify that a rule should apply if the market data is requested by an instrument with features or properties satisfying all the given address key filters. If an empty list is given, no additional filtering is done..</param>
+        /// <param name="instrumentType">Specify that a rule should only apply if the market data is requested by an instrument of a given instrument type.  If null, then no filtering on instrument type is applied..</param>
+        /// <param name="assetClass">Specify that a rule should only apply if the market data is requested by an instrument of a given asset class.  If null, then no filtering on asset class is applied..</param>
+        /// <param name="domCcy">Specify that a rule should only apply if the market data is requested by an instrument with a given domestic currency.  If null, then no filtering on currency is applied..</param>
+        /// <param name="longOrShortIndicator">Specify that a rule should apply if the market data is requested by a model with a given long or short indicator.  If none, then no filtering on LongOrShortIndicator is applied..</param>
+        /// <param name="addressKeyFilters">Specify that a rule should apply if the market data is requested by an instrument with features or properties  satisfying all the given address key filters. If an empty list is given, no additional filtering is done..</param>
         public DependencySourceFilter(string instrumentType = default(string), string assetClass = default(string), string domCcy = default(string), string longOrShortIndicator = default(string), List<AddressKeyFilter> addressKeyFilters = default(List<AddressKeyFilter>))
         {
             this.InstrumentType = instrumentType;
@@ -46,37 +46,37 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// Specify that a rule should only apply if the market data is requested by an instrument of a given instrument type. If null, then no filtering on instrument type is applied.
+        /// Specify that a rule should only apply if the market data is requested by an instrument of a given instrument type.  If null, then no filtering on instrument type is applied.
         /// </summary>
-        /// <value>Specify that a rule should only apply if the market data is requested by an instrument of a given instrument type. If null, then no filtering on instrument type is applied.</value>
+        /// <value>Specify that a rule should only apply if the market data is requested by an instrument of a given instrument type.  If null, then no filtering on instrument type is applied.</value>
         [DataMember(Name = "instrumentType", EmitDefaultValue = true)]
         public string InstrumentType { get; set; }
 
         /// <summary>
-        /// Specify that a rule should only apply if the market data is requested by an instrument of a given asset class. If null, then no filtering on asset class is applied.
+        /// Specify that a rule should only apply if the market data is requested by an instrument of a given asset class.  If null, then no filtering on asset class is applied.
         /// </summary>
-        /// <value>Specify that a rule should only apply if the market data is requested by an instrument of a given asset class. If null, then no filtering on asset class is applied.</value>
+        /// <value>Specify that a rule should only apply if the market data is requested by an instrument of a given asset class.  If null, then no filtering on asset class is applied.</value>
         [DataMember(Name = "assetClass", EmitDefaultValue = true)]
         public string AssetClass { get; set; }
 
         /// <summary>
-        /// Specify that a rule should only apply if the market data is requested by an instrument with a given domestic currency. If null, then no filtering on currency is applied.
+        /// Specify that a rule should only apply if the market data is requested by an instrument with a given domestic currency.  If null, then no filtering on currency is applied.
         /// </summary>
-        /// <value>Specify that a rule should only apply if the market data is requested by an instrument with a given domestic currency. If null, then no filtering on currency is applied.</value>
+        /// <value>Specify that a rule should only apply if the market data is requested by an instrument with a given domestic currency.  If null, then no filtering on currency is applied.</value>
         [DataMember(Name = "domCcy", EmitDefaultValue = true)]
         public string DomCcy { get; set; }
 
         /// <summary>
-        /// Specify that a rule should apply if the market data is requested by a model with a given long or short indicator. If none, then no filtering on LongOrShortIndicator is applied.
+        /// Specify that a rule should apply if the market data is requested by a model with a given long or short indicator.  If none, then no filtering on LongOrShortIndicator is applied.
         /// </summary>
-        /// <value>Specify that a rule should apply if the market data is requested by a model with a given long or short indicator. If none, then no filtering on LongOrShortIndicator is applied.</value>
+        /// <value>Specify that a rule should apply if the market data is requested by a model with a given long or short indicator.  If none, then no filtering on LongOrShortIndicator is applied.</value>
         [DataMember(Name = "longOrShortIndicator", EmitDefaultValue = true)]
         public string LongOrShortIndicator { get; set; }
 
         /// <summary>
-        /// Specify that a rule should apply if the market data is requested by an instrument with features or properties satisfying all the given address key filters. If an empty list is given, no additional filtering is done.
+        /// Specify that a rule should apply if the market data is requested by an instrument with features or properties  satisfying all the given address key filters. If an empty list is given, no additional filtering is done.
         /// </summary>
-        /// <value>Specify that a rule should apply if the market data is requested by an instrument with features or properties satisfying all the given address key filters. If an empty list is given, no additional filtering is done.</value>
+        /// <value>Specify that a rule should apply if the market data is requested by an instrument with features or properties  satisfying all the given address key filters. If an empty list is given, no additional filtering is done.</value>
         [DataMember(Name = "addressKeyFilters", EmitDefaultValue = true)]
         public List<AddressKeyFilter> AddressKeyFilters { get; set; }
 

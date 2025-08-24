@@ -35,7 +35,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] DeleteCounterpartyAgreement: Delete the Counterparty Agreement of given scope and code
         /// </summary>
         /// <remarks>
-        /// Delete the specified Counterparty Agreement from a single scope. The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.              It is important to always check for any unsuccessful response.
+        /// Delete the specified Counterparty Agreement from a single scope.  The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.                It is important to always check for any unsuccessful response.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Counterparty Agreement to delete.</param>
@@ -49,7 +49,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] DeleteCounterpartyAgreement: Delete the Counterparty Agreement of given scope and code
         /// </summary>
         /// <remarks>
-        /// Delete the specified Counterparty Agreement from a single scope. The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.              It is important to always check for any unsuccessful response.
+        /// Delete the specified Counterparty Agreement from a single scope.  The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.                It is important to always check for any unsuccessful response.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Counterparty Agreement to delete.</param>
@@ -62,7 +62,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] DeleteCreditSupportAnnex: Delete the Credit Support Annex of given scope and code
         /// </summary>
         /// <remarks>
-        /// Delete the specified Credit Support Annex from a single scope. The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.              It is important to always check for any unsuccessful response.
+        /// Delete the specified Credit Support Annex from a single scope.  The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.                It is important to always check for any unsuccessful response.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Credit Support Annex to delete.</param>
@@ -76,7 +76,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] DeleteCreditSupportAnnex: Delete the Credit Support Annex of given scope and code
         /// </summary>
         /// <remarks>
-        /// Delete the specified Credit Support Annex from a single scope. The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.              It is important to always check for any unsuccessful response.
+        /// Delete the specified Credit Support Annex from a single scope.  The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.                It is important to always check for any unsuccessful response.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Credit Support Annex to delete.</param>
@@ -89,7 +89,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] GetCounterpartyAgreement: Get Counterparty Agreement
         /// </summary>
         /// <remarks>
-        /// Get a Counterparty Agreement from a single scope. The response will return either the Counterparty Agreement that has been stored, or a failure explaining why the request was unsuccessful. It is important to always check for any unsuccessful requests (failures).
+        /// Get a Counterparty Agreement from a single scope.  The response will return either the Counterparty Agreement that has been stored, or a failure explaining why the request was unsuccessful.  It is important to always check for any unsuccessful requests (failures).
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Counterparty Agreement to retrieve.</param>
@@ -104,7 +104,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] GetCounterpartyAgreement: Get Counterparty Agreement
         /// </summary>
         /// <remarks>
-        /// Get a Counterparty Agreement from a single scope. The response will return either the Counterparty Agreement that has been stored, or a failure explaining why the request was unsuccessful. It is important to always check for any unsuccessful requests (failures).
+        /// Get a Counterparty Agreement from a single scope.  The response will return either the Counterparty Agreement that has been stored, or a failure explaining why the request was unsuccessful.  It is important to always check for any unsuccessful requests (failures).
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Counterparty Agreement to retrieve.</param>
@@ -118,7 +118,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] GetCreditSupportAnnex: Get Credit Support Annex
         /// </summary>
         /// <remarks>
-        /// Get a Credit Support Annex from a single scope. The response will return either the Credit Support Annex that has been stored, or a failure explaining why the request was unsuccessful. It is important to always check for any unsuccessful requests (failures).
+        /// Get a Credit Support Annex from a single scope.  The response will return either the Credit Support Annex that has been stored, or a failure explaining why the request was unsuccessful.  It is important to always check for any unsuccessful requests (failures).
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Credit Support Annex to retrieve.</param>
@@ -133,7 +133,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] GetCreditSupportAnnex: Get Credit Support Annex
         /// </summary>
         /// <remarks>
-        /// Get a Credit Support Annex from a single scope. The response will return either the Credit Support Annex that has been stored, or a failure explaining why the request was unsuccessful. It is important to always check for any unsuccessful requests (failures).
+        /// Get a Credit Support Annex from a single scope.  The response will return either the Credit Support Annex that has been stored, or a failure explaining why the request was unsuccessful.  It is important to always check for any unsuccessful requests (failures).
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Credit Support Annex to retrieve.</param>
@@ -197,7 +197,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] UpsertCounterpartyAgreement: Upsert Counterparty Agreement
         /// </summary>
         /// <remarks>
-        /// Update or insert Counterparty Agreement in a single scope. An item will be updated if it already exists and inserted if it does not.              The response will return the successfully updated or inserted Counterparty Agreement or failure message if unsuccessful              It is important to always check to verify success (or failure).
+        /// Update or insert Counterparty Agreement in a single scope. An item will be updated if it already exists and inserted if it does not.                The response will return the successfully updated or inserted Counterparty Agreement or failure message if unsuccessful                It is important to always check to verify success (or failure).
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertCounterpartyAgreementRequest">The Counterparty Agreement to update or insert</param>
@@ -210,7 +210,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] UpsertCounterpartyAgreement: Upsert Counterparty Agreement
         /// </summary>
         /// <remarks>
-        /// Update or insert Counterparty Agreement in a single scope. An item will be updated if it already exists and inserted if it does not.              The response will return the successfully updated or inserted Counterparty Agreement or failure message if unsuccessful              It is important to always check to verify success (or failure).
+        /// Update or insert Counterparty Agreement in a single scope. An item will be updated if it already exists and inserted if it does not.                The response will return the successfully updated or inserted Counterparty Agreement or failure message if unsuccessful                It is important to always check to verify success (or failure).
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertCounterpartyAgreementRequest">The Counterparty Agreement to update or insert</param>
@@ -222,7 +222,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] UpsertCreditSupportAnnex: Upsert Credit Support Annex
         /// </summary>
         /// <remarks>
-        /// Update or insert Credit Support Annex in a single scope. An item will be updated if it already exists and inserted if it does not.              The response will return the successfully updated or inserted Credit Support Annex or failure message if unsuccessful              It is important to always check to verify success (or failure).
+        /// Update or insert Credit Support Annex in a single scope. An item will be updated if it already exists and inserted if it does not.                The response will return the successfully updated or inserted Credit Support Annex or failure message if unsuccessful                It is important to always check to verify success (or failure).
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertCreditSupportAnnexRequest">The Credit Support Annex to update or insert</param>
@@ -235,7 +235,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] UpsertCreditSupportAnnex: Upsert Credit Support Annex
         /// </summary>
         /// <remarks>
-        /// Update or insert Credit Support Annex in a single scope. An item will be updated if it already exists and inserted if it does not.              The response will return the successfully updated or inserted Credit Support Annex or failure message if unsuccessful              It is important to always check to verify success (or failure).
+        /// Update or insert Credit Support Annex in a single scope. An item will be updated if it already exists and inserted if it does not.                The response will return the successfully updated or inserted Credit Support Annex or failure message if unsuccessful                It is important to always check to verify success (or failure).
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertCreditSupportAnnexRequest">The Credit Support Annex to update or insert</param>
@@ -256,7 +256,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] DeleteCounterpartyAgreement: Delete the Counterparty Agreement of given scope and code
         /// </summary>
         /// <remarks>
-        /// Delete the specified Counterparty Agreement from a single scope. The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.              It is important to always check for any unsuccessful response.
+        /// Delete the specified Counterparty Agreement from a single scope.  The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.                It is important to always check for any unsuccessful response.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Counterparty Agreement to delete.</param>
@@ -271,7 +271,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] DeleteCounterpartyAgreement: Delete the Counterparty Agreement of given scope and code
         /// </summary>
         /// <remarks>
-        /// Delete the specified Counterparty Agreement from a single scope. The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.              It is important to always check for any unsuccessful response.
+        /// Delete the specified Counterparty Agreement from a single scope.  The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.                It is important to always check for any unsuccessful response.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Counterparty Agreement to delete.</param>
@@ -285,7 +285,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] DeleteCreditSupportAnnex: Delete the Credit Support Annex of given scope and code
         /// </summary>
         /// <remarks>
-        /// Delete the specified Credit Support Annex from a single scope. The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.              It is important to always check for any unsuccessful response.
+        /// Delete the specified Credit Support Annex from a single scope.  The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.                It is important to always check for any unsuccessful response.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Credit Support Annex to delete.</param>
@@ -300,7 +300,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] DeleteCreditSupportAnnex: Delete the Credit Support Annex of given scope and code
         /// </summary>
         /// <remarks>
-        /// Delete the specified Credit Support Annex from a single scope. The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.              It is important to always check for any unsuccessful response.
+        /// Delete the specified Credit Support Annex from a single scope.  The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.                It is important to always check for any unsuccessful response.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Credit Support Annex to delete.</param>
@@ -314,7 +314,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] GetCounterpartyAgreement: Get Counterparty Agreement
         /// </summary>
         /// <remarks>
-        /// Get a Counterparty Agreement from a single scope. The response will return either the Counterparty Agreement that has been stored, or a failure explaining why the request was unsuccessful. It is important to always check for any unsuccessful requests (failures).
+        /// Get a Counterparty Agreement from a single scope.  The response will return either the Counterparty Agreement that has been stored, or a failure explaining why the request was unsuccessful.  It is important to always check for any unsuccessful requests (failures).
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Counterparty Agreement to retrieve.</param>
@@ -330,7 +330,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] GetCounterpartyAgreement: Get Counterparty Agreement
         /// </summary>
         /// <remarks>
-        /// Get a Counterparty Agreement from a single scope. The response will return either the Counterparty Agreement that has been stored, or a failure explaining why the request was unsuccessful. It is important to always check for any unsuccessful requests (failures).
+        /// Get a Counterparty Agreement from a single scope.  The response will return either the Counterparty Agreement that has been stored, or a failure explaining why the request was unsuccessful.  It is important to always check for any unsuccessful requests (failures).
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Counterparty Agreement to retrieve.</param>
@@ -345,7 +345,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] GetCreditSupportAnnex: Get Credit Support Annex
         /// </summary>
         /// <remarks>
-        /// Get a Credit Support Annex from a single scope. The response will return either the Credit Support Annex that has been stored, or a failure explaining why the request was unsuccessful. It is important to always check for any unsuccessful requests (failures).
+        /// Get a Credit Support Annex from a single scope.  The response will return either the Credit Support Annex that has been stored, or a failure explaining why the request was unsuccessful.  It is important to always check for any unsuccessful requests (failures).
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Credit Support Annex to retrieve.</param>
@@ -361,7 +361,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] GetCreditSupportAnnex: Get Credit Support Annex
         /// </summary>
         /// <remarks>
-        /// Get a Credit Support Annex from a single scope. The response will return either the Credit Support Annex that has been stored, or a failure explaining why the request was unsuccessful. It is important to always check for any unsuccessful requests (failures).
+        /// Get a Credit Support Annex from a single scope.  The response will return either the Credit Support Annex that has been stored, or a failure explaining why the request was unsuccessful.  It is important to always check for any unsuccessful requests (failures).
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Credit Support Annex to retrieve.</param>
@@ -430,7 +430,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] UpsertCounterpartyAgreement: Upsert Counterparty Agreement
         /// </summary>
         /// <remarks>
-        /// Update or insert Counterparty Agreement in a single scope. An item will be updated if it already exists and inserted if it does not.              The response will return the successfully updated or inserted Counterparty Agreement or failure message if unsuccessful              It is important to always check to verify success (or failure).
+        /// Update or insert Counterparty Agreement in a single scope. An item will be updated if it already exists and inserted if it does not.                The response will return the successfully updated or inserted Counterparty Agreement or failure message if unsuccessful                It is important to always check to verify success (or failure).
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertCounterpartyAgreementRequest">The Counterparty Agreement to update or insert</param>
@@ -444,7 +444,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] UpsertCounterpartyAgreement: Upsert Counterparty Agreement
         /// </summary>
         /// <remarks>
-        /// Update or insert Counterparty Agreement in a single scope. An item will be updated if it already exists and inserted if it does not.              The response will return the successfully updated or inserted Counterparty Agreement or failure message if unsuccessful              It is important to always check to verify success (or failure).
+        /// Update or insert Counterparty Agreement in a single scope. An item will be updated if it already exists and inserted if it does not.                The response will return the successfully updated or inserted Counterparty Agreement or failure message if unsuccessful                It is important to always check to verify success (or failure).
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertCounterpartyAgreementRequest">The Counterparty Agreement to update or insert</param>
@@ -457,7 +457,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] UpsertCreditSupportAnnex: Upsert Credit Support Annex
         /// </summary>
         /// <remarks>
-        /// Update or insert Credit Support Annex in a single scope. An item will be updated if it already exists and inserted if it does not.              The response will return the successfully updated or inserted Credit Support Annex or failure message if unsuccessful              It is important to always check to verify success (or failure).
+        /// Update or insert Credit Support Annex in a single scope. An item will be updated if it already exists and inserted if it does not.                The response will return the successfully updated or inserted Credit Support Annex or failure message if unsuccessful                It is important to always check to verify success (or failure).
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertCreditSupportAnnexRequest">The Credit Support Annex to update or insert</param>
@@ -471,7 +471,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] UpsertCreditSupportAnnex: Upsert Credit Support Annex
         /// </summary>
         /// <remarks>
-        /// Update or insert Credit Support Annex in a single scope. An item will be updated if it already exists and inserted if it does not.              The response will return the successfully updated or inserted Credit Support Annex or failure message if unsuccessful              It is important to always check to verify success (or failure).
+        /// Update or insert Credit Support Annex in a single scope. An item will be updated if it already exists and inserted if it does not.                The response will return the successfully updated or inserted Credit Support Annex or failure message if unsuccessful                It is important to always check to verify success (or failure).
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertCreditSupportAnnexRequest">The Credit Support Annex to update or insert</param>
@@ -604,7 +604,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteCounterpartyAgreement: Delete the Counterparty Agreement of given scope and code Delete the specified Counterparty Agreement from a single scope. The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.              It is important to always check for any unsuccessful response.
+        /// [EARLY ACCESS] DeleteCounterpartyAgreement: Delete the Counterparty Agreement of given scope and code Delete the specified Counterparty Agreement from a single scope.  The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.                It is important to always check for any unsuccessful response.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Counterparty Agreement to delete.</param>
@@ -619,7 +619,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteCounterpartyAgreement: Delete the Counterparty Agreement of given scope and code Delete the specified Counterparty Agreement from a single scope. The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.              It is important to always check for any unsuccessful response.
+        /// [EARLY ACCESS] DeleteCounterpartyAgreement: Delete the Counterparty Agreement of given scope and code Delete the specified Counterparty Agreement from a single scope.  The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.                It is important to always check for any unsuccessful response.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Counterparty Agreement to delete.</param>
@@ -713,7 +713,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteCounterpartyAgreement: Delete the Counterparty Agreement of given scope and code Delete the specified Counterparty Agreement from a single scope. The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.              It is important to always check for any unsuccessful response.
+        /// [EARLY ACCESS] DeleteCounterpartyAgreement: Delete the Counterparty Agreement of given scope and code Delete the specified Counterparty Agreement from a single scope.  The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.                It is important to always check for any unsuccessful response.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Counterparty Agreement to delete.</param>
@@ -729,7 +729,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteCounterpartyAgreement: Delete the Counterparty Agreement of given scope and code Delete the specified Counterparty Agreement from a single scope. The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.              It is important to always check for any unsuccessful response.
+        /// [EARLY ACCESS] DeleteCounterpartyAgreement: Delete the Counterparty Agreement of given scope and code Delete the specified Counterparty Agreement from a single scope.  The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.                It is important to always check for any unsuccessful response.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Counterparty Agreement to delete.</param>
@@ -826,7 +826,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteCreditSupportAnnex: Delete the Credit Support Annex of given scope and code Delete the specified Credit Support Annex from a single scope. The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.              It is important to always check for any unsuccessful response.
+        /// [EARLY ACCESS] DeleteCreditSupportAnnex: Delete the Credit Support Annex of given scope and code Delete the specified Credit Support Annex from a single scope.  The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.                It is important to always check for any unsuccessful response.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Credit Support Annex to delete.</param>
@@ -841,7 +841,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteCreditSupportAnnex: Delete the Credit Support Annex of given scope and code Delete the specified Credit Support Annex from a single scope. The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.              It is important to always check for any unsuccessful response.
+        /// [EARLY ACCESS] DeleteCreditSupportAnnex: Delete the Credit Support Annex of given scope and code Delete the specified Credit Support Annex from a single scope.  The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.                It is important to always check for any unsuccessful response.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Credit Support Annex to delete.</param>
@@ -935,7 +935,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteCreditSupportAnnex: Delete the Credit Support Annex of given scope and code Delete the specified Credit Support Annex from a single scope. The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.              It is important to always check for any unsuccessful response.
+        /// [EARLY ACCESS] DeleteCreditSupportAnnex: Delete the Credit Support Annex of given scope and code Delete the specified Credit Support Annex from a single scope.  The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.                It is important to always check for any unsuccessful response.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Credit Support Annex to delete.</param>
@@ -951,7 +951,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteCreditSupportAnnex: Delete the Credit Support Annex of given scope and code Delete the specified Credit Support Annex from a single scope. The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.              It is important to always check for any unsuccessful response.
+        /// [EARLY ACCESS] DeleteCreditSupportAnnex: Delete the Credit Support Annex of given scope and code Delete the specified Credit Support Annex from a single scope.  The response will return either detail of the deleted item, or an explanation (failure) as to why this did not succeed.                It is important to always check for any unsuccessful response.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Credit Support Annex to delete.</param>
@@ -1048,7 +1048,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetCounterpartyAgreement: Get Counterparty Agreement Get a Counterparty Agreement from a single scope. The response will return either the Counterparty Agreement that has been stored, or a failure explaining why the request was unsuccessful. It is important to always check for any unsuccessful requests (failures).
+        /// [EARLY ACCESS] GetCounterpartyAgreement: Get Counterparty Agreement Get a Counterparty Agreement from a single scope.  The response will return either the Counterparty Agreement that has been stored, or a failure explaining why the request was unsuccessful.  It is important to always check for any unsuccessful requests (failures).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Counterparty Agreement to retrieve.</param>
@@ -1064,7 +1064,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetCounterpartyAgreement: Get Counterparty Agreement Get a Counterparty Agreement from a single scope. The response will return either the Counterparty Agreement that has been stored, or a failure explaining why the request was unsuccessful. It is important to always check for any unsuccessful requests (failures).
+        /// [EARLY ACCESS] GetCounterpartyAgreement: Get Counterparty Agreement Get a Counterparty Agreement from a single scope.  The response will return either the Counterparty Agreement that has been stored, or a failure explaining why the request was unsuccessful.  It is important to always check for any unsuccessful requests (failures).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Counterparty Agreement to retrieve.</param>
@@ -1163,7 +1163,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetCounterpartyAgreement: Get Counterparty Agreement Get a Counterparty Agreement from a single scope. The response will return either the Counterparty Agreement that has been stored, or a failure explaining why the request was unsuccessful. It is important to always check for any unsuccessful requests (failures).
+        /// [EARLY ACCESS] GetCounterpartyAgreement: Get Counterparty Agreement Get a Counterparty Agreement from a single scope.  The response will return either the Counterparty Agreement that has been stored, or a failure explaining why the request was unsuccessful.  It is important to always check for any unsuccessful requests (failures).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Counterparty Agreement to retrieve.</param>
@@ -1180,7 +1180,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetCounterpartyAgreement: Get Counterparty Agreement Get a Counterparty Agreement from a single scope. The response will return either the Counterparty Agreement that has been stored, or a failure explaining why the request was unsuccessful. It is important to always check for any unsuccessful requests (failures).
+        /// [EARLY ACCESS] GetCounterpartyAgreement: Get Counterparty Agreement Get a Counterparty Agreement from a single scope.  The response will return either the Counterparty Agreement that has been stored, or a failure explaining why the request was unsuccessful.  It is important to always check for any unsuccessful requests (failures).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Counterparty Agreement to retrieve.</param>
@@ -1282,7 +1282,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetCreditSupportAnnex: Get Credit Support Annex Get a Credit Support Annex from a single scope. The response will return either the Credit Support Annex that has been stored, or a failure explaining why the request was unsuccessful. It is important to always check for any unsuccessful requests (failures).
+        /// [EARLY ACCESS] GetCreditSupportAnnex: Get Credit Support Annex Get a Credit Support Annex from a single scope.  The response will return either the Credit Support Annex that has been stored, or a failure explaining why the request was unsuccessful.  It is important to always check for any unsuccessful requests (failures).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Credit Support Annex to retrieve.</param>
@@ -1298,7 +1298,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetCreditSupportAnnex: Get Credit Support Annex Get a Credit Support Annex from a single scope. The response will return either the Credit Support Annex that has been stored, or a failure explaining why the request was unsuccessful. It is important to always check for any unsuccessful requests (failures).
+        /// [EARLY ACCESS] GetCreditSupportAnnex: Get Credit Support Annex Get a Credit Support Annex from a single scope.  The response will return either the Credit Support Annex that has been stored, or a failure explaining why the request was unsuccessful.  It is important to always check for any unsuccessful requests (failures).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Credit Support Annex to retrieve.</param>
@@ -1397,7 +1397,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetCreditSupportAnnex: Get Credit Support Annex Get a Credit Support Annex from a single scope. The response will return either the Credit Support Annex that has been stored, or a failure explaining why the request was unsuccessful. It is important to always check for any unsuccessful requests (failures).
+        /// [EARLY ACCESS] GetCreditSupportAnnex: Get Credit Support Annex Get a Credit Support Annex from a single scope.  The response will return either the Credit Support Annex that has been stored, or a failure explaining why the request was unsuccessful.  It is important to always check for any unsuccessful requests (failures).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Credit Support Annex to retrieve.</param>
@@ -1414,7 +1414,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetCreditSupportAnnex: Get Credit Support Annex Get a Credit Support Annex from a single scope. The response will return either the Credit Support Annex that has been stored, or a failure explaining why the request was unsuccessful. It is important to always check for any unsuccessful requests (failures).
+        /// [EARLY ACCESS] GetCreditSupportAnnex: Get Credit Support Annex Get a Credit Support Annex from a single scope.  The response will return either the Credit Support Annex that has been stored, or a failure explaining why the request was unsuccessful.  It is important to always check for any unsuccessful requests (failures).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Credit Support Annex to retrieve.</param>
@@ -1912,7 +1912,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertCounterpartyAgreement: Upsert Counterparty Agreement Update or insert Counterparty Agreement in a single scope. An item will be updated if it already exists and inserted if it does not.              The response will return the successfully updated or inserted Counterparty Agreement or failure message if unsuccessful              It is important to always check to verify success (or failure).
+        /// [EARLY ACCESS] UpsertCounterpartyAgreement: Upsert Counterparty Agreement Update or insert Counterparty Agreement in a single scope. An item will be updated if it already exists and inserted if it does not.                The response will return the successfully updated or inserted Counterparty Agreement or failure message if unsuccessful                It is important to always check to verify success (or failure).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertCounterpartyAgreementRequest">The Counterparty Agreement to update or insert</param>
@@ -1926,7 +1926,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertCounterpartyAgreement: Upsert Counterparty Agreement Update or insert Counterparty Agreement in a single scope. An item will be updated if it already exists and inserted if it does not.              The response will return the successfully updated or inserted Counterparty Agreement or failure message if unsuccessful              It is important to always check to verify success (or failure).
+        /// [EARLY ACCESS] UpsertCounterpartyAgreement: Upsert Counterparty Agreement Update or insert Counterparty Agreement in a single scope. An item will be updated if it already exists and inserted if it does not.                The response will return the successfully updated or inserted Counterparty Agreement or failure message if unsuccessful                It is important to always check to verify success (or failure).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertCounterpartyAgreementRequest">The Counterparty Agreement to update or insert</param>
@@ -2016,7 +2016,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertCounterpartyAgreement: Upsert Counterparty Agreement Update or insert Counterparty Agreement in a single scope. An item will be updated if it already exists and inserted if it does not.              The response will return the successfully updated or inserted Counterparty Agreement or failure message if unsuccessful              It is important to always check to verify success (or failure).
+        /// [EARLY ACCESS] UpsertCounterpartyAgreement: Upsert Counterparty Agreement Update or insert Counterparty Agreement in a single scope. An item will be updated if it already exists and inserted if it does not.                The response will return the successfully updated or inserted Counterparty Agreement or failure message if unsuccessful                It is important to always check to verify success (or failure).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertCounterpartyAgreementRequest">The Counterparty Agreement to update or insert</param>
@@ -2031,7 +2031,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertCounterpartyAgreement: Upsert Counterparty Agreement Update or insert Counterparty Agreement in a single scope. An item will be updated if it already exists and inserted if it does not.              The response will return the successfully updated or inserted Counterparty Agreement or failure message if unsuccessful              It is important to always check to verify success (or failure).
+        /// [EARLY ACCESS] UpsertCounterpartyAgreement: Upsert Counterparty Agreement Update or insert Counterparty Agreement in a single scope. An item will be updated if it already exists and inserted if it does not.                The response will return the successfully updated or inserted Counterparty Agreement or failure message if unsuccessful                It is important to always check to verify success (or failure).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertCounterpartyAgreementRequest">The Counterparty Agreement to update or insert</param>
@@ -2124,7 +2124,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertCreditSupportAnnex: Upsert Credit Support Annex Update or insert Credit Support Annex in a single scope. An item will be updated if it already exists and inserted if it does not.              The response will return the successfully updated or inserted Credit Support Annex or failure message if unsuccessful              It is important to always check to verify success (or failure).
+        /// [EARLY ACCESS] UpsertCreditSupportAnnex: Upsert Credit Support Annex Update or insert Credit Support Annex in a single scope. An item will be updated if it already exists and inserted if it does not.                The response will return the successfully updated or inserted Credit Support Annex or failure message if unsuccessful                It is important to always check to verify success (or failure).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertCreditSupportAnnexRequest">The Credit Support Annex to update or insert</param>
@@ -2138,7 +2138,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertCreditSupportAnnex: Upsert Credit Support Annex Update or insert Credit Support Annex in a single scope. An item will be updated if it already exists and inserted if it does not.              The response will return the successfully updated or inserted Credit Support Annex or failure message if unsuccessful              It is important to always check to verify success (or failure).
+        /// [EARLY ACCESS] UpsertCreditSupportAnnex: Upsert Credit Support Annex Update or insert Credit Support Annex in a single scope. An item will be updated if it already exists and inserted if it does not.                The response will return the successfully updated or inserted Credit Support Annex or failure message if unsuccessful                It is important to always check to verify success (or failure).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertCreditSupportAnnexRequest">The Credit Support Annex to update or insert</param>
@@ -2228,7 +2228,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertCreditSupportAnnex: Upsert Credit Support Annex Update or insert Credit Support Annex in a single scope. An item will be updated if it already exists and inserted if it does not.              The response will return the successfully updated or inserted Credit Support Annex or failure message if unsuccessful              It is important to always check to verify success (or failure).
+        /// [EARLY ACCESS] UpsertCreditSupportAnnex: Upsert Credit Support Annex Update or insert Credit Support Annex in a single scope. An item will be updated if it already exists and inserted if it does not.                The response will return the successfully updated or inserted Credit Support Annex or failure message if unsuccessful                It is important to always check to verify success (or failure).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertCreditSupportAnnexRequest">The Credit Support Annex to update or insert</param>
@@ -2243,7 +2243,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertCreditSupportAnnex: Upsert Credit Support Annex Update or insert Credit Support Annex in a single scope. An item will be updated if it already exists and inserted if it does not.              The response will return the successfully updated or inserted Credit Support Annex or failure message if unsuccessful              It is important to always check to verify success (or failure).
+        /// [EARLY ACCESS] UpsertCreditSupportAnnex: Upsert Credit Support Annex Update or insert Credit Support Annex in a single scope. An item will be updated if it already exists and inserted if it does not.                The response will return the successfully updated or inserted Credit Support Annex or failure message if unsuccessful                It is important to always check to verify success (or failure).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertCreditSupportAnnexRequest">The Credit Support Annex to update or insert</param>

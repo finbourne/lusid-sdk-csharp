@@ -14,7 +14,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 ListOrderGraphBlocks: Lists blocks that pass the filter provided, and builds a summary picture of the state of their associated order entities.
 
-Lists all blocks of orders, subject to the filter, along with the IDs of orders, placements, allocations and executions in the block, the total quantities of each, and a simple text field describing the overall state.
+Lists all blocks of orders, subject to the filter, along with the IDs of orders, placements, allocations and  executions in the block, the total quantities of each, and a simple text field describing the overall state.
 
 ### Example
 ```csharp
@@ -140,7 +140,7 @@ catch (ApiException e)
 
 [EARLY ACCESS] ListOrderGraphPlacementChildren: Lists all placements for the parent placement specified by the scope and code, and builds a summary picture of the state of their associated order entities.
 
-Lists all child order placements, for the specified parent placement, along with the IDs of the block and order that the placement is for, each placement's quantity, the IDs of all allocations and executions in the placement and the total quantities of those, and a simple text field describing the overall state of the placement.
+Lists all child order placements, for the specified parent placement, along with the IDs of the block and order that the  placement is for, each placement's quantity, the IDs of all allocations and executions in the placement  and the total quantities of those, and a simple text field describing the overall state of the placement.
 
 ### Example
 ```csharp
@@ -266,7 +266,7 @@ catch (ApiException e)
 
 ListOrderGraphPlacements: Lists placements that pass the filter provided, and builds a summary picture of the state of their associated order entities.
 
-Lists all order placements, subject to the filter, along with the IDs of the block and order that the placement is for, each placement's quantity, the IDs of all allocations and executions in the placement and the total quantities of those, and a simple text field describing the overall state of the placement.
+Lists all order placements, subject to the filter, along with the IDs of the block and order that the  placement is for, each placement's quantity, the IDs of all allocations and executions in the placement  and the total quantities of those, and a simple text field describing the overall state of the placement.
 
 ### Example
 ```csharp

@@ -32,10 +32,10 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="BucketedCashFlowResponse" /> class.
         /// </summary>
         /// <param name="href">href.</param>
-        /// <param name="data">List of dictionary bucketed cash flow result set. Each dictionary represent a bucketed cashflow result set keyed by AddressKeys. e.g. dictionary[\&quot;Valuation/CashFlowAmount\&quot;] for the aggregated cash flow amount for the bucket. e.g. suppose \&quot;RoundUp\&quot; method, then dictionary[\&quot;Valuation/CashFlowDate/RoundUp\&quot;] returns the bucketed cashflow date..</param>
-        /// <param name="reportCurrency">Three letter ISO currency string indicating what currency to report in for ReportCcy denominated queries. If not present then the currency of the relevant portfolio will be used in its place where relevant..</param>
+        /// <param name="data">List of dictionary bucketed cash flow result set.  Each dictionary represent a bucketed cashflow result set keyed by AddressKeys.  e.g. dictionary[\&quot;Valuation/CashFlowAmount\&quot;] for the aggregated cash flow amount for the bucket.  e.g. suppose \&quot;RoundUp\&quot; method, then dictionary[\&quot;Valuation/CashFlowDate/RoundUp\&quot;] returns the bucketed cashflow date..</param>
+        /// <param name="reportCurrency">Three letter ISO currency string indicating what currency to report in for ReportCcy denominated queries.  If not present then the currency of the relevant portfolio will be used in its place where relevant..</param>
         /// <param name="dataSchema">dataSchema.</param>
-        /// <param name="failed">Information about where instruments have failed to return cashflows in so far as it is available. e.g., failure to retrieve a market quote for a floating rate instrument..</param>
+        /// <param name="failed">Information about where instruments have failed to return cashflows in so far as it is available.  e.g., failure to retrieve a market quote for a floating rate instrument..</param>
         /// <param name="links">links.</param>
         public BucketedCashFlowResponse(string href = default(string), List<Dictionary<string, Object>> data = default(List<Dictionary<string, Object>>), string reportCurrency = default(string), ResultDataSchema dataSchema = default(ResultDataSchema), Dictionary<string, ErrorDetail> failed = default(Dictionary<string, ErrorDetail>), List<Link> links = default(List<Link>))
         {
@@ -54,16 +54,16 @@ namespace Lusid.Sdk.Model
         public string Href { get; set; }
 
         /// <summary>
-        /// List of dictionary bucketed cash flow result set. Each dictionary represent a bucketed cashflow result set keyed by AddressKeys. e.g. dictionary[\&quot;Valuation/CashFlowAmount\&quot;] for the aggregated cash flow amount for the bucket. e.g. suppose \&quot;RoundUp\&quot; method, then dictionary[\&quot;Valuation/CashFlowDate/RoundUp\&quot;] returns the bucketed cashflow date.
+        /// List of dictionary bucketed cash flow result set.  Each dictionary represent a bucketed cashflow result set keyed by AddressKeys.  e.g. dictionary[\&quot;Valuation/CashFlowAmount\&quot;] for the aggregated cash flow amount for the bucket.  e.g. suppose \&quot;RoundUp\&quot; method, then dictionary[\&quot;Valuation/CashFlowDate/RoundUp\&quot;] returns the bucketed cashflow date.
         /// </summary>
-        /// <value>List of dictionary bucketed cash flow result set. Each dictionary represent a bucketed cashflow result set keyed by AddressKeys. e.g. dictionary[\&quot;Valuation/CashFlowAmount\&quot;] for the aggregated cash flow amount for the bucket. e.g. suppose \&quot;RoundUp\&quot; method, then dictionary[\&quot;Valuation/CashFlowDate/RoundUp\&quot;] returns the bucketed cashflow date.</value>
+        /// <value>List of dictionary bucketed cash flow result set.  Each dictionary represent a bucketed cashflow result set keyed by AddressKeys.  e.g. dictionary[\&quot;Valuation/CashFlowAmount\&quot;] for the aggregated cash flow amount for the bucket.  e.g. suppose \&quot;RoundUp\&quot; method, then dictionary[\&quot;Valuation/CashFlowDate/RoundUp\&quot;] returns the bucketed cashflow date.</value>
         [DataMember(Name = "data", EmitDefaultValue = true)]
         public List<Dictionary<string, Object>> Data { get; set; }
 
         /// <summary>
-        /// Three letter ISO currency string indicating what currency to report in for ReportCcy denominated queries. If not present then the currency of the relevant portfolio will be used in its place where relevant.
+        /// Three letter ISO currency string indicating what currency to report in for ReportCcy denominated queries.  If not present then the currency of the relevant portfolio will be used in its place where relevant.
         /// </summary>
-        /// <value>Three letter ISO currency string indicating what currency to report in for ReportCcy denominated queries. If not present then the currency of the relevant portfolio will be used in its place where relevant.</value>
+        /// <value>Three letter ISO currency string indicating what currency to report in for ReportCcy denominated queries.  If not present then the currency of the relevant portfolio will be used in its place where relevant.</value>
         [DataMember(Name = "reportCurrency", EmitDefaultValue = true)]
         public string ReportCurrency { get; set; }
 
@@ -74,9 +74,9 @@ namespace Lusid.Sdk.Model
         public ResultDataSchema DataSchema { get; set; }
 
         /// <summary>
-        /// Information about where instruments have failed to return cashflows in so far as it is available. e.g., failure to retrieve a market quote for a floating rate instrument.
+        /// Information about where instruments have failed to return cashflows in so far as it is available.  e.g., failure to retrieve a market quote for a floating rate instrument.
         /// </summary>
-        /// <value>Information about where instruments have failed to return cashflows in so far as it is available. e.g., failure to retrieve a market quote for a floating rate instrument.</value>
+        /// <value>Information about where instruments have failed to return cashflows in so far as it is available.  e.g., failure to retrieve a market quote for a floating rate instrument.</value>
         [DataMember(Name = "failed", EmitDefaultValue = true)]
         public Dictionary<string, ErrorDetail> Failed { get; set; }
 

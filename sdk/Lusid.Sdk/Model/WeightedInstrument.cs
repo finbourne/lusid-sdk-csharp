@@ -32,10 +32,10 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="WeightedInstrument" /> class.
         /// </summary>
         /// <param name="quantity">The quantity of the instrument that is owned..</param>
-        /// <param name="holdingIdentifier">Identifier for the instrument. For a single, unique trade or transaction this can be thought of as equivalent to the transaction identifier, or a composite of the sub-holding keys for a regular sub-holding. When there are multiple transactions sharing the same underlying instrument such as purchase of shares on multiple dates where tax implications are different this would not be the case.  In an inlined aggregation request if this is wanted to identify a line item, it can be specified in the set of aggregation keys given on the aggregation request that accompanies the set of weighted instruments..</param>
+        /// <param name="holdingIdentifier">Identifier for the instrument.  For a single, unique trade or transaction this can be thought of as equivalent to the transaction identifier, or  a composite of the sub-holding keys for a regular sub-holding. When there are multiple transactions sharing the same underlying instrument  such as purchase of shares on multiple dates where tax implications are different this would not be the case.    In an inlined aggregation request if this is wanted to identify a line item, it can be specified in the set of aggregation keys given on the aggregation  request that accompanies the set of weighted instruments..</param>
         /// <param name="instrument">instrument.</param>
         /// <param name="inLineLookupIdentifiers">inLineLookupIdentifiers.</param>
-        /// <param name="instrumentScope">The scope in which to resolve the instrument, if no inlined definition is provided. If left empty, the default scope will be used..</param>
+        /// <param name="instrumentScope">The scope in which to resolve the instrument, if no inlined definition is provided.  If left empty, the default scope will be used..</param>
         public WeightedInstrument(decimal quantity = default(decimal), string holdingIdentifier = default(string), LusidInstrument instrument = default(LusidInstrument), WeightedInstrumentInLineLookupIdentifiers inLineLookupIdentifiers = default(WeightedInstrumentInLineLookupIdentifiers), string instrumentScope = default(string))
         {
             this.Quantity = quantity;
@@ -53,9 +53,9 @@ namespace Lusid.Sdk.Model
         public decimal Quantity { get; set; }
 
         /// <summary>
-        /// Identifier for the instrument. For a single, unique trade or transaction this can be thought of as equivalent to the transaction identifier, or a composite of the sub-holding keys for a regular sub-holding. When there are multiple transactions sharing the same underlying instrument such as purchase of shares on multiple dates where tax implications are different this would not be the case.  In an inlined aggregation request if this is wanted to identify a line item, it can be specified in the set of aggregation keys given on the aggregation request that accompanies the set of weighted instruments.
+        /// Identifier for the instrument.  For a single, unique trade or transaction this can be thought of as equivalent to the transaction identifier, or  a composite of the sub-holding keys for a regular sub-holding. When there are multiple transactions sharing the same underlying instrument  such as purchase of shares on multiple dates where tax implications are different this would not be the case.    In an inlined aggregation request if this is wanted to identify a line item, it can be specified in the set of aggregation keys given on the aggregation  request that accompanies the set of weighted instruments.
         /// </summary>
-        /// <value>Identifier for the instrument. For a single, unique trade or transaction this can be thought of as equivalent to the transaction identifier, or a composite of the sub-holding keys for a regular sub-holding. When there are multiple transactions sharing the same underlying instrument such as purchase of shares on multiple dates where tax implications are different this would not be the case.  In an inlined aggregation request if this is wanted to identify a line item, it can be specified in the set of aggregation keys given on the aggregation request that accompanies the set of weighted instruments.</value>
+        /// <value>Identifier for the instrument.  For a single, unique trade or transaction this can be thought of as equivalent to the transaction identifier, or  a composite of the sub-holding keys for a regular sub-holding. When there are multiple transactions sharing the same underlying instrument  such as purchase of shares on multiple dates where tax implications are different this would not be the case.    In an inlined aggregation request if this is wanted to identify a line item, it can be specified in the set of aggregation keys given on the aggregation  request that accompanies the set of weighted instruments.</value>
         [DataMember(Name = "holdingIdentifier", EmitDefaultValue = true)]
         public string HoldingIdentifier { get; set; }
 
@@ -72,9 +72,9 @@ namespace Lusid.Sdk.Model
         public WeightedInstrumentInLineLookupIdentifiers InLineLookupIdentifiers { get; set; }
 
         /// <summary>
-        /// The scope in which to resolve the instrument, if no inlined definition is provided. If left empty, the default scope will be used.
+        /// The scope in which to resolve the instrument, if no inlined definition is provided.  If left empty, the default scope will be used.
         /// </summary>
-        /// <value>The scope in which to resolve the instrument, if no inlined definition is provided. If left empty, the default scope will be used.</value>
+        /// <value>The scope in which to resolve the instrument, if no inlined definition is provided.  If left empty, the default scope will be used.</value>
         [DataMember(Name = "instrumentScope", EmitDefaultValue = true)]
         public string InstrumentScope { get; set; }
 

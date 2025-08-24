@@ -39,7 +39,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="StockDividendEvent" /> class.
         /// </summary>
         /// <param name="announcementDate">Date on which the dividend was announced / declared..</param>
-        /// <param name="exDate">The first business day on which the dividend is not owed to the buying party. Typically this is T-1 from the RecordDate..</param>
+        /// <param name="exDate">The first business day on which the dividend is not owed to the buying party.  Typically this is T-1 from the RecordDate..</param>
         /// <param name="paymentDate">The date the company pays out dividends to shareholders..</param>
         /// <param name="recordDate">Date you have to be the holder of record in order to participate in the tender..</param>
         /// <param name="fractionalUnitsCashPrice">The cash price paid in lieu of fractionalUnits..</param>
@@ -70,9 +70,9 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset? AnnouncementDate { get; set; }
 
         /// <summary>
-        /// The first business day on which the dividend is not owed to the buying party. Typically this is T-1 from the RecordDate.
+        /// The first business day on which the dividend is not owed to the buying party.  Typically this is T-1 from the RecordDate.
         /// </summary>
-        /// <value>The first business day on which the dividend is not owed to the buying party. Typically this is T-1 from the RecordDate.</value>
+        /// <value>The first business day on which the dividend is not owed to the buying party.  Typically this is T-1 from the RecordDate.</value>
         [DataMember(Name = "exDate", EmitDefaultValue = false)]
         public DateTimeOffset ExDate { get; set; }
 
