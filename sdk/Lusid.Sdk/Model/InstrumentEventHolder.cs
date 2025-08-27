@@ -188,6 +188,21 @@ namespace Lusid.Sdk.Model
         public string ParticipationType { get; set; }
 
         /// <summary>
+        /// The AsAt time of the instrument event, if available. This is a readonly field and should not be provided on upsert.
+        /// </summary>
+        /// <value>The AsAt time of the instrument event, if available. This is a readonly field and should not be provided on upsert.</value>
+        [DataMember(Name = "asAt", EmitDefaultValue = true)]
+        public DateTimeOffset? AsAt { get; private set; }
+
+        /// <summary>
+        /// Returns false as AsAt should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeAsAt()
+        {
+            return false;
+        }
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -207,6 +222,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  SequenceNumber: ").Append(SequenceNumber).Append("\n");
             sb.Append("  ParticipationType: ").Append(ParticipationType).Append("\n");
+            sb.Append("  AsAt: ").Append(AsAt).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -302,6 +318,11 @@ namespace Lusid.Sdk.Model
                     this.ParticipationType == input.ParticipationType ||
                     (this.ParticipationType != null &&
                     this.ParticipationType.Equals(input.ParticipationType))
+                ) && 
+                (
+                    this.AsAt == input.AsAt ||
+                    (this.AsAt != null &&
+                    this.AsAt.Equals(input.AsAt))
                 );
         }
 
@@ -358,6 +379,10 @@ namespace Lusid.Sdk.Model
                 if (this.ParticipationType != null)
                 {
                     hashCode = (hashCode * 59) + this.ParticipationType.GetHashCode();
+                }
+                if (this.AsAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.AsAt.GetHashCode();
                 }
                 return hashCode;
             }
