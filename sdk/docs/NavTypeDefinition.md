@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **AccountingMethod** | **string** |  | 
 **SubHoldingKeys** | **List&lt;string&gt;** | Set of unique holding identifiers, e.g. trader, desk, strategy. | [optional] 
 **AmortisationMethod** | **string** |  | 
-**TransactionTypeScope** | **string** |  | [optional] 
+**TransactionTypeScope** | **string** |  | 
 **CashGainLossCalculationDate** | **string** |  | 
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

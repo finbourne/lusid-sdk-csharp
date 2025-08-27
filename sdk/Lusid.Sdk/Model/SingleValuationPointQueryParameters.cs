@@ -31,16 +31,26 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SingleValuationPointQueryParameters" /> class.
         /// </summary>
-        /// <param name="dateOrDiaryEntry">dateOrDiaryEntry.</param>
+        [JsonConstructorAttribute]
+        protected SingleValuationPointQueryParameters() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SingleValuationPointQueryParameters" /> class.
+        /// </summary>
+        /// <param name="dateOrDiaryEntry">dateOrDiaryEntry (required).</param>
         public SingleValuationPointQueryParameters(DateOrDiaryEntry dateOrDiaryEntry = default(DateOrDiaryEntry))
         {
+            // to ensure "dateOrDiaryEntry" is required (not null)
+            if (dateOrDiaryEntry == null)
+            {
+                throw new ArgumentNullException("dateOrDiaryEntry is a required property for SingleValuationPointQueryParameters and cannot be null");
+            }
             this.DateOrDiaryEntry = dateOrDiaryEntry;
         }
 
         /// <summary>
         /// Gets or Sets DateOrDiaryEntry
         /// </summary>
-        [DataMember(Name = "dateOrDiaryEntry", EmitDefaultValue = false)]
+        [DataMember(Name = "dateOrDiaryEntry", IsRequired = true, EmitDefaultValue = true)]
         public DateOrDiaryEntry DateOrDiaryEntry { get; set; }
 
         /// <summary>

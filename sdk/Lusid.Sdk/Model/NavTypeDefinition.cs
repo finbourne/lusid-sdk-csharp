@@ -47,7 +47,7 @@ namespace Lusid.Sdk.Model
         /// <param name="accountingMethod">accountingMethod (required).</param>
         /// <param name="subHoldingKeys">Set of unique holding identifiers, e.g. trader, desk, strategy..</param>
         /// <param name="amortisationMethod">amortisationMethod (required).</param>
-        /// <param name="transactionTypeScope">transactionTypeScope.</param>
+        /// <param name="transactionTypeScope">transactionTypeScope (required).</param>
         /// <param name="cashGainLossCalculationDate">cashGainLossCalculationDate (required).</param>
         public NavTypeDefinition(string code = default(string), string displayName = default(string), string description = default(string), ResourceId chartOfAccountsId = default(ResourceId), List<string> postingModuleCodes = default(List<string>), List<string> cleardownModuleCodes = default(List<string>), ResourceId valuationRecipeId = default(ResourceId), ResourceId holdingRecipeId = default(ResourceId), string accountingMethod = default(string), List<string> subHoldingKeys = default(List<string>), string amortisationMethod = default(string), string transactionTypeScope = default(string), string cashGainLossCalculationDate = default(string))
         {
@@ -81,6 +81,12 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("amortisationMethod is a required property for NavTypeDefinition and cannot be null");
             }
             this.AmortisationMethod = amortisationMethod;
+            // to ensure "transactionTypeScope" is required (not null)
+            if (transactionTypeScope == null)
+            {
+                throw new ArgumentNullException("transactionTypeScope is a required property for NavTypeDefinition and cannot be null");
+            }
+            this.TransactionTypeScope = transactionTypeScope;
             // to ensure "cashGainLossCalculationDate" is required (not null)
             if (cashGainLossCalculationDate == null)
             {
@@ -93,7 +99,6 @@ namespace Lusid.Sdk.Model
             this.PostingModuleCodes = postingModuleCodes;
             this.CleardownModuleCodes = cleardownModuleCodes;
             this.SubHoldingKeys = subHoldingKeys;
-            this.TransactionTypeScope = transactionTypeScope;
         }
 
         /// <summary>
@@ -166,7 +171,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Gets or Sets TransactionTypeScope
         /// </summary>
-        [DataMember(Name = "transactionTypeScope", EmitDefaultValue = true)]
+        [DataMember(Name = "transactionTypeScope", IsRequired = true, EmitDefaultValue = true)]
         public string TransactionTypeScope { get; set; }
 
         /// <summary>
