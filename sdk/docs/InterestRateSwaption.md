@@ -10,8 +10,9 @@ Name | Type | Description | Notes
 **PayOrReceiveFixed** | **string** | Pay or Receive the fixed leg of the underlying swap.    Supported string (enumeration) values are: [Pay, Receive]. | 
 **Premium** | [**Premium**](Premium.md) |  | [optional] 
 **DeliveryMethod** | **string** | How does the option settle    Supported string (enumeration) values are: [Cash, Physical]. | 
-**Swap** | [**InterestRateSwap**](InterestRateSwap.md) |  | 
+**Swap** | [**InterestRateSwap**](InterestRateSwap.md) |  | [optional] 
 **TimeZoneConventions** | [**TimeZoneConventions**](TimeZoneConventions.md) |  | [optional] 
+**Underlying** | [**LusidInstrument**](LusidInstrument.md) |  | [optional] 
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

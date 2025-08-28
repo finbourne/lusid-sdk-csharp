@@ -42,10 +42,11 @@ namespace Lusid.Sdk.Model
         /// <param name="payOrReceiveFixed">Pay or Receive the fixed leg of the underlying swap.    Supported string (enumeration) values are: [Pay, Receive]. (required).</param>
         /// <param name="premium">premium.</param>
         /// <param name="deliveryMethod">How does the option settle    Supported string (enumeration) values are: [Cash, Physical]. (required).</param>
-        /// <param name="swap">swap (required).</param>
+        /// <param name="swap">swap.</param>
         /// <param name="timeZoneConventions">timeZoneConventions.</param>
+        /// <param name="underlying">underlying.</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit, FlexibleRepo (required) (default to &quot;InterestRateSwaption&quot;).</param>
-        public InterestRateSwaption(DateTimeOffset startDate = default(DateTimeOffset), string payOrReceiveFixed = default(string), Premium premium = default(Premium), string deliveryMethod = default(string), InterestRateSwap swap = default(InterestRateSwap), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
+        public InterestRateSwaption(DateTimeOffset startDate = default(DateTimeOffset), string payOrReceiveFixed = default(string), Premium premium = default(Premium), string deliveryMethod = default(string), InterestRateSwap swap = default(InterestRateSwap), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), LusidInstrument underlying = default(LusidInstrument), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
         {
             this.StartDate = startDate;
             // to ensure "payOrReceiveFixed" is required (not null)
@@ -60,14 +61,10 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("deliveryMethod is a required property for InterestRateSwaption and cannot be null");
             }
             this.DeliveryMethod = deliveryMethod;
-            // to ensure "swap" is required (not null)
-            if (swap == null)
-            {
-                throw new ArgumentNullException("swap is a required property for InterestRateSwaption and cannot be null");
-            }
-            this.Swap = swap;
             this.Premium = premium;
+            this.Swap = swap;
             this.TimeZoneConventions = timeZoneConventions;
+            this.Underlying = underlying;
         }
 
         /// <summary>
@@ -100,7 +97,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Gets or Sets Swap
         /// </summary>
-        [DataMember(Name = "swap", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "swap", EmitDefaultValue = false)]
         public InterestRateSwap Swap { get; set; }
 
         /// <summary>
@@ -108,6 +105,12 @@ namespace Lusid.Sdk.Model
         /// </summary>
         [DataMember(Name = "timeZoneConventions", EmitDefaultValue = false)]
         public TimeZoneConventions TimeZoneConventions { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Underlying
+        /// </summary>
+        [DataMember(Name = "underlying", EmitDefaultValue = false)]
+        public LusidInstrument Underlying { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -124,6 +127,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  DeliveryMethod: ").Append(DeliveryMethod).Append("\n");
             sb.Append("  Swap: ").Append(Swap).Append("\n");
             sb.Append("  TimeZoneConventions: ").Append(TimeZoneConventions).Append("\n");
+            sb.Append("  Underlying: ").Append(Underlying).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -188,6 +192,11 @@ namespace Lusid.Sdk.Model
                     this.TimeZoneConventions == input.TimeZoneConventions ||
                     (this.TimeZoneConventions != null &&
                     this.TimeZoneConventions.Equals(input.TimeZoneConventions))
+                ) && base.Equals(input) && 
+                (
+                    this.Underlying == input.Underlying ||
+                    (this.Underlying != null &&
+                    this.Underlying.Equals(input.Underlying))
                 );
         }
 
@@ -223,6 +232,10 @@ namespace Lusid.Sdk.Model
                 if (this.TimeZoneConventions != null)
                 {
                     hashCode = (hashCode * 59) + this.TimeZoneConventions.GetHashCode();
+                }
+                if (this.Underlying != null)
+                {
+                    hashCode = (hashCode * 59) + this.Underlying.GetHashCode();
                 }
                 return hashCode;
             }

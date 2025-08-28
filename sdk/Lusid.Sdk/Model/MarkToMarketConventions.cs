@@ -32,9 +32,13 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="MarkToMarketConventions" /> class.
         /// </summary>
         /// <param name="calendarCode">The calendar to use when generating mark to market cashflows and events..</param>
-        public MarkToMarketConventions(string calendarCode = default(string))
+        /// <param name="hourOffsetTenor">The hour tenor component of the time offset against the maturity date.  This is an optional field, if a value is provided it must be a positive value between &#39;0hour&#39; and &#39;23hour&#39;..</param>
+        /// <param name="minuteOffsetTenor">The minute tenor component of the time offset against the maturity date.  This is an optional field, if a value is provided it must be a positive value between &#39;0min&#39; and &#39;59min&#39;..</param>
+        public MarkToMarketConventions(string calendarCode = default(string), string hourOffsetTenor = default(string), string minuteOffsetTenor = default(string))
         {
             this.CalendarCode = calendarCode;
+            this.HourOffsetTenor = hourOffsetTenor;
+            this.MinuteOffsetTenor = minuteOffsetTenor;
         }
 
         /// <summary>
@@ -45,6 +49,20 @@ namespace Lusid.Sdk.Model
         public string CalendarCode { get; set; }
 
         /// <summary>
+        /// The hour tenor component of the time offset against the maturity date.  This is an optional field, if a value is provided it must be a positive value between &#39;0hour&#39; and &#39;23hour&#39;.
+        /// </summary>
+        /// <value>The hour tenor component of the time offset against the maturity date.  This is an optional field, if a value is provided it must be a positive value between &#39;0hour&#39; and &#39;23hour&#39;.</value>
+        [DataMember(Name = "hourOffsetTenor", EmitDefaultValue = true)]
+        public string HourOffsetTenor { get; set; }
+
+        /// <summary>
+        /// The minute tenor component of the time offset against the maturity date.  This is an optional field, if a value is provided it must be a positive value between &#39;0min&#39; and &#39;59min&#39;.
+        /// </summary>
+        /// <value>The minute tenor component of the time offset against the maturity date.  This is an optional field, if a value is provided it must be a positive value between &#39;0min&#39; and &#39;59min&#39;.</value>
+        [DataMember(Name = "minuteOffsetTenor", EmitDefaultValue = true)]
+        public string MinuteOffsetTenor { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -53,6 +71,8 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class MarkToMarketConventions {\n");
             sb.Append("  CalendarCode: ").Append(CalendarCode).Append("\n");
+            sb.Append("  HourOffsetTenor: ").Append(HourOffsetTenor).Append("\n");
+            sb.Append("  MinuteOffsetTenor: ").Append(MinuteOffsetTenor).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -92,6 +112,16 @@ namespace Lusid.Sdk.Model
                     this.CalendarCode == input.CalendarCode ||
                     (this.CalendarCode != null &&
                     this.CalendarCode.Equals(input.CalendarCode))
+                ) && 
+                (
+                    this.HourOffsetTenor == input.HourOffsetTenor ||
+                    (this.HourOffsetTenor != null &&
+                    this.HourOffsetTenor.Equals(input.HourOffsetTenor))
+                ) && 
+                (
+                    this.MinuteOffsetTenor == input.MinuteOffsetTenor ||
+                    (this.MinuteOffsetTenor != null &&
+                    this.MinuteOffsetTenor.Equals(input.MinuteOffsetTenor))
                 );
         }
 
@@ -107,6 +137,14 @@ namespace Lusid.Sdk.Model
                 if (this.CalendarCode != null)
                 {
                     hashCode = (hashCode * 59) + this.CalendarCode.GetHashCode();
+                }
+                if (this.HourOffsetTenor != null)
+                {
+                    hashCode = (hashCode * 59) + this.HourOffsetTenor.GetHashCode();
+                }
+                if (this.MinuteOffsetTenor != null)
+                {
+                    hashCode = (hashCode * 59) + this.MinuteOffsetTenor.GetHashCode();
                 }
                 return hashCode;
             }
@@ -129,6 +167,30 @@ namespace Lusid.Sdk.Model
             if (this.CalendarCode != null && this.CalendarCode.Length < 0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CalendarCode, length must be greater than 0.", new [] { "CalendarCode" });
+            }
+
+            // HourOffsetTenor (string) maxLength
+            if (this.HourOffsetTenor != null && this.HourOffsetTenor.Length > 32)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HourOffsetTenor, length must be less than 32.", new [] { "HourOffsetTenor" });
+            }
+
+            // HourOffsetTenor (string) minLength
+            if (this.HourOffsetTenor != null && this.HourOffsetTenor.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HourOffsetTenor, length must be greater than 0.", new [] { "HourOffsetTenor" });
+            }
+
+            // MinuteOffsetTenor (string) maxLength
+            if (this.MinuteOffsetTenor != null && this.MinuteOffsetTenor.Length > 32)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MinuteOffsetTenor, length must be less than 32.", new [] { "MinuteOffsetTenor" });
+            }
+
+            // MinuteOffsetTenor (string) minLength
+            if (this.MinuteOffsetTenor != null && this.MinuteOffsetTenor.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MinuteOffsetTenor, length must be greater than 0.", new [] { "MinuteOffsetTenor" });
             }
 
             yield break;
