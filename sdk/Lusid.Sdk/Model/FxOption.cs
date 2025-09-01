@@ -45,13 +45,13 @@ namespace Lusid.Sdk.Model
         /// <param name="fgnAmount">For a vanilla FxOption contract, FgnAmount cannot be set.  In case of a digital FxOption (IsPayoffDigital&#x3D;&#x3D;true)  a payoff (if the option is in the money) can be either  in domestic or in foreign currency - for the latter  FgnAmount must be set.  Note: It is invalid to have FgnAmount and DomAmount  at the same time..</param>
         /// <param name="strike">The strike of the option..</param>
         /// <param name="barriers">For a barrier option the list should not be empty. Up to two barriers are supported.  An option cannot be at the same time barrier- and touch-option.  One (or both) of the lists must be empty..</param>
-        /// <param name="exerciseType">Type of optionality that is present; European, American.    Supported string (enumeration) values are: [European, American]..</param>
+        /// <param name="exerciseType">Type of optionality that is present; European, American.    Supported string (enumeration) values are: [European, American].  Defaults to \&quot;European\&quot; if not set..</param>
         /// <param name="isCallNotPut">True if the option is a call, false if the option is a put. (required).</param>
         /// <param name="isDeliveryNotCash">True if the option delivers the FX underlying, False if the option is settled in cash. (required).</param>
         /// <param name="isPayoffDigital">By default IsPayoffDigital is false. If IsPayoffDigital&#x3D;true,  the option is &#39;digital&#39;, and the option payoff is 0 or 1 unit of currency,  instead of a vanilla CallPayoff&#x3D;max(spot-strike,0) or PutPayoff&#x3D;max(strike-spot,0)..</param>
         /// <param name="optionMaturityDate">The maturity date of the option. (required).</param>
         /// <param name="optionSettlementDate">The settlement date of the option. (required).</param>
-        /// <param name="payoutStyle">PayoutStyle for touch options.                For options without touch optionality, payoutStyle should not be set.  For options with touch optionality (where the touches data has been set), payoutStyle must be defined and cannot be None.    Supported string (enumeration) values are: [Deferred, Immediate]..</param>
+        /// <param name="payoutStyle">PayoutStyle for touch options.                For options without touch optionality, payoutStyle should not be set.  For options with touch optionality (where the touches data has been set), payoutStyle must be defined and cannot be None.    Supported string (enumeration) values are: [Deferred, Immediate].  Defaults to \&quot;None\&quot; if not set..</param>
         /// <param name="premium">premium.</param>
         /// <param name="touches">For a touch option the list should not be empty. Up to two touches are supported.  An option cannot be at the same time barrier- and touch-option.  One (or both) of the lists must be empty..</param>
         /// <param name="timeZoneConventions">timeZoneConventions.</param>
@@ -137,9 +137,9 @@ namespace Lusid.Sdk.Model
         public List<Barrier> Barriers { get; set; }
 
         /// <summary>
-        /// Type of optionality that is present; European, American.    Supported string (enumeration) values are: [European, American].
+        /// Type of optionality that is present; European, American.    Supported string (enumeration) values are: [European, American].  Defaults to \&quot;European\&quot; if not set.
         /// </summary>
-        /// <value>Type of optionality that is present; European, American.    Supported string (enumeration) values are: [European, American].</value>
+        /// <value>Type of optionality that is present; European, American.    Supported string (enumeration) values are: [European, American].  Defaults to \&quot;European\&quot; if not set.</value>
         [DataMember(Name = "exerciseType", EmitDefaultValue = true)]
         public string ExerciseType { get; set; }
 
@@ -179,9 +179,9 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset OptionSettlementDate { get; set; }
 
         /// <summary>
-        /// PayoutStyle for touch options.                For options without touch optionality, payoutStyle should not be set.  For options with touch optionality (where the touches data has been set), payoutStyle must be defined and cannot be None.    Supported string (enumeration) values are: [Deferred, Immediate].
+        /// PayoutStyle for touch options.                For options without touch optionality, payoutStyle should not be set.  For options with touch optionality (where the touches data has been set), payoutStyle must be defined and cannot be None.    Supported string (enumeration) values are: [Deferred, Immediate].  Defaults to \&quot;None\&quot; if not set.
         /// </summary>
-        /// <value>PayoutStyle for touch options.                For options without touch optionality, payoutStyle should not be set.  For options with touch optionality (where the touches data has been set), payoutStyle must be defined and cannot be None.    Supported string (enumeration) values are: [Deferred, Immediate].</value>
+        /// <value>PayoutStyle for touch options.                For options without touch optionality, payoutStyle should not be set.  For options with touch optionality (where the touches data has been set), payoutStyle must be defined and cannot be None.    Supported string (enumeration) values are: [Deferred, Immediate].  Defaults to \&quot;None\&quot; if not set.</value>
         [DataMember(Name = "payoutStyle", EmitDefaultValue = true)]
         public string PayoutStyle { get; set; }
 

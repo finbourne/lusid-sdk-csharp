@@ -435,7 +435,13 @@ namespace Lusid.Sdk.Model
         /// Enum FlexibleRepoFullClosureEvent for value: FlexibleRepoFullClosureEvent
         /// </summary>
         [EnumMember(Value = "FlexibleRepoFullClosureEvent")]
-        FlexibleRepoFullClosureEvent = 68
+        FlexibleRepoFullClosureEvent = 68,
+
+        /// <summary>
+        /// Enum CapletFloorletCashFlowEvent for value: CapletFloorletCashFlowEvent
+        /// </summary>
+        [EnumMember(Value = "CapletFloorletCashFlowEvent")]
+        CapletFloorletCashFlowEvent = 69
     }
 
 }

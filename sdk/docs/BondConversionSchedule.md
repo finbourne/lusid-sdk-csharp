@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Identifiers** | **Dictionary&lt;string, string&gt;** | The market identifier(s) of the share that the bond converts to. The instrument  will not fail validation if no identifier is supplied. | [optional] 
 **BondConversionEntries** | [**List&lt;BondConversionEntry&gt;**](BondConversionEntry.md) | The dates at which the bond may be converted and associated information required about the conversion. | [optional] 
 **ConversionTrigger** | **string** | Corporate event that triggers a conversion    Supported string (enumeration) values are: [NextEquityFinancing, IpoConversion, KnownDates, SoftCall]. | 
-**DeliveryType** | **string** | Is a conversion made into cash or into shares?    Supported string (enumeration) values are: [Cash, Physical]. | [optional] 
+**DeliveryType** | **string** | Is a conversion made into cash or into shares?  Defaults to \&quot;Physical\&quot; if not set.    Supported string (enumeration) values are: [Cash, Physical]. | [optional] 
 **ExerciseType** | **string** | The exercise type of the conversion schedule (American or European).  For American type, the bond is convertible from a given exercise date until the next date in the schedule, or until it matures.  For European type, the bond is only convertible on the given exercise date.    Supported string (enumeration) values are: [European, Bermudan, American]. | 
 **IncludesAccrued** | **bool** | Set this to true if a accrued interest is included in the conversion. Defaults to true. | [optional] 
 **MandatoryConversion** | **bool** | Set this to true if a conversion is mandatory if the trigger occurs. Defaults to false. | [optional] 

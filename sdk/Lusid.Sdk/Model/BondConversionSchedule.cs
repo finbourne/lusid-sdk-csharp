@@ -41,7 +41,7 @@ namespace Lusid.Sdk.Model
         /// <param name="identifiers">The market identifier(s) of the share that the bond converts to. The instrument  will not fail validation if no identifier is supplied..</param>
         /// <param name="bondConversionEntries">The dates at which the bond may be converted and associated information required about the conversion..</param>
         /// <param name="conversionTrigger">Corporate event that triggers a conversion    Supported string (enumeration) values are: [NextEquityFinancing, IpoConversion, KnownDates, SoftCall]. (required).</param>
-        /// <param name="deliveryType">Is a conversion made into cash or into shares?    Supported string (enumeration) values are: [Cash, Physical]..</param>
+        /// <param name="deliveryType">Is a conversion made into cash or into shares?  Defaults to \&quot;Physical\&quot; if not set.    Supported string (enumeration) values are: [Cash, Physical]..</param>
         /// <param name="exerciseType">The exercise type of the conversion schedule (American or European).  For American type, the bond is convertible from a given exercise date until the next date in the schedule, or until it matures.  For European type, the bond is only convertible on the given exercise date.    Supported string (enumeration) values are: [European, Bermudan, American]. (required).</param>
         /// <param name="includesAccrued">Set this to true if a accrued interest is included in the conversion. Defaults to true..</param>
         /// <param name="mandatoryConversion">Set this to true if a conversion is mandatory if the trigger occurs. Defaults to false..</param>
@@ -93,9 +93,9 @@ namespace Lusid.Sdk.Model
         public string ConversionTrigger { get; set; }
 
         /// <summary>
-        /// Is a conversion made into cash or into shares?    Supported string (enumeration) values are: [Cash, Physical].
+        /// Is a conversion made into cash or into shares?  Defaults to \&quot;Physical\&quot; if not set.    Supported string (enumeration) values are: [Cash, Physical].
         /// </summary>
-        /// <value>Is a conversion made into cash or into shares?    Supported string (enumeration) values are: [Cash, Physical].</value>
+        /// <value>Is a conversion made into cash or into shares?  Defaults to \&quot;Physical\&quot; if not set.    Supported string (enumeration) values are: [Cash, Physical].</value>
         [DataMember(Name = "deliveryType", EmitDefaultValue = true)]
         public string DeliveryType { get; set; }
 

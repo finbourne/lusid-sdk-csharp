@@ -40,7 +40,7 @@ namespace Lusid.Sdk.Model
         /// <param name="fgnCcy">Currency of the underlying, for use with FX Futures.</param>
         /// <param name="assetClass">The asset class of the underlying. Optional and will default to Unknown if not set.    Supported string (enumeration) values are: [InterestRates, FX, Inflation, Equities, Credit, Commodities, Money]..</param>
         /// <param name="contractCode">The contract code used by the exchange, e.g. “CL” for Crude Oil, “ES” for E-mini SP 500, “FGBL” for Bund Futures, etc. (required).</param>
-        /// <param name="contractMonth">Which month does the contract trade for.    Supported string (enumeration) values are: [F, G, H, J, K, M, N, Q, U, V, X, Z]..</param>
+        /// <param name="contractMonth">Which month does the contract trade for.    Supported string (enumeration) values are: [F, G, H, J, K, M, N, Q, U, V, X, Z].  Defaults to \&quot;Unknown\&quot; if not set..</param>
         /// <param name="contractSize">Size of a single contract. (required).</param>
         /// <param name="convention">If appropriate, the day count convention method used in pricing (rates futures).  For more information on day counts, see [knowledge base article KA-01798](https://support.lusid.com/knowledgebase/article/KA-01798)                Supported string (enumeration) values are: [Actual360, Act360, MoneyMarket, Actual365, Act365, Thirty360, ThirtyU360, Bond, ThirtyE360, EuroBond, ActualActual, ActAct, ActActIsda, ActActIsma, ActActIcma, OneOne, Act364, Act365F, Act365L, Act365_25, Act252, Bus252, NL360, NL365, ActActAFB, Act365Cad, ThirtyActIsda, Thirty365Isda, ThirtyEActIsda, ThirtyE360Isda, ThirtyE365Isda, ThirtyU360EOM]..</param>
         /// <param name="country">Country (code) for the exchange..</param>
@@ -114,9 +114,9 @@ namespace Lusid.Sdk.Model
         public string ContractCode { get; set; }
 
         /// <summary>
-        /// Which month does the contract trade for.    Supported string (enumeration) values are: [F, G, H, J, K, M, N, Q, U, V, X, Z].
+        /// Which month does the contract trade for.    Supported string (enumeration) values are: [F, G, H, J, K, M, N, Q, U, V, X, Z].  Defaults to \&quot;Unknown\&quot; if not set.
         /// </summary>
-        /// <value>Which month does the contract trade for.    Supported string (enumeration) values are: [F, G, H, J, K, M, N, Q, U, V, X, Z].</value>
+        /// <value>Which month does the contract trade for.    Supported string (enumeration) values are: [F, G, H, J, K, M, N, Q, U, V, X, Z].  Defaults to \&quot;Unknown\&quot; if not set.</value>
         [DataMember(Name = "contractMonth", EmitDefaultValue = true)]
         public string ContractMonth { get; set; }
 

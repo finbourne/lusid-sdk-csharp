@@ -49,8 +49,8 @@ namespace Lusid.Sdk.Model
         /// <param name="optionType">The option type, Call or Put.    Supported string (enumeration) values are: [Call, Put]. (required).</param>
         /// <param name="underlying">underlying (required).</param>
         /// <param name="underlyingCode">Code of the underlying, for an option on futures this should be the futures code. (required).</param>
-        /// <param name="deliveryDays">Number of business days between exercise date and settlement of the option payoff or underlying..</param>
-        /// <param name="businessDayConvention">The adjustment type to apply to dates that fall upon a non-business day, e.g. modified following or following.  Supported string (enumeration) values are: [NoAdjustment, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, HalfMonthModifiedFollowing, Nearest]..</param>
+        /// <param name="deliveryDays">Number of business days between exercise date and settlement of the option payoff or underlying.  Defaults to 0 if not set..</param>
+        /// <param name="businessDayConvention">The adjustment type to apply to dates that fall upon a non-business day, e.g. modified following or following.  Supported string (enumeration) values are: [NoAdjustment, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, HalfMonthModifiedFollowing, Nearest].  Defaults to \&quot;F\&quot; if not set..</param>
         /// <param name="settlementCalendars">An array of strings denoting calendars used in calculating the option settlement date..</param>
         public ExchangeTradedOptionContractDetails(string domCcy = default(string), decimal strike = default(decimal), decimal contractSize = default(decimal), string country = default(string), string deliveryType = default(string), string description = default(string), string exchangeCode = default(string), DateTimeOffset exerciseDate = default(DateTimeOffset), string exerciseType = default(string), string optionCode = default(string), string optionType = default(string), LusidInstrument underlying = default(LusidInstrument), string underlyingCode = default(string), int deliveryDays = default(int), string businessDayConvention = default(string), List<string> settlementCalendars = default(List<string>))
         {
@@ -213,16 +213,16 @@ namespace Lusid.Sdk.Model
         public string UnderlyingCode { get; set; }
 
         /// <summary>
-        /// Number of business days between exercise date and settlement of the option payoff or underlying.
+        /// Number of business days between exercise date and settlement of the option payoff or underlying.  Defaults to 0 if not set.
         /// </summary>
-        /// <value>Number of business days between exercise date and settlement of the option payoff or underlying.</value>
+        /// <value>Number of business days between exercise date and settlement of the option payoff or underlying.  Defaults to 0 if not set.</value>
         [DataMember(Name = "deliveryDays", EmitDefaultValue = true)]
         public int DeliveryDays { get; set; }
 
         /// <summary>
-        /// The adjustment type to apply to dates that fall upon a non-business day, e.g. modified following or following.  Supported string (enumeration) values are: [NoAdjustment, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, HalfMonthModifiedFollowing, Nearest].
+        /// The adjustment type to apply to dates that fall upon a non-business day, e.g. modified following or following.  Supported string (enumeration) values are: [NoAdjustment, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, HalfMonthModifiedFollowing, Nearest].  Defaults to \&quot;F\&quot; if not set.
         /// </summary>
-        /// <value>The adjustment type to apply to dates that fall upon a non-business day, e.g. modified following or following.  Supported string (enumeration) values are: [NoAdjustment, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, HalfMonthModifiedFollowing, Nearest].</value>
+        /// <value>The adjustment type to apply to dates that fall upon a non-business day, e.g. modified following or following.  Supported string (enumeration) values are: [NoAdjustment, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, HalfMonthModifiedFollowing, Nearest].  Defaults to \&quot;F\&quot; if not set.</value>
         [DataMember(Name = "businessDayConvention", EmitDefaultValue = true)]
         public string BusinessDayConvention { get; set; }
 

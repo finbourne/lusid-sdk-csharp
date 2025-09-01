@@ -24,65 +24,65 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Protection payout cashflow for credit default instruments (CDS or CDX).
+    /// Definition of a cap or floor (or collar) cash flow event.  This is an event that describes the occurence of a caplet or floorlet payment.
     /// </summary>
-    [DataContract(Name = "ProtectionPayoutCashFlowEvent")]
+    [DataContract(Name = "CapletFloorletCashFlowEvent")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentEventType")]
-    public partial class ProtectionPayoutCashFlowEvent : InstrumentEvent, IEquatable<ProtectionPayoutCashFlowEvent>, IValidatableObject
+    public partial class CapletFloorletCashFlowEvent : InstrumentEvent, IEquatable<CapletFloorletCashFlowEvent>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ProtectionPayoutCashFlowEvent" /> class.
+        /// Initializes a new instance of the <see cref="CapletFloorletCashFlowEvent" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected ProtectionPayoutCashFlowEvent() { }
+        protected CapletFloorletCashFlowEvent() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ProtectionPayoutCashFlowEvent" /> class.
+        /// Initializes a new instance of the <see cref="CapletFloorletCashFlowEvent" /> class.
         /// </summary>
-        /// <param name="exDate">The ex-dividend date of the cashflow..</param>
-        /// <param name="paymentDate">The payment date of the cashflow..</param>
-        /// <param name="currency">The currency in which the cashflow is paid. (required).</param>
-        /// <param name="cashFlowPerUnit">The cashflow amount received for each unit of the instrument held on the ex date..</param>
-        /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent, CapletFloorletCashFlowEvent (required) (default to &quot;ProtectionPayoutCashFlowEvent&quot;).</param>
-        public ProtectionPayoutCashFlowEvent(DateTimeOffset exDate = default(DateTimeOffset), DateTimeOffset paymentDate = default(DateTimeOffset), string currency = default(string), decimal? cashFlowPerUnit = default(decimal?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
+        /// <param name="entitlementDate">Ex-Dividend / entitlement date of the cashflow payment.  Required field..</param>
+        /// <param name="paymentDate">Payment date of the cashflow payment  Required field..</param>
+        /// <param name="currency">Currency of the cashflow payment (required).</param>
+        /// <param name="cashFlowPerUnit">The total payment per unit of the held instrument, if entitled.  Not required. (required).</param>
+        /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent, CapletFloorletCashFlowEvent (required) (default to &quot;CapletFloorletCashFlowEvent&quot;).</param>
+        public CapletFloorletCashFlowEvent(DateTimeOffset entitlementDate = default(DateTimeOffset), DateTimeOffset paymentDate = default(DateTimeOffset), string currency = default(string), decimal cashFlowPerUnit = default(decimal), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
             // to ensure "currency" is required (not null)
             if (currency == null)
             {
-                throw new ArgumentNullException("currency is a required property for ProtectionPayoutCashFlowEvent and cannot be null");
+                throw new ArgumentNullException("currency is a required property for CapletFloorletCashFlowEvent and cannot be null");
             }
             this.Currency = currency;
-            this.ExDate = exDate;
-            this.PaymentDate = paymentDate;
             this.CashFlowPerUnit = cashFlowPerUnit;
+            this.EntitlementDate = entitlementDate;
+            this.PaymentDate = paymentDate;
         }
 
         /// <summary>
-        /// The ex-dividend date of the cashflow.
+        /// Ex-Dividend / entitlement date of the cashflow payment.  Required field.
         /// </summary>
-        /// <value>The ex-dividend date of the cashflow.</value>
-        [DataMember(Name = "exDate", EmitDefaultValue = false)]
-        public DateTimeOffset ExDate { get; set; }
+        /// <value>Ex-Dividend / entitlement date of the cashflow payment.  Required field.</value>
+        [DataMember(Name = "entitlementDate", EmitDefaultValue = false)]
+        public DateTimeOffset EntitlementDate { get; set; }
 
         /// <summary>
-        /// The payment date of the cashflow.
+        /// Payment date of the cashflow payment  Required field.
         /// </summary>
-        /// <value>The payment date of the cashflow.</value>
+        /// <value>Payment date of the cashflow payment  Required field.</value>
         [DataMember(Name = "paymentDate", EmitDefaultValue = false)]
         public DateTimeOffset PaymentDate { get; set; }
 
         /// <summary>
-        /// The currency in which the cashflow is paid.
+        /// Currency of the cashflow payment
         /// </summary>
-        /// <value>The currency in which the cashflow is paid.</value>
+        /// <value>Currency of the cashflow payment</value>
         [DataMember(Name = "currency", IsRequired = true, EmitDefaultValue = true)]
         public string Currency { get; set; }
 
         /// <summary>
-        /// The cashflow amount received for each unit of the instrument held on the ex date.
+        /// The total payment per unit of the held instrument, if entitled.  Not required.
         /// </summary>
-        /// <value>The cashflow amount received for each unit of the instrument held on the ex date.</value>
-        [DataMember(Name = "cashFlowPerUnit", EmitDefaultValue = true)]
-        public decimal? CashFlowPerUnit { get; set; }
+        /// <value>The total payment per unit of the held instrument, if entitled.  Not required.</value>
+        [DataMember(Name = "cashFlowPerUnit", IsRequired = true, EmitDefaultValue = true)]
+        public decimal CashFlowPerUnit { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -91,9 +91,9 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ProtectionPayoutCashFlowEvent {\n");
+            sb.Append("class CapletFloorletCashFlowEvent {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
-            sb.Append("  ExDate: ").Append(ExDate).Append("\n");
+            sb.Append("  EntitlementDate: ").Append(EntitlementDate).Append("\n");
             sb.Append("  PaymentDate: ").Append(PaymentDate).Append("\n");
             sb.Append("  Currency: ").Append(Currency).Append("\n");
             sb.Append("  CashFlowPerUnit: ").Append(CashFlowPerUnit).Append("\n");
@@ -117,15 +117,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ProtectionPayoutCashFlowEvent);
+            return this.Equals(input as CapletFloorletCashFlowEvent);
         }
 
         /// <summary>
-        /// Returns true if ProtectionPayoutCashFlowEvent instances are equal
+        /// Returns true if CapletFloorletCashFlowEvent instances are equal
         /// </summary>
-        /// <param name="input">Instance of ProtectionPayoutCashFlowEvent to be compared</param>
+        /// <param name="input">Instance of CapletFloorletCashFlowEvent to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ProtectionPayoutCashFlowEvent input)
+        public bool Equals(CapletFloorletCashFlowEvent input)
         {
             if (input == null)
             {
@@ -133,9 +133,9 @@ namespace Lusid.Sdk.Model
             }
             return base.Equals(input) && 
                 (
-                    this.ExDate == input.ExDate ||
-                    (this.ExDate != null &&
-                    this.ExDate.Equals(input.ExDate))
+                    this.EntitlementDate == input.EntitlementDate ||
+                    (this.EntitlementDate != null &&
+                    this.EntitlementDate.Equals(input.EntitlementDate))
                 ) && base.Equals(input) && 
                 (
                     this.PaymentDate == input.PaymentDate ||
@@ -149,8 +149,7 @@ namespace Lusid.Sdk.Model
                 ) && base.Equals(input) && 
                 (
                     this.CashFlowPerUnit == input.CashFlowPerUnit ||
-                    (this.CashFlowPerUnit != null &&
-                    this.CashFlowPerUnit.Equals(input.CashFlowPerUnit))
+                    this.CashFlowPerUnit.Equals(input.CashFlowPerUnit)
                 );
         }
 
@@ -163,9 +162,9 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = base.GetHashCode();
-                if (this.ExDate != null)
+                if (this.EntitlementDate != null)
                 {
-                    hashCode = (hashCode * 59) + this.ExDate.GetHashCode();
+                    hashCode = (hashCode * 59) + this.EntitlementDate.GetHashCode();
                 }
                 if (this.PaymentDate != null)
                 {
@@ -175,10 +174,7 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Currency.GetHashCode();
                 }
-                if (this.CashFlowPerUnit != null)
-                {
-                    hashCode = (hashCode * 59) + this.CashFlowPerUnit.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.CashFlowPerUnit.GetHashCode();
                 return hashCode;
             }
         }

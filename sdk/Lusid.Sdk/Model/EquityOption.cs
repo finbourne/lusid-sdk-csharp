@@ -50,10 +50,10 @@ namespace Lusid.Sdk.Model
         /// <param name="equityOptionType">Equity option types. E.g. Vanilla (default), RightsIssue, Warrant.    Supported string (enumeration) values are: [Vanilla, RightsIssue, Warrant]..</param>
         /// <param name="numberOfShares">The amount of shares to exchange if the option is exercised..</param>
         /// <param name="premium">premium.</param>
-        /// <param name="exerciseType">Type of optionality that is present; European, American.    Supported string (enumeration) values are: [European, American]..</param>
+        /// <param name="exerciseType">Type of optionality that is present; European, American.    Supported string (enumeration) values are: [European, American].  Defaults to \&quot;European\&quot; if not set..</param>
         /// <param name="underlying">underlying.</param>
-        /// <param name="deliveryDays">Number of business days between exercise date and settlement of the option payoff or underlying..</param>
-        /// <param name="businessDayConvention">Business day convention for option exercise date to settlement date calculation.  Supported string (enumeration) values are: [NoAdjustment, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, HalfMonthModifiedFollowing, Nearest]..</param>
+        /// <param name="deliveryDays">Number of business days between exercise date and settlement of the option payoff or underlying.  Defaults to 0 if not set..</param>
+        /// <param name="businessDayConvention">Business day convention for option exercise date to settlement date calculation.  Supported string (enumeration) values are: [NoAdjustment, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, HalfMonthModifiedFollowing, Nearest].  Defaults to \&quot;F\&quot; if not set..</param>
         /// <param name="settlementCalendars">Holiday calendars for option exercise date to settlement date calculation..</param>
         /// <param name="timeZoneConventions">timeZoneConventions.</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit, FlexibleRepo (required) (default to &quot;EquityOption&quot;).</param>
@@ -178,9 +178,9 @@ namespace Lusid.Sdk.Model
         public Premium Premium { get; set; }
 
         /// <summary>
-        /// Type of optionality that is present; European, American.    Supported string (enumeration) values are: [European, American].
+        /// Type of optionality that is present; European, American.    Supported string (enumeration) values are: [European, American].  Defaults to \&quot;European\&quot; if not set.
         /// </summary>
-        /// <value>Type of optionality that is present; European, American.    Supported string (enumeration) values are: [European, American].</value>
+        /// <value>Type of optionality that is present; European, American.    Supported string (enumeration) values are: [European, American].  Defaults to \&quot;European\&quot; if not set.</value>
         [DataMember(Name = "exerciseType", EmitDefaultValue = true)]
         public string ExerciseType { get; set; }
 
@@ -191,16 +191,16 @@ namespace Lusid.Sdk.Model
         public LusidInstrument Underlying { get; set; }
 
         /// <summary>
-        /// Number of business days between exercise date and settlement of the option payoff or underlying.
+        /// Number of business days between exercise date and settlement of the option payoff or underlying.  Defaults to 0 if not set.
         /// </summary>
-        /// <value>Number of business days between exercise date and settlement of the option payoff or underlying.</value>
+        /// <value>Number of business days between exercise date and settlement of the option payoff or underlying.  Defaults to 0 if not set.</value>
         [DataMember(Name = "deliveryDays", EmitDefaultValue = true)]
         public int DeliveryDays { get; set; }
 
         /// <summary>
-        /// Business day convention for option exercise date to settlement date calculation.  Supported string (enumeration) values are: [NoAdjustment, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, HalfMonthModifiedFollowing, Nearest].
+        /// Business day convention for option exercise date to settlement date calculation.  Supported string (enumeration) values are: [NoAdjustment, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, HalfMonthModifiedFollowing, Nearest].  Defaults to \&quot;F\&quot; if not set.
         /// </summary>
-        /// <value>Business day convention for option exercise date to settlement date calculation.  Supported string (enumeration) values are: [NoAdjustment, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, HalfMonthModifiedFollowing, Nearest].</value>
+        /// <value>Business day convention for option exercise date to settlement date calculation.  Supported string (enumeration) values are: [NoAdjustment, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, HalfMonthModifiedFollowing, Nearest].  Defaults to \&quot;F\&quot; if not set.</value>
         [DataMember(Name = "businessDayConvention", EmitDefaultValue = true)]
         public string BusinessDayConvention { get; set; }
 

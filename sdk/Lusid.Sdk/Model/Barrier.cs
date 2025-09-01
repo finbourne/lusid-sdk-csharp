@@ -38,7 +38,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="direction">Supported string (enumeration) values are: [Down, Up]. (required).</param>
         /// <param name="level">Trigger level, which the underlying should (or should not) cross/touch. (required).</param>
-        /// <param name="monitoring">Supported string (enumeration) values are: [European, Bermudan, American]..</param>
+        /// <param name="monitoring">Supported string (enumeration) values are: [European, Bermudan, American].  Defaults to \&quot;European\&quot; if not set..</param>
         /// <param name="type">Supported string (enumeration) values are: [Knockin, Knockout]. (required).</param>
         public Barrier(string direction = default(string), decimal level = default(decimal), string monitoring = default(string), string type = default(string))
         {
@@ -73,9 +73,9 @@ namespace Lusid.Sdk.Model
         public decimal Level { get; set; }
 
         /// <summary>
-        /// Supported string (enumeration) values are: [European, Bermudan, American].
+        /// Supported string (enumeration) values are: [European, Bermudan, American].  Defaults to \&quot;European\&quot; if not set.
         /// </summary>
-        /// <value>Supported string (enumeration) values are: [European, Bermudan, American].</value>
+        /// <value>Supported string (enumeration) values are: [European, Bermudan, American].  Defaults to \&quot;European\&quot; if not set.</value>
         [DataMember(Name = "monitoring", EmitDefaultValue = true)]
         public string Monitoring { get; set; }
 

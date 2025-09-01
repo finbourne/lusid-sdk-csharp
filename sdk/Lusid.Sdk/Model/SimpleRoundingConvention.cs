@@ -31,8 +31,8 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SimpleRoundingConvention" /> class.
         /// </summary>
-        /// <param name="precision">The precision of the rounding. The decimal places or significant figures to which the rounding takes place..</param>
-        /// <param name="roundingType">The type of rounding.  e.g. Round Up, Round Down    Supported string (enumeration) values are: [Down, Up, Nearest]..</param>
+        /// <param name="precision">The precision of the rounding. The decimal places or significant figures to which the rounding takes place.  Defaults to 0 if not set..</param>
+        /// <param name="roundingType">The type of rounding.  e.g. Round Up, Round Down    Supported string (enumeration) values are: [Down, Up, Nearest].  Defaults to \&quot;None\&quot; if not set..</param>
         public SimpleRoundingConvention(int precision = default(int), string roundingType = default(string))
         {
             this.Precision = precision;
@@ -40,16 +40,16 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The precision of the rounding. The decimal places or significant figures to which the rounding takes place.
+        /// The precision of the rounding. The decimal places or significant figures to which the rounding takes place.  Defaults to 0 if not set.
         /// </summary>
-        /// <value>The precision of the rounding. The decimal places or significant figures to which the rounding takes place.</value>
+        /// <value>The precision of the rounding. The decimal places or significant figures to which the rounding takes place.  Defaults to 0 if not set.</value>
         [DataMember(Name = "precision", EmitDefaultValue = true)]
         public int Precision { get; set; }
 
         /// <summary>
-        /// The type of rounding.  e.g. Round Up, Round Down    Supported string (enumeration) values are: [Down, Up, Nearest].
+        /// The type of rounding.  e.g. Round Up, Round Down    Supported string (enumeration) values are: [Down, Up, Nearest].  Defaults to \&quot;None\&quot; if not set.
         /// </summary>
-        /// <value>The type of rounding.  e.g. Round Up, Round Down    Supported string (enumeration) values are: [Down, Up, Nearest].</value>
+        /// <value>The type of rounding.  e.g. Round Up, Round Down    Supported string (enumeration) values are: [Down, Up, Nearest].  Defaults to \&quot;None\&quot; if not set.</value>
         [DataMember(Name = "roundingType", EmitDefaultValue = true)]
         public string RoundingType { get; set; }
 

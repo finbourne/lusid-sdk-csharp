@@ -43,7 +43,7 @@ namespace Lusid.Sdk.Model
         /// <param name="notionalExchangeType">what type of notional exchange does the leg have    Supported string (enumeration) values are: [None, Initial, Final, Both]. (required).</param>
         /// <param name="payReceive">Is the leg to be paid or received    Supported string (enumeration) values are: [Pay, Receive]. (required).</param>
         /// <param name="rateOrSpread">Is there either a fixed rate (non-zero) or spread to be paid over the value of the leg. (required).</param>
-        /// <param name="resetConvention">Control how resets are generated relative to swap payment convention(s).    Supported string (enumeration) values are: [InAdvance, InArrears]..</param>
+        /// <param name="resetConvention">Control how resets are generated relative to swap payment convention(s).    Supported string (enumeration) values are: [InAdvance, InArrears].  Defaults to \&quot;InAdvance\&quot; if not set..</param>
         /// <param name="stubType">If a stub is required should it be at the front or back of the leg.    Supported string (enumeration) values are: [None, ShortFront, ShortBack, LongBack, LongFront, Both]. (required).</param>
         /// <param name="compounding">compounding.</param>
         /// <param name="amortisation">amortisation.</param>
@@ -135,9 +135,9 @@ namespace Lusid.Sdk.Model
         public decimal RateOrSpread { get; set; }
 
         /// <summary>
-        /// Control how resets are generated relative to swap payment convention(s).    Supported string (enumeration) values are: [InAdvance, InArrears].
+        /// Control how resets are generated relative to swap payment convention(s).    Supported string (enumeration) values are: [InAdvance, InArrears].  Defaults to \&quot;InAdvance\&quot; if not set.
         /// </summary>
-        /// <value>Control how resets are generated relative to swap payment convention(s).    Supported string (enumeration) values are: [InAdvance, InArrears].</value>
+        /// <value>Control how resets are generated relative to swap payment convention(s).    Supported string (enumeration) values are: [InAdvance, InArrears].  Defaults to \&quot;InAdvance\&quot; if not set.</value>
         [DataMember(Name = "resetConvention", EmitDefaultValue = true)]
         public string ResetConvention { get; set; }
 

@@ -18,10 +18,10 @@ Name | Type | Description | Notes
 **EquityOptionType** | **string** | Equity option types. E.g. Vanilla (default), RightsIssue, Warrant.    Supported string (enumeration) values are: [Vanilla, RightsIssue, Warrant]. | [optional] 
 **NumberOfShares** | **decimal?** | The amount of shares to exchange if the option is exercised. | [optional] 
 **Premium** | [**Premium**](Premium.md) |  | [optional] 
-**ExerciseType** | **string** | Type of optionality that is present; European, American.    Supported string (enumeration) values are: [European, American]. | [optional] 
+**ExerciseType** | **string** | Type of optionality that is present; European, American.    Supported string (enumeration) values are: [European, American].  Defaults to \&quot;European\&quot; if not set. | [optional] 
 **Underlying** | [**LusidInstrument**](LusidInstrument.md) |  | [optional] 
-**DeliveryDays** | **int** | Number of business days between exercise date and settlement of the option payoff or underlying. | [optional] 
-**BusinessDayConvention** | **string** | Business day convention for option exercise date to settlement date calculation.  Supported string (enumeration) values are: [NoAdjustment, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, HalfMonthModifiedFollowing, Nearest]. | [optional] 
+**DeliveryDays** | **int** | Number of business days between exercise date and settlement of the option payoff or underlying.  Defaults to 0 if not set. | [optional] 
+**BusinessDayConvention** | **string** | Business day convention for option exercise date to settlement date calculation.  Supported string (enumeration) values are: [NoAdjustment, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, HalfMonthModifiedFollowing, Nearest].  Defaults to \&quot;F\&quot; if not set. | [optional] 
 **SettlementCalendars** | **List&lt;string&gt;** | Holiday calendars for option exercise date to settlement date calculation. | [optional] 
 **TimeZoneConventions** | [**TimeZoneConventions**](TimeZoneConventions.md) |  | [optional] 
 

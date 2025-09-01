@@ -38,7 +38,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="days">The number of days to add to the anchor date. (required).</param>
         /// <param name="businessDayConvention">The adjustment type to apply to dates that fall upon a non-business day, e.g. modified following or following.    Supported string (enumeration) values are: [NoAdjustment, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, HalfMonthModifiedFollowing, Nearest]. (required).</param>
-        /// <param name="dayType">Indicates if consideration is given to whether a day is a good business day or not when calculating the offset date.    Supported string (enumeration) values are: [Business, Calendar]..</param>
+        /// <param name="dayType">Indicates if consideration is given to whether a day is a good business day or not when calculating the offset date.    Supported string (enumeration) values are: [Business, Calendar].  Defaults to \&quot;Business\&quot; if not set..</param>
         public RelativeDateOffset(int days = default(int), string businessDayConvention = default(string), string dayType = default(string))
         {
             this.Days = days;
@@ -66,9 +66,9 @@ namespace Lusid.Sdk.Model
         public string BusinessDayConvention { get; set; }
 
         /// <summary>
-        /// Indicates if consideration is given to whether a day is a good business day or not when calculating the offset date.    Supported string (enumeration) values are: [Business, Calendar].
+        /// Indicates if consideration is given to whether a day is a good business day or not when calculating the offset date.    Supported string (enumeration) values are: [Business, Calendar].  Defaults to \&quot;Business\&quot; if not set.
         /// </summary>
-        /// <value>Indicates if consideration is given to whether a day is a good business day or not when calculating the offset date.    Supported string (enumeration) values are: [Business, Calendar].</value>
+        /// <value>Indicates if consideration is given to whether a day is a good business day or not when calculating the offset date.    Supported string (enumeration) values are: [Business, Calendar].  Defaults to \&quot;Business\&quot; if not set.</value>
         [DataMember(Name = "dayType", EmitDefaultValue = true)]
         public string DayType { get; set; }
 

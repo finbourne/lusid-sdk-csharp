@@ -484,7 +484,7 @@ catch (ApiException e)
 
 <a id="listdatamodelhierarchies"></a>
 # **ListDataModelHierarchies**
-> ResourceListOfDataModelSummary ListDataModelHierarchies (DateTimeOffset? asAt = null, string? filter = null)
+> ResourceListOfDataModelSummary ListDataModelHierarchies (DateTimeOffset? asAt = null, string? filter = null, List<string>? sortBy = null)
 
 [EXPERIMENTAL] ListDataModelHierarchies: List Custom Data Model hierarchies.
 
@@ -530,15 +530,16 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CustomDataModelsApi>();
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the Data Model. Defaults to return              the latest version of the Data Model if not specified. (optional) 
-            var filter = "filter_example";  // string? | Expression to filter the results. Only EntityType is supported (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the results. (optional) 
+            var sortBy = new List<string>?(); // List<string>? | A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\". (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // ResourceListOfDataModelSummary result = apiInstance.ListDataModelHierarchies(asAt, filter, opts: opts);
+                // ResourceListOfDataModelSummary result = apiInstance.ListDataModelHierarchies(asAt, filter, sortBy, opts: opts);
 
                 // [EXPERIMENTAL] ListDataModelHierarchies: List Custom Data Model hierarchies.
-                ResourceListOfDataModelSummary result = apiInstance.ListDataModelHierarchies(asAt, filter);
+                ResourceListOfDataModelSummary result = apiInstance.ListDataModelHierarchies(asAt, filter, sortBy);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -559,7 +560,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] ListDataModelHierarchies: List Custom Data Model hierarchies.
-    ApiResponse<ResourceListOfDataModelSummary> response = apiInstance.ListDataModelHierarchiesWithHttpInfo(asAt, filter);
+    ApiResponse<ResourceListOfDataModelSummary> response = apiInstance.ListDataModelHierarchiesWithHttpInfo(asAt, filter, sortBy);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -577,7 +578,8 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the Data Model. Defaults to return              the latest version of the Data Model if not specified. | [optional]  |
-| **filter** | **string?** | Expression to filter the results. Only EntityType is supported | [optional]  |
+| **filter** | **string?** | Expression to filter the results. | [optional]  |
+| **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. | [optional]  |
 
 ### Return type
 

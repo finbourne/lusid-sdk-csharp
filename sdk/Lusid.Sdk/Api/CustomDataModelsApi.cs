@@ -153,11 +153,12 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the Data Model. Defaults to return              the latest version of the Data Model if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results. Only EntityType is supported (optional)</param>
+        /// <param name="filter">Expression to filter the results. (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfDataModelSummary</returns>
-        ResourceListOfDataModelSummary ListDataModelHierarchies(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        ResourceListOfDataModelSummary ListDataModelHierarchies(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] ListDataModelHierarchies: List Custom Data Model hierarchies.
@@ -167,11 +168,12 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the Data Model. Defaults to return              the latest version of the Data Model if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results. Only EntityType is supported (optional)</param>
+        /// <param name="filter">Expression to filter the results. (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfDataModelSummary</returns>
-        Lusid.Sdk.Client.ApiResponse<ResourceListOfDataModelSummary> ListDataModelHierarchiesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<ResourceListOfDataModelSummary> ListDataModelHierarchiesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListSupportedEntityTypes: List the currently supported entity types for use in Custom Data Models.
         /// </summary>
@@ -365,12 +367,13 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the Data Model. Defaults to return              the latest version of the Data Model if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results. Only EntityType is supported (optional)</param>
+        /// <param name="filter">Expression to filter the results. (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfDataModelSummary</returns>
-        System.Threading.Tasks.Task<ResourceListOfDataModelSummary> ListDataModelHierarchiesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<ResourceListOfDataModelSummary> ListDataModelHierarchiesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] ListDataModelHierarchies: List Custom Data Model hierarchies.
@@ -380,12 +383,13 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the Data Model. Defaults to return              the latest version of the Data Model if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results. Only EntityType is supported (optional)</param>
+        /// <param name="filter">Expression to filter the results. (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfDataModelSummary)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfDataModelSummary>> ListDataModelHierarchiesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfDataModelSummary>> ListDataModelHierarchiesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListSupportedEntityTypes: List the currently supported entity types for use in Custom Data Models.
         /// </summary>
@@ -1512,13 +1516,14 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the Data Model. Defaults to return              the latest version of the Data Model if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results. Only EntityType is supported (optional)</param>
+        /// <param name="filter">Expression to filter the results. (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfDataModelSummary</returns>
-        public ResourceListOfDataModelSummary ListDataModelHierarchies(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public ResourceListOfDataModelSummary ListDataModelHierarchies(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfDataModelSummary> localVarResponse = ListDataModelHierarchiesWithHttpInfo(asAt, filter, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfDataModelSummary> localVarResponse = ListDataModelHierarchiesWithHttpInfo(asAt, filter, sortBy, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1527,11 +1532,12 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the Data Model. Defaults to return              the latest version of the Data Model if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results. Only EntityType is supported (optional)</param>
+        /// <param name="filter">Expression to filter the results. (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfDataModelSummary</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfDataModelSummary> ListDataModelHierarchiesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfDataModelSummary> ListDataModelHierarchiesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
 
@@ -1574,6 +1580,10 @@ namespace Lusid.Sdk.Api
             if (filter != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+            if (sortBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "sortBy", sortBy));
             }
 
             localVarRequestOptions.Operation = "CustomDataModelsApi.ListDataModelHierarchies";
@@ -1615,14 +1625,15 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the Data Model. Defaults to return              the latest version of the Data Model if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results. Only EntityType is supported (optional)</param>
+        /// <param name="filter">Expression to filter the results. (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfDataModelSummary</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfDataModelSummary> ListDataModelHierarchiesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<ResourceListOfDataModelSummary> ListDataModelHierarchiesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfDataModelSummary> localVarResponse = await ListDataModelHierarchiesWithHttpInfoAsync(asAt, filter, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfDataModelSummary> localVarResponse = await ListDataModelHierarchiesWithHttpInfoAsync(asAt, filter, sortBy, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1631,12 +1642,13 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the Data Model. Defaults to return              the latest version of the Data Model if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results. Only EntityType is supported (optional)</param>
+        /// <param name="filter">Expression to filter the results. (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfDataModelSummary)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfDataModelSummary>> ListDataModelHierarchiesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfDataModelSummary>> ListDataModelHierarchiesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
@@ -1680,6 +1692,10 @@ namespace Lusid.Sdk.Api
             if (filter != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+            if (sortBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "sortBy", sortBy));
             }
 
             localVarRequestOptions.Operation = "CustomDataModelsApi.ListDataModelHierarchies";

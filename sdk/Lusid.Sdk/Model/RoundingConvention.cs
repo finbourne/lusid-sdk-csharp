@@ -32,9 +32,9 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="RoundingConvention" /> class.
         /// </summary>
         /// <param name="faceValue">The face value to round against.  The number to be rounded is scaled to this face value before being rounded, and then re-scaled to the holding amount.  For example if rounding an accrued interest value using a FaceValue of 1,000, but 10,000 units are held,  then the initial calculated value would be divided by 10,000, then multiplied by 1,000 and rounded per the convention.  The result of this would then be divided by 1,000 and multiplied by 10,000 to get the final value..</param>
-        /// <param name="precision">The precision of the rounding.  The decimal places to which the rounding takes place..</param>
-        /// <param name="roundingTarget">The target of the rounding convention.  Accepted values are &#39;AccruedInterest&#39;, &#39;Cashflows&#39;, or &#39;All&#39;    Supported string (enumeration) values are: [All, AccruedInterest, Cashflows]..</param>
-        /// <param name="roundingType">The type of rounding.  e.g. Round Up, Round Down    Supported string (enumeration) values are: [Down, Up, Floor, Ceiling, Nearest]..</param>
+        /// <param name="precision">The precision of the rounding.  The decimal places to which the rounding takes place.  Defaults to 0 if not set..</param>
+        /// <param name="roundingTarget">The target of the rounding convention.  Accepted values are &#39;AccruedInterest&#39;, &#39;Cashflows&#39;, or &#39;All&#39;    Supported string (enumeration) values are: [All, AccruedInterest, Cashflows].  Defaults to \&quot;All\&quot; if not set..</param>
+        /// <param name="roundingType">The type of rounding.  e.g. Round Up, Round Down    Supported string (enumeration) values are: [Down, Up, Floor, Ceiling, Nearest].  Defaults to \&quot;Nearest\&quot; if not set..</param>
         public RoundingConvention(decimal faceValue = default(decimal), int precision = default(int), string roundingTarget = default(string), string roundingType = default(string))
         {
             this.FaceValue = faceValue;
@@ -52,24 +52,24 @@ namespace Lusid.Sdk.Model
         public decimal FaceValue { get; set; }
 
         /// <summary>
-        /// The precision of the rounding.  The decimal places to which the rounding takes place.
+        /// The precision of the rounding.  The decimal places to which the rounding takes place.  Defaults to 0 if not set.
         /// </summary>
-        /// <value>The precision of the rounding.  The decimal places to which the rounding takes place.</value>
+        /// <value>The precision of the rounding.  The decimal places to which the rounding takes place.  Defaults to 0 if not set.</value>
         /// <example>6</example>
         [DataMember(Name = "precision", EmitDefaultValue = true)]
         public int Precision { get; set; }
 
         /// <summary>
-        /// The target of the rounding convention.  Accepted values are &#39;AccruedInterest&#39;, &#39;Cashflows&#39;, or &#39;All&#39;    Supported string (enumeration) values are: [All, AccruedInterest, Cashflows].
+        /// The target of the rounding convention.  Accepted values are &#39;AccruedInterest&#39;, &#39;Cashflows&#39;, or &#39;All&#39;    Supported string (enumeration) values are: [All, AccruedInterest, Cashflows].  Defaults to \&quot;All\&quot; if not set.
         /// </summary>
-        /// <value>The target of the rounding convention.  Accepted values are &#39;AccruedInterest&#39;, &#39;Cashflows&#39;, or &#39;All&#39;    Supported string (enumeration) values are: [All, AccruedInterest, Cashflows].</value>
+        /// <value>The target of the rounding convention.  Accepted values are &#39;AccruedInterest&#39;, &#39;Cashflows&#39;, or &#39;All&#39;    Supported string (enumeration) values are: [All, AccruedInterest, Cashflows].  Defaults to \&quot;All\&quot; if not set.</value>
         [DataMember(Name = "roundingTarget", EmitDefaultValue = true)]
         public string RoundingTarget { get; set; }
 
         /// <summary>
-        /// The type of rounding.  e.g. Round Up, Round Down    Supported string (enumeration) values are: [Down, Up, Floor, Ceiling, Nearest].
+        /// The type of rounding.  e.g. Round Up, Round Down    Supported string (enumeration) values are: [Down, Up, Floor, Ceiling, Nearest].  Defaults to \&quot;Nearest\&quot; if not set.
         /// </summary>
-        /// <value>The type of rounding.  e.g. Round Up, Round Down    Supported string (enumeration) values are: [Down, Up, Floor, Ceiling, Nearest].</value>
+        /// <value>The type of rounding.  e.g. Round Up, Round Down    Supported string (enumeration) values are: [Down, Up, Floor, Ceiling, Nearest].  Defaults to \&quot;Nearest\&quot; if not set.</value>
         [DataMember(Name = "roundingType", EmitDefaultValue = true)]
         public string RoundingType { get; set; }
 
