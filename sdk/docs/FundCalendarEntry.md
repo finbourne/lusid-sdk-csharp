@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **DisplayName** | **string** | The name of the Fund Calendar entry. | 
 **Description** | **string** | A description for the Fund Calendar entry. | [optional] 
 **NavTypeCode** | **string** | The navTypeCode of the Fund Calendar Entry. This is the code of the NAV type that this Calendar Entry is associated with. | 
+**PreviousEntry** | [**PreviousFundCalendarEntry**](PreviousFundCalendarEntry.md) |  | [optional] 
 **EffectiveAt** | **DateTimeOffset** | The effective at of the Calendar Entry. | [optional] 
 **AsAt** | **DateTimeOffset** | The asAt datetime for the Calendar Entry. | 
 **EntryType** | **string** | The type of the Fund Calendar Entry. Only &#39;ValuationPoint&#39; currently supported. The available values are: ValuationPointFundCalendarEntry, BookmarkFundCalendarEntry | 

@@ -36,7 +36,7 @@ namespace Lusid.Sdk.Model
         /// <param name="entityUniqueId">The unique Investor entity identifier.</param>
         /// <param name="person">person.</param>
         /// <param name="legalEntity">legalEntity.</param>
-        public Investor(string investorType = default(string), Dictionary<string, Property> identifiers = default(Dictionary<string, Property>), string entityUniqueId = default(string), Person person = default(Person), LegalEntity legalEntity = default(LegalEntity))
+        public Investor(string investorType = default(string), Dictionary<string, string> identifiers = default(Dictionary<string, string>), string entityUniqueId = default(string), Person person = default(Person), LegalEntity legalEntity = default(LegalEntity))
         {
             this.InvestorType = investorType;
             this.Identifiers = identifiers;
@@ -57,7 +57,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <value>The identifiers of the Investor</value>
         [DataMember(Name = "identifiers", EmitDefaultValue = true)]
-        public Dictionary<string, Property> Identifiers { get; set; }
+        public Dictionary<string, string> Identifiers { get; set; }
 
         /// <summary>
         /// The unique Investor entity identifier

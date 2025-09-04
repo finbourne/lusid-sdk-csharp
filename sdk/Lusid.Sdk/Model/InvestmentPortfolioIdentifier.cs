@@ -37,9 +37,9 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="InvestmentPortfolioIdentifier" /> class.
         /// </summary>
         /// <param name="key">A client-defined key used to identify the Investment Portfolio, unique within the Investment Account (required).</param>
-        /// <param name="portfolioScope">The scope of the Investment Portfolio. (required).</param>
-        /// <param name="portfolioCode">The code of the Investment Portfolio. (required).</param>
-        public InvestmentPortfolioIdentifier(string key = default(string), string portfolioScope = default(string), string portfolioCode = default(string))
+        /// <param name="scope">The scope of the Investment Portfolio. (required).</param>
+        /// <param name="identifiers">The code identifier of the Investment Portfolio. (required).</param>
+        public InvestmentPortfolioIdentifier(string key = default(string), string scope = default(string), Dictionary<string, string> identifiers = default(Dictionary<string, string>))
         {
             // to ensure "key" is required (not null)
             if (key == null)
@@ -47,18 +47,18 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("key is a required property for InvestmentPortfolioIdentifier and cannot be null");
             }
             this.Key = key;
-            // to ensure "portfolioScope" is required (not null)
-            if (portfolioScope == null)
+            // to ensure "scope" is required (not null)
+            if (scope == null)
             {
-                throw new ArgumentNullException("portfolioScope is a required property for InvestmentPortfolioIdentifier and cannot be null");
+                throw new ArgumentNullException("scope is a required property for InvestmentPortfolioIdentifier and cannot be null");
             }
-            this.PortfolioScope = portfolioScope;
-            // to ensure "portfolioCode" is required (not null)
-            if (portfolioCode == null)
+            this.Scope = scope;
+            // to ensure "identifiers" is required (not null)
+            if (identifiers == null)
             {
-                throw new ArgumentNullException("portfolioCode is a required property for InvestmentPortfolioIdentifier and cannot be null");
+                throw new ArgumentNullException("identifiers is a required property for InvestmentPortfolioIdentifier and cannot be null");
             }
-            this.PortfolioCode = portfolioCode;
+            this.Identifiers = identifiers;
         }
 
         /// <summary>
@@ -72,15 +72,15 @@ namespace Lusid.Sdk.Model
         /// The scope of the Investment Portfolio.
         /// </summary>
         /// <value>The scope of the Investment Portfolio.</value>
-        [DataMember(Name = "portfolioScope", IsRequired = true, EmitDefaultValue = true)]
-        public string PortfolioScope { get; set; }
+        [DataMember(Name = "scope", IsRequired = true, EmitDefaultValue = true)]
+        public string Scope { get; set; }
 
         /// <summary>
-        /// The code of the Investment Portfolio.
+        /// The code identifier of the Investment Portfolio.
         /// </summary>
-        /// <value>The code of the Investment Portfolio.</value>
-        [DataMember(Name = "portfolioCode", IsRequired = true, EmitDefaultValue = true)]
-        public string PortfolioCode { get; set; }
+        /// <value>The code identifier of the Investment Portfolio.</value>
+        [DataMember(Name = "identifiers", IsRequired = true, EmitDefaultValue = true)]
+        public Dictionary<string, string> Identifiers { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -91,8 +91,8 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class InvestmentPortfolioIdentifier {\n");
             sb.Append("  Key: ").Append(Key).Append("\n");
-            sb.Append("  PortfolioScope: ").Append(PortfolioScope).Append("\n");
-            sb.Append("  PortfolioCode: ").Append(PortfolioCode).Append("\n");
+            sb.Append("  Scope: ").Append(Scope).Append("\n");
+            sb.Append("  Identifiers: ").Append(Identifiers).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -134,14 +134,15 @@ namespace Lusid.Sdk.Model
                     this.Key.Equals(input.Key))
                 ) && 
                 (
-                    this.PortfolioScope == input.PortfolioScope ||
-                    (this.PortfolioScope != null &&
-                    this.PortfolioScope.Equals(input.PortfolioScope))
+                    this.Scope == input.Scope ||
+                    (this.Scope != null &&
+                    this.Scope.Equals(input.Scope))
                 ) && 
                 (
-                    this.PortfolioCode == input.PortfolioCode ||
-                    (this.PortfolioCode != null &&
-                    this.PortfolioCode.Equals(input.PortfolioCode))
+                    this.Identifiers == input.Identifiers ||
+                    this.Identifiers != null &&
+                    input.Identifiers != null &&
+                    this.Identifiers.SequenceEqual(input.Identifiers)
                 );
         }
 
@@ -158,13 +159,13 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Key.GetHashCode();
                 }
-                if (this.PortfolioScope != null)
+                if (this.Scope != null)
                 {
-                    hashCode = (hashCode * 59) + this.PortfolioScope.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Scope.GetHashCode();
                 }
-                if (this.PortfolioCode != null)
+                if (this.Identifiers != null)
                 {
-                    hashCode = (hashCode * 59) + this.PortfolioCode.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Identifiers.GetHashCode();
                 }
                 return hashCode;
             }
@@ -196,42 +197,23 @@ namespace Lusid.Sdk.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Key, must match a pattern of " + regexKey, new [] { "Key" });
             }
 
-            // PortfolioScope (string) maxLength
-            if (this.PortfolioScope != null && this.PortfolioScope.Length > 64)
+            // Scope (string) maxLength
+            if (this.Scope != null && this.Scope.Length > 64)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PortfolioScope, length must be less than 64.", new [] { "PortfolioScope" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Scope, length must be less than 64.", new [] { "Scope" });
             }
 
-            // PortfolioScope (string) minLength
-            if (this.PortfolioScope != null && this.PortfolioScope.Length < 1)
+            // Scope (string) minLength
+            if (this.Scope != null && this.Scope.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PortfolioScope, length must be greater than 1.", new [] { "PortfolioScope" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Scope, length must be greater than 1.", new [] { "Scope" });
             }
 
-            // PortfolioScope (string) pattern
-            Regex regexPortfolioScope = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
-            if (false == regexPortfolioScope.Match(this.PortfolioScope).Success)
+            // Scope (string) pattern
+            Regex regexScope = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
+            if (false == regexScope.Match(this.Scope).Success)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PortfolioScope, must match a pattern of " + regexPortfolioScope, new [] { "PortfolioScope" });
-            }
-
-            // PortfolioCode (string) maxLength
-            if (this.PortfolioCode != null && this.PortfolioCode.Length > 64)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PortfolioCode, length must be less than 64.", new [] { "PortfolioCode" });
-            }
-
-            // PortfolioCode (string) minLength
-            if (this.PortfolioCode != null && this.PortfolioCode.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PortfolioCode, length must be greater than 1.", new [] { "PortfolioCode" });
-            }
-
-            // PortfolioCode (string) pattern
-            Regex regexPortfolioCode = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
-            if (false == regexPortfolioCode.Match(this.PortfolioCode).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PortfolioCode, must match a pattern of " + regexPortfolioCode, new [] { "PortfolioCode" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Scope, must match a pattern of " + regexScope, new [] { "Scope" });
             }
 
             yield break;

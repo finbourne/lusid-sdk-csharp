@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Key** | **string** | A client-defined key used to identify the Investment Portfolio, unique within the Investment Account | [optional] 
 **Scope** | **string** | The scope of the Investment Portfolio | [optional] 
-**Code** | **string** | The code of the Investment Portfolio | [optional] 
+**Identifiers** | **Dictionary&lt;string, string&gt;** | The code identifier of the Investment Portfolio | [optional] 
 **EntityUniqueId** | **string** | The unique Portfolio entity identifier | [optional] 
 **Portfolio** | [**Portfolio**](Portfolio.md) |  | [optional] 
 

@@ -67,6 +67,7 @@ namespace Lusid.Sdk.Model
         /// <param name="displayName">The name of the Fund Calendar entry. (required).</param>
         /// <param name="description">A description for the Fund Calendar entry..</param>
         /// <param name="navTypeCode">The navTypeCode of the Fund Calendar Entry. This is the code of the NAV type that this Calendar Entry is associated with. (required).</param>
+        /// <param name="previousEntry">previousEntry.</param>
         /// <param name="effectiveAt">The effective at of the Calendar Entry..</param>
         /// <param name="asAt">The asAt datetime for the Calendar Entry. (required).</param>
         /// <param name="entryType">The type of the Fund Calendar Entry. Only &#39;ValuationPoint&#39; currently supported. The available values are: ValuationPointFundCalendarEntry, BookmarkFundCalendarEntry (required).</param>
@@ -75,7 +76,7 @@ namespace Lusid.Sdk.Model
         /// <param name="properties">The properties for the Calendar Entry. These will be from the &#39;ClosedPeriod&#39; domain..</param>
         /// <param name="varVersion">varVersion (required).</param>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested asAt datetime..</param>
-        public FundCalendarEntry(string code = default(string), string displayName = default(string), string description = default(string), string navTypeCode = default(string), DateTimeOffset effectiveAt = default(DateTimeOffset), DateTimeOffset asAt = default(DateTimeOffset), EntryTypeEnum entryType = default(EntryTypeEnum), string status = default(string), bool applyClearDown = default(bool), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion varVersion = default(ModelVersion), string href = default(string))
+        public FundCalendarEntry(string code = default(string), string displayName = default(string), string description = default(string), string navTypeCode = default(string), PreviousFundCalendarEntry previousEntry = default(PreviousFundCalendarEntry), DateTimeOffset effectiveAt = default(DateTimeOffset), DateTimeOffset asAt = default(DateTimeOffset), EntryTypeEnum entryType = default(EntryTypeEnum), string status = default(string), bool applyClearDown = default(bool), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion varVersion = default(ModelVersion), string href = default(string))
         {
             // to ensure "code" is required (not null)
             if (code == null)
@@ -105,6 +106,7 @@ namespace Lusid.Sdk.Model
             }
             this.VarVersion = varVersion;
             this.Description = description;
+            this.PreviousEntry = previousEntry;
             this.EffectiveAt = effectiveAt;
             this.Status = status;
             this.Properties = properties;
@@ -138,6 +140,12 @@ namespace Lusid.Sdk.Model
         /// <value>The navTypeCode of the Fund Calendar Entry. This is the code of the NAV type that this Calendar Entry is associated with.</value>
         [DataMember(Name = "navTypeCode", IsRequired = true, EmitDefaultValue = true)]
         public string NavTypeCode { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PreviousEntry
+        /// </summary>
+        [DataMember(Name = "previousEntry", EmitDefaultValue = false)]
+        public PreviousFundCalendarEntry PreviousEntry { get; set; }
 
         /// <summary>
         /// The effective at of the Calendar Entry.
@@ -199,6 +207,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  NavTypeCode: ").Append(NavTypeCode).Append("\n");
+            sb.Append("  PreviousEntry: ").Append(PreviousEntry).Append("\n");
             sb.Append("  EffectiveAt: ").Append(EffectiveAt).Append("\n");
             sb.Append("  AsAt: ").Append(AsAt).Append("\n");
             sb.Append("  EntryType: ").Append(EntryType).Append("\n");
@@ -261,6 +270,11 @@ namespace Lusid.Sdk.Model
                     this.NavTypeCode == input.NavTypeCode ||
                     (this.NavTypeCode != null &&
                     this.NavTypeCode.Equals(input.NavTypeCode))
+                ) && 
+                (
+                    this.PreviousEntry == input.PreviousEntry ||
+                    (this.PreviousEntry != null &&
+                    this.PreviousEntry.Equals(input.PreviousEntry))
                 ) && 
                 (
                     this.EffectiveAt == input.EffectiveAt ||
@@ -327,6 +341,10 @@ namespace Lusid.Sdk.Model
                 if (this.NavTypeCode != null)
                 {
                     hashCode = (hashCode * 59) + this.NavTypeCode.GetHashCode();
+                }
+                if (this.PreviousEntry != null)
+                {
+                    hashCode = (hashCode * 59) + this.PreviousEntry.GetHashCode();
                 }
                 if (this.EffectiveAt != null)
                 {

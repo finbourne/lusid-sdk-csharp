@@ -39,7 +39,7 @@ namespace Lusid.Sdk.Model
         /// <param name="key">A client-defined key used to identify the Account Holder, unique within the Investment Account (required).</param>
         /// <param name="scope">The scope in which the Investor Record lies. (required).</param>
         /// <param name="identifiers">Single Account Holder identifier that should target the desired Investor Record. (required).</param>
-        public AccountHolderIdentifier(string key = default(string), string scope = default(string), Dictionary<string, Property> identifiers = default(Dictionary<string, Property>))
+        public AccountHolderIdentifier(string key = default(string), string scope = default(string), Dictionary<string, string> identifiers = default(Dictionary<string, string>))
         {
             // to ensure "key" is required (not null)
             if (key == null)
@@ -80,7 +80,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <value>Single Account Holder identifier that should target the desired Investor Record.</value>
         [DataMember(Name = "identifiers", IsRequired = true, EmitDefaultValue = true)]
-        public Dictionary<string, Property> Identifiers { get; set; }
+        public Dictionary<string, string> Identifiers { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

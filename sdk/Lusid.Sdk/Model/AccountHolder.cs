@@ -36,7 +36,7 @@ namespace Lusid.Sdk.Model
         /// <param name="identifiers">Single Account Holder identifier that should target the desired Investor Record..</param>
         /// <param name="entityUniqueId">The unique InvestorRecord entity identifier.</param>
         /// <param name="investorRecord">investorRecord.</param>
-        public AccountHolder(string key = default(string), string scope = default(string), Dictionary<string, Property> identifiers = default(Dictionary<string, Property>), string entityUniqueId = default(string), InvestorRecord investorRecord = default(InvestorRecord))
+        public AccountHolder(string key = default(string), string scope = default(string), Dictionary<string, string> identifiers = default(Dictionary<string, string>), string entityUniqueId = default(string), InvestorRecord investorRecord = default(InvestorRecord))
         {
             this.Key = key;
             this.Scope = scope;
@@ -64,7 +64,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <value>Single Account Holder identifier that should target the desired Investor Record.</value>
         [DataMember(Name = "identifiers", EmitDefaultValue = true)]
-        public Dictionary<string, Property> Identifiers { get; set; }
+        public Dictionary<string, string> Identifiers { get; set; }
 
         /// <summary>
         /// The unique InvestorRecord entity identifier

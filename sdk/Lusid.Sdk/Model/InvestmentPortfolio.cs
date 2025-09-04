@@ -33,14 +33,14 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="key">A client-defined key used to identify the Investment Portfolio, unique within the Investment Account.</param>
         /// <param name="scope">The scope of the Investment Portfolio.</param>
-        /// <param name="code">The code of the Investment Portfolio.</param>
+        /// <param name="identifiers">The code identifier of the Investment Portfolio.</param>
         /// <param name="entityUniqueId">The unique Portfolio entity identifier.</param>
         /// <param name="portfolio">portfolio.</param>
-        public InvestmentPortfolio(string key = default(string), string scope = default(string), string code = default(string), string entityUniqueId = default(string), Portfolio portfolio = default(Portfolio))
+        public InvestmentPortfolio(string key = default(string), string scope = default(string), Dictionary<string, string> identifiers = default(Dictionary<string, string>), string entityUniqueId = default(string), Portfolio portfolio = default(Portfolio))
         {
             this.Key = key;
             this.Scope = scope;
-            this.Code = code;
+            this.Identifiers = identifiers;
             this.EntityUniqueId = entityUniqueId;
             this.Portfolio = portfolio;
         }
@@ -60,11 +60,11 @@ namespace Lusid.Sdk.Model
         public string Scope { get; set; }
 
         /// <summary>
-        /// The code of the Investment Portfolio
+        /// The code identifier of the Investment Portfolio
         /// </summary>
-        /// <value>The code of the Investment Portfolio</value>
-        [DataMember(Name = "code", EmitDefaultValue = true)]
-        public string Code { get; set; }
+        /// <value>The code identifier of the Investment Portfolio</value>
+        [DataMember(Name = "identifiers", EmitDefaultValue = true)]
+        public Dictionary<string, string> Identifiers { get; set; }
 
         /// <summary>
         /// The unique Portfolio entity identifier
@@ -89,7 +89,7 @@ namespace Lusid.Sdk.Model
             sb.Append("class InvestmentPortfolio {\n");
             sb.Append("  Key: ").Append(Key).Append("\n");
             sb.Append("  Scope: ").Append(Scope).Append("\n");
-            sb.Append("  Code: ").Append(Code).Append("\n");
+            sb.Append("  Identifiers: ").Append(Identifiers).Append("\n");
             sb.Append("  EntityUniqueId: ").Append(EntityUniqueId).Append("\n");
             sb.Append("  Portfolio: ").Append(Portfolio).Append("\n");
             sb.Append("}\n");
@@ -138,9 +138,10 @@ namespace Lusid.Sdk.Model
                     this.Scope.Equals(input.Scope))
                 ) && 
                 (
-                    this.Code == input.Code ||
-                    (this.Code != null &&
-                    this.Code.Equals(input.Code))
+                    this.Identifiers == input.Identifiers ||
+                    this.Identifiers != null &&
+                    input.Identifiers != null &&
+                    this.Identifiers.SequenceEqual(input.Identifiers)
                 ) && 
                 (
                     this.EntityUniqueId == input.EntityUniqueId ||
@@ -171,9 +172,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Scope.GetHashCode();
                 }
-                if (this.Code != null)
+                if (this.Identifiers != null)
                 {
-                    hashCode = (hashCode * 59) + this.Code.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Identifiers.GetHashCode();
                 }
                 if (this.EntityUniqueId != null)
                 {
