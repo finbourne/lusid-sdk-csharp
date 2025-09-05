@@ -1269,7 +1269,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the transaction portfolio.</param>
         /// <param name="code">The code of the transaction portfolio. Together with the              scope this uniquely identifies the transaction portfolio.</param>
         /// <param name="operation">The patch document.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which the updated or inserted details should become valid.              Defaults to the current LUSID system datetime if not specified.              Note that this will affect all bitemporal entities in the request, but will not be used for any perpetual entities. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which the updated or inserted details should become valid.              Defaults to the current LUSID system datetime if not specified.              Note that this will affect all bitemporal fields (eg: SettlementConfiguration) in the request (but will not be used for any              perpetual fields). When patching a bitemporal field, the field will be updated from the              effectiveAt onwards and until the end of effective time. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PortfolioDetails</returns>
@@ -1285,7 +1285,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the transaction portfolio.</param>
         /// <param name="code">The code of the transaction portfolio. Together with the              scope this uniquely identifies the transaction portfolio.</param>
         /// <param name="operation">The patch document.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which the updated or inserted details should become valid.              Defaults to the current LUSID system datetime if not specified.              Note that this will affect all bitemporal entities in the request, but will not be used for any perpetual entities. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which the updated or inserted details should become valid.              Defaults to the current LUSID system datetime if not specified.              Note that this will affect all bitemporal fields (eg: SettlementConfiguration) in the request (but will not be used for any              perpetual fields). When patching a bitemporal field, the field will be updated from the              effectiveAt onwards and until the end of effective time. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PortfolioDetails</returns>
@@ -2902,7 +2902,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the transaction portfolio.</param>
         /// <param name="code">The code of the transaction portfolio. Together with the              scope this uniquely identifies the transaction portfolio.</param>
         /// <param name="operation">The patch document.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which the updated or inserted details should become valid.              Defaults to the current LUSID system datetime if not specified.              Note that this will affect all bitemporal entities in the request, but will not be used for any perpetual entities. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which the updated or inserted details should become valid.              Defaults to the current LUSID system datetime if not specified.              Note that this will affect all bitemporal fields (eg: SettlementConfiguration) in the request (but will not be used for any              perpetual fields). When patching a bitemporal field, the field will be updated from the              effectiveAt onwards and until the end of effective time. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2919,7 +2919,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the transaction portfolio.</param>
         /// <param name="code">The code of the transaction portfolio. Together with the              scope this uniquely identifies the transaction portfolio.</param>
         /// <param name="operation">The patch document.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which the updated or inserted details should become valid.              Defaults to the current LUSID system datetime if not specified.              Note that this will affect all bitemporal entities in the request, but will not be used for any perpetual entities. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which the updated or inserted details should become valid.              Defaults to the current LUSID system datetime if not specified.              Note that this will affect all bitemporal fields (eg: SettlementConfiguration) in the request (but will not be used for any              perpetual fields). When patching a bitemporal field, the field will be updated from the              effectiveAt onwards and until the end of effective time. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -13054,7 +13054,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the transaction portfolio.</param>
         /// <param name="code">The code of the transaction portfolio. Together with the              scope this uniquely identifies the transaction portfolio.</param>
         /// <param name="operation">The patch document.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which the updated or inserted details should become valid.              Defaults to the current LUSID system datetime if not specified.              Note that this will affect all bitemporal entities in the request, but will not be used for any perpetual entities. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which the updated or inserted details should become valid.              Defaults to the current LUSID system datetime if not specified.              Note that this will affect all bitemporal fields (eg: SettlementConfiguration) in the request (but will not be used for any              perpetual fields). When patching a bitemporal field, the field will be updated from the              effectiveAt onwards and until the end of effective time. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PortfolioDetails</returns>
@@ -13071,7 +13071,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the transaction portfolio.</param>
         /// <param name="code">The code of the transaction portfolio. Together with the              scope this uniquely identifies the transaction portfolio.</param>
         /// <param name="operation">The patch document.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which the updated or inserted details should become valid.              Defaults to the current LUSID system datetime if not specified.              Note that this will affect all bitemporal entities in the request, but will not be used for any perpetual entities. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which the updated or inserted details should become valid.              Defaults to the current LUSID system datetime if not specified.              Note that this will affect all bitemporal fields (eg: SettlementConfiguration) in the request (but will not be used for any              perpetual fields). When patching a bitemporal field, the field will be updated from the              effectiveAt onwards and until the end of effective time. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PortfolioDetails</returns>
@@ -13182,7 +13182,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the transaction portfolio.</param>
         /// <param name="code">The code of the transaction portfolio. Together with the              scope this uniquely identifies the transaction portfolio.</param>
         /// <param name="operation">The patch document.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which the updated or inserted details should become valid.              Defaults to the current LUSID system datetime if not specified.              Note that this will affect all bitemporal entities in the request, but will not be used for any perpetual entities. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which the updated or inserted details should become valid.              Defaults to the current LUSID system datetime if not specified.              Note that this will affect all bitemporal fields (eg: SettlementConfiguration) in the request (but will not be used for any              perpetual fields). When patching a bitemporal field, the field will be updated from the              effectiveAt onwards and until the end of effective time. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -13200,7 +13200,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the transaction portfolio.</param>
         /// <param name="code">The code of the transaction portfolio. Together with the              scope this uniquely identifies the transaction portfolio.</param>
         /// <param name="operation">The patch document.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which the updated or inserted details should become valid.              Defaults to the current LUSID system datetime if not specified.              Note that this will affect all bitemporal entities in the request, but will not be used for any perpetual entities. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which the updated or inserted details should become valid.              Defaults to the current LUSID system datetime if not specified.              Note that this will affect all bitemporal fields (eg: SettlementConfiguration) in the request (but will not be used for any              perpetual fields). When patching a bitemporal field, the field will be updated from the              effectiveAt onwards and until the end of effective time. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
