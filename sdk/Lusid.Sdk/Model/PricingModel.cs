@@ -152,7 +152,13 @@ namespace Lusid.Sdk.Model
         /// Enum LoanFacilityPricer for value: LoanFacilityPricer
         /// </summary>
         [EnumMember(Value = "LoanFacilityPricer")]
-        LoanFacilityPricer = 21
+        LoanFacilityPricer = 21,
+
+        /// <summary>
+        /// Enum OverrideOnlyPricer for value: OverrideOnlyPricer
+        /// </summary>
+        [EnumMember(Value = "OverrideOnlyPricer")]
+        OverrideOnlyPricer = 22
     }
 
 }
