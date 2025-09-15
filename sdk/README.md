@@ -1503,6 +1503,7 @@ Class | Method | HTTP request | Description
  - [PricingContext](docs/PricingContext.md)
  - [PricingModel](docs/PricingModel.md)
  - [PricingOptions](docs/PricingOptions.md)
+ - [PrimarySchedule](docs/PrimarySchedule.md)
  - [ProcessedCommand](docs/ProcessedCommand.md)
  - [Property](docs/Property.md)
  - [PropertyDefinition](docs/PropertyDefinition.md)

@@ -40,9 +40,10 @@ namespace Lusid.Sdk.Model
         /// <param name="transactionDateWindows">transactionDateWindows.</param>
         /// <param name="comparisonRulesetIds">comparisonRulesetIds.</param>
         /// <param name="breakCodeSource">breakCodeSource.</param>
+        /// <param name="primarySchedule">primarySchedule.</param>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
         /// <param name="varVersion">varVersion.</param>
-        public GroupReconciliationDefinition(ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), GroupReconciliationDefinitionPortfolioEntityIds portfolioEntityIds = default(GroupReconciliationDefinitionPortfolioEntityIds), GroupReconciliationDefinitionRecipeIds recipeIds = default(GroupReconciliationDefinitionRecipeIds), GroupReconciliationDefinitionCurrencies currencies = default(GroupReconciliationDefinitionCurrencies), TransactionDateWindows transactionDateWindows = default(TransactionDateWindows), GroupReconciliationDefinitionComparisonRulesetIds comparisonRulesetIds = default(GroupReconciliationDefinitionComparisonRulesetIds), BreakCodeSource breakCodeSource = default(BreakCodeSource), string href = default(string), ModelVersion varVersion = default(ModelVersion))
+        public GroupReconciliationDefinition(ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), GroupReconciliationDefinitionPortfolioEntityIds portfolioEntityIds = default(GroupReconciliationDefinitionPortfolioEntityIds), GroupReconciliationDefinitionRecipeIds recipeIds = default(GroupReconciliationDefinitionRecipeIds), GroupReconciliationDefinitionCurrencies currencies = default(GroupReconciliationDefinitionCurrencies), TransactionDateWindows transactionDateWindows = default(TransactionDateWindows), GroupReconciliationDefinitionComparisonRulesetIds comparisonRulesetIds = default(GroupReconciliationDefinitionComparisonRulesetIds), BreakCodeSource breakCodeSource = default(BreakCodeSource), PrimarySchedule primarySchedule = default(PrimarySchedule), string href = default(string), ModelVersion varVersion = default(ModelVersion))
         {
             this.Id = id;
             this.DisplayName = displayName;
@@ -53,6 +54,7 @@ namespace Lusid.Sdk.Model
             this.TransactionDateWindows = transactionDateWindows;
             this.ComparisonRulesetIds = comparisonRulesetIds;
             this.BreakCodeSource = breakCodeSource;
+            this.PrimarySchedule = primarySchedule;
             this.Href = href;
             this.VarVersion = varVersion;
         }
@@ -114,6 +116,12 @@ namespace Lusid.Sdk.Model
         public BreakCodeSource BreakCodeSource { get; set; }
 
         /// <summary>
+        /// Gets or Sets PrimarySchedule
+        /// </summary>
+        [DataMember(Name = "primarySchedule", EmitDefaultValue = false)]
+        public PrimarySchedule PrimarySchedule { get; set; }
+
+        /// <summary>
         /// The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
         /// </summary>
         /// <value>The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.</value>
@@ -143,6 +151,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  TransactionDateWindows: ").Append(TransactionDateWindows).Append("\n");
             sb.Append("  ComparisonRulesetIds: ").Append(ComparisonRulesetIds).Append("\n");
             sb.Append("  BreakCodeSource: ").Append(BreakCodeSource).Append("\n");
+            sb.Append("  PrimarySchedule: ").Append(PrimarySchedule).Append("\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("}\n");
@@ -226,6 +235,11 @@ namespace Lusid.Sdk.Model
                     this.BreakCodeSource.Equals(input.BreakCodeSource))
                 ) && 
                 (
+                    this.PrimarySchedule == input.PrimarySchedule ||
+                    (this.PrimarySchedule != null &&
+                    this.PrimarySchedule.Equals(input.PrimarySchedule))
+                ) && 
+                (
                     this.Href == input.Href ||
                     (this.Href != null &&
                     this.Href.Equals(input.Href))
@@ -281,6 +295,10 @@ namespace Lusid.Sdk.Model
                 if (this.BreakCodeSource != null)
                 {
                     hashCode = (hashCode * 59) + this.BreakCodeSource.GetHashCode();
+                }
+                if (this.PrimarySchedule != null)
+                {
+                    hashCode = (hashCode * 59) + this.PrimarySchedule.GetHashCode();
                 }
                 if (this.Href != null)
                 {

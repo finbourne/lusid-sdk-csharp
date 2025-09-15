@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **TransactionDateWindows** | [**TransactionDateWindows**](TransactionDateWindows.md) |  | [optional] 
 **ComparisonRulesetIds** | [**GroupReconciliationDefinitionComparisonRulesetIds**](GroupReconciliationDefinitionComparisonRulesetIds.md) |  | [optional] 
 **BreakCodeSource** | [**BreakCodeSource**](BreakCodeSource.md) |  | [optional] 
+**PrimarySchedule** | [**PrimarySchedule**](PrimarySchedule.md) |  | [optional] 
 **Href** | **string** | The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime. | [optional] 
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 

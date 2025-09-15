@@ -45,7 +45,8 @@ namespace Lusid.Sdk.Model
         /// <param name="transactionDateWindows">transactionDateWindows.</param>
         /// <param name="comparisonRulesetIds">comparisonRulesetIds.</param>
         /// <param name="breakCodeSource">breakCodeSource.</param>
-        public CreateGroupReconciliationDefinitionRequest(ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), GroupReconciliationDefinitionPortfolioEntityIds portfolioEntityIds = default(GroupReconciliationDefinitionPortfolioEntityIds), GroupReconciliationDefinitionRecipeIds recipeIds = default(GroupReconciliationDefinitionRecipeIds), GroupReconciliationDefinitionCurrencies currencies = default(GroupReconciliationDefinitionCurrencies), TransactionDateWindows transactionDateWindows = default(TransactionDateWindows), GroupReconciliationDefinitionComparisonRulesetIds comparisonRulesetIds = default(GroupReconciliationDefinitionComparisonRulesetIds), BreakCodeSource breakCodeSource = default(BreakCodeSource))
+        /// <param name="primarySchedule">primarySchedule.</param>
+        public CreateGroupReconciliationDefinitionRequest(ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), GroupReconciliationDefinitionPortfolioEntityIds portfolioEntityIds = default(GroupReconciliationDefinitionPortfolioEntityIds), GroupReconciliationDefinitionRecipeIds recipeIds = default(GroupReconciliationDefinitionRecipeIds), GroupReconciliationDefinitionCurrencies currencies = default(GroupReconciliationDefinitionCurrencies), TransactionDateWindows transactionDateWindows = default(TransactionDateWindows), GroupReconciliationDefinitionComparisonRulesetIds comparisonRulesetIds = default(GroupReconciliationDefinitionComparisonRulesetIds), BreakCodeSource breakCodeSource = default(BreakCodeSource), PrimarySchedule primarySchedule = default(PrimarySchedule))
         {
             // to ensure "displayName" is required (not null)
             if (displayName == null)
@@ -66,6 +67,7 @@ namespace Lusid.Sdk.Model
             this.TransactionDateWindows = transactionDateWindows;
             this.ComparisonRulesetIds = comparisonRulesetIds;
             this.BreakCodeSource = breakCodeSource;
+            this.PrimarySchedule = primarySchedule;
         }
 
         /// <summary>
@@ -125,6 +127,12 @@ namespace Lusid.Sdk.Model
         public BreakCodeSource BreakCodeSource { get; set; }
 
         /// <summary>
+        /// Gets or Sets PrimarySchedule
+        /// </summary>
+        [DataMember(Name = "primarySchedule", EmitDefaultValue = false)]
+        public PrimarySchedule PrimarySchedule { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -141,6 +149,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  TransactionDateWindows: ").Append(TransactionDateWindows).Append("\n");
             sb.Append("  ComparisonRulesetIds: ").Append(ComparisonRulesetIds).Append("\n");
             sb.Append("  BreakCodeSource: ").Append(BreakCodeSource).Append("\n");
+            sb.Append("  PrimarySchedule: ").Append(PrimarySchedule).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -220,6 +229,11 @@ namespace Lusid.Sdk.Model
                     this.BreakCodeSource == input.BreakCodeSource ||
                     (this.BreakCodeSource != null &&
                     this.BreakCodeSource.Equals(input.BreakCodeSource))
+                ) && 
+                (
+                    this.PrimarySchedule == input.PrimarySchedule ||
+                    (this.PrimarySchedule != null &&
+                    this.PrimarySchedule.Equals(input.PrimarySchedule))
                 );
         }
 
@@ -267,6 +281,10 @@ namespace Lusid.Sdk.Model
                 if (this.BreakCodeSource != null)
                 {
                     hashCode = (hashCode * 59) + this.BreakCodeSource.GetHashCode();
+                }
+                if (this.PrimarySchedule != null)
+                {
+                    hashCode = (hashCode * 59) + this.PrimarySchedule.GetHashCode();
                 }
                 return hashCode;
             }
