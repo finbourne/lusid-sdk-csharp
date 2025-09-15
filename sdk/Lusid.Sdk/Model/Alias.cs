@@ -165,6 +165,13 @@ namespace Lusid.Sdk.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AttributeName, length must be greater than 0.", new [] { "AttributeName" });
             }
 
+            // AttributeName (string) pattern
+            Regex regexAttributeName = new Regex(@"^[\s\S]*$", RegexOptions.CultureInvariant);
+            if (false == regexAttributeName.Match(this.AttributeName).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AttributeName, must match a pattern of " + regexAttributeName, new [] { "AttributeName" });
+            }
+
             // AttributeAlias (string) maxLength
             if (this.AttributeAlias != null && this.AttributeAlias.Length > 128)
             {
@@ -175,6 +182,13 @@ namespace Lusid.Sdk.Model
             if (this.AttributeAlias != null && this.AttributeAlias.Length < 0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AttributeAlias, length must be greater than 0.", new [] { "AttributeAlias" });
+            }
+
+            // AttributeAlias (string) pattern
+            Regex regexAttributeAlias = new Regex(@"^[\s\S]*$", RegexOptions.CultureInvariant);
+            if (false == regexAttributeAlias.Match(this.AttributeAlias).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AttributeAlias, must match a pattern of " + regexAttributeAlias, new [] { "AttributeAlias" });
             }
 
             yield break;

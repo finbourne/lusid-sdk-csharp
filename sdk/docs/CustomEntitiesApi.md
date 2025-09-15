@@ -7,6 +7,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**DeleteCustomEntity**](CustomEntitiesApi.md#deletecustomentity) | **DELETE** /api/customentities/{entityType}/{identifierType}/{identifierValue} | DeleteCustomEntity: Delete a Custom Entity instance. |
 | [**DeleteCustomEntityAccessMetadata**](CustomEntitiesApi.md#deletecustomentityaccessmetadata) | **DELETE** /api/customentities/{entityType}/{identifierType}/{identifierValue}/metadata/{metadataKey} | [EARLY ACCESS] DeleteCustomEntityAccessMetadata: Delete a Custom Entity Access Metadata entry |
 | [**GetAllCustomEntityAccessMetadata**](CustomEntitiesApi.md#getallcustomentityaccessmetadata) | **GET** /api/customentities/{entityType}/{identifierType}/{identifierValue}/metadata | [EARLY ACCESS] GetAllCustomEntityAccessMetadata: Get all the Access Metadata rules for a Custom Entity |
+| [**GetAllCustomEntityProperties**](CustomEntitiesApi.md#getallcustomentityproperties) | **GET** /api/customentities/{entityType}/{identifierType}/{identifierValue}/properties | [EARLY ACCESS] GetAllCustomEntityProperties: Get all properties related to a Custom Entity instance. |
 | [**GetCustomEntity**](CustomEntitiesApi.md#getcustomentity) | **GET** /api/customentities/{entityType}/{identifierType}/{identifierValue} | GetCustomEntity: Get a Custom Entity instance. |
 | [**GetCustomEntityAccessMetadataByKey**](CustomEntitiesApi.md#getcustomentityaccessmetadatabykey) | **GET** /api/customentities/{entityType}/{identifierType}/{identifierValue}/metadata/{metadataKey} | [EARLY ACCESS] GetCustomEntityAccessMetadataByKey: Get an entry identified by a metadataKey in the Access Metadata of a Custom Entity |
 | [**GetCustomEntityRelationships**](CustomEntitiesApi.md#getcustomentityrelationships) | **GET** /api/customentities/{entityType}/{identifierType}/{identifierValue}/relationships | [EARLY ACCESS] GetCustomEntityRelationships: Get Relationships for Custom Entity |
@@ -381,6 +382,130 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The access metadata for the CustomEntity or any failure. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="getallcustomentityproperties"></a>
+# **GetAllCustomEntityProperties**
+> CustomEntityProperties GetAllCustomEntityProperties (string entityType, string identifierType, string identifierValue, string identifierScope, DateTimeOffset? asAt = null, DateTimeOrCutLabel? effectiveAt = null)
+
+[EARLY ACCESS] GetAllCustomEntityProperties: Get all properties related to a Custom Entity instance.
+
+Returns only properties that a user has permissions to read             and that are applicable to the specific entity type as per PropertyDefinition CustomEntityTypes.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CustomEntitiesApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CustomEntitiesApi>();
+            var entityType = "entityType_example";  // string | The type of Custom Entity.
+            var identifierType = "identifierType_example";  // string | An identifier type attached to the Custom Entity instance.
+            var identifierValue = "identifierValue_example";  // string | The identifier value.
+            var identifierScope = "identifierScope_example";  // string | The identifier scope.
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The AsAt datetime at which to retrieve the Custom Entity properties. (optional) 
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime at which to get the Custom Entity properties. Defaults to the current LUSID system datetime if not specified. (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // CustomEntityProperties result = apiInstance.GetAllCustomEntityProperties(entityType, identifierType, identifierValue, identifierScope, asAt, effectiveAt, opts: opts);
+
+                // [EARLY ACCESS] GetAllCustomEntityProperties: Get all properties related to a Custom Entity instance.
+                CustomEntityProperties result = apiInstance.GetAllCustomEntityProperties(entityType, identifierType, identifierValue, identifierScope, asAt, effectiveAt);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling CustomEntitiesApi.GetAllCustomEntityProperties: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetAllCustomEntityPropertiesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] GetAllCustomEntityProperties: Get all properties related to a Custom Entity instance.
+    ApiResponse<CustomEntityProperties> response = apiInstance.GetAllCustomEntityPropertiesWithHttpInfo(entityType, identifierType, identifierValue, identifierScope, asAt, effectiveAt);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling CustomEntitiesApi.GetAllCustomEntityPropertiesWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **entityType** | **string** | The type of Custom Entity. |  |
+| **identifierType** | **string** | An identifier type attached to the Custom Entity instance. |  |
+| **identifierValue** | **string** | The identifier value. |  |
+| **identifierScope** | **string** | The identifier scope. |  |
+| **asAt** | **DateTimeOffset?** | The AsAt datetime at which to retrieve the Custom Entity properties. | [optional]  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime at which to get the Custom Entity properties. Defaults to the current LUSID system datetime if not specified. | [optional]  |
+
+### Return type
+
+[**CustomEntityProperties**](CustomEntityProperties.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Get all properties for a custom entity instance. |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 

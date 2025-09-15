@@ -46,7 +46,9 @@ namespace Lusid.Sdk.Model
         /// <param name="realisedTotal">realisedTotal (required).</param>
         /// <param name="realisedMarket">realisedMarket.</param>
         /// <param name="realisedCurrency">realisedCurrency.</param>
-        public RealisedGainLoss(string instrumentScope = default(string), string instrumentUid = default(string), decimal units = default(decimal), decimal? purchasePrice = default(decimal?), CurrencyAndAmount costTradeCcy = default(CurrencyAndAmount), CurrencyAndAmount costPortfolioCcy = default(CurrencyAndAmount), CurrencyAndAmount realisedTradeCcy = default(CurrencyAndAmount), CurrencyAndAmount realisedTotal = default(CurrencyAndAmount), CurrencyAndAmount realisedMarket = default(CurrencyAndAmount), CurrencyAndAmount realisedCurrency = default(CurrencyAndAmount))
+        /// <param name="taxLotId">The identifier of the tax lot with which this gain or loss is associated..</param>
+        /// <param name="realisedAmortisation">realisedAmortisation.</param>
+        public RealisedGainLoss(string instrumentScope = default(string), string instrumentUid = default(string), decimal units = default(decimal), decimal? purchasePrice = default(decimal?), CurrencyAndAmount costTradeCcy = default(CurrencyAndAmount), CurrencyAndAmount costPortfolioCcy = default(CurrencyAndAmount), CurrencyAndAmount realisedTradeCcy = default(CurrencyAndAmount), CurrencyAndAmount realisedTotal = default(CurrencyAndAmount), CurrencyAndAmount realisedMarket = default(CurrencyAndAmount), CurrencyAndAmount realisedCurrency = default(CurrencyAndAmount), string taxLotId = default(string), CurrencyAndAmount realisedAmortisation = default(CurrencyAndAmount))
         {
             // to ensure "instrumentUid" is required (not null)
             if (instrumentUid == null)
@@ -83,6 +85,8 @@ namespace Lusid.Sdk.Model
             this.PurchasePrice = purchasePrice;
             this.RealisedMarket = realisedMarket;
             this.RealisedCurrency = realisedCurrency;
+            this.TaxLotId = taxLotId;
+            this.RealisedAmortisation = realisedAmortisation;
         }
 
         /// <summary>
@@ -180,6 +184,19 @@ namespace Lusid.Sdk.Model
         public CurrencyAndAmount RealisedCurrency { get; set; }
 
         /// <summary>
+        /// The identifier of the tax lot with which this gain or loss is associated.
+        /// </summary>
+        /// <value>The identifier of the tax lot with which this gain or loss is associated.</value>
+        [DataMember(Name = "taxLotId", EmitDefaultValue = true)]
+        public string TaxLotId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets RealisedAmortisation
+        /// </summary>
+        [DataMember(Name = "realisedAmortisation", EmitDefaultValue = false)]
+        public CurrencyAndAmount RealisedAmortisation { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -199,6 +216,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  RealisedTotal: ").Append(RealisedTotal).Append("\n");
             sb.Append("  RealisedMarket: ").Append(RealisedMarket).Append("\n");
             sb.Append("  RealisedCurrency: ").Append(RealisedCurrency).Append("\n");
+            sb.Append("  TaxLotId: ").Append(TaxLotId).Append("\n");
+            sb.Append("  RealisedAmortisation: ").Append(RealisedAmortisation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -292,6 +311,16 @@ namespace Lusid.Sdk.Model
                     this.RealisedCurrency == input.RealisedCurrency ||
                     (this.RealisedCurrency != null &&
                     this.RealisedCurrency.Equals(input.RealisedCurrency))
+                ) && 
+                (
+                    this.TaxLotId == input.TaxLotId ||
+                    (this.TaxLotId != null &&
+                    this.TaxLotId.Equals(input.TaxLotId))
+                ) && 
+                (
+                    this.RealisedAmortisation == input.RealisedAmortisation ||
+                    (this.RealisedAmortisation != null &&
+                    this.RealisedAmortisation.Equals(input.RealisedAmortisation))
                 );
         }
 
@@ -348,6 +377,14 @@ namespace Lusid.Sdk.Model
                 if (this.RealisedCurrency != null)
                 {
                     hashCode = (hashCode * 59) + this.RealisedCurrency.GetHashCode();
+                }
+                if (this.TaxLotId != null)
+                {
+                    hashCode = (hashCode * 59) + this.TaxLotId.GetHashCode();
+                }
+                if (this.RealisedAmortisation != null)
+                {
+                    hashCode = (hashCode * 59) + this.RealisedAmortisation.GetHashCode();
                 }
                 return hashCode;
             }

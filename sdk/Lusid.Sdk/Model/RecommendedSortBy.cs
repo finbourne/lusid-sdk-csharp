@@ -160,6 +160,13 @@ namespace Lusid.Sdk.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AttributeName, length must be greater than 1.", new [] { "AttributeName" });
             }
 
+            // AttributeName (string) pattern
+            Regex regexAttributeName = new Regex(@"^[\s\S]*$", RegexOptions.CultureInvariant);
+            if (false == regexAttributeName.Match(this.AttributeName).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AttributeName, must match a pattern of " + regexAttributeName, new [] { "AttributeName" });
+            }
+
             // SortOrder (string) maxLength
             if (this.SortOrder != null && this.SortOrder.Length > 4)
             {

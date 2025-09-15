@@ -178,6 +178,7 @@ Class | Method | HTTP request | Description
 *CustomEntitiesApi* | [**DeleteCustomEntity**](docs/CustomEntitiesApi.md#deletecustomentity) | **DELETE** /api/customentities/{entityType}/{identifierType}/{identifierValue} | DeleteCustomEntity: Delete a Custom Entity instance.
 *CustomEntitiesApi* | [**DeleteCustomEntityAccessMetadata**](docs/CustomEntitiesApi.md#deletecustomentityaccessmetadata) | **DELETE** /api/customentities/{entityType}/{identifierType}/{identifierValue}/metadata/{metadataKey} | [EARLY ACCESS] DeleteCustomEntityAccessMetadata: Delete a Custom Entity Access Metadata entry
 *CustomEntitiesApi* | [**GetAllCustomEntityAccessMetadata**](docs/CustomEntitiesApi.md#getallcustomentityaccessmetadata) | **GET** /api/customentities/{entityType}/{identifierType}/{identifierValue}/metadata | [EARLY ACCESS] GetAllCustomEntityAccessMetadata: Get all the Access Metadata rules for a Custom Entity
+*CustomEntitiesApi* | [**GetAllCustomEntityProperties**](docs/CustomEntitiesApi.md#getallcustomentityproperties) | **GET** /api/customentities/{entityType}/{identifierType}/{identifierValue}/properties | [EARLY ACCESS] GetAllCustomEntityProperties: Get all properties related to a Custom Entity instance.
 *CustomEntitiesApi* | [**GetCustomEntity**](docs/CustomEntitiesApi.md#getcustomentity) | **GET** /api/customentities/{entityType}/{identifierType}/{identifierValue} | GetCustomEntity: Get a Custom Entity instance.
 *CustomEntitiesApi* | [**GetCustomEntityAccessMetadataByKey**](docs/CustomEntitiesApi.md#getcustomentityaccessmetadatabykey) | **GET** /api/customentities/{entityType}/{identifierType}/{identifierValue}/metadata/{metadataKey} | [EARLY ACCESS] GetCustomEntityAccessMetadataByKey: Get an entry identified by a metadataKey in the Access Metadata of a Custom Entity
 *CustomEntitiesApi* | [**GetCustomEntityRelationships**](docs/CustomEntitiesApi.md#getcustomentityrelationships) | **GET** /api/customentities/{entityType}/{identifierType}/{identifierValue}/relationships | [EARLY ACCESS] GetCustomEntityRelationships: Get Relationships for Custom Entity
@@ -957,6 +958,7 @@ Class | Method | HTTP request | Description
  - [CustomEntityField](docs/CustomEntityField.md)
  - [CustomEntityFieldDefinition](docs/CustomEntityFieldDefinition.md)
  - [CustomEntityId](docs/CustomEntityId.md)
+ - [CustomEntityProperties](docs/CustomEntityProperties.md)
  - [CustomEntityRequest](docs/CustomEntityRequest.md)
  - [CustomEntityResponse](docs/CustomEntityResponse.md)
  - [CustomEntityType](docs/CustomEntityType.md)

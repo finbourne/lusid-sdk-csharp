@@ -16,6 +16,8 @@ Name | Type | Description | Notes
 **RealisedTotal** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | 
 **RealisedMarket** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
 **RealisedCurrency** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
+**TaxLotId** | **string** | The identifier of the tax lot with which this gain or loss is associated. | [optional] 
+**RealisedAmortisation** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 
