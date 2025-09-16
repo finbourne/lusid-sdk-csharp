@@ -24,5 +24,52 @@ Name | Type | Description | Notes
 **GroupId** | **string** | Arbitrary string that can be used to cross reference an entry in the A2B report with activity in the A2B-Movements. This should be used purely as a token. The content should not be relied upon. | [optional] 
 **Errors** | [**List&lt;ResponseMetaData&gt;**](ResponseMetaData.md) | Any errors with the record are reported here. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+ResourceId? portfolioId = new ResourceId();
+
+string holdingType = "example holdingType";
+string instrumentScope = "example instrumentScope";
+string instrumentUid = "example instrumentUid";
+Dictionary<string, PerpetualProperty> subHoldingKeys = new Dictionary<string, PerpetualProperty>();
+string currency = "example currency";
+string transactionId = "example transactionId";
+string movementName = "example movementName";decimal? units = "example units";
+A2BCategory? start = new A2BCategory();
+
+A2BCategory? flows = new A2BCategory();
+
+A2BCategory? gains = new A2BCategory();
+
+A2BCategory? carry = new A2BCategory();
+
+A2BCategory? end = new A2BCategory();
+
+Dictionary<string, Property> properties = new Dictionary<string, Property>();
+string groupId = "example groupId";
+List<ResponseMetaData> errors = new List<ResponseMetaData>();
+
+A2BMovementRecord a2BMovementRecordInstance = new A2BMovementRecord(
+    portfolioId: portfolioId,
+    holdingType: holdingType,
+    instrumentScope: instrumentScope,
+    instrumentUid: instrumentUid,
+    subHoldingKeys: subHoldingKeys,
+    currency: currency,
+    transactionId: transactionId,
+    movementName: movementName,
+    effectiveDate: effectiveDate,
+    units: units,
+    start: start,
+    flows: flows,
+    gains: gains,
+    carry: carry,
+    end: end,
+    properties: properties,
+    groupId: groupId,
+    errors: errors);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -12,5 +12,23 @@ Name | Type | Description | Notes
 **HasResults** | **bool** | False when no results have been returned eg. when no rules exist | 
 **AsAt** | **DateTimeOffset** | Legacy AsAt time for backwards compatibility | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string runId = "runId";
+string schedule = "schedule";
+bool allRulesPassed = //"True";
+bool hasResults = //"True";
+
+ComplianceRunInfo complianceRunInfoInstance = new ComplianceRunInfo(
+    runId: runId,
+    instigatedAt: instigatedAt,
+    completedAt: completedAt,
+    schedule: schedule,
+    allRulesPassed: allRulesPassed,
+    hasResults: hasResults,
+    asAt: asAt);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

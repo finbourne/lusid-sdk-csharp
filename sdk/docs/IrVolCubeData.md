@@ -11,5 +11,19 @@ Name | Type | Description | Notes
 **Quotes** | [**List&lt;MarketQuote&gt;**](MarketQuote.md) | Access the set of quotes that define the cube. | 
 **Lineage** | **string** | Description of the complex market data&#39;s lineage e.g. &#39;FundAccountant_GreenQuality&#39;. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+List<LusidInstrument> instruments = new List<LusidInstrument>();
+List<MarketQuote> quotes = new List<MarketQuote>();
+string lineage = "example lineage";
+
+IrVolCubeData irVolCubeDataInstance = new IrVolCubeData(
+    baseDate: baseDate,
+    instruments: instruments,
+    quotes: quotes,
+    lineage: lineage);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

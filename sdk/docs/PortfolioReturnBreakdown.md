@@ -19,5 +19,27 @@ Name | Type | Description | Notes
 **LocalOpeningMarketValue** | **decimal?** | The opening market value in the local currency. | [optional] 
 **LocalClosingMarketValue** | **decimal?** | The closing market value in the local currency. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+ResourceId portfolioId = new ResourceId();decimal? rateOfReturn = "example rateOfReturn";decimal? weight = "example weight";
+string currency = "example currency";decimal? openFxRate = "example openFxRate";decimal? closeFxRate = "example closeFxRate";
+
+PortfolioReturnBreakdown portfolioReturnBreakdownInstance = new PortfolioReturnBreakdown(
+    portfolioId: portfolioId,
+    rateOfReturn: rateOfReturn,
+    openingMarketValue: openingMarketValue,
+    closingMarketValue: closingMarketValue,
+    weight: weight,
+    constituentsInTheComposite: constituentsInTheComposite,
+    constituentsMissing: constituentsMissing,
+    currency: currency,
+    openFxRate: openFxRate,
+    closeFxRate: closeFxRate,
+    localRateOfReturn: localRateOfReturn,
+    localOpeningMarketValue: localOpeningMarketValue,
+    localClosingMarketValue: localClosingMarketValue);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

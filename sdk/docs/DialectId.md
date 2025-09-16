@@ -12,5 +12,24 @@ Name | Type | Description | Notes
 **SerialisationFormat** | **string** | The serialisation format of a document in this dialect. e.g. JSON, XML. | 
 **EntityType** | **string** | The type of entity this dialect describes e.g. Instrument. | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string scope = "scope";
+string vendor = "vendor";
+string sourceSystem = "sourceSystem";
+string varVersion = "varVersion";
+string serialisationFormat = "serialisationFormat";
+string entityType = "entityType";
+
+DialectId dialectIdInstance = new DialectId(
+    scope: scope,
+    vendor: vendor,
+    sourceSystem: sourceSystem,
+    varVersion: varVersion,
+    serialisationFormat: serialisationFormat,
+    entityType: entityType);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

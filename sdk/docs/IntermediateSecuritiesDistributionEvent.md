@@ -16,5 +16,24 @@ Name | Type | Description | Notes
 **FractionalUnitsCashPrice** | **decimal?** | Optional. Used in calculating cash-in-lieu of fractional shares. | [optional] 
 **FractionalUnitsCashCurrency** | **string** | Optional. Used in calculating cash-in-lieu of fractional shares. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+NewInstrument newInstrument = new NewInstrument();
+UnitsRatio unitsRatio = new UnitsRatio();
+string fractionalUnitsCashCurrency = "example fractionalUnitsCashCurrency";
+
+IntermediateSecuritiesDistributionEvent intermediateSecuritiesDistributionEventInstance = new IntermediateSecuritiesDistributionEvent(
+    announcementDate: announcementDate,
+    exDate: exDate,
+    recordDate: recordDate,
+    paymentDate: paymentDate,
+    newInstrument: newInstrument,
+    unitsRatio: unitsRatio,
+    costFactor: costFactor,
+    fractionalUnitsCashPrice: fractionalUnitsCashPrice,
+    fractionalUnitsCashCurrency: fractionalUnitsCashCurrency);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

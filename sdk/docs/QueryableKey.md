@@ -17,5 +17,35 @@ Name | Type | Description | Notes
 **ApplicableOptions** | [**Dictionary&lt;string, AddressKeyOptionDefinition&gt;**](AddressKeyOptionDefinition.md) | A mapping from option names to the definition that the corresponding option value must match. | [optional] 
 **DerivationFormula** | **string** | Derivation formula for when the for when the query key represents a DerivedValuation property. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string addressKey = "addressKey";
+string description = "example description";
+string displayName = "displayName";
+string type = "type";
+string flattenedType = "flattenedType";
+string holdingQuantityScaling = "holdingQuantityScaling";
+List<string> supportedUsages = new List<string>();
+List<string> supportedOperations = new List<string>();
+string lifeCycleStatus = "lifeCycleStatus";
+Dictionary<string, AddressKeyOptionDefinition> applicableOptions = new Dictionary<string, AddressKeyOptionDefinition>();
+string derivationFormula = "example derivationFormula";
+
+QueryableKey queryableKeyInstance = new QueryableKey(
+    addressKey: addressKey,
+    description: description,
+    displayName: displayName,
+    type: type,
+    flattenedType: flattenedType,
+    holdingQuantityScaling: holdingQuantityScaling,
+    supportedUsages: supportedUsages,
+    supportedOperations: supportedOperations,
+    lifeCycleStatus: lifeCycleStatus,
+    removalDate: removalDate,
+    applicableOptions: applicableOptions,
+    derivationFormula: derivationFormula);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

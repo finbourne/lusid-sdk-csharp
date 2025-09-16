@@ -10,5 +10,22 @@ Name | Type | Description | Notes
 **MissingDataInformation** | **List&lt;string&gt;** | List of string information detailing data that was missing from contributions processed in this rule | 
 **Lineage** | [**List&lt;LineageMember&gt;**](LineageMember.md) |  | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string groupStatus = "groupStatus";
+Dictionary<string, decimal> resultsUsed = new Dictionary<string, decimal>();
+Dictionary<string, List<Property>> propertiesUsed = new Dictionary<string, List<Property>>();
+List<string> missingDataInformation = new List<string>();
+List<LineageMember> lineage = new List<LineageMember>();
+
+ComplianceRuleBreakdown complianceRuleBreakdownInstance = new ComplianceRuleBreakdown(
+    groupStatus: groupStatus,
+    resultsUsed: resultsUsed,
+    propertiesUsed: propertiesUsed,
+    missingDataInformation: missingDataInformation,
+    lineage: lineage);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

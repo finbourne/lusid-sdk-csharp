@@ -14,5 +14,24 @@ Name | Type | Description | Notes
 **TotalAccrual** | **decimal** | The sum of the PreviousAccrual and Amount. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string code = "code";
+string name = "name";decimal? calculationBase = "example calculationBase";decimal? amount = "example amount";decimal? previousAccrual = "example previousAccrual";decimal? previousTotalAccrual = "example previousTotalAccrual";decimal? totalAccrual = "example totalAccrual";
+List<Link> links = new List<Link>();
+
+FeeAccrual feeAccrualInstance = new FeeAccrual(
+    effectiveAt: effectiveAt,
+    code: code,
+    name: name,
+    calculationBase: calculationBase,
+    amount: amount,
+    previousAccrual: previousAccrual,
+    previousTotalAccrual: previousTotalAccrual,
+    totalAccrual: totalAccrual,
+    links: links);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

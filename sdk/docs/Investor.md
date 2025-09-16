@@ -11,5 +11,24 @@ Name | Type | Description | Notes
 **Person** | [**Person**](Person.md) |  | [optional] 
 **LegalEntity** | [**LegalEntity**](LegalEntity.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string investorType = "example investorType";
+Dictionary<string, string> identifiers = new Dictionary<string, string>();
+string entityUniqueId = "example entityUniqueId";
+Person? person = new Person();
+
+LegalEntity? legalEntity = new LegalEntity();
+
+
+Investor investorInstance = new Investor(
+    investorType: investorType,
+    identifiers: identifiers,
+    entityUniqueId: entityUniqueId,
+    person: person,
+    legalEntity: legalEntity);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

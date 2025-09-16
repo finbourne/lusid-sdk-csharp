@@ -10,5 +10,16 @@ Name | Type | Description | Notes
 **Price** | **decimal** | The conversion price  Two (and only two) entries out of (Price, Ratio, Denomination) must be provided.  So, to allow one entry out of the three to not be provided, we make all the three  nullable defaulting to zero and during validation we check if there is exactly one  of the three equal to zero. | [optional] 
 **Ratio** | **decimal** | The number of common shares received at the time of conversion for each convertible bond  Two (and only two) entries out of (Price, Ratio, Denomination) must be provided.  So, to allow one entry out of the three to not be provided, we make all the three  nullable defaulting to zero and during validation we check if there is exactly one  of the three equal to zero. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
+decimal? denomination = "example denomination";decimal? price = "example price";decimal? ratio = "example ratio";
 
+BondConversionEntry bondConversionEntryInstance = new BondConversionEntry(
+    date: date,
+    denomination: denomination,
+    price: price,
+    ratio: ratio);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

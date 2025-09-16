@@ -10,5 +10,20 @@ Name | Type | Description | Notes
 **CutLocalTime** | [**CutLocalTime**](CutLocalTime.md) |  | 
 **VarTimeZone** | **string** |  | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string displayName = "displayName";
+string description = "example description";
+CutLocalTime cutLocalTime = new CutLocalTime();
+string varTimeZone = "varTimeZone";
+
+UpdateCutLabelDefinitionRequest updateCutLabelDefinitionRequestInstance = new UpdateCutLabelDefinitionRequest(
+    displayName: displayName,
+    description: description,
+    cutLocalTime: cutLocalTime,
+    varTimeZone: varTimeZone);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

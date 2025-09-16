@@ -9,5 +9,23 @@ Name | Type | Description | Notes
 **Diff** | **List&lt;Dictionary&lt;string, Object&gt;&gt;** |  | [optional] 
 **DataSchema** | [**ResultDataSchema**](ResultDataSchema.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+ListAggregationResponse? left = new ListAggregationResponse();
+
+ListAggregationResponse? right = new ListAggregationResponse();
+
+List<Dictionary<string, Object>> diff = new List<Dictionary<string, Object>>();
+ResultDataSchema? dataSchema = new ResultDataSchema();
+
+
+ListAggregationReconciliation listAggregationReconciliationInstance = new ListAggregationReconciliation(
+    left: left,
+    right: right,
+    diff: diff,
+    dataSchema: dataSchema);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

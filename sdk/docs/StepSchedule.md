@@ -10,5 +10,18 @@ Name | Type | Description | Notes
 **StepScheduleType** | **string** | The type of step that this schedule is for.  Supported string (enumeration) values are: [Coupon, Notional, Spread]. | 
 **Steps** | [**List&lt;LevelStep&gt;**](LevelStep.md) | The level steps which are applied. | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string levelType = "levelType";
+string stepScheduleType = "stepScheduleType";
+List<LevelStep> steps = new List<LevelStep>();
+
+StepSchedule stepScheduleInstance = new StepSchedule(
+    levelType: levelType,
+    stepScheduleType: stepScheduleType,
+    steps: steps);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

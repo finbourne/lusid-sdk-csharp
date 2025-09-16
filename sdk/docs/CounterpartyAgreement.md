@@ -12,5 +12,23 @@ Name | Type | Description | Notes
 **CreditSupportAnnexId** | [**ResourceId**](ResourceId.md) |  | 
 **Id** | [**ResourceId**](ResourceId.md) |  | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string displayName = "displayName";
+string agreementType = "agreementType";
+CounterpartySignatory counterpartySignatory = new CounterpartySignatory();
+ResourceId creditSupportAnnexId = new ResourceId();
+ResourceId id = new ResourceId();
+
+CounterpartyAgreement counterpartyAgreementInstance = new CounterpartyAgreement(
+    displayName: displayName,
+    agreementType: agreementType,
+    counterpartySignatory: counterpartySignatory,
+    datedAsOf: datedAsOf,
+    creditSupportAnnexId: creditSupportAnnexId,
+    id: id);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -11,5 +11,19 @@ Name | Type | Description | Notes
 **EventWindowEnd** | **DateTimeOffset** | In the case of a point event this is identical to the anchor date. In the case of an event that is spread over a window,  this is the end of that window. | [optional] [readonly] 
 **Diagnostics** | [**ResultValueDictionary**](ResultValueDictionary.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string eventType = "eventType";
+ResultValueDictionary? diagnostics = new ResultValueDictionary();
+
+
+InformationalEvent informationalEventInstance = new InformationalEvent(
+    eventType: eventType,
+    anchorDate: anchorDate,
+    eventWindowEnd: eventWindowEnd,
+    diagnostics: diagnostics);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

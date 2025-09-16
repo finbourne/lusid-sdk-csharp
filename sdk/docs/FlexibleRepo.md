@@ -22,5 +22,39 @@ Name | Type | Description | Notes
 **TimeZoneConventions** | [**TimeZoneConventions**](TimeZoneConventions.md) |  | [optional] 
 **TradingConventions** | [**TradingConventions**](TradingConventions.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string buyerOrSeller = "buyerOrSeller";
+string repoCcy = "repoCcy";
+string repoType = "repoType";
+string accrualBasis = "example accrualBasis";
+Collateral? collateral = new Collateral();
+
+string openRepoRollingPeriod = "example openRepoRollingPeriod";
+List<Schedule> repoRateSchedules = new List<Schedule>();
+TimeZoneConventions? timeZoneConventions = new TimeZoneConventions();
+
+TradingConventions? tradingConventions = new TradingConventions();
+
+
+FlexibleRepo flexibleRepoInstance = new FlexibleRepo(
+    startDate: startDate,
+    maturityDate: maturityDate,
+    buyerOrSeller: buyerOrSeller,
+    repoCcy: repoCcy,
+    repoType: repoType,
+    accrualBasis: accrualBasis,
+    collateral: collateral,
+    haircut: haircut,
+    margin: margin,
+    openRepoRollingPeriod: openRepoRollingPeriod,
+    purchasePrice: purchasePrice,
+    repoRateSchedules: repoRateSchedules,
+    repurchasePrice: repurchasePrice,
+    timeZoneConventions: timeZoneConventions,
+    tradingConventions: tradingConventions);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

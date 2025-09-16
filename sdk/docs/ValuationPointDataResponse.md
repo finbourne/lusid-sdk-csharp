@@ -15,5 +15,30 @@ Name | Type | Description | Notes
 **PreviousValuationPointCode** | **string** | The code of the previous valuation point. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string href = "example href";
+string type = "type";
+string status = "status";
+FundDetails fundDetails = new FundDetails();
+FundValuationPointData fundValuationPointData = new FundValuationPointData();
+List<ShareClassData> shareClassData = new List<ShareClassData>();
+string valuationPointCode = "example valuationPointCode";
+string previousValuationPointCode = "example previousValuationPointCode";
+List<Link> links = new List<Link>();
+
+ValuationPointDataResponse valuationPointDataResponseInstance = new ValuationPointDataResponse(
+    href: href,
+    type: type,
+    status: status,
+    fundDetails: fundDetails,
+    fundValuationPointData: fundValuationPointData,
+    shareClassData: shareClassData,
+    valuationPointCode: valuationPointCode,
+    previousValuationPointCode: previousValuationPointCode,
+    links: links);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

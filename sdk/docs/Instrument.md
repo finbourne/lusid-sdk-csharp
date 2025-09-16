@@ -23,5 +23,51 @@ Name | Type | Description | Notes
 **DataModelMembership** | [**DataModelMembership**](DataModelMembership.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string href = "example href";
+string scope = "example scope";
+string lusidInstrumentId = "lusidInstrumentId";
+ModelVersion varVersion = new ModelVersion();
+StagedModificationsInfo? stagedModifications = new StagedModificationsInfo();
+
+string name = "name";
+Dictionary<string, string> identifiers = new Dictionary<string, string>();
+List<Property> properties = new List<Property>();
+ResourceId? lookthroughPortfolio = new ResourceId();
+
+LusidInstrument? instrumentDefinition = new LusidInstrument();
+
+string state = "state";
+string assetClass = "example assetClass";
+string domCcy = "example domCcy";
+List<Relationship> relationships = new List<Relationship>();
+SettlementCycle? settlementCycle = new SettlementCycle();
+
+DataModelMembership? dataModelMembership = new DataModelMembership();
+
+List<Link> links = new List<Link>();
+
+Instrument instrumentInstance = new Instrument(
+    href: href,
+    scope: scope,
+    lusidInstrumentId: lusidInstrumentId,
+    varVersion: varVersion,
+    stagedModifications: stagedModifications,
+    name: name,
+    identifiers: identifiers,
+    properties: properties,
+    lookthroughPortfolio: lookthroughPortfolio,
+    instrumentDefinition: instrumentDefinition,
+    state: state,
+    assetClass: assetClass,
+    domCcy: domCcy,
+    relationships: relationships,
+    settlementCycle: settlementCycle,
+    dataModelMembership: dataModelMembership,
+    links: links);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

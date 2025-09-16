@@ -22,5 +22,47 @@ Name | Type | Description | Notes
 **DataModelMembership** | [**DataModelMembership**](DataModelMembership.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+ResourceId id = new ResourceId();
+List<ResourceId> orderIds = new List<ResourceId>();
+Dictionary<string, PerpetualProperty> properties = new Dictionary<string, PerpetualProperty>();
+Dictionary<string, string> instrumentIdentifiers = new Dictionary<string, string>();
+string lusidInstrumentId = "lusidInstrumentId";decimal quantity = "quantity";
+
+string side = "side";
+string type = "type";
+string timeInForce = "timeInForce";
+CurrencyAndAmount? limitPrice = new CurrencyAndAmount();
+
+CurrencyAndAmount? stopPrice = new CurrencyAndAmount();
+
+bool isSwept = //"True";
+ModelVersion? varVersion = new ModelVersion();
+
+DataModelMembership? dataModelMembership = new DataModelMembership();
+
+List<Link> links = new List<Link>();
+
+Block blockInstance = new Block(
+    id: id,
+    orderIds: orderIds,
+    properties: properties,
+    instrumentIdentifiers: instrumentIdentifiers,
+    lusidInstrumentId: lusidInstrumentId,
+    quantity: quantity,
+    side: side,
+    type: type,
+    timeInForce: timeInForce,
+    createdDate: createdDate,
+    limitPrice: limitPrice,
+    stopPrice: stopPrice,
+    isSwept: isSwept,
+    varVersion: varVersion,
+    dataModelMembership: dataModelMembership,
+    links: links);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

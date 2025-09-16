@@ -9,5 +9,18 @@ Name | Type | Description | Notes
 **StartOfDay** | **string** | A LUSID Cut Label code used for generating instrument events at a time other than local midnight. | [optional] 
 **PrimaryMarketOpen** | **string** | A LUSID Cut Label code used for delaying the transaction time of certain instrument events until market open. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string primaryTimeZone = "primaryTimeZone";
+string startOfDay = "example startOfDay";
+string primaryMarketOpen = "example primaryMarketOpen";
+
+TimeZoneConventions timeZoneConventionsInstance = new TimeZoneConventions(
+    primaryTimeZone: primaryTimeZone,
+    startOfDay: startOfDay,
+    primaryMarketOpen: primaryMarketOpen);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -13,5 +13,20 @@ Name | Type | Description | Notes
 **PricePerUnit** | **decimal?** | The price, or strike, that each unit is redeemed at. | [optional] 
 **AccruedInterestPerUnit** | **decimal?** | Unpaid accrued interest also repaid as part of the redemption, per unit.  Optional field.  If left empty, will be resolved internally by calculating the accrued owed on the EffectiveDate.  This process may require additional market data. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string currency = "currency";
+List<EarlyRedemptionElection> earlyRedemptionElections = new List<EarlyRedemptionElection>();decimal? redemptionPercentage = "example redemptionPercentage";
+
+EarlyRedemptionEvent earlyRedemptionEventInstance = new EarlyRedemptionEvent(
+    effectiveDate: effectiveDate,
+    currency: currency,
+    earlyRedemptionElections: earlyRedemptionElections,
+    redemptionPercentage: redemptionPercentage,
+    pricePerUnit: pricePerUnit,
+    accruedInterestPerUnit: accruedInterestPerUnit);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

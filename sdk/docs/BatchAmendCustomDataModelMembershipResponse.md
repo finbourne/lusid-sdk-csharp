@@ -9,5 +9,20 @@ Name | Type | Description | Notes
 **Failed** | [**Dictionary&lt;string, ErrorDetail&gt;**](ErrorDetail.md) |  | [optional] 
 **Metadata** | **Dictionary&lt;string, List&lt;ResponseMetaData&gt;&gt;** |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+Dictionary<string, MembershipAmendmentResponse> values = new Dictionary<string, MembershipAmendmentResponse>();
+Dictionary<string, MembershipAmendmentResponse> staged = new Dictionary<string, MembershipAmendmentResponse>();
+Dictionary<string, ErrorDetail> failed = new Dictionary<string, ErrorDetail>();
+Dictionary<string, List<ResponseMetaData>> metadata = new Dictionary<string, List<ResponseMetaData>>();
+
+BatchAmendCustomDataModelMembershipResponse batchAmendCustomDataModelMembershipResponseInstance = new BatchAmendCustomDataModelMembershipResponse(
+    values: values,
+    staged: staged,
+    failed: failed,
+    metadata: metadata);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

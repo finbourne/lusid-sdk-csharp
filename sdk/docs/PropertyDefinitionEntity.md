@@ -18,5 +18,38 @@ Name | Type | Description | Notes
 **PreviewedPropertyDefinition** | [**PropertyDefinition**](PropertyDefinition.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string href = "href";
+string entityUniqueId = "entityUniqueId";
+string status = "status";
+string userIdDeleted = "example userIdDeleted";
+string requestIdDeleted = "example requestIdDeleted";
+PropertyDefinition? prevailingPropertyDefinition = new PropertyDefinition();
+
+PropertyDefinition? deletedPropertyDefinition = new PropertyDefinition();
+
+string previewedStatus = "example previewedStatus";
+PropertyDefinition? previewedPropertyDefinition = new PropertyDefinition();
+
+List<Link> links = new List<Link>();
+
+PropertyDefinitionEntity propertyDefinitionEntityInstance = new PropertyDefinitionEntity(
+    href: href,
+    entityUniqueId: entityUniqueId,
+    asAtVersionNumber: asAtVersionNumber,
+    status: status,
+    asAtDeleted: asAtDeleted,
+    userIdDeleted: userIdDeleted,
+    requestIdDeleted: requestIdDeleted,
+    effectiveAtCreated: effectiveAtCreated,
+    prevailingPropertyDefinition: prevailingPropertyDefinition,
+    deletedPropertyDefinition: deletedPropertyDefinition,
+    previewedStatus: previewedStatus,
+    previewedPropertyDefinition: previewedPropertyDefinition,
+    links: links);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

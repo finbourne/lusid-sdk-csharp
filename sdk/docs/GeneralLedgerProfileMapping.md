@@ -7,5 +7,16 @@ Name | Type | Description | Notes
 **MappingFilter** | **string** | The filter syntax for the Mapping filter. See https://support.lusid.com/knowledgebase/article/KA-02140 for more information on filter syntax | 
 **Levels** | **List&lt;string&gt;** | References fields and properties on the associated Journal Entry Line and graph of associated objects. | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string mappingFilter = "mappingFilter";
+List<string> levels = new List<string>();
+
+GeneralLedgerProfileMapping generalLedgerProfileMappingInstance = new GeneralLedgerProfileMapping(
+    mappingFilter: mappingFilter,
+    levels: levels);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

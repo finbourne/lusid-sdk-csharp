@@ -10,5 +10,21 @@ Name | Type | Description | Notes
 **Transaction** | [**OutputTransaction**](OutputTransaction.md) |  | [optional] 
 **PortfolioId** | [**PortfolioId**](PortfolioId.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string journalEntryAction = "example journalEntryAction";
+OutputTransaction? transaction = new OutputTransaction();
+
+PortfolioId? portfolioId = new PortfolioId();
+
+
+AccountedTransaction accountedTransactionInstance = new AccountedTransaction(
+    accountingDate: accountingDate,
+    journalEntryAction: journalEntryAction,
+    transaction: transaction,
+    portfolioId: portfolioId);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

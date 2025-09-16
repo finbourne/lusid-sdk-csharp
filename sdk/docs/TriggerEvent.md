@@ -12,5 +12,20 @@ Name | Type | Description | Notes
 **TriggerDate** | **DateTimeOffset** | The date the trigger happens at. | 
 **MaturityDate** | **DateTimeOffset** | The date the trigger takes effect. | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
+decimal level = "level";
 
+string triggerType = "triggerType";
+string triggerDirection = "triggerDirection";
+
+TriggerEvent triggerEventInstance = new TriggerEvent(
+    level: level,
+    triggerType: triggerType,
+    triggerDirection: triggerDirection,
+    triggerDate: triggerDate,
+    maturityDate: maturityDate);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

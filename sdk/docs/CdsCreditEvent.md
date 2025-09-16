@@ -10,5 +10,15 @@ Name | Type | Description | Notes
 **AuctionDate** | **DateTimeOffset?** | The date of the credit event auction - i.e. date on which the defaulted debt is sold via auction, and a recovery rate determined. | [optional] 
 **RecoveryRate** | **decimal?** | The fraction of the defaulted debt that can be recovered. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+
+CdsCreditEvent cdsCreditEventInstance = new CdsCreditEvent(
+    effectiveDate: effectiveDate,
+    auctionDate: auctionDate,
+    recoveryRate: recoveryRate);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -7,5 +7,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CounterpartyAgreement** | [**CounterpartyAgreement**](CounterpartyAgreement.md) |  | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+CounterpartyAgreement counterpartyAgreement = new CounterpartyAgreement();
+
+UpsertCounterpartyAgreementRequest upsertCounterpartyAgreementRequestInstance = new UpsertCounterpartyAgreementRequest(
+    counterpartyAgreement: counterpartyAgreement);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

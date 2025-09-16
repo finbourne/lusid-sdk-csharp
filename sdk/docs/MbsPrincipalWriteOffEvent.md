@@ -11,5 +11,17 @@ Name | Type | Description | Notes
 **Currency** | **string** | The currency in which the principal write off is notated | 
 **PrincipalPerUnit** | **decimal?** | The principal amount to be written off for each unit of the instrument held on the ex date | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string currency = "currency";
+
+MbsPrincipalWriteOffEvent mbsPrincipalWriteOffEventInstance = new MbsPrincipalWriteOffEvent(
+    exDate: exDate,
+    paymentDate: paymentDate,
+    currency: currency,
+    principalPerUnit: principalPerUnit);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -18,5 +18,38 @@ Name | Type | Description | Notes
 **TransactionTypeScope** | **string** |  | 
 **CashGainLossCalculationDate** | **string** |  | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string code = "example code";
+string displayName = "example displayName";
+string description = "example description";
+ResourceId chartOfAccountsId = new ResourceId();
+List<string> postingModuleCodes = new List<string>();
+List<string> cleardownModuleCodes = new List<string>();
+ResourceId valuationRecipeId = new ResourceId();
+ResourceId holdingRecipeId = new ResourceId();
+string accountingMethod = "accountingMethod";
+List<string> subHoldingKeys = new List<string>();
+string amortisationMethod = "amortisationMethod";
+string transactionTypeScope = "transactionTypeScope";
+string cashGainLossCalculationDate = "cashGainLossCalculationDate";
+
+NavTypeDefinition navTypeDefinitionInstance = new NavTypeDefinition(
+    code: code,
+    displayName: displayName,
+    description: description,
+    chartOfAccountsId: chartOfAccountsId,
+    postingModuleCodes: postingModuleCodes,
+    cleardownModuleCodes: cleardownModuleCodes,
+    valuationRecipeId: valuationRecipeId,
+    holdingRecipeId: holdingRecipeId,
+    accountingMethod: accountingMethod,
+    subHoldingKeys: subHoldingKeys,
+    amortisationMethod: amortisationMethod,
+    transactionTypeScope: transactionTypeScope,
+    cashGainLossCalculationDate: cashGainLossCalculationDate);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

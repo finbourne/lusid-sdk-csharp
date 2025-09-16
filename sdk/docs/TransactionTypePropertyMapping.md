@@ -10,5 +10,22 @@ Name | Type | Description | Notes
 **TemplateFrom** | **string** | The template that defines how the property value is constructed from transaction, instrument and portfolio details. | [optional] 
 **Nullify** | **bool?** | Flag to unset the Property Key for the mapping | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string propertyKey = "propertyKey";
+string mapFrom = "example mapFrom";
+string setTo = "example setTo";
+string templateFrom = "example templateFrom";
+bool? nullify = //"True";
+
+TransactionTypePropertyMapping transactionTypePropertyMappingInstance = new TransactionTypePropertyMapping(
+    propertyKey: propertyKey,
+    mapFrom: mapFrom,
+    setTo: setTo,
+    templateFrom: templateFrom,
+    nullify: nullify);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

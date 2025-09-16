@@ -20,5 +20,33 @@ Name | Type | Description | Notes
 **UnderlyingValuePerUnit** | **decimal?** | The underlying price times the number of shares to exchange if exercised. | [optional] 
 **UnitsRatio** | [**UnitsRatio**](UnitsRatio.md) |  | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string exerciseType = "exerciseType";
+string moneyness = "example moneyness";
+NewInstrument newInstrument = new NewInstrument();
+List<OptionExerciseElection> optionExerciseElections = new List<OptionExerciseElection>();
+string optionType = "optionType";
+string strikeCurrency = "strikeCurrency";decimal strikePerUnit = "strikePerUnit";
+
+UnitsRatio unitsRatio = new UnitsRatio();
+
+OptionExercisePhysicalEvent optionExercisePhysicalEventInstance = new OptionExercisePhysicalEvent(
+    exerciseDate: exerciseDate,
+    deliveryDate: deliveryDate,
+    exerciseType: exerciseType,
+    maturityDate: maturityDate,
+    moneyness: moneyness,
+    newInstrument: newInstrument,
+    optionExerciseElections: optionExerciseElections,
+    optionType: optionType,
+    startDate: startDate,
+    strikeCurrency: strikeCurrency,
+    strikePerUnit: strikePerUnit,
+    underlyingValuePerUnit: underlyingValuePerUnit,
+    unitsRatio: unitsRatio);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

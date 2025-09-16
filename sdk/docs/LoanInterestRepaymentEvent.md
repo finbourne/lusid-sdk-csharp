@@ -12,5 +12,19 @@ Name | Type | Description | Notes
 **Fraction** | **decimal** | Fraction of the accrued on the holding to be repaid.  Must be between 0 and 1, inclusive.  Defaults to 1 if not set. | [optional] 
 **LapseElections** | [**List&lt;LapseElection&gt;**](LapseElection.md) | Election for controlling whether the interest is paid automatically or not.  Exactly one election must be provided. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string currency = "currency";decimal? fraction = "example fraction";
+List<LapseElection> lapseElections = new List<LapseElection>();
+
+LoanInterestRepaymentEvent loanInterestRepaymentEventInstance = new LoanInterestRepaymentEvent(
+    paymentDate: paymentDate,
+    exDate: exDate,
+    currency: currency,
+    fraction: fraction,
+    lapseElections: lapseElections);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

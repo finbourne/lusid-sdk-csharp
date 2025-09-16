@@ -12,5 +12,24 @@ Name | Type | Description | Notes
 **CalendarScope** | **string** | The scope in which holiday calendars stored | [optional] 
 **ConventionScope** | **string** | The scope in which conventions stored | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string defaultSupplier = "example defaultSupplier";
+string defaultInstrumentCodeType = "example defaultInstrumentCodeType";
+string defaultScope = "defaultScope";
+bool attemptToInferMissingFx = //"True";
+string calendarScope = "example calendarScope";
+string conventionScope = "example conventionScope";
+
+MarketOptions marketOptionsInstance = new MarketOptions(
+    defaultSupplier: defaultSupplier,
+    defaultInstrumentCodeType: defaultInstrumentCodeType,
+    defaultScope: defaultScope,
+    attemptToInferMissingFx: attemptToInferMissingFx,
+    calendarScope: calendarScope,
+    conventionScope: conventionScope);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

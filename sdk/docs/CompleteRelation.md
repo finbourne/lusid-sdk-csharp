@@ -14,5 +14,28 @@ Name | Type | Description | Notes
 **InwardDescription** | **string** |  | 
 **EffectiveFrom** | **DateTimeOffset** |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string href = "example href";
+ModelVersion? varVersion = new ModelVersion();
+
+ResourceId relationDefinitionId = new ResourceId();
+Dictionary<string, string> sourceEntityId = new Dictionary<string, string>();
+Dictionary<string, string> targetEntityId = new Dictionary<string, string>();
+string outwardDescription = "outwardDescription";
+string inwardDescription = "inwardDescription";
+
+CompleteRelation completeRelationInstance = new CompleteRelation(
+    href: href,
+    varVersion: varVersion,
+    relationDefinitionId: relationDefinitionId,
+    sourceEntityId: sourceEntityId,
+    targetEntityId: targetEntityId,
+    outwardDescription: outwardDescription,
+    inwardDescription: inwardDescription,
+    effectiveFrom: effectiveFrom);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

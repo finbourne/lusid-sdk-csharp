@@ -12,5 +12,25 @@ Name | Type | Description | Notes
 **Name** | **string** | The movement name (optional) | [optional] 
 **MovementOptions** | **List&lt;string&gt;** | Allows extra specifications for the movement. The options currently available are &#39;DirectAdjustment&#39;, &#39;IncludesTradedInterest&#39;, &#39;Virtual&#39; and &#39;Income&#39; (works only with the movement type &#39;StockMovement&#39;). A movement type of &#39;StockMovement&#39; with an option of &#39;DirectAdjusment&#39; will allow you to adjust the units of a holding without affecting its cost base. You will, therefore, be able to reflect the impact of a stock split by loading a Transaction. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string movementTypes = "movementTypes";
+string side = "side";
+Dictionary<string, PerpetualProperty> properties = new Dictionary<string, PerpetualProperty>();
+List<TransactionPropertyMapping> mappings = new List<TransactionPropertyMapping>();
+string name = "example name";
+List<string> movementOptions = new List<string>();
+
+TransactionConfigurationMovementData transactionConfigurationMovementDataInstance = new TransactionConfigurationMovementData(
+    movementTypes: movementTypes,
+    side: side,
+    direction: direction,
+    properties: properties,
+    mappings: mappings,
+    name: name,
+    movementOptions: movementOptions);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

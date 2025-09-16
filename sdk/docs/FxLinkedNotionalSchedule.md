@@ -11,5 +11,21 @@ Name | Type | Description | Notes
 **VaryingNotionalFixingDates** | [**RelativeDateOffset**](RelativeDateOffset.md) |  | 
 **VaryingNotionalInterimExchangePaymentDates** | [**RelativeDateOffset**](RelativeDateOffset.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+FxConventions fxConventions = new FxConventions();
+string varyingNotionalCurrency = "varyingNotionalCurrency";
+RelativeDateOffset varyingNotionalFixingDates = new RelativeDateOffset();
+RelativeDateOffset? varyingNotionalInterimExchangePaymentDates = new RelativeDateOffset();
+
+
+FxLinkedNotionalSchedule fxLinkedNotionalScheduleInstance = new FxLinkedNotionalSchedule(
+    fxConventions: fxConventions,
+    varyingNotionalCurrency: varyingNotionalCurrency,
+    varyingNotionalFixingDates: varyingNotionalFixingDates,
+    varyingNotionalInterimExchangePaymentDates: varyingNotionalInterimExchangePaymentDates);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

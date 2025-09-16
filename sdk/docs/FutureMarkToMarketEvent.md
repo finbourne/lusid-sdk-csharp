@@ -10,5 +10,16 @@ Name | Type | Description | Notes
 **SettlementCurrency** | **string** | The currency in which the Future contract is paid. | 
 **NotionalAmountPerUnit** | **decimal?** | The notional value of the contract on the effective date. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string settlementCurrency = "settlementCurrency";
+
+FutureMarkToMarketEvent futureMarkToMarketEventInstance = new FutureMarkToMarketEvent(
+    effectiveDate: effectiveDate,
+    settlementCurrency: settlementCurrency,
+    notionalAmountPerUnit: notionalAmountPerUnit);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

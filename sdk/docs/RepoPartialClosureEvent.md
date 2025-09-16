@@ -11,5 +11,16 @@ Name | Type | Description | Notes
 **CashAmount** | **decimal?** | The amount of cash to be exchanged as part of   a partial closure of the repurchase agreement.  It cannot be more than the initial amount of   cash at the start of the repo. | [optional] 
 **CashPercentage** | **decimal?** | Represents the proportion of cash exchanged, as   a value between 0 and 1, relative to the total   cash involved in the repurchase agreement.  This value adjusts with each partial closure,   because the total cash amount is reduced. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+
+RepoPartialClosureEvent repoPartialClosureEventInstance = new RepoPartialClosureEvent(
+    entitlementDate: entitlementDate,
+    settlementDate: settlementDate,
+    cashAmount: cashAmount,
+    cashPercentage: cashPercentage);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

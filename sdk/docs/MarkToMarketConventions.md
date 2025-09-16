@@ -9,5 +9,18 @@ Name | Type | Description | Notes
 **HourOffsetTenor** | **string** | The hour tenor component of the time offset against the maturity date.  This is an optional field, if a value is provided it must be a positive value between &#39;0hour&#39; and &#39;23hour&#39;. | [optional] 
 **MinuteOffsetTenor** | **string** | The minute tenor component of the time offset against the maturity date.  This is an optional field, if a value is provided it must be a positive value between &#39;0min&#39; and &#39;59min&#39;. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string calendarCode = "example calendarCode";
+string hourOffsetTenor = "example hourOffsetTenor";
+string minuteOffsetTenor = "example minuteOffsetTenor";
+
+MarkToMarketConventions markToMarketConventionsInstance = new MarkToMarketConventions(
+    calendarCode: calendarCode,
+    hourOffsetTenor: hourOffsetTenor,
+    minuteOffsetTenor: minuteOffsetTenor);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -16,5 +16,31 @@ Name | Type | Description | Notes
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | The Fee properties. These will be from the &#39;Fee&#39; domain. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string href = "example href";
+string diaryEntryCode = "diaryEntryCode";
+string type = "type";
+string status = "status";decimal gav = "gav";
+decimal nav = "nav";
+
+Dictionary<string, Property> properties = new Dictionary<string, Property>();
+List<Link> links = new List<Link>();
+
+ValuationPointOverview valuationPointOverviewInstance = new ValuationPointOverview(
+    href: href,
+    diaryEntryCode: diaryEntryCode,
+    effectiveFrom: effectiveFrom,
+    effectiveTo: effectiveTo,
+    queryAsAt: queryAsAt,
+    type: type,
+    status: status,
+    gav: gav,
+    nav: nav,
+    properties: properties,
+    links: links);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

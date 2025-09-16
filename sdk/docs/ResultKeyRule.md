@@ -7,5 +7,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ResultKeyRuleType** | **string** | The available values are: Invalid, ResultDataKeyRule, PortfolioResultDataKeyRule | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string resultKeyRuleType = "resultKeyRuleType";
+
+ResultKeyRule resultKeyRuleInstance = new ResultKeyRule(
+    resultKeyRuleType: resultKeyRuleType);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

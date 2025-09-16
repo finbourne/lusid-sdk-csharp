@@ -10,5 +10,17 @@ Name | Type | Description | Notes
 **ErrorReason** | **string** | The error reason | 
 **EffectiveAt** | **DateTimeOffset** | The effective date of the evaulation | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string errorDetail = "errorDetail";
+string errorReason = "errorReason";
+
+InformationalErrorEvent informationalErrorEventInstance = new InformationalErrorEvent(
+    errorDetail: errorDetail,
+    errorReason: errorReason,
+    effectiveAt: effectiveAt);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

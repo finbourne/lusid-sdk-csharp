@@ -11,5 +11,21 @@ Name | Type | Description | Notes
 **Adjustments** | [**List&lt;HoldingAdjustment&gt;**](HoldingAdjustment.md) | The holding adjustments. | 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+ModelVersion varVersion = new ModelVersion();
+string unmatchedHoldingMethod = "unmatchedHoldingMethod";
+List<HoldingAdjustment> adjustments = new List<HoldingAdjustment>();
+List<Link> links = new List<Link>();
+
+HoldingsAdjustment holdingsAdjustmentInstance = new HoldingsAdjustment(
+    effectiveAt: effectiveAt,
+    varVersion: varVersion,
+    unmatchedHoldingMethod: unmatchedHoldingMethod,
+    adjustments: adjustments,
+    links: links);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

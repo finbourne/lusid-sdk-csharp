@@ -19,5 +19,33 @@ Name | Type | Description | Notes
 **EntityUniqueId** | **string** | The unique id of the entity | [optional] 
 **StagedModificationIdModified** | **string** | The ID of the staged change that resulted in the most recent modification. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string userIdCreated = "example userIdCreated";
+string requestIdCreated = "example requestIdCreated";
+string reasonCreated = "example reasonCreated";
+string userIdModified = "example userIdModified";
+string requestIdModified = "example requestIdModified";
+string reasonModified = "example reasonModified";
+string entityUniqueId = "example entityUniqueId";
+string stagedModificationIdModified = "example stagedModificationIdModified";
+
+ModelVersion modelVersionInstance = new ModelVersion(
+    effectiveFrom: effectiveFrom,
+    asAtDate: asAtDate,
+    asAtCreated: asAtCreated,
+    userIdCreated: userIdCreated,
+    requestIdCreated: requestIdCreated,
+    reasonCreated: reasonCreated,
+    asAtModified: asAtModified,
+    userIdModified: userIdModified,
+    requestIdModified: requestIdModified,
+    reasonModified: reasonModified,
+    asAtVersionNumber: asAtVersionNumber,
+    entityUniqueId: entityUniqueId,
+    stagedModificationIdModified: stagedModificationIdModified);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

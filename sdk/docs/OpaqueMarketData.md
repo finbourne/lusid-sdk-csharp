@@ -11,5 +11,20 @@ Name | Type | Description | Notes
 **Name** | **string** | Internal name of document. This is not used for search, it is simply a designator that helps identify the document  and could be anything (filename, ftp address or similar) | 
 **Lineage** | **string** | Description of the complex market data&#39;s lineage e.g. &#39;FundAccountant_GreenQuality&#39;. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string document = "document";
+string format = "format";
+string name = "name";
+string lineage = "example lineage";
+
+OpaqueMarketData opaqueMarketDataInstance = new OpaqueMarketData(
+    document: document,
+    format: format,
+    name: name,
+    lineage: lineage);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

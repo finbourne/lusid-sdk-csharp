@@ -9,5 +9,18 @@ Name | Type | Description | Notes
 **Vendor** | **string** | An instrument will potentially have been created by any number of different organisations. Some will be understood completely (e.g. LUSID&#39;s), some won&#39;t.              The provenance of an instrument indicates who \&quot;owns\&quot; the associated format. | 
 **VarVersion** | **string** | Version of the document. Would be preferable to avoid the need, but LUSID will not control other organisations&#39; trade formats. | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string sourceSystem = "sourceSystem";
+string vendor = "vendor";
+string varVersion = "varVersion";
+
+InstrumentDefinitionFormat instrumentDefinitionFormatInstance = new InstrumentDefinitionFormat(
+    sourceSystem: sourceSystem,
+    vendor: vendor,
+    varVersion: varVersion);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

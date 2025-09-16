@@ -9,5 +9,18 @@ Name | Type | Description | Notes
 **ClassPnl** | [**Dictionary&lt;string, ShareClassAmount&gt;**](ShareClassAmount.md) | Bucket of detail for PnL specific to the share class within the queried period. | 
 **TotalPnl** | [**Dictionary&lt;string, ShareClassAmount&gt;**](ShareClassAmount.md) | Bucket of detail for the sum of class PnL and PnL not specific to a class within the queried period. | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+Dictionary<string, ShareClassAmount> apportionedNonClassSpecificPnl = new Dictionary<string, ShareClassAmount>();
+Dictionary<string, ShareClassAmount> classPnl = new Dictionary<string, ShareClassAmount>();
+Dictionary<string, ShareClassAmount> totalPnl = new Dictionary<string, ShareClassAmount>();
+
+ShareClassPnlBreakdown shareClassPnlBreakdownInstance = new ShareClassPnlBreakdown(
+    apportionedNonClassSpecificPnl: apportionedNonClassSpecificPnl,
+    classPnl: classPnl,
+    totalPnl: totalPnl);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

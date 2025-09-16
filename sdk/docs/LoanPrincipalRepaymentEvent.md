@@ -12,5 +12,19 @@ Name | Type | Description | Notes
 **Fraction** | **decimal?** | Fraction of the outstanding settled principal balance to be repaid. Must be between 0 and 1, inclusive.  Defaults to 1 if not set. Ignored if the field Amount is set to a value different than zero. | [optional] 
 **Amount** | **decimal?** | Amount to be repaid (independent of the fraction).  This field is not used at all if not set or set to 0, in this case the fraction field will be used instead.  Otherwise, the fraction field is ignored. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string currency = "currency";
+List<LapseElection> lapseElections = new List<LapseElection>();
+
+LoanPrincipalRepaymentEvent loanPrincipalRepaymentEventInstance = new LoanPrincipalRepaymentEvent(
+    paymentDate: paymentDate,
+    currency: currency,
+    lapseElections: lapseElections,
+    fraction: fraction,
+    amount: amount);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

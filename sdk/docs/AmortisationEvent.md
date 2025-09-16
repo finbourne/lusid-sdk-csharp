@@ -11,5 +11,19 @@ Name | Type | Description | Notes
 **PayReceive** | **string** | Is this event in relation to the Pay or Receive leg | 
 **PaymentDate** | **DateTimeOffset** | The date the principal payment is to be made. | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
+decimal amountReduced = "amountReduced";
 
+string domCcy = "domCcy";
+string payReceive = "payReceive";
+
+AmortisationEvent amortisationEventInstance = new AmortisationEvent(
+    amountReduced: amountReduced,
+    domCcy: domCcy,
+    payReceive: payReceive,
+    paymentDate: paymentDate);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

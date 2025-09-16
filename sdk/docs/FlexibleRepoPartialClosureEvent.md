@@ -12,5 +12,20 @@ Name | Type | Description | Notes
 **AmountType** | **string** | AmountType of the cash amount to be exchanged as part of a partial closure of the repurchase agreement.  Either percentage or absolute cash amount.    Supported string (enumeration) values are: [Percentage, Units]. | 
 **PartialClosureConstituents** | [**List&lt;PartialClosureConstituent&gt;**](PartialClosureConstituent.md) | List of the collateral instruments involved in this partial closure, along with how they are affected. | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
+decimal amount = "amount";
 
+string amountType = "amountType";
+List<PartialClosureConstituent> partialClosureConstituents = new List<PartialClosureConstituent>();
+
+FlexibleRepoPartialClosureEvent flexibleRepoPartialClosureEventInstance = new FlexibleRepoPartialClosureEvent(
+    entitlementDate: entitlementDate,
+    settlementDate: settlementDate,
+    amount: amount,
+    amountType: amountType,
+    partialClosureConstituents: partialClosureConstituents);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

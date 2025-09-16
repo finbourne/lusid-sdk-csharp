@@ -9,5 +9,20 @@ Name | Type | Description | Notes
 **Required** | **bool** | Whether identifier type is required or allowed. | [optional] 
 **IdentifierType** | **string** | The name of the identifier type. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string displayName = "example displayName";
+string identifierKey = "identifierKey";
+bool required = //"True";
+string identifierType = "example identifierType";
+
+CustomDataModelIdentifierTypeSpecificationWithDisplayName customDataModelIdentifierTypeSpecificationWithDisplayNameInstance = new CustomDataModelIdentifierTypeSpecificationWithDisplayName(
+    displayName: displayName,
+    identifierKey: identifierKey,
+    required: required,
+    identifierType: identifierType);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

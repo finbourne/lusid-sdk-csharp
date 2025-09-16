@@ -12,5 +12,22 @@ Name | Type | Description | Notes
 **Prices** | **List&lt;decimal&gt;** | Prices provided for the forward price of the Equity at the corresponding date in Dates. | 
 **MarketDataOptions** | [**MarketDataOptions**](MarketDataOptions.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+List<DateTimeOffset> dates = new List<DateTimeOffset>();
+string lineage = "example lineage";
+List<decimal> prices = new List<decimal>();
+MarketDataOptions? marketDataOptions = new MarketDataOptions();
+
+
+EquityCurveByPricesData equityCurveByPricesDataInstance = new EquityCurveByPricesData(
+    baseDate: baseDate,
+    dates: dates,
+    lineage: lineage,
+    prices: prices,
+    marketDataOptions: marketDataOptions);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

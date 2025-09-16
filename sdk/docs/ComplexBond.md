@@ -16,5 +16,31 @@ Name | Type | Description | Notes
 **TradingConventions** | [**TradingConventions**](TradingConventions.md) |  | [optional] 
 **TimeZoneConventions** | [**TimeZoneConventions**](TimeZoneConventions.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+Dictionary<string, string> identifiers = new Dictionary<string, string>();
+string calculationType = "example calculationType";
+List<Schedule> schedules = new List<Schedule>();
+List<RoundingConvention> roundingConventions = new List<RoundingConvention>();
+bool? assetBacked = //"True";
+string assetPoolIdentifier = "example assetPoolIdentifier";
+TradingConventions? tradingConventions = new TradingConventions();
+
+TimeZoneConventions? timeZoneConventions = new TimeZoneConventions();
+
+
+ComplexBond complexBondInstance = new ComplexBond(
+    identifiers: identifiers,
+    calculationType: calculationType,
+    schedules: schedules,
+    originalIssuePrice: originalIssuePrice,
+    roundingConventions: roundingConventions,
+    assetBacked: assetBacked,
+    assetPoolIdentifier: assetPoolIdentifier,
+    tradingConventions: tradingConventions,
+    timeZoneConventions: timeZoneConventions);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

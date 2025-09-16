@@ -14,5 +14,21 @@ Name | Type | Description | Notes
 **SecurityElections** | [**List&lt;SecurityElection&gt;**](SecurityElection.md) | SecurityElection for this DividendReinvestmentEvent | 
 **SecuritySettlementDate** | **DateTimeOffset?** | The settlement date of the additional units.  Equal to the PaymentDate if not provided. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+List<CashElection> cashElections = new List<CashElection>();
+List<SecurityElection> securityElections = new List<SecurityElection>();
+
+DividendOptionEvent dividendOptionEventInstance = new DividendOptionEvent(
+    announcementDate: announcementDate,
+    cashElections: cashElections,
+    exDate: exDate,
+    paymentDate: paymentDate,
+    recordDate: recordDate,
+    securityElections: securityElections,
+    securitySettlementDate: securitySettlementDate);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

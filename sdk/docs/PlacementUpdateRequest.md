@@ -12,5 +12,23 @@ Name | Type | Description | Notes
 **ExecutionSystem** | **string** | Optionally specifies the execution system in use. | [optional] 
 **EntryType** | **string** | Optionally specifies the entry type of this placement. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+ResourceId id = new ResourceId();
+Dictionary<string, PerpetualProperty> properties = new Dictionary<string, PerpetualProperty>();
+string counterparty = "example counterparty";
+string executionSystem = "example executionSystem";
+string entryType = "example entryType";
+
+PlacementUpdateRequest placementUpdateRequestInstance = new PlacementUpdateRequest(
+    id: id,
+    quantity: quantity,
+    properties: properties,
+    counterparty: counterparty,
+    executionSystem: executionSystem,
+    entryType: entryType);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

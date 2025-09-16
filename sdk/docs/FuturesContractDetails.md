@@ -21,5 +21,40 @@ Name | Type | Description | Notes
 **Calendars** | **List&lt;string&gt;** | Holiday calendars that apply to yield-to-price conversions (i.e. for BRL futures). | [optional] 
 **DeliveryType** | **string** | Delivery type to be used on settling the contract.  Optional: Defaults to DeliveryType.Physical if not provided.    Supported string (enumeration) values are: [Cash, Physical]. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string domCcy = "domCcy";
+string fgnCcy = "example fgnCcy";
+string assetClass = "example assetClass";
+string contractCode = "contractCode";
+string contractMonth = "example contractMonth";decimal contractSize = "contractSize";
+
+string convention = "example convention";
+string country = "example country";
+string description = "example description";
+string exchangeCode = "exchangeCode";
+string exchangeName = "example exchangeName";decimal? tickerStep = "example tickerStep";decimal? unitValue = "example unitValue";
+List<string> calendars = new List<string>();
+string deliveryType = "example deliveryType";
+
+FuturesContractDetails futuresContractDetailsInstance = new FuturesContractDetails(
+    domCcy: domCcy,
+    fgnCcy: fgnCcy,
+    assetClass: assetClass,
+    contractCode: contractCode,
+    contractMonth: contractMonth,
+    contractSize: contractSize,
+    convention: convention,
+    country: country,
+    description: description,
+    exchangeCode: exchangeCode,
+    exchangeName: exchangeName,
+    tickerStep: tickerStep,
+    unitValue: unitValue,
+    calendars: calendars,
+    deliveryType: deliveryType);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

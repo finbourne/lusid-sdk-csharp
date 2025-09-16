@@ -11,5 +11,22 @@ Name | Type | Description | Notes
 **Price** | **decimal?** | Price per unit of the security. At least one of UnitsRatio or Price must be provided.  Price must non-zero. | [optional] 
 **UnitsRatio** | [**UnitsRatio**](UnitsRatio.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string electionKey = "electionKey";
+bool isChosen = //"True";
+bool isDefault = //"True";
+UnitsRatio? unitsRatio = new UnitsRatio();
+
+
+SecurityElection securityElectionInstance = new SecurityElection(
+    electionKey: electionKey,
+    isChosen: isChosen,
+    isDefault: isDefault,
+    price: price,
+    unitsRatio: unitsRatio);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

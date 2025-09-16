@@ -9,5 +9,15 @@ Name | Type | Description | Notes
 **Date** | **DateTimeOffset** | The date of the adjustment to the deposit. | [optional] 
 **Amount** | **decimal** | The signed amount of the adjustment to make to the deposit. Positive implies an increase, and negative implies a decrease. | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
+decimal amount = "amount";
 
+
+UpdateDepositAmountEvent updateDepositAmountEventInstance = new UpdateDepositAmountEvent(
+    date: date,
+    amount: amount);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

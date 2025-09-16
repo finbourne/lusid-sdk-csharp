@@ -9,5 +9,20 @@ Name | Type | Description | Notes
 **SubHoldingKeys** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) | The sub-holding properties which identify the Economic. Each property will be from the &#39;Transaction&#39; domain. These are configured on a transaction portfolio. | [optional] 
 **Buckets** | [**List&lt;Bucket&gt;**](Bucket.md) | Set of economic data related with each of the side impact of the transaction. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string instrumentScope = "example instrumentScope";
+string lusidInstrumentId = "lusidInstrumentId";
+Dictionary<string, PerpetualProperty> subHoldingKeys = new Dictionary<string, PerpetualProperty>();
+List<Bucket> buckets = new List<Bucket>();
+
+Economics economicsInstance = new Economics(
+    instrumentScope: instrumentScope,
+    lusidInstrumentId: lusidInstrumentId,
+    subHoldingKeys: subHoldingKeys,
+    buckets: buckets);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

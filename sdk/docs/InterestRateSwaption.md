@@ -14,5 +14,29 @@ Name | Type | Description | Notes
 **TimeZoneConventions** | [**TimeZoneConventions**](TimeZoneConventions.md) |  | [optional] 
 **Underlying** | [**LusidInstrument**](LusidInstrument.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string payOrReceiveFixed = "payOrReceiveFixed";
+Premium? premium = new Premium();
+
+string deliveryMethod = "deliveryMethod";
+InterestRateSwap? swap = new InterestRateSwap();
+
+TimeZoneConventions? timeZoneConventions = new TimeZoneConventions();
+
+LusidInstrument? underlying = new LusidInstrument();
+
+
+InterestRateSwaption interestRateSwaptionInstance = new InterestRateSwaption(
+    startDate: startDate,
+    payOrReceiveFixed: payOrReceiveFixed,
+    premium: premium,
+    deliveryMethod: deliveryMethod,
+    swap: swap,
+    timeZoneConventions: timeZoneConventions,
+    underlying: underlying);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -9,5 +9,15 @@ Name | Type | Description | Notes
 **Currency** | **string** | The currency that needs to be discounted. | 
 **Date** | **DateTimeOffset** | The effectiveDate of the entity that this is a dependency for.  Unless there is an obvious date this should be, like for a historic reset, then this is the valuation date. | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string currency = "currency";
+
+DiscountingDependency discountingDependencyInstance = new DiscountingDependency(
+    currency: currency,
+    date: date);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -13,5 +13,29 @@ Name | Type | Description | Notes
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string entityType = "entityType";
+string stagingRuleSetId = "stagingRuleSetId";
+string displayName = "displayName";
+string description = "example description";
+List<StagingRule> rules = new List<StagingRule>();
+string href = "example href";
+ModelVersion? varVersion = new ModelVersion();
+
+List<Link> links = new List<Link>();
+
+StagingRuleSet stagingRuleSetInstance = new StagingRuleSet(
+    entityType: entityType,
+    stagingRuleSetId: stagingRuleSetId,
+    displayName: displayName,
+    description: description,
+    rules: rules,
+    href: href,
+    varVersion: varVersion,
+    links: links);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

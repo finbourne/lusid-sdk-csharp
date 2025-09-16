@@ -10,5 +10,22 @@ Name | Type | Description | Notes
 **Variations** | [**List&lt;ComplianceTemplateVariation&gt;**](ComplianceTemplateVariation.md) | Variation details of a Compliance Template | 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+ResourceId id = new ResourceId();
+string description = "description";
+List<string> tags = new List<string>();
+List<ComplianceTemplateVariation> variations = new List<ComplianceTemplateVariation>();
+List<Link> links = new List<Link>();
+
+ComplianceTemplate complianceTemplateInstance = new ComplianceTemplate(
+    id: id,
+    description: description,
+    tags: tags,
+    variations: variations,
+    links: links);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -13,5 +13,26 @@ Name | Type | Description | Notes
 **Amount** | **string** | The amount. | 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string side = "side";
+string security = "security";
+string currency = "currency";
+string rate = "rate";
+string units = "units";
+string amount = "amount";
+List<Link> links = new List<Link>();
+
+SideConfigurationData sideConfigurationDataInstance = new SideConfigurationData(
+    side: side,
+    security: security,
+    currency: currency,
+    rate: rate,
+    units: units,
+    amount: amount,
+    links: links);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

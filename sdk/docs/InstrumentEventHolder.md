@@ -19,5 +19,37 @@ Name | Type | Description | Notes
 **ParticipationType** | **string** | Is participation in this event Mandatory, MandatoryWithChoices, or Voluntary. | [optional] [default to "Mandatory"]
 **AsAt** | **DateTimeOffset?** | The AsAt time of the instrument event, if available. This is a readonly field and should not be provided on upsert. | [optional] [readonly] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string instrumentEventId = "instrumentEventId";
+ResourceId? corporateActionSourceId = new ResourceId();
+
+Dictionary<string, string> instrumentIdentifiers = new Dictionary<string, string>();
+string lusidInstrumentId = "lusidInstrumentId";
+string instrumentScope = "instrumentScope";
+string description = "description";
+EventDateRange eventDateRange = new EventDateRange();
+string completeness = "example completeness";
+InstrumentEvent instrumentEvent = new InstrumentEvent();
+List<PerpetualProperty> properties = new List<PerpetualProperty>();
+string participationType = "example participationType";
+
+InstrumentEventHolder instrumentEventHolderInstance = new InstrumentEventHolder(
+    instrumentEventId: instrumentEventId,
+    corporateActionSourceId: corporateActionSourceId,
+    instrumentIdentifiers: instrumentIdentifiers,
+    lusidInstrumentId: lusidInstrumentId,
+    instrumentScope: instrumentScope,
+    description: description,
+    eventDateRange: eventDateRange,
+    completeness: completeness,
+    instrumentEvent: instrumentEvent,
+    properties: properties,
+    sequenceNumber: sequenceNumber,
+    participationType: participationType,
+    asAt: asAt);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

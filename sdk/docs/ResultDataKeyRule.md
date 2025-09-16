@@ -14,5 +14,27 @@ Name | Type | Description | Notes
 **DocumentResultType** | **string** |  | 
 **UseDocumentToInferHoldings** | **bool** | Indicates whether the relevant document should be used to infer the set of holdings in the valuation. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string supplier = "supplier";
+string dataScope = "dataScope";
+string documentCode = "documentCode";
+string quoteInterval = "example quoteInterval";
+string resourceKey = "resourceKey";
+string documentResultType = "documentResultType";
+bool useDocumentToInferHoldings = //"True";
+
+ResultDataKeyRule resultDataKeyRuleInstance = new ResultDataKeyRule(
+    supplier: supplier,
+    dataScope: dataScope,
+    documentCode: documentCode,
+    quoteInterval: quoteInterval,
+    asAt: asAt,
+    resourceKey: resourceKey,
+    documentResultType: documentResultType,
+    useDocumentToInferHoldings: useDocumentToInferHoldings);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

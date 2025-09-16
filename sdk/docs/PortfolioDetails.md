@@ -22,5 +22,51 @@ Name | Type | Description | Notes
 **StagedModifications** | [**StagedModificationsInfo**](StagedModificationsInfo.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string href = "example href";
+ResourceId originPortfolioId = new ResourceId();
+ModelVersion varVersion = new ModelVersion();
+string baseCurrency = "baseCurrency";
+ResourceId? corporateActionSourceId = new ResourceId();
+
+List<string> subHoldingKeys = new List<string>();
+List<string> instrumentScopes = new List<string>();
+string accountingMethod = "example accountingMethod";
+string amortisationMethod = "example amortisationMethod";
+string transactionTypeScope = "example transactionTypeScope";
+string cashGainLossCalculationDate = "example cashGainLossCalculationDate";
+InstrumentEventConfiguration? instrumentEventConfiguration = new InstrumentEventConfiguration();
+
+ResourceId? amortisationRuleSetId = new ResourceId();
+
+string taxRuleSetScope = "example taxRuleSetScope";
+PortfolioSettlementConfiguration? settlementConfiguration = new PortfolioSettlementConfiguration();
+
+StagedModificationsInfo? stagedModifications = new StagedModificationsInfo();
+
+List<Link> links = new List<Link>();
+
+PortfolioDetails portfolioDetailsInstance = new PortfolioDetails(
+    href: href,
+    originPortfolioId: originPortfolioId,
+    varVersion: varVersion,
+    baseCurrency: baseCurrency,
+    corporateActionSourceId: corporateActionSourceId,
+    subHoldingKeys: subHoldingKeys,
+    instrumentScopes: instrumentScopes,
+    accountingMethod: accountingMethod,
+    amortisationMethod: amortisationMethod,
+    transactionTypeScope: transactionTypeScope,
+    cashGainLossCalculationDate: cashGainLossCalculationDate,
+    instrumentEventConfiguration: instrumentEventConfiguration,
+    amortisationRuleSetId: amortisationRuleSetId,
+    taxRuleSetScope: taxRuleSetScope,
+    settlementConfiguration: settlementConfiguration,
+    stagedModifications: stagedModifications,
+    links: links);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

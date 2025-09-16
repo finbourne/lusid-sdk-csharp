@@ -12,5 +12,24 @@ Name | Type | Description | Notes
 **CompositeMethod** | **string** | The method used to calculate the Portfolio performance: Equal/Asset. | [optional] 
 **AlternativeInceptionDate** | **string** | Optional - either a date, or the key for a portfolio property containing a date. If provided, the given date will override the inception date for this request. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+DateTimeOrCutLabel toEffectiveAt = "example toEffectiveAt";
+List<ResourceId> returnIds = new List<ResourceId>();
+ResourceId? recipeId = new ResourceId();
+
+string compositeMethod = "example compositeMethod";
+string alternativeInceptionDate = "example alternativeInceptionDate";
+
+AggregatedReturnsDispersionRequest aggregatedReturnsDispersionRequestInstance = new AggregatedReturnsDispersionRequest(
+    toEffectiveAt: toEffectiveAt,
+    yearsCount: yearsCount,
+    returnIds: returnIds,
+    recipeId: recipeId,
+    compositeMethod: compositeMethod,
+    alternativeInceptionDate: alternativeInceptionDate);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -8,5 +8,15 @@ Name | Type | Description | Notes
 **Amount** | **decimal** |  | [optional] 
 **Currency** | **string** |  | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
+decimal? amount = "example amount";
+string currency = "currency";
 
+CurrencyAndAmount currencyAndAmountInstance = new CurrencyAndAmount(
+    amount: amount,
+    currency: currency);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

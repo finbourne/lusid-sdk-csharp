@@ -14,5 +14,29 @@ Name | Type | Description | Notes
 **Miscellaneous** | [**Dictionary&lt;string, FundAmount&gt;**](FundAmount.md) | Not used directly by the LUSID engines but serves as a holding area for any custom derived data points that may be useful in, for example, fee calculations). | [optional] 
 **PreviousValuationPointData** | [**PreviousFundValuationPointData**](PreviousFundValuationPointData.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+Dictionary<string, FundAmount> backOut = new Dictionary<string, FundAmount>();
+Dictionary<string, FundAmount> dealing = new Dictionary<string, FundAmount>();
+FundPnlBreakdown pnL = new FundPnlBreakdown();decimal gav = "gav";
+
+Dictionary<string, FeeAccrual> fees = new Dictionary<string, FeeAccrual>();decimal nav = "nav";
+
+Dictionary<string, FundAmount> miscellaneous = new Dictionary<string, FundAmount>();
+PreviousFundValuationPointData? previousValuationPointData = new PreviousFundValuationPointData();
+
+
+FundValuationPointData fundValuationPointDataInstance = new FundValuationPointData(
+    backOut: backOut,
+    dealing: dealing,
+    pnL: pnL,
+    gav: gav,
+    fees: fees,
+    nav: nav,
+    miscellaneous: miscellaneous,
+    previousValuationPointData: previousValuationPointData);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

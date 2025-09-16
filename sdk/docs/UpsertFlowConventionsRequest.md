@@ -7,5 +7,15 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **FlowConventions** | [**FlowConventions**](FlowConventions.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+FlowConventions? flowConventions = new FlowConventions();
+
+
+UpsertFlowConventionsRequest upsertFlowConventionsRequestInstance = new UpsertFlowConventionsRequest(
+    flowConventions: flowConventions);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -12,5 +12,26 @@ Name | Type | Description | Notes
 **TransactionRoles** | **string** | . The available values are: None, LongLonger, LongShorter, ShortShorter, Shorter, ShortLonger, Longer, AllRoles | 
 **IsDefault** | **bool** | IsDefault is a flag that denotes the default alias for a source. There can only be, at most, one per source. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string type = "type";
+string description = "description";
+string transactionClass = "transactionClass";
+string transactionGroup = "example transactionGroup";
+string source = "example source";
+string transactionRoles = "transactionRoles";
+bool isDefault = //"True";
+
+TransactionConfigurationTypeAlias transactionConfigurationTypeAliasInstance = new TransactionConfigurationTypeAlias(
+    type: type,
+    description: description,
+    transactionClass: transactionClass,
+    transactionGroup: transactionGroup,
+    source: source,
+    transactionRoles: transactionRoles,
+    isDefault: isDefault);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

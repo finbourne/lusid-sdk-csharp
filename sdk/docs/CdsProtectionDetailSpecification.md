@@ -10,5 +10,20 @@ Name | Type | Description | Notes
 **ProtectStartDay** | **bool** | Does the protection leg pay out in the case of default on the start date. Defaults to true if not set. | [optional] [default to true]
 **PayAccruedInterestOnDefault** | **bool** | Should accrued interest on the premium leg be paid if a credit event occurs. Defaults to true if not set. | [optional] [default to true]
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string seniority = "example seniority";
+string restructuringType = "example restructuringType";
+bool protectStartDay = //"True";
+bool payAccruedInterestOnDefault = //"True";
+
+CdsProtectionDetailSpecification cdsProtectionDetailSpecificationInstance = new CdsProtectionDetailSpecification(
+    seniority: seniority,
+    restructuringType: restructuringType,
+    protectStartDay: protectStartDay,
+    payAccruedInterestOnDefault: payAccruedInterestOnDefault);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

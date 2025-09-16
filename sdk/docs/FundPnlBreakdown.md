@@ -9,5 +9,18 @@ Name | Type | Description | Notes
 **AggregatedClassPnl** | [**Dictionary&lt;string, FundAmount&gt;**](FundAmount.md) | Bucket of detail for the sum of class PnL across all share classes in a fund and within the queried period. | 
 **TotalPnl** | [**Dictionary&lt;string, FundAmount&gt;**](FundAmount.md) | Bucket of detail for the sum of class PnL and PnL not specific to a class within the queried period. | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+Dictionary<string, FundAmount> nonClassSpecificPnl = new Dictionary<string, FundAmount>();
+Dictionary<string, FundAmount> aggregatedClassPnl = new Dictionary<string, FundAmount>();
+Dictionary<string, FundAmount> totalPnl = new Dictionary<string, FundAmount>();
+
+FundPnlBreakdown fundPnlBreakdownInstance = new FundPnlBreakdown(
+    nonClassSpecificPnl: nonClassSpecificPnl,
+    aggregatedClassPnl: aggregatedClassPnl,
+    totalPnl: totalPnl);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -29,5 +29,65 @@ Name | Type | Description | Notes
 **DataModelMembership** | [**DataModelMembership**](DataModelMembership.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+Dictionary<string, PerpetualProperty> properties = new Dictionary<string, PerpetualProperty>();
+ModelVersion? varVersion = new ModelVersion();
+
+Dictionary<string, string> instrumentIdentifiers = new Dictionary<string, string>();
+string side = "side";
+ResourceId? orderBookId = new ResourceId();
+
+ResourceId? portfolioId = new ResourceId();
+
+ResourceId id = new ResourceId();
+string instrumentScope = "example instrumentScope";
+string lusidInstrumentId = "lusidInstrumentId";
+string state = "example state";
+string type = "example type";
+string timeInForce = "example timeInForce";
+CurrencyAndAmount? price = new CurrencyAndAmount();
+
+CurrencyAndAmount? limitPrice = new CurrencyAndAmount();
+
+CurrencyAndAmount? stopPrice = new CurrencyAndAmount();
+
+ResourceId? orderInstructionId = new ResourceId();
+
+ResourceId? packageId = new ResourceId();
+
+CurrencyAndAmount? amount = new CurrencyAndAmount();
+
+DataModelMembership? dataModelMembership = new DataModelMembership();
+
+List<Link> links = new List<Link>();
+
+Order orderInstance = new Order(
+    properties: properties,
+    varVersion: varVersion,
+    instrumentIdentifiers: instrumentIdentifiers,
+    quantity: quantity,
+    side: side,
+    orderBookId: orderBookId,
+    portfolioId: portfolioId,
+    id: id,
+    instrumentScope: instrumentScope,
+    lusidInstrumentId: lusidInstrumentId,
+    state: state,
+    type: type,
+    timeInForce: timeInForce,
+    date: date,
+    price: price,
+    limitPrice: limitPrice,
+    stopPrice: stopPrice,
+    orderInstructionId: orderInstructionId,
+    packageId: packageId,
+    weight: weight,
+    amount: amount,
+    dataModelMembership: dataModelMembership,
+    links: links);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

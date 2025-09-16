@@ -10,5 +10,22 @@ Name | Type | Description | Notes
 **CoreAttributeRules** | [**List&lt;GroupReconciliationCoreAttributeRule&gt;**](GroupReconciliationCoreAttributeRule.md) | The core comparison rules | 
 **AggregateAttributeRules** | [**List&lt;GroupReconciliationAggregateAttributeRule&gt;**](GroupReconciliationAggregateAttributeRule.md) | The aggregate comparison rules | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+ResourceId id = new ResourceId();
+string displayName = "displayName";
+string reconciliationType = "reconciliationType";
+List<GroupReconciliationCoreAttributeRule> coreAttributeRules = new List<GroupReconciliationCoreAttributeRule>();
+List<GroupReconciliationAggregateAttributeRule> aggregateAttributeRules = new List<GroupReconciliationAggregateAttributeRule>();
+
+CreateGroupReconciliationComparisonRulesetRequest createGroupReconciliationComparisonRulesetRequestInstance = new CreateGroupReconciliationComparisonRulesetRequest(
+    id: id,
+    displayName: displayName,
+    reconciliationType: reconciliationType,
+    coreAttributeRules: coreAttributeRules,
+    aggregateAttributeRules: aggregateAttributeRules);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

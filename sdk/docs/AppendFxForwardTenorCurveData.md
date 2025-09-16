@@ -9,5 +9,16 @@ Name | Type | Description | Notes
 **Tenor** | **string** | Tenor for which the forward rate applies. | 
 **Rate** | **decimal** | Rate provided for the fx forward (price in FgnCcy per unit of DomCcy). | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string tenor = "tenor";decimal rate = "rate";
+
+
+AppendFxForwardTenorCurveData appendFxForwardTenorCurveDataInstance = new AppendFxForwardTenorCurveData(
+    tenor: tenor,
+    rate: rate);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -11,5 +11,17 @@ Name | Type | Description | Notes
 **Currency** | **string** | Currency of the coupon payment | 
 **CouponPerUnit** | **decimal?** | CouponRate*Principal | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string currency = "currency";
+
+BondCouponEvent bondCouponEventInstance = new BondCouponEvent(
+    exDate: exDate,
+    paymentDate: paymentDate,
+    currency: currency,
+    couponPerUnit: couponPerUnit);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

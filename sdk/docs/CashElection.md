@@ -13,5 +13,24 @@ Name | Type | Description | Notes
 **IsDefault** | **bool** | Is this election the default.  Only one Election may be Default per Event | [optional] 
 **DividendCurrency** | **string** | The payment currency for this CashElection. | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string electionKey = "electionKey";
+bool isChosen = //"True";
+bool isDeclared = //"True";
+bool isDefault = //"True";
+string dividendCurrency = "dividendCurrency";
+
+CashElection cashElectionInstance = new CashElection(
+    electionKey: electionKey,
+    exchangeRate: exchangeRate,
+    dividendRate: dividendRate,
+    isChosen: isChosen,
+    isDeclared: isDeclared,
+    isDefault: isDefault,
+    dividendCurrency: dividendCurrency);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

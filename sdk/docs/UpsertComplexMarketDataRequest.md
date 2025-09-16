@@ -8,5 +8,16 @@ Name | Type | Description | Notes
 **MarketDataId** | [**ComplexMarketDataId**](ComplexMarketDataId.md) |  | 
 **MarketData** | [**ComplexMarketData**](ComplexMarketData.md) |  | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+ComplexMarketDataId marketDataId = new ComplexMarketDataId();
+ComplexMarketData marketData = new ComplexMarketData();
+
+UpsertComplexMarketDataRequest upsertComplexMarketDataRequestInstance = new UpsertComplexMarketDataRequest(
+    marketDataId: marketDataId,
+    marketData: marketData);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -19,5 +19,41 @@ Name | Type | Description | Notes
 **Transactions** | [**List&lt;Transaction&gt;**](Transaction.md) |  | [optional] 
 **TransactionDiagnostics** | [**TransactionDiagnostics**](TransactionDiagnostics.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+ResourceId portfolioId = new ResourceId();
+string lusidInstrumentId = "lusidInstrumentId";
+string instrumentScope = "instrumentScope";
+string instrumentType = "instrumentType";
+string instrumentEventType = "instrumentEventType";
+string instrumentEventId = "instrumentEventId";
+InstrumentEventHolder? generatedEvent = new InstrumentEventHolder();
+
+GeneratedEventDiagnostics? generatedEventDiagnostics = new GeneratedEventDiagnostics();
+
+InstrumentEventHolder? loadedEvent = new InstrumentEventHolder();
+
+string appliedInstrumentEventInstructionId = "example appliedInstrumentEventInstructionId";
+List<Transaction> transactions = new List<Transaction>();
+TransactionDiagnostics? transactionDiagnostics = new TransactionDiagnostics();
+
+
+ApplicableInstrumentEvent applicableInstrumentEventInstance = new ApplicableInstrumentEvent(
+    portfolioId: portfolioId,
+    holdingId: holdingId,
+    lusidInstrumentId: lusidInstrumentId,
+    instrumentScope: instrumentScope,
+    instrumentType: instrumentType,
+    instrumentEventType: instrumentEventType,
+    instrumentEventId: instrumentEventId,
+    generatedEvent: generatedEvent,
+    generatedEventDiagnostics: generatedEventDiagnostics,
+    loadedEvent: loadedEvent,
+    appliedInstrumentEventInstructionId: appliedInstrumentEventInstructionId,
+    transactions: transactions,
+    transactionDiagnostics: transactionDiagnostics);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

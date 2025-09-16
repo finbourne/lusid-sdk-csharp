@@ -22,5 +22,43 @@ Name | Type | Description | Notes
 **ResetConvention** | **string** | Control how resets are generated relative to payment convention(s).    Supported string (enumeration) values are: [InAdvance, InArrears].  Defaults to \&quot;InAdvance\&quot; if not set. | [optional] 
 **UseAnnualisedDirectRates** | **bool** | Flag indicating whether to use daily updated annualised interest  rates for calculating the accrued interest. Defaults to false. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+FlowConventions? flowConventions = new FlowConventions();
+
+FlowConventionName? conventionName = new FlowConventionName();
+
+FlowConventionName? indexConventionName = new FlowConventionName();
+
+IndexConvention? indexConventions = new IndexConvention();
+decimal? notional = "example notional";
+string paymentCurrency = "paymentCurrency";decimal? spread = "example spread";
+string stubType = "example stubType";
+ExDividendConfiguration? exDividendConfiguration = new ExDividendConfiguration();
+
+Compounding? compounding = new Compounding();
+
+string resetConvention = "example resetConvention";
+bool useAnnualisedDirectRates = //"True";
+
+FloatSchedule floatScheduleInstance = new FloatSchedule(
+    startDate: startDate,
+    maturityDate: maturityDate,
+    flowConventions: flowConventions,
+    conventionName: conventionName,
+    exDividendDays: exDividendDays,
+    indexConventionName: indexConventionName,
+    indexConventions: indexConventions,
+    notional: notional,
+    paymentCurrency: paymentCurrency,
+    spread: spread,
+    stubType: stubType,
+    exDividendConfiguration: exDividendConfiguration,
+    compounding: compounding,
+    resetConvention: resetConvention,
+    useAnnualisedDirectRates: useAnnualisedDirectRates);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -14,5 +14,28 @@ Name | Type | Description | Notes
 **InvestmentPortfolios** | [**List&lt;InvestmentPortfolioIdentifier&gt;**](InvestmentPortfolioIdentifier.md) | The identification of the investment portfolios associated with this investment account | [optional] 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | A set of properties associated to the Investment Account. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string scope = "scope";
+Dictionary<string, Property> identifiers = new Dictionary<string, Property>();
+string displayName = "displayName";
+string description = "example description";
+string accountType = "accountType";
+List<AccountHolderIdentifier> accountHolders = new List<AccountHolderIdentifier>();
+List<InvestmentPortfolioIdentifier> investmentPortfolios = new List<InvestmentPortfolioIdentifier>();
+Dictionary<string, Property> properties = new Dictionary<string, Property>();
+
+UpsertInvestmentAccountRequest upsertInvestmentAccountRequestInstance = new UpsertInvestmentAccountRequest(
+    scope: scope,
+    identifiers: identifiers,
+    displayName: displayName,
+    description: description,
+    accountType: accountType,
+    accountHolders: accountHolders,
+    investmentPortfolios: investmentPortfolios,
+    properties: properties);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

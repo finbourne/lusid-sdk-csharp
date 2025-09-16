@@ -10,5 +10,20 @@ Name | Type | Description | Notes
 **EffectiveAt** | **DateTimeOffset** | The effective at of the Calendar Entry. | [optional] 
 **AsAt** | **DateTimeOffset** | The asAt datetime for the Calendar Entry. | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string code = "code";
+string displayName = "displayName";
+string description = "example description";
+
+PreviousFundCalendarEntry previousFundCalendarEntryInstance = new PreviousFundCalendarEntry(
+    code: code,
+    displayName: displayName,
+    description: description,
+    effectiveAt: effectiveAt,
+    asAt: asAt);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

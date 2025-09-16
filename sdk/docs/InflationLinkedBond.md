@@ -25,5 +25,43 @@ Name | Type | Description | Notes
 **OriginalIssuePrice** | **decimal?** | The price the bond was issued at. This is to be entered as a percentage of par, for example a value of 98.5 would represent 98.5%. | [optional] 
 **TimeZoneConventions** | [**TimeZoneConventions**](TimeZoneConventions.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+FlowConventions flowConventions = new FlowConventions();
+InflationIndexConventions inflationIndexConventions = new InflationIndexConventions();decimal couponRate = "couponRate";
+
+Dictionary<string, string> identifiers = new Dictionary<string, string>();
+string calculationType = "example calculationType";decimal principal = "principal";
+
+bool principalProtection = //"True";
+string stubType = "example stubType";
+List<RoundingConvention> roundingConventions = new List<RoundingConvention>();
+TradingConventions? tradingConventions = new TradingConventions();
+
+TimeZoneConventions? timeZoneConventions = new TimeZoneConventions();
+
+
+InflationLinkedBond inflationLinkedBondInstance = new InflationLinkedBond(
+    startDate: startDate,
+    maturityDate: maturityDate,
+    flowConventions: flowConventions,
+    inflationIndexConventions: inflationIndexConventions,
+    couponRate: couponRate,
+    identifiers: identifiers,
+    baseCPI: baseCPI,
+    baseCPIDate: baseCPIDate,
+    calculationType: calculationType,
+    exDividendDays: exDividendDays,
+    indexPrecision: indexPrecision,
+    principal: principal,
+    principalProtection: principalProtection,
+    stubType: stubType,
+    roundingConventions: roundingConventions,
+    tradingConventions: tradingConventions,
+    originalIssuePrice: originalIssuePrice,
+    timeZoneConventions: timeZoneConventions);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

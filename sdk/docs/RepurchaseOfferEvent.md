@@ -15,5 +15,24 @@ Name | Type | Description | Notes
 **ProrationRate** | **decimal** | The fraction used to calculate a proportional adjustment for RepurchaseQuantity when a full period is not used.  Defaults to 1 if not set. Must be greater than 0 and less than or equal to 1. | [optional] [default to 1D]
 **ResponseDeadlineDate** | **DateTimeOffset?** | Date set by the account servicer as the latest date to respond to the offer.  Optional. If set, must be before or equal to MarketDeadlineDate.  Defaults to MarketDeadlineDate if not set. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
+decimal repurchaseQuantity = "repurchaseQuantity";
 
+List<CashOfferElection> cashOfferElections = new List<CashOfferElection>();
+List<LapseElection> lapseElections = new List<LapseElection>();
+List<TenderOfferElection> tenderOfferElections = new List<TenderOfferElection>();decimal? prorationRate = "example prorationRate";
+
+RepurchaseOfferEvent repurchaseOfferEventInstance = new RepurchaseOfferEvent(
+    paymentDate: paymentDate,
+    marketDeadlineDate: marketDeadlineDate,
+    repurchaseQuantity: repurchaseQuantity,
+    cashOfferElections: cashOfferElections,
+    lapseElections: lapseElections,
+    tenderOfferElections: tenderOfferElections,
+    prorationRate: prorationRate,
+    responseDeadlineDate: responseDeadlineDate);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -11,5 +11,17 @@ Name | Type | Description | Notes
 **Currency** | **string** | The currency in which the interest amount is notated | 
 **InterestPerUnit** | **decimal?** | The interest amount to be deferred and capitalised for each unit of the instrument held on the ex date | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string currency = "currency";
+
+MbsInterestDeferralEvent mbsInterestDeferralEventInstance = new MbsInterestDeferralEvent(
+    exDate: exDate,
+    paymentDate: paymentDate,
+    currency: currency,
+    interestPerUnit: interestPerUnit);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

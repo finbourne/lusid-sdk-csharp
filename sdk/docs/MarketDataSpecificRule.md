@@ -18,5 +18,35 @@ Name | Type | Description | Notes
 **SourceSystem** | **string** | Determines from where LUSID should attempt to find the data. Optional and, if omitted, will default to \&quot;Lusid\&quot;.  This means that data will be retrieved from the Quotes store and the ComplexMarketData store.  These can be populated using the Quotes and ComplexMarketData endpoints. | [optional] 
 **FallThroughOnAccessDenied** | **bool** | When a user attempts to use a rule to access data to which they are not entitled,  the rule will fail to resolve any market data.  By default, such an access denied failure will stop any further attempts to resolve market data.  This is so that differently entitled users always receive the same market data from market data resolution,  if they have sufficient entitlements to retrieve the required data.  If set to true, then an access denied failure will not stop further market data resolution,  and resolution will continue with the next specified MarketDataKeyRule.  Optional, and defaults to false. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string key = "key";
+string supplier = "supplier";
+string dataScope = "dataScope";
+string quoteType = "quoteType";
+string field = "field";
+string quoteInterval = "example quoteInterval";
+string priceSource = "example priceSource";
+string mask = "example mask";
+DependencySourceFilter dependencySourceFilter = new DependencySourceFilter();
+string sourceSystem = "example sourceSystem";
+bool fallThroughOnAccessDenied = //"True";
+
+MarketDataSpecificRule marketDataSpecificRuleInstance = new MarketDataSpecificRule(
+    key: key,
+    supplier: supplier,
+    dataScope: dataScope,
+    quoteType: quoteType,
+    field: field,
+    quoteInterval: quoteInterval,
+    asAt: asAt,
+    priceSource: priceSource,
+    mask: mask,
+    dependencySourceFilter: dependencySourceFilter,
+    sourceSystem: sourceSystem,
+    fallThroughOnAccessDenied: fallThroughOnAccessDenied);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

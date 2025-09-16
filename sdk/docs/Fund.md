@@ -24,5 +24,51 @@ Name | Type | Description | Notes
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string href = "example href";
+ResourceId id = new ResourceId();
+string displayName = "example displayName";
+string description = "example description";
+string baseCurrency = "example baseCurrency";
+List<PortfolioEntityIdWithDetails> portfolioIds = new List<PortfolioEntityIdWithDetails>();
+ResourceId? fundConfigurationId = new ResourceId();
+
+ResourceId? aborId = new ResourceId();
+
+List<InstrumentResolutionDetail> shareClassInstruments = new List<InstrumentResolutionDetail>();
+string type = "type";
+DayMonth? yearEndDate = new DayMonth();
+
+NavTypeDefinition? primaryNavType = new NavTypeDefinition();
+
+List<NavTypeDefinition> additionalNavTypes = new List<NavTypeDefinition>();
+Dictionary<string, Property> properties = new Dictionary<string, Property>();
+ModelVersion? varVersion = new ModelVersion();
+
+List<Link> links = new List<Link>();
+
+Fund fundInstance = new Fund(
+    href: href,
+    id: id,
+    displayName: displayName,
+    description: description,
+    baseCurrency: baseCurrency,
+    portfolioIds: portfolioIds,
+    fundConfigurationId: fundConfigurationId,
+    aborId: aborId,
+    shareClassInstruments: shareClassInstruments,
+    type: type,
+    inceptionDate: inceptionDate,
+    decimalPlaces: decimalPlaces,
+    yearEndDate: yearEndDate,
+    primaryNavType: primaryNavType,
+    additionalNavTypes: additionalNavTypes,
+    properties: properties,
+    varVersion: varVersion,
+    links: links);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

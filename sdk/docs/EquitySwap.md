@@ -20,5 +20,37 @@ Name | Type | Description | Notes
 **AdditionalPayments** | [**List&lt;AdditionalPayment&gt;**](AdditionalPayment.md) | Optional additional payments at a given date e.g. to level off an uneven equity swap.  The dates must be distinct and either all payments are Pay or all payments are Receive. | [optional] 
 **TimeZoneConventions** | [**TimeZoneConventions**](TimeZoneConventions.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string code = "code";
+FlowConventions equityFlowConventions = new FlowConventions();
+InstrumentLeg fundingLeg = new InstrumentLeg();
+bool includeDividends = //"True";decimal initialPrice = "initialPrice";
+
+bool notionalReset = //"True";decimal quantity = "quantity";
+
+string underlyingIdentifier = "underlyingIdentifier";
+string equitySwapDividendPaymentTiming = "example equitySwapDividendPaymentTiming";
+List<AdditionalPayment> additionalPayments = new List<AdditionalPayment>();
+TimeZoneConventions? timeZoneConventions = new TimeZoneConventions();
+
+
+EquitySwap equitySwapInstance = new EquitySwap(
+    startDate: startDate,
+    maturityDate: maturityDate,
+    code: code,
+    equityFlowConventions: equityFlowConventions,
+    fundingLeg: fundingLeg,
+    includeDividends: includeDividends,
+    initialPrice: initialPrice,
+    notionalReset: notionalReset,
+    quantity: quantity,
+    underlyingIdentifier: underlyingIdentifier,
+    equitySwapDividendPaymentTiming: equitySwapDividendPaymentTiming,
+    additionalPayments: additionalPayments,
+    timeZoneConventions: timeZoneConventions);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

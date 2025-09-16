@@ -17,5 +17,33 @@ Name | Type | Description | Notes
 **AdditionalPayments** | [**List&lt;AdditionalPayment&gt;**](AdditionalPayment.md) | Optional additional payments at a given date e.g. to level off an uneven swap.  The dates must be distinct and either all payments are Pay or all payments are Receive. | [optional] 
 **TimeZoneConventions** | [**TimeZoneConventions**](TimeZoneConventions.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string ticker = "example ticker";
+CdsFlowConventions? flowConventions = new CdsFlowConventions();
+decimal couponRate = "couponRate";
+
+FlowConventionName? conventionName = new FlowConventionName();
+
+CdsProtectionDetailSpecification? protectionDetailSpecification = new CdsProtectionDetailSpecification();
+
+List<AdditionalPayment> additionalPayments = new List<AdditionalPayment>();
+TimeZoneConventions? timeZoneConventions = new TimeZoneConventions();
+
+
+CreditDefaultSwap creditDefaultSwapInstance = new CreditDefaultSwap(
+    ticker: ticker,
+    startDate: startDate,
+    maturityDate: maturityDate,
+    flowConventions: flowConventions,
+    couponRate: couponRate,
+    conventionName: conventionName,
+    notional: notional,
+    protectionDetailSpecification: protectionDetailSpecification,
+    additionalPayments: additionalPayments,
+    timeZoneConventions: timeZoneConventions);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

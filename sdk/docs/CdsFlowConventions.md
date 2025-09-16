@@ -17,5 +17,34 @@ Name | Type | Description | Notes
 **Scope** | **string** | The scope used when updating or inserting the convention. | [optional] 
 **Code** | **string** | The code of the convention. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string rollFrequency = "example rollFrequency";
+string currency = "currency";
+string paymentFrequency = "paymentFrequency";
+string dayCountConvention = "dayCountConvention";
+string rollConvention = "rollConvention";
+List<string> paymentCalendars = new List<string>();
+List<string> resetCalendars = new List<string>();
+string businessDayConvention = "example businessDayConvention";
+string scope = "example scope";
+string code = "example code";
+
+CdsFlowConventions cdsFlowConventionsInstance = new CdsFlowConventions(
+    rollFrequency: rollFrequency,
+    currency: currency,
+    paymentFrequency: paymentFrequency,
+    dayCountConvention: dayCountConvention,
+    rollConvention: rollConvention,
+    paymentCalendars: paymentCalendars,
+    resetCalendars: resetCalendars,
+    settleDays: settleDays,
+    resetDays: resetDays,
+    businessDayConvention: businessDayConvention,
+    scope: scope,
+    code: code);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

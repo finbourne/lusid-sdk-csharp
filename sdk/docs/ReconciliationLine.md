@@ -10,5 +10,20 @@ Name | Type | Description | Notes
 **Difference** | **Dictionary&lt;string, Object&gt;** | Difference between LHS and RHS of comparison | [optional] 
 **ResultComparison** | **Dictionary&lt;string, Object&gt;** | The logical or semantic description of the difference, e.g. \&quot;Matches\&quot; or \&quot;MatchesWithTolerance\&quot; or \&quot;Failed\&quot;. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+Dictionary<string, Object> left = new Dictionary<string, Object>();
+Dictionary<string, Object> right = new Dictionary<string, Object>();
+Dictionary<string, Object> difference = new Dictionary<string, Object>();
+Dictionary<string, Object> resultComparison = new Dictionary<string, Object>();
+
+ReconciliationLine reconciliationLineInstance = new ReconciliationLine(
+    left: left,
+    right: right,
+    difference: difference,
+    resultComparison: resultComparison);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

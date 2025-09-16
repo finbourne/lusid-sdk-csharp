@@ -15,5 +15,26 @@ Name | Type | Description | Notes
 **FloorRate** | **decimal?** | The minimum floating rate which a cashflow can accrue. | [optional] 
 **TimeZoneConventions** | [**TimeZoneConventions**](TimeZoneConventions.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+LegDefinition legDefinition = new LegDefinition();decimal notional = "notional";
+
+FixedLegAllOfOverrides? overrides = new FixedLegAllOfOverrides();
+
+TimeZoneConventions? timeZoneConventions = new TimeZoneConventions();
+
+
+FloatingLeg floatingLegInstance = new FloatingLeg(
+    startDate: startDate,
+    maturityDate: maturityDate,
+    legDefinition: legDefinition,
+    notional: notional,
+    overrides: overrides,
+    capRate: capRate,
+    floorRate: floorRate,
+    timeZoneConventions: timeZoneConventions);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

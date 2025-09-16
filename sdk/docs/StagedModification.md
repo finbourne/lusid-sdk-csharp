@@ -23,5 +23,48 @@ Name | Type | Description | Notes
 **DisplayName** | **string** | The display name of the entity the staged modification applies to. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string id = "example id";
+string userIdStaged = "example userIdStaged";
+string requestedIdStaged = "example requestedIdStaged";
+string requestReason = "example requestReason";
+string action = "example action";
+StagedModificationStagingRule? stagingRule = new StagedModificationStagingRule();
+
+List<StagedModificationDecision> decisions = new List<StagedModificationDecision>();
+string status = "example status";
+string entityType = "example entityType";
+string scope = "example scope";
+string entityUniqueId = "example entityUniqueId";
+RequestedChanges? requestedChanges = new RequestedChanges();
+
+StagedModificationsEntityHrefs? entityHrefs = new StagedModificationsEntityHrefs();
+
+string displayName = "example displayName";
+List<Link> links = new List<Link>();
+
+StagedModification stagedModificationInstance = new StagedModification(
+    id: id,
+    asAtStaged: asAtStaged,
+    userIdStaged: userIdStaged,
+    requestedIdStaged: requestedIdStaged,
+    requestReason: requestReason,
+    action: action,
+    stagingRule: stagingRule,
+    decisions: decisions,
+    decisionsCount: decisionsCount,
+    status: status,
+    asAtClosed: asAtClosed,
+    entityType: entityType,
+    scope: scope,
+    entityUniqueId: entityUniqueId,
+    requestedChanges: requestedChanges,
+    entityHrefs: entityHrefs,
+    displayName: displayName,
+    links: links);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

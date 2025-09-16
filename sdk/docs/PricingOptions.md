@@ -22,5 +22,46 @@ Name | Type | Description | Notes
 **EnableLegLevelInferenceForCustomSrsColumns** | **bool** | When enabled, allows inference between leg-level and  instrument-level data during portfolio valuation. If  data is missing at one level, it may be inferred from  the other level. For example, missing leg-level data   may be inferred from existing leg-level and instrument-  level data when ProduceSeparateResultForLinearOtcLegs  is enabled, and vice versa. Explicitly provided data  always takes precedence. | [optional] 
 **UseInstrumentScaleFactorAsDefault** | **bool** | When enabled, priceScaleFactor defined at the instrument level will  be used in the absence of quote scaleFactor when resolving quotes. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+ModelSelection? modelSelection = new ModelSelection();
+
+bool useInstrumentTypeToDeterminePricer = //"True";
+bool allowAnyInstrumentsWithSecUidToPriceOffLookup = //"True";
+bool allowPartiallySuccessfulEvaluation = //"True";
+bool produceSeparateResultForLinearOtcLegs = //"True";
+bool enableUseOfCachedUnitResults = //"True";
+bool windowValuationOnInstrumentStartEnd = //"True";
+bool removeContingentCashflowsInPaymentDiary = //"True";
+bool useChildSubHoldingKeysForPortfolioExpansion = //"True";
+bool validateDomesticAndQuoteCurrenciesAreConsistent = //"True";
+bool mbsValuationUsingHoldingCurrentFace = //"True";
+bool convertSrsCashFlowsToPortfolioCurrency = //"True";
+string conservedQuantityForLookthroughExpansion = "example conservedQuantityForLookthroughExpansion";
+ReturnZeroPvOptions? returnZeroPv = new ReturnZeroPvOptions();
+
+bool enableLegLevelInferenceForCustomSrsColumns = //"True";
+bool useInstrumentScaleFactorAsDefault = //"True";
+
+PricingOptions pricingOptionsInstance = new PricingOptions(
+    modelSelection: modelSelection,
+    useInstrumentTypeToDeterminePricer: useInstrumentTypeToDeterminePricer,
+    allowAnyInstrumentsWithSecUidToPriceOffLookup: allowAnyInstrumentsWithSecUidToPriceOffLookup,
+    allowPartiallySuccessfulEvaluation: allowPartiallySuccessfulEvaluation,
+    produceSeparateResultForLinearOtcLegs: produceSeparateResultForLinearOtcLegs,
+    enableUseOfCachedUnitResults: enableUseOfCachedUnitResults,
+    windowValuationOnInstrumentStartEnd: windowValuationOnInstrumentStartEnd,
+    removeContingentCashflowsInPaymentDiary: removeContingentCashflowsInPaymentDiary,
+    useChildSubHoldingKeysForPortfolioExpansion: useChildSubHoldingKeysForPortfolioExpansion,
+    validateDomesticAndQuoteCurrenciesAreConsistent: validateDomesticAndQuoteCurrenciesAreConsistent,
+    mbsValuationUsingHoldingCurrentFace: mbsValuationUsingHoldingCurrentFace,
+    convertSrsCashFlowsToPortfolioCurrency: convertSrsCashFlowsToPortfolioCurrency,
+    conservedQuantityForLookthroughExpansion: conservedQuantityForLookthroughExpansion,
+    returnZeroPv: returnZeroPv,
+    enableLegLevelInferenceForCustomSrsColumns: enableLegLevelInferenceForCustomSrsColumns,
+    useInstrumentScaleFactorAsDefault: useInstrumentScaleFactorAsDefault);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

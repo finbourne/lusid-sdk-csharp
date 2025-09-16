@@ -10,5 +10,16 @@ Name | Type | Description | Notes
 **ExDate** | **DateTimeOffset** | Date that the accrued interest is calculated up until. | [optional] 
 **Currency** | **string** | Currency of the repayment. | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string currency = "currency";
+
+DepositInterestPaymentEvent depositInterestPaymentEventInstance = new DepositInterestPaymentEvent(
+    paymentDate: paymentDate,
+    exDate: exDate,
+    currency: currency);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

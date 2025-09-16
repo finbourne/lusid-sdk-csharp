@@ -10,5 +10,20 @@ Name | Type | Description | Notes
 **SpecificFallbacks** | [**List&lt;SpecificHoldingPricingInfo&gt;**](SpecificHoldingPricingInfo.md) | Allows a user to specify fallbacks using Holding fields for sources that match a particular DependencySourceFilter. | [optional] 
 **SpecificOverrides** | [**List&lt;SpecificHoldingPricingInfo&gt;**](SpecificHoldingPricingInfo.md) | Allows a user to specify overrides using Holding fields for sources that match a particular DependencySourceFilter. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string fallbackField = "example fallbackField";
+string overrideField = "example overrideField";
+List<SpecificHoldingPricingInfo> specificFallbacks = new List<SpecificHoldingPricingInfo>();
+List<SpecificHoldingPricingInfo> specificOverrides = new List<SpecificHoldingPricingInfo>();
+
+HoldingPricingInfo holdingPricingInfoInstance = new HoldingPricingInfo(
+    fallbackField: fallbackField,
+    overrideField: overrideField,
+    specificFallbacks: specificFallbacks,
+    specificOverrides: specificOverrides);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

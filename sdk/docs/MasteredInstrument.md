@@ -14,5 +14,26 @@ Name | Type | Description | Notes
 **MasteredScope** | **string** | Scope of the Instrument that Mastered Instrument points to - read only field | [optional] [readonly] 
 **MasteredAssetClass** | **string** | Asset class of the underlying mastered instrument - read only field    Supported string (enumeration) values are: [InterestRates, FX, Inflation, Equities, Credit, Commodities, Money].  Defaults to \&quot;Unknown\&quot; if not set. | [optional] [readonly] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+Dictionary<string, string> identifiers = new Dictionary<string, string>();
+string masteredDomCcy = "example masteredDomCcy";
+string masteredInstrumentType = "example masteredInstrumentType";
+string masteredLusidInstrumentId = "example masteredLusidInstrumentId";
+string masteredName = "example masteredName";
+string masteredScope = "example masteredScope";
+string masteredAssetClass = "example masteredAssetClass";
+
+MasteredInstrument masteredInstrumentInstance = new MasteredInstrument(
+    identifiers: identifiers,
+    masteredDomCcy: masteredDomCcy,
+    masteredInstrumentType: masteredInstrumentType,
+    masteredLusidInstrumentId: masteredLusidInstrumentId,
+    masteredName: masteredName,
+    masteredScope: masteredScope,
+    masteredAssetClass: masteredAssetClass);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

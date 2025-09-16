@@ -22,5 +22,45 @@ Name | Type | Description | Notes
 **BucketingSchedule** | [**BucketingSchedule**](BucketingSchedule.md) |  | [optional] 
 **Filter** | **string** |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string roundingMethod = "roundingMethod";
+List<DateTimeOffset> bucketingDates = new List<DateTimeOffset>();
+List<string> bucketTenors = new List<string>();
+string effectiveAt = "example effectiveAt";
+string windowStart = "example windowStart";
+string windowEnd = "example windowEnd";
+ResourceId? recipeId = new ResourceId();
+
+string reportCurrency = "example reportCurrency";
+List<string> groupBy = new List<string>();
+List<string> addresses = new List<string>();
+bool equipWithSubtotals = //"True";
+bool excludeUnsettledTrades = //"True";
+string cashFlowType = "example cashFlowType";
+BucketingSchedule? bucketingSchedule = new BucketingSchedule();
+
+string filter = "example filter";
+
+BucketedCashFlowRequest bucketedCashFlowRequestInstance = new BucketedCashFlowRequest(
+    roundingMethod: roundingMethod,
+    bucketingDates: bucketingDates,
+    bucketTenors: bucketTenors,
+    effectiveAt: effectiveAt,
+    windowStart: windowStart,
+    windowEnd: windowEnd,
+    recipeId: recipeId,
+    reportCurrency: reportCurrency,
+    groupBy: groupBy,
+    addresses: addresses,
+    equipWithSubtotals: equipWithSubtotals,
+    asAt: asAt,
+    excludeUnsettledTrades: excludeUnsettledTrades,
+    cashFlowType: cashFlowType,
+    bucketingSchedule: bucketingSchedule,
+    filter: filter);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

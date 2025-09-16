@@ -10,5 +10,22 @@ Name | Type | Description | Notes
 **MatchCriteria** | [**StagingRuleMatchCriteria**](StagingRuleMatchCriteria.md) |  | 
 **ApprovalCriteria** | [**StagingRuleApprovalCriteria**](StagingRuleApprovalCriteria.md) |  | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string ruleId = "ruleId";
+string description = "example description";
+string status = "status";
+StagingRuleMatchCriteria matchCriteria = new StagingRuleMatchCriteria();
+StagingRuleApprovalCriteria approvalCriteria = new StagingRuleApprovalCriteria();
+
+StagingRule stagingRuleInstance = new StagingRule(
+    ruleId: ruleId,
+    description: description,
+    status: status,
+    matchCriteria: matchCriteria,
+    approvalCriteria: approvalCriteria);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

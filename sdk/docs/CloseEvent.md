@@ -9,5 +9,14 @@ Name | Type | Description | Notes
 **StartDate** | **DateTimeOffset** | The first date on which the instrument could close | [optional] 
 **EndDate** | **DateTimeOffset** | The last date on which the instrument could close | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+
+CloseEvent closeEventInstance = new CloseEvent(
+    startDate: startDate,
+    endDate: endDate);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

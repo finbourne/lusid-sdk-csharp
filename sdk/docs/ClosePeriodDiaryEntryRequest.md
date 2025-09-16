@@ -13,5 +13,24 @@ Name | Type | Description | Notes
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | A set of properties for the diary entry. | [optional] 
 **ClosingOptions** | **List&lt;string&gt;** | The options which will be executed once a period is closed or locked. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string diaryEntryCode = "example diaryEntryCode";
+string name = "example name";
+string status = "example status";
+Dictionary<string, Property> properties = new Dictionary<string, Property>();
+List<string> closingOptions = new List<string>();
+
+ClosePeriodDiaryEntryRequest closePeriodDiaryEntryRequestInstance = new ClosePeriodDiaryEntryRequest(
+    diaryEntryCode: diaryEntryCode,
+    name: name,
+    effectiveAt: effectiveAt,
+    queryAsAt: queryAsAt,
+    status: status,
+    properties: properties,
+    closingOptions: closingOptions);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

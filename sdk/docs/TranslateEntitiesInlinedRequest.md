@@ -9,5 +9,19 @@ Name | Type | Description | Notes
 **ScriptBody** | **string** | The body of the translation script to use for translating the entities. | 
 **Schema** | [**DialectSchema**](DialectSchema.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+Dictionary<string, TranslationInput> entityPayloads = new Dictionary<string, TranslationInput>();
+string scriptBody = "scriptBody";
+DialectSchema? schema = new DialectSchema();
+
+
+TranslateEntitiesInlinedRequest translateEntitiesInlinedRequestInstance = new TranslateEntitiesInlinedRequest(
+    entityPayloads: entityPayloads,
+    scriptBody: scriptBody,
+    schema: schema);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

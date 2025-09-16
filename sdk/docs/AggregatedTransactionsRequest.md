@@ -14,5 +14,28 @@ Name | Type | Description | Notes
 **Filters** | [**List&lt;PropertyFilter&gt;**](PropertyFilter.md) |  | [optional] 
 **Sort** | [**List&lt;OrderBySpec&gt;**](OrderBySpec.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+ResourceId? portfolioId = new ResourceId();
+
+List<PortfolioEntityId> portfolioEntityIds = new List<PortfolioEntityId>();
+List<AggregateSpec> metrics = new List<AggregateSpec>();
+List<string> groupBy = new List<string>();
+List<PropertyFilter> filters = new List<PropertyFilter>();
+List<OrderBySpec> sort = new List<OrderBySpec>();
+
+AggregatedTransactionsRequest aggregatedTransactionsRequestInstance = new AggregatedTransactionsRequest(
+    fromTransactionDate: fromTransactionDate,
+    toTransactionDate: toTransactionDate,
+    portfolioId: portfolioId,
+    portfolioEntityIds: portfolioEntityIds,
+    asAt: asAt,
+    metrics: metrics,
+    groupBy: groupBy,
+    filters: filters,
+    sort: sort);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -23,5 +23,51 @@ Name | Type | Description | Notes
 **FxLinkedNotionalSchedule** | [**FxLinkedNotionalSchedule**](FxLinkedNotionalSchedule.md) |  | [optional] 
 **IntermediateNotionalExchange** | **bool?** | Indicates whether there are intermediate notional exchanges. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+FlowConventionName? conventionName = new FlowConventionName();
+
+FlowConventions? conventions = new FlowConventions();
+
+IndexConvention? indexConvention = new IndexConvention();
+
+FlowConventionName? indexConventionName = new FlowConventionName();
+
+string notionalExchangeType = "notionalExchangeType";
+string payReceive = "payReceive";decimal rateOrSpread = "rateOrSpread";
+
+string resetConvention = "example resetConvention";
+string stubType = "stubType";
+Compounding? compounding = new Compounding();
+
+StepSchedule? amortisation = new StepSchedule();
+
+string firstCouponType = "example firstCouponType";
+string lastCouponType = "example lastCouponType";
+FxLinkedNotionalSchedule? fxLinkedNotionalSchedule = new FxLinkedNotionalSchedule();
+
+bool? intermediateNotionalExchange = //"True";
+
+LegDefinition legDefinitionInstance = new LegDefinition(
+    conventionName: conventionName,
+    conventions: conventions,
+    indexConvention: indexConvention,
+    indexConventionName: indexConventionName,
+    notionalExchangeType: notionalExchangeType,
+    payReceive: payReceive,
+    rateOrSpread: rateOrSpread,
+    resetConvention: resetConvention,
+    stubType: stubType,
+    compounding: compounding,
+    amortisation: amortisation,
+    firstRegularPaymentDate: firstRegularPaymentDate,
+    firstCouponType: firstCouponType,
+    lastRegularPaymentDate: lastRegularPaymentDate,
+    lastCouponType: lastCouponType,
+    fxLinkedNotionalSchedule: fxLinkedNotionalSchedule,
+    intermediateNotionalExchange: intermediateNotionalExchange);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

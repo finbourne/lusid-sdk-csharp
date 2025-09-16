@@ -9,5 +9,15 @@ Name | Type | Description | Notes
 **Amount** | **decimal** | Amount that the limit and balance are changed by.  A positive number signifies an increase, and a negative number here signifies a decrease. | 
 **Date** | **DateTimeOffset** | Date of the adjustment.  Signifies when the facility begins to accrue interest. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
+decimal amount = "amount";
 
+
+AdjustGlobalCommitmentEvent adjustGlobalCommitmentEventInstance = new AdjustGlobalCommitmentEvent(
+    amount: amount,
+    date: date);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

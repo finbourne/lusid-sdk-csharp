@@ -25,5 +25,46 @@ Name | Type | Description | Notes
 **SettlementCalendars** | **List&lt;string&gt;** | Holiday calendars for option exercise date to settlement date calculation. | [optional] 
 **TimeZoneConventions** | [**TimeZoneConventions**](TimeZoneConventions.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string deliveryType = "deliveryType";
+string optionType = "optionType";decimal strike = "strike";
+
+string domCcy = "domCcy";
+string underlyingIdentifier = "example underlyingIdentifier";
+string code = "example code";
+string equityOptionType = "example equityOptionType";
+Premium? premium = new Premium();
+
+string exerciseType = "example exerciseType";
+LusidInstrument? underlying = new LusidInstrument();
+
+string businessDayConvention = "example businessDayConvention";
+List<string> settlementCalendars = new List<string>();
+TimeZoneConventions? timeZoneConventions = new TimeZoneConventions();
+
+
+EquityOption equityOptionInstance = new EquityOption(
+    startDate: startDate,
+    optionMaturityDate: optionMaturityDate,
+    optionSettlementDate: optionSettlementDate,
+    deliveryType: deliveryType,
+    optionType: optionType,
+    strike: strike,
+    domCcy: domCcy,
+    underlyingIdentifier: underlyingIdentifier,
+    code: code,
+    equityOptionType: equityOptionType,
+    numberOfShares: numberOfShares,
+    premium: premium,
+    exerciseType: exerciseType,
+    underlying: underlying,
+    deliveryDays: deliveryDays,
+    businessDayConvention: businessDayConvention,
+    settlementCalendars: settlementCalendars,
+    timeZoneConventions: timeZoneConventions);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

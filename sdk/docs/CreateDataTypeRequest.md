@@ -15,5 +15,33 @@ Name | Type | Description | Notes
 **AcceptableUnits** | [**List&lt;CreateUnitDefinition&gt;**](CreateUnitDefinition.md) | The definitions of the acceptable units. | [optional] 
 **ReferenceData** | [**ReferenceData**](ReferenceData.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string scope = "scope";
+string code = "code";
+string typeValueRange = "typeValueRange";
+string displayName = "displayName";
+string description = "description";
+string valueType = "valueType";
+List<string> acceptableValues = new List<string>();
+string unitSchema = "example unitSchema";
+List<CreateUnitDefinition> acceptableUnits = new List<CreateUnitDefinition>();
+ReferenceData? referenceData = new ReferenceData();
+
+
+CreateDataTypeRequest createDataTypeRequestInstance = new CreateDataTypeRequest(
+    scope: scope,
+    code: code,
+    typeValueRange: typeValueRange,
+    displayName: displayName,
+    description: description,
+    valueType: valueType,
+    acceptableValues: acceptableValues,
+    unitSchema: unitSchema,
+    acceptableUnits: acceptableUnits,
+    referenceData: referenceData);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

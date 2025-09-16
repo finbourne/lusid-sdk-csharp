@@ -9,5 +9,19 @@ Name | Type | Description | Notes
 **Schema** | [**DialectSchema**](DialectSchema.md) |  | 
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+DialectId id = new DialectId();
+DialectSchema schema = new DialectSchema();
+ModelVersion? varVersion = new ModelVersion();
+
+
+Dialect dialectInstance = new Dialect(
+    id: id,
+    schema: schema,
+    varVersion: varVersion);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

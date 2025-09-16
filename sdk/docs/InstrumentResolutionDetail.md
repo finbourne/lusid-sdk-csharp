@@ -10,5 +10,20 @@ Name | Type | Description | Notes
 **LaunchPrice** | **decimal?** | The launch price set when a shareclass is added to the fund. Defaults to 1. | [optional] 
 **LaunchDate** | **DateTimeOffset?** | The launch date set when a shareclass is added to the fund. Defaults to Fund Inception Date. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+Dictionary<string, string> instrumentIdentifiers = new Dictionary<string, string>();
+string lusidInstrumentId = "example lusidInstrumentId";
+string instrumentScope = "example instrumentScope";
+
+InstrumentResolutionDetail instrumentResolutionDetailInstance = new InstrumentResolutionDetail(
+    instrumentIdentifiers: instrumentIdentifiers,
+    lusidInstrumentId: lusidInstrumentId,
+    instrumentScope: instrumentScope,
+    launchPrice: launchPrice,
+    launchDate: launchDate);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

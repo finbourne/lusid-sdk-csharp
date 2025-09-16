@@ -17,5 +17,27 @@ Name | Type | Description | Notes
 **RecordDate** | **DateTimeOffset?** | Optional. Date you have to be the holder of record of the original shares in order to receive the new shares. | [optional] 
 **SecurityOfferElections** | [**List&lt;SecurityOfferElection&gt;**](SecurityOfferElection.md) | List of possible SecurityOfferElections for this merger event | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+List<CashAndSecurityOfferElection> cashAndSecurityOfferElections = new List<CashAndSecurityOfferElection>();
+List<CashOfferElection> cashOfferElections = new List<CashOfferElection>();
+string fractionalUnitsCashCurrency = "example fractionalUnitsCashCurrency";
+NewInstrument newInstrument = new NewInstrument();
+List<SecurityOfferElection> securityOfferElections = new List<SecurityOfferElection>();
+
+MergerEvent mergerEventInstance = new MergerEvent(
+    announcementDate: announcementDate,
+    cashAndSecurityOfferElections: cashAndSecurityOfferElections,
+    cashOfferElections: cashOfferElections,
+    exDate: exDate,
+    fractionalUnitsCashCurrency: fractionalUnitsCashCurrency,
+    fractionalUnitsCashPrice: fractionalUnitsCashPrice,
+    newInstrument: newInstrument,
+    paymentDate: paymentDate,
+    recordDate: recordDate,
+    securityOfferElections: securityOfferElections);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

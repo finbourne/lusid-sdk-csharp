@@ -13,5 +13,31 @@ Name | Type | Description | Notes
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **StagedModifications** | [**StagedModificationsInfo**](StagedModificationsInfo.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+ResourceId customDataModelId = new ResourceId();
+string entityType = "entityType";
+string entityUniqueId = "entityUniqueId";
+string operation = "operation";
+string entityDisplayName = "entityDisplayName";
+DataModelMembership? dataModelMembership = new DataModelMembership();
+
+ModelVersion? varVersion = new ModelVersion();
+
+StagedModificationsInfo? stagedModifications = new StagedModificationsInfo();
+
+
+MembershipAmendmentResponse membershipAmendmentResponseInstance = new MembershipAmendmentResponse(
+    customDataModelId: customDataModelId,
+    entityType: entityType,
+    entityUniqueId: entityUniqueId,
+    operation: operation,
+    entityDisplayName: entityDisplayName,
+    dataModelMembership: dataModelMembership,
+    varVersion: varVersion,
+    stagedModifications: stagedModifications);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -23,5 +23,44 @@ Name | Type | Description | Notes
 **Counterparty** | **string** | The counterparty for this allocation. | [optional] 
 **ExecutionIds** | [**List&lt;ResourceId&gt;**](ResourceId.md) | The executions associated with this allocation | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+Dictionary<string, PerpetualProperty> properties = new Dictionary<string, PerpetualProperty>();
+Dictionary<string, string> instrumentIdentifiers = new Dictionary<string, string>();decimal quantity = "quantity";
+
+ResourceId portfolioId = new ResourceId();
+ResourceId allocatedOrderId = new ResourceId();
+ResourceId id = new ResourceId();
+List<ResourceId> placementIds = new List<ResourceId>();
+string state = "example state";
+string side = "example side";
+string type = "example type";
+CurrencyAndAmount? price = new CurrencyAndAmount();
+
+string settlementCurrency = "example settlementCurrency";
+string counterparty = "example counterparty";
+List<ResourceId> executionIds = new List<ResourceId>();
+
+AllocationRequest allocationRequestInstance = new AllocationRequest(
+    properties: properties,
+    instrumentIdentifiers: instrumentIdentifiers,
+    quantity: quantity,
+    portfolioId: portfolioId,
+    allocatedOrderId: allocatedOrderId,
+    id: id,
+    placementIds: placementIds,
+    state: state,
+    side: side,
+    type: type,
+    settlementDate: settlementDate,
+    date: date,
+    price: price,
+    settlementCurrency: settlementCurrency,
+    settlementCurrencyFxRate: settlementCurrencyFxRate,
+    counterparty: counterparty,
+    executionIds: executionIds);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

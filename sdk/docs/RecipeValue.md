@@ -9,5 +9,19 @@ Name | Type | Description | Notes
 **AsString** | **string** | For simple value, a single input value, note complex nested objects are not allowed here. | [optional] 
 **FromRecipe** | [**FromRecipe**](FromRecipe.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string asJson = "example asJson";
+string asString = "example asString";
+FromRecipe? fromRecipe = new FromRecipe();
+
+
+RecipeValue recipeValueInstance = new RecipeValue(
+    asJson: asJson,
+    asString: asString,
+    fromRecipe: fromRecipe);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

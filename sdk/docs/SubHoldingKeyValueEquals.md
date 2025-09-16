@@ -9,5 +9,16 @@ Name | Type | Description | Notes
 **SubHoldingKey** | **string** | The sub holding key whose value will form the left-hand side of the operation | 
 **Value** | **string** | The value to be compared against | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string subHoldingKey = "subHoldingKey";
+string value = "value";
+
+SubHoldingKeyValueEquals subHoldingKeyValueEqualsInstance = new SubHoldingKeyValueEquals(
+    subHoldingKey: subHoldingKey,
+    value: value);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

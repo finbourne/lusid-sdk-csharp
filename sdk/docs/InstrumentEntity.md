@@ -19,5 +19,38 @@ Name | Type | Description | Notes
 **PreviewedInstrument** | [**Instrument**](Instrument.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string href = "href";
+string entityUniqueId = "entityUniqueId";
+string status = "status";
+string userIdDeleted = "example userIdDeleted";
+string requestIdDeleted = "example requestIdDeleted";
+Instrument? prevailingInstrument = new Instrument();
+
+Instrument? deletedInstrument = new Instrument();
+
+string previewedStatus = "example previewedStatus";
+Instrument? previewedInstrument = new Instrument();
+
+List<Link> links = new List<Link>();
+
+InstrumentEntity instrumentEntityInstance = new InstrumentEntity(
+    href: href,
+    entityUniqueId: entityUniqueId,
+    asAtVersionNumber: asAtVersionNumber,
+    status: status,
+    asAtDeleted: asAtDeleted,
+    userIdDeleted: userIdDeleted,
+    requestIdDeleted: requestIdDeleted,
+    effectiveAtCreated: effectiveAtCreated,
+    prevailingInstrument: prevailingInstrument,
+    deletedInstrument: deletedInstrument,
+    previewedStatus: previewedStatus,
+    previewedInstrument: previewedInstrument,
+    links: links);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -16,5 +16,28 @@ Name | Type | Description | Notes
 **NotificationPeriodEnd** | **DateTimeOffset** | The last day in the notification period for the conversion of the bond | [optional] 
 **NotificationPeriodStart** | **DateTimeOffset** | The first day in the notification period for the conversion of the bond | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+Dictionary<string, string> identifiers = new Dictionary<string, string>();
+List<BondConversionEntry> bondConversionEntries = new List<BondConversionEntry>();
+string conversionTrigger = "conversionTrigger";
+string deliveryType = "example deliveryType";
+string exerciseType = "exerciseType";
+bool includesAccrued = //"True";
+bool mandatoryConversion = //"True";
+
+BondConversionSchedule bondConversionScheduleInstance = new BondConversionSchedule(
+    identifiers: identifiers,
+    bondConversionEntries: bondConversionEntries,
+    conversionTrigger: conversionTrigger,
+    deliveryType: deliveryType,
+    exerciseType: exerciseType,
+    includesAccrued: includesAccrued,
+    mandatoryConversion: mandatoryConversion,
+    notificationPeriodEnd: notificationPeriodEnd,
+    notificationPeriodStart: notificationPeriodStart);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

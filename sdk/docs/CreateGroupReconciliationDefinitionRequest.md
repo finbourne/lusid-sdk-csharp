@@ -15,5 +15,39 @@ Name | Type | Description | Notes
 **BreakCodeSource** | [**BreakCodeSource**](BreakCodeSource.md) |  | [optional] 
 **PrimarySchedule** | [**PrimarySchedule**](PrimarySchedule.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+ResourceId? id = new ResourceId();
+
+string displayName = "displayName";
+string description = "example description";
+GroupReconciliationDefinitionPortfolioEntityIds portfolioEntityIds = new GroupReconciliationDefinitionPortfolioEntityIds();
+GroupReconciliationDefinitionRecipeIds? recipeIds = new GroupReconciliationDefinitionRecipeIds();
+
+GroupReconciliationDefinitionCurrencies? currencies = new GroupReconciliationDefinitionCurrencies();
+
+TransactionDateWindows? transactionDateWindows = new TransactionDateWindows();
+
+GroupReconciliationDefinitionComparisonRulesetIds? comparisonRulesetIds = new GroupReconciliationDefinitionComparisonRulesetIds();
+
+BreakCodeSource? breakCodeSource = new BreakCodeSource();
+
+PrimarySchedule? primarySchedule = new PrimarySchedule();
+
+
+CreateGroupReconciliationDefinitionRequest createGroupReconciliationDefinitionRequestInstance = new CreateGroupReconciliationDefinitionRequest(
+    id: id,
+    displayName: displayName,
+    description: description,
+    portfolioEntityIds: portfolioEntityIds,
+    recipeIds: recipeIds,
+    currencies: currencies,
+    transactionDateWindows: transactionDateWindows,
+    comparisonRulesetIds: comparisonRulesetIds,
+    breakCodeSource: breakCodeSource,
+    primarySchedule: primarySchedule);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

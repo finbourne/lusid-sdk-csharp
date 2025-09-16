@@ -12,5 +12,25 @@ Name | Type | Description | Notes
 **Currency** | **string** | The Holding currency. This needs to be equal with the one on the TaxLot -&gt; cost if one is specified | [optional] 
 **CustodianAccountId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+Dictionary<string, string> instrumentIdentifiers = new Dictionary<string, string>();
+Dictionary<string, PerpetualProperty> subHoldingKeys = new Dictionary<string, PerpetualProperty>();
+Dictionary<string, PerpetualProperty> properties = new Dictionary<string, PerpetualProperty>();
+List<TargetTaxLotRequest> taxLots = new List<TargetTaxLotRequest>();
+string currency = "example currency";
+ResourceId? custodianAccountId = new ResourceId();
+
+
+AdjustHoldingRequest adjustHoldingRequestInstance = new AdjustHoldingRequest(
+    instrumentIdentifiers: instrumentIdentifiers,
+    subHoldingKeys: subHoldingKeys,
+    properties: properties,
+    taxLots: taxLots,
+    currency: currency,
+    custodianAccountId: custodianAccountId);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

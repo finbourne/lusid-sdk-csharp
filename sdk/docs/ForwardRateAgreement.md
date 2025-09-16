@@ -15,5 +15,27 @@ Name | Type | Description | Notes
 **IndexConvention** | [**IndexConvention**](IndexConvention.md) |  | [optional] 
 **TimeZoneConventions** | [**TimeZoneConventions**](TimeZoneConventions.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string domCcy = "domCcy";decimal fraRate = "fraRate";
+decimal notional = "notional";
+
+IndexConvention? indexConvention = new IndexConvention();
+
+TimeZoneConventions? timeZoneConventions = new TimeZoneConventions();
+
+
+ForwardRateAgreement forwardRateAgreementInstance = new ForwardRateAgreement(
+    startDate: startDate,
+    maturityDate: maturityDate,
+    domCcy: domCcy,
+    fixingDate: fixingDate,
+    fraRate: fraRate,
+    notional: notional,
+    indexConvention: indexConvention,
+    timeZoneConventions: timeZoneConventions);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -15,5 +15,32 @@ Name | Type | Description | Notes
 **CustodianIdentifier** | [**TypedResourceId**](TypedResourceId.md) |  | 
 **AccountType** | **string** | The Type of the Custodian Account. Can be Margin, Cash or Swap. Defaults to Margin. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string scope = "example scope";
+string code = "code";
+string status = "example status";
+string accountNumber = "accountNumber";
+string accountName = "accountName";
+string accountingMethod = "accountingMethod";
+string currency = "currency";
+Dictionary<string, Property> properties = new Dictionary<string, Property>();
+TypedResourceId custodianIdentifier = new TypedResourceId();
+string accountType = "example accountType";
+
+CustodianAccountRequest custodianAccountRequestInstance = new CustodianAccountRequest(
+    scope: scope,
+    code: code,
+    status: status,
+    accountNumber: accountNumber,
+    accountName: accountName,
+    accountingMethod: accountingMethod,
+    currency: currency,
+    properties: properties,
+    custodianIdentifier: custodianIdentifier,
+    accountType: accountType);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

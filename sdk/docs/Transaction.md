@@ -32,5 +32,66 @@ Name | Type | Description | Notes
 **ResolvedTransactionTypeDetails** | [**TransactionTypeDetails**](TransactionTypeDetails.md) |  | [optional] 
 **DataModelMembership** | [**DataModelMembership**](DataModelMembership.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string transactionId = "transactionId";
+string type = "type";
+Dictionary<string, string> instrumentIdentifiers = new Dictionary<string, string>();
+string instrumentScope = "example instrumentScope";
+string instrumentUid = "instrumentUid";decimal units = "units";
+
+TransactionPrice? transactionPrice = new TransactionPrice();
+
+CurrencyAndAmount totalConsideration = new CurrencyAndAmount();
+string transactionCurrency = "example transactionCurrency";
+Dictionary<string, PerpetualProperty> properties = new Dictionary<string, PerpetualProperty>();
+string counterpartyId = "example counterpartyId";
+string source = "example source";
+OtcConfirmation? otcConfirmation = new OtcConfirmation();
+
+string transactionStatus = "example transactionStatus";
+ResourceId? orderId = new ResourceId();
+
+ResourceId? allocationId = new ResourceId();
+
+CustodianAccount? custodianAccount = new CustodianAccount();
+
+string transactionGroupId = "example transactionGroupId";
+List<Strategy> strategyTag = new List<Strategy>();
+TransactionTypeDetails? resolvedTransactionTypeDetails = new TransactionTypeDetails();
+
+DataModelMembership? dataModelMembership = new DataModelMembership();
+
+
+Transaction transactionInstance = new Transaction(
+    transactionId: transactionId,
+    type: type,
+    instrumentIdentifiers: instrumentIdentifiers,
+    instrumentScope: instrumentScope,
+    instrumentUid: instrumentUid,
+    transactionDate: transactionDate,
+    settlementDate: settlementDate,
+    units: units,
+    transactionPrice: transactionPrice,
+    totalConsideration: totalConsideration,
+    exchangeRate: exchangeRate,
+    transactionCurrency: transactionCurrency,
+    properties: properties,
+    counterpartyId: counterpartyId,
+    source: source,
+    entryDateTime: entryDateTime,
+    otcConfirmation: otcConfirmation,
+    transactionStatus: transactionStatus,
+    cancelDateTime: cancelDateTime,
+    orderId: orderId,
+    allocationId: allocationId,
+    custodianAccount: custodianAccount,
+    transactionGroupId: transactionGroupId,
+    strategyTag: strategyTag,
+    resolvedTransactionTypeDetails: resolvedTransactionTypeDetails,
+    dataModelMembership: dataModelMembership);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

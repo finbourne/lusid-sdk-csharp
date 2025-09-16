@@ -11,5 +11,26 @@ Name | Type | Description | Notes
 **PropertyKeys** | **List&lt;string&gt;** | A list of property keys from the &#39;Account&#39; domain to decorate onto the trial balance. | [optional] 
 **ExcludeCleardownModule** | **bool** | By deafult this flag is set to false, if this is set to true, no cleardown module will be applied to the trial balance. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+DateOrDiaryEntry? start = new DateOrDiaryEntry();
+
+DateOrDiaryEntry? end = new DateOrDiaryEntry();
+
+string dateMode = "example dateMode";
+string generalLedgerProfileCode = "example generalLedgerProfileCode";
+List<string> propertyKeys = new List<string>();
+bool excludeCleardownModule = //"True";
+
+TrialBalanceQueryParameters trialBalanceQueryParametersInstance = new TrialBalanceQueryParameters(
+    start: start,
+    end: end,
+    dateMode: dateMode,
+    generalLedgerProfileCode: generalLedgerProfileCode,
+    propertyKeys: propertyKeys,
+    excludeCleardownModule: excludeCleardownModule);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

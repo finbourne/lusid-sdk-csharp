@@ -15,5 +15,31 @@ Name | Type | Description | Notes
 **TimelineId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **ClosedPeriodId** | **string** | Unique identifier for a closed period within a given timeline. If this field is specified, the TimelineId  field must also be specified. If given, this field defines the effective date of the request as the  EffectiveEnd of the given closed period. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+DateTimeOrCutLabel effectiveFrom = "example effectiveFrom";
+DateTimeOrCutLabel effectiveAt = "example effectiveAt";
+string tenor = "example tenor";
+string rollConvention = "example rollConvention";
+List<string> holidayCalendars = new List<string>();
+List<string> valuationDateTimes = new List<string>();
+string businessDayConvention = "example businessDayConvention";
+ResourceId? timelineId = new ResourceId();
+
+string closedPeriodId = "example closedPeriodId";
+
+ValuationSchedule valuationScheduleInstance = new ValuationSchedule(
+    effectiveFrom: effectiveFrom,
+    effectiveAt: effectiveAt,
+    tenor: tenor,
+    rollConvention: rollConvention,
+    holidayCalendars: holidayCalendars,
+    valuationDateTimes: valuationDateTimes,
+    businessDayConvention: businessDayConvention,
+    timelineId: timelineId,
+    closedPeriodId: closedPeriodId);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

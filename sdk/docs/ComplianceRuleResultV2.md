@@ -10,5 +10,20 @@ Name | Type | Description | Notes
 **Schedule** | **string** |  | 
 **RuleResult** | [**ComplianceSummaryRuleResult**](ComplianceSummaryRuleResult.md) |  | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+ResourceId runId = new ResourceId();
+string schedule = "schedule";
+ComplianceSummaryRuleResult ruleResult = new ComplianceSummaryRuleResult();
+
+ComplianceRuleResultV2 complianceRuleResultV2Instance = new ComplianceRuleResultV2(
+    runId: runId,
+    instigatedAt: instigatedAt,
+    completedAt: completedAt,
+    schedule: schedule,
+    ruleResult: ruleResult);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

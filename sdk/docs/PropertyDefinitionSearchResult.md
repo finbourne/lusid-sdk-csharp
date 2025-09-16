@@ -24,5 +24,49 @@ Name | Type | Description | Notes
 **IsFilterable** | **bool** | Bool indicating whether the values of this property are fitlerable, this is true for all non-derived property defintions.  For a derived definition this must be set true to enable filtering. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string href = "example href";
+string key = "example key";
+string valueType = "example valueType";
+string displayName = "example displayName";
+ResourceId? dataTypeId = new ResourceId();
+
+string type = "example type";
+string unitSchema = "example unitSchema";
+string domain = "example domain";
+string scope = "example scope";
+string code = "example code";
+bool valueRequired = //"True";
+string lifeTime = "example lifeTime";
+string constraintStyle = "example constraintStyle";
+string propertyDefinitionType = "example propertyDefinitionType";
+string propertyDescription = "example propertyDescription";
+string derivationFormula = "example derivationFormula";
+bool isFilterable = //"True";
+List<Link> links = new List<Link>();
+
+PropertyDefinitionSearchResult propertyDefinitionSearchResultInstance = new PropertyDefinitionSearchResult(
+    href: href,
+    key: key,
+    valueType: valueType,
+    displayName: displayName,
+    dataTypeId: dataTypeId,
+    type: type,
+    unitSchema: unitSchema,
+    domain: domain,
+    scope: scope,
+    code: code,
+    valueRequired: valueRequired,
+    lifeTime: lifeTime,
+    constraintStyle: constraintStyle,
+    propertyDefinitionType: propertyDefinitionType,
+    propertyDescription: propertyDescription,
+    derivationFormula: derivationFormula,
+    isFilterable: isFilterable,
+    links: links);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

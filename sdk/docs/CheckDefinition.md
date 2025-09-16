@@ -14,5 +14,32 @@ Name | Type | Description | Notes
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | A set of properties for the Check Definition. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+ResourceId id = new ResourceId();
+string displayName = "example displayName";
+string description = "example description";
+CheckDefinitionDatasetSchema? datasetSchema = new CheckDefinitionDatasetSchema();
+
+List<CheckDefinitionRuleSet> ruleSets = new List<CheckDefinitionRuleSet>();
+string href = "example href";
+ModelVersion? varVersion = new ModelVersion();
+
+Dictionary<string, Property> properties = new Dictionary<string, Property>();
+List<Link> links = new List<Link>();
+
+CheckDefinition checkDefinitionInstance = new CheckDefinition(
+    id: id,
+    displayName: displayName,
+    description: description,
+    datasetSchema: datasetSchema,
+    ruleSets: ruleSets,
+    href: href,
+    varVersion: varVersion,
+    properties: properties,
+    links: links);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

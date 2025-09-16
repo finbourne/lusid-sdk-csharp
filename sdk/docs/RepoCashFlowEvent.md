@@ -11,5 +11,18 @@ Name | Type | Description | Notes
 **CashFlowPerUnit** | **decimal** | The amount of cash to be exchanged for each unit   of the instrument held on the entitlement date. | 
 **Currency** | **string** | The currency in which the cashflow is paid. | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
+decimal cashFlowPerUnit = "cashFlowPerUnit";
 
+string currency = "currency";
+
+RepoCashFlowEvent repoCashFlowEventInstance = new RepoCashFlowEvent(
+    entitlementDate: entitlementDate,
+    settlementDate: settlementDate,
+    cashFlowPerUnit: cashFlowPerUnit,
+    currency: currency);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

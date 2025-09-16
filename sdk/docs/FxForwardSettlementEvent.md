@@ -19,5 +19,30 @@ Name | Type | Description | Notes
 **DomesticToSettlementRate** | **decimal?** | Domestic currency to settlement currency FX rate  Not required, only used to override quotes. | [optional] 
 **ForeignToSettlementRate** | **decimal?** | Foreign currency to settlement currency FX rate  Not required, only used to override quotes. | [optional] [readonly] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
+decimal domAmountPerUnit = "domAmountPerUnit";
 
+string domCcy = "domCcy";decimal fgnAmountPerUnit = "fgnAmountPerUnit";
+
+string fgnCcy = "fgnCcy";
+bool isNdf = //"True";
+string settlementCcy = "example settlementCcy";
+
+FxForwardSettlementEvent fxForwardSettlementEventInstance = new FxForwardSettlementEvent(
+    maturityDate: maturityDate,
+    domAmountPerUnit: domAmountPerUnit,
+    domCcy: domCcy,
+    fgnAmountPerUnit: fgnAmountPerUnit,
+    fgnCcy: fgnCcy,
+    isNdf: isNdf,
+    fixingDate: fixingDate,
+    settlementCcy: settlementCcy,
+    cashFlowPerUnit: cashFlowPerUnit,
+    domesticToForeignRate: domesticToForeignRate,
+    domesticToSettlementRate: domesticToSettlementRate,
+    foreignToSettlementRate: foreignToSettlementRate);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

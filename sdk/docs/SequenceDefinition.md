@@ -14,5 +14,25 @@ Name | Type | Description | Notes
 **Pattern** | **string** | The pattern to be used to generate next values in the sequence. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+ResourceId id = new ResourceId();
+bool cycle = //"True";
+string pattern = "example pattern";
+List<Link> links = new List<Link>();
+
+SequenceDefinition sequenceDefinitionInstance = new SequenceDefinition(
+    id: id,
+    increment: increment,
+    minValue: minValue,
+    maxValue: maxValue,
+    start: start,
+    value: value,
+    cycle: cycle,
+    pattern: pattern,
+    links: links);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

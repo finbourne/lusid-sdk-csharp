@@ -13,5 +13,20 @@ Name | Type | Description | Notes
 **ConstituentReference** | **string** | Reference value used to identify the CDX constituent. | [optional] 
 **PaymentDate** | **DateTimeOffset?** | The date of the credit event auction settlement. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
+decimal constituentWeight = "constituentWeight";
 
+string constituentReference = "example constituentReference";
+
+CdxCreditEvent cdxCreditEventInstance = new CdxCreditEvent(
+    effectiveDate: effectiveDate,
+    auctionDate: auctionDate,
+    recoveryRate: recoveryRate,
+    constituentWeight: constituentWeight,
+    constituentReference: constituentReference,
+    paymentDate: paymentDate);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

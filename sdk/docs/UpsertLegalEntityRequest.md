@@ -11,5 +11,23 @@ Name | Type | Description | Notes
 **Description** | **string** | The description of the Legal Entity | [optional] 
 **CounterpartyRiskInformation** | [**CounterpartyRiskInformation**](CounterpartyRiskInformation.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+Dictionary<string, Property> identifiers = new Dictionary<string, Property>();
+Dictionary<string, Property> properties = new Dictionary<string, Property>();
+string displayName = "displayName";
+string description = "example description";
+CounterpartyRiskInformation? counterpartyRiskInformation = new CounterpartyRiskInformation();
+
+
+UpsertLegalEntityRequest upsertLegalEntityRequestInstance = new UpsertLegalEntityRequest(
+    identifiers: identifiers,
+    properties: properties,
+    displayName: displayName,
+    description: description,
+    counterpartyRiskInformation: counterpartyRiskInformation);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

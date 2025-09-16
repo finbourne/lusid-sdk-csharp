@@ -19,5 +19,39 @@ Name | Type | Description | Notes
 **DataModelMembership** | [**DataModelMembership**](DataModelMembership.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+ResourceId id = new ResourceId();
+Dictionary<string, PerpetualProperty> properties = new Dictionary<string, PerpetualProperty>();
+ResourceId? portfolioId = new ResourceId();
+
+Dictionary<string, string> instrumentIdentifiers = new Dictionary<string, string>();
+CurrencyAndAmount? price = new CurrencyAndAmount();
+
+string instrumentScope = "example instrumentScope";
+string lusidInstrumentId = "example lusidInstrumentId";
+ModelVersion? varVersion = new ModelVersion();
+
+DataModelMembership? dataModelMembership = new DataModelMembership();
+
+List<Link> links = new List<Link>();
+
+OrderInstruction orderInstructionInstance = new OrderInstruction(
+    id: id,
+    createdDate: createdDate,
+    properties: properties,
+    portfolioId: portfolioId,
+    instrumentIdentifiers: instrumentIdentifiers,
+    quantity: quantity,
+    weight: weight,
+    price: price,
+    instrumentScope: instrumentScope,
+    lusidInstrumentId: lusidInstrumentId,
+    varVersion: varVersion,
+    dataModelMembership: dataModelMembership,
+    links: links);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -12,5 +12,24 @@ Name | Type | Description | Notes
 **Units** | **string** | The units. | 
 **Amount** | **string** | The amount. | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string side = "side";
+string security = "security";
+string currency = "currency";
+string rate = "rate";
+string units = "units";
+string amount = "amount";
+
+SideConfigurationDataRequest sideConfigurationDataRequestInstance = new SideConfigurationDataRequest(
+    side: side,
+    security: security,
+    currency: currency,
+    rate: rate,
+    units: units,
+    amount: amount);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

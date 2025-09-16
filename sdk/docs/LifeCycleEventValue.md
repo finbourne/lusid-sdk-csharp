@@ -10,5 +10,19 @@ Name | Type | Description | Notes
 **EventValues** | [**ResultValueDictionary**](ResultValueDictionary.md) |  | [optional] 
 **EventLineage** | [**LifeCycleEventLineage**](LifeCycleEventLineage.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+ResultValueDictionary? eventValues = new ResultValueDictionary();
+
+LifeCycleEventLineage? eventLineage = new LifeCycleEventLineage();
+
+
+LifeCycleEventValue lifeCycleEventValueInstance = new LifeCycleEventValue(
+    effectiveDate: effectiveDate,
+    eventValues: eventValues,
+    eventLineage: eventLineage);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

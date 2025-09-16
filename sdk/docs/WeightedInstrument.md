@@ -11,5 +11,23 @@ Name | Type | Description | Notes
 **InLineLookupIdentifiers** | [**WeightedInstrumentInLineLookupIdentifiers**](WeightedInstrumentInLineLookupIdentifiers.md) |  | [optional] 
 **InstrumentScope** | **string** | The scope in which to resolve the instrument, if no inlined definition is provided.  If left empty, the default scope will be used. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
+decimal? quantity = "example quantity";
+string holdingIdentifier = "example holdingIdentifier";
+LusidInstrument? instrument = new LusidInstrument();
 
+WeightedInstrumentInLineLookupIdentifiers? inLineLookupIdentifiers = new WeightedInstrumentInLineLookupIdentifiers();
+
+string instrumentScope = "example instrumentScope";
+
+WeightedInstrument weightedInstrumentInstance = new WeightedInstrument(
+    quantity: quantity,
+    holdingIdentifier: holdingIdentifier,
+    instrument: instrument,
+    inLineLookupIdentifiers: inLineLookupIdentifiers,
+    instrumentScope: instrumentScope);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -7,5 +7,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Instruments** | [**List&lt;WeightedInstrument&gt;**](WeightedInstrument.md) | The instruments that are held in the set. | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+List<WeightedInstrument> instruments = new List<WeightedInstrument>();
+
+WeightedInstruments weightedInstrumentsInstance = new WeightedInstruments(
+    instruments: instruments);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -16,5 +16,34 @@ Name | Type | Description | Notes
 **BaseCurrency** | **string** | The base currency of the abor based on contained portfolio base currencies. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string href = "example href";
+ResourceId id = new ResourceId();
+string displayName = "example displayName";
+string description = "example description";
+List<PortfolioEntityId> portfolioIds = new List<PortfolioEntityId>();
+ResourceId? aborConfigurationId = new ResourceId();
+
+Dictionary<string, Property> properties = new Dictionary<string, Property>();
+ModelVersion? varVersion = new ModelVersion();
+
+string baseCurrency = "example baseCurrency";
+List<Link> links = new List<Link>();
+
+Abor aborInstance = new Abor(
+    href: href,
+    id: id,
+    displayName: displayName,
+    description: description,
+    portfolioIds: portfolioIds,
+    aborConfigurationId: aborConfigurationId,
+    properties: properties,
+    varVersion: varVersion,
+    baseCurrency: baseCurrency,
+    links: links);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

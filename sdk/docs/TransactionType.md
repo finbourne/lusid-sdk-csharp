@@ -10,5 +10,22 @@ Name | Type | Description | Notes
 **Calculations** | [**List&lt;TransactionTypeCalculation&gt;**](TransactionTypeCalculation.md) | Calculations to be performed for the transaction type | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+List<TransactionTypeAlias> aliases = new List<TransactionTypeAlias>();
+List<TransactionTypeMovement> movements = new List<TransactionTypeMovement>();
+Dictionary<string, PerpetualProperty> properties = new Dictionary<string, PerpetualProperty>();
+List<TransactionTypeCalculation> calculations = new List<TransactionTypeCalculation>();
+List<Link> links = new List<Link>();
+
+TransactionType transactionTypeInstance = new TransactionType(
+    aliases: aliases,
+    movements: movements,
+    properties: properties,
+    calculations: calculations,
+    links: links);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -9,5 +9,19 @@ Name | Type | Description | Notes
 **Staged** | [**Dictionary&lt;string, StagedModificationsInfo&gt;**](StagedModificationsInfo.md) | Information about the pending staged modifications for the current entity. | [optional] [readonly] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string href = "example href";
+Dictionary<string, StagedModificationsInfo> staged = new Dictionary<string, StagedModificationsInfo>();
+List<Link> links = new List<Link>();
+
+DeleteInstrumentsResponse deleteInstrumentsResponseInstance = new DeleteInstrumentsResponse(
+    href: href,
+    asAt: asAt,
+    staged: staged,
+    links: links);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

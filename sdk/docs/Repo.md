@@ -19,5 +19,29 @@ Name | Type | Description | Notes
 **RepurchasePrice** | **decimal?** | The price at which the collateral is repurchased, this field is optional and can be explicitly set here or will be calculated  from the PurchasePrice and RepoRate.  One, and only one, of the RepoRate and RepurchasePrice must be specified. | [optional] 
 **TimeZoneConventions** | [**TimeZoneConventions**](TimeZoneConventions.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string domCcy = "domCcy";
+string accrualBasis = "accrualBasis";
+List<LusidInstrument> collateral = new List<LusidInstrument>();
+TimeZoneConventions? timeZoneConventions = new TimeZoneConventions();
+
+
+Repo repoInstance = new Repo(
+    startDate: startDate,
+    maturityDate: maturityDate,
+    domCcy: domCcy,
+    accrualBasis: accrualBasis,
+    collateral: collateral,
+    collateralValue: collateralValue,
+    haircut: haircut,
+    margin: margin,
+    purchasePrice: purchasePrice,
+    repoRate: repoRate,
+    repurchasePrice: repurchasePrice,
+    timeZoneConventions: timeZoneConventions);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

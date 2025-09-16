@@ -14,5 +14,25 @@ Name | Type | Description | Notes
 **AdditionalPayments** | [**List&lt;AdditionalPayment&gt;**](AdditionalPayment.md) | Optional additional payments at a given date e.g. to level off an uneven fixed-floating swap.  The dates must be distinct and either all payments are Pay or all payments are Receive. | [optional] 
 **TimeZoneConventions** | [**TimeZoneConventions**](TimeZoneConventions.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+bool isNonDeliverable = //"True";
+List<InstrumentLeg> legs = new List<InstrumentLeg>();
+string settlementCcy = "example settlementCcy";
+List<AdditionalPayment> additionalPayments = new List<AdditionalPayment>();
+TimeZoneConventions? timeZoneConventions = new TimeZoneConventions();
+
+
+InterestRateSwap interestRateSwapInstance = new InterestRateSwap(
+    startDate: startDate,
+    maturityDate: maturityDate,
+    isNonDeliverable: isNonDeliverable,
+    legs: legs,
+    settlementCcy: settlementCcy,
+    additionalPayments: additionalPayments,
+    timeZoneConventions: timeZoneConventions);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

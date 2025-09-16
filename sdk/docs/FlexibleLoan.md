@@ -12,5 +12,21 @@ Name | Type | Description | Notes
 **Schedules** | [**List&lt;Schedule&gt;**](Schedule.md) | Repayment schedules for the loan. | 
 **TimeZoneConventions** | [**TimeZoneConventions**](TimeZoneConventions.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string domCcy = "domCcy";
+List<Schedule> schedules = new List<Schedule>();
+TimeZoneConventions? timeZoneConventions = new TimeZoneConventions();
+
+
+FlexibleLoan flexibleLoanInstance = new FlexibleLoan(
+    startDate: startDate,
+    maturityDate: maturityDate,
+    domCcy: domCcy,
+    schedules: schedules,
+    timeZoneConventions: timeZoneConventions);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

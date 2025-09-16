@@ -12,5 +12,22 @@ Name | Type | Description | Notes
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | A set of properties for the diary entry. | [optional] 
 **ApplyClearDown** | **bool** | Defaults to false. Set to true if you want that the closed period to have the clear down applied. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string diaryEntryCode = "diaryEntryCode";
+string name = "example name";
+Dictionary<string, Property> properties = new Dictionary<string, Property>();
+bool applyClearDown = //"True";
+
+UpsertValuationPointRequest upsertValuationPointRequestInstance = new UpsertValuationPointRequest(
+    diaryEntryCode: diaryEntryCode,
+    name: name,
+    effectiveAt: effectiveAt,
+    queryAsAt: queryAsAt,
+    properties: properties,
+    applyClearDown: applyClearDown);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -6,5 +6,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PostCloseActivities** | [**List&lt;PostCloseActivity&gt;**](PostCloseActivity.md) | Collection of post close activites. | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+List<PostCloseActivity> postCloseActivities = new List<PostCloseActivity>();
+
+PostCloseActivitiesRequest postCloseActivitiesRequestInstance = new PostCloseActivitiesRequest(
+    postCloseActivities: postCloseActivities);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

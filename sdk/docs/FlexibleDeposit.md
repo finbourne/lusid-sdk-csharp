@@ -13,5 +13,24 @@ Name | Type | Description | Notes
 **TradingConventions** | [**TradingConventions**](TradingConventions.md) |  | [optional] 
 **TimeZoneConventions** | [**TimeZoneConventions**](TimeZoneConventions.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string domCcy = "domCcy";
+List<Schedule> schedules = new List<Schedule>();
+TradingConventions? tradingConventions = new TradingConventions();
+
+TimeZoneConventions? timeZoneConventions = new TimeZoneConventions();
+
+
+FlexibleDeposit flexibleDepositInstance = new FlexibleDeposit(
+    startDate: startDate,
+    maturityDate: maturityDate,
+    domCcy: domCcy,
+    schedules: schedules,
+    tradingConventions: tradingConventions,
+    timeZoneConventions: timeZoneConventions);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

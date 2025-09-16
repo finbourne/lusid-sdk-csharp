@@ -14,5 +14,30 @@ Name | Type | Description | Notes
 **LifeTime** | **string** | Describes how the relationships can change over time. Allowed values are &#39;Perpetual&#39; and &#39;TimeVariant&#39;, defaults to &#39;Perpetual&#39; if not specified. | [optional] 
 **RelationshipCardinality** | **string** | Describes the cardinality of the relationship with a specific source entity object and relationships under this definition. Allowed values are &#39;ManyToMany&#39; and &#39;ManyToOne&#39;, defaults to &#39;ManyToMany&#39; if not specified. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string scope = "scope";
+string code = "code";
+string sourceEntityType = "sourceEntityType";
+string targetEntityType = "targetEntityType";
+string displayName = "displayName";
+string outwardDescription = "outwardDescription";
+string inwardDescription = "inwardDescription";
+string lifeTime = "example lifeTime";
+string relationshipCardinality = "example relationshipCardinality";
+
+CreateRelationshipDefinitionRequest createRelationshipDefinitionRequestInstance = new CreateRelationshipDefinitionRequest(
+    scope: scope,
+    code: code,
+    sourceEntityType: sourceEntityType,
+    targetEntityType: targetEntityType,
+    displayName: displayName,
+    outwardDescription: outwardDescription,
+    inwardDescription: inwardDescription,
+    lifeTime: lifeTime,
+    relationshipCardinality: relationshipCardinality);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

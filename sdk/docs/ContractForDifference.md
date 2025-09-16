@@ -19,5 +19,33 @@ Name | Type | Description | Notes
 **Underlying** | [**LusidInstrument**](LusidInstrument.md) |  | [optional] 
 **TimeZoneConventions** | [**TimeZoneConventions**](TimeZoneConventions.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string code = "example code";decimal? contractSize = "example contractSize";
+string payCcy = "payCcy";decimal? referenceRate = "example referenceRate";
+string type = "type";
+string underlyingCcy = "example underlyingCcy";
+string underlyingIdentifier = "example underlyingIdentifier";
+LusidInstrument? underlying = new LusidInstrument();
+
+TimeZoneConventions? timeZoneConventions = new TimeZoneConventions();
+
+
+ContractForDifference contractForDifferenceInstance = new ContractForDifference(
+    startDate: startDate,
+    maturityDate: maturityDate,
+    code: code,
+    contractSize: contractSize,
+    payCcy: payCcy,
+    referenceRate: referenceRate,
+    type: type,
+    underlyingCcy: underlyingCcy,
+    underlyingIdentifier: underlyingIdentifier,
+    lotSize: lotSize,
+    underlying: underlying,
+    timeZoneConventions: timeZoneConventions);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -8,5 +8,18 @@ Name | Type | Description | Notes
 **Scope** | **string** | The scope in which the Investor Record lies. | 
 **Identifiers** | **Dictionary&lt;string, string&gt;** | Single Account Holder identifier that should target the desired Investor Record. | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string key = "key";
+string scope = "scope";
+Dictionary<string, string> identifiers = new Dictionary<string, string>();
+
+AccountHolderIdentifier accountHolderIdentifierInstance = new AccountHolderIdentifier(
+    key: key,
+    scope: scope,
+    identifiers: identifiers);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

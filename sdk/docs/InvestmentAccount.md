@@ -19,5 +19,39 @@ Name | Type | Description | Notes
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string scope = "example scope";
+Dictionary<string, Property> identifiers = new Dictionary<string, Property>();
+string displayName = "example displayName";
+string description = "example description";
+string accountType = "example accountType";
+List<AccountHolder> accountHolders = new List<AccountHolder>();
+List<InvestmentPortfolio> investmentPortfolios = new List<InvestmentPortfolio>();
+string lusidInvestmentAccountId = "example lusidInvestmentAccountId";
+Dictionary<string, Property> properties = new Dictionary<string, Property>();
+List<Relationship> relationships = new List<Relationship>();
+string href = "example href";
+ModelVersion? varVersion = new ModelVersion();
+
+List<Link> links = new List<Link>();
+
+InvestmentAccount investmentAccountInstance = new InvestmentAccount(
+    scope: scope,
+    identifiers: identifiers,
+    displayName: displayName,
+    description: description,
+    accountType: accountType,
+    accountHolders: accountHolders,
+    investmentPortfolios: investmentPortfolios,
+    lusidInvestmentAccountId: lusidInvestmentAccountId,
+    properties: properties,
+    relationships: relationships,
+    href: href,
+    varVersion: varVersion,
+    links: links);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

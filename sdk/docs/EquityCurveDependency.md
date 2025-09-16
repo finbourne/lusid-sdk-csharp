@@ -11,5 +11,19 @@ Name | Type | Description | Notes
 **CurveType** | **string** | The curve type of the EquityCurve required. E.g. EquityCurveByPrices | 
 **Date** | **DateTimeOffset** | The effectiveDate of the entity that this is a dependency for.  Unless there is an obvious date this should be, like for a historic reset, then this is the valuation date. | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string marketIdentifier = "marketIdentifier";
+string code = "code";
+string curveType = "curveType";
+
+EquityCurveDependency equityCurveDependencyInstance = new EquityCurveDependency(
+    marketIdentifier: marketIdentifier,
+    code: code,
+    curveType: curveType,
+    date: date);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

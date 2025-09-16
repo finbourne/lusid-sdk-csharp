@@ -16,5 +16,34 @@ Name | Type | Description | Notes
 **Units** | **decimal** | The units. | [optional] 
 **ActivityDate** | **DateTimeOffset** | The activity date of the bucket. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string taxLotId = "example taxLotId";
+string movementName = "example movementName";
+string holdingType = "example holdingType";
+string economicBucket = "example economicBucket";
+string economicBucketComponent = "example economicBucketComponent";
+string economicBucketVariant = "example economicBucketVariant";
+string holdingSign = "example holdingSign";
+CurrencyAndAmount? local = new CurrencyAndAmount();
+
+CurrencyAndAmount? base = new CurrencyAndAmount();
+decimal? units = "example units";
+
+Bucket bucketInstance = new Bucket(
+    taxLotId: taxLotId,
+    movementName: movementName,
+    holdingType: holdingType,
+    economicBucket: economicBucket,
+    economicBucketComponent: economicBucketComponent,
+    economicBucketVariant: economicBucketVariant,
+    holdingSign: holdingSign,
+    local: local,
+    base: base,
+    units: units,
+    activityDate: activityDate);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

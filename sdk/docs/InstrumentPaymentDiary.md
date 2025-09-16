@@ -13,5 +13,27 @@ Name | Type | Description | Notes
 **Href** | **string** | The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string instrumentIdType = "example instrumentIdType";
+string instrumentId = "example instrumentId";
+string instrumentScope = "example instrumentScope";
+ModelVersion? varVersion = new ModelVersion();
+
+List<InstrumentPaymentDiaryLeg> legs = new List<InstrumentPaymentDiaryLeg>();
+string href = "example href";
+List<Link> links = new List<Link>();
+
+InstrumentPaymentDiary instrumentPaymentDiaryInstance = new InstrumentPaymentDiary(
+    instrumentIdType: instrumentIdType,
+    instrumentId: instrumentId,
+    instrumentScope: instrumentScope,
+    varVersion: varVersion,
+    legs: legs,
+    href: href,
+    links: links);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

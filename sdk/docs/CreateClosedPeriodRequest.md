@@ -11,5 +11,22 @@ Name | Type | Description | Notes
 **DisplayName** | **string** | The name of the Closed Period. | [optional] 
 **Description** | **string** | A description for the Closed Period. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string closedPeriodId = "closedPeriodId";
+Dictionary<string, Property> properties = new Dictionary<string, Property>();
+string displayName = "example displayName";
+string description = "example description";
+
+CreateClosedPeriodRequest createClosedPeriodRequestInstance = new CreateClosedPeriodRequest(
+    closedPeriodId: closedPeriodId,
+    effectiveEnd: effectiveEnd,
+    properties: properties,
+    asAtClosed: asAtClosed,
+    displayName: displayName,
+    description: description);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

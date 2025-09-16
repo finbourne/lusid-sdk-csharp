@@ -11,5 +11,22 @@ Name | Type | Description | Notes
 **LongOrShortIndicator** | **string** | Specify that a rule should apply if the market data is requested by a model with a given long or short indicator.  If none, then no filtering on LongOrShortIndicator is applied. | [optional] 
 **AddressKeyFilters** | [**List&lt;AddressKeyFilter&gt;**](AddressKeyFilter.md) | Specify that a rule should apply if the market data is requested by an instrument with features or properties  satisfying all the given address key filters. If an empty list is given, no additional filtering is done. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string instrumentType = "example instrumentType";
+string assetClass = "example assetClass";
+string domCcy = "example domCcy";
+string longOrShortIndicator = "example longOrShortIndicator";
+List<AddressKeyFilter> addressKeyFilters = new List<AddressKeyFilter>();
+
+DependencySourceFilter dependencySourceFilterInstance = new DependencySourceFilter(
+    instrumentType: instrumentType,
+    assetClass: assetClass,
+    domCcy: domCcy,
+    longOrShortIndicator: longOrShortIndicator,
+    addressKeyFilters: addressKeyFilters);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -12,5 +12,24 @@ Name | Type | Description | Notes
 **TraversalDescription** | **string** |  | 
 **EffectiveFrom** | **DateTimeOffset** |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+ModelVersion? varVersion = new ModelVersion();
+
+ResourceId relationDefinitionId = new ResourceId();
+Dictionary<string, string> relatedEntityId = new Dictionary<string, string>();
+string traversalDirection = "traversalDirection";
+string traversalDescription = "traversalDescription";
+
+Relation relationInstance = new Relation(
+    varVersion: varVersion,
+    relationDefinitionId: relationDefinitionId,
+    relatedEntityId: relatedEntityId,
+    traversalDirection: traversalDirection,
+    traversalDescription: traversalDescription,
+    effectiveFrom: effectiveFrom);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

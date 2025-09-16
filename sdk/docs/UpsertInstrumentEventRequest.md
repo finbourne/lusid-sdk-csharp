@@ -13,5 +13,27 @@ Name | Type | Description | Notes
 **ParticipationType** | **string** | Is participation in this event Mandatory, MandatoryWithChoices, or Voluntary. | [optional] [default to "Mandatory"]
 **EventDateStamps** | [**Dictionary&lt;string, YearMonthDay&gt;**](YearMonthDay.md) | The date stamps corresponding to the relevant date-time fields for the instrument event. The key for each provided date stamp must match the field name of a valid datetime field from the InstrumentEvent DTO. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string instrumentEventId = "instrumentEventId";
+Dictionary<string, string> instrumentIdentifiers = new Dictionary<string, string>();
+string description = "example description";
+InstrumentEvent instrumentEvent = new InstrumentEvent();
+List<PerpetualProperty> properties = new List<PerpetualProperty>();
+string participationType = "example participationType";
+Dictionary<string, YearMonthDay> eventDateStamps = new Dictionary<string, YearMonthDay>();
+
+UpsertInstrumentEventRequest upsertInstrumentEventRequestInstance = new UpsertInstrumentEventRequest(
+    instrumentEventId: instrumentEventId,
+    instrumentIdentifiers: instrumentIdentifiers,
+    description: description,
+    instrumentEvent: instrumentEvent,
+    properties: properties,
+    sequenceNumber: sequenceNumber,
+    participationType: participationType,
+    eventDateStamps: eventDateStamps);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -18,5 +18,37 @@ Name | Type | Description | Notes
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | 
 **Href** | **string** | The specific Uniform Resource Identifier (URI) for this resource at the requested asAt datetime. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string code = "code";
+string displayName = "displayName";
+string description = "example description";
+string navTypeCode = "navTypeCode";
+PreviousFundCalendarEntry? previousEntry = new PreviousFundCalendarEntry();
+
+string entryType = "entryType";
+string status = "example status";
+bool applyClearDown = //"True";
+Dictionary<string, Property> properties = new Dictionary<string, Property>();
+ModelVersion varVersion = new ModelVersion();
+string href = "example href";
+
+FundCalendarEntry fundCalendarEntryInstance = new FundCalendarEntry(
+    code: code,
+    displayName: displayName,
+    description: description,
+    navTypeCode: navTypeCode,
+    previousEntry: previousEntry,
+    effectiveAt: effectiveAt,
+    asAt: asAt,
+    entryType: entryType,
+    status: status,
+    applyClearDown: applyClearDown,
+    properties: properties,
+    varVersion: varVersion,
+    href: href);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -14,5 +14,26 @@ Name | Type | Description | Notes
 **Lineage** | **string** | Description of the complex market data&#39;s lineage e.g. &#39;FundAccountant_GreenQuality&#39;. | [optional] 
 **MarketDataOptions** | [**MarketDataOptions**](MarketDataOptions.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string domCcy = "domCcy";
+string fgnCcy = "fgnCcy";
+List<DateTimeOffset> dates = new List<DateTimeOffset>();
+List<decimal> pipRates = new List<decimal>();
+string lineage = "example lineage";
+MarketDataOptions? marketDataOptions = new MarketDataOptions();
+
+
+FxForwardPipsCurveData fxForwardPipsCurveDataInstance = new FxForwardPipsCurveData(
+    baseDate: baseDate,
+    domCcy: domCcy,
+    fgnCcy: fgnCcy,
+    dates: dates,
+    pipRates: pipRates,
+    lineage: lineage,
+    marketDataOptions: marketDataOptions);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

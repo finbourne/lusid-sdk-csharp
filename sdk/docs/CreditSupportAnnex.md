@@ -16,5 +16,31 @@ Name | Type | Description | Notes
 **MinimumTransferAmount** | **decimal** | The minimum amount, in the reference currency, that must be transferred when required. | 
 **Id** | [**ResourceId**](ResourceId.md) |  | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string referenceCurrency = "referenceCurrency";
+List<string> collateralCurrencies = new List<string>();
+string isdaAgreementVersion = "isdaAgreementVersion";
+string marginCallFrequency = "marginCallFrequency";
+string valuationAgent = "valuationAgent";decimal thresholdAmount = "thresholdAmount";
+decimal initialMarginAmount = "initialMarginAmount";
+decimal minimumTransferAmount = "minimumTransferAmount";
+
+ResourceId id = new ResourceId();
+
+CreditSupportAnnex creditSupportAnnexInstance = new CreditSupportAnnex(
+    referenceCurrency: referenceCurrency,
+    collateralCurrencies: collateralCurrencies,
+    isdaAgreementVersion: isdaAgreementVersion,
+    marginCallFrequency: marginCallFrequency,
+    valuationAgent: valuationAgent,
+    thresholdAmount: thresholdAmount,
+    roundingDecimalPlaces: roundingDecimalPlaces,
+    initialMarginAmount: initialMarginAmount,
+    minimumTransferAmount: minimumTransferAmount,
+    id: id);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

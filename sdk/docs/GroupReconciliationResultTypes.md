@@ -13,5 +13,24 @@ Name | Type | Description | Notes
 **CountResolved** | **int** | The number of comparison results of resultType \&quot;Resolved\&quot; with this instanceId and reconciliationType | 
 **LinkResolved** | [**Link**](Link.md) |  | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+Link linkMatches = new Link();
+Link linkPartialMatches = new Link();
+Link linkBreaks = new Link();
+Link linkResolved = new Link();
+
+GroupReconciliationResultTypes groupReconciliationResultTypesInstance = new GroupReconciliationResultTypes(
+    countMatch: countMatch,
+    linkMatches: linkMatches,
+    countPartialMatch: countPartialMatch,
+    linkPartialMatches: linkPartialMatches,
+    countBreak: countBreak,
+    linkBreaks: linkBreaks,
+    countResolved: countResolved,
+    linkResolved: linkResolved);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

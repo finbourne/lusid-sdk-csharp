@@ -13,5 +13,24 @@ Name | Type | Description | Notes
 **SpreadCompoundingMethod** | **string** | Defines how the computed leg spread is applied to compounded rate.  It applies only when CompoundingMethod &#x3D; ‘Compounding‘ or ‘CompoundedIndex‘.    Available compounding methods:    | Method | Description |  | - -- -- - | - -- -- -- -- -- |  | Straight | Compounding rate in each compound period includes the spread. |  | Flat | Compounding rate does not include the spread, and the spread is used for simple interest in each compound period. |  | SpreadExclusive | Compounding rate does not include the spread, and the spread is used for simple interest for whole accrual period. |    The values \&quot;IsdaCompounding\&quot;, \&quot;NoCompounding\&quot;, \&quot;IsdaFlatCompounding\&quot;, and \&quot;None\&quot; are accepted for compatibility  with existing instruments and their use is discouraged.    Supported string (enumeration) values are: [Straight, IsdaCompounding, NoCompounding, SpreadExclusive, IsdaFlatCompounding, Flat, None].  Defaults to \&quot;None\&quot; if not set. | [optional] 
 **RoundingPrecision** | **int?** | Defines the number of decimal places the compounded rate (expressed as a decimal) should be rounded to.  This is an optional field, leaving it blank will mean no rounding takes place in Compounding. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string averagingMethod = "example averagingMethod";
+string calculationShiftMethod = "example calculationShiftMethod";
+string compoundingMethod = "compoundingMethod";
+string resetFrequency = "resetFrequency";
+string spreadCompoundingMethod = "example spreadCompoundingMethod";
+
+Compounding compoundingInstance = new Compounding(
+    averagingMethod: averagingMethod,
+    calculationShiftMethod: calculationShiftMethod,
+    compoundingMethod: compoundingMethod,
+    resetFrequency: resetFrequency,
+    shift: shift,
+    spreadCompoundingMethod: spreadCompoundingMethod,
+    roundingPrecision: roundingPrecision);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

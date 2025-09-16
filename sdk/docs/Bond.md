@@ -23,5 +23,41 @@ Name | Type | Description | Notes
 **TradingConventions** | [**TradingConventions**](TradingConventions.md) |  | [optional] 
 **TimeZoneConventions** | [**TimeZoneConventions**](TimeZoneConventions.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string domCcy = "domCcy";
+FlowConventions flowConventions = new FlowConventions();decimal principal = "principal";
+decimal couponRate = "couponRate";
+
+Dictionary<string, string> identifiers = new Dictionary<string, string>();
+string calculationType = "example calculationType";
+List<RoundingConvention> roundingConventions = new List<RoundingConvention>();
+ExDividendConfiguration? exDividendConfiguration = new ExDividendConfiguration();
+
+TradingConventions? tradingConventions = new TradingConventions();
+
+TimeZoneConventions? timeZoneConventions = new TimeZoneConventions();
+
+
+Bond bondInstance = new Bond(
+    startDate: startDate,
+    maturityDate: maturityDate,
+    domCcy: domCcy,
+    flowConventions: flowConventions,
+    principal: principal,
+    couponRate: couponRate,
+    identifiers: identifiers,
+    exDividendDays: exDividendDays,
+    initialCouponDate: initialCouponDate,
+    firstCouponPayDate: firstCouponPayDate,
+    calculationType: calculationType,
+    roundingConventions: roundingConventions,
+    exDividendConfiguration: exDividendConfiguration,
+    originalIssuePrice: originalIssuePrice,
+    tradingConventions: tradingConventions,
+    timeZoneConventions: timeZoneConventions);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

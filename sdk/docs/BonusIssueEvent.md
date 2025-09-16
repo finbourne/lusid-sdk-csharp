@@ -16,5 +16,25 @@ Name | Type | Description | Notes
 **CashOfferElections** | [**List&lt;CashOfferElection&gt;**](CashOfferElection.md) | Possible CashOfferElections for this Bonus Issue event, if any. | [optional] 
 **LapseElections** | [**List&lt;LapseElection&gt;**](LapseElection.md) | Possible LapseElections for this Bonus Issue event, if any. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string fractionalUnitsCashCurrency = "example fractionalUnitsCashCurrency";
+List<SecurityOfferElection> securityOfferElections = new List<SecurityOfferElection>();
+List<CashOfferElection> cashOfferElections = new List<CashOfferElection>();
+List<LapseElection> lapseElections = new List<LapseElection>();
+
+BonusIssueEvent bonusIssueEventInstance = new BonusIssueEvent(
+    announcementDate: announcementDate,
+    exDate: exDate,
+    recordDate: recordDate,
+    paymentDate: paymentDate,
+    fractionalUnitsCashPrice: fractionalUnitsCashPrice,
+    fractionalUnitsCashCurrency: fractionalUnitsCashCurrency,
+    securityOfferElections: securityOfferElections,
+    cashOfferElections: cashOfferElections,
+    lapseElections: lapseElections);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

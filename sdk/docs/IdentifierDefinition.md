@@ -16,5 +16,35 @@ Name | Type | Description | Notes
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | A set of properties for the identifier definition. | [optional] 
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string href = "example href";
+string domain = "domain";
+string identifierScope = "identifierScope";
+string identifierType = "identifierType";
+string lifeTime = "lifeTime";
+string hierarchyUsage = "example hierarchyUsage";
+string hierarchyLevel = "example hierarchyLevel";
+string displayName = "example displayName";
+string description = "example description";
+Dictionary<string, Property> properties = new Dictionary<string, Property>();
+ModelVersion? varVersion = new ModelVersion();
+
+
+IdentifierDefinition identifierDefinitionInstance = new IdentifierDefinition(
+    href: href,
+    domain: domain,
+    identifierScope: identifierScope,
+    identifierType: identifierType,
+    lifeTime: lifeTime,
+    hierarchyUsage: hierarchyUsage,
+    hierarchyLevel: hierarchyLevel,
+    displayName: displayName,
+    description: description,
+    properties: properties,
+    varVersion: varVersion);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

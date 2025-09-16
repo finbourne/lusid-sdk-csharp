@@ -18,5 +18,30 @@ Name | Type | Description | Notes
 **PayReceive** | **string** | PayReceive flag for the inflation leg.  This field is optional and defaults to Pay.    Supported string (enumeration) values are: [Pay, Receive]. | [optional] 
 **TimeZoneConventions** | [**TimeZoneConventions**](TimeZoneConventions.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+FlowConventions flowConventions = new FlowConventions();
+string calculationType = "calculationType";
+InflationIndexConventions inflationIndexConventions = new InflationIndexConventions();decimal notional = "notional";
+
+string payReceive = "example payReceive";
+TimeZoneConventions? timeZoneConventions = new TimeZoneConventions();
+
+
+InflationLeg inflationLegInstance = new InflationLeg(
+    startDate: startDate,
+    maturityDate: maturityDate,
+    flowConventions: flowConventions,
+    baseCPI: baseCPI,
+    calculationType: calculationType,
+    capRate: capRate,
+    floorRate: floorRate,
+    inflationIndexConventions: inflationIndexConventions,
+    notional: notional,
+    payReceive: payReceive,
+    timeZoneConventions: timeZoneConventions);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

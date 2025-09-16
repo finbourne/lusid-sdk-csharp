@@ -20,5 +20,45 @@ Name | Type | Description | Notes
 **InstrumentEventConfiguration** | [**InstrumentEventConfiguration**](InstrumentEventConfiguration.md) |  | [optional] 
 **SettlementConfiguration** | [**PortfolioSettlementConfiguration**](PortfolioSettlementConfiguration.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string displayName = "displayName";
+string description = "example description";
+string code = "code";
+ResourceId parentPortfolioId = new ResourceId();
+ResourceId? corporateActionSourceId = new ResourceId();
+
+string accountingMethod = "example accountingMethod";
+List<string> subHoldingKeys = new List<string>();
+List<string> instrumentScopes = new List<string>();
+string amortisationMethod = "example amortisationMethod";
+string transactionTypeScope = "example transactionTypeScope";
+string cashGainLossCalculationDate = "example cashGainLossCalculationDate";
+ResourceId? amortisationRuleSetId = new ResourceId();
+
+InstrumentEventConfiguration? instrumentEventConfiguration = new InstrumentEventConfiguration();
+
+PortfolioSettlementConfiguration? settlementConfiguration = new PortfolioSettlementConfiguration();
+
+
+CreateDerivedTransactionPortfolioRequest createDerivedTransactionPortfolioRequestInstance = new CreateDerivedTransactionPortfolioRequest(
+    displayName: displayName,
+    description: description,
+    code: code,
+    parentPortfolioId: parentPortfolioId,
+    created: created,
+    corporateActionSourceId: corporateActionSourceId,
+    accountingMethod: accountingMethod,
+    subHoldingKeys: subHoldingKeys,
+    instrumentScopes: instrumentScopes,
+    amortisationMethod: amortisationMethod,
+    transactionTypeScope: transactionTypeScope,
+    cashGainLossCalculationDate: cashGainLossCalculationDate,
+    amortisationRuleSetId: amortisationRuleSetId,
+    instrumentEventConfiguration: instrumentEventConfiguration,
+    settlementConfiguration: settlementConfiguration);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

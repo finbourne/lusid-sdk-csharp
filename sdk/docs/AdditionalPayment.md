@@ -10,5 +10,19 @@ Name | Type | Description | Notes
 **PayDate** | **DateTimeOffset** | Date when the payment is made. | 
 **PayReceive** | **string** | Is it pay or receive.    Supported string (enumeration) values are: [Pay, Receive]. | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
+decimal amount = "amount";
 
+string currency = "currency";
+string payReceive = "payReceive";
+
+AdditionalPayment additionalPaymentInstance = new AdditionalPayment(
+    amount: amount,
+    currency: currency,
+    payDate: payDate,
+    payReceive: payReceive);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

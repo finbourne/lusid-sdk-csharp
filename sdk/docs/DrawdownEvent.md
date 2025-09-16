@@ -10,5 +10,17 @@ Name | Type | Description | Notes
 **Date** | **DateTimeOffset** | Initialisation date of the contract. | [optional] 
 **ContractDetails** | [**ContractDetails**](ContractDetails.md) |  | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
+decimal amount = "amount";
 
+ContractDetails contractDetails = new ContractDetails();
+
+DrawdownEvent drawdownEventInstance = new DrawdownEvent(
+    amount: amount,
+    date: date,
+    contractDetails: contractDetails);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

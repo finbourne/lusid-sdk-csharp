@@ -22,5 +22,42 @@ Name | Type | Description | Notes
 **BusinessDayConvention** | **string** | The adjustment type to apply to dates that fall upon a non-business day, e.g. modified following or following.  Supported string (enumeration) values are: [NoAdjustment, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, HalfMonthModifiedFollowing, Nearest].  Defaults to \&quot;F\&quot; if not set. | [optional] 
 **SettlementCalendars** | **List&lt;string&gt;** | An array of strings denoting calendars used in calculating the option settlement date. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string domCcy = "domCcy";decimal strike = "strike";
+decimal contractSize = "contractSize";
+
+string country = "country";
+string deliveryType = "deliveryType";
+string description = "description";
+string exchangeCode = "exchangeCode";
+string exerciseType = "exerciseType";
+string optionCode = "optionCode";
+string optionType = "optionType";
+LusidInstrument underlying = new LusidInstrument();
+string underlyingCode = "underlyingCode";
+string businessDayConvention = "example businessDayConvention";
+List<string> settlementCalendars = new List<string>();
+
+ExchangeTradedOptionContractDetails exchangeTradedOptionContractDetailsInstance = new ExchangeTradedOptionContractDetails(
+    domCcy: domCcy,
+    strike: strike,
+    contractSize: contractSize,
+    country: country,
+    deliveryType: deliveryType,
+    description: description,
+    exchangeCode: exchangeCode,
+    exerciseDate: exerciseDate,
+    exerciseType: exerciseType,
+    optionCode: optionCode,
+    optionType: optionType,
+    underlying: underlying,
+    underlyingCode: underlyingCode,
+    deliveryDays: deliveryDays,
+    businessDayConvention: businessDayConvention,
+    settlementCalendars: settlementCalendars);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

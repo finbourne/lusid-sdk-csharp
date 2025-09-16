@@ -9,5 +9,19 @@ Name | Type | Description | Notes
 **ScriptId** | [**TranslationScriptId**](TranslationScriptId.md) |  | 
 **DialectId** | [**DialectId**](DialectId.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+Dictionary<string, TranslationInput> entityPayloads = new Dictionary<string, TranslationInput>();
+TranslationScriptId scriptId = new TranslationScriptId();
+DialectId? dialectId = new DialectId();
+
+
+TranslateEntitiesRequest translateEntitiesRequestInstance = new TranslateEntitiesRequest(
+    entityPayloads: entityPayloads,
+    scriptId: scriptId,
+    dialectId: dialectId);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -10,5 +10,21 @@ Name | Type | Description | Notes
 **CustodianAccounts** | [**List&lt;CustodianAccount&gt;**](CustodianAccount.md) | The Custodian Accounts which have been upserted. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string href = "example href";
+ModelVersion? varVersion = new ModelVersion();
+
+List<CustodianAccount> custodianAccounts = new List<CustodianAccount>();
+List<Link> links = new List<Link>();
+
+CustodianAccountsUpsertResponse custodianAccountsUpsertResponseInstance = new CustodianAccountsUpsertResponse(
+    href: href,
+    varVersion: varVersion,
+    custodianAccounts: custodianAccounts,
+    links: links);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

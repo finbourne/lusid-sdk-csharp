@@ -19,5 +19,33 @@ Name | Type | Description | Notes
 **BookedAsSpot** | **bool** | Boolean flag for FX Forward transactions booked with Spot settlement. This will default to False if not provided.  For information purposes only, this does not impact LUSID valuation, analytics, cashflows or events, but may be used by third party vendors. | [optional] 
 **TimeZoneConventions** | [**TimeZoneConventions**](TimeZoneConventions.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
+decimal domAmount = "domAmount";
 
+string domCcy = "domCcy";decimal fgnAmount = "fgnAmount";
+
+string fgnCcy = "fgnCcy";decimal? refSpotRate = "example refSpotRate";
+bool isNdf = //"True";
+string settlementCcy = "example settlementCcy";
+bool bookedAsSpot = //"True";
+TimeZoneConventions? timeZoneConventions = new TimeZoneConventions();
+
+
+FxForward fxForwardInstance = new FxForward(
+    startDate: startDate,
+    maturityDate: maturityDate,
+    domAmount: domAmount,
+    domCcy: domCcy,
+    fgnAmount: fgnAmount,
+    fgnCcy: fgnCcy,
+    refSpotRate: refSpotRate,
+    isNdf: isNdf,
+    fixingDate: fixingDate,
+    settlementCcy: settlementCcy,
+    bookedAsSpot: bookedAsSpot,
+    timeZoneConventions: timeZoneConventions);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

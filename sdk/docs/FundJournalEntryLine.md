@@ -37,5 +37,71 @@ Name | Type | Description | Notes
 **ShareClassBreakdowns** | [**List&lt;JournalEntryLineShareClassBreakdown&gt;**](JournalEntryLineShareClassBreakdown.md) | Share Class breakdown data for this Journal Entry Line. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+ResourceId portfolioId = new ResourceId();
+string instrumentId = "instrumentId";
+string instrumentScope = "instrumentScope";
+Dictionary<string, PerpetualProperty> subHoldingKeys = new Dictionary<string, PerpetualProperty>();
+string taxLotId = "example taxLotId";
+string generalLedgerAccountCode = "generalLedgerAccountCode";
+CurrencyAndAmount local = new CurrencyAndAmount();
+CurrencyAndAmount base = new CurrencyAndAmount();decimal units = "units";
+
+string postingModuleCode = "example postingModuleCode";
+string postingRule = "postingRule";
+string activitiesDescription = "example activitiesDescription";
+string sourceType = "sourceType";
+string sourceId = "sourceId";
+Dictionary<string, Property> properties = new Dictionary<string, Property>();
+string movementName = "example movementName";
+string holdingType = "holdingType";
+string economicBucket = "economicBucket";
+string economicBucketComponent = "example economicBucketComponent";
+string economicBucketVariant = "example economicBucketVariant";
+List<string> levels = new List<string>();
+List<string> sourceLevels = new List<string>();
+string movementSign = "example movementSign";
+string holdingSign = "example holdingSign";
+string ledgerColumn = "example ledgerColumn";
+string journalEntryLineType = "example journalEntryLineType";
+List<JournalEntryLineShareClassBreakdown> shareClassBreakdowns = new List<JournalEntryLineShareClassBreakdown>();
+List<Link> links = new List<Link>();
+
+FundJournalEntryLine fundJournalEntryLineInstance = new FundJournalEntryLine(
+    accountingDate: accountingDate,
+    activityDate: activityDate,
+    portfolioId: portfolioId,
+    instrumentId: instrumentId,
+    instrumentScope: instrumentScope,
+    subHoldingKeys: subHoldingKeys,
+    taxLotId: taxLotId,
+    generalLedgerAccountCode: generalLedgerAccountCode,
+    local: local,
+    base: base,
+    units: units,
+    postingModuleCode: postingModuleCode,
+    postingRule: postingRule,
+    asAtDate: asAtDate,
+    activitiesDescription: activitiesDescription,
+    sourceType: sourceType,
+    sourceId: sourceId,
+    properties: properties,
+    movementName: movementName,
+    holdingType: holdingType,
+    economicBucket: economicBucket,
+    economicBucketComponent: economicBucketComponent,
+    economicBucketVariant: economicBucketVariant,
+    levels: levels,
+    sourceLevels: sourceLevels,
+    movementSign: movementSign,
+    holdingSign: holdingSign,
+    ledgerColumn: ledgerColumn,
+    journalEntryLineType: journalEntryLineType,
+    shareClassBreakdowns: shareClassBreakdowns,
+    links: links);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

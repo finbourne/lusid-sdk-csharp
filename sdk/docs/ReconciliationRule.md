@@ -7,5 +7,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **RuleType** | **string** | The available values are: ReconcileNumericRule, ReconcileDateTimeRule, ReconcileStringRule, ReconcileExact | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string ruleType = "ruleType";
+
+ReconciliationRule reconciliationRuleInstance = new ReconciliationRule(
+    ruleType: ruleType);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

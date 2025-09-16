@@ -24,5 +24,42 @@ Name | Type | Description | Notes
 **Touches** | [**List&lt;Touch&gt;**](Touch.md) | For a touch option the list should not be empty. Up to two touches are supported.  An option cannot be at the same time barrier- and touch-option.  One (or both) of the lists must be empty. | [optional] 
 **TimeZoneConventions** | [**TimeZoneConventions**](TimeZoneConventions.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string domCcy = "domCcy";
+string fgnCcy = "fgnCcy";
+List<Barrier> barriers = new List<Barrier>();
+string exerciseType = "example exerciseType";
+bool isCallNotPut = //"True";
+bool isDeliveryNotCash = //"True";
+bool isPayoffDigital = //"True";
+string payoutStyle = "example payoutStyle";
+Premium? premium = new Premium();
+
+List<Touch> touches = new List<Touch>();
+TimeZoneConventions? timeZoneConventions = new TimeZoneConventions();
+
+
+FxOption fxOptionInstance = new FxOption(
+    startDate: startDate,
+    domCcy: domCcy,
+    domAmount: domAmount,
+    fgnCcy: fgnCcy,
+    fgnAmount: fgnAmount,
+    strike: strike,
+    barriers: barriers,
+    exerciseType: exerciseType,
+    isCallNotPut: isCallNotPut,
+    isDeliveryNotCash: isDeliveryNotCash,
+    isPayoffDigital: isPayoffDigital,
+    optionMaturityDate: optionMaturityDate,
+    optionSettlementDate: optionSettlementDate,
+    payoutStyle: payoutStyle,
+    premium: premium,
+    touches: touches,
+    timeZoneConventions: timeZoneConventions);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

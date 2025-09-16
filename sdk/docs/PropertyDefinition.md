@@ -29,5 +29,61 @@ Name | Type | Description | Notes
 **CustomEntityTypes** | **List&lt;string&gt;** | The custom entity types that properties relating to this property definition can be applied to. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string href = "example href";
+string key = "example key";
+string valueType = "example valueType";
+string displayName = "example displayName";
+ResourceId? dataTypeId = new ResourceId();
+
+string type = "example type";
+string unitSchema = "example unitSchema";
+string domain = "example domain";
+string scope = "example scope";
+string code = "example code";
+bool valueRequired = //"True";
+string lifeTime = "example lifeTime";
+string constraintStyle = "example constraintStyle";
+string propertyDefinitionType = "example propertyDefinitionType";
+string propertyDescription = "example propertyDescription";
+string derivationFormula = "example derivationFormula";
+string collectionType = "example collectionType";
+Dictionary<string, Property> properties = new Dictionary<string, Property>();
+ModelVersion? varVersion = new ModelVersion();
+
+StagedModificationsInfo? stagedModifications = new StagedModificationsInfo();
+
+bool isFilterable = //"True";
+List<string> customEntityTypes = new List<string>();
+List<Link> links = new List<Link>();
+
+PropertyDefinition propertyDefinitionInstance = new PropertyDefinition(
+    href: href,
+    key: key,
+    valueType: valueType,
+    displayName: displayName,
+    dataTypeId: dataTypeId,
+    type: type,
+    unitSchema: unitSchema,
+    domain: domain,
+    scope: scope,
+    code: code,
+    valueRequired: valueRequired,
+    lifeTime: lifeTime,
+    constraintStyle: constraintStyle,
+    propertyDefinitionType: propertyDefinitionType,
+    propertyDescription: propertyDescription,
+    derivationFormula: derivationFormula,
+    collectionType: collectionType,
+    properties: properties,
+    varVersion: varVersion,
+    stagedModifications: stagedModifications,
+    isFilterable: isFilterable,
+    customEntityTypes: customEntityTypes,
+    links: links);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

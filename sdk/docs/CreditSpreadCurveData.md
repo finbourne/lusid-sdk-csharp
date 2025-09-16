@@ -16,5 +16,29 @@ Name | Type | Description | Notes
 **Lineage** | **string** | Description of the complex market data&#39;s lineage e.g. &#39;FundAccountant_GreenQuality&#39;. | [optional] 
 **MarketDataOptions** | [**MarketDataOptions**](MarketDataOptions.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string domCcy = "domCcy";
+List<string> tenors = new List<string>();
+List<decimal> spreads = new List<decimal>();decimal recoveryRate = "recoveryRate";
+
+List<DateTimeOffset> maturities = new List<DateTimeOffset>();
+string lineage = "example lineage";
+MarketDataOptions? marketDataOptions = new MarketDataOptions();
+
+
+CreditSpreadCurveData creditSpreadCurveDataInstance = new CreditSpreadCurveData(
+    baseDate: baseDate,
+    domCcy: domCcy,
+    tenors: tenors,
+    spreads: spreads,
+    recoveryRate: recoveryRate,
+    referenceDate: referenceDate,
+    maturities: maturities,
+    lineage: lineage,
+    marketDataOptions: marketDataOptions);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

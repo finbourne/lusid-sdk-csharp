@@ -22,5 +22,49 @@ Name | Type | Description | Notes
 **TaxRuleSetScope** | **string** | The scope of the tax rule sets for this portfolio. | [optional] 
 **SettlementConfiguration** | [**PortfolioSettlementConfiguration**](PortfolioSettlementConfiguration.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string displayName = "displayName";
+string description = "example description";
+string code = "code";
+string baseCurrency = "baseCurrency";
+ResourceId? corporateActionSourceId = new ResourceId();
+
+string accountingMethod = "example accountingMethod";
+List<string> subHoldingKeys = new List<string>();
+Dictionary<string, Property> properties = new Dictionary<string, Property>();
+List<string> instrumentScopes = new List<string>();
+string amortisationMethod = "example amortisationMethod";
+string transactionTypeScope = "example transactionTypeScope";
+string cashGainLossCalculationDate = "example cashGainLossCalculationDate";
+InstrumentEventConfiguration? instrumentEventConfiguration = new InstrumentEventConfiguration();
+
+ResourceId? amortisationRuleSetId = new ResourceId();
+
+string taxRuleSetScope = "example taxRuleSetScope";
+PortfolioSettlementConfiguration? settlementConfiguration = new PortfolioSettlementConfiguration();
+
+
+CreateTransactionPortfolioRequest createTransactionPortfolioRequestInstance = new CreateTransactionPortfolioRequest(
+    displayName: displayName,
+    description: description,
+    code: code,
+    created: created,
+    baseCurrency: baseCurrency,
+    corporateActionSourceId: corporateActionSourceId,
+    accountingMethod: accountingMethod,
+    subHoldingKeys: subHoldingKeys,
+    properties: properties,
+    instrumentScopes: instrumentScopes,
+    amortisationMethod: amortisationMethod,
+    transactionTypeScope: transactionTypeScope,
+    cashGainLossCalculationDate: cashGainLossCalculationDate,
+    instrumentEventConfiguration: instrumentEventConfiguration,
+    amortisationRuleSetId: amortisationRuleSetId,
+    taxRuleSetScope: taxRuleSetScope,
+    settlementConfiguration: settlementConfiguration);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

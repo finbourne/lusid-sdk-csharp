@@ -10,5 +10,20 @@ Name | Type | Description | Notes
 **Monitoring** | **string** | Supported string (enumeration) values are: [European, Bermudan, American].  Defaults to \&quot;European\&quot; if not set. | [optional] 
 **Type** | **string** | Supported string (enumeration) values are: [Touch, Notouch]. | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string direction = "direction";decimal level = "level";
+
+string monitoring = "example monitoring";
+string type = "type";
+
+Touch touchInstance = new Touch(
+    direction: direction,
+    level: level,
+    monitoring: monitoring,
+    type: type);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

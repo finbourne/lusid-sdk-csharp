@@ -9,5 +9,18 @@ Name | Type | Description | Notes
 **DiscountingMethod** | **string** | The available values are: Standard, ConstantTimeValueOfMoney, Invalid | 
 **ConvertToReportCcy** | **bool** | Convert all FX flows to the report currency  By setting this all FX forwards will be priced using Forward Curves that have Report Currency as the base. | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string forwardRateObservableType = "forwardRateObservableType";
+string discountingMethod = "discountingMethod";
+bool convertToReportCcy = //"True";
+
+FxForwardModelOptions fxForwardModelOptionsInstance = new FxForwardModelOptions(
+    forwardRateObservableType: forwardRateObservableType,
+    discountingMethod: discountingMethod,
+    convertToReportCcy: convertToReportCcy);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

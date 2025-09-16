@@ -9,5 +9,20 @@ Name | Type | Description | Notes
 **MetricValue** | [**MetricValue**](MetricValue.md) |  | [optional] 
 **LabelValueSet** | [**LabelValueSet**](LabelValueSet.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string labelValue = "example labelValue";
+MetricValue? metricValue = new MetricValue();
+
+LabelValueSet? labelValueSet = new LabelValueSet();
+
+
+PropertyValue propertyValueInstance = new PropertyValue(
+    labelValue: labelValue,
+    metricValue: metricValue,
+    labelValueSet: labelValueSet);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

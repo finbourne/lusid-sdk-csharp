@@ -15,5 +15,32 @@ Name | Type | Description | Notes
 **RuleLowerLimit** | **decimal** | The lower limit of the rule | 
 **RuleUpperLimit** | **decimal** | The upper limit of the rule | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string ruleId = "ruleId";
+string ruleName = "ruleName";
+string ruleDescription = "ruleDescription";
+ResourceId portfolio = new ResourceId();
+bool passed = //"True";decimal resultValue = "resultValue";
+
+string ruleInformationMatch = "ruleInformationMatch";
+string ruleInformationKey = "ruleInformationKey";decimal ruleLowerLimit = "ruleLowerLimit";
+decimal ruleUpperLimit = "ruleUpperLimit";
+
+
+ComplianceRuleResult complianceRuleResultInstance = new ComplianceRuleResult(
+    ruleId: ruleId,
+    ruleName: ruleName,
+    ruleDescription: ruleDescription,
+    portfolio: portfolio,
+    passed: passed,
+    resultValue: resultValue,
+    ruleInformationMatch: ruleInformationMatch,
+    ruleInformationKey: ruleInformationKey,
+    ruleLowerLimit: ruleLowerLimit,
+    ruleUpperLimit: ruleUpperLimit);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

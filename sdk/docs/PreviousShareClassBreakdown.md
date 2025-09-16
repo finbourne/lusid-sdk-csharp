@@ -9,5 +9,19 @@ Name | Type | Description | Notes
 **Unitisation** | [**UnitisationData**](UnitisationData.md) |  | [optional] 
 **ShareClassToFundFxRate** | **decimal** | The fx rate from the Share Class currency to the fund currency at this valuation point. | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+PreviousNAV nav = new PreviousNAV();
+UnitisationData? unitisation = new UnitisationData();
+decimal shareClassToFundFxRate = "shareClassToFundFxRate";
+
+
+PreviousShareClassBreakdown previousShareClassBreakdownInstance = new PreviousShareClassBreakdown(
+    nav: nav,
+    unitisation: unitisation,
+    shareClassToFundFxRate: shareClassToFundFxRate);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

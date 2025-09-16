@@ -19,5 +19,40 @@ Name | Type | Description | Notes
 **TaxLotId** | **string** | The identifier of the tax lot with which this gain or loss is associated. | [optional] 
 **RealisedAmortisation** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string instrumentScope = "example instrumentScope";
+string instrumentUid = "instrumentUid";decimal units = "units";
+
+CurrencyAndAmount costTradeCcy = new CurrencyAndAmount();
+CurrencyAndAmount costPortfolioCcy = new CurrencyAndAmount();
+CurrencyAndAmount realisedTradeCcy = new CurrencyAndAmount();
+CurrencyAndAmount realisedTotal = new CurrencyAndAmount();
+CurrencyAndAmount? realisedMarket = new CurrencyAndAmount();
+
+CurrencyAndAmount? realisedCurrency = new CurrencyAndAmount();
+
+string taxLotId = "example taxLotId";
+CurrencyAndAmount? realisedAmortisation = new CurrencyAndAmount();
+
+
+RealisedGainLoss realisedGainLossInstance = new RealisedGainLoss(
+    instrumentScope: instrumentScope,
+    instrumentUid: instrumentUid,
+    units: units,
+    purchaseTradeDate: purchaseTradeDate,
+    purchaseSettlementDate: purchaseSettlementDate,
+    purchasePrice: purchasePrice,
+    costTradeCcy: costTradeCcy,
+    costPortfolioCcy: costPortfolioCcy,
+    realisedTradeCcy: realisedTradeCcy,
+    realisedTotal: realisedTotal,
+    realisedMarket: realisedMarket,
+    realisedCurrency: realisedCurrency,
+    taxLotId: taxLotId,
+    realisedAmortisation: realisedAmortisation);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -8,5 +8,16 @@ Name | Type | Description | Notes
 **Asset** | [**LusidInstrument**](LusidInstrument.md) |  | 
 **PayReceive** | **string** | Either Pay or Receive stating direction of the asset in the swap.    Supported string (enumeration) values are: [Pay, Receive]. | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+LusidInstrument asset = new LusidInstrument();
+string payReceive = "payReceive";
+
+AssetLeg assetLegInstance = new AssetLeg(
+    asset: asset,
+    payReceive: payReceive);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

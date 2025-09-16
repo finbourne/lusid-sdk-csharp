@@ -17,5 +17,31 @@ Name | Type | Description | Notes
 **SettlementInstructions** | [**List&lt;TransactionSettlementInstruction&gt;**](TransactionSettlementInstruction.md) | The settlement instructions received for this settlement bucket. | [optional] 
 **Movements** | [**List&lt;TransactionSettlementMovement&gt;**](TransactionSettlementMovement.md) | The movements for the settlement bucket. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string settlementCategory = "settlementCategory";
+string lusidInstrumentId = "lusidInstrumentId";
+string instrumentScope = "instrumentScope";decimal? contractedUnits = "example contractedUnits";decimal? settledUnits = "example settledUnits";decimal? unsettledUnits = "example unsettledUnits";decimal? overdueUnits = "example overdueUnits";
+string configuredSettlement = "example configuredSettlement";
+string status = "status";
+List<TransactionSettlementInstruction> settlementInstructions = new List<TransactionSettlementInstruction>();
+List<TransactionSettlementMovement> movements = new List<TransactionSettlementMovement>();
+
+TransactionSettlementBucket transactionSettlementBucketInstance = new TransactionSettlementBucket(
+    settlementCategory: settlementCategory,
+    lusidInstrumentId: lusidInstrumentId,
+    instrumentScope: instrumentScope,
+    contractualSettlementDate: contractualSettlementDate,
+    contractedUnits: contractedUnits,
+    settledUnits: settledUnits,
+    unsettledUnits: unsettledUnits,
+    overdueUnits: overdueUnits,
+    configuredSettlement: configuredSettlement,
+    status: status,
+    settlementInstructions: settlementInstructions,
+    movements: movements);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

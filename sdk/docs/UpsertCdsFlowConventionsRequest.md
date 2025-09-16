@@ -7,5 +7,15 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CdsFlowConventions** | [**CdsFlowConventions**](CdsFlowConventions.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+CdsFlowConventions? cdsFlowConventions = new CdsFlowConventions();
+
+
+UpsertCdsFlowConventionsRequest upsertCdsFlowConventionsRequestInstance = new UpsertCdsFlowConventionsRequest(
+    cdsFlowConventions: cdsFlowConventions);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

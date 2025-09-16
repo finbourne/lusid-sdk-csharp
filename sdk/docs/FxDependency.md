@@ -10,5 +10,17 @@ Name | Type | Description | Notes
 **ForeignCurrency** | **string** | ForeignCurrency is the second currency in a currency pair quote e.g. eur-gbp, gbp is the foreign currency. | 
 **Date** | **DateTimeOffset** | The effectiveAt of the fx rate. | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string domesticCurrency = "domesticCurrency";
+string foreignCurrency = "foreignCurrency";
+
+FxDependency fxDependencyInstance = new FxDependency(
+    domesticCurrency: domesticCurrency,
+    foreignCurrency: foreignCurrency,
+    date: date);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

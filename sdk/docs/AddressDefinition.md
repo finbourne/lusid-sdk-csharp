@@ -11,5 +11,23 @@ Name | Type | Description | Notes
 **RemovalDate** | **DateTimeOffset?** | If the life-cycle status of the address is Deprecated then this is the date at which support of the address will be suspended.  After that date it will be removed at the earliest possible point subject to any specific contractual support and development constraints. | [optional] 
 **DocumentationLink** | **string** | Contains a link to the documentation for this AddressDefinition in KnowledgeBase. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string displayName = "example displayName";
+string type = "example type";
+string description = "example description";
+string lifeCycleStatus = "example lifeCycleStatus";
+string documentationLink = "example documentationLink";
+
+AddressDefinition addressDefinitionInstance = new AddressDefinition(
+    displayName: displayName,
+    type: type,
+    description: description,
+    lifeCycleStatus: lifeCycleStatus,
+    removalDate: removalDate,
+    documentationLink: documentationLink);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

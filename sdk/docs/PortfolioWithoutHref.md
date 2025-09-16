@@ -28,5 +28,61 @@ Name | Type | Description | Notes
 **SettlementConfiguration** | [**PortfolioSettlementConfiguration**](PortfolioSettlementConfiguration.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+ResourceId id = new ResourceId();
+string type = "type";
+string displayName = "displayName";
+string description = "example description";
+ResourceId? parentPortfolioId = new ResourceId();
+
+ModelVersion? varVersion = new ModelVersion();
+
+StagedModificationsInfo? stagedModifications = new StagedModificationsInfo();
+
+bool isDerived = //"True";
+string baseCurrency = "example baseCurrency";
+Dictionary<string, Property> properties = new Dictionary<string, Property>();
+List<Relationship> relationships = new List<Relationship>();
+List<string> instrumentScopes = new List<string>();
+string accountingMethod = "example accountingMethod";
+string amortisationMethod = "example amortisationMethod";
+string transactionTypeScope = "example transactionTypeScope";
+string cashGainLossCalculationDate = "example cashGainLossCalculationDate";
+InstrumentEventConfiguration? instrumentEventConfiguration = new InstrumentEventConfiguration();
+
+ResourceId? amortisationRuleSetId = new ResourceId();
+
+string taxRuleSetScope = "example taxRuleSetScope";
+PortfolioSettlementConfiguration? settlementConfiguration = new PortfolioSettlementConfiguration();
+
+List<Link> links = new List<Link>();
+
+PortfolioWithoutHref portfolioWithoutHrefInstance = new PortfolioWithoutHref(
+    id: id,
+    type: type,
+    displayName: displayName,
+    description: description,
+    created: created,
+    parentPortfolioId: parentPortfolioId,
+    varVersion: varVersion,
+    stagedModifications: stagedModifications,
+    isDerived: isDerived,
+    baseCurrency: baseCurrency,
+    properties: properties,
+    relationships: relationships,
+    instrumentScopes: instrumentScopes,
+    accountingMethod: accountingMethod,
+    amortisationMethod: amortisationMethod,
+    transactionTypeScope: transactionTypeScope,
+    cashGainLossCalculationDate: cashGainLossCalculationDate,
+    instrumentEventConfiguration: instrumentEventConfiguration,
+    amortisationRuleSetId: amortisationRuleSetId,
+    taxRuleSetScope: taxRuleSetScope,
+    settlementConfiguration: settlementConfiguration,
+    links: links);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

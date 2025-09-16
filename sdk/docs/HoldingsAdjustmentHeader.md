@@ -10,5 +10,19 @@ Name | Type | Description | Notes
 **UnmatchedHoldingMethod** | **string** | Describes how the holdings were adjusted. If &#39;PositionToZero&#39; the entire transaction portfolio&#39;s holdings were set via a call to &#39;Set holdings&#39;. If &#39;KeepTheSame&#39; only the specified holdings were adjusted via a call to &#39;Adjust holdings&#39;. The available values are: PositionToZero, KeepTheSame | 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+ModelVersion varVersion = new ModelVersion();
+string unmatchedHoldingMethod = "unmatchedHoldingMethod";
+List<Link> links = new List<Link>();
+
+HoldingsAdjustmentHeader holdingsAdjustmentHeaderInstance = new HoldingsAdjustmentHeader(
+    effectiveAt: effectiveAt,
+    varVersion: varVersion,
+    unmatchedHoldingMethod: unmatchedHoldingMethod,
+    links: links);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

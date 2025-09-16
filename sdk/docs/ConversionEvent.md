@@ -18,5 +18,30 @@ Name | Type | Description | Notes
 **CashAndSecurityOfferElections** | [**List&lt;CashAndSecurityOfferElection&gt;**](CashAndSecurityOfferElection.md) | List of possible cash and security offers for this conversion event. There must be at most one election of this type.  If the Finbourne.LusidInstruments.Events.ParticipationType is Finbourne.LusidInstruments.Events.ParticipationType.Mandatory:  This list &lt;b&gt; must be null or empty&lt;/b&gt;.  If the Finbourne.LusidInstruments.Events.ParticipationType is Finbourne.LusidInstruments.Events.ParticipationType.Voluntary:  This list can be empty,  so long as Finbourne.WebApi.Interface.Dto.InstrumentEvents.ConversionEvent.SecurityOfferElections or Finbourne.WebApi.Interface.Dto.InstrumentEvents.ConversionEvent.CashOfferElections  has at least one election. None of these elections have to be chosen or default. | [optional] 
 **CashOfferElections** | [**List&lt;CashOfferElection&gt;**](CashOfferElection.md) | List of possible cash offers for this conversion event. There must be at most one election of this type.  If the Finbourne.LusidInstruments.Events.ParticipationType is Finbourne.LusidInstruments.Events.ParticipationType.Mandatory:  This list &lt;b&gt; must be null or empty&lt;/b&gt;.  If the Finbourne.LusidInstruments.Events.ParticipationType is Finbourne.LusidInstruments.Events.ParticipationType.Voluntary:  This list can be empty,  so long as Finbourne.WebApi.Interface.Dto.InstrumentEvents.ConversionEvent.SecurityOfferElections or Finbourne.WebApi.Interface.Dto.InstrumentEvents.ConversionEvent.CashAndSecurityOfferElections  has at least one election. None of these elections have to be chosen or default. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+NewInstrument newInstrument = new NewInstrument();
+EventDateRange? periodOfAction = new EventDateRange();
+
+string fractionalUnitsCashCurrency = "example fractionalUnitsCashCurrency";
+List<SecurityOfferElection> securityOfferElections = new List<SecurityOfferElection>();
+List<CashAndSecurityOfferElection> cashAndSecurityOfferElections = new List<CashAndSecurityOfferElection>();
+List<CashOfferElection> cashOfferElections = new List<CashOfferElection>();
+
+ConversionEvent conversionEventInstance = new ConversionEvent(
+    recordDate: recordDate,
+    paymentDate: paymentDate,
+    newInstrument: newInstrument,
+    responseDeadlineDate: responseDeadlineDate,
+    marketDeadlineDate: marketDeadlineDate,
+    periodOfAction: periodOfAction,
+    fractionalUnitsCashPrice: fractionalUnitsCashPrice,
+    fractionalUnitsCashCurrency: fractionalUnitsCashCurrency,
+    securityOfferElections: securityOfferElections,
+    cashAndSecurityOfferElections: cashAndSecurityOfferElections,
+    cashOfferElections: cashOfferElections);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -9,5 +9,18 @@ Name | Type | Description | Notes
 **CreditRatings** | [**List&lt;CreditRating&gt;**](CreditRating.md) |  | 
 **IndustryClassifiers** | [**List&lt;IndustryClassifier&gt;**](IndustryClassifier.md) |  | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string countryOfRisk = "countryOfRisk";
+List<CreditRating> creditRatings = new List<CreditRating>();
+List<IndustryClassifier> industryClassifiers = new List<IndustryClassifier>();
+
+CounterpartyRiskInformation counterpartyRiskInformationInstance = new CounterpartyRiskInformation(
+    countryOfRisk: countryOfRisk,
+    creditRatings: creditRatings,
+    industryClassifiers: industryClassifiers);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

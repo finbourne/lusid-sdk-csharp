@@ -19,5 +19,38 @@ Name | Type | Description | Notes
 **PreviewedPortfolio** | [**PortfolioWithoutHref**](PortfolioWithoutHref.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string href = "href";
+string entityUniqueId = "entityUniqueId";
+string status = "status";
+string userIdDeleted = "example userIdDeleted";
+string requestIdDeleted = "example requestIdDeleted";
+PortfolioWithoutHref? prevailingPortfolio = new PortfolioWithoutHref();
+
+PortfolioWithoutHref? deletedPortfolio = new PortfolioWithoutHref();
+
+string previewedStatus = "example previewedStatus";
+PortfolioWithoutHref? previewedPortfolio = new PortfolioWithoutHref();
+
+List<Link> links = new List<Link>();
+
+PortfolioEntity portfolioEntityInstance = new PortfolioEntity(
+    href: href,
+    entityUniqueId: entityUniqueId,
+    asAtVersionNumber: asAtVersionNumber,
+    status: status,
+    asAtDeleted: asAtDeleted,
+    userIdDeleted: userIdDeleted,
+    requestIdDeleted: requestIdDeleted,
+    effectiveAtCreated: effectiveAtCreated,
+    prevailingPortfolio: prevailingPortfolio,
+    deletedPortfolio: deletedPortfolio,
+    previewedStatus: previewedStatus,
+    previewedPortfolio: previewedPortfolio,
+    links: links);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

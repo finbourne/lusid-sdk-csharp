@@ -11,5 +11,27 @@ Name | Type | Description | Notes
 **Definition** | [**LusidInstrument**](LusidInstrument.md) |  | [optional] 
 **SettlementCycle** | [**SettlementCycle**](SettlementCycle.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string name = "name";
+Dictionary<string, InstrumentIdValue> identifiers = new Dictionary<string, InstrumentIdValue>();
+List<Property> properties = new List<Property>();
+ResourceId? lookThroughPortfolioId = new ResourceId();
+
+LusidInstrument? definition = new LusidInstrument();
+
+SettlementCycle? settlementCycle = new SettlementCycle();
+
+
+InstrumentDefinition instrumentDefinitionInstance = new InstrumentDefinition(
+    name: name,
+    identifiers: identifiers,
+    properties: properties,
+    lookThroughPortfolioId: lookThroughPortfolioId,
+    definition: definition,
+    settlementCycle: settlementCycle);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

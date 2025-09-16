@@ -27,5 +27,55 @@ Name | Type | Description | Notes
 **NavTypeCode** | **string** | When provided runs against the specified NAV Type, otherwise the Primary NAV Type will be used. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string href = "example href";
+string feeCode = "example feeCode";
+ResourceId feeTypeId = new ResourceId();
+string displayName = "displayName";
+string description = "example description";
+string origin = "example origin";
+string calculationBase = "example calculationBase";
+string accrualCurrency = "accrualCurrency";
+string treatment = "treatment";
+string payableFrequency = "payableFrequency";
+string businessDayConvention = "businessDayConvention";
+DayMonth? anchorDate = new DayMonth();
+
+Dictionary<string, Property> properties = new Dictionary<string, Property>();
+ModelVersion? varVersion = new ModelVersion();
+
+ResourceId? portfolioId = new ResourceId();
+
+List<string> shareClasses = new List<string>();
+string navTypeCode = "example navTypeCode";
+List<Link> links = new List<Link>();
+
+Fee feeInstance = new Fee(
+    href: href,
+    feeCode: feeCode,
+    feeTypeId: feeTypeId,
+    displayName: displayName,
+    description: description,
+    origin: origin,
+    calculationBase: calculationBase,
+    accrualCurrency: accrualCurrency,
+    treatment: treatment,
+    totalAnnualAccrualAmount: totalAnnualAccrualAmount,
+    feeRatePercentage: feeRatePercentage,
+    payableFrequency: payableFrequency,
+    businessDayConvention: businessDayConvention,
+    startDate: startDate,
+    endDate: endDate,
+    anchorDate: anchorDate,
+    properties: properties,
+    varVersion: varVersion,
+    portfolioId: portfolioId,
+    shareClasses: shareClasses,
+    navTypeCode: navTypeCode,
+    links: links);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

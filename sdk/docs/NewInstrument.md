@@ -10,5 +10,20 @@ Name | Type | Description | Notes
 **InstrumentScope** | **string** | The scope in which the instrument lies, resolved from the instrument identifiers. | [optional] [readonly] 
 **DomCcy** | **string** | The domestic currency of the instrument, resolved from the instrument identifiers. | [optional] [readonly] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+Dictionary<string, string> instrumentIdentifiers = new Dictionary<string, string>();
+string lusidInstrumentId = "example lusidInstrumentId";
+string instrumentScope = "example instrumentScope";
+string domCcy = "example domCcy";
+
+NewInstrument newInstrumentInstance = new NewInstrument(
+    instrumentIdentifiers: instrumentIdentifiers,
+    lusidInstrumentId: lusidInstrumentId,
+    instrumentScope: instrumentScope,
+    domCcy: domCcy);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -14,5 +14,30 @@ Name | Type | Description | Notes
 **LifeTime** | **string** | Describes how the relations can change over time, allowed values are \&quot;Perpetual\&quot; and \&quot;TimeVariant\&quot; | [optional] 
 **ConstraintStyle** | **string** | Describes the uniqueness and cardinality for relations with a specific source entity object and relations under this definition. Allowed values are \&quot;Property\&quot; and \&quot;Collection\&quot;, defaults to \&quot;Collection\&quot; if not specified. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string scope = "scope";
+string code = "code";
+string sourceEntityDomain = "sourceEntityDomain";
+string targetEntityDomain = "targetEntityDomain";
+string displayName = "displayName";
+string outwardDescription = "outwardDescription";
+string inwardDescription = "inwardDescription";
+string lifeTime = "example lifeTime";
+string constraintStyle = "example constraintStyle";
+
+CreateRelationDefinitionRequest createRelationDefinitionRequestInstance = new CreateRelationDefinitionRequest(
+    scope: scope,
+    code: code,
+    sourceEntityDomain: sourceEntityDomain,
+    targetEntityDomain: targetEntityDomain,
+    displayName: displayName,
+    outwardDescription: outwardDescription,
+    inwardDescription: inwardDescription,
+    lifeTime: lifeTime,
+    constraintStyle: constraintStyle);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

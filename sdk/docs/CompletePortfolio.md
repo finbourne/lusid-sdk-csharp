@@ -18,5 +18,38 @@ Name | Type | Description | Notes
 **SubHoldingKeys** | **List&lt;string&gt;** | The sub holding key properties configured for the portfolio | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+ResourceId id = new ResourceId();
+string href = "example href";
+string description = "example description";
+string displayName = "example displayName";
+ResourceId? parentPortfolioId = new ResourceId();
+
+bool isDerived = //"True";
+string type = "example type";
+ModelVersion varVersion = new ModelVersion();
+List<Property> properties = new List<Property>();
+string baseCurrency = "example baseCurrency";
+List<string> subHoldingKeys = new List<string>();
+List<Link> links = new List<Link>();
+
+CompletePortfolio completePortfolioInstance = new CompletePortfolio(
+    id: id,
+    href: href,
+    description: description,
+    displayName: displayName,
+    created: created,
+    parentPortfolioId: parentPortfolioId,
+    isDerived: isDerived,
+    type: type,
+    varVersion: varVersion,
+    properties: properties,
+    baseCurrency: baseCurrency,
+    subHoldingKeys: subHoldingKeys,
+    links: links);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

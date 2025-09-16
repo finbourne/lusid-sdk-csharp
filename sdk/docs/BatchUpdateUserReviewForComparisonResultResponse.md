@@ -9,5 +9,20 @@ Name | Type | Description | Notes
 **Metadata** | **Dictionary&lt;string, List&lt;ResponseMetaData&gt;&gt;** | Contains warnings related to the updated comparison result user input | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+Dictionary<string, GroupReconciliationComparisonResult> values = new Dictionary<string, GroupReconciliationComparisonResult>();
+Dictionary<string, ErrorDetail> failed = new Dictionary<string, ErrorDetail>();
+Dictionary<string, List<ResponseMetaData>> metadata = new Dictionary<string, List<ResponseMetaData>>();
+List<Link> links = new List<Link>();
+
+BatchUpdateUserReviewForComparisonResultResponse batchUpdateUserReviewForComparisonResultResponseInstance = new BatchUpdateUserReviewForComparisonResultResponse(
+    values: values,
+    failed: failed,
+    metadata: metadata,
+    links: links);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

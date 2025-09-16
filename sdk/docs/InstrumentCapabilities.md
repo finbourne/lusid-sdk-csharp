@@ -12,5 +12,24 @@ Name | Type | Description | Notes
 **EconomicDependencies** | [**List&lt;EconomicDependency&gt;**](EconomicDependency.md) | Economic dependencies for the model, e.g. &#39;Fx:GBP.USD&#39;, &#39;Cash:GBP&#39;, &#39;Rates:GBP.GBPOIS&#39;. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string instrumentId = "example instrumentId";
+string model = "example model";
+Dictionary<string, string> features = new Dictionary<string, string>();
+List<DescribedAddressKey> supportedAddresses = new List<DescribedAddressKey>();
+List<EconomicDependency> economicDependencies = new List<EconomicDependency>();
+List<Link> links = new List<Link>();
+
+InstrumentCapabilities instrumentCapabilitiesInstance = new InstrumentCapabilities(
+    instrumentId: instrumentId,
+    model: model,
+    features: features,
+    supportedAddresses: supportedAddresses,
+    economicDependencies: economicDependencies,
+    links: links);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

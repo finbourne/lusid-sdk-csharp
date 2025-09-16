@@ -16,5 +16,32 @@ Name | Type | Description | Notes
 **DifferenceCost** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | 
 **InstrumentProperties** | [**List&lt;Property&gt;**](Property.md) | Additional features relating to the instrument | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string instrumentScope = "example instrumentScope";
+string instrumentUid = "instrumentUid";
+Dictionary<string, PerpetualProperty> subHoldingKeys = new Dictionary<string, PerpetualProperty>();decimal leftUnits = "leftUnits";
+decimal rightUnits = "rightUnits";
+decimal differenceUnits = "differenceUnits";
+
+CurrencyAndAmount leftCost = new CurrencyAndAmount();
+CurrencyAndAmount rightCost = new CurrencyAndAmount();
+CurrencyAndAmount differenceCost = new CurrencyAndAmount();
+List<Property> instrumentProperties = new List<Property>();
+
+ReconciliationBreak reconciliationBreakInstance = new ReconciliationBreak(
+    instrumentScope: instrumentScope,
+    instrumentUid: instrumentUid,
+    subHoldingKeys: subHoldingKeys,
+    leftUnits: leftUnits,
+    rightUnits: rightUnits,
+    differenceUnits: differenceUnits,
+    leftCost: leftCost,
+    rightCost: rightCost,
+    differenceCost: differenceCost,
+    instrumentProperties: instrumentProperties);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

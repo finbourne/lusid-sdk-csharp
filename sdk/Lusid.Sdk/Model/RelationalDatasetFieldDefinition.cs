@@ -41,8 +41,8 @@ namespace Lusid.Sdk.Model
         /// <param name="description">A detailed description of the field and its purpose..</param>
         /// <param name="dataTypeId">dataTypeId (required).</param>
         /// <param name="required">Whether this field is mandatory in the dataset..</param>
-        /// <param name="usage">The intended usage of the field (SeriesIdentifier, Value, or Metadata). (required).</param>
-        public RelationalDatasetFieldDefinition(string fieldName = default(string), string displayName = default(string), string description = default(string), ResourceId dataTypeId = default(ResourceId), bool required = default(bool), string usage = default(string))
+        /// <param name="category">The intended category of the field (SeriesIdentifier, Value, or Metadata). (required).</param>
+        public RelationalDatasetFieldDefinition(string fieldName = default(string), string displayName = default(string), string description = default(string), ResourceId dataTypeId = default(ResourceId), bool required = default(bool), string category = default(string))
         {
             // to ensure "fieldName" is required (not null)
             if (fieldName == null)
@@ -56,12 +56,12 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("dataTypeId is a required property for RelationalDatasetFieldDefinition and cannot be null");
             }
             this.DataTypeId = dataTypeId;
-            // to ensure "usage" is required (not null)
-            if (usage == null)
+            // to ensure "category" is required (not null)
+            if (category == null)
             {
-                throw new ArgumentNullException("usage is a required property for RelationalDatasetFieldDefinition and cannot be null");
+                throw new ArgumentNullException("category is a required property for RelationalDatasetFieldDefinition and cannot be null");
             }
-            this.Usage = usage;
+            this.Category = category;
             this.DisplayName = displayName;
             this.Description = description;
             this.Required = required;
@@ -102,11 +102,11 @@ namespace Lusid.Sdk.Model
         public bool Required { get; set; }
 
         /// <summary>
-        /// The intended usage of the field (SeriesIdentifier, Value, or Metadata).
+        /// The intended category of the field (SeriesIdentifier, Value, or Metadata).
         /// </summary>
-        /// <value>The intended usage of the field (SeriesIdentifier, Value, or Metadata).</value>
-        [DataMember(Name = "usage", IsRequired = true, EmitDefaultValue = true)]
-        public string Usage { get; set; }
+        /// <value>The intended category of the field (SeriesIdentifier, Value, or Metadata).</value>
+        [DataMember(Name = "category", IsRequired = true, EmitDefaultValue = true)]
+        public string Category { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -121,7 +121,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  DataTypeId: ").Append(DataTypeId).Append("\n");
             sb.Append("  Required: ").Append(Required).Append("\n");
-            sb.Append("  Usage: ").Append(Usage).Append("\n");
+            sb.Append("  Category: ").Append(Category).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -182,9 +182,9 @@ namespace Lusid.Sdk.Model
                     this.Required.Equals(input.Required)
                 ) && 
                 (
-                    this.Usage == input.Usage ||
-                    (this.Usage != null &&
-                    this.Usage.Equals(input.Usage))
+                    this.Category == input.Category ||
+                    (this.Category != null &&
+                    this.Category.Equals(input.Category))
                 );
         }
 
@@ -214,9 +214,9 @@ namespace Lusid.Sdk.Model
                     hashCode = (hashCode * 59) + this.DataTypeId.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Required.GetHashCode();
-                if (this.Usage != null)
+                if (this.Category != null)
                 {
-                    hashCode = (hashCode * 59) + this.Usage.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Category.GetHashCode();
                 }
                 return hashCode;
             }
@@ -265,10 +265,10 @@ namespace Lusid.Sdk.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be greater than 1.", new [] { "Description" });
             }
 
-            // Usage (string) minLength
-            if (this.Usage != null && this.Usage.Length < 1)
+            // Category (string) minLength
+            if (this.Category != null && this.Category.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Usage, length must be greater than 1.", new [] { "Usage" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Category, length must be greater than 1.", new [] { "Category" });
             }
 
             yield break;

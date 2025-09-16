@@ -21,5 +21,45 @@ Name | Type | Description | Notes
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+ResourceId id = new ResourceId();
+string reconciliationType = "reconciliationType";
+ResourceId groupReconciliationDefinitionId = new ResourceId();
+GroupReconciliationInstanceId instanceId = new GroupReconciliationInstanceId();
+string comparisonResultId = "comparisonResultId";
+string resultType = "resultType";
+string resultStatus = "resultStatus";
+string reviewStatus = "reviewStatus";
+GroupReconciliationDates datesReconciled = new GroupReconciliationDates();
+GroupReconciliationCoreAttributeValues coreAttributes = new GroupReconciliationCoreAttributeValues();
+GroupReconciliationAggregateAttributeValues aggregateAttributes = new GroupReconciliationAggregateAttributeValues();
+GroupReconciliationUserReview? userReview = new GroupReconciliationUserReview();
+
+string href = "example href";
+ModelVersion? varVersion = new ModelVersion();
+
+List<Link> links = new List<Link>();
+
+GroupReconciliationComparisonResult groupReconciliationComparisonResultInstance = new GroupReconciliationComparisonResult(
+    id: id,
+    reconciliationType: reconciliationType,
+    groupReconciliationDefinitionId: groupReconciliationDefinitionId,
+    instanceId: instanceId,
+    comparisonResultId: comparisonResultId,
+    reconciliationRunAsAt: reconciliationRunAsAt,
+    resultType: resultType,
+    resultStatus: resultStatus,
+    reviewStatus: reviewStatus,
+    datesReconciled: datesReconciled,
+    coreAttributes: coreAttributes,
+    aggregateAttributes: aggregateAttributes,
+    userReview: userReview,
+    href: href,
+    varVersion: varVersion,
+    links: links);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

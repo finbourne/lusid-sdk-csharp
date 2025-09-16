@@ -9,5 +9,16 @@ Name | Type | Description | Notes
 **InstrumentFormat** | [**InstrumentDefinitionFormat**](InstrumentDefinitionFormat.md) |  | 
 **Content** | **string** | The original document received into the system. This format could potentially be anything though is most likely to be either Json or Xml. In the case where no other  interface is supported it is possible to fall back onto this.  For example, a trade from an external client system. This may be recognized internally by Lusid or simply passed through to another vendor system. | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+InstrumentDefinitionFormat instrumentFormat = new InstrumentDefinitionFormat();
+string content = "content";
+
+ExoticInstrument exoticInstrumentInstance = new ExoticInstrument(
+    instrumentFormat: instrumentFormat,
+    content: content);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

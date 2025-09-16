@@ -19,5 +19,39 @@ Name | Type | Description | Notes
 **NewValue** | [**PropertyValue**](PropertyValue.md) |  | [optional] 
 **EffectiveRange** | [**EffectiveRange**](EffectiveRange.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+Dictionary<string, string> detail = new Dictionary<string, string>();
+string actionDescription = "example actionDescription";
+string userIdModified = "example userIdModified";
+string requestIdModified = "example requestIdModified";
+string reasonModified = "example reasonModified";
+string stagedModificationIdModified = "example stagedModificationIdModified";
+string action = "example action";
+string attributeName = "example attributeName";
+PropertyValue? previousValue = new PropertyValue();
+
+PropertyValue? newValue = new PropertyValue();
+
+EffectiveRange? effectiveRange = new EffectiveRange();
+
+
+ChangeIntervalWithOrderManagementDetail changeIntervalWithOrderManagementDetailInstance = new ChangeIntervalWithOrderManagementDetail(
+    detail: detail,
+    actionDescription: actionDescription,
+    asAtModified: asAtModified,
+    userIdModified: userIdModified,
+    requestIdModified: requestIdModified,
+    reasonModified: reasonModified,
+    asAtVersionNumber: asAtVersionNumber,
+    stagedModificationIdModified: stagedModificationIdModified,
+    action: action,
+    attributeName: attributeName,
+    previousValue: previousValue,
+    newValue: newValue,
+    effectiveRange: effectiveRange);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

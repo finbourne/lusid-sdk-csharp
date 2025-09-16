@@ -9,5 +9,18 @@ Name | Type | Description | Notes
 **Code** | **string** | User given string name (code) to identify the recipe. | 
 **Operations** | [**List&lt;RecipeBlock&gt;**](RecipeBlock.md) | Atomic operations used to compose a Configuration Recipe. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string scope = "scope";
+string code = "code";
+List<RecipeBlock> operations = new List<RecipeBlock>();
+
+RecipeComposer recipeComposerInstance = new RecipeComposer(
+    scope: scope,
+    code: code,
+    operations: operations);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

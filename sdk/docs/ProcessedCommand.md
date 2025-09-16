@@ -10,5 +10,19 @@ Name | Type | Description | Notes
 **UserId** | [**User**](User.md) |  | 
 **ProcessedTime** | **DateTimeOffset** | The asAt datetime that the events published by the processing of this command were committed to LUSID. | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string description = "description";
+string path = "example path";
+User userId = new User();
+
+ProcessedCommand processedCommandInstance = new ProcessedCommand(
+    description: description,
+    path: path,
+    userId: userId,
+    processedTime: processedTime);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

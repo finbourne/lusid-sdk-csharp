@@ -20,5 +20,42 @@ Name | Type | Description | Notes
 **MarketDataOverrides** | [**MarketDataOverrides**](MarketDataOverrides.md) |  | [optional] 
 **CorporateActionSourceId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+ResourceId recipeId = new ResourceId();
+List<AggregateSpec> metrics = new List<AggregateSpec>();
+List<string> groupBy = new List<string>();
+List<PropertyFilter> filters = new List<PropertyFilter>();
+List<OrderBySpec> sort = new List<OrderBySpec>();
+string reportCurrency = "example reportCurrency";
+bool equipWithSubtotals = //"True";
+bool returnResultAsExpandedTypes = //"True";
+OrderFlowConfiguration? includeOrderFlow = new OrderFlowConfiguration();
+
+List<PortfolioEntityId> portfolioEntityIds = new List<PortfolioEntityId>();
+ValuationSchedule valuationSchedule = new ValuationSchedule();
+MarketDataOverrides? marketDataOverrides = new MarketDataOverrides();
+
+ResourceId? corporateActionSourceId = new ResourceId();
+
+
+ValuationRequest valuationRequestInstance = new ValuationRequest(
+    recipeId: recipeId,
+    asAt: asAt,
+    metrics: metrics,
+    groupBy: groupBy,
+    filters: filters,
+    sort: sort,
+    reportCurrency: reportCurrency,
+    equipWithSubtotals: equipWithSubtotals,
+    returnResultAsExpandedTypes: returnResultAsExpandedTypes,
+    includeOrderFlow: includeOrderFlow,
+    portfolioEntityIds: portfolioEntityIds,
+    valuationSchedule: valuationSchedule,
+    marketDataOverrides: marketDataOverrides,
+    corporateActionSourceId: corporateActionSourceId);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -12,5 +12,21 @@ Name | Type | Description | Notes
 **Periods** | [**List&lt;LoanPeriod&gt;**](LoanPeriod.md) | Periods of the underlying loan | 
 **TimeZoneConventions** | [**TimeZoneConventions**](TimeZoneConventions.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string domCcy = "domCcy";
+List<LoanPeriod> periods = new List<LoanPeriod>();
+TimeZoneConventions? timeZoneConventions = new TimeZoneConventions();
+
+
+SimpleCashFlowLoan simpleCashFlowLoanInstance = new SimpleCashFlowLoan(
+    startDate: startDate,
+    maturityDate: maturityDate,
+    domCcy: domCcy,
+    periods: periods,
+    timeZoneConventions: timeZoneConventions);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

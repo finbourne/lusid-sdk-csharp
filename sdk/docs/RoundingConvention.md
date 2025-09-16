@@ -10,5 +10,18 @@ Name | Type | Description | Notes
 **RoundingTarget** | **string** | The target of the rounding convention.  Accepted values are &#39;AccruedInterest&#39;, &#39;Cashflows&#39;, or &#39;All&#39;    Supported string (enumeration) values are: [All, AccruedInterest, Cashflows].  Defaults to \&quot;All\&quot; if not set. | [optional] 
 **RoundingType** | **string** | The type of rounding.  e.g. Round Up, Round Down    Supported string (enumeration) values are: [Down, Up, Floor, Ceiling, Nearest].  Defaults to \&quot;Nearest\&quot; if not set. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
+decimal? faceValue = "example faceValue";
+string roundingTarget = "example roundingTarget";
+string roundingType = "example roundingType";
 
+RoundingConvention roundingConventionInstance = new RoundingConvention(
+    faceValue: faceValue,
+    precision: precision,
+    roundingTarget: roundingTarget,
+    roundingType: roundingType);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

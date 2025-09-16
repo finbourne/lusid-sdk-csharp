@@ -17,5 +17,33 @@ Name | Type | Description | Notes
 **SourceSystem** | **string** | If set, this parameter will seek an external source of market data.  Optional and, if omitted, will default to \&quot;Lusid\&quot;.  This means that data will be retrieved from the LUSID Quote Store and LUSID Complex Market Data Store.                This can be set to \&quot;MarketDataOverrides\&quot; if Supplier is set to \&quot;Client\&quot;. | [optional] 
 **FallThroughOnAccessDenied** | **bool** | When a user attempts to use a rule to access data to which they are not entitled,  the rule will fail to resolve any market data.  By default, such an access denied failure will stop any further attempts to resolve market data.  This is so that differently entitled users always receive the same market data from market data resolution,  if they have sufficient entitlements to retrieve the required data.  If set to true, then an access denied failure will not stop further market data resolution,  and resolution will continue with the next specified MarketDataKeyRule.  Optional, and defaults to false. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string key = "key";
+string supplier = "supplier";
+string dataScope = "dataScope";
+string quoteType = "quoteType";
+string field = "example field";
+string quoteInterval = "example quoteInterval";
+string priceSource = "example priceSource";
+string mask = "example mask";
+string sourceSystem = "example sourceSystem";
+bool fallThroughOnAccessDenied = //"True";
+
+MarketDataKeyRule marketDataKeyRuleInstance = new MarketDataKeyRule(
+    key: key,
+    supplier: supplier,
+    dataScope: dataScope,
+    quoteType: quoteType,
+    field: field,
+    quoteInterval: quoteInterval,
+    asAt: asAt,
+    priceSource: priceSource,
+    mask: mask,
+    sourceSystem: sourceSystem,
+    fallThroughOnAccessDenied: fallThroughOnAccessDenied);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

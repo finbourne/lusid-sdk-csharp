@@ -13,5 +13,28 @@ Name | Type | Description | Notes
 **DataModelMembership** | [**DataModelMembership**](DataModelMembership.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+ResourceId id = new ResourceId();
+List<ResourceId> orderIds = new List<ResourceId>();
+List<ResourceId> orderInstructionIds = new List<ResourceId>();
+Dictionary<string, PerpetualProperty> properties = new Dictionary<string, PerpetualProperty>();
+ModelVersion? varVersion = new ModelVersion();
+
+DataModelMembership? dataModelMembership = new DataModelMembership();
+
+List<Link> links = new List<Link>();
+
+Package packageInstance = new Package(
+    id: id,
+    orderIds: orderIds,
+    orderInstructionIds: orderInstructionIds,
+    properties: properties,
+    varVersion: varVersion,
+    dataModelMembership: dataModelMembership,
+    links: links);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

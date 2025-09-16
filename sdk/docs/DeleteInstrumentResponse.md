@@ -9,5 +9,20 @@ Name | Type | Description | Notes
 **StagedModifications** | [**StagedModificationsInfo**](StagedModificationsInfo.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string href = "example href";
+StagedModificationsInfo? stagedModifications = new StagedModificationsInfo();
+
+List<Link> links = new List<Link>();
+
+DeleteInstrumentResponse deleteInstrumentResponseInstance = new DeleteInstrumentResponse(
+    href: href,
+    asAt: asAt,
+    stagedModifications: stagedModifications,
+    links: links);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

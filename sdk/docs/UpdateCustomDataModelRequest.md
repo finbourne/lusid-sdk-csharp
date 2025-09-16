@@ -13,5 +13,29 @@ Name | Type | Description | Notes
 **AttributeAliases** | [**List&lt;Alias&gt;**](Alias.md) | The aliases for property keys, identifier types, and fields on the bound entity. | [optional] 
 **RecommendedSortBy** | [**List&lt;RecommendedSortBy&gt;**](RecommendedSortBy.md) | The preferred default sorting instructions. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string displayName = "displayName";
+string description = "description";
+ResourceId? parentDataModel = new ResourceId();
+
+string conditions = "example conditions";
+List<CustomDataModelPropertySpecification> properties = new List<CustomDataModelPropertySpecification>();
+List<CustomDataModelIdentifierTypeSpecification> identifierTypes = new List<CustomDataModelIdentifierTypeSpecification>();
+List<Alias> attributeAliases = new List<Alias>();
+List<RecommendedSortBy> recommendedSortBy = new List<RecommendedSortBy>();
+
+UpdateCustomDataModelRequest updateCustomDataModelRequestInstance = new UpdateCustomDataModelRequest(
+    displayName: displayName,
+    description: description,
+    parentDataModel: parentDataModel,
+    conditions: conditions,
+    properties: properties,
+    identifierTypes: identifierTypes,
+    attributeAliases: attributeAliases,
+    recommendedSortBy: recommendedSortBy);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

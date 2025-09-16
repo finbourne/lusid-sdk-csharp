@@ -17,5 +17,35 @@ Name | Type | Description | Notes
 **InstrumentIdentifiers** | **Dictionary&lt;string, string&gt;** | A set of instrument identifiers that can resolve the settlement instruction to a unique instrument. | 
 **Status** | **string** | The status of the settlement instruction - &#39;Invalid&#39;, &#39;Rejected&#39; &#39;Applied&#39; or &#39;Orphan&#39;. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string settlementInstructionId = "settlementInstructionId";
+string instructionType = "instructionType";decimal units = "units";
+
+string transactionId = "transactionId";
+string settlementCategory = "settlementCategory";
+string lusidInstrumentId = "lusidInstrumentId";
+Dictionary<string, PerpetualProperty> subHoldingKeyOverrides = new Dictionary<string, PerpetualProperty>();
+ResourceId? custodianAccountOverride = new ResourceId();
+
+Dictionary<string, string> instrumentIdentifiers = new Dictionary<string, string>();
+string status = "example status";
+
+TransactionSettlementInstruction transactionSettlementInstructionInstance = new TransactionSettlementInstruction(
+    settlementInstructionId: settlementInstructionId,
+    instructionType: instructionType,
+    actualSettlementDate: actualSettlementDate,
+    units: units,
+    transactionId: transactionId,
+    settlementCategory: settlementCategory,
+    lusidInstrumentId: lusidInstrumentId,
+    contractualSettlementDate: contractualSettlementDate,
+    subHoldingKeyOverrides: subHoldingKeyOverrides,
+    custodianAccountOverride: custodianAccountOverride,
+    instrumentIdentifiers: instrumentIdentifiers,
+    status: status);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

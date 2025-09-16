@@ -12,5 +12,18 @@ Name | Type | Description | Notes
 **PaymentDate** | **DateTimeOffset** | The date the company begins distributing the dividend. | [optional] 
 **RecordDate** | **DateTimeOffset?** | Date you have to be the holder of record in order to participate in the tender. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+List<CashElection> cashElections = new List<CashElection>();
+
+CapitalDistributionEvent capitalDistributionEventInstance = new CapitalDistributionEvent(
+    announcementDate: announcementDate,
+    cashElections: cashElections,
+    exDate: exDate,
+    paymentDate: paymentDate,
+    recordDate: recordDate);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

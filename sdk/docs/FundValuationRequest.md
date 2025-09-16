@@ -17,5 +17,36 @@ Name | Type | Description | Notes
 **MarketDataOverrides** | [**MarketDataOverrides**](MarketDataOverrides.md) |  | [optional] 
 **CorporateActionSourceId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+List<AggregateSpec> metrics = new List<AggregateSpec>();
+List<string> groupBy = new List<string>();
+List<PropertyFilter> filters = new List<PropertyFilter>();
+List<OrderBySpec> sort = new List<OrderBySpec>();
+bool equipWithSubtotals = //"True";
+bool returnResultAsExpandedTypes = //"True";
+OrderFlowConfiguration? includeOrderFlow = new OrderFlowConfiguration();
+
+FundValuationSchedule fundValuationSchedule = new FundValuationSchedule();
+MarketDataOverrides? marketDataOverrides = new MarketDataOverrides();
+
+ResourceId? corporateActionSourceId = new ResourceId();
+
+
+FundValuationRequest fundValuationRequestInstance = new FundValuationRequest(
+    asAt: asAt,
+    metrics: metrics,
+    groupBy: groupBy,
+    filters: filters,
+    sort: sort,
+    equipWithSubtotals: equipWithSubtotals,
+    returnResultAsExpandedTypes: returnResultAsExpandedTypes,
+    includeOrderFlow: includeOrderFlow,
+    fundValuationSchedule: fundValuationSchedule,
+    marketDataOverrides: marketDataOverrides,
+    corporateActionSourceId: corporateActionSourceId);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -25,5 +25,49 @@ Name | Type | Description | Notes
 **DataModelMembership** | [**DataModelMembership**](DataModelMembership.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+ResourceId id = new ResourceId();
+ResourceId placementId = new ResourceId();
+Dictionary<string, PerpetualProperty> properties = new Dictionary<string, PerpetualProperty>();
+Dictionary<string, string> instrumentIdentifiers = new Dictionary<string, string>();
+string lusidInstrumentId = "lusidInstrumentId";decimal quantity = "quantity";
+
+string state = "state";
+string side = "side";
+string type = "type";
+CurrencyAndAmount price = new CurrencyAndAmount();
+string settlementCurrency = "settlementCurrency";decimal settlementCurrencyFxRate = "settlementCurrencyFxRate";
+
+string counterparty = "counterparty";
+ModelVersion? varVersion = new ModelVersion();
+
+DataModelMembership? dataModelMembership = new DataModelMembership();
+
+List<Link> links = new List<Link>();
+
+Execution executionInstance = new Execution(
+    id: id,
+    placementId: placementId,
+    properties: properties,
+    instrumentIdentifiers: instrumentIdentifiers,
+    lusidInstrumentId: lusidInstrumentId,
+    quantity: quantity,
+    state: state,
+    side: side,
+    type: type,
+    createdDate: createdDate,
+    settlementDate: settlementDate,
+    price: price,
+    settlementCurrency: settlementCurrency,
+    settlementCurrencyFxRate: settlementCurrencyFxRate,
+    counterparty: counterparty,
+    averagePrice: averagePrice,
+    varVersion: varVersion,
+    dataModelMembership: dataModelMembership,
+    links: links);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

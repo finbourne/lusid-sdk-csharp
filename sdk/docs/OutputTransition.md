@@ -12,5 +12,25 @@ Name | Type | Description | Notes
 **InstrumentScope** | **string** | The scope in which the instrument lies. | [optional] [readonly] 
 **Rounding** | [**RoundingConfiguration**](RoundingConfiguration.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+Dictionary<string, string> instrumentIdentifiers = new Dictionary<string, string>();decimal unitsFactor = "unitsFactor";
+decimal costFactor = "costFactor";
+
+string lusidInstrumentId = "example lusidInstrumentId";
+string instrumentScope = "example instrumentScope";
+RoundingConfiguration? rounding = new RoundingConfiguration();
+
+
+OutputTransition outputTransitionInstance = new OutputTransition(
+    instrumentIdentifiers: instrumentIdentifiers,
+    unitsFactor: unitsFactor,
+    costFactor: costFactor,
+    lusidInstrumentId: lusidInstrumentId,
+    instrumentScope: instrumentScope,
+    rounding: rounding);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

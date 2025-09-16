@@ -18,5 +18,37 @@ Name | Type | Description | Notes
 **StopPrice** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
 **IsSwept** | **bool** | Swept blocks are considered no longer of active interest, and no longer take part in various order management processes | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+ResourceId id = new ResourceId();
+List<ResourceId> orderIds = new List<ResourceId>();
+Dictionary<string, PerpetualProperty> properties = new Dictionary<string, PerpetualProperty>();
+Dictionary<string, string> instrumentIdentifiers = new Dictionary<string, string>();decimal quantity = "quantity";
+
+string side = "side";
+string type = "type";
+string timeInForce = "timeInForce";
+CurrencyAndAmount? limitPrice = new CurrencyAndAmount();
+
+CurrencyAndAmount? stopPrice = new CurrencyAndAmount();
+
+bool isSwept = //"True";
+
+BlockRequest blockRequestInstance = new BlockRequest(
+    id: id,
+    orderIds: orderIds,
+    properties: properties,
+    instrumentIdentifiers: instrumentIdentifiers,
+    quantity: quantity,
+    side: side,
+    type: type,
+    timeInForce: timeInForce,
+    createdDate: createdDate,
+    limitPrice: limitPrice,
+    stopPrice: stopPrice,
+    isSwept: isSwept);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -40,5 +40,78 @@ Name | Type | Description | Notes
 **AccountingDate** | **DateTimeOffset?** | The accounting date of the transaction. | [optional] 
 **Economics** | [**List&lt;Economics&gt;**](Economics.md) | Set of economic data related with the transaction impacts. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string transactionId = "transactionId";
+string type = "type";
+string description = "example description";
+Dictionary<string, string> instrumentIdentifiers = new Dictionary<string, string>();
+string instrumentScope = "example instrumentScope";
+string instrumentUid = "instrumentUid";decimal units = "units";
+decimal? transactionAmount = "example transactionAmount";
+TransactionPrice? transactionPrice = new TransactionPrice();
+
+CurrencyAndAmount? totalConsideration = new CurrencyAndAmount();
+decimal? exchangeRate = "example exchangeRate";
+string transactionCurrency = "example transactionCurrency";
+Dictionary<string, PerpetualProperty> properties = new Dictionary<string, PerpetualProperty>();
+string counterpartyId = "example counterpartyId";
+string source = "example source";
+string transactionStatus = "example transactionStatus";
+List<RealisedGainLoss> realisedGainLoss = new List<RealisedGainLoss>();
+List<long> holdingIds = new List<long>();
+string sourceType = "example sourceType";
+string sourceInstrumentEventId = "example sourceInstrumentEventId";
+CustodianAccount? custodianAccount = new CustodianAccount();
+
+string transactionGroupId = "example transactionGroupId";
+TransactionTypeDetails? resolvedTransactionTypeDetails = new TransactionTypeDetails();
+decimal? grossTransactionAmount = "example grossTransactionAmount";
+OtcConfirmation? otcConfirmation = new OtcConfirmation();
+
+ResourceId? orderId = new ResourceId();
+
+ResourceId? allocationId = new ResourceId();
+
+List<Economics> economics = new List<Economics>();
+
+OutputTransaction outputTransactionInstance = new OutputTransaction(
+    transactionId: transactionId,
+    type: type,
+    description: description,
+    instrumentIdentifiers: instrumentIdentifiers,
+    instrumentScope: instrumentScope,
+    instrumentUid: instrumentUid,
+    transactionDate: transactionDate,
+    settlementDate: settlementDate,
+    units: units,
+    transactionAmount: transactionAmount,
+    transactionPrice: transactionPrice,
+    totalConsideration: totalConsideration,
+    exchangeRate: exchangeRate,
+    transactionToPortfolioRate: transactionToPortfolioRate,
+    transactionCurrency: transactionCurrency,
+    properties: properties,
+    counterpartyId: counterpartyId,
+    source: source,
+    transactionStatus: transactionStatus,
+    entryDateTime: entryDateTime,
+    cancelDateTime: cancelDateTime,
+    realisedGainLoss: realisedGainLoss,
+    holdingIds: holdingIds,
+    sourceType: sourceType,
+    sourceInstrumentEventId: sourceInstrumentEventId,
+    custodianAccount: custodianAccount,
+    transactionGroupId: transactionGroupId,
+    resolvedTransactionTypeDetails: resolvedTransactionTypeDetails,
+    grossTransactionAmount: grossTransactionAmount,
+    otcConfirmation: otcConfirmation,
+    orderId: orderId,
+    allocationId: allocationId,
+    accountingDate: accountingDate,
+    economics: economics);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

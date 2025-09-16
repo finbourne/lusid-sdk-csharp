@@ -11,5 +11,17 @@ Name | Type | Description | Notes
 **Currency** | **string** | The currency in which the cashflow is paid. | 
 **CashFlowPerUnit** | **decimal?** | The cashflow amount received for each unit of the instrument held on the ex date. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string currency = "currency";
+
+ProtectionPayoutCashFlowEvent protectionPayoutCashFlowEventInstance = new ProtectionPayoutCashFlowEvent(
+    exDate: exDate,
+    paymentDate: paymentDate,
+    currency: currency,
+    cashFlowPerUnit: cashFlowPerUnit);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -10,5 +10,21 @@ Name | Type | Description | Notes
 **Accounts** | [**List&lt;Account&gt;**](Account.md) | The Accounts which have been upserted. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string href = "example href";
+ModelVersion? varVersion = new ModelVersion();
+
+List<Account> accounts = new List<Account>();
+List<Link> links = new List<Link>();
+
+AccountsUpsertResponse accountsUpsertResponseInstance = new AccountsUpsertResponse(
+    href: href,
+    varVersion: varVersion,
+    accounts: accounts,
+    links: links);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

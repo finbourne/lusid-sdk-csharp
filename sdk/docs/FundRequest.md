@@ -18,5 +18,34 @@ Name | Type | Description | Notes
 **YearEndDate** | [**DayMonth**](DayMonth.md) |  | 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | A set of properties for the Fund. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string code = "code";
+string displayName = "example displayName";
+string description = "example description";
+ResourceId fundConfigurationId = new ResourceId();
+ResourceId aborId = new ResourceId();
+List<string> shareClassInstrumentScopes = new List<string>();
+List<InstrumentResolutionDetail> shareClassInstruments = new List<InstrumentResolutionDetail>();
+string type = "type";
+DayMonth yearEndDate = new DayMonth();
+Dictionary<string, Property> properties = new Dictionary<string, Property>();
+
+FundRequest fundRequestInstance = new FundRequest(
+    code: code,
+    displayName: displayName,
+    description: description,
+    fundConfigurationId: fundConfigurationId,
+    aborId: aborId,
+    shareClassInstrumentScopes: shareClassInstrumentScopes,
+    shareClassInstruments: shareClassInstruments,
+    type: type,
+    inceptionDate: inceptionDate,
+    decimalPlaces: decimalPlaces,
+    yearEndDate: yearEndDate,
+    properties: properties);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

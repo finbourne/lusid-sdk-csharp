@@ -10,5 +10,17 @@ Name | Type | Description | Notes
 **Code** | **string** | The Code of the fixing, typically the index name | 
 **Date** | **DateTimeOffset** | The effectiveAt of the inflation fixing | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string type = "type";
+string code = "code";
+
+InflationFixingDependency inflationFixingDependencyInstance = new InflationFixingDependency(
+    type: type,
+    code: code,
+    date: date);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

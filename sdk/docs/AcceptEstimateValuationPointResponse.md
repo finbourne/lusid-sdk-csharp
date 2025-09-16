@@ -10,5 +10,21 @@ Name | Type | Description | Notes
 **LatestValuationPoint** | [**ValuationPointDataResponse**](ValuationPointDataResponse.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string href = "example href";
+ValuationPointDataResponse candidateValuationPoint = new ValuationPointDataResponse();
+ValuationPointDataResponse? latestValuationPoint = new ValuationPointDataResponse();
+
+List<Link> links = new List<Link>();
+
+AcceptEstimateValuationPointResponse acceptEstimateValuationPointResponseInstance = new AcceptEstimateValuationPointResponse(
+    href: href,
+    candidateValuationPoint: candidateValuationPoint,
+    latestValuationPoint: latestValuationPoint,
+    links: links);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

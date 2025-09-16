@@ -14,5 +14,30 @@ Name | Type | Description | Notes
 **CurrentFace** | **string** | The value, field or property key defining the side&#39;s current face / outstanding notional. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string side = "side";
+string security = "security";
+string currency = "currency";
+string rate = "rate";
+string units = "units";
+string amount = "amount";
+string notionalAmount = "example notionalAmount";
+string currentFace = "example currentFace";
+List<Link> links = new List<Link>();
+
+SideDefinition sideDefinitionInstance = new SideDefinition(
+    side: side,
+    security: security,
+    currency: currency,
+    rate: rate,
+    units: units,
+    amount: amount,
+    notionalAmount: notionalAmount,
+    currentFace: currentFace,
+    links: links);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

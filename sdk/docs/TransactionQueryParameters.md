@@ -12,5 +12,26 @@ Name | Type | Description | Notes
 **TimelineCode** | **string** | Code of the Timeline for the Portfolio. The Timeline to be used while building transactions | [optional] 
 **IncludeEconomics** | **bool** | By default is false. When set to true the Economics data would be populated in the response. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+DateTimeOrCutLabel startDate = "startDate";
+DateTimeOrCutLabel endDate = "endDate";
+string queryMode = "example queryMode";
+bool showCancelledTransactions = //"True";
+string timelineScope = "example timelineScope";
+string timelineCode = "example timelineCode";
+bool includeEconomics = //"True";
+
+TransactionQueryParameters transactionQueryParametersInstance = new TransactionQueryParameters(
+    startDate: startDate,
+    endDate: endDate,
+    queryMode: queryMode,
+    showCancelledTransactions: showCancelledTransactions,
+    timelineScope: timelineScope,
+    timelineCode: timelineCode,
+    includeEconomics: includeEconomics);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

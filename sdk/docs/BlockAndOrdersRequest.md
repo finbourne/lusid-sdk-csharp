@@ -15,5 +15,33 @@ Name | Type | Description | Notes
 **LimitPrice** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
 **StopPrice** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+ResourceId blockId = new ResourceId();
+List<BlockedOrderRequest> orders = new List<BlockedOrderRequest>();
+Dictionary<string, PerpetualProperty> blockProperties = new Dictionary<string, PerpetualProperty>();
+Dictionary<string, string> instrumentIdentifiers = new Dictionary<string, string>();
+string side = "example side";
+string type = "example type";
+string timeInForce = "example timeInForce";
+CurrencyAndAmount? limitPrice = new CurrencyAndAmount();
+
+CurrencyAndAmount? stopPrice = new CurrencyAndAmount();
+
+
+BlockAndOrdersRequest blockAndOrdersRequestInstance = new BlockAndOrdersRequest(
+    blockId: blockId,
+    orders: orders,
+    blockProperties: blockProperties,
+    instrumentIdentifiers: instrumentIdentifiers,
+    side: side,
+    type: type,
+    timeInForce: timeInForce,
+    date: date,
+    limitPrice: limitPrice,
+    stopPrice: stopPrice);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

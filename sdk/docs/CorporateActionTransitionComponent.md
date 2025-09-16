@@ -11,5 +11,22 @@ Name | Type | Description | Notes
 **UnitsFactor** | **decimal** | The factor to scale units by | 
 **CostFactor** | **decimal** | The factor to scale cost by | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string instrumentScope = "instrumentScope";
+Dictionary<string, string> instrumentIdentifiers = new Dictionary<string, string>();
+string instrumentUid = "instrumentUid";decimal unitsFactor = "unitsFactor";
+decimal costFactor = "costFactor";
+
+
+CorporateActionTransitionComponent corporateActionTransitionComponentInstance = new CorporateActionTransitionComponent(
+    instrumentScope: instrumentScope,
+    instrumentIdentifiers: instrumentIdentifiers,
+    instrumentUid: instrumentUid,
+    unitsFactor: unitsFactor,
+    costFactor: costFactor);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

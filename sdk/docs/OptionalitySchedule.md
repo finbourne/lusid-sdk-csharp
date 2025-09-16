@@ -10,5 +10,18 @@ Name | Type | Description | Notes
 **OptionEntries** | [**List&lt;OptionEntry&gt;**](OptionEntry.md) | The dates at which the bond call/put may be actioned, and associated strikes. | [optional] 
 **OptionType** | **string** | Type of optionality for the schedule.    Supported string (enumeration) values are: [Call, Put].  Defaults to \&quot;Call\&quot; if not set. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string exerciseType = "example exerciseType";
+List<OptionEntry> optionEntries = new List<OptionEntry>();
+string optionType = "example optionType";
+
+OptionalitySchedule optionalityScheduleInstance = new OptionalitySchedule(
+    exerciseType: exerciseType,
+    optionEntries: optionEntries,
+    optionType: optionType);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

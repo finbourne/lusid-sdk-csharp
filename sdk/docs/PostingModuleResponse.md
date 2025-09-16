@@ -15,5 +15,31 @@ Name | Type | Description | Notes
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string href = "example href";
+string postingModuleCode = "postingModuleCode";
+ResourceId chartOfAccountsId = new ResourceId();
+string displayName = "displayName";
+string description = "example description";
+List<PostingModuleRule> rules = new List<PostingModuleRule>();
+string status = "status";
+ModelVersion? varVersion = new ModelVersion();
+
+List<Link> links = new List<Link>();
+
+PostingModuleResponse postingModuleResponseInstance = new PostingModuleResponse(
+    href: href,
+    postingModuleCode: postingModuleCode,
+    chartOfAccountsId: chartOfAccountsId,
+    displayName: displayName,
+    description: description,
+    rules: rules,
+    status: status,
+    varVersion: varVersion,
+    links: links);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

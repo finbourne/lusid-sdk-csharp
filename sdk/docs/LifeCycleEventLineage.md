@@ -11,5 +11,22 @@ Name | Type | Description | Notes
 **LegId** | **string** | Leg id for the event. | [optional] 
 **SourceTransactionId** | **string** | The source transaction of the instrument for the event. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string eventType = "example eventType";
+string instrumentType = "example instrumentType";
+string instrumentId = "example instrumentId";
+string legId = "example legId";
+string sourceTransactionId = "example sourceTransactionId";
+
+LifeCycleEventLineage lifeCycleEventLineageInstance = new LifeCycleEventLineage(
+    eventType: eventType,
+    instrumentType: instrumentType,
+    instrumentId: instrumentId,
+    legId: legId,
+    sourceTransactionId: sourceTransactionId);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

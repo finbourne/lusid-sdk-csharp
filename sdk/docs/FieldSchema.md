@@ -10,5 +10,22 @@ Name | Type | Description | Notes
 **Type** | **string** | The available values are: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, Code, Id, Uri, CurrencyAndAmount, TradePrice, Currency, MetricValue, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, UnindexedText | [optional] 
 **DisplayOrder** | **int** |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+ResourceId? id = new ResourceId();
+
+string displayName = "example displayName";
+string description = "example description";
+string type = "example type";
+
+FieldSchema fieldSchemaInstance = new FieldSchema(
+    id: id,
+    displayName: displayName,
+    description: description,
+    type: type,
+    displayOrder: displayOrder);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

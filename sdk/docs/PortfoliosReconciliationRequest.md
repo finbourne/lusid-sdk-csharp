@@ -8,5 +8,18 @@ Name | Type | Description | Notes
 **Right** | [**PortfolioReconciliationRequest**](PortfolioReconciliationRequest.md) |  | 
 **InstrumentPropertyKeys** | **List&lt;string&gt;** | Instrument properties to be included with any identified breaks. These properties will be in the effective and AsAt dates of the left portfolio | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+PortfolioReconciliationRequest left = new PortfolioReconciliationRequest();
+PortfolioReconciliationRequest right = new PortfolioReconciliationRequest();
+List<string> instrumentPropertyKeys = new List<string>();
+
+PortfoliosReconciliationRequest portfoliosReconciliationRequestInstance = new PortfoliosReconciliationRequest(
+    left: left,
+    right: right,
+    instrumentPropertyKeys: instrumentPropertyKeys);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -8,5 +8,18 @@ Name | Type | Description | Notes
 **MatchKeys** | [**List&lt;GroupReconciliationUserReviewMatchKey&gt;**](GroupReconciliationUserReviewMatchKey.md) | A list of match keys shared between the reconciliation runs of the same run instance and result hash. | [optional] 
 **Comments** | [**List&lt;GroupReconciliationUserReviewComment&gt;**](GroupReconciliationUserReviewComment.md) | A list of comments shared between the reconciliation runs of the same run instance and result hash. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+List<GroupReconciliationUserReviewBreakCode> breakCodes = new List<GroupReconciliationUserReviewBreakCode>();
+List<GroupReconciliationUserReviewMatchKey> matchKeys = new List<GroupReconciliationUserReviewMatchKey>();
+List<GroupReconciliationUserReviewComment> comments = new List<GroupReconciliationUserReviewComment>();
+
+GroupReconciliationUserReview groupReconciliationUserReviewInstance = new GroupReconciliationUserReview(
+    breakCodes: breakCodes,
+    matchKeys: matchKeys,
+    comments: comments);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

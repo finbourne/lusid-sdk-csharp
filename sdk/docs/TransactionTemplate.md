@@ -11,5 +11,24 @@ Name | Type | Description | Notes
 **ComponentTransactions** | [**List&lt;ComponentTransaction&gt;**](ComponentTransaction.md) | A set of component transactions that relate to the template to be created. | 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string instrumentType = "instrumentType";
+string instrumentEventType = "instrumentEventType";
+string description = "description";
+string scope = "scope";
+List<ComponentTransaction> componentTransactions = new List<ComponentTransaction>();
+List<Link> links = new List<Link>();
+
+TransactionTemplate transactionTemplateInstance = new TransactionTemplate(
+    instrumentType: instrumentType,
+    instrumentEventType: instrumentEventType,
+    description: description,
+    scope: scope,
+    componentTransactions: componentTransactions,
+    links: links);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

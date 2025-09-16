@@ -12,5 +12,20 @@ Name | Type | Description | Notes
 **Notional** | **decimal?** | The initial notional of the Funding Leg instrument.  When \&quot;RequiresFundingLegHistory\&quot; property key is present in transaction key, during a GetValuation endpoint call (for instance),  this field would overriden by the Funding Leg history&#39;s notional and this notional field would not be used in the pricing and accrual calculations.  As such, we recommend setting this to 0 or not setting it at all.  Please see the following Notebook example and Knowledge Base article:  Notebook: https://github.com/finbourne/sample-notebooks/blob/master/examples/use-cases/instruments/Funding%20Leg%20Swap.ipynb  Knowledge Base article: https://support.lusid.com/knowledgebase/article/KA-01764/ | [optional] 
 **TimeZoneConventions** | [**TimeZoneConventions**](TimeZoneConventions.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+LegDefinition legDefinition = new LegDefinition();
+TimeZoneConventions? timeZoneConventions = new TimeZoneConventions();
+
+
+FundingLeg fundingLegInstance = new FundingLeg(
+    startDate: startDate,
+    maturityDate: maturityDate,
+    legDefinition: legDefinition,
+    notional: notional,
+    timeZoneConventions: timeZoneConventions);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

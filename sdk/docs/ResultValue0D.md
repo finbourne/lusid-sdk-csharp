@@ -10,5 +10,16 @@ Name | Type | Description | Notes
 **Value** | **decimal** | The value of the result | [optional] 
 **Dimension** | **int?** | The dimension of the result. Can be null if there is no sensible way of defining the dimension. This field should not be  populate by the user on upsertion. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string units = "example units";decimal? value = "example value";
+
+ResultValue0D resultValue0DInstance = new ResultValue0D(
+    units: units,
+    value: value,
+    dimension: dimension);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

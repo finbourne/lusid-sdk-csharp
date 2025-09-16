@@ -24,5 +24,54 @@ Name | Type | Description | Notes
 **TransactionGroupId** | **string** | The identifier for grouping economic events across multiple transactions | [optional] 
 **StrategyTag** | [**List&lt;Strategy&gt;**](Strategy.md) | A list of strategies representing the allocation of units across multiple sub-holding keys | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string transactionId = "transactionId";
+string type = "type";
+Dictionary<string, string> instrumentIdentifiers = new Dictionary<string, string>();
+DateTimeOrCutLabel transactionDate = "transactionDate";
+DateTimeOrCutLabel settlementDate = "settlementDate";decimal units = "units";
+
+TransactionPrice? transactionPrice = new TransactionPrice();
+
+CurrencyAndAmount totalConsideration = new CurrencyAndAmount();
+string transactionCurrency = "example transactionCurrency";
+Dictionary<string, PerpetualProperty> properties = new Dictionary<string, PerpetualProperty>();
+string counterpartyId = "example counterpartyId";
+string source = "example source";
+OtcConfirmation? otcConfirmation = new OtcConfirmation();
+
+ResourceId? orderId = new ResourceId();
+
+ResourceId? allocationId = new ResourceId();
+
+ResourceId? custodianAccountId = new ResourceId();
+
+string transactionGroupId = "example transactionGroupId";
+List<Strategy> strategyTag = new List<Strategy>();
+
+TransactionRequest transactionRequestInstance = new TransactionRequest(
+    transactionId: transactionId,
+    type: type,
+    instrumentIdentifiers: instrumentIdentifiers,
+    transactionDate: transactionDate,
+    settlementDate: settlementDate,
+    units: units,
+    transactionPrice: transactionPrice,
+    totalConsideration: totalConsideration,
+    exchangeRate: exchangeRate,
+    transactionCurrency: transactionCurrency,
+    properties: properties,
+    counterpartyId: counterpartyId,
+    source: source,
+    otcConfirmation: otcConfirmation,
+    orderId: orderId,
+    allocationId: allocationId,
+    custodianAccountId: custodianAccountId,
+    transactionGroupId: transactionGroupId,
+    strategyTag: strategyTag);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

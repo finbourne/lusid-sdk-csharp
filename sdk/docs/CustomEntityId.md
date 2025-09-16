@@ -10,5 +10,20 @@ Name | Type | Description | Notes
 **EffectiveFrom** | **DateTimeOffset?** | The effective datetime from which the identifier is valid. | [optional] 
 **EffectiveUntil** | **DateTimeOffset?** | The effective datetime until which the identifier is valid. If not supplied this will be valid indefinitely, or until the next &#39;effectiveFrom&#39; datetime of the identifier. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string identifierScope = "identifierScope";
+string identifierType = "identifierType";
+string identifierValue = "identifierValue";
+
+CustomEntityId customEntityIdInstance = new CustomEntityId(
+    identifierScope: identifierScope,
+    identifierType: identifierType,
+    identifierValue: identifierValue,
+    effectiveFrom: effectiveFrom,
+    effectiveUntil: effectiveUntil);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

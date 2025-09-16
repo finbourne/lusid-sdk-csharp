@@ -9,5 +9,16 @@ Name | Type | Description | Notes
 **DomCcy** | **string** | The domestic currency of the instrument. | 
 **Amount** | **decimal** | Cash amount. | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string domCcy = "domCcy";decimal amount = "amount";
+
+
+Cash cashInstance = new Cash(
+    domCcy: domCcy,
+    amount: amount);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

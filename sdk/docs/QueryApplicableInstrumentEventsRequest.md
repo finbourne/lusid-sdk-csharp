@@ -10,5 +10,19 @@ Name | Type | Description | Notes
 **PortfolioEntityIds** | [**List&lt;PortfolioEntityId&gt;**](PortfolioEntityId.md) | The set of portfolios and portfolio groups to which the instrument events must belong. | 
 **ForecastingRecipeId** | [**ResourceId**](ResourceId.md) |  | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+List<PortfolioEntityId> portfolioEntityIds = new List<PortfolioEntityId>();
+ResourceId forecastingRecipeId = new ResourceId();
+
+QueryApplicableInstrumentEventsRequest queryApplicableInstrumentEventsRequestInstance = new QueryApplicableInstrumentEventsRequest(
+    windowStart: windowStart,
+    windowEnd: windowEnd,
+    effectiveAt: effectiveAt,
+    portfolioEntityIds: portfolioEntityIds,
+    forecastingRecipeId: forecastingRecipeId);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

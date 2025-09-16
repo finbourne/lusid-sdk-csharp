@@ -11,5 +11,17 @@ Name | Type | Description | Notes
 **Currency** | **string** | Currency of the payment. This is a required field. | 
 **CashFlowPerUnit** | **decimal?** | Amount of cash to be paid per unit of the instrument.  This amount is signed to indicate direction of the payment, i.e. as part of the purchase leg vs the repurchase leg.  This field is optional. If not specified, the system will not generate a virtual transaction for this event. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string currency = "currency";
+
+FlexibleRepoCashFlowEvent flexibleRepoCashFlowEventInstance = new FlexibleRepoCashFlowEvent(
+    settlementDate: settlementDate,
+    entitlementDate: entitlementDate,
+    currency: currency,
+    cashFlowPerUnit: cashFlowPerUnit);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

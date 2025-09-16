@@ -16,5 +16,33 @@ Name | Type | Description | Notes
 **Currency** | **string** | Optional - either a string or a property. If provided, the results will be converted to the specified currency | [optional] 
 **RunMode** | **string** | The dates the AggregatedReturns output will be calculated: ReturnData/WeekDays/AllDays/MonthEnd. Defaults to ReturnData. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+List<PerformanceReturnsMetric> metrics = new List<PerformanceReturnsMetric>();
+List<ResourceId> returnIds = new List<ResourceId>();
+ResourceId? recipeId = new ResourceId();
+
+string compositeMethod = "example compositeMethod";
+string period = "example period";
+string outputFrequency = "example outputFrequency";
+string alternativeInceptionDate = "example alternativeInceptionDate";
+List<string> holidayCalendars = new List<string>();
+string currency = "example currency";
+string runMode = "example runMode";
+
+AggregatedReturnsRequest aggregatedReturnsRequestInstance = new AggregatedReturnsRequest(
+    metrics: metrics,
+    returnIds: returnIds,
+    recipeId: recipeId,
+    compositeMethod: compositeMethod,
+    period: period,
+    outputFrequency: outputFrequency,
+    alternativeInceptionDate: alternativeInceptionDate,
+    holidayCalendars: holidayCalendars,
+    currency: currency,
+    runMode: runMode);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

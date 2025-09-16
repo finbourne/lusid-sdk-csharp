@@ -8,5 +8,15 @@ Name | Type | Description | Notes
 **RequestedDateTime** | **DateTimeOffset** |  | 
 **IsBusinessDay** | **bool** |  | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+bool isBusinessDay = //"True";
+
+IsBusinessDayResponse isBusinessDayResponseInstance = new IsBusinessDayResponse(
+    requestedDateTime: requestedDateTime,
+    isBusinessDay: isBusinessDay);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

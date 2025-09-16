@@ -11,5 +11,19 @@ Name | Type | Description | Notes
 **Lineage** | **string** |  | [optional] 
 **Volatility** | **decimal** | Volatility value. | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string assetType = "assetType";
+string lineage = "example lineage";decimal volatility = "volatility";
+
+
+ConstantVolatilitySurface constantVolatilitySurfaceInstance = new ConstantVolatilitySurface(
+    baseDate: baseDate,
+    assetType: assetType,
+    lineage: lineage,
+    volatility: volatility);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

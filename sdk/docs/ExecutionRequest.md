@@ -21,5 +21,39 @@ Name | Type | Description | Notes
 **Counterparty** | **string** | The market entity this placement is placed with. | 
 **AveragePrice** | **decimal?** | The average price of all executions for a given placement at the time of upsert | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+ResourceId id = new ResourceId();
+ResourceId placementId = new ResourceId();
+Dictionary<string, PerpetualProperty> properties = new Dictionary<string, PerpetualProperty>();
+Dictionary<string, string> instrumentIdentifiers = new Dictionary<string, string>();decimal quantity = "quantity";
+
+string state = "state";
+string side = "side";
+string type = "type";
+CurrencyAndAmount price = new CurrencyAndAmount();
+string settlementCurrency = "settlementCurrency";decimal settlementCurrencyFxRate = "settlementCurrencyFxRate";
+
+string counterparty = "counterparty";
+
+ExecutionRequest executionRequestInstance = new ExecutionRequest(
+    id: id,
+    placementId: placementId,
+    properties: properties,
+    instrumentIdentifiers: instrumentIdentifiers,
+    quantity: quantity,
+    state: state,
+    side: side,
+    type: type,
+    createdDate: createdDate,
+    settlementDate: settlementDate,
+    price: price,
+    settlementCurrency: settlementCurrency,
+    settlementCurrencyFxRate: settlementCurrencyFxRate,
+    counterparty: counterparty,
+    averagePrice: averagePrice);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

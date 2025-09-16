@@ -8,5 +8,15 @@ Name | Type | Description | Notes
 **CalendarCode** | **string** | The code of the holiday calendar that should be used when interpreting FX tenors. | 
 **SpotDays** | **int** | The minimum number of business days that must pass within this calendar when calculating the spot date. | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string calendarCode = "calendarCode";
+
+FxTenorConvention fxTenorConventionInstance = new FxTenorConvention(
+    calendarCode: calendarCode,
+    spotDays: spotDays);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

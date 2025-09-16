@@ -9,5 +9,17 @@ Name | Type | Description | Notes
 **ExpectedPaymentDate** | **DateTimeOffset** | The date by which the cash is expected to be paid to or from the fund. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+List<Link> links = new List<Link>();
+
+TransferAgencyDates transferAgencyDatesInstance = new TransferAgencyDates(
+    priceDate: priceDate,
+    transactionDate: transactionDate,
+    expectedPaymentDate: expectedPaymentDate,
+    links: links);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

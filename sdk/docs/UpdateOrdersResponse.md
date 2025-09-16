@@ -10,5 +10,22 @@ Name | Type | Description | Notes
 **Metadata** | **Dictionary&lt;string, List&lt;ResponseMetaData&gt;&gt;** | Meta data associated with the update event. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string href = "example href";
+Dictionary<string, Order> values = new Dictionary<string, Order>();
+Dictionary<string, ErrorDetail> failed = new Dictionary<string, ErrorDetail>();
+Dictionary<string, List<ResponseMetaData>> metadata = new Dictionary<string, List<ResponseMetaData>>();
+List<Link> links = new List<Link>();
+
+UpdateOrdersResponse updateOrdersResponseInstance = new UpdateOrdersResponse(
+    href: href,
+    values: values,
+    failed: failed,
+    metadata: metadata,
+    links: links);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

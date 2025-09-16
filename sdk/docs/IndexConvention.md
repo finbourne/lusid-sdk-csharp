@@ -14,5 +14,27 @@ Name | Type | Description | Notes
 **Scope** | **string** | The scope used when updating or inserting the convention. | [optional] 
 **Code** | **string** | The code of the convention. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string fixingReference = "fixingReference";
+string paymentTenor = "paymentTenor";
+string dayCountConvention = "dayCountConvention";
+string currency = "currency";
+string indexName = "example indexName";
+string scope = "example scope";
+string code = "example code";
+
+IndexConvention indexConventionInstance = new IndexConvention(
+    fixingReference: fixingReference,
+    publicationDayLag: publicationDayLag,
+    paymentTenor: paymentTenor,
+    dayCountConvention: dayCountConvention,
+    currency: currency,
+    indexName: indexName,
+    scope: scope,
+    code: code);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

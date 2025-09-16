@@ -9,5 +9,14 @@ Name | Type | Description | Notes
 **EntitlementDate** | **DateTimeOffset** | Date on which the closure begins. | [optional] 
 **SettlementDate** | **DateTimeOffset** | Date on which closure takes place, i.e., when all repurchase trades settle. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+
+FlexibleRepoFullClosureEvent flexibleRepoFullClosureEventInstance = new FlexibleRepoFullClosureEvent(
+    entitlementDate: entitlementDate,
+    settlementDate: settlementDate);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

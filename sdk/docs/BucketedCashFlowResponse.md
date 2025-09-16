@@ -11,5 +11,25 @@ Name | Type | Description | Notes
 **Failed** | [**Dictionary&lt;string, ErrorDetail&gt;**](ErrorDetail.md) | Information about where instruments have failed to return cashflows in so far as it is available.  e.g., failure to retrieve a market quote for a floating rate instrument. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string href = "example href";
+List<Dictionary<string, Object>> data = new List<Dictionary<string, Object>>();
+string reportCurrency = "example reportCurrency";
+ResultDataSchema? dataSchema = new ResultDataSchema();
+
+Dictionary<string, ErrorDetail> failed = new Dictionary<string, ErrorDetail>();
+List<Link> links = new List<Link>();
+
+BucketedCashFlowResponse bucketedCashFlowResponseInstance = new BucketedCashFlowResponse(
+    href: href,
+    data: data,
+    reportCurrency: reportCurrency,
+    dataSchema: dataSchema,
+    failed: failed,
+    links: links);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

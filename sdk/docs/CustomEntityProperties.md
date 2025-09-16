@@ -11,5 +11,24 @@ Name | Type | Description | Notes
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string href = "href";
+string entityType = "entityType";
+List<CustomEntityId> identifiers = new List<CustomEntityId>();
+Dictionary<string, Property> properties = new Dictionary<string, Property>();
+ModelVersion varVersion = new ModelVersion();
+List<Link> links = new List<Link>();
+
+CustomEntityProperties customEntityPropertiesInstance = new CustomEntityProperties(
+    href: href,
+    entityType: entityType,
+    identifiers: identifiers,
+    properties: properties,
+    varVersion: varVersion,
+    links: links);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

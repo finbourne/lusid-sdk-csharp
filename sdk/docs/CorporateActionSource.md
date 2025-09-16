@@ -13,5 +13,28 @@ Name | Type | Description | Notes
 **InstrumentScopes** | **List&lt;string&gt;** | The list of instrument scopes used as the scope resolution strategy when resolving instruments of upserted corporate actions. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string href = "example href";
+ResourceId? id = new ResourceId();
+
+ModelVersion? varVersion = new ModelVersion();
+
+string displayName = "example displayName";
+string description = "example description";
+List<string> instrumentScopes = new List<string>();
+List<Link> links = new List<Link>();
+
+CorporateActionSource corporateActionSourceInstance = new CorporateActionSource(
+    href: href,
+    id: id,
+    varVersion: varVersion,
+    displayName: displayName,
+    description: description,
+    instrumentScopes: instrumentScopes,
+    links: links);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

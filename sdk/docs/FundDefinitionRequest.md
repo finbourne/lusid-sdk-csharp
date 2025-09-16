@@ -20,5 +20,38 @@ Name | Type | Description | Notes
 **AdditionalNavTypes** | [**List&lt;NavTypeDefinition&gt;**](NavTypeDefinition.md) | The definitions for any additional NAVs on the Fund. | [optional] 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | A set of properties for the Fund. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string code = "code";
+string displayName = "displayName";
+string description = "example description";
+string baseCurrency = "baseCurrency";
+List<PortfolioEntityId> portfolioIds = new List<PortfolioEntityId>();
+ResourceId fundConfigurationId = new ResourceId();
+List<string> shareClassInstrumentScopes = new List<string>();
+List<InstrumentResolutionDetail> shareClassInstruments = new List<InstrumentResolutionDetail>();
+string type = "type";
+NavTypeDefinition primaryNavType = new NavTypeDefinition();
+List<NavTypeDefinition> additionalNavTypes = new List<NavTypeDefinition>();
+Dictionary<string, Property> properties = new Dictionary<string, Property>();
+
+FundDefinitionRequest fundDefinitionRequestInstance = new FundDefinitionRequest(
+    code: code,
+    displayName: displayName,
+    description: description,
+    baseCurrency: baseCurrency,
+    portfolioIds: portfolioIds,
+    fundConfigurationId: fundConfigurationId,
+    shareClassInstrumentScopes: shareClassInstrumentScopes,
+    shareClassInstruments: shareClassInstruments,
+    type: type,
+    inceptionDate: inceptionDate,
+    decimalPlaces: decimalPlaces,
+    primaryNavType: primaryNavType,
+    additionalNavTypes: additionalNavTypes,
+    properties: properties);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -17,5 +17,27 @@ Name | Type | Description | Notes
 **CashAndSecurityOfferElections** | [**List&lt;CashAndSecurityOfferElection&gt;**](CashAndSecurityOfferElection.md) | List of possible CashAndSecurityOfferElections for this event. | [optional] 
 **CashOfferElections** | [**List&lt;CashOfferElection&gt;**](CashOfferElection.md) | List of possible CashOfferElections for this event. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+NewInstrument newInstrument = new NewInstrument();
+string fractionalUnitsCashCurrency = "example fractionalUnitsCashCurrency";
+List<SecurityOfferElection> securityOfferElections = new List<SecurityOfferElection>();
+List<CashAndSecurityOfferElection> cashAndSecurityOfferElections = new List<CashAndSecurityOfferElection>();
+List<CashOfferElection> cashOfferElections = new List<CashOfferElection>();
+
+TenderEvent tenderEventInstance = new TenderEvent(
+    announcementDate: announcementDate,
+    exDate: exDate,
+    recordDate: recordDate,
+    paymentDate: paymentDate,
+    newInstrument: newInstrument,
+    fractionalUnitsCashPrice: fractionalUnitsCashPrice,
+    fractionalUnitsCashCurrency: fractionalUnitsCashCurrency,
+    securityOfferElections: securityOfferElections,
+    cashAndSecurityOfferElections: cashAndSecurityOfferElections,
+    cashOfferElections: cashOfferElections);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

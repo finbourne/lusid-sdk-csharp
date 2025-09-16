@@ -22,5 +22,46 @@ Name | Type | Description | Notes
 **TransactionProperties** | [**List&lt;Property&gt;**](Property.md) | Set of transaction properties (as defined by client/user). | [optional] 
 **TradeTicketType** | **string** | The available values are: LusidTradeTicket, ExternalTradeTicket | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string transactionId = "transactionId";
+string transactionType = "transactionType";
+string source = "example source";
+string transactionDate = "transactionDate";
+string settlementDate = "settlementDate";
+CurrencyAndAmount totalConsideration = new CurrencyAndAmount();decimal units = "units";
+
+Dictionary<string, string> instrumentIdentifiers = new Dictionary<string, string>();
+string instrumentScope = "example instrumentScope";
+string instrumentName = "example instrumentName";
+LusidInstrument? instrumentDefinition = new LusidInstrument();
+
+ResourceId? counterpartyAgreementId = new ResourceId();
+
+string counterparty = "example counterparty";
+List<Property> instrumentProperties = new List<Property>();
+List<Property> transactionProperties = new List<Property>();
+string tradeTicketType = "tradeTicketType";
+
+LusidTradeTicket lusidTradeTicketInstance = new LusidTradeTicket(
+    transactionId: transactionId,
+    transactionType: transactionType,
+    source: source,
+    transactionDate: transactionDate,
+    settlementDate: settlementDate,
+    totalConsideration: totalConsideration,
+    units: units,
+    instrumentIdentifiers: instrumentIdentifiers,
+    instrumentScope: instrumentScope,
+    instrumentName: instrumentName,
+    instrumentDefinition: instrumentDefinition,
+    counterpartyAgreementId: counterpartyAgreementId,
+    counterparty: counterparty,
+    instrumentProperties: instrumentProperties,
+    transactionProperties: transactionProperties,
+    tradeTicketType: tradeTicketType);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

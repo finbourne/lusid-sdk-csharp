@@ -9,5 +9,16 @@ Name | Type | Description | Notes
 **CashFlowValue** | [**CashFlowValue**](CashFlowValue.md) |  | 
 **EventType** | **string** | What type of internal event does this represent; coupon, principal, premium etc. | [readonly] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+CashFlowValue cashFlowValue = new CashFlowValue();
+string eventType = "eventType";
+
+CashFlowEvent cashFlowEventInstance = new CashFlowEvent(
+    cashFlowValue: cashFlowValue,
+    eventType: eventType);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

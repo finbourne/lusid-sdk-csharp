@@ -12,5 +12,26 @@ Name | Type | Description | Notes
 **HoldingPricingInfo** | [**HoldingPricingInfo**](HoldingPricingInfo.md) |  | [optional] 
 **AccrualDefinition** | **string** | Determines which method to use for the calculation of accrued interest. Defaults to SOD. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+List<VendorModelRule> modelRules = new List<VendorModelRule>();
+Dictionary<string, ModelSelection> modelChoice = new Dictionary<string, ModelSelection>();
+PricingOptions? options = new PricingOptions();
+
+List<ResultKeyRule> resultDataRules = new List<ResultKeyRule>();
+HoldingPricingInfo? holdingPricingInfo = new HoldingPricingInfo();
+
+string accrualDefinition = "example accrualDefinition";
+
+PricingContext pricingContextInstance = new PricingContext(
+    modelRules: modelRules,
+    modelChoice: modelChoice,
+    options: options,
+    resultDataRules: resultDataRules,
+    holdingPricingInfo: holdingPricingInfo,
+    accrualDefinition: accrualDefinition);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

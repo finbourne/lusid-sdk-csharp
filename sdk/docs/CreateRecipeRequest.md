@@ -11,5 +11,23 @@ Name | Type | Description | Notes
 **AsAt** | **DateTimeOffset?** | The asAt date to use | [optional] 
 **EffectiveAt** | [**DateTimeOrCutLabel**](DateTimeOrCutLabel.md) | The market data time, i.e. the recipe generated will look for rules with this effectiveAt. | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+List<string> recipeCreationMarketDataScopes = new List<string>();
+ResourceId? recipeId = new ResourceId();
+
+ConfigurationRecipe? inlineRecipe = new ConfigurationRecipe();
+
+DateTimeOrCutLabel effectiveAt = "effectiveAt";
+
+CreateRecipeRequest createRecipeRequestInstance = new CreateRecipeRequest(
+    recipeCreationMarketDataScopes: recipeCreationMarketDataScopes,
+    recipeId: recipeId,
+    inlineRecipe: inlineRecipe,
+    asAt: asAt,
+    effectiveAt: effectiveAt);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

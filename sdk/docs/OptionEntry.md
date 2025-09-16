@@ -9,5 +9,16 @@ Name | Type | Description | Notes
 **Date** | **DateTimeOffset** | The date at which the option can be actioned at this strike | 
 **EndDate** | **DateTimeOffset?** | If American exercise, this is the end of the exercise period.  Optional field. Defaults to the Date field if not set. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
+decimal strike = "strike";
 
+
+OptionEntry optionEntryInstance = new OptionEntry(
+    strike: strike,
+    date: date,
+    endDate: endDate);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

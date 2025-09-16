@@ -10,5 +10,17 @@ Name | Type | Description | Notes
 **VendorPath** | **List&lt;string&gt;** | The specific dependency path | 
 **Date** | **DateTimeOffset** | The effectiveDate of the entity that this is a dependency for. | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string vendorName = "vendorName";
+List<string> vendorPath = new List<string>();
+
+VendorDependency vendorDependencyInstance = new VendorDependency(
+    vendorName: vendorName,
+    vendorPath: vendorPath,
+    date: date);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -9,5 +9,19 @@ Name | Type | Description | Notes
 **Right** | **Object** |  | [optional] 
 **RightOperandType** | **string** | The available values are: Absolute, Property | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string left = "example left";
+string operator = "example operator";
+string rightOperandType = "example rightOperandType";
+
+PropertyFilter propertyFilterInstance = new PropertyFilter(
+    left: left,
+    operator: operator,
+    right: right,
+    rightOperandType: rightOperandType);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

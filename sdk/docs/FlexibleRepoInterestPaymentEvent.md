@@ -11,5 +11,17 @@ Name | Type | Description | Notes
 **Currency** | **string** | Currency of the interest payment. This is a required field. | 
 **InterestPerUnit** | **decimal?** | Interest payment per unit held of the FlexibleRepo. This field is optional. If not specified, the system  will not generate a virtual transaction for this event | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string currency = "currency";
+
+FlexibleRepoInterestPaymentEvent flexibleRepoInterestPaymentEventInstance = new FlexibleRepoInterestPaymentEvent(
+    settlementDate: settlementDate,
+    entitlementDate: entitlementDate,
+    currency: currency,
+    interestPerUnit: interestPerUnit);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

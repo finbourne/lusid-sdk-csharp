@@ -12,5 +12,22 @@ Name | Type | Description | Notes
 **Content** | **Object** | The content associated with a workspace item. | 
 **Type** | **string** | The type of the workspace item. | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string name = "name";
+string group = "group";
+string description = "description";
+string type = "type";
+
+WorkspaceItemCreationRequest workspaceItemCreationRequestInstance = new WorkspaceItemCreationRequest(
+    format: format,
+    name: name,
+    group: group,
+    description: description,
+    content: content,
+    type: type);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

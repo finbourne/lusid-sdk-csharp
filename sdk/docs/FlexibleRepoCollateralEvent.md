@@ -11,5 +11,18 @@ Name | Type | Description | Notes
 **Amount** | **decimal** | The total amount of collateral being transferred as part of the repo contract.  Signed to indicate direction of transfer. This is a required field. | 
 **CollateralInstrument** | [**NewInstrument**](NewInstrument.md) |  | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
+decimal amount = "amount";
 
+NewInstrument collateralInstrument = new NewInstrument();
+
+FlexibleRepoCollateralEvent flexibleRepoCollateralEventInstance = new FlexibleRepoCollateralEvent(
+    settlementDate: settlementDate,
+    entitlementDate: entitlementDate,
+    amount: amount,
+    collateralInstrument: collateralInstrument);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

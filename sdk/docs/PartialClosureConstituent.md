@@ -9,5 +9,18 @@ Name | Type | Description | Notes
 **AmountType** | **string** | The type of amount represented by the Amount field.  I.e., does it represent a number of units or a percentage of the total repoed units of the instrument?  When defining a FlexibleRepoPartialClosureEvent AmountType can be set to either Units or Percentage.    Supported string (enumeration) values are: [Percentage, Units]. | 
 **Instrument** | [**NewInstrument**](NewInstrument.md) |  | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
+decimal amount = "amount";
 
+string amountType = "amountType";
+NewInstrument instrument = new NewInstrument();
+
+PartialClosureConstituent partialClosureConstituentInstance = new PartialClosureConstituent(
+    amount: amount,
+    amountType: amountType,
+    instrument: instrument);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

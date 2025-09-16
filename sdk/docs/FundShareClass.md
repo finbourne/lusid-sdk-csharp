@@ -15,5 +15,30 @@ Name | Type | Description | Notes
 **TradingConventions** | [**TradingConventions**](TradingConventions.md) |  | [optional] 
 **TimeZoneConventions** | [**TimeZoneConventions**](TimeZoneConventions.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string shortCode = "shortCode";
+string fundShareClassType = "fundShareClassType";
+string distributionPaymentType = "distributionPaymentType";
+string hedging = "hedging";
+string domCcy = "domCcy";
+List<SimpleRoundingConvention> roundingConventions = new List<SimpleRoundingConvention>();
+TradingConventions? tradingConventions = new TradingConventions();
+
+TimeZoneConventions? timeZoneConventions = new TimeZoneConventions();
+
+
+FundShareClass fundShareClassInstance = new FundShareClass(
+    shortCode: shortCode,
+    fundShareClassType: fundShareClassType,
+    distributionPaymentType: distributionPaymentType,
+    hedging: hedging,
+    domCcy: domCcy,
+    roundingConventions: roundingConventions,
+    tradingConventions: tradingConventions,
+    timeZoneConventions: timeZoneConventions);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

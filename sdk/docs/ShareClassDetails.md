@@ -10,5 +10,22 @@ Name | Type | Description | Notes
 **DomCurrency** | **string** | The domestic currency of the share class instrument | [optional] 
 **InstrumentActive** | **bool** | If the instrument of the share class is active. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string lusidInstrumentId = "example lusidInstrumentId";
+string instrumentScope = "example instrumentScope";
+string shortCode = "example shortCode";
+string domCurrency = "example domCurrency";
+bool instrumentActive = //"True";
+
+ShareClassDetails shareClassDetailsInstance = new ShareClassDetails(
+    lusidInstrumentId: lusidInstrumentId,
+    instrumentScope: instrumentScope,
+    shortCode: shortCode,
+    domCurrency: domCurrency,
+    instrumentActive: instrumentActive);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

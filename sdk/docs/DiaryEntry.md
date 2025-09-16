@@ -18,5 +18,37 @@ Name | Type | Description | Notes
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string href = "example href";
+ResourceId? aborId = new ResourceId();
+
+string diaryEntryCode = "example diaryEntryCode";
+string type = "type";
+string name = "example name";
+string status = "status";
+bool applyClearDown = //"True";
+Dictionary<string, Property> properties = new Dictionary<string, Property>();
+ModelVersion? varVersion = new ModelVersion();
+
+List<Link> links = new List<Link>();
+
+DiaryEntry diaryEntryInstance = new DiaryEntry(
+    href: href,
+    aborId: aborId,
+    diaryEntryCode: diaryEntryCode,
+    type: type,
+    name: name,
+    status: status,
+    applyClearDown: applyClearDown,
+    effectiveAt: effectiveAt,
+    queryAsAt: queryAsAt,
+    previousEntryTime: previousEntryTime,
+    properties: properties,
+    varVersion: varVersion,
+    links: links);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

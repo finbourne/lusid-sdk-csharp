@@ -22,5 +22,46 @@ Name | Type | Description | Notes
 **ExecutionSystem** | **string** | Optionally specifies the execution system in use. | [optional] 
 **EntryType** | **string** | Optionally specifies the entry type of this placement. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+ResourceId id = new ResourceId();
+ResourceId? parentPlacementId = new ResourceId();
+
+List<ResourceId> blockIds = new List<ResourceId>();
+Dictionary<string, PerpetualProperty> properties = new Dictionary<string, PerpetualProperty>();
+Dictionary<string, string> instrumentIdentifiers = new Dictionary<string, string>();decimal quantity = "quantity";
+
+string state = "state";
+string side = "side";
+string timeInForce = "timeInForce";
+string type = "type";
+CurrencyAndAmount? limitPrice = new CurrencyAndAmount();
+
+CurrencyAndAmount? stopPrice = new CurrencyAndAmount();
+
+string counterparty = "example counterparty";
+string executionSystem = "example executionSystem";
+string entryType = "example entryType";
+
+PlacementRequest placementRequestInstance = new PlacementRequest(
+    id: id,
+    parentPlacementId: parentPlacementId,
+    blockIds: blockIds,
+    properties: properties,
+    instrumentIdentifiers: instrumentIdentifiers,
+    quantity: quantity,
+    state: state,
+    side: side,
+    timeInForce: timeInForce,
+    type: type,
+    createdDate: createdDate,
+    limitPrice: limitPrice,
+    stopPrice: stopPrice,
+    counterparty: counterparty,
+    executionSystem: executionSystem,
+    entryType: entryType);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

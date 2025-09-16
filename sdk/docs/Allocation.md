@@ -28,5 +28,56 @@ Name | Type | Description | Notes
 **DataModelMembership** | [**DataModelMembership**](DataModelMembership.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+ResourceId id = new ResourceId();
+ResourceId allocatedOrderId = new ResourceId();
+ResourceId portfolioId = new ResourceId();decimal quantity = "quantity";
+
+Dictionary<string, string> instrumentIdentifiers = new Dictionary<string, string>();
+ModelVersion? varVersion = new ModelVersion();
+
+Dictionary<string, PerpetualProperty> properties = new Dictionary<string, PerpetualProperty>();
+string instrumentScope = "example instrumentScope";
+string lusidInstrumentId = "lusidInstrumentId";
+List<ResourceId> placementIds = new List<ResourceId>();
+string state = "example state";
+string side = "example side";
+string type = "example type";
+CurrencyAndAmount? price = new CurrencyAndAmount();
+
+string settlementCurrency = "example settlementCurrency";
+string counterparty = "example counterparty";
+List<ResourceId> executionIds = new List<ResourceId>();
+DataModelMembership? dataModelMembership = new DataModelMembership();
+
+List<Link> links = new List<Link>();
+
+Allocation allocationInstance = new Allocation(
+    id: id,
+    allocatedOrderId: allocatedOrderId,
+    portfolioId: portfolioId,
+    quantity: quantity,
+    instrumentIdentifiers: instrumentIdentifiers,
+    varVersion: varVersion,
+    properties: properties,
+    instrumentScope: instrumentScope,
+    lusidInstrumentId: lusidInstrumentId,
+    placementIds: placementIds,
+    state: state,
+    side: side,
+    type: type,
+    settlementDate: settlementDate,
+    date: date,
+    price: price,
+    settlementCurrency: settlementCurrency,
+    settlementCurrencyFxRate: settlementCurrencyFxRate,
+    counterparty: counterparty,
+    executionIds: executionIds,
+    dataModelMembership: dataModelMembership,
+    links: links);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

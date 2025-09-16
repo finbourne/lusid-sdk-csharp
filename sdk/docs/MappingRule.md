@@ -13,5 +13,24 @@ Name | Type | Description | Notes
 **MappedStrings** | [**List&lt;MappedString&gt;**](MappedString.md) | The (optional) value used to map string values. | [optional] 
 **IsCaseSensitive** | **bool** | Should string comparisons take case into account, defaults to &#x60;false&#x60;. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string left = "example left";
+string right = "example right";
+string comparisonType = "example comparisonType";decimal? weight = "example weight";
+List<MappedString> mappedStrings = new List<MappedString>();
+bool isCaseSensitive = //"True";
+
+MappingRule mappingRuleInstance = new MappingRule(
+    left: left,
+    right: right,
+    comparisonType: comparisonType,
+    comparisonValue: comparisonValue,
+    weight: weight,
+    mappedStrings: mappedStrings,
+    isCaseSensitive: isCaseSensitive);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

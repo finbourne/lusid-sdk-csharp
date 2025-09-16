@@ -14,5 +14,33 @@ Name | Type | Description | Notes
 **Holding** | [**HoldingContext**](HoldingContext.md) |  | [optional] 
 **Translation** | [**TranslationContext**](TranslationContext.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string scope = "scope";
+string code = "code";
+MarketContext? market = new MarketContext();
+
+PricingContext? pricing = new PricingContext();
+
+AggregationContext? aggregation = new AggregationContext();
+
+string description = "example description";
+HoldingContext? holding = new HoldingContext();
+
+TranslationContext? translation = new TranslationContext();
+
+
+ConfigurationRecipe configurationRecipeInstance = new ConfigurationRecipe(
+    scope: scope,
+    code: code,
+    market: market,
+    pricing: pricing,
+    aggregation: aggregation,
+    description: description,
+    holding: holding,
+    translation: translation);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

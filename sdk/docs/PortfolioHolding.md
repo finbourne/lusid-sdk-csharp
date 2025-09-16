@@ -29,5 +29,61 @@ Name | Type | Description | Notes
 **UnsettledUnits** | **decimal** | The number of unsettled units for the holding. | [optional] 
 **OverdueUnits** | **decimal** | The number of unsettled units for the holding that are beyond their contractual settlement date. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string instrumentScope = "example instrumentScope";
+string instrumentUid = "instrumentUid";
+Dictionary<string, PerpetualProperty> subHoldingKeys = new Dictionary<string, PerpetualProperty>();
+Dictionary<string, Property> properties = new Dictionary<string, Property>();
+string holdingType = "holdingType";decimal units = "units";
+decimal settledUnits = "settledUnits";
+
+CurrencyAndAmount cost = new CurrencyAndAmount();
+CurrencyAndAmount costPortfolioCcy = new CurrencyAndAmount();
+Transaction? transaction = new Transaction();
+
+string currency = "example currency";
+string holdingTypeName = "example holdingTypeName";
+CurrencyAndAmount? notionalCost = new CurrencyAndAmount();
+
+CurrencyAndAmount? amortisedCost = new CurrencyAndAmount();
+
+CurrencyAndAmount? amortisedCostPortfolioCcy = new CurrencyAndAmount();
+
+CurrencyAndAmount? variationMargin = new CurrencyAndAmount();
+
+CurrencyAndAmount? variationMarginPortfolioCcy = new CurrencyAndAmount();
+
+List<SettlementSchedule> settlementSchedule = new List<SettlementSchedule>();
+ResourceId? custodianAccountId = new ResourceId();
+decimal? unsettledUnits = "example unsettledUnits";decimal? overdueUnits = "example overdueUnits";
+
+PortfolioHolding portfolioHoldingInstance = new PortfolioHolding(
+    instrumentScope: instrumentScope,
+    instrumentUid: instrumentUid,
+    subHoldingKeys: subHoldingKeys,
+    properties: properties,
+    holdingType: holdingType,
+    units: units,
+    settledUnits: settledUnits,
+    cost: cost,
+    costPortfolioCcy: costPortfolioCcy,
+    transaction: transaction,
+    currency: currency,
+    holdingTypeName: holdingTypeName,
+    holdingId: holdingId,
+    notionalCost: notionalCost,
+    amortisedCost: amortisedCost,
+    amortisedCostPortfolioCcy: amortisedCostPortfolioCcy,
+    variationMargin: variationMargin,
+    variationMarginPortfolioCcy: variationMarginPortfolioCcy,
+    settlementSchedule: settlementSchedule,
+    currentFace: currentFace,
+    custodianAccountId: custodianAccountId,
+    unsettledUnits: unsettledUnits,
+    overdueUnits: overdueUnits);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

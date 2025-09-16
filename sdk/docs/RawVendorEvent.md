@@ -10,5 +10,17 @@ Name | Type | Description | Notes
 **EventValue** | [**LifeCycleEventValue**](LifeCycleEventValue.md) |  | 
 **EventType** | **string** | What type of internal event does this represent; reset, exercise, amortisation etc. | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+LifeCycleEventValue eventValue = new LifeCycleEventValue();
+string eventType = "eventType";
+
+RawVendorEvent rawVendorEventInstance = new RawVendorEvent(
+    effectiveAt: effectiveAt,
+    eventValue: eventValue,
+    eventType: eventType);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -12,5 +12,25 @@ Name | Type | Description | Notes
 **DisplayName** | **string** | The name of the portfolio group. | 
 **Description** | **string** | A long form description of the portfolio group. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string code = "code";
+List<ResourceId> values = new List<ResourceId>();
+List<ResourceId> subGroups = new List<ResourceId>();
+Dictionary<string, Property> properties = new Dictionary<string, Property>();
+string displayName = "displayName";
+string description = "example description";
+
+CreatePortfolioGroupRequest createPortfolioGroupRequestInstance = new CreatePortfolioGroupRequest(
+    code: code,
+    created: created,
+    values: values,
+    subGroups: subGroups,
+    properties: properties,
+    displayName: displayName,
+    description: description);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

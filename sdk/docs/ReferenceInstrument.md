@@ -10,5 +10,18 @@ Name | Type | Description | Notes
 **InstrumentIdType** | **string** | The type of the instrument id e.g. LusidInstrument Id | 
 **Scope** | **string** | Scope for the instrument (optional) | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string instrumentId = "instrumentId";
+string instrumentIdType = "instrumentIdType";
+string scope = "scope";
+
+ReferenceInstrument referenceInstrumentInstance = new ReferenceInstrument(
+    instrumentId: instrumentId,
+    instrumentIdType: instrumentIdType,
+    scope: scope);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

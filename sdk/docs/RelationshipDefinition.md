@@ -15,5 +15,33 @@ Name | Type | Description | Notes
 **RelationshipCardinality** | **string** | Describes the cardinality of the relationship between source entity and target entity. | 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+ModelVersion? varVersion = new ModelVersion();
+
+ResourceId relationshipDefinitionId = new ResourceId();
+string sourceEntityType = "sourceEntityType";
+string targetEntityType = "targetEntityType";
+string displayName = "displayName";
+string outwardDescription = "outwardDescription";
+string inwardDescription = "inwardDescription";
+string lifeTime = "lifeTime";
+string relationshipCardinality = "relationshipCardinality";
+List<Link> links = new List<Link>();
+
+RelationshipDefinition relationshipDefinitionInstance = new RelationshipDefinition(
+    varVersion: varVersion,
+    relationshipDefinitionId: relationshipDefinitionId,
+    sourceEntityType: sourceEntityType,
+    targetEntityType: targetEntityType,
+    displayName: displayName,
+    outwardDescription: outwardDescription,
+    inwardDescription: inwardDescription,
+    lifeTime: lifeTime,
+    relationshipCardinality: relationshipCardinality,
+    links: links);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -11,5 +11,18 @@ Name | Type | Description | Notes
 **Currency** | **string** | Currency of the cashflow payment | 
 **CashFlowPerUnit** | **decimal** | The total payment per unit of the held instrument, if entitled.  Not required. | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string currency = "currency";decimal cashFlowPerUnit = "cashFlowPerUnit";
+
+
+CapletFloorletCashFlowEvent capletFloorletCashFlowEventInstance = new CapletFloorletCashFlowEvent(
+    entitlementDate: entitlementDate,
+    paymentDate: paymentDate,
+    currency: currency,
+    cashFlowPerUnit: cashFlowPerUnit);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

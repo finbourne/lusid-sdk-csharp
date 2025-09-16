@@ -14,5 +14,29 @@ Name | Type | Description | Notes
 **Identifiers** | [**List&lt;EntityIdentifier&gt;**](EntityIdentifier.md) | The identifiers of the related entity in the relationship. | 
 **Href** | **string** | The link to the entity. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string entityType = "entityType";
+Dictionary<string, string> entityId = new Dictionary<string, string>();
+string displayName = "displayName";
+Dictionary<string, Property> properties = new Dictionary<string, Property>();
+string scope = "example scope";
+LusidUniqueId? lusidUniqueId = new LusidUniqueId();
+
+List<EntityIdentifier> identifiers = new List<EntityIdentifier>();
+string href = "example href";
+
+RelatedEntity relatedEntityInstance = new RelatedEntity(
+    entityType: entityType,
+    entityId: entityId,
+    displayName: displayName,
+    properties: properties,
+    scope: scope,
+    lusidUniqueId: lusidUniqueId,
+    identifiers: identifiers,
+    href: href);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -15,5 +15,25 @@ Name | Type | Description | Notes
 **CompositeMembersWithoutReturn** | [**List&lt;ResourceId&gt;**](ResourceId.md) | List containing Composite members which post no return on the given day. | [optional] 
 **Warnings** | **List&lt;string&gt;** | List of the warnings about the calculation of the aggregated return. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+Dictionary<string, decimal> metricsValue = new Dictionary<string, decimal>();
+string frequency = "example frequency";
+List<ResourceId> compositeMembersWithoutReturn = new List<ResourceId>();
+List<string> warnings = new List<string>();
+
+AggregatedReturn aggregatedReturnInstance = new AggregatedReturn(
+    effectiveAt: effectiveAt,
+    endOfPeriod: endOfPeriod,
+    openingMarketValue: openingMarketValue,
+    closingMarketValue: closingMarketValue,
+    metricsValue: metricsValue,
+    frequency: frequency,
+    compositeMembers: compositeMembers,
+    compositeMembersWithoutReturn: compositeMembersWithoutReturn,
+    warnings: warnings);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

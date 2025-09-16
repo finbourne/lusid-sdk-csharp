@@ -19,5 +19,30 @@ Name | Type | Description | Notes
 **StrikePerUnit** | **decimal** | The strike of the equity option times the number of shares to exchange if exercised. | 
 **UnderlyingValuePerUnit** | **decimal?** | The underlying price times the number of shares to exchange if exercised. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string exerciseType = "exerciseType";
+string moneyness = "example moneyness";
+List<OptionExerciseElection> optionExerciseElections = new List<OptionExerciseElection>();
+string optionType = "optionType";
+string strikeCurrency = "strikeCurrency";decimal strikePerUnit = "strikePerUnit";
+
+
+OptionExerciseCashEvent optionExerciseCashEventInstance = new OptionExerciseCashEvent(
+    cashFlowPerUnit: cashFlowPerUnit,
+    exerciseDate: exerciseDate,
+    deliveryDate: deliveryDate,
+    exerciseType: exerciseType,
+    maturityDate: maturityDate,
+    moneyness: moneyness,
+    optionExerciseElections: optionExerciseElections,
+    optionType: optionType,
+    startDate: startDate,
+    strikeCurrency: strikeCurrency,
+    strikePerUnit: strikePerUnit,
+    underlyingValuePerUnit: underlyingValuePerUnit);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

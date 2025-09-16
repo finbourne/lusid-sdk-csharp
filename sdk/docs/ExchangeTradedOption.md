@@ -13,5 +13,25 @@ Name | Type | Description | Notes
 **TradingConventions** | [**TradingConventions**](TradingConventions.md) |  | [optional] 
 **TimeZoneConventions** | [**TimeZoneConventions**](TimeZoneConventions.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+ExchangeTradedOptionContractDetails contractDetails = new ExchangeTradedOptionContractDetails();decimal contracts = "contracts";
+decimal refSpotPrice = "refSpotPrice";
+
+TradingConventions? tradingConventions = new TradingConventions();
+
+TimeZoneConventions? timeZoneConventions = new TimeZoneConventions();
+
+
+ExchangeTradedOption exchangeTradedOptionInstance = new ExchangeTradedOption(
+    startDate: startDate,
+    contractDetails: contractDetails,
+    contracts: contracts,
+    refSpotPrice: refSpotPrice,
+    tradingConventions: tradingConventions,
+    timeZoneConventions: timeZoneConventions);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

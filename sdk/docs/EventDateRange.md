@@ -8,5 +8,14 @@ Name | Type | Description | Notes
 **Start** | **DateTimeOffset** |  | [optional] 
 **End** | **DateTimeOffset** |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+
+EventDateRange eventDateRangeInstance = new EventDateRange(
+    start: start,
+    end: end);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

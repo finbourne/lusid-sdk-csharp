@@ -11,5 +11,22 @@ Name | Type | Description | Notes
 **EffectiveAt** | [**DateTimeOrCutLabel**](DateTimeOrCutLabel.md) | The effectiveAt or cut label that this item of complex market data is/was updated/inserted with. | [optional] 
 **MarketAsset** | **string** | The name of the market entity that the document represents | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string provider = "provider";
+string priceSource = "example priceSource";
+string lineage = "example lineage";
+DateTimeOrCutLabel effectiveAt = "example effectiveAt";
+string marketAsset = "marketAsset";
+
+ComplexMarketDataId complexMarketDataIdInstance = new ComplexMarketDataId(
+    provider: provider,
+    priceSource: priceSource,
+    lineage: lineage,
+    effectiveAt: effectiveAt,
+    marketAsset: marketAsset);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

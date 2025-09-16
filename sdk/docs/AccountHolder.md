@@ -11,5 +11,23 @@ Name | Type | Description | Notes
 **EntityUniqueId** | **string** | The unique InvestorRecord entity identifier | [optional] 
 **InvestorRecord** | [**InvestorRecord**](InvestorRecord.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string key = "example key";
+string scope = "example scope";
+Dictionary<string, string> identifiers = new Dictionary<string, string>();
+string entityUniqueId = "example entityUniqueId";
+InvestorRecord? investorRecord = new InvestorRecord();
+
+
+AccountHolder accountHolderInstance = new AccountHolder(
+    key: key,
+    scope: scope,
+    identifiers: identifiers,
+    entityUniqueId: entityUniqueId,
+    investorRecord: investorRecord);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

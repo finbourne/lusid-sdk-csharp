@@ -10,5 +10,21 @@ Name | Type | Description | Notes
 **RuleFormula** | **string** | The formula for the rule. | [optional] 
 **Severity** | **int** | Severity of the rule if formaula is not satisfied. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string ruleKey = "example ruleKey";
+string displayName = "example displayName";
+string description = "example description";
+string ruleFormula = "example ruleFormula";
+
+CheckDefinitionRule checkDefinitionRuleInstance = new CheckDefinitionRule(
+    ruleKey: ruleKey,
+    displayName: displayName,
+    description: description,
+    ruleFormula: ruleFormula,
+    severity: severity);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

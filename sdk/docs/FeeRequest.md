@@ -23,5 +23,46 @@ Name | Type | Description | Notes
 **PortfolioId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **ShareClasses** | **List&lt;string&gt;** | The short codes of the ShareClasses that the Fee should be applied to. Optional: if this is null or empty, then the Fee will be divided between all the ShareClasses of the Fund according to the capital ratio. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+string code = "code";
+ResourceId feeTypeId = new ResourceId();
+string displayName = "displayName";
+string description = "example description";
+string origin = "example origin";
+string calculationBase = "example calculationBase";
+string accrualCurrency = "accrualCurrency";
+string treatment = "treatment";
+string payableFrequency = "payableFrequency";
+string businessDayConvention = "businessDayConvention";
+DayMonth? anchorDate = new DayMonth();
+
+Dictionary<string, Property> properties = new Dictionary<string, Property>();
+ResourceId? portfolioId = new ResourceId();
+
+List<string> shareClasses = new List<string>();
+
+FeeRequest feeRequestInstance = new FeeRequest(
+    code: code,
+    feeTypeId: feeTypeId,
+    displayName: displayName,
+    description: description,
+    origin: origin,
+    calculationBase: calculationBase,
+    accrualCurrency: accrualCurrency,
+    treatment: treatment,
+    totalAnnualAccrualAmount: totalAnnualAccrualAmount,
+    feeRatePercentage: feeRatePercentage,
+    payableFrequency: payableFrequency,
+    businessDayConvention: businessDayConvention,
+    startDate: startDate,
+    endDate: endDate,
+    anchorDate: anchorDate,
+    properties: properties,
+    portfolioId: portfolioId,
+    shareClasses: shareClasses);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

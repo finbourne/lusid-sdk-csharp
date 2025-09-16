@@ -23,5 +23,43 @@ Name | Type | Description | Notes
 **BucketingSchedule** | [**BucketingSchedule**](BucketingSchedule.md) |  | [optional] 
 **Filter** | **string** |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+List<PortfolioEntityId> portfolioEntityIds = new List<PortfolioEntityId>();
+ResourceId recipeId = new ResourceId();
+string roundingMethod = "roundingMethod";
+List<DateTimeOffset> bucketingDates = new List<DateTimeOffset>();
+List<string> bucketingTenors = new List<string>();
+string reportCurrency = "reportCurrency";
+List<string> groupBy = new List<string>();
+List<string> addresses = new List<string>();
+bool equipWithSubtotals = //"True";
+bool excludeUnsettledTrades = //"True";
+string cashFlowType = "example cashFlowType";
+BucketingSchedule? bucketingSchedule = new BucketingSchedule();
+
+string filter = "example filter";
+
+QueryBucketedCashFlowsRequest queryBucketedCashFlowsRequestInstance = new QueryBucketedCashFlowsRequest(
+    asAt: asAt,
+    windowStart: windowStart,
+    windowEnd: windowEnd,
+    portfolioEntityIds: portfolioEntityIds,
+    effectiveAt: effectiveAt,
+    recipeId: recipeId,
+    roundingMethod: roundingMethod,
+    bucketingDates: bucketingDates,
+    bucketingTenors: bucketingTenors,
+    reportCurrency: reportCurrency,
+    groupBy: groupBy,
+    addresses: addresses,
+    equipWithSubtotals: equipWithSubtotals,
+    excludeUnsettledTrades: excludeUnsettledTrades,
+    cashFlowType: cashFlowType,
+    bucketingSchedule: bucketingSchedule,
+    filter: filter);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

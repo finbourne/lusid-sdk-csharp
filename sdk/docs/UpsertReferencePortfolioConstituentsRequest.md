@@ -10,5 +10,21 @@ Name | Type | Description | Notes
 **PeriodCount** | **int?** |  | [optional] 
 **Constituents** | [**List&lt;ReferencePortfolioConstituentRequest&gt;**](ReferencePortfolioConstituentRequest.md) | Set of constituents (instrument/weight pairings) | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+DateTimeOrCutLabel effectiveFrom = "effectiveFrom";
+string weightType = "weightType";
+string periodType = "example periodType";
+List<ReferencePortfolioConstituentRequest> constituents = new List<ReferencePortfolioConstituentRequest>();
+
+UpsertReferencePortfolioConstituentsRequest upsertReferencePortfolioConstituentsRequestInstance = new UpsertReferencePortfolioConstituentsRequest(
+    effectiveFrom: effectiveFrom,
+    weightType: weightType,
+    periodType: periodType,
+    periodCount: periodCount,
+    constituents: constituents);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

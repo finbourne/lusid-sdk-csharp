@@ -17,5 +17,35 @@ Name | Type | Description | Notes
 **CapitalRatio** | **decimal** | The proportion of the fund&#39;s adjusted beginning equity (ie: the sum of the previous NAV and the net dealing) that is invested in the share class. | 
 **PreviousShareClassBreakdown** | [**PreviousShareClassBreakdown**](PreviousShareClassBreakdown.md) |  | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+Dictionary<string, ShareClassAmount> backOut = new Dictionary<string, ShareClassAmount>();
+ShareClassDealingBreakdown dealing = new ShareClassDealingBreakdown();
+ShareClassPnlBreakdown pnL = new ShareClassPnlBreakdown();
+ShareClassAmount gav = new ShareClassAmount();
+Dictionary<string, FeeAccrual> fees = new Dictionary<string, FeeAccrual>();
+ShareClassAmount nav = new ShareClassAmount();
+UnitisationData? unitisation = new UnitisationData();
+
+Dictionary<string, ShareClassAmount> miscellaneous = new Dictionary<string, ShareClassAmount>();decimal shareClassToFundFxRate = "shareClassToFundFxRate";
+decimal capitalRatio = "capitalRatio";
+
+PreviousShareClassBreakdown previousShareClassBreakdown = new PreviousShareClassBreakdown();
+
+ShareClassBreakdown shareClassBreakdownInstance = new ShareClassBreakdown(
+    backOut: backOut,
+    dealing: dealing,
+    pnL: pnL,
+    gav: gav,
+    fees: fees,
+    nav: nav,
+    unitisation: unitisation,
+    miscellaneous: miscellaneous,
+    shareClassToFundFxRate: shareClassToFundFxRate,
+    capitalRatio: capitalRatio,
+    previousShareClassBreakdown: previousShareClassBreakdown);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

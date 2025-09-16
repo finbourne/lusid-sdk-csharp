@@ -14,5 +14,21 @@ Name | Type | Description | Notes
 **FractionalUnitsCashCurrency** | **string** | The currency of the cash paid in lieu of fractionalUnits. | [optional] 
 **FractionalUnitsCashPrice** | **decimal?** | The cash price paid in lieu of fractionalUnits. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Lusid.Sdk.Model;
+using System;
 
+UnitsRatio unitsRatio = new UnitsRatio();
+string fractionalUnitsCashCurrency = "example fractionalUnitsCashCurrency";
+
+ReverseStockSplitEvent reverseStockSplitEventInstance = new ReverseStockSplitEvent(
+    paymentDate: paymentDate,
+    exDate: exDate,
+    unitsRatio: unitsRatio,
+    recordDate: recordDate,
+    announcementDate: announcementDate,
+    fractionalUnitsCashCurrency: fractionalUnitsCashCurrency,
+    fractionalUnitsCashPrice: fractionalUnitsCashPrice);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
