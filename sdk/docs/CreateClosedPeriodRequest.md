@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **AsAtClosed** | **DateTimeOffset?** | The asAt closed datetime for the Closed Period | [optional] 
 **DisplayName** | **string** | The name of the Closed Period. | [optional] 
 **Description** | **string** | A description for the Closed Period. | [optional] 
+**HoldingsAsAtClosedOverride** | **DateTimeOffset?** | The optional AsAtClosed Override to use for building holdings in the Closed Period.If not specified, the AsAtClosed on the Closed Period will be used. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -26,7 +27,8 @@ CreateClosedPeriodRequest createClosedPeriodRequestInstance = new CreateClosedPe
     properties: properties,
     asAtClosed: asAtClosed,
     displayName: displayName,
-    description: description);
+    description: description,
+    holdingsAsAtClosedOverride: holdingsAsAtClosedOverride);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

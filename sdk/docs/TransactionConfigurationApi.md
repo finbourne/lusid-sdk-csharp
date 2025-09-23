@@ -368,7 +368,7 @@ catch (ApiException e)
 
 <a id="getsidedefinition"></a>
 # **GetSideDefinition**
-> SideDefinition GetSideDefinition (string side, string? scope = null, DateTimeOffset? asAt = null)
+> SideDefinition GetSideDefinition (string side, string? scope = null, DateTimeOffset? asAt = null, string? timelineScope = null, string? timelineCode = null, string? closedPeriodId = null)
 
 GetSideDefinition: Get the side definition for a given side name( or label)
 
@@ -416,14 +416,17 @@ namespace Examples
             var side = "side_example";  // string | The label to uniquely identify the side.
             var scope = "\"default\"";  // string? | The scope in which the side exists. When not supplied the scope is 'default'. (optional)  (default to "default")
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the transaction types. Defaults to returning the latest versions if not specified. (optional) 
+            var timelineScope = "timelineScope_example";  // string? | The scope of the Timeline, used to override the AsAt. If this is provided, timelineCode and closedPeriodId must also be provided. (optional) 
+            var timelineCode = "timelineCode_example";  // string? | The code of the Timeline, used to override the AsAt. If this is provided, timelineScope and closedPeriodId must also be provided. (optional) 
+            var closedPeriodId = "closedPeriodId_example";  // string? | The code of the ClosedPeriod attached to the timeline, used to override the AsAt. If this is provided, timelineScope and timelineCode must also be provided. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // SideDefinition result = apiInstance.GetSideDefinition(side, scope, asAt, opts: opts);
+                // SideDefinition result = apiInstance.GetSideDefinition(side, scope, asAt, timelineScope, timelineCode, closedPeriodId, opts: opts);
 
                 // GetSideDefinition: Get the side definition for a given side name( or label)
-                SideDefinition result = apiInstance.GetSideDefinition(side, scope, asAt);
+                SideDefinition result = apiInstance.GetSideDefinition(side, scope, asAt, timelineScope, timelineCode, closedPeriodId);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -444,7 +447,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // GetSideDefinition: Get the side definition for a given side name( or label)
-    ApiResponse<SideDefinition> response = apiInstance.GetSideDefinitionWithHttpInfo(side, scope, asAt);
+    ApiResponse<SideDefinition> response = apiInstance.GetSideDefinitionWithHttpInfo(side, scope, asAt, timelineScope, timelineCode, closedPeriodId);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -464,6 +467,9 @@ catch (ApiException e)
 | **side** | **string** | The label to uniquely identify the side. |  |
 | **scope** | **string?** | The scope in which the side exists. When not supplied the scope is &#39;default&#39;. | [optional] [default to &quot;default&quot;] |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the transaction types. Defaults to returning the latest versions if not specified. | [optional]  |
+| **timelineScope** | **string?** | The scope of the Timeline, used to override the AsAt. If this is provided, timelineCode and closedPeriodId must also be provided. | [optional]  |
+| **timelineCode** | **string?** | The code of the Timeline, used to override the AsAt. If this is provided, timelineScope and closedPeriodId must also be provided. | [optional]  |
+| **closedPeriodId** | **string?** | The code of the ClosedPeriod attached to the timeline, used to override the AsAt. If this is provided, timelineScope and timelineCode must also be provided. | [optional]  |
 
 ### Return type
 
@@ -486,7 +492,7 @@ catch (ApiException e)
 
 <a id="gettransactiontype"></a>
 # **GetTransactionType**
-> TransactionType GetTransactionType (string source, string type, DateTimeOffset? asAt = null, string? scope = null)
+> TransactionType GetTransactionType (string source, string type, DateTimeOffset? asAt = null, string? scope = null, string? timelineScope = null, string? timelineCode = null, string? closedPeriodId = null)
 
 GetTransactionType: Get a single transaction configuration type
 
@@ -535,14 +541,17 @@ namespace Examples
             var type = "type_example";  // string | One of the type's aliases
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the transaction configuration.              Defaults to returning the latest version of the transaction configuration type if not specified (optional) 
             var scope = "\"default\"";  // string? | The scope in which the transaction types exists. When not supplied the scope is 'default'. (optional)  (default to "default")
+            var timelineScope = "timelineScope_example";  // string? | The scope of the Timeline, used to override the AsAt. If this is provided, timelineCode and closedPeriodId must also be provided. (optional) 
+            var timelineCode = "timelineCode_example";  // string? | The code of the Timeline, used to override the AsAt. If this is provided, timelineScope and closedPeriodId must also be provided. (optional) 
+            var closedPeriodId = "closedPeriodId_example";  // string? | The code of the ClosedPeriod attached to the timeline, used to override the AsAt. If this is provided, timelineScope and timelineCode must also be provided. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // TransactionType result = apiInstance.GetTransactionType(source, type, asAt, scope, opts: opts);
+                // TransactionType result = apiInstance.GetTransactionType(source, type, asAt, scope, timelineScope, timelineCode, closedPeriodId, opts: opts);
 
                 // GetTransactionType: Get a single transaction configuration type
-                TransactionType result = apiInstance.GetTransactionType(source, type, asAt, scope);
+                TransactionType result = apiInstance.GetTransactionType(source, type, asAt, scope, timelineScope, timelineCode, closedPeriodId);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -563,7 +572,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // GetTransactionType: Get a single transaction configuration type
-    ApiResponse<TransactionType> response = apiInstance.GetTransactionTypeWithHttpInfo(source, type, asAt, scope);
+    ApiResponse<TransactionType> response = apiInstance.GetTransactionTypeWithHttpInfo(source, type, asAt, scope, timelineScope, timelineCode, closedPeriodId);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -584,6 +593,9 @@ catch (ApiException e)
 | **type** | **string** | One of the type&#39;s aliases |  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the transaction configuration.              Defaults to returning the latest version of the transaction configuration type if not specified | [optional]  |
 | **scope** | **string?** | The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. | [optional] [default to &quot;default&quot;] |
+| **timelineScope** | **string?** | The scope of the Timeline, used to override the AsAt. If this is provided, timelineCode and closedPeriodId must also be provided. | [optional]  |
+| **timelineCode** | **string?** | The code of the Timeline, used to override the AsAt. If this is provided, timelineScope and closedPeriodId must also be provided. | [optional]  |
+| **closedPeriodId** | **string?** | The code of the ClosedPeriod attached to the timeline, used to override the AsAt. If this is provided, timelineScope and timelineCode must also be provided. | [optional]  |
 
 ### Return type
 
@@ -606,7 +618,7 @@ catch (ApiException e)
 
 <a id="listsidedefinitions"></a>
 # **ListSideDefinitions**
-> ResourceListOfSideDefinition ListSideDefinitions (DateTimeOffset? asAt = null, string? scope = null)
+> ResourceListOfSideDefinition ListSideDefinitions (DateTimeOffset? asAt = null, string? scope = null, string? timelineScope = null, string? timelineCode = null, string? closedPeriodId = null)
 
 ListSideDefinitions: List the side definitions
 
@@ -653,14 +665,17 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionConfigurationApi>();
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the transaction types. Defaults to returning the latest versions if not specified. (optional) 
             var scope = "\"default\"";  // string? | The scope in which the side exists. When not supplied the scope is 'default'. (optional)  (default to "default")
+            var timelineScope = "timelineScope_example";  // string? | The scope of the Timeline, used to override the AsAt. If this is provided, timelineCode and closedPeriodId must also be provided. (optional) 
+            var timelineCode = "timelineCode_example";  // string? | The code of the Timeline, used to override the AsAt. If this is provided, timelineScope and closedPeriodId must also be provided. (optional) 
+            var closedPeriodId = "closedPeriodId_example";  // string? | The code of the ClosedPeriod attached to the timeline, used to override the AsAt. If this is provided, timelineScope and timelineCode must also be provided. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // ResourceListOfSideDefinition result = apiInstance.ListSideDefinitions(asAt, scope, opts: opts);
+                // ResourceListOfSideDefinition result = apiInstance.ListSideDefinitions(asAt, scope, timelineScope, timelineCode, closedPeriodId, opts: opts);
 
                 // ListSideDefinitions: List the side definitions
-                ResourceListOfSideDefinition result = apiInstance.ListSideDefinitions(asAt, scope);
+                ResourceListOfSideDefinition result = apiInstance.ListSideDefinitions(asAt, scope, timelineScope, timelineCode, closedPeriodId);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -681,7 +696,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // ListSideDefinitions: List the side definitions
-    ApiResponse<ResourceListOfSideDefinition> response = apiInstance.ListSideDefinitionsWithHttpInfo(asAt, scope);
+    ApiResponse<ResourceListOfSideDefinition> response = apiInstance.ListSideDefinitionsWithHttpInfo(asAt, scope, timelineScope, timelineCode, closedPeriodId);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -700,6 +715,9 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the transaction types. Defaults to returning the latest versions if not specified. | [optional]  |
 | **scope** | **string?** | The scope in which the side exists. When not supplied the scope is &#39;default&#39;. | [optional] [default to &quot;default&quot;] |
+| **timelineScope** | **string?** | The scope of the Timeline, used to override the AsAt. If this is provided, timelineCode and closedPeriodId must also be provided. | [optional]  |
+| **timelineCode** | **string?** | The code of the Timeline, used to override the AsAt. If this is provided, timelineScope and closedPeriodId must also be provided. | [optional]  |
+| **closedPeriodId** | **string?** | The code of the ClosedPeriod attached to the timeline, used to override the AsAt. If this is provided, timelineScope and timelineCode must also be provided. | [optional]  |
 
 ### Return type
 
@@ -722,7 +740,7 @@ catch (ApiException e)
 
 <a id="listtransactiontypes"></a>
 # **ListTransactionTypes**
-> Dictionary&lt;string, List&lt;TransactionType&gt;&gt; ListTransactionTypes (DateTimeOffset? asAt = null, string? scope = null)
+> Dictionary&lt;string, List&lt;TransactionType&gt;&gt; ListTransactionTypes (DateTimeOffset? asAt = null, string? scope = null, string? timelineScope = null, string? timelineCode = null, string? closedPeriodId = null)
 
 ListTransactionTypes: List transaction types
 
@@ -769,14 +787,17 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionConfigurationApi>();
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the transaction types. Defaults              to returning the latest versions if not specified. (optional) 
             var scope = "\"default\"";  // string? | The scope in which the side exists. When not supplied the scope is 'default'. (optional)  (default to "default")
+            var timelineScope = "timelineScope_example";  // string? | The scope of the Timeline, used to override the AsAt. If this is provided, timelineCode and closedPeriodId must also be provided. (optional) 
+            var timelineCode = "timelineCode_example";  // string? | The code of the Timeline, used to override the AsAt. If this is provided, timelineScope and closedPeriodId must also be provided. (optional) 
+            var closedPeriodId = "closedPeriodId_example";  // string? | The code of the ClosedPeriod attached to the timeline, used to override the AsAt. If this is provided, timelineScope and timelineCode must also be provided. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // Dictionary<string, List<TransactionType>> result = apiInstance.ListTransactionTypes(asAt, scope, opts: opts);
+                // Dictionary<string, List<TransactionType>> result = apiInstance.ListTransactionTypes(asAt, scope, timelineScope, timelineCode, closedPeriodId, opts: opts);
 
                 // ListTransactionTypes: List transaction types
-                Dictionary<string, List<TransactionType>> result = apiInstance.ListTransactionTypes(asAt, scope);
+                Dictionary<string, List<TransactionType>> result = apiInstance.ListTransactionTypes(asAt, scope, timelineScope, timelineCode, closedPeriodId);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -797,7 +818,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // ListTransactionTypes: List transaction types
-    ApiResponse<Dictionary<string, List<TransactionType>>> response = apiInstance.ListTransactionTypesWithHttpInfo(asAt, scope);
+    ApiResponse<Dictionary<string, List<TransactionType>>> response = apiInstance.ListTransactionTypesWithHttpInfo(asAt, scope, timelineScope, timelineCode, closedPeriodId);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -816,6 +837,9 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the transaction types. Defaults              to returning the latest versions if not specified. | [optional]  |
 | **scope** | **string?** | The scope in which the side exists. When not supplied the scope is &#39;default&#39;. | [optional] [default to &quot;default&quot;] |
+| **timelineScope** | **string?** | The scope of the Timeline, used to override the AsAt. If this is provided, timelineCode and closedPeriodId must also be provided. | [optional]  |
+| **timelineCode** | **string?** | The code of the Timeline, used to override the AsAt. If this is provided, timelineScope and closedPeriodId must also be provided. | [optional]  |
+| **closedPeriodId** | **string?** | The code of the ClosedPeriod attached to the timeline, used to override the AsAt. If this is provided, timelineScope and timelineCode must also be provided. | [optional]  |
 
 ### Return type
 

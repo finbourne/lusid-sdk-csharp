@@ -13,6 +13,9 @@ Name | Type | Description | Notes
 **Swap** | [**InterestRateSwap**](InterestRateSwap.md) |  | [optional] 
 **TimeZoneConventions** | [**TimeZoneConventions**](TimeZoneConventions.md) |  | [optional] 
 **Underlying** | [**LusidInstrument**](LusidInstrument.md) |  | [optional] 
+**DeliveryDays** | **int** | Number of business days between exercise date and settlement of the option payoff or underlying.                Defaults to 0. | [optional] 
+**BusinessDayConvention** | **string** | Business day convention for option exercise date to settlement date calculation.  Supported string (enumeration) values are: [NoAdjustment, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, HalfMonthModifiedFollowing, Nearest].                Defaults to \&quot;F\&quot;. | [optional] 
+**SettlementCalendars** | **List&lt;string&gt;** | Holiday calendars for option exercise date to settlement date calculation. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -28,6 +31,8 @@ TimeZoneConventions? timeZoneConventions = new TimeZoneConventions();
 
 LusidInstrument? underlying = new LusidInstrument();
 
+string businessDayConvention = "example businessDayConvention";
+List<string> settlementCalendars = new List<string>();
 
 InterestRateSwaption interestRateSwaptionInstance = new InterestRateSwaption(
     startDate: startDate,
@@ -36,7 +41,10 @@ InterestRateSwaption interestRateSwaptionInstance = new InterestRateSwaption(
     deliveryMethod: deliveryMethod,
     swap: swap,
     timeZoneConventions: timeZoneConventions,
-    underlying: underlying);
+    underlying: underlying,
+    deliveryDays: deliveryDays,
+    businessDayConvention: businessDayConvention,
+    settlementCalendars: settlementCalendars);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

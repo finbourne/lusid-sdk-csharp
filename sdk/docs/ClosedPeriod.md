@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | The Closed Periods properties. These will be from the &#39;ClosedPeriod&#39; domain. | [optional] 
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **PostCloseActivities** | [**List&lt;PostCloseActivity&gt;**](PostCloseActivity.md) | All the post close activities for the closed period. | [optional] 
+**HoldingsAsAtClosedOverride** | **DateTimeOffset?** | The optional AsAtClosed Override to use for building holdings in the Closed Period.If not specified, the AsAtClosed on the Closed Period will be used. | [optional] 
 **Href** | **string** | The specific Uniform Resource Identifier (URI) for this resource at the requested asAt datetime. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
@@ -40,6 +41,7 @@ ClosedPeriod closedPeriodInstance = new ClosedPeriod(
     properties: properties,
     varVersion: varVersion,
     postCloseActivities: postCloseActivities,
+    holdingsAsAtClosedOverride: holdingsAsAtClosedOverride,
     href: href,
     links: links);
 ```

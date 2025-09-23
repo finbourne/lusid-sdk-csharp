@@ -34,11 +34,13 @@ namespace Lusid.Sdk.Model
         /// <param name="stockSettlement">stockSettlement.</param>
         /// <param name="cashSettlement">cashSettlement.</param>
         /// <param name="deferredCashReceipt">deferredCashReceipt.</param>
-        public PortfolioSettlementConfiguration(SettlementConfigurationCategory stockSettlement = default(SettlementConfigurationCategory), SettlementConfigurationCategory cashSettlement = default(SettlementConfigurationCategory), SettlementConfigurationCategory deferredCashReceipt = default(SettlementConfigurationCategory))
+        /// <param name="transactionMatchingAlternativeId">transactionMatchingAlternativeId.</param>
+        public PortfolioSettlementConfiguration(SettlementConfigurationCategory stockSettlement = default(SettlementConfigurationCategory), SettlementConfigurationCategory cashSettlement = default(SettlementConfigurationCategory), SettlementConfigurationCategory deferredCashReceipt = default(SettlementConfigurationCategory), TransactionMatchingAlternativeId transactionMatchingAlternativeId = default(TransactionMatchingAlternativeId))
         {
             this.StockSettlement = stockSettlement;
             this.CashSettlement = cashSettlement;
             this.DeferredCashReceipt = deferredCashReceipt;
+            this.TransactionMatchingAlternativeId = transactionMatchingAlternativeId;
         }
 
         /// <summary>
@@ -60,6 +62,12 @@ namespace Lusid.Sdk.Model
         public SettlementConfigurationCategory DeferredCashReceipt { get; set; }
 
         /// <summary>
+        /// Gets or Sets TransactionMatchingAlternativeId
+        /// </summary>
+        [DataMember(Name = "transactionMatchingAlternativeId", EmitDefaultValue = false)]
+        public TransactionMatchingAlternativeId TransactionMatchingAlternativeId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -70,6 +78,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  StockSettlement: ").Append(StockSettlement).Append("\n");
             sb.Append("  CashSettlement: ").Append(CashSettlement).Append("\n");
             sb.Append("  DeferredCashReceipt: ").Append(DeferredCashReceipt).Append("\n");
+            sb.Append("  TransactionMatchingAlternativeId: ").Append(TransactionMatchingAlternativeId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -119,6 +128,11 @@ namespace Lusid.Sdk.Model
                     this.DeferredCashReceipt == input.DeferredCashReceipt ||
                     (this.DeferredCashReceipt != null &&
                     this.DeferredCashReceipt.Equals(input.DeferredCashReceipt))
+                ) && 
+                (
+                    this.TransactionMatchingAlternativeId == input.TransactionMatchingAlternativeId ||
+                    (this.TransactionMatchingAlternativeId != null &&
+                    this.TransactionMatchingAlternativeId.Equals(input.TransactionMatchingAlternativeId))
                 );
         }
 
@@ -142,6 +156,10 @@ namespace Lusid.Sdk.Model
                 if (this.DeferredCashReceipt != null)
                 {
                     hashCode = (hashCode * 59) + this.DeferredCashReceipt.GetHashCode();
+                }
+                if (this.TransactionMatchingAlternativeId != null)
+                {
+                    hashCode = (hashCode * 59) + this.TransactionMatchingAlternativeId.GetHashCode();
                 }
                 return hashCode;
             }

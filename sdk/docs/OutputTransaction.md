@@ -39,6 +39,7 @@ Name | Type | Description | Notes
 **AllocationId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **AccountingDate** | **DateTimeOffset?** | The accounting date of the transaction. | [optional] 
 **Economics** | [**List&lt;Economics&gt;**](Economics.md) | Set of economic data related with the transaction impacts. | [optional] 
+**DataModelMembership** | [**DataModelMembership**](DataModelMembership.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -76,6 +77,8 @@ ResourceId? orderId = new ResourceId();
 ResourceId? allocationId = new ResourceId();
 
 List<Economics> economics = new List<Economics>();
+DataModelMembership? dataModelMembership = new DataModelMembership();
+
 
 OutputTransaction outputTransactionInstance = new OutputTransaction(
     transactionId: transactionId,
@@ -111,7 +114,8 @@ OutputTransaction outputTransactionInstance = new OutputTransaction(
     orderId: orderId,
     allocationId: allocationId,
     accountingDate: accountingDate,
-    economics: economics);
+    economics: economics,
+    dataModelMembership: dataModelMembership);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

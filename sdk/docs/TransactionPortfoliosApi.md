@@ -9,6 +9,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**BatchCreateTradeTickets**](TransactionPortfoliosApi.md#batchcreatetradetickets) | **POST** /api/transactionportfolios/{scope}/{code}/$batchtradetickets | BatchCreateTradeTickets: Batch Create Trade Tickets |
 | [**BatchSetHoldings**](TransactionPortfoliosApi.md#batchsetholdings) | **POST** /api/transactionportfolios/{scope}/{code}/holdings/$batchSet | BatchSetHoldings: Batch set holdings |
 | [**BatchUpsertTransactions**](TransactionPortfoliosApi.md#batchupserttransactions) | **POST** /api/transactionportfolios/{scope}/{code}/transactions/$batchUpsert | BatchUpsertTransactions: Batch upsert transactions |
+| [**BuildSettlementInstructions**](TransactionPortfoliosApi.md#buildsettlementinstructions) | **POST** /api/transactionportfolios/{scope}/{code}/settlementinstructions/$build | [EARLY ACCESS] BuildSettlementInstructions: Build Settlement Instructions |
 | [**BuildTransactions**](TransactionPortfoliosApi.md#buildtransactions) | **POST** /api/transactionportfolios/{scope}/{code}/transactions/$build | BuildTransactions: Build transactions |
 | [**CancelAdjustHoldings**](TransactionPortfoliosApi.md#canceladjustholdings) | **DELETE** /api/transactionportfolios/{scope}/{code}/holdings | CancelAdjustHoldings: Cancel adjust holdings |
 | [**CancelSingleAdjustHolding**](TransactionPortfoliosApi.md#cancelsingleadjustholding) | **POST** /api/transactionportfolios/{scope}/{code}/holdings/$cancelAdjustment | CancelSingleAdjustHolding: Cancel single holding adjustment. |
@@ -654,6 +655,126 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The successfully upserted transaction requests along with any failures |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="buildsettlementinstructions"></a>
+# **BuildSettlementInstructions**
+> VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery BuildSettlementInstructions (string scope, string code, SettlementInstructionQuery settlementInstructionQuery, DateTimeOffset? asAt = null)
+
+[EARLY ACCESS] BuildSettlementInstructions: Build Settlement Instructions
+
+Builds and returns all settlement instructions that have been loaded against this portfolio.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TransactionPortfoliosApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionPortfoliosApi>();
+            var scope = "scope_example";  // string | The scope of the transaction portfolio.
+            var code = "code_example";  // string | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
+            var settlementInstructionQuery = new SettlementInstructionQuery(); // SettlementInstructionQuery | The queryParameters which control how the settlement instructions are built and returned.
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to build the settlement instructions. Defaults to return the latest              version of each transaction if not specified. (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery result = apiInstance.BuildSettlementInstructions(scope, code, settlementInstructionQuery, asAt, opts: opts);
+
+                // [EARLY ACCESS] BuildSettlementInstructions: Build Settlement Instructions
+                VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery result = apiInstance.BuildSettlementInstructions(scope, code, settlementInstructionQuery, asAt);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling TransactionPortfoliosApi.BuildSettlementInstructions: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the BuildSettlementInstructionsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] BuildSettlementInstructions: Build Settlement Instructions
+    ApiResponse<VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery> response = apiInstance.BuildSettlementInstructionsWithHttpInfo(scope, code, settlementInstructionQuery, asAt);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling TransactionPortfoliosApi.BuildSettlementInstructionsWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the transaction portfolio. |  |
+| **code** | **string** | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. |  |
+| **settlementInstructionQuery** | [**SettlementInstructionQuery**](SettlementInstructionQuery.md) | The queryParameters which control how the settlement instructions are built and returned. |  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to build the settlement instructions. Defaults to return the latest              version of each transaction if not specified. | [optional]  |
+
+### Return type
+
+[**VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery**](VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The requested settlement instructions from the specified transaction portfolio |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
@@ -4425,7 +4546,7 @@ catch (ApiException e)
 
 <a id="previewtransaction"></a>
 # **PreviewTransaction**
-> ResourceListOfOutputTransaction PreviewTransaction (string scope, string code, TransactionRequest transactionRequest, List<string>? propertyKeys = null, bool? showCancelledTransactions = null, bool? preserveProperties = null)
+> ResourceListOfOutputTransaction PreviewTransaction (string scope, string code, TransactionRequest transactionRequest, List<string>? propertyKeys = null, bool? showCancelledTransactions = null, bool? preserveProperties = null, string? dataModelScope = null, string? dataModelCode = null)
 
 PreviewTransaction: Preview a transaction
 
@@ -4476,14 +4597,16 @@ namespace Examples
             var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the \"Instrument\" or \"Transaction\" domain to decorate onto              the transactions. These take the format {domain}/{scope}/{code} e.g. \"Instrument/system/Name\" or              \"Transaction/strategy/quantsignal\". (optional) 
             var showCancelledTransactions = true;  // bool? | Option to specify whether to include previous versions of an amended transaction in the response.              Defaults to False if not specified. (optional) 
             var preserveProperties = true;  // bool? | If the preview transaction is an amendment to an existing transaction, then setting this to true will carry forward any unmodified properties from the earlier version. (optional) 
+            var dataModelScope = "dataModelScope_example";  // string? | The optional scope of a Custom Data Model to use (optional) 
+            var dataModelCode = "dataModelCode_example";  // string? | The optional code of a Custom Data Model to use (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // ResourceListOfOutputTransaction result = apiInstance.PreviewTransaction(scope, code, transactionRequest, propertyKeys, showCancelledTransactions, preserveProperties, opts: opts);
+                // ResourceListOfOutputTransaction result = apiInstance.PreviewTransaction(scope, code, transactionRequest, propertyKeys, showCancelledTransactions, preserveProperties, dataModelScope, dataModelCode, opts: opts);
 
                 // PreviewTransaction: Preview a transaction
-                ResourceListOfOutputTransaction result = apiInstance.PreviewTransaction(scope, code, transactionRequest, propertyKeys, showCancelledTransactions, preserveProperties);
+                ResourceListOfOutputTransaction result = apiInstance.PreviewTransaction(scope, code, transactionRequest, propertyKeys, showCancelledTransactions, preserveProperties, dataModelScope, dataModelCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -4504,7 +4627,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // PreviewTransaction: Preview a transaction
-    ApiResponse<ResourceListOfOutputTransaction> response = apiInstance.PreviewTransactionWithHttpInfo(scope, code, transactionRequest, propertyKeys, showCancelledTransactions, preserveProperties);
+    ApiResponse<ResourceListOfOutputTransaction> response = apiInstance.PreviewTransactionWithHttpInfo(scope, code, transactionRequest, propertyKeys, showCancelledTransactions, preserveProperties, dataModelScope, dataModelCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -4527,6 +4650,8 @@ catch (ApiException e)
 | **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the \&quot;Instrument\&quot; or \&quot;Transaction\&quot; domain to decorate onto              the transactions. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or              \&quot;Transaction/strategy/quantsignal\&quot;. | [optional]  |
 | **showCancelledTransactions** | **bool?** | Option to specify whether to include previous versions of an amended transaction in the response.              Defaults to False if not specified. | [optional]  |
 | **preserveProperties** | **bool?** | If the preview transaction is an amendment to an existing transaction, then setting this to true will carry forward any unmodified properties from the earlier version. | [optional]  |
+| **dataModelScope** | **string?** | The optional scope of a Custom Data Model to use | [optional]  |
+| **dataModelCode** | **string?** | The optional code of a Custom Data Model to use | [optional]  |
 
 ### Return type
 

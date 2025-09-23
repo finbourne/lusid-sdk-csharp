@@ -40,9 +40,10 @@ namespace Lusid.Sdk.Model
         /// <param name="properties">The Closed Periods properties. These will be from the &#39;ClosedPeriod&#39; domain..</param>
         /// <param name="varVersion">varVersion.</param>
         /// <param name="postCloseActivities">All the post close activities for the closed period..</param>
+        /// <param name="holdingsAsAtClosedOverride">The optional AsAtClosed Override to use for building holdings in the Closed Period.If not specified, the AsAtClosed on the Closed Period will be used..</param>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested asAt datetime..</param>
         /// <param name="links">links.</param>
-        public ClosedPeriod(string closedPeriodId = default(string), string displayName = default(string), string description = default(string), DateTimeOffset effectiveStart = default(DateTimeOffset), DateTimeOffset effectiveEnd = default(DateTimeOffset), DateTimeOffset asAtClosed = default(DateTimeOffset), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion varVersion = default(ModelVersion), List<PostCloseActivity> postCloseActivities = default(List<PostCloseActivity>), string href = default(string), List<Link> links = default(List<Link>))
+        public ClosedPeriod(string closedPeriodId = default(string), string displayName = default(string), string description = default(string), DateTimeOffset effectiveStart = default(DateTimeOffset), DateTimeOffset effectiveEnd = default(DateTimeOffset), DateTimeOffset asAtClosed = default(DateTimeOffset), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion varVersion = default(ModelVersion), List<PostCloseActivity> postCloseActivities = default(List<PostCloseActivity>), DateTimeOffset? holdingsAsAtClosedOverride = default(DateTimeOffset?), string href = default(string), List<Link> links = default(List<Link>))
         {
             this.ClosedPeriodId = closedPeriodId;
             this.DisplayName = displayName;
@@ -53,6 +54,7 @@ namespace Lusid.Sdk.Model
             this.Properties = properties;
             this.VarVersion = varVersion;
             this.PostCloseActivities = postCloseActivities;
+            this.HoldingsAsAtClosedOverride = holdingsAsAtClosedOverride;
             this.Href = href;
             this.Links = links;
         }
@@ -120,6 +122,13 @@ namespace Lusid.Sdk.Model
         public List<PostCloseActivity> PostCloseActivities { get; set; }
 
         /// <summary>
+        /// The optional AsAtClosed Override to use for building holdings in the Closed Period.If not specified, the AsAtClosed on the Closed Period will be used.
+        /// </summary>
+        /// <value>The optional AsAtClosed Override to use for building holdings in the Closed Period.If not specified, the AsAtClosed on the Closed Period will be used.</value>
+        [DataMember(Name = "holdingsAsAtClosedOverride", EmitDefaultValue = true)]
+        public DateTimeOffset? HoldingsAsAtClosedOverride { get; set; }
+
+        /// <summary>
         /// The specific Uniform Resource Identifier (URI) for this resource at the requested asAt datetime.
         /// </summary>
         /// <value>The specific Uniform Resource Identifier (URI) for this resource at the requested asAt datetime.</value>
@@ -149,6 +158,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  PostCloseActivities: ").Append(PostCloseActivities).Append("\n");
+            sb.Append("  HoldingsAsAtClosedOverride: ").Append(HoldingsAsAtClosedOverride).Append("\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
@@ -234,6 +244,11 @@ namespace Lusid.Sdk.Model
                     this.PostCloseActivities.SequenceEqual(input.PostCloseActivities)
                 ) && 
                 (
+                    this.HoldingsAsAtClosedOverride == input.HoldingsAsAtClosedOverride ||
+                    (this.HoldingsAsAtClosedOverride != null &&
+                    this.HoldingsAsAtClosedOverride.Equals(input.HoldingsAsAtClosedOverride))
+                ) && 
+                (
                     this.Href == input.Href ||
                     (this.Href != null &&
                     this.Href.Equals(input.Href))
@@ -290,6 +305,10 @@ namespace Lusid.Sdk.Model
                 if (this.PostCloseActivities != null)
                 {
                     hashCode = (hashCode * 59) + this.PostCloseActivities.GetHashCode();
+                }
+                if (this.HoldingsAsAtClosedOverride != null)
+                {
+                    hashCode = (hashCode * 59) + this.HoldingsAsAtClosedOverride.GetHashCode();
                 }
                 if (this.Href != null)
                 {

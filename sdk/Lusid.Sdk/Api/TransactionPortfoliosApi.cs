@@ -197,6 +197,37 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of BatchUpsertPortfolioTransactionsResponse</returns>
         Lusid.Sdk.Client.ApiResponse<BatchUpsertPortfolioTransactionsResponse> BatchUpsertTransactionsWithHttpInfo(string scope, string code, string successMode, Dictionary<string, TransactionRequest> requestBody, bool? preserveProperties = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EARLY ACCESS] BuildSettlementInstructions: Build Settlement Instructions
+        /// </summary>
+        /// <remarks>
+        /// Builds and returns all settlement instructions that have been loaded against this portfolio.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the transaction portfolio.</param>
+        /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
+        /// <param name="settlementInstructionQuery">The queryParameters which control how the settlement instructions are built and returned.</param>
+        /// <param name="asAt">The asAt datetime at which to build the settlement instructions. Defaults to return the latest              version of each transaction if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery</returns>
+        VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery BuildSettlementInstructions(string scope, string code, SettlementInstructionQuery settlementInstructionQuery, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] BuildSettlementInstructions: Build Settlement Instructions
+        /// </summary>
+        /// <remarks>
+        /// Builds and returns all settlement instructions that have been loaded against this portfolio.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the transaction portfolio.</param>
+        /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
+        /// <param name="settlementInstructionQuery">The queryParameters which control how the settlement instructions are built and returned.</param>
+        /// <param name="asAt">The asAt datetime at which to build the settlement instructions. Defaults to return the latest              version of each transaction if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery</returns>
+        Lusid.Sdk.Client.ApiResponse<VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery> BuildSettlementInstructionsWithHttpInfo(string scope, string code, SettlementInstructionQuery settlementInstructionQuery, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// BuildTransactions: Build transactions
         /// </summary>
         /// <remarks>
@@ -1303,10 +1334,12 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot; or \&quot;Transaction\&quot; domain to decorate onto              the transactions. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or              \&quot;Transaction/strategy/quantsignal\&quot;. (optional)</param>
         /// <param name="showCancelledTransactions">Option to specify whether to include previous versions of an amended transaction in the response.              Defaults to False if not specified. (optional)</param>
         /// <param name="preserveProperties">If the preview transaction is an amendment to an existing transaction, then setting this to true will carry forward any unmodified properties from the earlier version. (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfOutputTransaction</returns>
-        ResourceListOfOutputTransaction PreviewTransaction(string scope, string code, TransactionRequest transactionRequest, List<string>? propertyKeys = default(List<string>?), bool? showCancelledTransactions = default(bool?), bool? preserveProperties = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        ResourceListOfOutputTransaction PreviewTransaction(string scope, string code, TransactionRequest transactionRequest, List<string>? propertyKeys = default(List<string>?), bool? showCancelledTransactions = default(bool?), bool? preserveProperties = default(bool?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// PreviewTransaction: Preview a transaction
@@ -1321,10 +1354,12 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot; or \&quot;Transaction\&quot; domain to decorate onto              the transactions. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or              \&quot;Transaction/strategy/quantsignal\&quot;. (optional)</param>
         /// <param name="showCancelledTransactions">Option to specify whether to include previous versions of an amended transaction in the response.              Defaults to False if not specified. (optional)</param>
         /// <param name="preserveProperties">If the preview transaction is an amendment to an existing transaction, then setting this to true will carry forward any unmodified properties from the earlier version. (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfOutputTransaction</returns>
-        Lusid.Sdk.Client.ApiResponse<ResourceListOfOutputTransaction> PreviewTransactionWithHttpInfo(string scope, string code, TransactionRequest transactionRequest, List<string>? propertyKeys = default(List<string>?), bool? showCancelledTransactions = default(bool?), bool? preserveProperties = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<ResourceListOfOutputTransaction> PreviewTransactionWithHttpInfo(string scope, string code, TransactionRequest transactionRequest, List<string>? propertyKeys = default(List<string>?), bool? showCancelledTransactions = default(bool?), bool? preserveProperties = default(bool?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// ResolveInstrument: Resolve instrument
         /// </summary>
@@ -1771,6 +1806,39 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (BatchUpsertPortfolioTransactionsResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<BatchUpsertPortfolioTransactionsResponse>> BatchUpsertTransactionsWithHttpInfoAsync(string scope, string code, string successMode, Dictionary<string, TransactionRequest> requestBody, bool? preserveProperties = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EARLY ACCESS] BuildSettlementInstructions: Build Settlement Instructions
+        /// </summary>
+        /// <remarks>
+        /// Builds and returns all settlement instructions that have been loaded against this portfolio.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the transaction portfolio.</param>
+        /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
+        /// <param name="settlementInstructionQuery">The queryParameters which control how the settlement instructions are built and returned.</param>
+        /// <param name="asAt">The asAt datetime at which to build the settlement instructions. Defaults to return the latest              version of each transaction if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery</returns>
+        System.Threading.Tasks.Task<VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery> BuildSettlementInstructionsAsync(string scope, string code, SettlementInstructionQuery settlementInstructionQuery, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] BuildSettlementInstructions: Build Settlement Instructions
+        /// </summary>
+        /// <remarks>
+        /// Builds and returns all settlement instructions that have been loaded against this portfolio.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the transaction portfolio.</param>
+        /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
+        /// <param name="settlementInstructionQuery">The queryParameters which control how the settlement instructions are built and returned.</param>
+        /// <param name="asAt">The asAt datetime at which to build the settlement instructions. Defaults to return the latest              version of each transaction if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery>> BuildSettlementInstructionsWithHttpInfoAsync(string scope, string code, SettlementInstructionQuery settlementInstructionQuery, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// BuildTransactions: Build transactions
         /// </summary>
@@ -2938,11 +3006,13 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot; or \&quot;Transaction\&quot; domain to decorate onto              the transactions. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or              \&quot;Transaction/strategy/quantsignal\&quot;. (optional)</param>
         /// <param name="showCancelledTransactions">Option to specify whether to include previous versions of an amended transaction in the response.              Defaults to False if not specified. (optional)</param>
         /// <param name="preserveProperties">If the preview transaction is an amendment to an existing transaction, then setting this to true will carry forward any unmodified properties from the earlier version. (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfOutputTransaction</returns>
-        System.Threading.Tasks.Task<ResourceListOfOutputTransaction> PreviewTransactionAsync(string scope, string code, TransactionRequest transactionRequest, List<string>? propertyKeys = default(List<string>?), bool? showCancelledTransactions = default(bool?), bool? preserveProperties = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<ResourceListOfOutputTransaction> PreviewTransactionAsync(string scope, string code, TransactionRequest transactionRequest, List<string>? propertyKeys = default(List<string>?), bool? showCancelledTransactions = default(bool?), bool? preserveProperties = default(bool?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// PreviewTransaction: Preview a transaction
@@ -2957,11 +3027,13 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot; or \&quot;Transaction\&quot; domain to decorate onto              the transactions. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or              \&quot;Transaction/strategy/quantsignal\&quot;. (optional)</param>
         /// <param name="showCancelledTransactions">Option to specify whether to include previous versions of an amended transaction in the response.              Defaults to False if not specified. (optional)</param>
         /// <param name="preserveProperties">If the preview transaction is an amendment to an existing transaction, then setting this to true will carry forward any unmodified properties from the earlier version. (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfOutputTransaction)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfOutputTransaction>> PreviewTransactionWithHttpInfoAsync(string scope, string code, TransactionRequest transactionRequest, List<string>? propertyKeys = default(List<string>?), bool? showCancelledTransactions = default(bool?), bool? preserveProperties = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfOutputTransaction>> PreviewTransactionWithHttpInfoAsync(string scope, string code, TransactionRequest transactionRequest, List<string>? propertyKeys = default(List<string>?), bool? showCancelledTransactions = default(bool?), bool? preserveProperties = default(bool?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// ResolveInstrument: Resolve instrument
         /// </summary>
@@ -4738,6 +4810,266 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BatchUpsertTransactions", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] BuildSettlementInstructions: Build Settlement Instructions Builds and returns all settlement instructions that have been loaded against this portfolio.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the transaction portfolio.</param>
+        /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
+        /// <param name="settlementInstructionQuery">The queryParameters which control how the settlement instructions are built and returned.</param>
+        /// <param name="asAt">The asAt datetime at which to build the settlement instructions. Defaults to return the latest              version of each transaction if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery</returns>
+        public VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery BuildSettlementInstructions(string scope, string code, SettlementInstructionQuery settlementInstructionQuery, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery> localVarResponse = BuildSettlementInstructionsWithHttpInfo(scope, code, settlementInstructionQuery, asAt, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] BuildSettlementInstructions: Build Settlement Instructions Builds and returns all settlement instructions that have been loaded against this portfolio.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the transaction portfolio.</param>
+        /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
+        /// <param name="settlementInstructionQuery">The queryParameters which control how the settlement instructions are built and returned.</param>
+        /// <param name="asAt">The asAt datetime at which to build the settlement instructions. Defaults to return the latest              version of each transaction if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery</returns>
+        public Lusid.Sdk.Client.ApiResponse<VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery> BuildSettlementInstructionsWithHttpInfo(string scope, string code, SettlementInstructionQuery settlementInstructionQuery, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling TransactionPortfoliosApi->BuildSettlementInstructions");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling TransactionPortfoliosApi->BuildSettlementInstructions");
+            }
+
+            // verify the required parameter 'settlementInstructionQuery' is set
+            if (settlementInstructionQuery == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'settlementInstructionQuery' when calling TransactionPortfoliosApi->BuildSettlementInstructions");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            localVarRequestOptions.Data = settlementInstructionQuery;
+
+            localVarRequestOptions.Operation = "TransactionPortfoliosApi.BuildSettlementInstructions";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery>("/api/transactionportfolios/{scope}/{code}/settlementinstructions/$build", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("BuildSettlementInstructions", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] BuildSettlementInstructions: Build Settlement Instructions Builds and returns all settlement instructions that have been loaded against this portfolio.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the transaction portfolio.</param>
+        /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
+        /// <param name="settlementInstructionQuery">The queryParameters which control how the settlement instructions are built and returned.</param>
+        /// <param name="asAt">The asAt datetime at which to build the settlement instructions. Defaults to return the latest              version of each transaction if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery</returns>
+        public async System.Threading.Tasks.Task<VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery> BuildSettlementInstructionsAsync(string scope, string code, SettlementInstructionQuery settlementInstructionQuery, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery> localVarResponse = await BuildSettlementInstructionsWithHttpInfoAsync(scope, code, settlementInstructionQuery, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] BuildSettlementInstructions: Build Settlement Instructions Builds and returns all settlement instructions that have been loaded against this portfolio.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the transaction portfolio.</param>
+        /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
+        /// <param name="settlementInstructionQuery">The queryParameters which control how the settlement instructions are built and returned.</param>
+        /// <param name="asAt">The asAt datetime at which to build the settlement instructions. Defaults to return the latest              version of each transaction if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery>> BuildSettlementInstructionsWithHttpInfoAsync(string scope, string code, SettlementInstructionQuery settlementInstructionQuery, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling TransactionPortfoliosApi->BuildSettlementInstructions");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling TransactionPortfoliosApi->BuildSettlementInstructions");
+            }
+
+            // verify the required parameter 'settlementInstructionQuery' is set
+            if (settlementInstructionQuery == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'settlementInstructionQuery' when calling TransactionPortfoliosApi->BuildSettlementInstructions");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            localVarRequestOptions.Data = settlementInstructionQuery;
+
+            localVarRequestOptions.Operation = "TransactionPortfoliosApi.BuildSettlementInstructions";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery>("/api/transactionportfolios/{scope}/{code}/settlementinstructions/$build", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("BuildSettlementInstructions", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -13317,12 +13649,14 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot; or \&quot;Transaction\&quot; domain to decorate onto              the transactions. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or              \&quot;Transaction/strategy/quantsignal\&quot;. (optional)</param>
         /// <param name="showCancelledTransactions">Option to specify whether to include previous versions of an amended transaction in the response.              Defaults to False if not specified. (optional)</param>
         /// <param name="preserveProperties">If the preview transaction is an amendment to an existing transaction, then setting this to true will carry forward any unmodified properties from the earlier version. (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfOutputTransaction</returns>
-        public ResourceListOfOutputTransaction PreviewTransaction(string scope, string code, TransactionRequest transactionRequest, List<string>? propertyKeys = default(List<string>?), bool? showCancelledTransactions = default(bool?), bool? preserveProperties = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public ResourceListOfOutputTransaction PreviewTransaction(string scope, string code, TransactionRequest transactionRequest, List<string>? propertyKeys = default(List<string>?), bool? showCancelledTransactions = default(bool?), bool? preserveProperties = default(bool?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfOutputTransaction> localVarResponse = PreviewTransactionWithHttpInfo(scope, code, transactionRequest, propertyKeys, showCancelledTransactions, preserveProperties, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfOutputTransaction> localVarResponse = PreviewTransactionWithHttpInfo(scope, code, transactionRequest, propertyKeys, showCancelledTransactions, preserveProperties, dataModelScope, dataModelCode, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -13336,10 +13670,12 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot; or \&quot;Transaction\&quot; domain to decorate onto              the transactions. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or              \&quot;Transaction/strategy/quantsignal\&quot;. (optional)</param>
         /// <param name="showCancelledTransactions">Option to specify whether to include previous versions of an amended transaction in the response.              Defaults to False if not specified. (optional)</param>
         /// <param name="preserveProperties">If the preview transaction is an amendment to an existing transaction, then setting this to true will carry forward any unmodified properties from the earlier version. (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfOutputTransaction</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfOutputTransaction> PreviewTransactionWithHttpInfo(string scope, string code, TransactionRequest transactionRequest, List<string>? propertyKeys = default(List<string>?), bool? showCancelledTransactions = default(bool?), bool? preserveProperties = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfOutputTransaction> PreviewTransactionWithHttpInfo(string scope, string code, TransactionRequest transactionRequest, List<string>? propertyKeys = default(List<string>?), bool? showCancelledTransactions = default(bool?), bool? preserveProperties = default(bool?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -13411,6 +13747,14 @@ namespace Lusid.Sdk.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "preserveProperties", preserveProperties));
             }
+            if (dataModelScope != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dataModelScope", dataModelScope));
+            }
+            if (dataModelCode != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dataModelCode", dataModelCode));
+            }
             localVarRequestOptions.Data = transactionRequest;
 
             localVarRequestOptions.Operation = "TransactionPortfoliosApi.PreviewTransaction";
@@ -13457,13 +13801,15 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot; or \&quot;Transaction\&quot; domain to decorate onto              the transactions. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or              \&quot;Transaction/strategy/quantsignal\&quot;. (optional)</param>
         /// <param name="showCancelledTransactions">Option to specify whether to include previous versions of an amended transaction in the response.              Defaults to False if not specified. (optional)</param>
         /// <param name="preserveProperties">If the preview transaction is an amendment to an existing transaction, then setting this to true will carry forward any unmodified properties from the earlier version. (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfOutputTransaction</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfOutputTransaction> PreviewTransactionAsync(string scope, string code, TransactionRequest transactionRequest, List<string>? propertyKeys = default(List<string>?), bool? showCancelledTransactions = default(bool?), bool? preserveProperties = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<ResourceListOfOutputTransaction> PreviewTransactionAsync(string scope, string code, TransactionRequest transactionRequest, List<string>? propertyKeys = default(List<string>?), bool? showCancelledTransactions = default(bool?), bool? preserveProperties = default(bool?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfOutputTransaction> localVarResponse = await PreviewTransactionWithHttpInfoAsync(scope, code, transactionRequest, propertyKeys, showCancelledTransactions, preserveProperties, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfOutputTransaction> localVarResponse = await PreviewTransactionWithHttpInfoAsync(scope, code, transactionRequest, propertyKeys, showCancelledTransactions, preserveProperties, dataModelScope, dataModelCode, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -13477,11 +13823,13 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot; or \&quot;Transaction\&quot; domain to decorate onto              the transactions. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or              \&quot;Transaction/strategy/quantsignal\&quot;. (optional)</param>
         /// <param name="showCancelledTransactions">Option to specify whether to include previous versions of an amended transaction in the response.              Defaults to False if not specified. (optional)</param>
         /// <param name="preserveProperties">If the preview transaction is an amendment to an existing transaction, then setting this to true will carry forward any unmodified properties from the earlier version. (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfOutputTransaction)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfOutputTransaction>> PreviewTransactionWithHttpInfoAsync(string scope, string code, TransactionRequest transactionRequest, List<string>? propertyKeys = default(List<string>?), bool? showCancelledTransactions = default(bool?), bool? preserveProperties = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfOutputTransaction>> PreviewTransactionWithHttpInfoAsync(string scope, string code, TransactionRequest transactionRequest, List<string>? propertyKeys = default(List<string>?), bool? showCancelledTransactions = default(bool?), bool? preserveProperties = default(bool?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -13553,6 +13901,14 @@ namespace Lusid.Sdk.Api
             if (preserveProperties != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "preserveProperties", preserveProperties));
+            }
+            if (dataModelScope != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dataModelScope", dataModelScope));
+            }
+            if (dataModelCode != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dataModelCode", dataModelCode));
             }
             localVarRequestOptions.Data = transactionRequest;
 
