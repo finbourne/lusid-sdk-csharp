@@ -34,7 +34,7 @@ namespace Lusid.Sdk.Model
         /// <param name="left">The name of the field/property in the left resource (e.g. a transaction).</param>
         /// <param name="right">The name of the field/property in the right resource (e.g. a transaction).</param>
         /// <param name="comparisonType">The type of comparison to be performed.</param>
-        /// <param name="comparisonValue">The (optional) value used with Finbourne.WebApi.Interface.Dto.Mappings.MappingRule.ComparisonType.</param>
+        /// <param name="comparisonValue">The (optional) value used with ComparisonType..</param>
         /// <param name="weight">A factor used to influence the importance of this item..</param>
         /// <param name="mappedStrings">The (optional) value used to map string values..</param>
         /// <param name="isCaseSensitive">Should string comparisons take case into account, defaults to &#x60;false&#x60;..</param>
@@ -71,9 +71,9 @@ namespace Lusid.Sdk.Model
         public string ComparisonType { get; set; }
 
         /// <summary>
-        /// The (optional) value used with Finbourne.WebApi.Interface.Dto.Mappings.MappingRule.ComparisonType
+        /// The (optional) value used with ComparisonType.
         /// </summary>
-        /// <value>The (optional) value used with Finbourne.WebApi.Interface.Dto.Mappings.MappingRule.ComparisonType</value>
+        /// <value>The (optional) value used with ComparisonType.</value>
         [DataMember(Name = "comparisonValue", EmitDefaultValue = true)]
         public decimal? ComparisonValue { get; set; }
 

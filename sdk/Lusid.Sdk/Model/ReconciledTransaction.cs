@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Information about reconciled transactions.  At least one of Finbourne.WebApi.Interface.Dto.Reconciliation.ReconciledTransaction.Left and Finbourne.WebApi.Interface.Dto.Reconciliation.ReconciledTransaction.Right will be populated.
+    /// Information about reconciled transactions.  At least one of Left and Right will be populated.
     /// </summary>
     [DataContract(Name = "ReconciledTransaction")]
     public partial class ReconciledTransaction : IEquatable<ReconciledTransaction>, IValidatableObject
@@ -34,7 +34,7 @@ namespace Lusid.Sdk.Model
         /// <param name="left">left.</param>
         /// <param name="right">right.</param>
         /// <param name="percentageMatch">How good a match this is considered to be..</param>
-        /// <param name="mappingRuleSetResults">The result of each individual mapping rule result.  Will only be present if both Finbourne.WebApi.Interface.Dto.Reconciliation.ReconciledTransaction.Left and Finbourne.WebApi.Interface.Dto.Reconciliation.ReconciledTransaction.Right are populated..</param>
+        /// <param name="mappingRuleSetResults">The result of each individual mapping rule result.  Will only be present if both Left and Right are populated..</param>
         public ReconciledTransaction(Transaction left = default(Transaction), Transaction right = default(Transaction), decimal percentageMatch = default(decimal), List<bool> mappingRuleSetResults = default(List<bool>))
         {
             this.Left = left;
@@ -63,9 +63,9 @@ namespace Lusid.Sdk.Model
         public decimal PercentageMatch { get; set; }
 
         /// <summary>
-        /// The result of each individual mapping rule result.  Will only be present if both Finbourne.WebApi.Interface.Dto.Reconciliation.ReconciledTransaction.Left and Finbourne.WebApi.Interface.Dto.Reconciliation.ReconciledTransaction.Right are populated.
+        /// The result of each individual mapping rule result.  Will only be present if both Left and Right are populated.
         /// </summary>
-        /// <value>The result of each individual mapping rule result.  Will only be present if both Finbourne.WebApi.Interface.Dto.Reconciliation.ReconciledTransaction.Left and Finbourne.WebApi.Interface.Dto.Reconciliation.ReconciledTransaction.Right are populated.</value>
+        /// <value>The result of each individual mapping rule result.  Will only be present if both Left and Right are populated.</value>
         [DataMember(Name = "mappingRuleSetResults", EmitDefaultValue = true)]
         public List<bool> MappingRuleSetResults { get; set; }
 

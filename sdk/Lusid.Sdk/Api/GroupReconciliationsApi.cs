@@ -35,7 +35,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] BatchUpdateComparisonResults: Add User Review entries for a range of comparison results related to a specific GroupReconciliationDefinition.
         /// </summary>
         /// <remarks>
-        /// Allows to update multiple Group Reconciliation Comparison Results related to the same definition specified by the Finbourne.Identifiers.Abstractions.Scope and Finbourne.Identifiers.Abstractions.Code.  Updates User Review with new entries and sets the relevant Review Status.  Supports partial success when all the entries that haven&#39;t passed validation or are not related to the definition will be returned with respectful error details.
+        /// Allows to update multiple Group Reconciliation Comparison Results related to the same definition specified by the Scope and Code.  Updates User Review with new entries and sets the relevant Review Status.  Supports partial success when all the entries that haven&#39;t passed validation or are not related to the definition will be returned with respectful error details.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Shared Scope of the GroupReconciliationDefinition and GroupReconciliationComparisonResults.</param>
@@ -51,7 +51,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] BatchUpdateComparisonResults: Add User Review entries for a range of comparison results related to a specific GroupReconciliationDefinition.
         /// </summary>
         /// <remarks>
-        /// Allows to update multiple Group Reconciliation Comparison Results related to the same definition specified by the Finbourne.Identifiers.Abstractions.Scope and Finbourne.Identifiers.Abstractions.Code.  Updates User Review with new entries and sets the relevant Review Status.  Supports partial success when all the entries that haven&#39;t passed validation or are not related to the definition will be returned with respectful error details.
+        /// Allows to update multiple Group Reconciliation Comparison Results related to the same definition specified by the Scope and Code.  Updates User Review with new entries and sets the relevant Review Status.  Supports partial success when all the entries that haven&#39;t passed validation or are not related to the definition will be returned with respectful error details.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Shared Scope of the GroupReconciliationDefinition and GroupReconciliationComparisonResults.</param>
@@ -362,7 +362,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] RunReconciliation: Runs a Group Reconciliation
         /// </summary>
         /// <remarks>
-        /// Runs a Group Reconciliation using the definition specified by the Finbourne.Identifiers.Abstractions.Scope and Finbourne.Identifiers.Abstractions.Code  Supports pagination.
+        /// Runs a Group Reconciliation using the definition specified by the Scope and Code  Supports pagination.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the group reconciliation definition to use for the reconciliation.</param>
@@ -377,7 +377,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] RunReconciliation: Runs a Group Reconciliation
         /// </summary>
         /// <remarks>
-        /// Runs a Group Reconciliation using the definition specified by the Finbourne.Identifiers.Abstractions.Scope and Finbourne.Identifiers.Abstractions.Code  Supports pagination.
+        /// Runs a Group Reconciliation using the definition specified by the Scope and Code  Supports pagination.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the group reconciliation definition to use for the reconciliation.</param>
@@ -458,7 +458,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] BatchUpdateComparisonResults: Add User Review entries for a range of comparison results related to a specific GroupReconciliationDefinition.
         /// </summary>
         /// <remarks>
-        /// Allows to update multiple Group Reconciliation Comparison Results related to the same definition specified by the Finbourne.Identifiers.Abstractions.Scope and Finbourne.Identifiers.Abstractions.Code.  Updates User Review with new entries and sets the relevant Review Status.  Supports partial success when all the entries that haven&#39;t passed validation or are not related to the definition will be returned with respectful error details.
+        /// Allows to update multiple Group Reconciliation Comparison Results related to the same definition specified by the Scope and Code.  Updates User Review with new entries and sets the relevant Review Status.  Supports partial success when all the entries that haven&#39;t passed validation or are not related to the definition will be returned with respectful error details.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Shared Scope of the GroupReconciliationDefinition and GroupReconciliationComparisonResults.</param>
@@ -475,7 +475,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] BatchUpdateComparisonResults: Add User Review entries for a range of comparison results related to a specific GroupReconciliationDefinition.
         /// </summary>
         /// <remarks>
-        /// Allows to update multiple Group Reconciliation Comparison Results related to the same definition specified by the Finbourne.Identifiers.Abstractions.Scope and Finbourne.Identifiers.Abstractions.Code.  Updates User Review with new entries and sets the relevant Review Status.  Supports partial success when all the entries that haven&#39;t passed validation or are not related to the definition will be returned with respectful error details.
+        /// Allows to update multiple Group Reconciliation Comparison Results related to the same definition specified by the Scope and Code.  Updates User Review with new entries and sets the relevant Review Status.  Supports partial success when all the entries that haven&#39;t passed validation or are not related to the definition will be returned with respectful error details.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Shared Scope of the GroupReconciliationDefinition and GroupReconciliationComparisonResults.</param>
@@ -807,7 +807,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] RunReconciliation: Runs a Group Reconciliation
         /// </summary>
         /// <remarks>
-        /// Runs a Group Reconciliation using the definition specified by the Finbourne.Identifiers.Abstractions.Scope and Finbourne.Identifiers.Abstractions.Code  Supports pagination.
+        /// Runs a Group Reconciliation using the definition specified by the Scope and Code  Supports pagination.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the group reconciliation definition to use for the reconciliation.</param>
@@ -823,7 +823,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] RunReconciliation: Runs a Group Reconciliation
         /// </summary>
         /// <remarks>
-        /// Runs a Group Reconciliation using the definition specified by the Finbourne.Identifiers.Abstractions.Scope and Finbourne.Identifiers.Abstractions.Code  Supports pagination.
+        /// Runs a Group Reconciliation using the definition specified by the Scope and Code  Supports pagination.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the group reconciliation definition to use for the reconciliation.</param>
@@ -1020,7 +1020,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] BatchUpdateComparisonResults: Add User Review entries for a range of comparison results related to a specific GroupReconciliationDefinition. Allows to update multiple Group Reconciliation Comparison Results related to the same definition specified by the Finbourne.Identifiers.Abstractions.Scope and Finbourne.Identifiers.Abstractions.Code.  Updates User Review with new entries and sets the relevant Review Status.  Supports partial success when all the entries that haven&#39;t passed validation or are not related to the definition will be returned with respectful error details.
+        /// [EXPERIMENTAL] BatchUpdateComparisonResults: Add User Review entries for a range of comparison results related to a specific GroupReconciliationDefinition. Allows to update multiple Group Reconciliation Comparison Results related to the same definition specified by the Scope and Code.  Updates User Review with new entries and sets the relevant Review Status.  Supports partial success when all the entries that haven&#39;t passed validation or are not related to the definition will be returned with respectful error details.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Shared Scope of the GroupReconciliationDefinition and GroupReconciliationComparisonResults.</param>
@@ -1037,7 +1037,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] BatchUpdateComparisonResults: Add User Review entries for a range of comparison results related to a specific GroupReconciliationDefinition. Allows to update multiple Group Reconciliation Comparison Results related to the same definition specified by the Finbourne.Identifiers.Abstractions.Scope and Finbourne.Identifiers.Abstractions.Code.  Updates User Review with new entries and sets the relevant Review Status.  Supports partial success when all the entries that haven&#39;t passed validation or are not related to the definition will be returned with respectful error details.
+        /// [EXPERIMENTAL] BatchUpdateComparisonResults: Add User Review entries for a range of comparison results related to a specific GroupReconciliationDefinition. Allows to update multiple Group Reconciliation Comparison Results related to the same definition specified by the Scope and Code.  Updates User Review with new entries and sets the relevant Review Status.  Supports partial success when all the entries that haven&#39;t passed validation or are not related to the definition will be returned with respectful error details.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Shared Scope of the GroupReconciliationDefinition and GroupReconciliationComparisonResults.</param>
@@ -1148,7 +1148,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] BatchUpdateComparisonResults: Add User Review entries for a range of comparison results related to a specific GroupReconciliationDefinition. Allows to update multiple Group Reconciliation Comparison Results related to the same definition specified by the Finbourne.Identifiers.Abstractions.Scope and Finbourne.Identifiers.Abstractions.Code.  Updates User Review with new entries and sets the relevant Review Status.  Supports partial success when all the entries that haven&#39;t passed validation or are not related to the definition will be returned with respectful error details.
+        /// [EXPERIMENTAL] BatchUpdateComparisonResults: Add User Review entries for a range of comparison results related to a specific GroupReconciliationDefinition. Allows to update multiple Group Reconciliation Comparison Results related to the same definition specified by the Scope and Code.  Updates User Review with new entries and sets the relevant Review Status.  Supports partial success when all the entries that haven&#39;t passed validation or are not related to the definition will be returned with respectful error details.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Shared Scope of the GroupReconciliationDefinition and GroupReconciliationComparisonResults.</param>
@@ -1166,7 +1166,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] BatchUpdateComparisonResults: Add User Review entries for a range of comparison results related to a specific GroupReconciliationDefinition. Allows to update multiple Group Reconciliation Comparison Results related to the same definition specified by the Finbourne.Identifiers.Abstractions.Scope and Finbourne.Identifiers.Abstractions.Code.  Updates User Review with new entries and sets the relevant Review Status.  Supports partial success when all the entries that haven&#39;t passed validation or are not related to the definition will be returned with respectful error details.
+        /// [EXPERIMENTAL] BatchUpdateComparisonResults: Add User Review entries for a range of comparison results related to a specific GroupReconciliationDefinition. Allows to update multiple Group Reconciliation Comparison Results related to the same definition specified by the Scope and Code.  Updates User Review with new entries and sets the relevant Review Status.  Supports partial success when all the entries that haven&#39;t passed validation or are not related to the definition will be returned with respectful error details.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Shared Scope of the GroupReconciliationDefinition and GroupReconciliationComparisonResults.</param>
@@ -3606,7 +3606,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] RunReconciliation: Runs a Group Reconciliation Runs a Group Reconciliation using the definition specified by the Finbourne.Identifiers.Abstractions.Scope and Finbourne.Identifiers.Abstractions.Code  Supports pagination.
+        /// [EXPERIMENTAL] RunReconciliation: Runs a Group Reconciliation Runs a Group Reconciliation using the definition specified by the Scope and Code  Supports pagination.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the group reconciliation definition to use for the reconciliation.</param>
@@ -3622,7 +3622,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] RunReconciliation: Runs a Group Reconciliation Runs a Group Reconciliation using the definition specified by the Finbourne.Identifiers.Abstractions.Scope and Finbourne.Identifiers.Abstractions.Code  Supports pagination.
+        /// [EXPERIMENTAL] RunReconciliation: Runs a Group Reconciliation Runs a Group Reconciliation using the definition specified by the Scope and Code  Supports pagination.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the group reconciliation definition to use for the reconciliation.</param>
@@ -3722,7 +3722,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] RunReconciliation: Runs a Group Reconciliation Runs a Group Reconciliation using the definition specified by the Finbourne.Identifiers.Abstractions.Scope and Finbourne.Identifiers.Abstractions.Code  Supports pagination.
+        /// [EXPERIMENTAL] RunReconciliation: Runs a Group Reconciliation Runs a Group Reconciliation using the definition specified by the Scope and Code  Supports pagination.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the group reconciliation definition to use for the reconciliation.</param>
@@ -3739,7 +3739,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] RunReconciliation: Runs a Group Reconciliation Runs a Group Reconciliation using the definition specified by the Finbourne.Identifiers.Abstractions.Scope and Finbourne.Identifiers.Abstractions.Code  Supports pagination.
+        /// [EXPERIMENTAL] RunReconciliation: Runs a Group Reconciliation Runs a Group Reconciliation using the definition specified by the Scope and Code  Supports pagination.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the group reconciliation definition to use for the reconciliation.</param>
