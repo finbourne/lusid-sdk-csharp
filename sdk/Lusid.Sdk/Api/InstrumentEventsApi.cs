@@ -529,14 +529,17 @@ namespace Lusid.Sdk.Api
 
             if (asAt != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
             }
             if (limit != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
             }
             if (page != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
             }
             localVarRequestOptions.Data = queryApplicableInstrumentEventsRequest;
@@ -963,10 +966,12 @@ namespace Lusid.Sdk.Api
 
             if (limit != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
             }
             if (page != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
             }
             localVarRequestOptions.Data = queryCashFlowsRequest;
@@ -1187,10 +1192,12 @@ namespace Lusid.Sdk.Api
 
             if (limit != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
             }
             if (page != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
             }
             localVarRequestOptions.Data = queryInstrumentEventsRequest;
@@ -1411,10 +1418,12 @@ namespace Lusid.Sdk.Api
 
             if (limit != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
             }
             if (page != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
             }
             localVarRequestOptions.Data = queryTradeTicketsRequest;

@@ -1905,6 +1905,7 @@ namespace Lusid.Sdk.Api
             localVarRequestOptions.PathParameters.Add("itemName", Lusid.Sdk.Client.ClientUtils.ParameterToString(itemName)); // path parameter
             if (asAt != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
             }
 
@@ -2157,6 +2158,7 @@ namespace Lusid.Sdk.Api
             localVarRequestOptions.PathParameters.Add("workspaceName", Lusid.Sdk.Client.ClientUtils.ParameterToString(workspaceName)); // path parameter
             if (asAt != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
             }
 
@@ -2399,22 +2401,27 @@ namespace Lusid.Sdk.Api
             localVarRequestOptions.PathParameters.Add("workspaceName", Lusid.Sdk.Client.ClientUtils.ParameterToString(workspaceName)); // path parameter
             if (asAt != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
             }
             if (page != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
             }
             if (sortBy != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "sortBy", sortBy));
             }
             if (limit != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
             }
             if (filter != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
             }
 
@@ -2672,22 +2679,27 @@ namespace Lusid.Sdk.Api
             localVarRequestOptions.PathParameters.Add("visibility", Lusid.Sdk.Client.ClientUtils.ParameterToString(visibility)); // path parameter
             if (asAt != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
             }
             if (page != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
             }
             if (sortBy != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "sortBy", sortBy));
             }
             if (limit != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
             }
             if (filter != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
             }
 
@@ -2936,22 +2948,27 @@ namespace Lusid.Sdk.Api
             localVarRequestOptions.PathParameters.Add("visibility", Lusid.Sdk.Client.ClientUtils.ParameterToString(visibility)); // path parameter
             if (asAt != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
             }
             if (page != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
             }
             if (sortBy != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "sortBy", sortBy));
             }
             if (limit != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
             }
             if (filter != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
             }
 

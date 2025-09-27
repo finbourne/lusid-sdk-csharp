@@ -928,6 +928,7 @@ namespace Lusid.Sdk.Api
             localVarRequestOptions.PathParameters.Add("side", Lusid.Sdk.Client.ClientUtils.ParameterToString(side)); // path parameter
             if (scope != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scope", scope));
             }
 
@@ -1153,6 +1154,7 @@ namespace Lusid.Sdk.Api
             localVarRequestOptions.PathParameters.Add("type", Lusid.Sdk.Client.ClientUtils.ParameterToString(type)); // path parameter
             if (scope != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scope", scope));
             }
 
@@ -1378,6 +1380,7 @@ namespace Lusid.Sdk.Api
             localVarRequestOptions.PathParameters.Add("source", Lusid.Sdk.Client.ClientUtils.ParameterToString(source)); // path parameter
             if (scope != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scope", scope));
             }
 
@@ -1602,22 +1605,27 @@ namespace Lusid.Sdk.Api
             localVarRequestOptions.PathParameters.Add("side", Lusid.Sdk.Client.ClientUtils.ParameterToString(side)); // path parameter
             if (scope != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scope", scope));
             }
             if (asAt != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
             }
             if (timelineScope != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineScope", timelineScope));
             }
             if (timelineCode != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineCode", timelineCode));
             }
             if (closedPeriodId != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "closedPeriodId", closedPeriodId));
             }
 
@@ -1875,22 +1883,27 @@ namespace Lusid.Sdk.Api
             localVarRequestOptions.PathParameters.Add("type", Lusid.Sdk.Client.ClientUtils.ParameterToString(type)); // path parameter
             if (asAt != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
             }
             if (scope != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scope", scope));
             }
             if (timelineScope != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineScope", timelineScope));
             }
             if (timelineCode != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineCode", timelineCode));
             }
             if (closedPeriodId != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "closedPeriodId", closedPeriodId));
             }
 
@@ -2139,22 +2152,27 @@ namespace Lusid.Sdk.Api
 
             if (asAt != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
             }
             if (scope != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scope", scope));
             }
             if (timelineScope != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineScope", timelineScope));
             }
             if (timelineCode != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineCode", timelineCode));
             }
             if (closedPeriodId != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "closedPeriodId", closedPeriodId));
             }
 
@@ -2385,22 +2403,27 @@ namespace Lusid.Sdk.Api
 
             if (asAt != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
             }
             if (scope != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scope", scope));
             }
             if (timelineScope != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineScope", timelineScope));
             }
             if (timelineCode != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineCode", timelineCode));
             }
             if (closedPeriodId != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "closedPeriodId", closedPeriodId));
             }
 
@@ -2644,6 +2667,7 @@ namespace Lusid.Sdk.Api
             localVarRequestOptions.PathParameters.Add("side", Lusid.Sdk.Client.ClientUtils.ParameterToString(side)); // path parameter
             if (scope != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scope", scope));
             }
             localVarRequestOptions.Data = sideDefinitionRequest;
@@ -2877,6 +2901,7 @@ namespace Lusid.Sdk.Api
 
             if (scope != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scope", scope));
             }
             localVarRequestOptions.Data = sidesDefinitionRequest;
@@ -3119,6 +3144,7 @@ namespace Lusid.Sdk.Api
             localVarRequestOptions.PathParameters.Add("type", Lusid.Sdk.Client.ClientUtils.ParameterToString(type)); // path parameter
             if (scope != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scope", scope));
             }
             localVarRequestOptions.Data = transactionTypeRequest;
@@ -3370,6 +3396,7 @@ namespace Lusid.Sdk.Api
             localVarRequestOptions.PathParameters.Add("source", Lusid.Sdk.Client.ClientUtils.ParameterToString(source)); // path parameter
             if (scope != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scope", scope));
             }
             localVarRequestOptions.Data = transactionTypeRequest;

@@ -1208,6 +1208,7 @@ namespace Lusid.Sdk.Api
             localVarRequestOptions.PathParameters.Add("source", Lusid.Sdk.Client.ClientUtils.ParameterToString(source)); // path parameter
             if (asAt != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
             }
 
@@ -1415,6 +1416,7 @@ namespace Lusid.Sdk.Api
 
             if (asAt != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
             }
 

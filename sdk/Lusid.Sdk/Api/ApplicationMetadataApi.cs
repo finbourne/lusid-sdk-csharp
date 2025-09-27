@@ -375,6 +375,7 @@ namespace Lusid.Sdk.Api
 
             if (version != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "version", version));
             }
 
@@ -759,6 +760,7 @@ namespace Lusid.Sdk.Api
 
             if (filter != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
             }
 

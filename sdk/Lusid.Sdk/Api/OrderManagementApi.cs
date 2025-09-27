@@ -881,10 +881,12 @@ namespace Lusid.Sdk.Api
 
             if (applyFeesAndCommission != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "applyFeesAndCommission", applyFeesAndCommission));
             }
             if (markOrdersAndAllocationsAsBooked != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "markOrdersAndAllocationsAsBooked", markOrdersAndAllocationsAsBooked));
             }
             localVarRequestOptions.Data = bookTransactionsRequest;
@@ -1969,6 +1971,7 @@ namespace Lusid.Sdk.Api
             localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
             if (asAt != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
             }
 
@@ -2609,6 +2612,7 @@ namespace Lusid.Sdk.Api
 
             if (allocationAlgorithm != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "allocationAlgorithm", allocationAlgorithm));
             }
             localVarRequestOptions.Data = resourceId;
