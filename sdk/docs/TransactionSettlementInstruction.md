@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **CustodianAccountOverride** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **InstrumentIdentifiers** | **Dictionary&lt;string, string&gt;** | A set of instrument identifiers that can resolve the settlement instruction to a unique instrument. | 
 **Status** | **string** | The status of the settlement instruction - &#39;Invalid&#39;, &#39;Rejected&#39; &#39;Applied&#39; or &#39;Orphan&#39;. | [optional] 
+**InstructionToPortfolioRate** | **decimal?** | The exchange rate between the Settlement Instruction and Portfolio. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -45,7 +46,8 @@ TransactionSettlementInstruction transactionSettlementInstructionInstance = new 
     subHoldingKeyOverrides: subHoldingKeyOverrides,
     custodianAccountOverride: custodianAccountOverride,
     instrumentIdentifiers: instrumentIdentifiers,
-    status: status);
+    status: status,
+    instructionToPortfolioRate: instructionToPortfolioRate);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **Units** | **decimal** |  | 
 **SubHoldingKeyOverrides** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) |  | [optional] 
 **CustodianAccountOverride** | [**ResourceId**](ResourceId.md) |  | [optional] 
+**InstructionToPortfolioRate** | **decimal?** |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -39,7 +40,8 @@ SettlementInstructionRequest settlementInstructionRequestInstance = new Settleme
     actualSettlementDate: actualSettlementDate,
     units: units,
     subHoldingKeyOverrides: subHoldingKeyOverrides,
-    custodianAccountOverride: custodianAccountOverride);
+    custodianAccountOverride: custodianAccountOverride,
+    instructionToPortfolioRate: instructionToPortfolioRate);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

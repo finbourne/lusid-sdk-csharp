@@ -46,7 +46,8 @@ namespace Lusid.Sdk.Model
         /// <param name="units">units (required).</param>
         /// <param name="subHoldingKeyOverrides">subHoldingKeyOverrides.</param>
         /// <param name="custodianAccountOverride">custodianAccountOverride.</param>
-        public SettlementInstructionRequest(string settlementInstructionId = default(string), string transactionId = default(string), string settlementCategory = default(string), string instructionType = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), DateTimeOffset? contractualSettlementDate = default(DateTimeOffset?), DateTimeOffset actualSettlementDate = default(DateTimeOffset), decimal units = default(decimal), Dictionary<string, PerpetualProperty> subHoldingKeyOverrides = default(Dictionary<string, PerpetualProperty>), ResourceId custodianAccountOverride = default(ResourceId))
+        /// <param name="instructionToPortfolioRate">instructionToPortfolioRate.</param>
+        public SettlementInstructionRequest(string settlementInstructionId = default(string), string transactionId = default(string), string settlementCategory = default(string), string instructionType = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), DateTimeOffset? contractualSettlementDate = default(DateTimeOffset?), DateTimeOffset actualSettlementDate = default(DateTimeOffset), decimal units = default(decimal), Dictionary<string, PerpetualProperty> subHoldingKeyOverrides = default(Dictionary<string, PerpetualProperty>), ResourceId custodianAccountOverride = default(ResourceId), decimal? instructionToPortfolioRate = default(decimal?))
         {
             // to ensure "settlementInstructionId" is required (not null)
             if (settlementInstructionId == null)
@@ -78,6 +79,7 @@ namespace Lusid.Sdk.Model
             this.ContractualSettlementDate = contractualSettlementDate;
             this.SubHoldingKeyOverrides = subHoldingKeyOverrides;
             this.CustodianAccountOverride = custodianAccountOverride;
+            this.InstructionToPortfolioRate = instructionToPortfolioRate;
         }
 
         /// <summary>
@@ -141,6 +143,12 @@ namespace Lusid.Sdk.Model
         public ResourceId CustodianAccountOverride { get; set; }
 
         /// <summary>
+        /// Gets or Sets InstructionToPortfolioRate
+        /// </summary>
+        [DataMember(Name = "instructionToPortfolioRate", EmitDefaultValue = true)]
+        public decimal? InstructionToPortfolioRate { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -158,6 +166,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Units: ").Append(Units).Append("\n");
             sb.Append("  SubHoldingKeyOverrides: ").Append(SubHoldingKeyOverrides).Append("\n");
             sb.Append("  CustodianAccountOverride: ").Append(CustodianAccountOverride).Append("\n");
+            sb.Append("  InstructionToPortfolioRate: ").Append(InstructionToPortfolioRate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -243,6 +252,11 @@ namespace Lusid.Sdk.Model
                     this.CustodianAccountOverride == input.CustodianAccountOverride ||
                     (this.CustodianAccountOverride != null &&
                     this.CustodianAccountOverride.Equals(input.CustodianAccountOverride))
+                ) && 
+                (
+                    this.InstructionToPortfolioRate == input.InstructionToPortfolioRate ||
+                    (this.InstructionToPortfolioRate != null &&
+                    this.InstructionToPortfolioRate.Equals(input.InstructionToPortfolioRate))
                 );
         }
 
@@ -291,6 +305,10 @@ namespace Lusid.Sdk.Model
                 if (this.CustodianAccountOverride != null)
                 {
                     hashCode = (hashCode * 59) + this.CustodianAccountOverride.GetHashCode();
+                }
+                if (this.InstructionToPortfolioRate != null)
+                {
+                    hashCode = (hashCode * 59) + this.InstructionToPortfolioRate.GetHashCode();
                 }
                 return hashCode;
             }
