@@ -662,7 +662,7 @@ catch (ApiException e)
 
 <a id="buildsettlementinstructions"></a>
 # **BuildSettlementInstructions**
-> VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery BuildSettlementInstructions (string scope, string code, SettlementInstructionQuery settlementInstructionQuery, DateTimeOffset? asAt = null)
+> VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery BuildSettlementInstructions (string scope, string code, SettlementInstructionQuery settlementInstructionQuery)
 
 [EARLY ACCESS] BuildSettlementInstructions: Build Settlement Instructions
 
@@ -710,15 +710,14 @@ namespace Examples
             var scope = "scope_example";  // string | The scope of the transaction portfolio.
             var code = "code_example";  // string | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
             var settlementInstructionQuery = new SettlementInstructionQuery(); // SettlementInstructionQuery | The queryParameters which control how the settlement instructions are built and returned.
-            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to build the settlement instructions. Defaults to return the latest              version of each transaction if not specified. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery result = apiInstance.BuildSettlementInstructions(scope, code, settlementInstructionQuery, asAt, opts: opts);
+                // VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery result = apiInstance.BuildSettlementInstructions(scope, code, settlementInstructionQuery, opts: opts);
 
                 // [EARLY ACCESS] BuildSettlementInstructions: Build Settlement Instructions
-                VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery result = apiInstance.BuildSettlementInstructions(scope, code, settlementInstructionQuery, asAt);
+                VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery result = apiInstance.BuildSettlementInstructions(scope, code, settlementInstructionQuery);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -739,7 +738,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EARLY ACCESS] BuildSettlementInstructions: Build Settlement Instructions
-    ApiResponse<VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery> response = apiInstance.BuildSettlementInstructionsWithHttpInfo(scope, code, settlementInstructionQuery, asAt);
+    ApiResponse<VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery> response = apiInstance.BuildSettlementInstructionsWithHttpInfo(scope, code, settlementInstructionQuery);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -759,7 +758,6 @@ catch (ApiException e)
 | **scope** | **string** | The scope of the transaction portfolio. |  |
 | **code** | **string** | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. |  |
 | **settlementInstructionQuery** | [**SettlementInstructionQuery**](SettlementInstructionQuery.md) | The queryParameters which control how the settlement instructions are built and returned. |  |
-| **asAt** | **DateTimeOffset?** | The asAt datetime at which to build the settlement instructions. Defaults to return the latest              version of each transaction if not specified. | [optional]  |
 
 ### Return type
 

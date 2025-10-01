@@ -32,9 +32,13 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="SettlementConfigurationCategory" /> class.
         /// </summary>
         /// <param name="method">The method of settlement for the movements of the relevant type(s). Allowed values: &#39;Automatic&#39; and &#39;Instructed&#39;. A value of &#39;Instructed&#39; means that such movements can only be settled with a SettlementInstruction. A value of &#39;Automatic&#39; means that such movements will settle automatically but a SettlementInstruction will still override automatic settlement..</param>
-        public SettlementConfigurationCategory(string method = default(string))
+        /// <param name="calculateInstructionToPortfolioRate">An optional flag that allows for the calculation of the instruction to portfolio rate for instructions with settlement category CashSettlement or DeferredCashReceipt, if it is not provided on the settlement instruction. Defaults to false if not specified..</param>
+        /// <param name="calculateInLieuSettlementAmount">An optional flag that allows for the calculation of the in lieu amount for instructions with settlement category CashSettlement or DeferredCashReceipt, if it is not provided on the settlement instruction. Defaults to false if not specified..</param>
+        public SettlementConfigurationCategory(string method = default(string), bool calculateInstructionToPortfolioRate = default(bool), bool calculateInLieuSettlementAmount = default(bool))
         {
             this.Method = method;
+            this.CalculateInstructionToPortfolioRate = calculateInstructionToPortfolioRate;
+            this.CalculateInLieuSettlementAmount = calculateInLieuSettlementAmount;
         }
 
         /// <summary>
@@ -45,6 +49,20 @@ namespace Lusid.Sdk.Model
         public string Method { get; set; }
 
         /// <summary>
+        /// An optional flag that allows for the calculation of the instruction to portfolio rate for instructions with settlement category CashSettlement or DeferredCashReceipt, if it is not provided on the settlement instruction. Defaults to false if not specified.
+        /// </summary>
+        /// <value>An optional flag that allows for the calculation of the instruction to portfolio rate for instructions with settlement category CashSettlement or DeferredCashReceipt, if it is not provided on the settlement instruction. Defaults to false if not specified.</value>
+        [DataMember(Name = "calculateInstructionToPortfolioRate", EmitDefaultValue = true)]
+        public bool CalculateInstructionToPortfolioRate { get; set; }
+
+        /// <summary>
+        /// An optional flag that allows for the calculation of the in lieu amount for instructions with settlement category CashSettlement or DeferredCashReceipt, if it is not provided on the settlement instruction. Defaults to false if not specified.
+        /// </summary>
+        /// <value>An optional flag that allows for the calculation of the in lieu amount for instructions with settlement category CashSettlement or DeferredCashReceipt, if it is not provided on the settlement instruction. Defaults to false if not specified.</value>
+        [DataMember(Name = "calculateInLieuSettlementAmount", EmitDefaultValue = true)]
+        public bool CalculateInLieuSettlementAmount { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -53,6 +71,8 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class SettlementConfigurationCategory {\n");
             sb.Append("  Method: ").Append(Method).Append("\n");
+            sb.Append("  CalculateInstructionToPortfolioRate: ").Append(CalculateInstructionToPortfolioRate).Append("\n");
+            sb.Append("  CalculateInLieuSettlementAmount: ").Append(CalculateInLieuSettlementAmount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -92,6 +112,14 @@ namespace Lusid.Sdk.Model
                     this.Method == input.Method ||
                     (this.Method != null &&
                     this.Method.Equals(input.Method))
+                ) && 
+                (
+                    this.CalculateInstructionToPortfolioRate == input.CalculateInstructionToPortfolioRate ||
+                    this.CalculateInstructionToPortfolioRate.Equals(input.CalculateInstructionToPortfolioRate)
+                ) && 
+                (
+                    this.CalculateInLieuSettlementAmount == input.CalculateInLieuSettlementAmount ||
+                    this.CalculateInLieuSettlementAmount.Equals(input.CalculateInLieuSettlementAmount)
                 );
         }
 
@@ -108,6 +136,8 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Method.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.CalculateInstructionToPortfolioRate.GetHashCode();
+                hashCode = (hashCode * 59) + this.CalculateInLieuSettlementAmount.GetHashCode();
                 return hashCode;
             }
         }

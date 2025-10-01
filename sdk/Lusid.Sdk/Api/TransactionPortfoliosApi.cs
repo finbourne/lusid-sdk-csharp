@@ -206,11 +206,10 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the transaction portfolio.</param>
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
         /// <param name="settlementInstructionQuery">The queryParameters which control how the settlement instructions are built and returned.</param>
-        /// <param name="asAt">The asAt datetime at which to build the settlement instructions. Defaults to return the latest              version of each transaction if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery</returns>
-        VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery BuildSettlementInstructions(string scope, string code, SettlementInstructionQuery settlementInstructionQuery, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery BuildSettlementInstructions(string scope, string code, SettlementInstructionQuery settlementInstructionQuery, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] BuildSettlementInstructions: Build Settlement Instructions
@@ -222,11 +221,10 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the transaction portfolio.</param>
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
         /// <param name="settlementInstructionQuery">The queryParameters which control how the settlement instructions are built and returned.</param>
-        /// <param name="asAt">The asAt datetime at which to build the settlement instructions. Defaults to return the latest              version of each transaction if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery</returns>
-        Lusid.Sdk.Client.ApiResponse<VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery> BuildSettlementInstructionsWithHttpInfo(string scope, string code, SettlementInstructionQuery settlementInstructionQuery, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery> BuildSettlementInstructionsWithHttpInfo(string scope, string code, SettlementInstructionQuery settlementInstructionQuery, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// BuildTransactions: Build transactions
         /// </summary>
@@ -1820,12 +1818,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the transaction portfolio.</param>
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
         /// <param name="settlementInstructionQuery">The queryParameters which control how the settlement instructions are built and returned.</param>
-        /// <param name="asAt">The asAt datetime at which to build the settlement instructions. Defaults to return the latest              version of each transaction if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery</returns>
-        System.Threading.Tasks.Task<VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery> BuildSettlementInstructionsAsync(string scope, string code, SettlementInstructionQuery settlementInstructionQuery, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery> BuildSettlementInstructionsAsync(string scope, string code, SettlementInstructionQuery settlementInstructionQuery, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] BuildSettlementInstructions: Build Settlement Instructions
@@ -1837,12 +1834,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the transaction portfolio.</param>
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
         /// <param name="settlementInstructionQuery">The queryParameters which control how the settlement instructions are built and returned.</param>
-        /// <param name="asAt">The asAt datetime at which to build the settlement instructions. Defaults to return the latest              version of each transaction if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery>> BuildSettlementInstructionsWithHttpInfoAsync(string scope, string code, SettlementInstructionQuery settlementInstructionQuery, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery>> BuildSettlementInstructionsWithHttpInfoAsync(string scope, string code, SettlementInstructionQuery settlementInstructionQuery, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// BuildTransactions: Build transactions
         /// </summary>
@@ -4840,13 +4836,12 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the transaction portfolio.</param>
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
         /// <param name="settlementInstructionQuery">The queryParameters which control how the settlement instructions are built and returned.</param>
-        /// <param name="asAt">The asAt datetime at which to build the settlement instructions. Defaults to return the latest              version of each transaction if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery</returns>
-        public VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery BuildSettlementInstructions(string scope, string code, SettlementInstructionQuery settlementInstructionQuery, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery BuildSettlementInstructions(string scope, string code, SettlementInstructionQuery settlementInstructionQuery, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery> localVarResponse = BuildSettlementInstructionsWithHttpInfo(scope, code, settlementInstructionQuery, asAt, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery> localVarResponse = BuildSettlementInstructionsWithHttpInfo(scope, code, settlementInstructionQuery, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -4857,11 +4852,10 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the transaction portfolio.</param>
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
         /// <param name="settlementInstructionQuery">The queryParameters which control how the settlement instructions are built and returned.</param>
-        /// <param name="asAt">The asAt datetime at which to build the settlement instructions. Defaults to return the latest              version of each transaction if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery</returns>
-        public Lusid.Sdk.Client.ApiResponse<VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery> BuildSettlementInstructionsWithHttpInfo(string scope, string code, SettlementInstructionQuery settlementInstructionQuery, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery> BuildSettlementInstructionsWithHttpInfo(string scope, string code, SettlementInstructionQuery settlementInstructionQuery, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -4921,11 +4915,6 @@ namespace Lusid.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
             localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
-            if (asAt != null)
-            {
-
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
-            }
             localVarRequestOptions.Data = settlementInstructionQuery;
 
             localVarRequestOptions.Operation = "TransactionPortfoliosApi.BuildSettlementInstructions";
@@ -4969,14 +4958,13 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the transaction portfolio.</param>
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
         /// <param name="settlementInstructionQuery">The queryParameters which control how the settlement instructions are built and returned.</param>
-        /// <param name="asAt">The asAt datetime at which to build the settlement instructions. Defaults to return the latest              version of each transaction if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery</returns>
-        public async System.Threading.Tasks.Task<VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery> BuildSettlementInstructionsAsync(string scope, string code, SettlementInstructionQuery settlementInstructionQuery, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery> BuildSettlementInstructionsAsync(string scope, string code, SettlementInstructionQuery settlementInstructionQuery, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery> localVarResponse = await BuildSettlementInstructionsWithHttpInfoAsync(scope, code, settlementInstructionQuery, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery> localVarResponse = await BuildSettlementInstructionsWithHttpInfoAsync(scope, code, settlementInstructionQuery, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4987,12 +4975,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the transaction portfolio.</param>
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
         /// <param name="settlementInstructionQuery">The queryParameters which control how the settlement instructions are built and returned.</param>
-        /// <param name="asAt">The asAt datetime at which to build the settlement instructions. Defaults to return the latest              version of each transaction if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery>> BuildSettlementInstructionsWithHttpInfoAsync(string scope, string code, SettlementInstructionQuery settlementInstructionQuery, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery>> BuildSettlementInstructionsWithHttpInfoAsync(string scope, string code, SettlementInstructionQuery settlementInstructionQuery, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -5053,10 +5040,6 @@ namespace Lusid.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
             localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
-            if (asAt != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
-            }
             localVarRequestOptions.Data = settlementInstructionQuery;
 
             localVarRequestOptions.Operation = "TransactionPortfoliosApi.BuildSettlementInstructions";

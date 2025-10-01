@@ -31,6 +31,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SettlementInstructionQuery" /> class.
         /// </summary>
+        /// <param name="asAt">asAt.</param>
         /// <param name="startDate">startDate.</param>
         /// <param name="endDate">endDate.</param>
         /// <param name="limit">limit.</param>
@@ -38,8 +39,9 @@ namespace Lusid.Sdk.Model
         /// <param name="filter">filter.</param>
         /// <param name="settlementInstructionPropertyKeys">settlementInstructionPropertyKeys.</param>
         /// <param name="transactionPropertyKeys">transactionPropertyKeys.</param>
-        public SettlementInstructionQuery(DateTimeOrCutLabel startDate = default(DateTimeOrCutLabel), DateTimeOrCutLabel endDate = default(DateTimeOrCutLabel), int? limit = default(int?), string page = default(string), string filter = default(string), List<string> settlementInstructionPropertyKeys = default(List<string>), List<string> transactionPropertyKeys = default(List<string>))
+        public SettlementInstructionQuery(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel startDate = default(DateTimeOrCutLabel), DateTimeOrCutLabel endDate = default(DateTimeOrCutLabel), int? limit = default(int?), string page = default(string), string filter = default(string), List<string> settlementInstructionPropertyKeys = default(List<string>), List<string> transactionPropertyKeys = default(List<string>))
         {
+            this.AsAt = asAt;
             this.StartDate = startDate;
             this.EndDate = endDate;
             this.Limit = limit;
@@ -48,6 +50,12 @@ namespace Lusid.Sdk.Model
             this.SettlementInstructionPropertyKeys = settlementInstructionPropertyKeys;
             this.TransactionPropertyKeys = transactionPropertyKeys;
         }
+
+        /// <summary>
+        /// Gets or Sets AsAt
+        /// </summary>
+        [DataMember(Name = "asAt", EmitDefaultValue = true)]
+        public DateTimeOffset? AsAt { get; set; }
 
         /// <summary>
         /// Gets or Sets StartDate
@@ -99,6 +107,7 @@ namespace Lusid.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class SettlementInstructionQuery {\n");
+            sb.Append("  AsAt: ").Append(AsAt).Append("\n");
             sb.Append("  StartDate: ").Append(StartDate).Append("\n");
             sb.Append("  EndDate: ").Append(EndDate).Append("\n");
             sb.Append("  Limit: ").Append(Limit).Append("\n");
@@ -141,6 +150,11 @@ namespace Lusid.Sdk.Model
                 return false;
             }
             return 
+                (
+                    this.AsAt == input.AsAt ||
+                    (this.AsAt != null &&
+                    this.AsAt.Equals(input.AsAt))
+                ) && 
                 (
                     this.StartDate == input.StartDate ||
                     (this.StartDate != null &&
@@ -189,6 +203,10 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.AsAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.AsAt.GetHashCode();
+                }
                 if (this.StartDate != null)
                 {
                     hashCode = (hashCode * 59) + this.StartDate.GetHashCode();

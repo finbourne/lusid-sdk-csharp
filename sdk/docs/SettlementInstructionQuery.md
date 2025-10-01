@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AsAt** | **DateTimeOffset?** |  | [optional] 
 **StartDate** | [**DateTimeOrCutLabel**](DateTimeOrCutLabel.md) |  | [optional] 
 **EndDate** | [**DateTimeOrCutLabel**](DateTimeOrCutLabel.md) |  | [optional] 
 **Limit** | **int?** |  | [optional] 
@@ -24,6 +25,7 @@ List<string> settlementInstructionPropertyKeys = new List<string>();
 List<string> transactionPropertyKeys = new List<string>();
 
 SettlementInstructionQuery settlementInstructionQueryInstance = new SettlementInstructionQuery(
+    asAt: asAt,
     startDate: startDate,
     endDate: endDate,
     limit: limit,
