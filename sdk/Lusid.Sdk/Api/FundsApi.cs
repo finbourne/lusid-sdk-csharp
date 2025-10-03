@@ -41,7 +41,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="valuationPointDataRequest">The valuationPointDataRequest which contains the Diary Entry code for the Estimate Valuation Point to move to Candidate or Final state.</param>
-        /// <param name="navTypeCode">When provided Accepts the Valuation Point of the specified NAV Type. When not provided the Primary NAV Type will be Accepted. (optional)</param>
+        /// <param name="navTypeCode">When provided, accepts the Valuation Point of the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>AcceptEstimateValuationPointResponse</returns>
@@ -57,7 +57,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="valuationPointDataRequest">The valuationPointDataRequest which contains the Diary Entry code for the Estimate Valuation Point to move to Candidate or Final state.</param>
-        /// <param name="navTypeCode">When provided Accepts the Valuation Point of the specified NAV Type. When not provided the Primary NAV Type will be Accepted. (optional)</param>
+        /// <param name="navTypeCode">When provided, accepts the Valuation Point of the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AcceptEstimateValuationPointResponse</returns>
@@ -72,7 +72,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="feeRequest">The Fee to create.</param>
-        /// <param name="navTypeCode">When provided runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="navTypeCode">When provided, creates the Fee against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Fee</returns>
@@ -88,7 +88,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="feeRequest">The Fee to create.</param>
-        /// <param name="navTypeCode">When provided runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="navTypeCode">When provided, creates the Fee against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Fee</returns>
@@ -154,10 +154,10 @@ namespace Lusid.Sdk.Api
         /// Deletes the given Bookmark.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the Fund for the Bookmark to be deleted.</param>
-        /// <param name="code">The code of the Fund containing the Bookmark to be deleted. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="bookmarkCode">The bookmark code for the bookmark to be deleted</param>
-        /// <param name="navTypeCode">When provided, Deletes the Bookmark against the specified NAV Type. When not provided the Primary NAV Type will be Deleted. (optional)</param>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="bookmarkCode">The bookmark code for the bookmark to be deleted.</param>
+        /// <param name="navTypeCode">When provided, deletes the Bookmark against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
@@ -170,10 +170,10 @@ namespace Lusid.Sdk.Api
         /// Deletes the given Bookmark.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the Fund for the Bookmark to be deleted.</param>
-        /// <param name="code">The code of the Fund containing the Bookmark to be deleted. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="bookmarkCode">The bookmark code for the bookmark to be deleted</param>
-        /// <param name="navTypeCode">When provided, Deletes the Bookmark against the specified NAV Type. When not provided the Primary NAV Type will be Deleted. (optional)</param>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="bookmarkCode">The bookmark code for the bookmark to be deleted.</param>
+        /// <param name="navTypeCode">When provided, deletes the Bookmark against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
@@ -185,7 +185,7 @@ namespace Lusid.Sdk.Api
         /// Delete the given Fee.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the Fund</param>
+        /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="feeCode">The code of the Fee to be deleted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -200,7 +200,7 @@ namespace Lusid.Sdk.Api
         /// Delete the given Fee.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the Fund</param>
+        /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="feeCode">The code of the Fee to be deleted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -241,10 +241,10 @@ namespace Lusid.Sdk.Api
         /// Deletes the given Valuation Point.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the Fund for the valuation point to be deleted.</param>
-        /// <param name="code">The code of the Fund containing the Valuation Point to be deleted. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="diaryEntryCode">The diary entry code for the valuation Point to be deleted.</param>
-        /// <param name="navTypeCode">When provided, Deletes the Valuation Point against the specified NAV Type. When not provided the Primary NAV Type will be Deleted. (optional)</param>
+        /// <param name="navTypeCode">When provided, deletes the Valuation Point against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
@@ -257,16 +257,16 @@ namespace Lusid.Sdk.Api
         /// Deletes the given Valuation Point.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the Fund for the valuation point to be deleted.</param>
-        /// <param name="code">The code of the Fund containing the Valuation Point to be deleted. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="diaryEntryCode">The diary entry code for the valuation Point to be deleted.</param>
-        /// <param name="navTypeCode">When provided, Deletes the Valuation Point against the specified NAV Type. When not provided the Primary NAV Type will be Deleted. (optional)</param>
+        /// <param name="navTypeCode">When provided, deletes the Valuation Point against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
         Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteValuationPointWithHttpInfo(string scope, string code, string diaryEntryCode, string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] FinaliseCandidateValuationPoint: Finalise Candidate.
+        /// [EXPERIMENTAL] FinaliseCandidateValuationPoint: Finalise a Candidate Valuation Point.
         /// </summary>
         /// <remarks>
         /// Moves a &#39;Candidate&#39; status Valuation Point to status &#39;Final&#39;.
@@ -274,15 +274,15 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="valuationPointDataRequest">The valuationPointDataRequest which contains the diary entry code to mark as final.</param>
-        /// <param name="navTypeCode">When provided Finalises the Valuation Point of the specified NAV Type. When not provided the Primary NAV Type will be Finalised. (optional)</param>
+        /// <param name="valuationPointDataRequest">The details of the Valuation Point to mark as final.</param>
+        /// <param name="navTypeCode">When provided, finalises the Valuation Point of the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ValuationPointDataResponse</returns>
         ValuationPointDataResponse FinaliseCandidateValuationPoint(string scope, string code, ValuationPointDataRequest valuationPointDataRequest, string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] FinaliseCandidateValuationPoint: Finalise Candidate.
+        /// [EXPERIMENTAL] FinaliseCandidateValuationPoint: Finalise a Candidate Valuation Point.
         /// </summary>
         /// <remarks>
         /// Moves a &#39;Candidate&#39; status Valuation Point to status &#39;Final&#39;.
@@ -290,8 +290,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="valuationPointDataRequest">The valuationPointDataRequest which contains the diary entry code to mark as final.</param>
-        /// <param name="navTypeCode">When provided Finalises the Valuation Point of the specified NAV Type. When not provided the Primary NAV Type will be Finalised. (optional)</param>
+        /// <param name="valuationPointDataRequest">The details of the Valuation Point to mark as final.</param>
+        /// <param name="navTypeCode">When provided, finalises the Valuation Point of the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ValuationPointDataResponse</returns>
@@ -300,7 +300,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetFee: Get a Fee for a specified Fund.
         /// </summary>
         /// <remarks>
-        /// Retrieve a fee for a specified Fund
+        /// Retrieve a fee for a specified Fund.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -318,7 +318,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetFee: Get a Fee for a specified Fund.
         /// </summary>
         /// <remarks>
-        /// Retrieve a fee for a specified Fund
+        /// Retrieve a fee for a specified Fund.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -332,7 +332,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of Fee</returns>
         Lusid.Sdk.Client.ApiResponse<Fee> GetFeeWithHttpInfo(string scope, string code, string feeCode, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetFeeProperties: Get Fee properties
+        /// [EXPERIMENTAL] GetFeeProperties: Get Fee properties.
         /// </summary>
         /// <remarks>
         /// Get all the properties of a single fee.
@@ -349,7 +349,7 @@ namespace Lusid.Sdk.Api
         FeeProperties GetFeeProperties(string scope, string code, string feeCode, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetFeeProperties: Get Fee properties
+        /// [EXPERIMENTAL] GetFeeProperties: Get Fee properties.
         /// </summary>
         /// <remarks>
         /// Get all the properties of a single fee.
@@ -398,7 +398,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of Fund</returns>
         Lusid.Sdk.Client.ApiResponse<Fund> GetFundWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetFundProperties: Get Fund properties
+        /// [EXPERIMENTAL] GetFundProperties: Get Fund properties.
         /// </summary>
         /// <remarks>
         /// Get all the properties of a single fund.
@@ -414,7 +414,7 @@ namespace Lusid.Sdk.Api
         FundProperties GetFundProperties(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetFundProperties: Get Fund properties
+        /// [EXPERIMENTAL] GetFundProperties: Get Fund properties.
         /// </summary>
         /// <remarks>
         /// Get all the properties of a single fund.
@@ -437,13 +437,13 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="singleValuationPointQueryParameters">The query parameters used for diary entry or effective date of Holdings</param>
-        /// <param name="navTypeCode">When provided runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="singleValuationPointQueryParameters">The arguments to use for querying the holdings.</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the holdings of transaction portfolios in the Fund. Defaults              to return the latest version of the holdings if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot;, \&quot;Holding\&quot; or \&quot;Portfolio\&quot; domain to decorate onto              the holdings. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/Cost\&quot;. (optional)</param>
         /// <param name="byTaxlots">Whether to expand the holdings to return the underlying tax-lots. Defaults to False. (optional)</param>
-        /// <param name="includeSettlementEventsAfterDays">Number of days ahead to bring back settlements from, in relation to the specified effectiveAt (optional)</param>
+        /// <param name="includeSettlementEventsAfterDays">Number of days ahead to bring back settlements from, in relation to the specified effectiveAt. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>VersionedResourceListOfPortfolioHolding</returns>
@@ -458,44 +458,44 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="singleValuationPointQueryParameters">The query parameters used for diary entry or effective date of Holdings</param>
-        /// <param name="navTypeCode">When provided runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="singleValuationPointQueryParameters">The arguments to use for querying the holdings.</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the holdings of transaction portfolios in the Fund. Defaults              to return the latest version of the holdings if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot;, \&quot;Holding\&quot; or \&quot;Portfolio\&quot; domain to decorate onto              the holdings. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/Cost\&quot;. (optional)</param>
         /// <param name="byTaxlots">Whether to expand the holdings to return the underlying tax-lots. Defaults to False. (optional)</param>
-        /// <param name="includeSettlementEventsAfterDays">Number of days ahead to bring back settlements from, in relation to the specified effectiveAt (optional)</param>
+        /// <param name="includeSettlementEventsAfterDays">Number of days ahead to bring back settlements from, in relation to the specified effectiveAt. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of VersionedResourceListOfPortfolioHolding</returns>
         Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfPortfolioHolding> GetHoldingsForFundWithHttpInfo(string scope, string code, SingleValuationPointQueryParameters singleValuationPointQueryParameters, string? navTypeCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? byTaxlots = default(bool?), int? includeSettlementEventsAfterDays = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationForFund: Perform valuation for a Fund
+        /// [EXPERIMENTAL] GetValuationForFund: Perform valuation for a Fund.
         /// </summary>
         /// <remarks>
         /// Perform valuation on a specified Fund.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the Fund</param>
-        /// <param name="code">The code of the Fund</param>
-        /// <param name="navTypeCode">When provided runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
-        /// <param name="fundValuationRequest">The request specifying the dates (or DiaryEntry) on which to calculate a set of valuation metrics (optional)</param>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="fundValuationRequest">The request specifying the dates (or DiaryEntry) on which to calculate a set of valuation metrics. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ListAggregationResponse</returns>
         ListAggregationResponse GetValuationForFund(string scope, string code, string? navTypeCode = default(string?), FundValuationRequest? fundValuationRequest = default(FundValuationRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationForFund: Perform valuation for a Fund
+        /// [EXPERIMENTAL] GetValuationForFund: Perform valuation for a Fund.
         /// </summary>
         /// <remarks>
         /// Perform valuation on a specified Fund.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the Fund</param>
-        /// <param name="code">The code of the Fund</param>
-        /// <param name="navTypeCode">When provided runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
-        /// <param name="fundValuationRequest">The request specifying the dates (or DiaryEntry) on which to calculate a set of valuation metrics (optional)</param>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="fundValuationRequest">The request specifying the dates (or DiaryEntry) on which to calculate a set of valuation metrics. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ListAggregationResponse</returns>
@@ -504,14 +504,14 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetValuationPointData: Get Valuation Point Data for a Fund.
         /// </summary>
         /// <remarks>
-        /// Retrieves the Valuation Point data for a date or specified Diary Entry Id.  The endpoint will internally extract all &#39;Assets&#39; and &#39;Liabilities&#39; from the related ABOR&#39;s Trial balance to produce a GAV.  Start date will be assumed from the last &#39;official&#39; DiaryEntry and EndDate will be as provided.
+        /// Retrieves the Valuation Point data between given dates or Valuation Point codes.  The endpoint will internally extract all &#39;Assets&#39; and &#39;Liabilities&#39; from the Fund&#39;s Trial balance to produce a GAV.  Start date will be assumed from the last &#39;official&#39; ValuationPoint and EndDate will be as provided.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="valuationPointDataQueryParameters">The arguments to use for querying the Valuation Point data</param>
+        /// <param name="valuationPointDataQueryParameters">The arguments to use for querying the Valuation Point data.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Fund definition. Defaults to returning the latest version of the Fund definition if not specified. (optional)</param>
-        /// <param name="navTypeCode">When provided runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ValuationPointDataResponse</returns>
@@ -521,57 +521,57 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetValuationPointData: Get Valuation Point Data for a Fund.
         /// </summary>
         /// <remarks>
-        /// Retrieves the Valuation Point data for a date or specified Diary Entry Id.  The endpoint will internally extract all &#39;Assets&#39; and &#39;Liabilities&#39; from the related ABOR&#39;s Trial balance to produce a GAV.  Start date will be assumed from the last &#39;official&#39; DiaryEntry and EndDate will be as provided.
+        /// Retrieves the Valuation Point data between given dates or Valuation Point codes.  The endpoint will internally extract all &#39;Assets&#39; and &#39;Liabilities&#39; from the Fund&#39;s Trial balance to produce a GAV.  Start date will be assumed from the last &#39;official&#39; ValuationPoint and EndDate will be as provided.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="valuationPointDataQueryParameters">The arguments to use for querying the Valuation Point data</param>
+        /// <param name="valuationPointDataQueryParameters">The arguments to use for querying the Valuation Point data.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Fund definition. Defaults to returning the latest version of the Fund definition if not specified. (optional)</param>
-        /// <param name="navTypeCode">When provided runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ValuationPointDataResponse</returns>
         Lusid.Sdk.Client.ApiResponse<ValuationPointDataResponse> GetValuationPointDataWithHttpInfo(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointJournalEntryLines: Get the Journal Entry lines for the given Fund.
+        /// [EXPERIMENTAL] GetValuationPointJournalEntryLines: Get the Journal Entry Lines for the given Fund.
         /// </summary>
         /// <remarks>
-        /// Gets the Journal Entry lines for the given Valuation Point for a Fund                The Journal Entry lines have been generated from transactions, translated via posting rules and used in the valuation point
+        /// Gets the Journal Entry Lines for the given Valuation Point for a Fund.                The Journal Entry Lines have been generated from transactions, translated via posting rules and used in the valuation point.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
-        /// <param name="code">The code of the Fund. Together with the scope is creating the unique identifier for the given Fund.</param>
-        /// <param name="valuationPointDataQueryParameters">The arguments to use for querying the Journal Entry lines.</param>
-        /// <param name="generalLedgerProfileCode">The optional code of a general ledger profile used to decorate journal entry lines with levels. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve Journal Entry lines. Defaults to returning the latest version               of each transaction if not specified. (optional)</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="valuationPointDataQueryParameters">The arguments to use for querying the Journal Entry Lines.</param>
+        /// <param name="generalLedgerProfileCode">The optional code of a General Ledger Profile used to decorate Journal Entry Lines with levels. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve Journal Entry Lines. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Journal Entry lines from a previous call to GetValuationPointJournalEntryLines. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;               domain to decorate onto the journal entry lines. (optional)</param>
-        /// <param name="navTypeCode">May be provided to view a specific NAV type. When not provided, Primary NAV will be used. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Journal Entry Lines from a previous call to GetValuationPointJournalEntryLines. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;               domain to decorate onto the Journal Entry Lines. (optional)</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ValuationPointResourceListOfFundJournalEntryLine</returns>
         ValuationPointResourceListOfFundJournalEntryLine GetValuationPointJournalEntryLines(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, string? generalLedgerProfileCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointJournalEntryLines: Get the Journal Entry lines for the given Fund.
+        /// [EXPERIMENTAL] GetValuationPointJournalEntryLines: Get the Journal Entry Lines for the given Fund.
         /// </summary>
         /// <remarks>
-        /// Gets the Journal Entry lines for the given Valuation Point for a Fund                The Journal Entry lines have been generated from transactions, translated via posting rules and used in the valuation point
+        /// Gets the Journal Entry Lines for the given Valuation Point for a Fund.                The Journal Entry Lines have been generated from transactions, translated via posting rules and used in the valuation point.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
-        /// <param name="code">The code of the Fund. Together with the scope is creating the unique identifier for the given Fund.</param>
-        /// <param name="valuationPointDataQueryParameters">The arguments to use for querying the Journal Entry lines.</param>
-        /// <param name="generalLedgerProfileCode">The optional code of a general ledger profile used to decorate journal entry lines with levels. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve Journal Entry lines. Defaults to returning the latest version               of each transaction if not specified. (optional)</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="valuationPointDataQueryParameters">The arguments to use for querying the Journal Entry Lines.</param>
+        /// <param name="generalLedgerProfileCode">The optional code of a General Ledger Profile used to decorate Journal Entry Lines with levels. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve Journal Entry Lines. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Journal Entry lines from a previous call to GetValuationPointJournalEntryLines. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;               domain to decorate onto the journal entry lines. (optional)</param>
-        /// <param name="navTypeCode">May be provided to view a specific NAV type. When not provided, Primary NAV will be used. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Journal Entry Lines from a previous call to GetValuationPointJournalEntryLines. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;               domain to decorate onto the Journal Entry Lines. (optional)</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ValuationPointResourceListOfFundJournalEntryLine</returns>
@@ -580,18 +580,18 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetValuationPointPnlSummary: Get a PnL summary for the given Valuation Point in the Fund.
         /// </summary>
         /// <remarks>
-        /// Gets the PnL Summary lines from the journal entry lines produced when calculating the valuation point.
+        /// Gets the PnL Summary lines from the Journal Entry Lines produced when calculating the Valuation Point.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
-        /// <param name="code">The code of the Fund. Together with the scope is the unique identifier for the given Fund.</param>
-        /// <param name="valuationPointDataQueryParameters">The query parameters used in running the generation of the PnL summary</param>
-        /// <param name="generalLedgerProfileCode">The optional code of a general ledger profile used to decorate journal entry lines with levels. (optional)</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="valuationPointDataQueryParameters">The arguments to use for generating the PnL summary.</param>
+        /// <param name="generalLedgerProfileCode">The optional code of a General Ledger Profile used to decorate Journal Entry Lines with levels. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve PnL summary. Defaults to returning the latest version              of each transaction if not specified. (optional)</param>
         /// <param name="filter">\&quot;Expression to filter the result set.\&quot; (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Trial balance from a previous call to Trial balance. (optional)</param>
-        /// <param name="navTypeCode">May be provided to view a specific NAV type. When not provided, Primary NAV will be used. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing results from a previous call to GetValuationPointPnlSummary. (optional)</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ValuationPointResourceListOfPnlJournalEntryLine</returns>
@@ -601,18 +601,18 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetValuationPointPnlSummary: Get a PnL summary for the given Valuation Point in the Fund.
         /// </summary>
         /// <remarks>
-        /// Gets the PnL Summary lines from the journal entry lines produced when calculating the valuation point.
+        /// Gets the PnL Summary lines from the Journal Entry Lines produced when calculating the Valuation Point.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
-        /// <param name="code">The code of the Fund. Together with the scope is the unique identifier for the given Fund.</param>
-        /// <param name="valuationPointDataQueryParameters">The query parameters used in running the generation of the PnL summary</param>
-        /// <param name="generalLedgerProfileCode">The optional code of a general ledger profile used to decorate journal entry lines with levels. (optional)</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="valuationPointDataQueryParameters">The arguments to use for generating the PnL summary.</param>
+        /// <param name="generalLedgerProfileCode">The optional code of a General Ledger Profile used to decorate Journal Entry Lines with levels. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve PnL summary. Defaults to returning the latest version              of each transaction if not specified. (optional)</param>
         /// <param name="filter">\&quot;Expression to filter the result set.\&quot; (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Trial balance from a previous call to Trial balance. (optional)</param>
-        /// <param name="navTypeCode">May be provided to view a specific NAV type. When not provided, Primary NAV will be used. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing results from a previous call to GetValuationPointPnlSummary. (optional)</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ValuationPointResourceListOfPnlJournalEntryLine</returns>
@@ -621,43 +621,47 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetValuationPointTransactions: Get the Transactions for the given Fund.
         /// </summary>
         /// <remarks>
-        /// Gets the Transactions for the given Valuation Point for a Fund
+        /// Gets the Transactions for the given Valuation Point for a Fund.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
-        /// <param name="code">The code of the Fund. Together with the scope is creating the unique identifier for the given Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="valuationPointDataQueryParameters">The arguments to use for querying the transactions.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve transactions. Defaults to returning the latest version              of each transaction if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to GetValuationPointTransactions. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;              domain to decorate onto the journal entry lines. (optional)</param>
-        /// <param name="navTypeCode">May be provided to view a specific NAV type. When not provided, Primary NAV will be used. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;              domain to decorate onto the transactions. (optional)</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ValuationPointResourceListOfAccountedTransaction</returns>
-        ValuationPointResourceListOfAccountedTransaction GetValuationPointTransactions(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        ValuationPointResourceListOfAccountedTransaction GetValuationPointTransactions(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetValuationPointTransactions: Get the Transactions for the given Fund.
         /// </summary>
         /// <remarks>
-        /// Gets the Transactions for the given Valuation Point for a Fund
+        /// Gets the Transactions for the given Valuation Point for a Fund.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
-        /// <param name="code">The code of the Fund. Together with the scope is creating the unique identifier for the given Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="valuationPointDataQueryParameters">The arguments to use for querying the transactions.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve transactions. Defaults to returning the latest version              of each transaction if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to GetValuationPointTransactions. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;              domain to decorate onto the journal entry lines. (optional)</param>
-        /// <param name="navTypeCode">May be provided to view a specific NAV type. When not provided, Primary NAV will be used. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;              domain to decorate onto the transactions. (optional)</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ValuationPointResourceListOfAccountedTransaction</returns>
-        Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfAccountedTransaction> GetValuationPointTransactionsWithHttpInfo(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfAccountedTransaction> GetValuationPointTransactionsWithHttpInfo(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetValuationPointTrialBalance: Get Trial Balance for the given Fund.
         /// </summary>
@@ -667,14 +671,14 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="valuationPointDataQueryParameters">The query parameters used in running the generation of the Trial Balance.</param>
-        /// <param name="generalLedgerProfileCode">The optional code of a general ledger profile used to decorate journal entry lines with levels. (optional)</param>
+        /// <param name="valuationPointDataQueryParameters">The arguments to use for generating the Trial Balance.</param>
+        /// <param name="generalLedgerProfileCode">The optional code of a General Ledger Profile used to decorate Journal Entry Lines with levels. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Trial Balance.               Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results by.               For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this number.               Defaults to 100 if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing Trial Balances.               This token is returned from the previous call.               If a pagination token is provided, the filter, effectiveAt and asAt fields               must not have changed since the original request. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;               domain to decorate onto the journal entry lines. (optional)</param>
-        /// <param name="navTypeCode">May be provided to view a specific NAV type. When not provided, Primary NAV will be used. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;               domain to decorate onto the TrialBalance. (optional)</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ValuationPointResourceListOfTrialBalance</returns>
@@ -689,14 +693,14 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="valuationPointDataQueryParameters">The query parameters used in running the generation of the Trial Balance.</param>
-        /// <param name="generalLedgerProfileCode">The optional code of a general ledger profile used to decorate journal entry lines with levels. (optional)</param>
+        /// <param name="valuationPointDataQueryParameters">The arguments to use for generating the Trial Balance.</param>
+        /// <param name="generalLedgerProfileCode">The optional code of a General Ledger Profile used to decorate Journal Entry Lines with levels. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Trial Balance.               Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results by.               For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this number.               Defaults to 100 if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing Trial Balances.               This token is returned from the previous call.               If a pagination token is provided, the filter, effectiveAt and asAt fields               must not have changed since the original request. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;               domain to decorate onto the journal entry lines. (optional)</param>
-        /// <param name="navTypeCode">May be provided to view a specific NAV type. When not provided, Primary NAV will be used. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;               domain to decorate onto the TrialBalance. (optional)</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ValuationPointResourceListOfTrialBalance</returns>
@@ -709,7 +713,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
-        /// <param name="code">The code of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Fees. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to list the Fees. Defaults to returning the latest version of each Fee if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing fees; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
@@ -730,7 +734,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
-        /// <param name="code">The code of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Fees. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to list the Fees. Defaults to returning the latest version of each Fee if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing fees; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
@@ -749,13 +753,13 @@ namespace Lusid.Sdk.Api
         /// List all the Calendar Entries associated with the Fund.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The Scope for the Fund.</param>
-        /// <param name="code">The Code for the Fund.</param>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="asAt">The asAt datetime at which to list the Calendar. Defaults to returning the latest version of each Calendar Entry if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Valuation Points; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Calendar Entries; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For example, to filter on the DisplayName, specify \&quot;displayName eq &#39;VP 1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
-        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
+        /// <param name="filter">Expression to filter the results. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;ClosedPeriod&#39; domain to decorate onto each item. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -769,13 +773,13 @@ namespace Lusid.Sdk.Api
         /// List all the Calendar Entries associated with the Fund.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The Scope for the Fund.</param>
-        /// <param name="code">The Code for the Fund.</param>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="asAt">The asAt datetime at which to list the Calendar. Defaults to returning the latest version of each Calendar Entry if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Valuation Points; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Calendar Entries; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For example, to filter on the DisplayName, specify \&quot;displayName eq &#39;VP 1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
-        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
+        /// <param name="filter">Expression to filter the results. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;ClosedPeriod&#39; domain to decorate onto each item. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -792,7 +796,7 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the Funds. Defaults to returning the latest version of each Fund if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing Funds; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For example, to filter on the Fund type, specify \&quot;id.Code eq &#39;Fund1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the Fund code, specify \&quot;id.Code eq &#39;Fund1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;Fund&#39; domain to decorate onto each Fund.              These must take the format {domain}/{scope}/{code}, for example &#39;Fund/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -811,7 +815,7 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the Funds. Defaults to returning the latest version of each Fund if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing Funds; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For example, to filter on the Fund type, specify \&quot;id.Code eq &#39;Fund1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the Fund code, specify \&quot;id.Code eq &#39;Fund1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;Fund&#39; domain to decorate onto each Fund.              These must take the format {domain}/{scope}/{code}, for example &#39;Fund/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -822,18 +826,18 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListValuationPointOverview: List Valuation Points Overview for a given Fund.
         /// </summary>
         /// <remarks>
-        /// List all the Valuation Points that match the given criteria for a given Fund.
+        /// List the overview of all the Valuation Points that match the given criteria for a given Fund.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
-        /// <param name="code">The code of the Fund.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the ValuationPoints. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the ValuationPoints. Defaults to returning the latest version of each ValuationPoint if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing ValuationPoints; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Valuation Points. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the Valuation Points. Defaults to returning the latest version of each Valuation Point if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Valuation Points; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results by.              For example, to filter on the NAV, specify \&quot;NAV gt 300\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;DiaryEntry&#39; domain to decorate onto each ValuationPoint.              These must take the format {domain}/{scope}/{code}, for example &#39;DiaryEntry/ValuationPoint/Id&#39;. (optional)</param>
-        /// <param name="navTypeCode">May be provided to view a specific NAV type. When not provided, Primary NAV will be used. (optional)</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfValuationPointOverview</returns>
@@ -843,18 +847,18 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListValuationPointOverview: List Valuation Points Overview for a given Fund.
         /// </summary>
         /// <remarks>
-        /// List all the Valuation Points that match the given criteria for a given Fund.
+        /// List the overview of all the Valuation Points that match the given criteria for a given Fund.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
-        /// <param name="code">The code of the Fund.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the ValuationPoints. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the ValuationPoints. Defaults to returning the latest version of each ValuationPoint if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing ValuationPoints; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Valuation Points. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the Valuation Points. Defaults to returning the latest version of each Valuation Point if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Valuation Points; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results by.              For example, to filter on the NAV, specify \&quot;NAV gt 300\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;DiaryEntry&#39; domain to decorate onto each ValuationPoint.              These must take the format {domain}/{scope}/{code}, for example &#39;DiaryEntry/ValuationPoint/Id&#39;. (optional)</param>
-        /// <param name="navTypeCode">May be provided to view a specific NAV type. When not provided, Primary NAV will be used. (optional)</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfValuationPointOverview</returns>
@@ -920,14 +924,14 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of Fund</returns>
         Lusid.Sdk.Client.ApiResponse<Fund> PatchFundWithHttpInfo(string scope, string code, List<Operation> operation, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] SetShareClassInstruments: Set the ShareClass Instruments on a fund.
+        /// [EXPERIMENTAL] SetShareClassInstruments: Set the ShareClass Instruments on a Fund.
         /// </summary>
         /// <remarks>
-        /// Update the ShareClass Instruments on an existing fund with the set of instruments provided.
+        /// Update the ShareClass Instruments on an existing Fund with the set of instruments provided.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
-        /// <param name="code">The code of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="setShareClassInstrumentsRequest">The scopes and instrument identifiers for the instruments to be set.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -935,14 +939,14 @@ namespace Lusid.Sdk.Api
         Fund SetShareClassInstruments(string scope, string code, SetShareClassInstrumentsRequest setShareClassInstrumentsRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] SetShareClassInstruments: Set the ShareClass Instruments on a fund.
+        /// [EXPERIMENTAL] SetShareClassInstruments: Set the ShareClass Instruments on a Fund.
         /// </summary>
         /// <remarks>
-        /// Update the ShareClass Instruments on an existing fund with the set of instruments provided.
+        /// Update the ShareClass Instruments on an existing Fund with the set of instruments provided.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
-        /// <param name="code">The code of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="setShareClassInstrumentsRequest">The scopes and instrument identifiers for the instruments to be set.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -957,8 +961,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="upsertFundBookmarkRequest">The bookmark definition to Upsert</param>
-        /// <param name="navTypeCode">When provided, Upserts the Valuation Point against the specified NAV Type. When not provided, the Primary NAV Type will be used. (optional)</param>
+        /// <param name="upsertFundBookmarkRequest">The bookmark definition to upsert.</param>
+        /// <param name="navTypeCode">When provided, upserts the Valuation Point against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>FundCalendarEntry</returns>
@@ -973,14 +977,14 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="upsertFundBookmarkRequest">The bookmark definition to Upsert</param>
-        /// <param name="navTypeCode">When provided, Upserts the Valuation Point against the specified NAV Type. When not provided, the Primary NAV Type will be used. (optional)</param>
+        /// <param name="upsertFundBookmarkRequest">The bookmark definition to upsert.</param>
+        /// <param name="navTypeCode">When provided, upserts the Valuation Point against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of FundCalendarEntry</returns>
         Lusid.Sdk.Client.ApiResponse<FundCalendarEntry> UpsertBookmarkWithHttpInfo(string scope, string code, UpsertFundBookmarkRequest upsertFundBookmarkRequest, string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] UpsertDiaryEntryTypeValuationPoint: Upsert Valuation Point.
+        /// [EXPERIMENTAL] UpsertDiaryEntryTypeValuationPoint: Upsert a Valuation Point.
         /// </summary>
         /// <remarks>
         /// Update or insert the estimate Valuation Point.                If the Valuation Point does not exist, this method will create it in estimate state.                If the Valuation Point already exists and is in estimate state, the Valuation Point will be updated with the newly specified information in this request.
@@ -988,15 +992,15 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="upsertValuationPointRequest">The Valuation Point Estimate definition to Upsert</param>
-        /// <param name="navTypeCode">When provided, Upserts the Valuation Point against the specified NAV Type. When not provided the Primary NAV Type will be used. (optional)</param>
+        /// <param name="upsertValuationPointRequest">The Valuation Point Estimate definition to upsert.</param>
+        /// <param name="navTypeCode">When provided, upserts the Valuation Point against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>DiaryEntry</returns>
         DiaryEntry UpsertDiaryEntryTypeValuationPoint(string scope, string code, UpsertValuationPointRequest upsertValuationPointRequest, string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertDiaryEntryTypeValuationPoint: Upsert Valuation Point.
+        /// [EXPERIMENTAL] UpsertDiaryEntryTypeValuationPoint: Upsert a Valuation Point.
         /// </summary>
         /// <remarks>
         /// Update or insert the estimate Valuation Point.                If the Valuation Point does not exist, this method will create it in estimate state.                If the Valuation Point already exists and is in estimate state, the Valuation Point will be updated with the newly specified information in this request.
@@ -1004,8 +1008,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="upsertValuationPointRequest">The Valuation Point Estimate definition to Upsert</param>
-        /// <param name="navTypeCode">When provided, Upserts the Valuation Point against the specified NAV Type. When not provided the Primary NAV Type will be used. (optional)</param>
+        /// <param name="upsertValuationPointRequest">The Valuation Point Estimate definition to upsert.</param>
+        /// <param name="navTypeCode">When provided, upserts the Valuation Point against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DiaryEntry</returns>
@@ -1014,7 +1018,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] UpsertFeeProperties: Upsert Fee properties.
         /// </summary>
         /// <remarks>
-        /// Update or insert one or more properties onto a single Fee. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Fee&#39;.                Upserting a property that exists for an Fee, with a null value, will delete the instance of the property for that group.       Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// Update or insert one or more properties onto a single Fee. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Fee&#39;.                Upserting a property that exists for an Fee, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -1030,7 +1034,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] UpsertFeeProperties: Upsert Fee properties.
         /// </summary>
         /// <remarks>
-        /// Update or insert one or more properties onto a single Fee. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Fee&#39;.                Upserting a property that exists for an Fee, with a null value, will delete the instance of the property for that group.       Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// Update or insert one or more properties onto a single Fee. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Fee&#39;.                Upserting a property that exists for an Fee, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -1048,8 +1052,8 @@ namespace Lusid.Sdk.Api
         /// Update or insert one or more properties onto a single Fund. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Fund&#39;.                Upserting a property that exists for an Fund, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the Fund to update or insert the properties onto.</param>
-        /// <param name="code">The code of the Fund to update or insert the properties onto. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="requestBody">The properties to be updated or inserted onto the Fund. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;Fund/Manager/Id\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1063,8 +1067,8 @@ namespace Lusid.Sdk.Api
         /// Update or insert one or more properties onto a single Fund. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Fund&#39;.                Upserting a property that exists for an Fund, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the Fund to update or insert the properties onto.</param>
-        /// <param name="code">The code of the Fund to update or insert the properties onto. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="requestBody">The properties to be updated or inserted onto the Fund. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;Fund/Manager/Id\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1089,7 +1093,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="valuationPointDataRequest">The valuationPointDataRequest which contains the Diary Entry code for the Estimate Valuation Point to move to Candidate or Final state.</param>
-        /// <param name="navTypeCode">When provided Accepts the Valuation Point of the specified NAV Type. When not provided the Primary NAV Type will be Accepted. (optional)</param>
+        /// <param name="navTypeCode">When provided, accepts the Valuation Point of the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1106,7 +1110,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="valuationPointDataRequest">The valuationPointDataRequest which contains the Diary Entry code for the Estimate Valuation Point to move to Candidate or Final state.</param>
-        /// <param name="navTypeCode">When provided Accepts the Valuation Point of the specified NAV Type. When not provided the Primary NAV Type will be Accepted. (optional)</param>
+        /// <param name="navTypeCode">When provided, accepts the Valuation Point of the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1122,7 +1126,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="feeRequest">The Fee to create.</param>
-        /// <param name="navTypeCode">When provided runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="navTypeCode">When provided, creates the Fee against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1139,7 +1143,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="feeRequest">The Fee to create.</param>
-        /// <param name="navTypeCode">When provided runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="navTypeCode">When provided, creates the Fee against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1210,10 +1214,10 @@ namespace Lusid.Sdk.Api
         /// Deletes the given Bookmark.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the Fund for the Bookmark to be deleted.</param>
-        /// <param name="code">The code of the Fund containing the Bookmark to be deleted. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="bookmarkCode">The bookmark code for the bookmark to be deleted</param>
-        /// <param name="navTypeCode">When provided, Deletes the Bookmark against the specified NAV Type. When not provided the Primary NAV Type will be Deleted. (optional)</param>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="bookmarkCode">The bookmark code for the bookmark to be deleted.</param>
+        /// <param name="navTypeCode">When provided, deletes the Bookmark against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1227,10 +1231,10 @@ namespace Lusid.Sdk.Api
         /// Deletes the given Bookmark.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the Fund for the Bookmark to be deleted.</param>
-        /// <param name="code">The code of the Fund containing the Bookmark to be deleted. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="bookmarkCode">The bookmark code for the bookmark to be deleted</param>
-        /// <param name="navTypeCode">When provided, Deletes the Bookmark against the specified NAV Type. When not provided the Primary NAV Type will be Deleted. (optional)</param>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="bookmarkCode">The bookmark code for the bookmark to be deleted.</param>
+        /// <param name="navTypeCode">When provided, deletes the Bookmark against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1243,7 +1247,7 @@ namespace Lusid.Sdk.Api
         /// Delete the given Fee.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the Fund</param>
+        /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="feeCode">The code of the Fee to be deleted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1259,7 +1263,7 @@ namespace Lusid.Sdk.Api
         /// Delete the given Fee.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the Fund</param>
+        /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="feeCode">The code of the Fee to be deleted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1303,10 +1307,10 @@ namespace Lusid.Sdk.Api
         /// Deletes the given Valuation Point.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the Fund for the valuation point to be deleted.</param>
-        /// <param name="code">The code of the Fund containing the Valuation Point to be deleted. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="diaryEntryCode">The diary entry code for the valuation Point to be deleted.</param>
-        /// <param name="navTypeCode">When provided, Deletes the Valuation Point against the specified NAV Type. When not provided the Primary NAV Type will be Deleted. (optional)</param>
+        /// <param name="navTypeCode">When provided, deletes the Valuation Point against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1320,17 +1324,17 @@ namespace Lusid.Sdk.Api
         /// Deletes the given Valuation Point.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the Fund for the valuation point to be deleted.</param>
-        /// <param name="code">The code of the Fund containing the Valuation Point to be deleted. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="diaryEntryCode">The diary entry code for the valuation Point to be deleted.</param>
-        /// <param name="navTypeCode">When provided, Deletes the Valuation Point against the specified NAV Type. When not provided the Primary NAV Type will be Deleted. (optional)</param>
+        /// <param name="navTypeCode">When provided, deletes the Valuation Point against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteValuationPointWithHttpInfoAsync(string scope, string code, string diaryEntryCode, string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] FinaliseCandidateValuationPoint: Finalise Candidate.
+        /// [EXPERIMENTAL] FinaliseCandidateValuationPoint: Finalise a Candidate Valuation Point.
         /// </summary>
         /// <remarks>
         /// Moves a &#39;Candidate&#39; status Valuation Point to status &#39;Final&#39;.
@@ -1338,8 +1342,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="valuationPointDataRequest">The valuationPointDataRequest which contains the diary entry code to mark as final.</param>
-        /// <param name="navTypeCode">When provided Finalises the Valuation Point of the specified NAV Type. When not provided the Primary NAV Type will be Finalised. (optional)</param>
+        /// <param name="valuationPointDataRequest">The details of the Valuation Point to mark as final.</param>
+        /// <param name="navTypeCode">When provided, finalises the Valuation Point of the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1347,7 +1351,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ValuationPointDataResponse> FinaliseCandidateValuationPointAsync(string scope, string code, ValuationPointDataRequest valuationPointDataRequest, string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] FinaliseCandidateValuationPoint: Finalise Candidate.
+        /// [EXPERIMENTAL] FinaliseCandidateValuationPoint: Finalise a Candidate Valuation Point.
         /// </summary>
         /// <remarks>
         /// Moves a &#39;Candidate&#39; status Valuation Point to status &#39;Final&#39;.
@@ -1355,8 +1359,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="valuationPointDataRequest">The valuationPointDataRequest which contains the diary entry code to mark as final.</param>
-        /// <param name="navTypeCode">When provided Finalises the Valuation Point of the specified NAV Type. When not provided the Primary NAV Type will be Finalised. (optional)</param>
+        /// <param name="valuationPointDataRequest">The details of the Valuation Point to mark as final.</param>
+        /// <param name="navTypeCode">When provided, finalises the Valuation Point of the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1366,7 +1370,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetFee: Get a Fee for a specified Fund.
         /// </summary>
         /// <remarks>
-        /// Retrieve a fee for a specified Fund
+        /// Retrieve a fee for a specified Fund.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -1385,7 +1389,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetFee: Get a Fee for a specified Fund.
         /// </summary>
         /// <remarks>
-        /// Retrieve a fee for a specified Fund
+        /// Retrieve a fee for a specified Fund.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -1400,7 +1404,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (Fee)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Fee>> GetFeeWithHttpInfoAsync(string scope, string code, string feeCode, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetFeeProperties: Get Fee properties
+        /// [EXPERIMENTAL] GetFeeProperties: Get Fee properties.
         /// </summary>
         /// <remarks>
         /// Get all the properties of a single fee.
@@ -1418,7 +1422,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<FeeProperties> GetFeePropertiesAsync(string scope, string code, string feeCode, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetFeeProperties: Get Fee properties
+        /// [EXPERIMENTAL] GetFeeProperties: Get Fee properties.
         /// </summary>
         /// <remarks>
         /// Get all the properties of a single fee.
@@ -1470,7 +1474,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (Fund)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Fund>> GetFundWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetFundProperties: Get Fund properties
+        /// [EXPERIMENTAL] GetFundProperties: Get Fund properties.
         /// </summary>
         /// <remarks>
         /// Get all the properties of a single fund.
@@ -1487,7 +1491,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<FundProperties> GetFundPropertiesAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetFundProperties: Get Fund properties
+        /// [EXPERIMENTAL] GetFundProperties: Get Fund properties.
         /// </summary>
         /// <remarks>
         /// Get all the properties of a single fund.
@@ -1511,13 +1515,13 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="singleValuationPointQueryParameters">The query parameters used for diary entry or effective date of Holdings</param>
-        /// <param name="navTypeCode">When provided runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="singleValuationPointQueryParameters">The arguments to use for querying the holdings.</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the holdings of transaction portfolios in the Fund. Defaults              to return the latest version of the holdings if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot;, \&quot;Holding\&quot; or \&quot;Portfolio\&quot; domain to decorate onto              the holdings. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/Cost\&quot;. (optional)</param>
         /// <param name="byTaxlots">Whether to expand the holdings to return the underlying tax-lots. Defaults to False. (optional)</param>
-        /// <param name="includeSettlementEventsAfterDays">Number of days ahead to bring back settlements from, in relation to the specified effectiveAt (optional)</param>
+        /// <param name="includeSettlementEventsAfterDays">Number of days ahead to bring back settlements from, in relation to the specified effectiveAt. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1533,29 +1537,29 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="singleValuationPointQueryParameters">The query parameters used for diary entry or effective date of Holdings</param>
-        /// <param name="navTypeCode">When provided runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="singleValuationPointQueryParameters">The arguments to use for querying the holdings.</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the holdings of transaction portfolios in the Fund. Defaults              to return the latest version of the holdings if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot;, \&quot;Holding\&quot; or \&quot;Portfolio\&quot; domain to decorate onto              the holdings. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/Cost\&quot;. (optional)</param>
         /// <param name="byTaxlots">Whether to expand the holdings to return the underlying tax-lots. Defaults to False. (optional)</param>
-        /// <param name="includeSettlementEventsAfterDays">Number of days ahead to bring back settlements from, in relation to the specified effectiveAt (optional)</param>
+        /// <param name="includeSettlementEventsAfterDays">Number of days ahead to bring back settlements from, in relation to the specified effectiveAt. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (VersionedResourceListOfPortfolioHolding)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfPortfolioHolding>> GetHoldingsForFundWithHttpInfoAsync(string scope, string code, SingleValuationPointQueryParameters singleValuationPointQueryParameters, string? navTypeCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? byTaxlots = default(bool?), int? includeSettlementEventsAfterDays = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationForFund: Perform valuation for a Fund
+        /// [EXPERIMENTAL] GetValuationForFund: Perform valuation for a Fund.
         /// </summary>
         /// <remarks>
         /// Perform valuation on a specified Fund.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the Fund</param>
-        /// <param name="code">The code of the Fund</param>
-        /// <param name="navTypeCode">When provided runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
-        /// <param name="fundValuationRequest">The request specifying the dates (or DiaryEntry) on which to calculate a set of valuation metrics (optional)</param>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="fundValuationRequest">The request specifying the dates (or DiaryEntry) on which to calculate a set of valuation metrics. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1563,16 +1567,16 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ListAggregationResponse> GetValuationForFundAsync(string scope, string code, string? navTypeCode = default(string?), FundValuationRequest? fundValuationRequest = default(FundValuationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationForFund: Perform valuation for a Fund
+        /// [EXPERIMENTAL] GetValuationForFund: Perform valuation for a Fund.
         /// </summary>
         /// <remarks>
         /// Perform valuation on a specified Fund.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the Fund</param>
-        /// <param name="code">The code of the Fund</param>
-        /// <param name="navTypeCode">When provided runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
-        /// <param name="fundValuationRequest">The request specifying the dates (or DiaryEntry) on which to calculate a set of valuation metrics (optional)</param>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="fundValuationRequest">The request specifying the dates (or DiaryEntry) on which to calculate a set of valuation metrics. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1582,14 +1586,14 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetValuationPointData: Get Valuation Point Data for a Fund.
         /// </summary>
         /// <remarks>
-        /// Retrieves the Valuation Point data for a date or specified Diary Entry Id.  The endpoint will internally extract all &#39;Assets&#39; and &#39;Liabilities&#39; from the related ABOR&#39;s Trial balance to produce a GAV.  Start date will be assumed from the last &#39;official&#39; DiaryEntry and EndDate will be as provided.
+        /// Retrieves the Valuation Point data between given dates or Valuation Point codes.  The endpoint will internally extract all &#39;Assets&#39; and &#39;Liabilities&#39; from the Fund&#39;s Trial balance to produce a GAV.  Start date will be assumed from the last &#39;official&#39; ValuationPoint and EndDate will be as provided.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="valuationPointDataQueryParameters">The arguments to use for querying the Valuation Point data</param>
+        /// <param name="valuationPointDataQueryParameters">The arguments to use for querying the Valuation Point data.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Fund definition. Defaults to returning the latest version of the Fund definition if not specified. (optional)</param>
-        /// <param name="navTypeCode">When provided runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1600,36 +1604,36 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetValuationPointData: Get Valuation Point Data for a Fund.
         /// </summary>
         /// <remarks>
-        /// Retrieves the Valuation Point data for a date or specified Diary Entry Id.  The endpoint will internally extract all &#39;Assets&#39; and &#39;Liabilities&#39; from the related ABOR&#39;s Trial balance to produce a GAV.  Start date will be assumed from the last &#39;official&#39; DiaryEntry and EndDate will be as provided.
+        /// Retrieves the Valuation Point data between given dates or Valuation Point codes.  The endpoint will internally extract all &#39;Assets&#39; and &#39;Liabilities&#39; from the Fund&#39;s Trial balance to produce a GAV.  Start date will be assumed from the last &#39;official&#39; ValuationPoint and EndDate will be as provided.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="valuationPointDataQueryParameters">The arguments to use for querying the Valuation Point data</param>
+        /// <param name="valuationPointDataQueryParameters">The arguments to use for querying the Valuation Point data.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Fund definition. Defaults to returning the latest version of the Fund definition if not specified. (optional)</param>
-        /// <param name="navTypeCode">When provided runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ValuationPointDataResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ValuationPointDataResponse>> GetValuationPointDataWithHttpInfoAsync(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointJournalEntryLines: Get the Journal Entry lines for the given Fund.
+        /// [EXPERIMENTAL] GetValuationPointJournalEntryLines: Get the Journal Entry Lines for the given Fund.
         /// </summary>
         /// <remarks>
-        /// Gets the Journal Entry lines for the given Valuation Point for a Fund                The Journal Entry lines have been generated from transactions, translated via posting rules and used in the valuation point
+        /// Gets the Journal Entry Lines for the given Valuation Point for a Fund.                The Journal Entry Lines have been generated from transactions, translated via posting rules and used in the valuation point.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
-        /// <param name="code">The code of the Fund. Together with the scope is creating the unique identifier for the given Fund.</param>
-        /// <param name="valuationPointDataQueryParameters">The arguments to use for querying the Journal Entry lines.</param>
-        /// <param name="generalLedgerProfileCode">The optional code of a general ledger profile used to decorate journal entry lines with levels. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve Journal Entry lines. Defaults to returning the latest version               of each transaction if not specified. (optional)</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="valuationPointDataQueryParameters">The arguments to use for querying the Journal Entry Lines.</param>
+        /// <param name="generalLedgerProfileCode">The optional code of a General Ledger Profile used to decorate Journal Entry Lines with levels. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve Journal Entry Lines. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Journal Entry lines from a previous call to GetValuationPointJournalEntryLines. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;               domain to decorate onto the journal entry lines. (optional)</param>
-        /// <param name="navTypeCode">May be provided to view a specific NAV type. When not provided, Primary NAV will be used. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Journal Entry Lines from a previous call to GetValuationPointJournalEntryLines. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;               domain to decorate onto the Journal Entry Lines. (optional)</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1637,22 +1641,22 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ValuationPointResourceListOfFundJournalEntryLine> GetValuationPointJournalEntryLinesAsync(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, string? generalLedgerProfileCode = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointJournalEntryLines: Get the Journal Entry lines for the given Fund.
+        /// [EXPERIMENTAL] GetValuationPointJournalEntryLines: Get the Journal Entry Lines for the given Fund.
         /// </summary>
         /// <remarks>
-        /// Gets the Journal Entry lines for the given Valuation Point for a Fund                The Journal Entry lines have been generated from transactions, translated via posting rules and used in the valuation point
+        /// Gets the Journal Entry Lines for the given Valuation Point for a Fund.                The Journal Entry Lines have been generated from transactions, translated via posting rules and used in the valuation point.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
-        /// <param name="code">The code of the Fund. Together with the scope is creating the unique identifier for the given Fund.</param>
-        /// <param name="valuationPointDataQueryParameters">The arguments to use for querying the Journal Entry lines.</param>
-        /// <param name="generalLedgerProfileCode">The optional code of a general ledger profile used to decorate journal entry lines with levels. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve Journal Entry lines. Defaults to returning the latest version               of each transaction if not specified. (optional)</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="valuationPointDataQueryParameters">The arguments to use for querying the Journal Entry Lines.</param>
+        /// <param name="generalLedgerProfileCode">The optional code of a General Ledger Profile used to decorate Journal Entry Lines with levels. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve Journal Entry Lines. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Journal Entry lines from a previous call to GetValuationPointJournalEntryLines. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;               domain to decorate onto the journal entry lines. (optional)</param>
-        /// <param name="navTypeCode">May be provided to view a specific NAV type. When not provided, Primary NAV will be used. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Journal Entry Lines from a previous call to GetValuationPointJournalEntryLines. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;               domain to decorate onto the Journal Entry Lines. (optional)</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1662,18 +1666,18 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetValuationPointPnlSummary: Get a PnL summary for the given Valuation Point in the Fund.
         /// </summary>
         /// <remarks>
-        /// Gets the PnL Summary lines from the journal entry lines produced when calculating the valuation point.
+        /// Gets the PnL Summary lines from the Journal Entry Lines produced when calculating the Valuation Point.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
-        /// <param name="code">The code of the Fund. Together with the scope is the unique identifier for the given Fund.</param>
-        /// <param name="valuationPointDataQueryParameters">The query parameters used in running the generation of the PnL summary</param>
-        /// <param name="generalLedgerProfileCode">The optional code of a general ledger profile used to decorate journal entry lines with levels. (optional)</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="valuationPointDataQueryParameters">The arguments to use for generating the PnL summary.</param>
+        /// <param name="generalLedgerProfileCode">The optional code of a General Ledger Profile used to decorate Journal Entry Lines with levels. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve PnL summary. Defaults to returning the latest version              of each transaction if not specified. (optional)</param>
         /// <param name="filter">\&quot;Expression to filter the result set.\&quot; (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Trial balance from a previous call to Trial balance. (optional)</param>
-        /// <param name="navTypeCode">May be provided to view a specific NAV type. When not provided, Primary NAV will be used. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing results from a previous call to GetValuationPointPnlSummary. (optional)</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1684,18 +1688,18 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetValuationPointPnlSummary: Get a PnL summary for the given Valuation Point in the Fund.
         /// </summary>
         /// <remarks>
-        /// Gets the PnL Summary lines from the journal entry lines produced when calculating the valuation point.
+        /// Gets the PnL Summary lines from the Journal Entry Lines produced when calculating the Valuation Point.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
-        /// <param name="code">The code of the Fund. Together with the scope is the unique identifier for the given Fund.</param>
-        /// <param name="valuationPointDataQueryParameters">The query parameters used in running the generation of the PnL summary</param>
-        /// <param name="generalLedgerProfileCode">The optional code of a general ledger profile used to decorate journal entry lines with levels. (optional)</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="valuationPointDataQueryParameters">The arguments to use for generating the PnL summary.</param>
+        /// <param name="generalLedgerProfileCode">The optional code of a General Ledger Profile used to decorate Journal Entry Lines with levels. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve PnL summary. Defaults to returning the latest version              of each transaction if not specified. (optional)</param>
         /// <param name="filter">\&quot;Expression to filter the result set.\&quot; (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Trial balance from a previous call to Trial balance. (optional)</param>
-        /// <param name="navTypeCode">May be provided to view a specific NAV type. When not provided, Primary NAV will be used. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing results from a previous call to GetValuationPointPnlSummary. (optional)</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1705,45 +1709,49 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetValuationPointTransactions: Get the Transactions for the given Fund.
         /// </summary>
         /// <remarks>
-        /// Gets the Transactions for the given Valuation Point for a Fund
+        /// Gets the Transactions for the given Valuation Point for a Fund.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
-        /// <param name="code">The code of the Fund. Together with the scope is creating the unique identifier for the given Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="valuationPointDataQueryParameters">The arguments to use for querying the transactions.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve transactions. Defaults to returning the latest version              of each transaction if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to GetValuationPointTransactions. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;              domain to decorate onto the journal entry lines. (optional)</param>
-        /// <param name="navTypeCode">May be provided to view a specific NAV type. When not provided, Primary NAV will be used. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;              domain to decorate onto the transactions. (optional)</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ValuationPointResourceListOfAccountedTransaction</returns>
-        System.Threading.Tasks.Task<ValuationPointResourceListOfAccountedTransaction> GetValuationPointTransactionsAsync(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<ValuationPointResourceListOfAccountedTransaction> GetValuationPointTransactionsAsync(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetValuationPointTransactions: Get the Transactions for the given Fund.
         /// </summary>
         /// <remarks>
-        /// Gets the Transactions for the given Valuation Point for a Fund
+        /// Gets the Transactions for the given Valuation Point for a Fund.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
-        /// <param name="code">The code of the Fund. Together with the scope is creating the unique identifier for the given Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="valuationPointDataQueryParameters">The arguments to use for querying the transactions.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve transactions. Defaults to returning the latest version              of each transaction if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to GetValuationPointTransactions. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;              domain to decorate onto the journal entry lines. (optional)</param>
-        /// <param name="navTypeCode">May be provided to view a specific NAV type. When not provided, Primary NAV will be used. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;              domain to decorate onto the transactions. (optional)</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ValuationPointResourceListOfAccountedTransaction)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfAccountedTransaction>> GetValuationPointTransactionsWithHttpInfoAsync(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfAccountedTransaction>> GetValuationPointTransactionsWithHttpInfoAsync(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetValuationPointTrialBalance: Get Trial Balance for the given Fund.
         /// </summary>
@@ -1753,14 +1761,14 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="valuationPointDataQueryParameters">The query parameters used in running the generation of the Trial Balance.</param>
-        /// <param name="generalLedgerProfileCode">The optional code of a general ledger profile used to decorate journal entry lines with levels. (optional)</param>
+        /// <param name="valuationPointDataQueryParameters">The arguments to use for generating the Trial Balance.</param>
+        /// <param name="generalLedgerProfileCode">The optional code of a General Ledger Profile used to decorate Journal Entry Lines with levels. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Trial Balance.               Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results by.               For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this number.               Defaults to 100 if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing Trial Balances.               This token is returned from the previous call.               If a pagination token is provided, the filter, effectiveAt and asAt fields               must not have changed since the original request. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;               domain to decorate onto the journal entry lines. (optional)</param>
-        /// <param name="navTypeCode">May be provided to view a specific NAV type. When not provided, Primary NAV will be used. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;               domain to decorate onto the TrialBalance. (optional)</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1776,14 +1784,14 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="valuationPointDataQueryParameters">The query parameters used in running the generation of the Trial Balance.</param>
-        /// <param name="generalLedgerProfileCode">The optional code of a general ledger profile used to decorate journal entry lines with levels. (optional)</param>
+        /// <param name="valuationPointDataQueryParameters">The arguments to use for generating the Trial Balance.</param>
+        /// <param name="generalLedgerProfileCode">The optional code of a General Ledger Profile used to decorate Journal Entry Lines with levels. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Trial Balance.               Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results by.               For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this number.               Defaults to 100 if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing Trial Balances.               This token is returned from the previous call.               If a pagination token is provided, the filter, effectiveAt and asAt fields               must not have changed since the original request. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;               domain to decorate onto the journal entry lines. (optional)</param>
-        /// <param name="navTypeCode">May be provided to view a specific NAV type. When not provided, Primary NAV will be used. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;               domain to decorate onto the TrialBalance. (optional)</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1797,7 +1805,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
-        /// <param name="code">The code of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Fees. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to list the Fees. Defaults to returning the latest version of each Fee if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing fees; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
@@ -1819,7 +1827,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
-        /// <param name="code">The code of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Fees. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to list the Fees. Defaults to returning the latest version of each Fee if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing fees; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
@@ -1839,13 +1847,13 @@ namespace Lusid.Sdk.Api
         /// List all the Calendar Entries associated with the Fund.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The Scope for the Fund.</param>
-        /// <param name="code">The Code for the Fund.</param>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="asAt">The asAt datetime at which to list the Calendar. Defaults to returning the latest version of each Calendar Entry if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Valuation Points; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Calendar Entries; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For example, to filter on the DisplayName, specify \&quot;displayName eq &#39;VP 1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
-        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
+        /// <param name="filter">Expression to filter the results. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;ClosedPeriod&#39; domain to decorate onto each item. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1860,13 +1868,13 @@ namespace Lusid.Sdk.Api
         /// List all the Calendar Entries associated with the Fund.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The Scope for the Fund.</param>
-        /// <param name="code">The Code for the Fund.</param>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="asAt">The asAt datetime at which to list the Calendar. Defaults to returning the latest version of each Calendar Entry if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Valuation Points; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Calendar Entries; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For example, to filter on the DisplayName, specify \&quot;displayName eq &#39;VP 1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
-        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
+        /// <param name="filter">Expression to filter the results. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;ClosedPeriod&#39; domain to decorate onto each item. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1884,7 +1892,7 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the Funds. Defaults to returning the latest version of each Fund if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing Funds; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For example, to filter on the Fund type, specify \&quot;id.Code eq &#39;Fund1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the Fund code, specify \&quot;id.Code eq &#39;Fund1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;Fund&#39; domain to decorate onto each Fund.              These must take the format {domain}/{scope}/{code}, for example &#39;Fund/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1904,7 +1912,7 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the Funds. Defaults to returning the latest version of each Fund if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing Funds; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For example, to filter on the Fund type, specify \&quot;id.Code eq &#39;Fund1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the Fund code, specify \&quot;id.Code eq &#39;Fund1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;Fund&#39; domain to decorate onto each Fund.              These must take the format {domain}/{scope}/{code}, for example &#39;Fund/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1916,18 +1924,18 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListValuationPointOverview: List Valuation Points Overview for a given Fund.
         /// </summary>
         /// <remarks>
-        /// List all the Valuation Points that match the given criteria for a given Fund.
+        /// List the overview of all the Valuation Points that match the given criteria for a given Fund.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
-        /// <param name="code">The code of the Fund.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the ValuationPoints. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the ValuationPoints. Defaults to returning the latest version of each ValuationPoint if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing ValuationPoints; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Valuation Points. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the Valuation Points. Defaults to returning the latest version of each Valuation Point if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Valuation Points; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results by.              For example, to filter on the NAV, specify \&quot;NAV gt 300\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;DiaryEntry&#39; domain to decorate onto each ValuationPoint.              These must take the format {domain}/{scope}/{code}, for example &#39;DiaryEntry/ValuationPoint/Id&#39;. (optional)</param>
-        /// <param name="navTypeCode">May be provided to view a specific NAV type. When not provided, Primary NAV will be used. (optional)</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1938,18 +1946,18 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListValuationPointOverview: List Valuation Points Overview for a given Fund.
         /// </summary>
         /// <remarks>
-        /// List all the Valuation Points that match the given criteria for a given Fund.
+        /// List the overview of all the Valuation Points that match the given criteria for a given Fund.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
-        /// <param name="code">The code of the Fund.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the ValuationPoints. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the ValuationPoints. Defaults to returning the latest version of each ValuationPoint if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing ValuationPoints; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Valuation Points. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the Valuation Points. Defaults to returning the latest version of each Valuation Point if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Valuation Points; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results by.              For example, to filter on the NAV, specify \&quot;NAV gt 300\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;DiaryEntry&#39; domain to decorate onto each ValuationPoint.              These must take the format {domain}/{scope}/{code}, for example &#39;DiaryEntry/ValuationPoint/Id&#39;. (optional)</param>
-        /// <param name="navTypeCode">May be provided to view a specific NAV type. When not provided, Primary NAV will be used. (optional)</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2020,14 +2028,14 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (Fund)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Fund>> PatchFundWithHttpInfoAsync(string scope, string code, List<Operation> operation, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] SetShareClassInstruments: Set the ShareClass Instruments on a fund.
+        /// [EXPERIMENTAL] SetShareClassInstruments: Set the ShareClass Instruments on a Fund.
         /// </summary>
         /// <remarks>
-        /// Update the ShareClass Instruments on an existing fund with the set of instruments provided.
+        /// Update the ShareClass Instruments on an existing Fund with the set of instruments provided.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
-        /// <param name="code">The code of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="setShareClassInstrumentsRequest">The scopes and instrument identifiers for the instruments to be set.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2036,14 +2044,14 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<Fund> SetShareClassInstrumentsAsync(string scope, string code, SetShareClassInstrumentsRequest setShareClassInstrumentsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] SetShareClassInstruments: Set the ShareClass Instruments on a fund.
+        /// [EXPERIMENTAL] SetShareClassInstruments: Set the ShareClass Instruments on a Fund.
         /// </summary>
         /// <remarks>
-        /// Update the ShareClass Instruments on an existing fund with the set of instruments provided.
+        /// Update the ShareClass Instruments on an existing Fund with the set of instruments provided.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
-        /// <param name="code">The code of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="setShareClassInstrumentsRequest">The scopes and instrument identifiers for the instruments to be set.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2059,8 +2067,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="upsertFundBookmarkRequest">The bookmark definition to Upsert</param>
-        /// <param name="navTypeCode">When provided, Upserts the Valuation Point against the specified NAV Type. When not provided, the Primary NAV Type will be used. (optional)</param>
+        /// <param name="upsertFundBookmarkRequest">The bookmark definition to upsert.</param>
+        /// <param name="navTypeCode">When provided, upserts the Valuation Point against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2076,15 +2084,15 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="upsertFundBookmarkRequest">The bookmark definition to Upsert</param>
-        /// <param name="navTypeCode">When provided, Upserts the Valuation Point against the specified NAV Type. When not provided, the Primary NAV Type will be used. (optional)</param>
+        /// <param name="upsertFundBookmarkRequest">The bookmark definition to upsert.</param>
+        /// <param name="navTypeCode">When provided, upserts the Valuation Point against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (FundCalendarEntry)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<FundCalendarEntry>> UpsertBookmarkWithHttpInfoAsync(string scope, string code, UpsertFundBookmarkRequest upsertFundBookmarkRequest, string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] UpsertDiaryEntryTypeValuationPoint: Upsert Valuation Point.
+        /// [EXPERIMENTAL] UpsertDiaryEntryTypeValuationPoint: Upsert a Valuation Point.
         /// </summary>
         /// <remarks>
         /// Update or insert the estimate Valuation Point.                If the Valuation Point does not exist, this method will create it in estimate state.                If the Valuation Point already exists and is in estimate state, the Valuation Point will be updated with the newly specified information in this request.
@@ -2092,8 +2100,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="upsertValuationPointRequest">The Valuation Point Estimate definition to Upsert</param>
-        /// <param name="navTypeCode">When provided, Upserts the Valuation Point against the specified NAV Type. When not provided the Primary NAV Type will be used. (optional)</param>
+        /// <param name="upsertValuationPointRequest">The Valuation Point Estimate definition to upsert.</param>
+        /// <param name="navTypeCode">When provided, upserts the Valuation Point against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2101,7 +2109,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<DiaryEntry> UpsertDiaryEntryTypeValuationPointAsync(string scope, string code, UpsertValuationPointRequest upsertValuationPointRequest, string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertDiaryEntryTypeValuationPoint: Upsert Valuation Point.
+        /// [EXPERIMENTAL] UpsertDiaryEntryTypeValuationPoint: Upsert a Valuation Point.
         /// </summary>
         /// <remarks>
         /// Update or insert the estimate Valuation Point.                If the Valuation Point does not exist, this method will create it in estimate state.                If the Valuation Point already exists and is in estimate state, the Valuation Point will be updated with the newly specified information in this request.
@@ -2109,8 +2117,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="upsertValuationPointRequest">The Valuation Point Estimate definition to Upsert</param>
-        /// <param name="navTypeCode">When provided, Upserts the Valuation Point against the specified NAV Type. When not provided the Primary NAV Type will be used. (optional)</param>
+        /// <param name="upsertValuationPointRequest">The Valuation Point Estimate definition to upsert.</param>
+        /// <param name="navTypeCode">When provided, upserts the Valuation Point against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2120,7 +2128,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] UpsertFeeProperties: Upsert Fee properties.
         /// </summary>
         /// <remarks>
-        /// Update or insert one or more properties onto a single Fee. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Fee&#39;.                Upserting a property that exists for an Fee, with a null value, will delete the instance of the property for that group.       Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// Update or insert one or more properties onto a single Fee. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Fee&#39;.                Upserting a property that exists for an Fee, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -2137,7 +2145,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] UpsertFeeProperties: Upsert Fee properties.
         /// </summary>
         /// <remarks>
-        /// Update or insert one or more properties onto a single Fee. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Fee&#39;.                Upserting a property that exists for an Fee, with a null value, will delete the instance of the property for that group.       Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// Update or insert one or more properties onto a single Fee. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Fee&#39;.                Upserting a property that exists for an Fee, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -2156,8 +2164,8 @@ namespace Lusid.Sdk.Api
         /// Update or insert one or more properties onto a single Fund. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Fund&#39;.                Upserting a property that exists for an Fund, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the Fund to update or insert the properties onto.</param>
-        /// <param name="code">The code of the Fund to update or insert the properties onto. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="requestBody">The properties to be updated or inserted onto the Fund. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;Fund/Manager/Id\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2172,8 +2180,8 @@ namespace Lusid.Sdk.Api
         /// Update or insert one or more properties onto a single Fund. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Fund&#39;.                Upserting a property that exists for an Fund, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the Fund to update or insert the properties onto.</param>
-        /// <param name="code">The code of the Fund to update or insert the properties onto. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="requestBody">The properties to be updated or inserted onto the Fund. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;Fund/Manager/Id\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2310,7 +2318,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="valuationPointDataRequest">The valuationPointDataRequest which contains the Diary Entry code for the Estimate Valuation Point to move to Candidate or Final state.</param>
-        /// <param name="navTypeCode">When provided Accepts the Valuation Point of the specified NAV Type. When not provided the Primary NAV Type will be Accepted. (optional)</param>
+        /// <param name="navTypeCode">When provided, accepts the Valuation Point of the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>AcceptEstimateValuationPointResponse</returns>
@@ -2327,7 +2335,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="valuationPointDataRequest">The valuationPointDataRequest which contains the Diary Entry code for the Estimate Valuation Point to move to Candidate or Final state.</param>
-        /// <param name="navTypeCode">When provided Accepts the Valuation Point of the specified NAV Type. When not provided the Primary NAV Type will be Accepted. (optional)</param>
+        /// <param name="navTypeCode">When provided, accepts the Valuation Point of the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AcceptEstimateValuationPointResponse</returns>
@@ -2439,7 +2447,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="valuationPointDataRequest">The valuationPointDataRequest which contains the Diary Entry code for the Estimate Valuation Point to move to Candidate or Final state.</param>
-        /// <param name="navTypeCode">When provided Accepts the Valuation Point of the specified NAV Type. When not provided the Primary NAV Type will be Accepted. (optional)</param>
+        /// <param name="navTypeCode">When provided, accepts the Valuation Point of the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2457,7 +2465,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="valuationPointDataRequest">The valuationPointDataRequest which contains the Diary Entry code for the Estimate Valuation Point to move to Candidate or Final state.</param>
-        /// <param name="navTypeCode">When provided Accepts the Valuation Point of the specified NAV Type. When not provided the Primary NAV Type will be Accepted. (optional)</param>
+        /// <param name="navTypeCode">When provided, accepts the Valuation Point of the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2571,7 +2579,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="feeRequest">The Fee to create.</param>
-        /// <param name="navTypeCode">When provided runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="navTypeCode">When provided, creates the Fee against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Fee</returns>
@@ -2588,7 +2596,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="feeRequest">The Fee to create.</param>
-        /// <param name="navTypeCode">When provided runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="navTypeCode">When provided, creates the Fee against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Fee</returns>
@@ -2700,7 +2708,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="feeRequest">The Fee to create.</param>
-        /// <param name="navTypeCode">When provided runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="navTypeCode">When provided, creates the Fee against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2718,7 +2726,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="feeRequest">The Fee to create.</param>
-        /// <param name="navTypeCode">When provided runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="navTypeCode">When provided, creates the Fee against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -3289,10 +3297,10 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] DeleteBookmark: Delete a Bookmark. Deletes the given Bookmark.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the Fund for the Bookmark to be deleted.</param>
-        /// <param name="code">The code of the Fund containing the Bookmark to be deleted. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="bookmarkCode">The bookmark code for the bookmark to be deleted</param>
-        /// <param name="navTypeCode">When provided, Deletes the Bookmark against the specified NAV Type. When not provided the Primary NAV Type will be Deleted. (optional)</param>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="bookmarkCode">The bookmark code for the bookmark to be deleted.</param>
+        /// <param name="navTypeCode">When provided, deletes the Bookmark against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
@@ -3306,10 +3314,10 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] DeleteBookmark: Delete a Bookmark. Deletes the given Bookmark.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the Fund for the Bookmark to be deleted.</param>
-        /// <param name="code">The code of the Fund containing the Bookmark to be deleted. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="bookmarkCode">The bookmark code for the bookmark to be deleted</param>
-        /// <param name="navTypeCode">When provided, Deletes the Bookmark against the specified NAV Type. When not provided the Primary NAV Type will be Deleted. (optional)</param>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="bookmarkCode">The bookmark code for the bookmark to be deleted.</param>
+        /// <param name="navTypeCode">When provided, deletes the Bookmark against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
@@ -3414,10 +3422,10 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] DeleteBookmark: Delete a Bookmark. Deletes the given Bookmark.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the Fund for the Bookmark to be deleted.</param>
-        /// <param name="code">The code of the Fund containing the Bookmark to be deleted. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="bookmarkCode">The bookmark code for the bookmark to be deleted</param>
-        /// <param name="navTypeCode">When provided, Deletes the Bookmark against the specified NAV Type. When not provided the Primary NAV Type will be Deleted. (optional)</param>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="bookmarkCode">The bookmark code for the bookmark to be deleted.</param>
+        /// <param name="navTypeCode">When provided, deletes the Bookmark against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -3432,10 +3440,10 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] DeleteBookmark: Delete a Bookmark. Deletes the given Bookmark.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the Fund for the Bookmark to be deleted.</param>
-        /// <param name="code">The code of the Fund containing the Bookmark to be deleted. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="bookmarkCode">The bookmark code for the bookmark to be deleted</param>
-        /// <param name="navTypeCode">When provided, Deletes the Bookmark against the specified NAV Type. When not provided the Primary NAV Type will be Deleted. (optional)</param>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="bookmarkCode">The bookmark code for the bookmark to be deleted.</param>
+        /// <param name="navTypeCode">When provided, deletes the Bookmark against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -3542,7 +3550,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] DeleteFee: Delete a Fee. Delete the given Fee.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the Fund</param>
+        /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="feeCode">The code of the Fee to be deleted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -3558,7 +3566,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] DeleteFee: Delete a Fee. Delete the given Fee.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the Fund</param>
+        /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="feeCode">The code of the Fee to be deleted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -3660,7 +3668,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] DeleteFee: Delete a Fee. Delete the given Fee.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the Fund</param>
+        /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="feeCode">The code of the Fee to be deleted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -3677,7 +3685,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] DeleteFee: Delete a Fee. Delete the given Fee.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the Fund</param>
+        /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="feeCode">The code of the Fee to be deleted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -4004,10 +4012,10 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] DeleteValuationPoint: Delete a Valuation Point. Deletes the given Valuation Point.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the Fund for the valuation point to be deleted.</param>
-        /// <param name="code">The code of the Fund containing the Valuation Point to be deleted. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="diaryEntryCode">The diary entry code for the valuation Point to be deleted.</param>
-        /// <param name="navTypeCode">When provided, Deletes the Valuation Point against the specified NAV Type. When not provided the Primary NAV Type will be Deleted. (optional)</param>
+        /// <param name="navTypeCode">When provided, deletes the Valuation Point against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
@@ -4021,10 +4029,10 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] DeleteValuationPoint: Delete a Valuation Point. Deletes the given Valuation Point.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the Fund for the valuation point to be deleted.</param>
-        /// <param name="code">The code of the Fund containing the Valuation Point to be deleted. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="diaryEntryCode">The diary entry code for the valuation Point to be deleted.</param>
-        /// <param name="navTypeCode">When provided, Deletes the Valuation Point against the specified NAV Type. When not provided the Primary NAV Type will be Deleted. (optional)</param>
+        /// <param name="navTypeCode">When provided, deletes the Valuation Point against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
@@ -4129,10 +4137,10 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] DeleteValuationPoint: Delete a Valuation Point. Deletes the given Valuation Point.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the Fund for the valuation point to be deleted.</param>
-        /// <param name="code">The code of the Fund containing the Valuation Point to be deleted. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="diaryEntryCode">The diary entry code for the valuation Point to be deleted.</param>
-        /// <param name="navTypeCode">When provided, Deletes the Valuation Point against the specified NAV Type. When not provided the Primary NAV Type will be Deleted. (optional)</param>
+        /// <param name="navTypeCode">When provided, deletes the Valuation Point against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -4147,10 +4155,10 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] DeleteValuationPoint: Delete a Valuation Point. Deletes the given Valuation Point.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the Fund for the valuation point to be deleted.</param>
-        /// <param name="code">The code of the Fund containing the Valuation Point to be deleted. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="diaryEntryCode">The diary entry code for the valuation Point to be deleted.</param>
-        /// <param name="navTypeCode">When provided, Deletes the Valuation Point against the specified NAV Type. When not provided the Primary NAV Type will be Deleted. (optional)</param>
+        /// <param name="navTypeCode">When provided, deletes the Valuation Point against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -4254,13 +4262,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] FinaliseCandidateValuationPoint: Finalise Candidate. Moves a &#39;Candidate&#39; status Valuation Point to status &#39;Final&#39;.
+        /// [EXPERIMENTAL] FinaliseCandidateValuationPoint: Finalise a Candidate Valuation Point. Moves a &#39;Candidate&#39; status Valuation Point to status &#39;Final&#39;.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="valuationPointDataRequest">The valuationPointDataRequest which contains the diary entry code to mark as final.</param>
-        /// <param name="navTypeCode">When provided Finalises the Valuation Point of the specified NAV Type. When not provided the Primary NAV Type will be Finalised. (optional)</param>
+        /// <param name="valuationPointDataRequest">The details of the Valuation Point to mark as final.</param>
+        /// <param name="navTypeCode">When provided, finalises the Valuation Point of the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ValuationPointDataResponse</returns>
@@ -4271,13 +4279,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] FinaliseCandidateValuationPoint: Finalise Candidate. Moves a &#39;Candidate&#39; status Valuation Point to status &#39;Final&#39;.
+        /// [EXPERIMENTAL] FinaliseCandidateValuationPoint: Finalise a Candidate Valuation Point. Moves a &#39;Candidate&#39; status Valuation Point to status &#39;Final&#39;.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="valuationPointDataRequest">The valuationPointDataRequest which contains the diary entry code to mark as final.</param>
-        /// <param name="navTypeCode">When provided Finalises the Valuation Point of the specified NAV Type. When not provided the Primary NAV Type will be Finalised. (optional)</param>
+        /// <param name="valuationPointDataRequest">The details of the Valuation Point to mark as final.</param>
+        /// <param name="navTypeCode">When provided, finalises the Valuation Point of the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ValuationPointDataResponse</returns>
@@ -4383,13 +4391,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] FinaliseCandidateValuationPoint: Finalise Candidate. Moves a &#39;Candidate&#39; status Valuation Point to status &#39;Final&#39;.
+        /// [EXPERIMENTAL] FinaliseCandidateValuationPoint: Finalise a Candidate Valuation Point. Moves a &#39;Candidate&#39; status Valuation Point to status &#39;Final&#39;.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="valuationPointDataRequest">The valuationPointDataRequest which contains the diary entry code to mark as final.</param>
-        /// <param name="navTypeCode">When provided Finalises the Valuation Point of the specified NAV Type. When not provided the Primary NAV Type will be Finalised. (optional)</param>
+        /// <param name="valuationPointDataRequest">The details of the Valuation Point to mark as final.</param>
+        /// <param name="navTypeCode">When provided, finalises the Valuation Point of the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -4401,13 +4409,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] FinaliseCandidateValuationPoint: Finalise Candidate. Moves a &#39;Candidate&#39; status Valuation Point to status &#39;Final&#39;.
+        /// [EXPERIMENTAL] FinaliseCandidateValuationPoint: Finalise a Candidate Valuation Point. Moves a &#39;Candidate&#39; status Valuation Point to status &#39;Final&#39;.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="valuationPointDataRequest">The valuationPointDataRequest which contains the diary entry code to mark as final.</param>
-        /// <param name="navTypeCode">When provided Finalises the Valuation Point of the specified NAV Type. When not provided the Primary NAV Type will be Finalised. (optional)</param>
+        /// <param name="valuationPointDataRequest">The details of the Valuation Point to mark as final.</param>
+        /// <param name="navTypeCode">When provided, finalises the Valuation Point of the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -4515,7 +4523,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetFee: Get a Fee for a specified Fund. Retrieve a fee for a specified Fund
+        /// [EXPERIMENTAL] GetFee: Get a Fee for a specified Fund. Retrieve a fee for a specified Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -4534,7 +4542,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetFee: Get a Fee for a specified Fund. Retrieve a fee for a specified Fund
+        /// [EXPERIMENTAL] GetFee: Get a Fee for a specified Fund. Retrieve a fee for a specified Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -4654,7 +4662,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetFee: Get a Fee for a specified Fund. Retrieve a fee for a specified Fund
+        /// [EXPERIMENTAL] GetFee: Get a Fee for a specified Fund. Retrieve a fee for a specified Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -4674,7 +4682,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetFee: Get a Fee for a specified Fund. Retrieve a fee for a specified Fund
+        /// [EXPERIMENTAL] GetFee: Get a Fee for a specified Fund. Retrieve a fee for a specified Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -4794,7 +4802,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetFeeProperties: Get Fee properties Get all the properties of a single fee.
+        /// [EXPERIMENTAL] GetFeeProperties: Get Fee properties. Get all the properties of a single fee.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -4812,7 +4820,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetFeeProperties: Get Fee properties Get all the properties of a single fee.
+        /// [EXPERIMENTAL] GetFeeProperties: Get Fee properties. Get all the properties of a single fee.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -4926,7 +4934,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetFeeProperties: Get Fee properties Get all the properties of a single fee.
+        /// [EXPERIMENTAL] GetFeeProperties: Get Fee properties. Get all the properties of a single fee.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -4945,7 +4953,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetFeeProperties: Get Fee properties Get all the properties of a single fee.
+        /// [EXPERIMENTAL] GetFeeProperties: Get Fee properties. Get all the properties of a single fee.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -5321,7 +5329,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetFundProperties: Get Fund properties Get all the properties of a single fund.
+        /// [EXPERIMENTAL] GetFundProperties: Get Fund properties. Get all the properties of a single fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund to list the properties for.</param>
@@ -5338,7 +5346,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetFundProperties: Get Fund properties Get all the properties of a single fund.
+        /// [EXPERIMENTAL] GetFundProperties: Get Fund properties. Get all the properties of a single fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund to list the properties for.</param>
@@ -5444,7 +5452,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetFundProperties: Get Fund properties Get all the properties of a single fund.
+        /// [EXPERIMENTAL] GetFundProperties: Get Fund properties. Get all the properties of a single fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund to list the properties for.</param>
@@ -5462,7 +5470,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetFundProperties: Get Fund properties Get all the properties of a single fund.
+        /// [EXPERIMENTAL] GetFundProperties: Get Fund properties. Get all the properties of a single fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund to list the properties for.</param>
@@ -5574,13 +5582,13 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="singleValuationPointQueryParameters">The query parameters used for diary entry or effective date of Holdings</param>
-        /// <param name="navTypeCode">When provided runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="singleValuationPointQueryParameters">The arguments to use for querying the holdings.</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the holdings of transaction portfolios in the Fund. Defaults              to return the latest version of the holdings if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot;, \&quot;Holding\&quot; or \&quot;Portfolio\&quot; domain to decorate onto              the holdings. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/Cost\&quot;. (optional)</param>
         /// <param name="byTaxlots">Whether to expand the holdings to return the underlying tax-lots. Defaults to False. (optional)</param>
-        /// <param name="includeSettlementEventsAfterDays">Number of days ahead to bring back settlements from, in relation to the specified effectiveAt (optional)</param>
+        /// <param name="includeSettlementEventsAfterDays">Number of days ahead to bring back settlements from, in relation to the specified effectiveAt. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>VersionedResourceListOfPortfolioHolding</returns>
@@ -5596,13 +5604,13 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="singleValuationPointQueryParameters">The query parameters used for diary entry or effective date of Holdings</param>
-        /// <param name="navTypeCode">When provided runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="singleValuationPointQueryParameters">The arguments to use for querying the holdings.</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the holdings of transaction portfolios in the Fund. Defaults              to return the latest version of the holdings if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot;, \&quot;Holding\&quot; or \&quot;Portfolio\&quot; domain to decorate onto              the holdings. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/Cost\&quot;. (optional)</param>
         /// <param name="byTaxlots">Whether to expand the holdings to return the underlying tax-lots. Defaults to False. (optional)</param>
-        /// <param name="includeSettlementEventsAfterDays">Number of days ahead to bring back settlements from, in relation to the specified effectiveAt (optional)</param>
+        /// <param name="includeSettlementEventsAfterDays">Number of days ahead to bring back settlements from, in relation to the specified effectiveAt. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of VersionedResourceListOfPortfolioHolding</returns>
@@ -5738,13 +5746,13 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="singleValuationPointQueryParameters">The query parameters used for diary entry or effective date of Holdings</param>
-        /// <param name="navTypeCode">When provided runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="singleValuationPointQueryParameters">The arguments to use for querying the holdings.</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the holdings of transaction portfolios in the Fund. Defaults              to return the latest version of the holdings if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot;, \&quot;Holding\&quot; or \&quot;Portfolio\&quot; domain to decorate onto              the holdings. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/Cost\&quot;. (optional)</param>
         /// <param name="byTaxlots">Whether to expand the holdings to return the underlying tax-lots. Defaults to False. (optional)</param>
-        /// <param name="includeSettlementEventsAfterDays">Number of days ahead to bring back settlements from, in relation to the specified effectiveAt (optional)</param>
+        /// <param name="includeSettlementEventsAfterDays">Number of days ahead to bring back settlements from, in relation to the specified effectiveAt. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -5761,13 +5769,13 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="singleValuationPointQueryParameters">The query parameters used for diary entry or effective date of Holdings</param>
-        /// <param name="navTypeCode">When provided runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="singleValuationPointQueryParameters">The arguments to use for querying the holdings.</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the holdings of transaction portfolios in the Fund. Defaults              to return the latest version of the holdings if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot;, \&quot;Holding\&quot; or \&quot;Portfolio\&quot; domain to decorate onto              the holdings. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/Cost\&quot;. (optional)</param>
         /// <param name="byTaxlots">Whether to expand the holdings to return the underlying tax-lots. Defaults to False. (optional)</param>
-        /// <param name="includeSettlementEventsAfterDays">Number of days ahead to bring back settlements from, in relation to the specified effectiveAt (optional)</param>
+        /// <param name="includeSettlementEventsAfterDays">Number of days ahead to bring back settlements from, in relation to the specified effectiveAt. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -5895,13 +5903,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationForFund: Perform valuation for a Fund Perform valuation on a specified Fund.
+        /// [EXPERIMENTAL] GetValuationForFund: Perform valuation for a Fund. Perform valuation on a specified Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the Fund</param>
-        /// <param name="code">The code of the Fund</param>
-        /// <param name="navTypeCode">When provided runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
-        /// <param name="fundValuationRequest">The request specifying the dates (or DiaryEntry) on which to calculate a set of valuation metrics (optional)</param>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="fundValuationRequest">The request specifying the dates (or DiaryEntry) on which to calculate a set of valuation metrics. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ListAggregationResponse</returns>
@@ -5912,13 +5920,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationForFund: Perform valuation for a Fund Perform valuation on a specified Fund.
+        /// [EXPERIMENTAL] GetValuationForFund: Perform valuation for a Fund. Perform valuation on a specified Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the Fund</param>
-        /// <param name="code">The code of the Fund</param>
-        /// <param name="navTypeCode">When provided runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
-        /// <param name="fundValuationRequest">The request specifying the dates (or DiaryEntry) on which to calculate a set of valuation metrics (optional)</param>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="fundValuationRequest">The request specifying the dates (or DiaryEntry) on which to calculate a set of valuation metrics. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ListAggregationResponse</returns>
@@ -6018,13 +6026,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationForFund: Perform valuation for a Fund Perform valuation on a specified Fund.
+        /// [EXPERIMENTAL] GetValuationForFund: Perform valuation for a Fund. Perform valuation on a specified Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the Fund</param>
-        /// <param name="code">The code of the Fund</param>
-        /// <param name="navTypeCode">When provided runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
-        /// <param name="fundValuationRequest">The request specifying the dates (or DiaryEntry) on which to calculate a set of valuation metrics (optional)</param>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="fundValuationRequest">The request specifying the dates (or DiaryEntry) on which to calculate a set of valuation metrics. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -6036,13 +6044,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationForFund: Perform valuation for a Fund Perform valuation on a specified Fund.
+        /// [EXPERIMENTAL] GetValuationForFund: Perform valuation for a Fund. Perform valuation on a specified Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the Fund</param>
-        /// <param name="code">The code of the Fund</param>
-        /// <param name="navTypeCode">When provided runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
-        /// <param name="fundValuationRequest">The request specifying the dates (or DiaryEntry) on which to calculate a set of valuation metrics (optional)</param>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="fundValuationRequest">The request specifying the dates (or DiaryEntry) on which to calculate a set of valuation metrics. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -6144,14 +6152,14 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointData: Get Valuation Point Data for a Fund. Retrieves the Valuation Point data for a date or specified Diary Entry Id.  The endpoint will internally extract all &#39;Assets&#39; and &#39;Liabilities&#39; from the related ABOR&#39;s Trial balance to produce a GAV.  Start date will be assumed from the last &#39;official&#39; DiaryEntry and EndDate will be as provided.
+        /// [EXPERIMENTAL] GetValuationPointData: Get Valuation Point Data for a Fund. Retrieves the Valuation Point data between given dates or Valuation Point codes.  The endpoint will internally extract all &#39;Assets&#39; and &#39;Liabilities&#39; from the Fund&#39;s Trial balance to produce a GAV.  Start date will be assumed from the last &#39;official&#39; ValuationPoint and EndDate will be as provided.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="valuationPointDataQueryParameters">The arguments to use for querying the Valuation Point data</param>
+        /// <param name="valuationPointDataQueryParameters">The arguments to use for querying the Valuation Point data.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Fund definition. Defaults to returning the latest version of the Fund definition if not specified. (optional)</param>
-        /// <param name="navTypeCode">When provided runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ValuationPointDataResponse</returns>
@@ -6162,14 +6170,14 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointData: Get Valuation Point Data for a Fund. Retrieves the Valuation Point data for a date or specified Diary Entry Id.  The endpoint will internally extract all &#39;Assets&#39; and &#39;Liabilities&#39; from the related ABOR&#39;s Trial balance to produce a GAV.  Start date will be assumed from the last &#39;official&#39; DiaryEntry and EndDate will be as provided.
+        /// [EXPERIMENTAL] GetValuationPointData: Get Valuation Point Data for a Fund. Retrieves the Valuation Point data between given dates or Valuation Point codes.  The endpoint will internally extract all &#39;Assets&#39; and &#39;Liabilities&#39; from the Fund&#39;s Trial balance to produce a GAV.  Start date will be assumed from the last &#39;official&#39; ValuationPoint and EndDate will be as provided.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="valuationPointDataQueryParameters">The arguments to use for querying the Valuation Point data</param>
+        /// <param name="valuationPointDataQueryParameters">The arguments to use for querying the Valuation Point data.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Fund definition. Defaults to returning the latest version of the Fund definition if not specified. (optional)</param>
-        /// <param name="navTypeCode">When provided runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ValuationPointDataResponse</returns>
@@ -6280,14 +6288,14 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointData: Get Valuation Point Data for a Fund. Retrieves the Valuation Point data for a date or specified Diary Entry Id.  The endpoint will internally extract all &#39;Assets&#39; and &#39;Liabilities&#39; from the related ABOR&#39;s Trial balance to produce a GAV.  Start date will be assumed from the last &#39;official&#39; DiaryEntry and EndDate will be as provided.
+        /// [EXPERIMENTAL] GetValuationPointData: Get Valuation Point Data for a Fund. Retrieves the Valuation Point data between given dates or Valuation Point codes.  The endpoint will internally extract all &#39;Assets&#39; and &#39;Liabilities&#39; from the Fund&#39;s Trial balance to produce a GAV.  Start date will be assumed from the last &#39;official&#39; ValuationPoint and EndDate will be as provided.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="valuationPointDataQueryParameters">The arguments to use for querying the Valuation Point data</param>
+        /// <param name="valuationPointDataQueryParameters">The arguments to use for querying the Valuation Point data.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Fund definition. Defaults to returning the latest version of the Fund definition if not specified. (optional)</param>
-        /// <param name="navTypeCode">When provided runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -6299,14 +6307,14 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointData: Get Valuation Point Data for a Fund. Retrieves the Valuation Point data for a date or specified Diary Entry Id.  The endpoint will internally extract all &#39;Assets&#39; and &#39;Liabilities&#39; from the related ABOR&#39;s Trial balance to produce a GAV.  Start date will be assumed from the last &#39;official&#39; DiaryEntry and EndDate will be as provided.
+        /// [EXPERIMENTAL] GetValuationPointData: Get Valuation Point Data for a Fund. Retrieves the Valuation Point data between given dates or Valuation Point codes.  The endpoint will internally extract all &#39;Assets&#39; and &#39;Liabilities&#39; from the Fund&#39;s Trial balance to produce a GAV.  Start date will be assumed from the last &#39;official&#39; ValuationPoint and EndDate will be as provided.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="valuationPointDataQueryParameters">The arguments to use for querying the Valuation Point data</param>
+        /// <param name="valuationPointDataQueryParameters">The arguments to use for querying the Valuation Point data.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Fund definition. Defaults to returning the latest version of the Fund definition if not specified. (optional)</param>
-        /// <param name="navTypeCode">When provided runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -6418,19 +6426,19 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointJournalEntryLines: Get the Journal Entry lines for the given Fund. Gets the Journal Entry lines for the given Valuation Point for a Fund                The Journal Entry lines have been generated from transactions, translated via posting rules and used in the valuation point
+        /// [EXPERIMENTAL] GetValuationPointJournalEntryLines: Get the Journal Entry Lines for the given Fund. Gets the Journal Entry Lines for the given Valuation Point for a Fund.                The Journal Entry Lines have been generated from transactions, translated via posting rules and used in the valuation point.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
-        /// <param name="code">The code of the Fund. Together with the scope is creating the unique identifier for the given Fund.</param>
-        /// <param name="valuationPointDataQueryParameters">The arguments to use for querying the Journal Entry lines.</param>
-        /// <param name="generalLedgerProfileCode">The optional code of a general ledger profile used to decorate journal entry lines with levels. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve Journal Entry lines. Defaults to returning the latest version               of each transaction if not specified. (optional)</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="valuationPointDataQueryParameters">The arguments to use for querying the Journal Entry Lines.</param>
+        /// <param name="generalLedgerProfileCode">The optional code of a General Ledger Profile used to decorate Journal Entry Lines with levels. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve Journal Entry Lines. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Journal Entry lines from a previous call to GetValuationPointJournalEntryLines. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;               domain to decorate onto the journal entry lines. (optional)</param>
-        /// <param name="navTypeCode">May be provided to view a specific NAV type. When not provided, Primary NAV will be used. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Journal Entry Lines from a previous call to GetValuationPointJournalEntryLines. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;               domain to decorate onto the Journal Entry Lines. (optional)</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ValuationPointResourceListOfFundJournalEntryLine</returns>
@@ -6441,19 +6449,19 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointJournalEntryLines: Get the Journal Entry lines for the given Fund. Gets the Journal Entry lines for the given Valuation Point for a Fund                The Journal Entry lines have been generated from transactions, translated via posting rules and used in the valuation point
+        /// [EXPERIMENTAL] GetValuationPointJournalEntryLines: Get the Journal Entry Lines for the given Fund. Gets the Journal Entry Lines for the given Valuation Point for a Fund.                The Journal Entry Lines have been generated from transactions, translated via posting rules and used in the valuation point.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
-        /// <param name="code">The code of the Fund. Together with the scope is creating the unique identifier for the given Fund.</param>
-        /// <param name="valuationPointDataQueryParameters">The arguments to use for querying the Journal Entry lines.</param>
-        /// <param name="generalLedgerProfileCode">The optional code of a general ledger profile used to decorate journal entry lines with levels. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve Journal Entry lines. Defaults to returning the latest version               of each transaction if not specified. (optional)</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="valuationPointDataQueryParameters">The arguments to use for querying the Journal Entry Lines.</param>
+        /// <param name="generalLedgerProfileCode">The optional code of a General Ledger Profile used to decorate Journal Entry Lines with levels. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve Journal Entry Lines. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Journal Entry lines from a previous call to GetValuationPointJournalEntryLines. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;               domain to decorate onto the journal entry lines. (optional)</param>
-        /// <param name="navTypeCode">May be provided to view a specific NAV type. When not provided, Primary NAV will be used. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Journal Entry Lines from a previous call to GetValuationPointJournalEntryLines. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;               domain to decorate onto the Journal Entry Lines. (optional)</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ValuationPointResourceListOfFundJournalEntryLine</returns>
@@ -6589,19 +6597,19 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointJournalEntryLines: Get the Journal Entry lines for the given Fund. Gets the Journal Entry lines for the given Valuation Point for a Fund                The Journal Entry lines have been generated from transactions, translated via posting rules and used in the valuation point
+        /// [EXPERIMENTAL] GetValuationPointJournalEntryLines: Get the Journal Entry Lines for the given Fund. Gets the Journal Entry Lines for the given Valuation Point for a Fund.                The Journal Entry Lines have been generated from transactions, translated via posting rules and used in the valuation point.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
-        /// <param name="code">The code of the Fund. Together with the scope is creating the unique identifier for the given Fund.</param>
-        /// <param name="valuationPointDataQueryParameters">The arguments to use for querying the Journal Entry lines.</param>
-        /// <param name="generalLedgerProfileCode">The optional code of a general ledger profile used to decorate journal entry lines with levels. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve Journal Entry lines. Defaults to returning the latest version               of each transaction if not specified. (optional)</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="valuationPointDataQueryParameters">The arguments to use for querying the Journal Entry Lines.</param>
+        /// <param name="generalLedgerProfileCode">The optional code of a General Ledger Profile used to decorate Journal Entry Lines with levels. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve Journal Entry Lines. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Journal Entry lines from a previous call to GetValuationPointJournalEntryLines. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;               domain to decorate onto the journal entry lines. (optional)</param>
-        /// <param name="navTypeCode">May be provided to view a specific NAV type. When not provided, Primary NAV will be used. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Journal Entry Lines from a previous call to GetValuationPointJournalEntryLines. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;               domain to decorate onto the Journal Entry Lines. (optional)</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -6613,19 +6621,19 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointJournalEntryLines: Get the Journal Entry lines for the given Fund. Gets the Journal Entry lines for the given Valuation Point for a Fund                The Journal Entry lines have been generated from transactions, translated via posting rules and used in the valuation point
+        /// [EXPERIMENTAL] GetValuationPointJournalEntryLines: Get the Journal Entry Lines for the given Fund. Gets the Journal Entry Lines for the given Valuation Point for a Fund.                The Journal Entry Lines have been generated from transactions, translated via posting rules and used in the valuation point.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
-        /// <param name="code">The code of the Fund. Together with the scope is creating the unique identifier for the given Fund.</param>
-        /// <param name="valuationPointDataQueryParameters">The arguments to use for querying the Journal Entry lines.</param>
-        /// <param name="generalLedgerProfileCode">The optional code of a general ledger profile used to decorate journal entry lines with levels. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve Journal Entry lines. Defaults to returning the latest version               of each transaction if not specified. (optional)</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="valuationPointDataQueryParameters">The arguments to use for querying the Journal Entry Lines.</param>
+        /// <param name="generalLedgerProfileCode">The optional code of a General Ledger Profile used to decorate Journal Entry Lines with levels. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve Journal Entry Lines. Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Journal Entry lines from a previous call to GetValuationPointJournalEntryLines. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;               domain to decorate onto the journal entry lines. (optional)</param>
-        /// <param name="navTypeCode">May be provided to view a specific NAV type. When not provided, Primary NAV will be used. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Journal Entry Lines from a previous call to GetValuationPointJournalEntryLines. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;               domain to decorate onto the Journal Entry Lines. (optional)</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -6757,18 +6765,18 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointPnlSummary: Get a PnL summary for the given Valuation Point in the Fund. Gets the PnL Summary lines from the journal entry lines produced when calculating the valuation point.
+        /// [EXPERIMENTAL] GetValuationPointPnlSummary: Get a PnL summary for the given Valuation Point in the Fund. Gets the PnL Summary lines from the Journal Entry Lines produced when calculating the Valuation Point.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
-        /// <param name="code">The code of the Fund. Together with the scope is the unique identifier for the given Fund.</param>
-        /// <param name="valuationPointDataQueryParameters">The query parameters used in running the generation of the PnL summary</param>
-        /// <param name="generalLedgerProfileCode">The optional code of a general ledger profile used to decorate journal entry lines with levels. (optional)</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="valuationPointDataQueryParameters">The arguments to use for generating the PnL summary.</param>
+        /// <param name="generalLedgerProfileCode">The optional code of a General Ledger Profile used to decorate Journal Entry Lines with levels. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve PnL summary. Defaults to returning the latest version              of each transaction if not specified. (optional)</param>
         /// <param name="filter">\&quot;Expression to filter the result set.\&quot; (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Trial balance from a previous call to Trial balance. (optional)</param>
-        /// <param name="navTypeCode">May be provided to view a specific NAV type. When not provided, Primary NAV will be used. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing results from a previous call to GetValuationPointPnlSummary. (optional)</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ValuationPointResourceListOfPnlJournalEntryLine</returns>
@@ -6779,18 +6787,18 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointPnlSummary: Get a PnL summary for the given Valuation Point in the Fund. Gets the PnL Summary lines from the journal entry lines produced when calculating the valuation point.
+        /// [EXPERIMENTAL] GetValuationPointPnlSummary: Get a PnL summary for the given Valuation Point in the Fund. Gets the PnL Summary lines from the Journal Entry Lines produced when calculating the Valuation Point.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
-        /// <param name="code">The code of the Fund. Together with the scope is the unique identifier for the given Fund.</param>
-        /// <param name="valuationPointDataQueryParameters">The query parameters used in running the generation of the PnL summary</param>
-        /// <param name="generalLedgerProfileCode">The optional code of a general ledger profile used to decorate journal entry lines with levels. (optional)</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="valuationPointDataQueryParameters">The arguments to use for generating the PnL summary.</param>
+        /// <param name="generalLedgerProfileCode">The optional code of a General Ledger Profile used to decorate Journal Entry Lines with levels. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve PnL summary. Defaults to returning the latest version              of each transaction if not specified. (optional)</param>
         /// <param name="filter">\&quot;Expression to filter the result set.\&quot; (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Trial balance from a previous call to Trial balance. (optional)</param>
-        /// <param name="navTypeCode">May be provided to view a specific NAV type. When not provided, Primary NAV will be used. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing results from a previous call to GetValuationPointPnlSummary. (optional)</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ValuationPointResourceListOfPnlJournalEntryLine</returns>
@@ -6921,18 +6929,18 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointPnlSummary: Get a PnL summary for the given Valuation Point in the Fund. Gets the PnL Summary lines from the journal entry lines produced when calculating the valuation point.
+        /// [EXPERIMENTAL] GetValuationPointPnlSummary: Get a PnL summary for the given Valuation Point in the Fund. Gets the PnL Summary lines from the Journal Entry Lines produced when calculating the Valuation Point.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
-        /// <param name="code">The code of the Fund. Together with the scope is the unique identifier for the given Fund.</param>
-        /// <param name="valuationPointDataQueryParameters">The query parameters used in running the generation of the PnL summary</param>
-        /// <param name="generalLedgerProfileCode">The optional code of a general ledger profile used to decorate journal entry lines with levels. (optional)</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="valuationPointDataQueryParameters">The arguments to use for generating the PnL summary.</param>
+        /// <param name="generalLedgerProfileCode">The optional code of a General Ledger Profile used to decorate Journal Entry Lines with levels. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve PnL summary. Defaults to returning the latest version              of each transaction if not specified. (optional)</param>
         /// <param name="filter">\&quot;Expression to filter the result set.\&quot; (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Trial balance from a previous call to Trial balance. (optional)</param>
-        /// <param name="navTypeCode">May be provided to view a specific NAV type. When not provided, Primary NAV will be used. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing results from a previous call to GetValuationPointPnlSummary. (optional)</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -6944,18 +6952,18 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointPnlSummary: Get a PnL summary for the given Valuation Point in the Fund. Gets the PnL Summary lines from the journal entry lines produced when calculating the valuation point.
+        /// [EXPERIMENTAL] GetValuationPointPnlSummary: Get a PnL summary for the given Valuation Point in the Fund. Gets the PnL Summary lines from the Journal Entry Lines produced when calculating the Valuation Point.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
-        /// <param name="code">The code of the Fund. Together with the scope is the unique identifier for the given Fund.</param>
-        /// <param name="valuationPointDataQueryParameters">The query parameters used in running the generation of the PnL summary</param>
-        /// <param name="generalLedgerProfileCode">The optional code of a general ledger profile used to decorate journal entry lines with levels. (optional)</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="valuationPointDataQueryParameters">The arguments to use for generating the PnL summary.</param>
+        /// <param name="generalLedgerProfileCode">The optional code of a General Ledger Profile used to decorate Journal Entry Lines with levels. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve PnL summary. Defaults to returning the latest version              of each transaction if not specified. (optional)</param>
         /// <param name="filter">\&quot;Expression to filter the result set.\&quot; (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Trial balance from a previous call to Trial balance. (optional)</param>
-        /// <param name="navTypeCode">May be provided to view a specific NAV type. When not provided, Primary NAV will be used. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing results from a previous call to GetValuationPointPnlSummary. (optional)</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -7083,44 +7091,48 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointTransactions: Get the Transactions for the given Fund. Gets the Transactions for the given Valuation Point for a Fund
+        /// [EXPERIMENTAL] GetValuationPointTransactions: Get the Transactions for the given Fund. Gets the Transactions for the given Valuation Point for a Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
-        /// <param name="code">The code of the Fund. Together with the scope is creating the unique identifier for the given Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="valuationPointDataQueryParameters">The arguments to use for querying the transactions.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve transactions. Defaults to returning the latest version              of each transaction if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to GetValuationPointTransactions. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;              domain to decorate onto the journal entry lines. (optional)</param>
-        /// <param name="navTypeCode">May be provided to view a specific NAV type. When not provided, Primary NAV will be used. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;              domain to decorate onto the transactions. (optional)</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ValuationPointResourceListOfAccountedTransaction</returns>
-        public ValuationPointResourceListOfAccountedTransaction GetValuationPointTransactions(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public ValuationPointResourceListOfAccountedTransaction GetValuationPointTransactions(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfAccountedTransaction> localVarResponse = GetValuationPointTransactionsWithHttpInfo(scope, code, valuationPointDataQueryParameters, asAt, filter, limit, page, propertyKeys, navTypeCode, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfAccountedTransaction> localVarResponse = GetValuationPointTransactionsWithHttpInfo(scope, code, valuationPointDataQueryParameters, asAt, filter, limit, page, propertyKeys, navTypeCode, dataModelScope, dataModelCode, opts: opts);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointTransactions: Get the Transactions for the given Fund. Gets the Transactions for the given Valuation Point for a Fund
+        /// [EXPERIMENTAL] GetValuationPointTransactions: Get the Transactions for the given Fund. Gets the Transactions for the given Valuation Point for a Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
-        /// <param name="code">The code of the Fund. Together with the scope is creating the unique identifier for the given Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="valuationPointDataQueryParameters">The arguments to use for querying the transactions.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve transactions. Defaults to returning the latest version              of each transaction if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to GetValuationPointTransactions. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;              domain to decorate onto the journal entry lines. (optional)</param>
-        /// <param name="navTypeCode">May be provided to view a specific NAV type. When not provided, Primary NAV will be used. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;              domain to decorate onto the transactions. (optional)</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ValuationPointResourceListOfAccountedTransaction</returns>
-        public Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfAccountedTransaction> GetValuationPointTransactionsWithHttpInfo(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfAccountedTransaction> GetValuationPointTransactionsWithHttpInfo(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -7210,6 +7222,16 @@ namespace Lusid.Sdk.Api
 
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "navTypeCode", navTypeCode));
             }
+            if (dataModelScope != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dataModelScope", dataModelScope));
+            }
+            if (dataModelCode != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dataModelCode", dataModelCode));
+            }
             localVarRequestOptions.Data = valuationPointDataQueryParameters;
 
             localVarRequestOptions.Operation = "FundsApi.GetValuationPointTransactions";
@@ -7247,46 +7269,50 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointTransactions: Get the Transactions for the given Fund. Gets the Transactions for the given Valuation Point for a Fund
+        /// [EXPERIMENTAL] GetValuationPointTransactions: Get the Transactions for the given Fund. Gets the Transactions for the given Valuation Point for a Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
-        /// <param name="code">The code of the Fund. Together with the scope is creating the unique identifier for the given Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="valuationPointDataQueryParameters">The arguments to use for querying the transactions.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve transactions. Defaults to returning the latest version              of each transaction if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to GetValuationPointTransactions. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;              domain to decorate onto the journal entry lines. (optional)</param>
-        /// <param name="navTypeCode">May be provided to view a specific NAV type. When not provided, Primary NAV will be used. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;              domain to decorate onto the transactions. (optional)</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ValuationPointResourceListOfAccountedTransaction</returns>
-        public async System.Threading.Tasks.Task<ValuationPointResourceListOfAccountedTransaction> GetValuationPointTransactionsAsync(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<ValuationPointResourceListOfAccountedTransaction> GetValuationPointTransactionsAsync(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfAccountedTransaction> localVarResponse = await GetValuationPointTransactionsWithHttpInfoAsync(scope, code, valuationPointDataQueryParameters, asAt, filter, limit, page, propertyKeys, navTypeCode, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfAccountedTransaction> localVarResponse = await GetValuationPointTransactionsWithHttpInfoAsync(scope, code, valuationPointDataQueryParameters, asAt, filter, limit, page, propertyKeys, navTypeCode, dataModelScope, dataModelCode, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetValuationPointTransactions: Get the Transactions for the given Fund. Gets the Transactions for the given Valuation Point for a Fund
+        /// [EXPERIMENTAL] GetValuationPointTransactions: Get the Transactions for the given Fund. Gets the Transactions for the given Valuation Point for a Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
-        /// <param name="code">The code of the Fund. Together with the scope is creating the unique identifier for the given Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="valuationPointDataQueryParameters">The arguments to use for querying the transactions.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve transactions. Defaults to returning the latest version              of each transaction if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to GetValuationPointTransactions. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;              domain to decorate onto the journal entry lines. (optional)</param>
-        /// <param name="navTypeCode">May be provided to view a specific NAV type. When not provided, Primary NAV will be used. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;              domain to decorate onto the transactions. (optional)</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ValuationPointResourceListOfAccountedTransaction)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfAccountedTransaction>> GetValuationPointTransactionsWithHttpInfoAsync(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfAccountedTransaction>> GetValuationPointTransactionsWithHttpInfoAsync(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -7371,6 +7397,14 @@ namespace Lusid.Sdk.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "navTypeCode", navTypeCode));
             }
+            if (dataModelScope != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dataModelScope", dataModelScope));
+            }
+            if (dataModelCode != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dataModelCode", dataModelCode));
+            }
             localVarRequestOptions.Data = valuationPointDataQueryParameters;
 
             localVarRequestOptions.Operation = "FundsApi.GetValuationPointTransactions";
@@ -7414,14 +7448,14 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="valuationPointDataQueryParameters">The query parameters used in running the generation of the Trial Balance.</param>
-        /// <param name="generalLedgerProfileCode">The optional code of a general ledger profile used to decorate journal entry lines with levels. (optional)</param>
+        /// <param name="valuationPointDataQueryParameters">The arguments to use for generating the Trial Balance.</param>
+        /// <param name="generalLedgerProfileCode">The optional code of a General Ledger Profile used to decorate Journal Entry Lines with levels. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Trial Balance.               Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results by.               For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this number.               Defaults to 100 if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing Trial Balances.               This token is returned from the previous call.               If a pagination token is provided, the filter, effectiveAt and asAt fields               must not have changed since the original request. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;               domain to decorate onto the journal entry lines. (optional)</param>
-        /// <param name="navTypeCode">May be provided to view a specific NAV type. When not provided, Primary NAV will be used. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;               domain to decorate onto the TrialBalance. (optional)</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ValuationPointResourceListOfTrialBalance</returns>
@@ -7437,14 +7471,14 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="valuationPointDataQueryParameters">The query parameters used in running the generation of the Trial Balance.</param>
-        /// <param name="generalLedgerProfileCode">The optional code of a general ledger profile used to decorate journal entry lines with levels. (optional)</param>
+        /// <param name="valuationPointDataQueryParameters">The arguments to use for generating the Trial Balance.</param>
+        /// <param name="generalLedgerProfileCode">The optional code of a General Ledger Profile used to decorate Journal Entry Lines with levels. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Trial Balance.               Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results by.               For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this number.               Defaults to 100 if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing Trial Balances.               This token is returned from the previous call.               If a pagination token is provided, the filter, effectiveAt and asAt fields               must not have changed since the original request. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;               domain to decorate onto the journal entry lines. (optional)</param>
-        /// <param name="navTypeCode">May be provided to view a specific NAV type. When not provided, Primary NAV will be used. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;               domain to decorate onto the TrialBalance. (optional)</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ValuationPointResourceListOfTrialBalance</returns>
@@ -7585,14 +7619,14 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="valuationPointDataQueryParameters">The query parameters used in running the generation of the Trial Balance.</param>
-        /// <param name="generalLedgerProfileCode">The optional code of a general ledger profile used to decorate journal entry lines with levels. (optional)</param>
+        /// <param name="valuationPointDataQueryParameters">The arguments to use for generating the Trial Balance.</param>
+        /// <param name="generalLedgerProfileCode">The optional code of a General Ledger Profile used to decorate Journal Entry Lines with levels. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Trial Balance.               Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results by.               For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this number.               Defaults to 100 if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing Trial Balances.               This token is returned from the previous call.               If a pagination token is provided, the filter, effectiveAt and asAt fields               must not have changed since the original request. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;               domain to decorate onto the journal entry lines. (optional)</param>
-        /// <param name="navTypeCode">May be provided to view a specific NAV type. When not provided, Primary NAV will be used. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;               domain to decorate onto the TrialBalance. (optional)</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -7609,14 +7643,14 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="valuationPointDataQueryParameters">The query parameters used in running the generation of the Trial Balance.</param>
-        /// <param name="generalLedgerProfileCode">The optional code of a general ledger profile used to decorate journal entry lines with levels. (optional)</param>
+        /// <param name="valuationPointDataQueryParameters">The arguments to use for generating the Trial Balance.</param>
+        /// <param name="generalLedgerProfileCode">The optional code of a General Ledger Profile used to decorate Journal Entry Lines with levels. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Trial Balance.               Defaults to returning the latest version if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results by.               For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this number.               Defaults to 100 if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing Trial Balances.               This token is returned from the previous call.               If a pagination token is provided, the filter, effectiveAt and asAt fields               must not have changed since the original request. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;               domain to decorate onto the journal entry lines. (optional)</param>
-        /// <param name="navTypeCode">May be provided to view a specific NAV type. When not provided, Primary NAV will be used. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;               domain to decorate onto the TrialBalance. (optional)</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -7752,7 +7786,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
-        /// <param name="code">The code of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Fees. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to list the Fees. Defaults to returning the latest version of each Fee if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing fees; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
@@ -7774,7 +7808,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
-        /// <param name="code">The code of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Fees. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to list the Fees. Defaults to returning the latest version of each Fee if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing fees; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
@@ -7910,7 +7944,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
-        /// <param name="code">The code of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Fees. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to list the Fees. Defaults to returning the latest version of each Fee if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing fees; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
@@ -7933,7 +7967,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
-        /// <param name="code">The code of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Fees. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to list the Fees. Defaults to returning the latest version of each Fee if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing fees; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
@@ -8064,13 +8098,13 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListFundCalendar: List Fund Calendar. List all the Calendar Entries associated with the Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The Scope for the Fund.</param>
-        /// <param name="code">The Code for the Fund.</param>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="asAt">The asAt datetime at which to list the Calendar. Defaults to returning the latest version of each Calendar Entry if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Valuation Points; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Calendar Entries; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For example, to filter on the DisplayName, specify \&quot;displayName eq &#39;VP 1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
-        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
+        /// <param name="filter">Expression to filter the results. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;ClosedPeriod&#39; domain to decorate onto each item. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -8085,13 +8119,13 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListFundCalendar: List Fund Calendar. List all the Calendar Entries associated with the Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The Scope for the Fund.</param>
-        /// <param name="code">The Code for the Fund.</param>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="asAt">The asAt datetime at which to list the Calendar. Defaults to returning the latest version of each Calendar Entry if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Valuation Points; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Calendar Entries; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For example, to filter on the DisplayName, specify \&quot;displayName eq &#39;VP 1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
-        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
+        /// <param name="filter">Expression to filter the results. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;ClosedPeriod&#39; domain to decorate onto each item. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -8215,13 +8249,13 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListFundCalendar: List Fund Calendar. List all the Calendar Entries associated with the Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The Scope for the Fund.</param>
-        /// <param name="code">The Code for the Fund.</param>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="asAt">The asAt datetime at which to list the Calendar. Defaults to returning the latest version of each Calendar Entry if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Valuation Points; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Calendar Entries; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For example, to filter on the DisplayName, specify \&quot;displayName eq &#39;VP 1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
-        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
+        /// <param name="filter">Expression to filter the results. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;ClosedPeriod&#39; domain to decorate onto each item. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -8237,13 +8271,13 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] ListFundCalendar: List Fund Calendar. List all the Calendar Entries associated with the Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The Scope for the Fund.</param>
-        /// <param name="code">The Code for the Fund.</param>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="asAt">The asAt datetime at which to list the Calendar. Defaults to returning the latest version of each Calendar Entry if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing Valuation Points; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Calendar Entries; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For example, to filter on the DisplayName, specify \&quot;displayName eq &#39;VP 1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
-        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
+        /// <param name="filter">Expression to filter the results. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;ClosedPeriod&#39; domain to decorate onto each item. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -8368,7 +8402,7 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the Funds. Defaults to returning the latest version of each Fund if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing Funds; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For example, to filter on the Fund type, specify \&quot;id.Code eq &#39;Fund1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the Fund code, specify \&quot;id.Code eq &#39;Fund1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;Fund&#39; domain to decorate onto each Fund.              These must take the format {domain}/{scope}/{code}, for example &#39;Fund/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -8388,7 +8422,7 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the Funds. Defaults to returning the latest version of each Fund if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing Funds; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For example, to filter on the Fund type, specify \&quot;id.Code eq &#39;Fund1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the Fund code, specify \&quot;id.Code eq &#39;Fund1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;Fund&#39; domain to decorate onto each Fund.              These must take the format {domain}/{scope}/{code}, for example &#39;Fund/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -8508,7 +8542,7 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the Funds. Defaults to returning the latest version of each Fund if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing Funds; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For example, to filter on the Fund type, specify \&quot;id.Code eq &#39;Fund1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the Fund code, specify \&quot;id.Code eq &#39;Fund1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;Fund&#39; domain to decorate onto each Fund.              These must take the format {domain}/{scope}/{code}, for example &#39;Fund/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -8529,7 +8563,7 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the Funds. Defaults to returning the latest version of each Fund if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing Funds; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For example, to filter on the Fund type, specify \&quot;id.Code eq &#39;Fund1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the Fund code, specify \&quot;id.Code eq &#39;Fund1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;Fund&#39; domain to decorate onto each Fund.              These must take the format {domain}/{scope}/{code}, for example &#39;Fund/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -8638,18 +8672,18 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListValuationPointOverview: List Valuation Points Overview for a given Fund. List all the Valuation Points that match the given criteria for a given Fund.
+        /// [EXPERIMENTAL] ListValuationPointOverview: List Valuation Points Overview for a given Fund. List the overview of all the Valuation Points that match the given criteria for a given Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
-        /// <param name="code">The code of the Fund.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the ValuationPoints. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the ValuationPoints. Defaults to returning the latest version of each ValuationPoint if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing ValuationPoints; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Valuation Points. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the Valuation Points. Defaults to returning the latest version of each Valuation Point if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Valuation Points; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results by.              For example, to filter on the NAV, specify \&quot;NAV gt 300\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;DiaryEntry&#39; domain to decorate onto each ValuationPoint.              These must take the format {domain}/{scope}/{code}, for example &#39;DiaryEntry/ValuationPoint/Id&#39;. (optional)</param>
-        /// <param name="navTypeCode">May be provided to view a specific NAV type. When not provided, Primary NAV will be used. (optional)</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfValuationPointOverview</returns>
@@ -8660,18 +8694,18 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListValuationPointOverview: List Valuation Points Overview for a given Fund. List all the Valuation Points that match the given criteria for a given Fund.
+        /// [EXPERIMENTAL] ListValuationPointOverview: List Valuation Points Overview for a given Fund. List the overview of all the Valuation Points that match the given criteria for a given Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
-        /// <param name="code">The code of the Fund.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the ValuationPoints. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the ValuationPoints. Defaults to returning the latest version of each ValuationPoint if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing ValuationPoints; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Valuation Points. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the Valuation Points. Defaults to returning the latest version of each Valuation Point if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Valuation Points; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results by.              For example, to filter on the NAV, specify \&quot;NAV gt 300\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;DiaryEntry&#39; domain to decorate onto each ValuationPoint.              These must take the format {domain}/{scope}/{code}, for example &#39;DiaryEntry/ValuationPoint/Id&#39;. (optional)</param>
-        /// <param name="navTypeCode">May be provided to view a specific NAV type. When not provided, Primary NAV will be used. (optional)</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfValuationPointOverview</returns>
@@ -8796,18 +8830,18 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListValuationPointOverview: List Valuation Points Overview for a given Fund. List all the Valuation Points that match the given criteria for a given Fund.
+        /// [EXPERIMENTAL] ListValuationPointOverview: List Valuation Points Overview for a given Fund. List the overview of all the Valuation Points that match the given criteria for a given Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
-        /// <param name="code">The code of the Fund.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the ValuationPoints. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the ValuationPoints. Defaults to returning the latest version of each ValuationPoint if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing ValuationPoints; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Valuation Points. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the Valuation Points. Defaults to returning the latest version of each Valuation Point if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Valuation Points; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results by.              For example, to filter on the NAV, specify \&quot;NAV gt 300\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;DiaryEntry&#39; domain to decorate onto each ValuationPoint.              These must take the format {domain}/{scope}/{code}, for example &#39;DiaryEntry/ValuationPoint/Id&#39;. (optional)</param>
-        /// <param name="navTypeCode">May be provided to view a specific NAV type. When not provided, Primary NAV will be used. (optional)</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -8819,18 +8853,18 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListValuationPointOverview: List Valuation Points Overview for a given Fund. List all the Valuation Points that match the given criteria for a given Fund.
+        /// [EXPERIMENTAL] ListValuationPointOverview: List Valuation Points Overview for a given Fund. List the overview of all the Valuation Points that match the given criteria for a given Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
-        /// <param name="code">The code of the Fund.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the ValuationPoints. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to list the ValuationPoints. Defaults to returning the latest version of each ValuationPoint if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing ValuationPoints; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the TimeVariant properties for the Valuation Points. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the Valuation Points. Defaults to returning the latest version of each Valuation Point if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Valuation Points; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results by.              For example, to filter on the NAV, specify \&quot;NAV gt 300\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;DiaryEntry&#39; domain to decorate onto each ValuationPoint.              These must take the format {domain}/{scope}/{code}, for example &#39;DiaryEntry/ValuationPoint/Id&#39;. (optional)</param>
-        /// <param name="navTypeCode">May be provided to view a specific NAV type. When not provided, Primary NAV will be used. (optional)</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -9465,11 +9499,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] SetShareClassInstruments: Set the ShareClass Instruments on a fund. Update the ShareClass Instruments on an existing fund with the set of instruments provided.
+        /// [EXPERIMENTAL] SetShareClassInstruments: Set the ShareClass Instruments on a Fund. Update the ShareClass Instruments on an existing Fund with the set of instruments provided.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
-        /// <param name="code">The code of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="setShareClassInstrumentsRequest">The scopes and instrument identifiers for the instruments to be set.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -9481,11 +9515,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] SetShareClassInstruments: Set the ShareClass Instruments on a fund. Update the ShareClass Instruments on an existing fund with the set of instruments provided.
+        /// [EXPERIMENTAL] SetShareClassInstruments: Set the ShareClass Instruments on a Fund. Update the ShareClass Instruments on an existing Fund with the set of instruments provided.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
-        /// <param name="code">The code of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="setShareClassInstrumentsRequest">The scopes and instrument identifiers for the instruments to be set.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -9587,11 +9621,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] SetShareClassInstruments: Set the ShareClass Instruments on a fund. Update the ShareClass Instruments on an existing fund with the set of instruments provided.
+        /// [EXPERIMENTAL] SetShareClassInstruments: Set the ShareClass Instruments on a Fund. Update the ShareClass Instruments on an existing Fund with the set of instruments provided.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
-        /// <param name="code">The code of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="setShareClassInstrumentsRequest">The scopes and instrument identifiers for the instruments to be set.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -9604,11 +9638,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] SetShareClassInstruments: Set the ShareClass Instruments on a fund. Update the ShareClass Instruments on an existing fund with the set of instruments provided.
+        /// [EXPERIMENTAL] SetShareClassInstruments: Set the ShareClass Instruments on a Fund. Update the ShareClass Instruments on an existing Fund with the set of instruments provided.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
-        /// <param name="code">The code of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="setShareClassInstrumentsRequest">The scopes and instrument identifiers for the instruments to be set.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -9718,8 +9752,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="upsertFundBookmarkRequest">The bookmark definition to Upsert</param>
-        /// <param name="navTypeCode">When provided, Upserts the Valuation Point against the specified NAV Type. When not provided, the Primary NAV Type will be used. (optional)</param>
+        /// <param name="upsertFundBookmarkRequest">The bookmark definition to upsert.</param>
+        /// <param name="navTypeCode">When provided, upserts the Valuation Point against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>FundCalendarEntry</returns>
@@ -9735,8 +9769,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="upsertFundBookmarkRequest">The bookmark definition to Upsert</param>
-        /// <param name="navTypeCode">When provided, Upserts the Valuation Point against the specified NAV Type. When not provided, the Primary NAV Type will be used. (optional)</param>
+        /// <param name="upsertFundBookmarkRequest">The bookmark definition to upsert.</param>
+        /// <param name="navTypeCode">When provided, upserts the Valuation Point against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of FundCalendarEntry</returns>
@@ -9847,8 +9881,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="upsertFundBookmarkRequest">The bookmark definition to Upsert</param>
-        /// <param name="navTypeCode">When provided, Upserts the Valuation Point against the specified NAV Type. When not provided, the Primary NAV Type will be used. (optional)</param>
+        /// <param name="upsertFundBookmarkRequest">The bookmark definition to upsert.</param>
+        /// <param name="navTypeCode">When provided, upserts the Valuation Point against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -9865,8 +9899,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="upsertFundBookmarkRequest">The bookmark definition to Upsert</param>
-        /// <param name="navTypeCode">When provided, Upserts the Valuation Point against the specified NAV Type. When not provided, the Primary NAV Type will be used. (optional)</param>
+        /// <param name="upsertFundBookmarkRequest">The bookmark definition to upsert.</param>
+        /// <param name="navTypeCode">When provided, upserts the Valuation Point against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -9974,13 +10008,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertDiaryEntryTypeValuationPoint: Upsert Valuation Point. Update or insert the estimate Valuation Point.                If the Valuation Point does not exist, this method will create it in estimate state.                If the Valuation Point already exists and is in estimate state, the Valuation Point will be updated with the newly specified information in this request.
+        /// [EXPERIMENTAL] UpsertDiaryEntryTypeValuationPoint: Upsert a Valuation Point. Update or insert the estimate Valuation Point.                If the Valuation Point does not exist, this method will create it in estimate state.                If the Valuation Point already exists and is in estimate state, the Valuation Point will be updated with the newly specified information in this request.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="upsertValuationPointRequest">The Valuation Point Estimate definition to Upsert</param>
-        /// <param name="navTypeCode">When provided, Upserts the Valuation Point against the specified NAV Type. When not provided the Primary NAV Type will be used. (optional)</param>
+        /// <param name="upsertValuationPointRequest">The Valuation Point Estimate definition to upsert.</param>
+        /// <param name="navTypeCode">When provided, upserts the Valuation Point against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>DiaryEntry</returns>
@@ -9991,13 +10025,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertDiaryEntryTypeValuationPoint: Upsert Valuation Point. Update or insert the estimate Valuation Point.                If the Valuation Point does not exist, this method will create it in estimate state.                If the Valuation Point already exists and is in estimate state, the Valuation Point will be updated with the newly specified information in this request.
+        /// [EXPERIMENTAL] UpsertDiaryEntryTypeValuationPoint: Upsert a Valuation Point. Update or insert the estimate Valuation Point.                If the Valuation Point does not exist, this method will create it in estimate state.                If the Valuation Point already exists and is in estimate state, the Valuation Point will be updated with the newly specified information in this request.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="upsertValuationPointRequest">The Valuation Point Estimate definition to Upsert</param>
-        /// <param name="navTypeCode">When provided, Upserts the Valuation Point against the specified NAV Type. When not provided the Primary NAV Type will be used. (optional)</param>
+        /// <param name="upsertValuationPointRequest">The Valuation Point Estimate definition to upsert.</param>
+        /// <param name="navTypeCode">When provided, upserts the Valuation Point against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DiaryEntry</returns>
@@ -10103,13 +10137,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertDiaryEntryTypeValuationPoint: Upsert Valuation Point. Update or insert the estimate Valuation Point.                If the Valuation Point does not exist, this method will create it in estimate state.                If the Valuation Point already exists and is in estimate state, the Valuation Point will be updated with the newly specified information in this request.
+        /// [EXPERIMENTAL] UpsertDiaryEntryTypeValuationPoint: Upsert a Valuation Point. Update or insert the estimate Valuation Point.                If the Valuation Point does not exist, this method will create it in estimate state.                If the Valuation Point already exists and is in estimate state, the Valuation Point will be updated with the newly specified information in this request.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="upsertValuationPointRequest">The Valuation Point Estimate definition to Upsert</param>
-        /// <param name="navTypeCode">When provided, Upserts the Valuation Point against the specified NAV Type. When not provided the Primary NAV Type will be used. (optional)</param>
+        /// <param name="upsertValuationPointRequest">The Valuation Point Estimate definition to upsert.</param>
+        /// <param name="navTypeCode">When provided, upserts the Valuation Point against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -10121,13 +10155,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertDiaryEntryTypeValuationPoint: Upsert Valuation Point. Update or insert the estimate Valuation Point.                If the Valuation Point does not exist, this method will create it in estimate state.                If the Valuation Point already exists and is in estimate state, the Valuation Point will be updated with the newly specified information in this request.
+        /// [EXPERIMENTAL] UpsertDiaryEntryTypeValuationPoint: Upsert a Valuation Point. Update or insert the estimate Valuation Point.                If the Valuation Point does not exist, this method will create it in estimate state.                If the Valuation Point already exists and is in estimate state, the Valuation Point will be updated with the newly specified information in this request.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="upsertValuationPointRequest">The Valuation Point Estimate definition to Upsert</param>
-        /// <param name="navTypeCode">When provided, Upserts the Valuation Point against the specified NAV Type. When not provided the Primary NAV Type will be used. (optional)</param>
+        /// <param name="upsertValuationPointRequest">The Valuation Point Estimate definition to upsert.</param>
+        /// <param name="navTypeCode">When provided, upserts the Valuation Point against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -10235,7 +10269,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertFeeProperties: Upsert Fee properties. Update or insert one or more properties onto a single Fee. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Fee&#39;.                Upserting a property that exists for an Fee, with a null value, will delete the instance of the property for that group.       Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// [EXPERIMENTAL] UpsertFeeProperties: Upsert Fee properties. Update or insert one or more properties onto a single Fee. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Fee&#39;.                Upserting a property that exists for an Fee, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -10252,7 +10286,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertFeeProperties: Upsert Fee properties. Update or insert one or more properties onto a single Fee. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Fee&#39;.                Upserting a property that exists for an Fee, with a null value, will delete the instance of the property for that group.       Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// [EXPERIMENTAL] UpsertFeeProperties: Upsert Fee properties. Update or insert one or more properties onto a single Fee. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Fee&#39;.                Upserting a property that exists for an Fee, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -10360,7 +10394,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertFeeProperties: Upsert Fee properties. Update or insert one or more properties onto a single Fee. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Fee&#39;.                Upserting a property that exists for an Fee, with a null value, will delete the instance of the property for that group.       Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// [EXPERIMENTAL] UpsertFeeProperties: Upsert Fee properties. Update or insert one or more properties onto a single Fee. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Fee&#39;.                Upserting a property that exists for an Fee, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -10378,7 +10412,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertFeeProperties: Upsert Fee properties. Update or insert one or more properties onto a single Fee. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Fee&#39;.                Upserting a property that exists for an Fee, with a null value, will delete the instance of the property for that group.       Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// [EXPERIMENTAL] UpsertFeeProperties: Upsert Fee properties. Update or insert one or more properties onto a single Fee. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Fee&#39;.                Upserting a property that exists for an Fee, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -10492,8 +10526,8 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] UpsertFundProperties: Upsert Fund properties. Update or insert one or more properties onto a single Fund. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Fund&#39;.                Upserting a property that exists for an Fund, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the Fund to update or insert the properties onto.</param>
-        /// <param name="code">The code of the Fund to update or insert the properties onto. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="requestBody">The properties to be updated or inserted onto the Fund. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;Fund/Manager/Id\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -10508,8 +10542,8 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] UpsertFundProperties: Upsert Fund properties. Update or insert one or more properties onto a single Fund. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Fund&#39;.                Upserting a property that exists for an Fund, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the Fund to update or insert the properties onto.</param>
-        /// <param name="code">The code of the Fund to update or insert the properties onto. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="requestBody">The properties to be updated or inserted onto the Fund. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;Fund/Manager/Id\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -10608,8 +10642,8 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] UpsertFundProperties: Upsert Fund properties. Update or insert one or more properties onto a single Fund. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Fund&#39;.                Upserting a property that exists for an Fund, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the Fund to update or insert the properties onto.</param>
-        /// <param name="code">The code of the Fund to update or insert the properties onto. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="requestBody">The properties to be updated or inserted onto the Fund. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;Fund/Manager/Id\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -10625,8 +10659,8 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] UpsertFundProperties: Upsert Fund properties. Update or insert one or more properties onto a single Fund. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain &#39;Fund&#39;.                Upserting a property that exists for an Fund, with a null value, will delete the instance of the property for that group.                Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime for which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the Fund to update or insert the properties onto.</param>
-        /// <param name="code">The code of the Fund to update or insert the properties onto. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="requestBody">The properties to be updated or inserted onto the Fund. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;Fund/Manager/Id\&quot;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>

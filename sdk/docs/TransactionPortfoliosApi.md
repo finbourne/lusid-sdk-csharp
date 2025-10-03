@@ -8,6 +8,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**BatchAdjustHoldings**](TransactionPortfoliosApi.md#batchadjustholdings) | **POST** /api/transactionportfolios/{scope}/{code}/holdings/$batchAdjust | BatchAdjustHoldings: Batch adjust holdings |
 | [**BatchCreateTradeTickets**](TransactionPortfoliosApi.md#batchcreatetradetickets) | **POST** /api/transactionportfolios/{scope}/{code}/$batchtradetickets | BatchCreateTradeTickets: Batch Create Trade Tickets |
 | [**BatchSetHoldings**](TransactionPortfoliosApi.md#batchsetholdings) | **POST** /api/transactionportfolios/{scope}/{code}/holdings/$batchSet | BatchSetHoldings: Batch set holdings |
+| [**BatchUpsertSettlementInstructions**](TransactionPortfoliosApi.md#batchupsertsettlementinstructions) | **POST** /api/transactionportfolios/{scope}/{code}/settlementinstructions/$batchUpsert | [EARLY ACCESS] BatchUpsertSettlementInstructions: Batch Upsert Settlement Instructions. |
 | [**BatchUpsertTransactions**](TransactionPortfoliosApi.md#batchupserttransactions) | **POST** /api/transactionportfolios/{scope}/{code}/transactions/$batchUpsert | BatchUpsertTransactions: Batch upsert transactions |
 | [**BuildSettlementInstructions**](TransactionPortfoliosApi.md#buildsettlementinstructions) | **POST** /api/transactionportfolios/{scope}/{code}/settlementinstructions/$build | [EARLY ACCESS] BuildSettlementInstructions: Build Settlement Instructions |
 | [**BuildTransactions**](TransactionPortfoliosApi.md#buildtransactions) | **POST** /api/transactionportfolios/{scope}/{code}/transactions/$build | BuildTransactions: Build transactions |
@@ -533,6 +534,124 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The successful SetHolding requests along with any failures |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="batchupsertsettlementinstructions"></a>
+# **BatchUpsertSettlementInstructions**
+> BatchUpsertTransactionSettlementInstructionResponse BatchUpsertSettlementInstructions (string scope, string code, Dictionary<string, SettlementInstructionRequest> requestBody)
+
+[EARLY ACCESS] BatchUpsertSettlementInstructions: Batch Upsert Settlement Instructions.
+
+Create or update instructions to settle specific transactions.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TransactionPortfoliosApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionPortfoliosApi>();
+            var scope = "scope_example";  // string | The scope of the portfolio.
+            var code = "code_example";  // string | The code of the portfolio.
+            var requestBody = new Dictionary<string, SettlementInstructionRequest>(); // Dictionary<string, SettlementInstructionRequest> | The definition of the settlement instruction.
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // BatchUpsertTransactionSettlementInstructionResponse result = apiInstance.BatchUpsertSettlementInstructions(scope, code, requestBody, opts: opts);
+
+                // [EARLY ACCESS] BatchUpsertSettlementInstructions: Batch Upsert Settlement Instructions.
+                BatchUpsertTransactionSettlementInstructionResponse result = apiInstance.BatchUpsertSettlementInstructions(scope, code, requestBody);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling TransactionPortfoliosApi.BatchUpsertSettlementInstructions: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the BatchUpsertSettlementInstructionsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] BatchUpsertSettlementInstructions: Batch Upsert Settlement Instructions.
+    ApiResponse<BatchUpsertTransactionSettlementInstructionResponse> response = apiInstance.BatchUpsertSettlementInstructionsWithHttpInfo(scope, code, requestBody);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling TransactionPortfoliosApi.BatchUpsertSettlementInstructionsWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the portfolio. |  |
+| **code** | **string** | The code of the portfolio. |  |
+| **requestBody** | [**Dictionary&lt;string, SettlementInstructionRequest&gt;**](SettlementInstructionRequest.md) | The definition of the settlement instruction. |  |
+
+### Return type
+
+[**BatchUpsertTransactionSettlementInstructionResponse**](BatchUpsertTransactionSettlementInstructionResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | The newly created or undated Settlement Instructions. |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 

@@ -246,7 +246,7 @@ catch (ApiException e)
 
 <a id="getdatatype"></a>
 # **GetDataType**
-> DataType GetDataType (string scope, string code, DateTimeOffset? asAt = null)
+> DataType GetDataType (string scope, string code, DateTimeOffset? asAt = null, string? timelineScope = null, string? timelineCode = null, string? closedPeriodId = null)
 
 GetDataType: Get data type definition
 
@@ -294,14 +294,17 @@ namespace Examples
             var scope = "scope_example";  // string | The scope of the data type
             var code = "code_example";  // string | The code of the data type
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the data type definition. Defaults to              return the latest version of the instrument definition if not specified. (optional) 
+            var timelineScope = "timelineScope_example";  // string? | The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional) 
+            var timelineCode = "timelineCode_example";  // string? | The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional) 
+            var closedPeriodId = "closedPeriodId_example";  // string? | The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // DataType result = apiInstance.GetDataType(scope, code, asAt, opts: opts);
+                // DataType result = apiInstance.GetDataType(scope, code, asAt, timelineScope, timelineCode, closedPeriodId, opts: opts);
 
                 // GetDataType: Get data type definition
-                DataType result = apiInstance.GetDataType(scope, code, asAt);
+                DataType result = apiInstance.GetDataType(scope, code, asAt, timelineScope, timelineCode, closedPeriodId);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -322,7 +325,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // GetDataType: Get data type definition
-    ApiResponse<DataType> response = apiInstance.GetDataTypeWithHttpInfo(scope, code, asAt);
+    ApiResponse<DataType> response = apiInstance.GetDataTypeWithHttpInfo(scope, code, asAt, timelineScope, timelineCode, closedPeriodId);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -342,6 +345,9 @@ catch (ApiException e)
 | **scope** | **string** | The scope of the data type |  |
 | **code** | **string** | The code of the data type |  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the data type definition. Defaults to              return the latest version of the instrument definition if not specified. | [optional]  |
+| **timelineScope** | **string?** | The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. | [optional]  |
+| **timelineCode** | **string?** | The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. | [optional]  |
+| **closedPeriodId** | **string?** | The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. | [optional]  |
 
 ### Return type
 
@@ -364,7 +370,7 @@ catch (ApiException e)
 
 <a id="getunitsfromdatatype"></a>
 # **GetUnitsFromDataType**
-> ResourceListOfIUnitDefinitionDto GetUnitsFromDataType (string scope, string code, List<string>? units = null, string? filter = null, DateTimeOffset? asAt = null)
+> ResourceListOfIUnitDefinitionDto GetUnitsFromDataType (string scope, string code, List<string>? units = null, string? filter = null, DateTimeOffset? asAt = null, string? timelineScope = null, string? timelineCode = null, string? closedPeriodId = null)
 
 [EARLY ACCESS] GetUnitsFromDataType: Get units from data type
 
@@ -414,14 +420,17 @@ namespace Examples
             var units = new List<string>?(); // List<string>? | One or more unit identifiers for which the definition is being requested (optional) 
             var filter = "filter_example";  // string? | Optional. Expression to filter the result set.               For example, to filter on the Schema, use \"schema eq 'string'\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | Optional. The as at of the requested data type (optional) 
+            var timelineScope = "timelineScope_example";  // string? | The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional) 
+            var timelineCode = "timelineCode_example";  // string? | The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional) 
+            var closedPeriodId = "closedPeriodId_example";  // string? | The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // ResourceListOfIUnitDefinitionDto result = apiInstance.GetUnitsFromDataType(scope, code, units, filter, asAt, opts: opts);
+                // ResourceListOfIUnitDefinitionDto result = apiInstance.GetUnitsFromDataType(scope, code, units, filter, asAt, timelineScope, timelineCode, closedPeriodId, opts: opts);
 
                 // [EARLY ACCESS] GetUnitsFromDataType: Get units from data type
-                ResourceListOfIUnitDefinitionDto result = apiInstance.GetUnitsFromDataType(scope, code, units, filter, asAt);
+                ResourceListOfIUnitDefinitionDto result = apiInstance.GetUnitsFromDataType(scope, code, units, filter, asAt, timelineScope, timelineCode, closedPeriodId);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -442,7 +451,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EARLY ACCESS] GetUnitsFromDataType: Get units from data type
-    ApiResponse<ResourceListOfIUnitDefinitionDto> response = apiInstance.GetUnitsFromDataTypeWithHttpInfo(scope, code, units, filter, asAt);
+    ApiResponse<ResourceListOfIUnitDefinitionDto> response = apiInstance.GetUnitsFromDataTypeWithHttpInfo(scope, code, units, filter, asAt, timelineScope, timelineCode, closedPeriodId);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -464,6 +473,9 @@ catch (ApiException e)
 | **units** | [**List&lt;string&gt;?**](string.md) | One or more unit identifiers for which the definition is being requested | [optional]  |
 | **filter** | **string?** | Optional. Expression to filter the result set.               For example, to filter on the Schema, use \&quot;schema eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
 | **asAt** | **DateTimeOffset?** | Optional. The as at of the requested data type | [optional]  |
+| **timelineScope** | **string?** | The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. | [optional]  |
+| **timelineCode** | **string?** | The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. | [optional]  |
+| **closedPeriodId** | **string?** | The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. | [optional]  |
 
 ### Return type
 
@@ -486,7 +498,7 @@ catch (ApiException e)
 
 <a id="listdatatypesummaries"></a>
 # **ListDataTypeSummaries**
-> PagedResourceListOfDataTypeSummary ListDataTypeSummaries (DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null, List<string>? sortBy = null)
+> PagedResourceListOfDataTypeSummary ListDataTypeSummaries (DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null, List<string>? sortBy = null, string? timelineScope = null, string? timelineCode = null, string? closedPeriodId = null)
 
 [EARLY ACCESS] ListDataTypeSummaries: List all data type summaries, without the reference data
 
@@ -536,14 +548,17 @@ namespace Examples
             var limit = 56;  // int? | When paginating, limit the results to this number. Defaults to 100 if not specified. (optional) 
             var filter = "filter_example";  // string? | Optional. Expression to filter the result set.                For example, to filter on the Scope, use \"id.scope eq 'myscope'\", to filter on Schema, use \"schema eq 'string'\",               to filter on AcceptableValues use \"acceptableValues any (~ eq 'value')\"               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
             var sortBy = new List<string>?(); // List<string>? | A list of field names to sort by, each suffixed by \" ASC\" or \" DESC\" (optional) 
+            var timelineScope = "timelineScope_example";  // string? | The scope of the Timeline, used to override the AsAt.               If this is provided, timelineCode and closedPeriodId must also be provided. (optional) 
+            var timelineCode = "timelineCode_example";  // string? | The code of the Timeline, used to override the AsAt.               If this is provided, timelineScope and closedPeriodId must also be provided. (optional) 
+            var closedPeriodId = "closedPeriodId_example";  // string? | The code of the ClosedPeriod attached to the timeline, used to override the AsAt.               If this is provided, timelineScope and timelineCode must also be provided. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // PagedResourceListOfDataTypeSummary result = apiInstance.ListDataTypeSummaries(asAt, page, limit, filter, sortBy, opts: opts);
+                // PagedResourceListOfDataTypeSummary result = apiInstance.ListDataTypeSummaries(asAt, page, limit, filter, sortBy, timelineScope, timelineCode, closedPeriodId, opts: opts);
 
                 // [EARLY ACCESS] ListDataTypeSummaries: List all data type summaries, without the reference data
-                PagedResourceListOfDataTypeSummary result = apiInstance.ListDataTypeSummaries(asAt, page, limit, filter, sortBy);
+                PagedResourceListOfDataTypeSummary result = apiInstance.ListDataTypeSummaries(asAt, page, limit, filter, sortBy, timelineScope, timelineCode, closedPeriodId);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -564,7 +579,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EARLY ACCESS] ListDataTypeSummaries: List all data type summaries, without the reference data
-    ApiResponse<PagedResourceListOfDataTypeSummary> response = apiInstance.ListDataTypeSummariesWithHttpInfo(asAt, page, limit, filter, sortBy);
+    ApiResponse<PagedResourceListOfDataTypeSummary> response = apiInstance.ListDataTypeSummariesWithHttpInfo(asAt, page, limit, filter, sortBy, timelineScope, timelineCode, closedPeriodId);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -586,6 +601,9 @@ catch (ApiException e)
 | **limit** | **int?** | When paginating, limit the results to this number. Defaults to 100 if not specified. | [optional]  |
 | **filter** | **string?** | Optional. Expression to filter the result set.                For example, to filter on the Scope, use \&quot;id.scope eq &#39;myscope&#39;\&quot;, to filter on Schema, use \&quot;schema eq &#39;string&#39;\&quot;,               to filter on AcceptableValues use \&quot;acceptableValues any (~ eq &#39;value&#39;)\&quot;               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
 | **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; | [optional]  |
+| **timelineScope** | **string?** | The scope of the Timeline, used to override the AsAt.               If this is provided, timelineCode and closedPeriodId must also be provided. | [optional]  |
+| **timelineCode** | **string?** | The code of the Timeline, used to override the AsAt.               If this is provided, timelineScope and closedPeriodId must also be provided. | [optional]  |
+| **closedPeriodId** | **string?** | The code of the ClosedPeriod attached to the timeline, used to override the AsAt.               If this is provided, timelineScope and timelineCode must also be provided. | [optional]  |
 
 ### Return type
 
@@ -608,7 +626,7 @@ catch (ApiException e)
 
 <a id="listdatatypes"></a>
 # **ListDataTypes**
-> ResourceListOfDataType ListDataTypes (string scope, DateTimeOffset? asAt = null, bool? includeSystem = null, List<string>? sortBy = null, int? limit = null, string? filter = null)
+> ResourceListOfDataType ListDataTypes (string scope, DateTimeOffset? asAt = null, bool? includeSystem = null, List<string>? sortBy = null, int? limit = null, string? filter = null, string? timelineScope = null, string? timelineCode = null, string? closedPeriodId = null)
 
 ListDataTypes: List data types
 
@@ -659,14 +677,17 @@ namespace Examples
             var sortBy = new List<string>?(); // List<string>? | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
             var limit = 56;  // int? | Optional. When paginating, limit the number of returned results to this many. (optional) 
             var filter = "filter_example";  // string? | Optional. Expression to filter the result set.              For example, to filter on the Display Name, use \"displayName eq 'string'\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
+            var timelineScope = "timelineScope_example";  // string? | The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional) 
+            var timelineCode = "timelineCode_example";  // string? | The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional) 
+            var closedPeriodId = "closedPeriodId_example";  // string? | The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // ResourceListOfDataType result = apiInstance.ListDataTypes(scope, asAt, includeSystem, sortBy, limit, filter, opts: opts);
+                // ResourceListOfDataType result = apiInstance.ListDataTypes(scope, asAt, includeSystem, sortBy, limit, filter, timelineScope, timelineCode, closedPeriodId, opts: opts);
 
                 // ListDataTypes: List data types
-                ResourceListOfDataType result = apiInstance.ListDataTypes(scope, asAt, includeSystem, sortBy, limit, filter);
+                ResourceListOfDataType result = apiInstance.ListDataTypes(scope, asAt, includeSystem, sortBy, limit, filter, timelineScope, timelineCode, closedPeriodId);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -687,7 +708,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // ListDataTypes: List data types
-    ApiResponse<ResourceListOfDataType> response = apiInstance.ListDataTypesWithHttpInfo(scope, asAt, includeSystem, sortBy, limit, filter);
+    ApiResponse<ResourceListOfDataType> response = apiInstance.ListDataTypesWithHttpInfo(scope, asAt, includeSystem, sortBy, limit, filter, timelineScope, timelineCode, closedPeriodId);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -710,6 +731,9 @@ catch (ApiException e)
 | **sortBy** | [**List&lt;string&gt;?**](string.md) | Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional]  |
 | **limit** | **int?** | Optional. When paginating, limit the number of returned results to this many. | [optional]  |
 | **filter** | **string?** | Optional. Expression to filter the result set.              For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
+| **timelineScope** | **string?** | The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. | [optional]  |
+| **timelineCode** | **string?** | The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. | [optional]  |
+| **closedPeriodId** | **string?** | The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. | [optional]  |
 
 ### Return type
 

@@ -12,15 +12,15 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**DeleteFee**](FundsApi.md#deletefee) | **DELETE** /api/funds/{scope}/{code}/fees/{feeCode} | [EXPERIMENTAL] DeleteFee: Delete a Fee. |
 | [**DeleteFund**](FundsApi.md#deletefund) | **DELETE** /api/funds/{scope}/{code} | [EXPERIMENTAL] DeleteFund: Delete a Fund. |
 | [**DeleteValuationPoint**](FundsApi.md#deletevaluationpoint) | **DELETE** /api/funds/{scope}/{code}/valuationpoints/{diaryEntryCode} | [EXPERIMENTAL] DeleteValuationPoint: Delete a Valuation Point. |
-| [**FinaliseCandidateValuationPoint**](FundsApi.md#finalisecandidatevaluationpoint) | **POST** /api/funds/{scope}/{code}/valuationpoints/$finalisecandidate | [EXPERIMENTAL] FinaliseCandidateValuationPoint: Finalise Candidate. |
+| [**FinaliseCandidateValuationPoint**](FundsApi.md#finalisecandidatevaluationpoint) | **POST** /api/funds/{scope}/{code}/valuationpoints/$finalisecandidate | [EXPERIMENTAL] FinaliseCandidateValuationPoint: Finalise a Candidate Valuation Point. |
 | [**GetFee**](FundsApi.md#getfee) | **GET** /api/funds/{scope}/{code}/fees/{feeCode} | [EXPERIMENTAL] GetFee: Get a Fee for a specified Fund. |
-| [**GetFeeProperties**](FundsApi.md#getfeeproperties) | **GET** /api/funds/{scope}/{code}/fees/{feeCode}/properties | [EXPERIMENTAL] GetFeeProperties: Get Fee properties |
+| [**GetFeeProperties**](FundsApi.md#getfeeproperties) | **GET** /api/funds/{scope}/{code}/fees/{feeCode}/properties | [EXPERIMENTAL] GetFeeProperties: Get Fee properties. |
 | [**GetFund**](FundsApi.md#getfund) | **GET** /api/funds/{scope}/{code} | [EXPERIMENTAL] GetFund: Get a Fund. |
-| [**GetFundProperties**](FundsApi.md#getfundproperties) | **GET** /api/funds/{scope}/{code}/properties | [EXPERIMENTAL] GetFundProperties: Get Fund properties |
+| [**GetFundProperties**](FundsApi.md#getfundproperties) | **GET** /api/funds/{scope}/{code}/properties | [EXPERIMENTAL] GetFundProperties: Get Fund properties. |
 | [**GetHoldingsForFund**](FundsApi.md#getholdingsforfund) | **POST** /api/funds/{scope}/{code}/$holdings | [EXPERIMENTAL] GetHoldingsForFund: Get holdings for transaction portfolios in a Fund. |
-| [**GetValuationForFund**](FundsApi.md#getvaluationforfund) | **POST** /api/funds/{scope}/{code}/$valuation | [EXPERIMENTAL] GetValuationForFund: Perform valuation for a Fund |
+| [**GetValuationForFund**](FundsApi.md#getvaluationforfund) | **POST** /api/funds/{scope}/{code}/$valuation | [EXPERIMENTAL] GetValuationForFund: Perform valuation for a Fund. |
 | [**GetValuationPointData**](FundsApi.md#getvaluationpointdata) | **POST** /api/funds/{scope}/{code}/valuationpoints/$query | [EXPERIMENTAL] GetValuationPointData: Get Valuation Point Data for a Fund. |
-| [**GetValuationPointJournalEntryLines**](FundsApi.md#getvaluationpointjournalentrylines) | **POST** /api/funds/{scope}/{code}/valuationpoints/journalentrylines/$query | [EXPERIMENTAL] GetValuationPointJournalEntryLines: Get the Journal Entry lines for the given Fund. |
+| [**GetValuationPointJournalEntryLines**](FundsApi.md#getvaluationpointjournalentrylines) | **POST** /api/funds/{scope}/{code}/valuationpoints/journalentrylines/$query | [EXPERIMENTAL] GetValuationPointJournalEntryLines: Get the Journal Entry Lines for the given Fund. |
 | [**GetValuationPointPnlSummary**](FundsApi.md#getvaluationpointpnlsummary) | **POST** /api/funds/{scope}/{code}/valuationpoints/pnlsummary/$query | [EXPERIMENTAL] GetValuationPointPnlSummary: Get a PnL summary for the given Valuation Point in the Fund. |
 | [**GetValuationPointTransactions**](FundsApi.md#getvaluationpointtransactions) | **POST** /api/funds/{scope}/{code}/valuationpoints/transactions/$query | [EXPERIMENTAL] GetValuationPointTransactions: Get the Transactions for the given Fund. |
 | [**GetValuationPointTrialBalance**](FundsApi.md#getvaluationpointtrialbalance) | **POST** /api/funds/{scope}/{code}/valuationpoints/trialbalance/$query | [EXPERIMENTAL] GetValuationPointTrialBalance: Get Trial Balance for the given Fund. |
@@ -30,9 +30,9 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**ListValuationPointOverview**](FundsApi.md#listvaluationpointoverview) | **GET** /api/funds/{scope}/{code}/valuationPointOverview | [EXPERIMENTAL] ListValuationPointOverview: List Valuation Points Overview for a given Fund. |
 | [**PatchFee**](FundsApi.md#patchfee) | **PATCH** /api/funds/{scope}/{code}/fees/{feeCode} | [EXPERIMENTAL] PatchFee: Patch Fee. |
 | [**PatchFund**](FundsApi.md#patchfund) | **PATCH** /api/funds/{scope}/{code} | [EXPERIMENTAL] PatchFund: Patch a Fund. |
-| [**SetShareClassInstruments**](FundsApi.md#setshareclassinstruments) | **PUT** /api/funds/{scope}/{code}/shareclasses | [EXPERIMENTAL] SetShareClassInstruments: Set the ShareClass Instruments on a fund. |
+| [**SetShareClassInstruments**](FundsApi.md#setshareclassinstruments) | **PUT** /api/funds/{scope}/{code}/shareclasses | [EXPERIMENTAL] SetShareClassInstruments: Set the ShareClass Instruments on a Fund. |
 | [**UpsertBookmark**](FundsApi.md#upsertbookmark) | **POST** /api/funds/{scope}/{code}/bookmarks | [EXPERIMENTAL] UpsertBookmark: Upsert a bookmark. |
-| [**UpsertDiaryEntryTypeValuationPoint**](FundsApi.md#upsertdiaryentrytypevaluationpoint) | **POST** /api/funds/{scope}/{code}/valuationpoints | [EXPERIMENTAL] UpsertDiaryEntryTypeValuationPoint: Upsert Valuation Point. |
+| [**UpsertDiaryEntryTypeValuationPoint**](FundsApi.md#upsertdiaryentrytypevaluationpoint) | **POST** /api/funds/{scope}/{code}/valuationpoints | [EXPERIMENTAL] UpsertDiaryEntryTypeValuationPoint: Upsert a Valuation Point. |
 | [**UpsertFeeProperties**](FundsApi.md#upsertfeeproperties) | **POST** /api/funds/{scope}/{code}/fees/{feeCode}/properties/$upsert | [EXPERIMENTAL] UpsertFeeProperties: Upsert Fee properties. |
 | [**UpsertFundProperties**](FundsApi.md#upsertfundproperties) | **POST** /api/funds/{scope}/{code}/properties/$upsert | [EXPERIMENTAL] UpsertFundProperties: Upsert Fund properties. |
 
@@ -86,7 +86,7 @@ namespace Examples
             var scope = "scope_example";  // string | The scope of the Fund.
             var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
             var valuationPointDataRequest = new ValuationPointDataRequest(); // ValuationPointDataRequest | The valuationPointDataRequest which contains the Diary Entry code for the Estimate Valuation Point to move to Candidate or Final state.
-            var navTypeCode = "navTypeCode_example";  // string? | When provided Accepts the Valuation Point of the specified NAV Type. When not provided the Primary NAV Type will be Accepted. (optional) 
+            var navTypeCode = "navTypeCode_example";  // string? | When provided, accepts the Valuation Point of the specified NAV Type, otherwise the Primary NAV Type will be used. (optional) 
 
             try
             {
@@ -135,7 +135,7 @@ catch (ApiException e)
 | **scope** | **string** | The scope of the Fund. |  |
 | **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
 | **valuationPointDataRequest** | [**ValuationPointDataRequest**](ValuationPointDataRequest.md) | The valuationPointDataRequest which contains the Diary Entry code for the Estimate Valuation Point to move to Candidate or Final state. |  |
-| **navTypeCode** | **string?** | When provided Accepts the Valuation Point of the specified NAV Type. When not provided the Primary NAV Type will be Accepted. | [optional]  |
+| **navTypeCode** | **string?** | When provided, accepts the Valuation Point of the specified NAV Type, otherwise the Primary NAV Type will be used. | [optional]  |
 
 ### Return type
 
@@ -206,7 +206,7 @@ namespace Examples
             var scope = "scope_example";  // string | The scope of the Fund.
             var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
             var feeRequest = new FeeRequest(); // FeeRequest | The Fee to create.
-            var navTypeCode = "navTypeCode_example";  // string? | When provided runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional) 
+            var navTypeCode = "navTypeCode_example";  // string? | When provided, creates the Fee against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional) 
 
             try
             {
@@ -255,7 +255,7 @@ catch (ApiException e)
 | **scope** | **string** | The scope of the Fund. |  |
 | **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
 | **feeRequest** | [**FeeRequest**](FeeRequest.md) | The Fee to create. |  |
-| **navTypeCode** | **string?** | When provided runs against the specified NAV Type, otherwise the Primary NAV Type will be used. | [optional]  |
+| **navTypeCode** | **string?** | When provided, creates the Fee against the specified NAV Type, otherwise the Primary NAV Type will be used. | [optional]  |
 
 ### Return type
 
@@ -555,10 +555,10 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundsApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
-            var scope = "scope_example";  // string | The scope of the Fund for the Bookmark to be deleted.
-            var code = "code_example";  // string | The code of the Fund containing the Bookmark to be deleted. Together with the scope this uniquely identifies the Fund.
-            var bookmarkCode = "bookmarkCode_example";  // string | The bookmark code for the bookmark to be deleted
-            var navTypeCode = "navTypeCode_example";  // string? | When provided, Deletes the Bookmark against the specified NAV Type. When not provided the Primary NAV Type will be Deleted. (optional) 
+            var scope = "scope_example";  // string | The scope of the Fund.
+            var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
+            var bookmarkCode = "bookmarkCode_example";  // string | The bookmark code for the bookmark to be deleted.
+            var navTypeCode = "navTypeCode_example";  // string? | When provided, deletes the Bookmark against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional) 
 
             try
             {
@@ -604,10 +604,10 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **scope** | **string** | The scope of the Fund for the Bookmark to be deleted. |  |
-| **code** | **string** | The code of the Fund containing the Bookmark to be deleted. Together with the scope this uniquely identifies the Fund. |  |
-| **bookmarkCode** | **string** | The bookmark code for the bookmark to be deleted |  |
-| **navTypeCode** | **string?** | When provided, Deletes the Bookmark against the specified NAV Type. When not provided the Primary NAV Type will be Deleted. | [optional]  |
+| **scope** | **string** | The scope of the Fund. |  |
+| **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
+| **bookmarkCode** | **string** | The bookmark code for the bookmark to be deleted. |  |
+| **navTypeCode** | **string?** | When provided, deletes the Bookmark against the specified NAV Type, otherwise the Primary NAV Type will be used. | [optional]  |
 
 ### Return type
 
@@ -675,7 +675,7 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundsApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
-            var scope = "scope_example";  // string | The scope of the Fund
+            var scope = "scope_example";  // string | The scope of the Fund.
             var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
             var feeCode = "feeCode_example";  // string | The code of the Fee to be deleted.
 
@@ -723,7 +723,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **scope** | **string** | The scope of the Fund |  |
+| **scope** | **string** | The scope of the Fund. |  |
 | **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
 | **feeCode** | **string** | The code of the Fee to be deleted. |  |
 
@@ -909,10 +909,10 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundsApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
-            var scope = "scope_example";  // string | The scope of the Fund for the valuation point to be deleted.
-            var code = "code_example";  // string | The code of the Fund containing the Valuation Point to be deleted. Together with the scope this uniquely identifies the Fund.
+            var scope = "scope_example";  // string | The scope of the Fund.
+            var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
             var diaryEntryCode = "diaryEntryCode_example";  // string | The diary entry code for the valuation Point to be deleted.
-            var navTypeCode = "navTypeCode_example";  // string? | When provided, Deletes the Valuation Point against the specified NAV Type. When not provided the Primary NAV Type will be Deleted. (optional) 
+            var navTypeCode = "navTypeCode_example";  // string? | When provided, deletes the Valuation Point against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional) 
 
             try
             {
@@ -958,10 +958,10 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **scope** | **string** | The scope of the Fund for the valuation point to be deleted. |  |
-| **code** | **string** | The code of the Fund containing the Valuation Point to be deleted. Together with the scope this uniquely identifies the Fund. |  |
+| **scope** | **string** | The scope of the Fund. |  |
+| **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
 | **diaryEntryCode** | **string** | The diary entry code for the valuation Point to be deleted. |  |
-| **navTypeCode** | **string?** | When provided, Deletes the Valuation Point against the specified NAV Type. When not provided the Primary NAV Type will be Deleted. | [optional]  |
+| **navTypeCode** | **string?** | When provided, deletes the Valuation Point against the specified NAV Type, otherwise the Primary NAV Type will be used. | [optional]  |
 
 ### Return type
 
@@ -986,7 +986,7 @@ catch (ApiException e)
 # **FinaliseCandidateValuationPoint**
 > ValuationPointDataResponse FinaliseCandidateValuationPoint (string scope, string code, ValuationPointDataRequest valuationPointDataRequest, string? navTypeCode = null)
 
-[EXPERIMENTAL] FinaliseCandidateValuationPoint: Finalise Candidate.
+[EXPERIMENTAL] FinaliseCandidateValuationPoint: Finalise a Candidate Valuation Point.
 
 Moves a 'Candidate' status Valuation Point to status 'Final'.
 
@@ -1031,15 +1031,15 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
             var scope = "scope_example";  // string | The scope of the Fund.
             var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
-            var valuationPointDataRequest = new ValuationPointDataRequest(); // ValuationPointDataRequest | The valuationPointDataRequest which contains the diary entry code to mark as final.
-            var navTypeCode = "navTypeCode_example";  // string? | When provided Finalises the Valuation Point of the specified NAV Type. When not provided the Primary NAV Type will be Finalised. (optional) 
+            var valuationPointDataRequest = new ValuationPointDataRequest(); // ValuationPointDataRequest | The details of the Valuation Point to mark as final.
+            var navTypeCode = "navTypeCode_example";  // string? | When provided, finalises the Valuation Point of the specified NAV Type, otherwise the Primary NAV Type will be used. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
                 // ValuationPointDataResponse result = apiInstance.FinaliseCandidateValuationPoint(scope, code, valuationPointDataRequest, navTypeCode, opts: opts);
 
-                // [EXPERIMENTAL] FinaliseCandidateValuationPoint: Finalise Candidate.
+                // [EXPERIMENTAL] FinaliseCandidateValuationPoint: Finalise a Candidate Valuation Point.
                 ValuationPointDataResponse result = apiInstance.FinaliseCandidateValuationPoint(scope, code, valuationPointDataRequest, navTypeCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1060,7 +1060,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] FinaliseCandidateValuationPoint: Finalise Candidate.
+    // [EXPERIMENTAL] FinaliseCandidateValuationPoint: Finalise a Candidate Valuation Point.
     ApiResponse<ValuationPointDataResponse> response = apiInstance.FinaliseCandidateValuationPointWithHttpInfo(scope, code, valuationPointDataRequest, navTypeCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1080,8 +1080,8 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **scope** | **string** | The scope of the Fund. |  |
 | **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
-| **valuationPointDataRequest** | [**ValuationPointDataRequest**](ValuationPointDataRequest.md) | The valuationPointDataRequest which contains the diary entry code to mark as final. |  |
-| **navTypeCode** | **string?** | When provided Finalises the Valuation Point of the specified NAV Type. When not provided the Primary NAV Type will be Finalised. | [optional]  |
+| **valuationPointDataRequest** | [**ValuationPointDataRequest**](ValuationPointDataRequest.md) | The details of the Valuation Point to mark as final. |  |
+| **navTypeCode** | **string?** | When provided, finalises the Valuation Point of the specified NAV Type, otherwise the Primary NAV Type will be used. | [optional]  |
 
 ### Return type
 
@@ -1108,7 +1108,7 @@ catch (ApiException e)
 
 [EXPERIMENTAL] GetFee: Get a Fee for a specified Fund.
 
-Retrieve a fee for a specified Fund
+Retrieve a fee for a specified Fund.
 
 ### Example
 ```csharp
@@ -1230,7 +1230,7 @@ catch (ApiException e)
 # **GetFeeProperties**
 > FeeProperties GetFeeProperties (string scope, string code, string feeCode, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null)
 
-[EXPERIMENTAL] GetFeeProperties: Get Fee properties
+[EXPERIMENTAL] GetFeeProperties: Get Fee properties.
 
 Get all the properties of a single fee.
 
@@ -1284,7 +1284,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // FeeProperties result = apiInstance.GetFeeProperties(scope, code, feeCode, effectiveAt, asAt, opts: opts);
 
-                // [EXPERIMENTAL] GetFeeProperties: Get Fee properties
+                // [EXPERIMENTAL] GetFeeProperties: Get Fee properties.
                 FeeProperties result = apiInstance.GetFeeProperties(scope, code, feeCode, effectiveAt, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1305,7 +1305,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetFeeProperties: Get Fee properties
+    // [EXPERIMENTAL] GetFeeProperties: Get Fee properties.
     ApiResponse<FeeProperties> response = apiInstance.GetFeePropertiesWithHttpInfo(scope, code, feeCode, effectiveAt, asAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1474,7 +1474,7 @@ catch (ApiException e)
 # **GetFundProperties**
 > FundProperties GetFundProperties (string scope, string code, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null)
 
-[EXPERIMENTAL] GetFundProperties: Get Fund properties
+[EXPERIMENTAL] GetFundProperties: Get Fund properties.
 
 Get all the properties of a single fund.
 
@@ -1527,7 +1527,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // FundProperties result = apiInstance.GetFundProperties(scope, code, effectiveAt, asAt, opts: opts);
 
-                // [EXPERIMENTAL] GetFundProperties: Get Fund properties
+                // [EXPERIMENTAL] GetFundProperties: Get Fund properties.
                 FundProperties result = apiInstance.GetFundProperties(scope, code, effectiveAt, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1548,7 +1548,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetFundProperties: Get Fund properties
+    // [EXPERIMENTAL] GetFundProperties: Get Fund properties.
     ApiResponse<FundProperties> response = apiInstance.GetFundPropertiesWithHttpInfo(scope, code, effectiveAt, asAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1639,13 +1639,13 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
             var scope = "scope_example";  // string | The scope of the Fund.
             var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
-            var singleValuationPointQueryParameters = new SingleValuationPointQueryParameters(); // SingleValuationPointQueryParameters | The query parameters used for diary entry or effective date of Holdings
-            var navTypeCode = "navTypeCode_example";  // string? | When provided runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional) 
+            var singleValuationPointQueryParameters = new SingleValuationPointQueryParameters(); // SingleValuationPointQueryParameters | The arguments to use for querying the holdings.
+            var navTypeCode = "navTypeCode_example";  // string? | When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional) 
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the holdings of transaction portfolios in the Fund. Defaults              to return the latest version of the holdings if not specified. (optional) 
             var filter = "filter_example";  // string? | Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
             var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the \"Instrument\", \"Holding\" or \"Portfolio\" domain to decorate onto              the holdings. These take the format {domain}/{scope}/{code} e.g. \"Instrument/system/Name\" or \"Holding/system/Cost\". (optional) 
             var byTaxlots = true;  // bool? | Whether to expand the holdings to return the underlying tax-lots. Defaults to False. (optional) 
-            var includeSettlementEventsAfterDays = 56;  // int? | Number of days ahead to bring back settlements from, in relation to the specified effectiveAt (optional) 
+            var includeSettlementEventsAfterDays = 56;  // int? | Number of days ahead to bring back settlements from, in relation to the specified effectiveAt. (optional) 
 
             try
             {
@@ -1693,13 +1693,13 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **scope** | **string** | The scope of the Fund. |  |
 | **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
-| **singleValuationPointQueryParameters** | [**SingleValuationPointQueryParameters**](SingleValuationPointQueryParameters.md) | The query parameters used for diary entry or effective date of Holdings |  |
-| **navTypeCode** | **string?** | When provided runs against the specified NAV Type, otherwise the Primary NAV Type will be used. | [optional]  |
+| **singleValuationPointQueryParameters** | [**SingleValuationPointQueryParameters**](SingleValuationPointQueryParameters.md) | The arguments to use for querying the holdings. |  |
+| **navTypeCode** | **string?** | When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. | [optional]  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the holdings of transaction portfolios in the Fund. Defaults              to return the latest version of the holdings if not specified. | [optional]  |
 | **filter** | **string?** | Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
 | **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the \&quot;Instrument\&quot;, \&quot;Holding\&quot; or \&quot;Portfolio\&quot; domain to decorate onto              the holdings. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/Cost\&quot;. | [optional]  |
 | **byTaxlots** | **bool?** | Whether to expand the holdings to return the underlying tax-lots. Defaults to False. | [optional]  |
-| **includeSettlementEventsAfterDays** | **int?** | Number of days ahead to bring back settlements from, in relation to the specified effectiveAt | [optional]  |
+| **includeSettlementEventsAfterDays** | **int?** | Number of days ahead to bring back settlements from, in relation to the specified effectiveAt. | [optional]  |
 
 ### Return type
 
@@ -1714,7 +1714,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The holdings of transaction portfolios in a specific version of a Fund |  -  |
+| **200** | The holdings of transaction portfolios for a Fund |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
@@ -1724,7 +1724,7 @@ catch (ApiException e)
 # **GetValuationForFund**
 > ListAggregationResponse GetValuationForFund (string scope, string code, string? navTypeCode = null, FundValuationRequest? fundValuationRequest = null)
 
-[EXPERIMENTAL] GetValuationForFund: Perform valuation for a Fund
+[EXPERIMENTAL] GetValuationForFund: Perform valuation for a Fund.
 
 Perform valuation on a specified Fund.
 
@@ -1767,17 +1767,17 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundsApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
-            var scope = "scope_example";  // string | The scope of the Fund
-            var code = "code_example";  // string | The code of the Fund
-            var navTypeCode = "navTypeCode_example";  // string? | When provided runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional) 
-            var fundValuationRequest = new FundValuationRequest?(); // FundValuationRequest? | The request specifying the dates (or DiaryEntry) on which to calculate a set of valuation metrics (optional) 
+            var scope = "scope_example";  // string | The scope of the Fund.
+            var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
+            var navTypeCode = "navTypeCode_example";  // string? | When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional) 
+            var fundValuationRequest = new FundValuationRequest?(); // FundValuationRequest? | The request specifying the dates (or DiaryEntry) on which to calculate a set of valuation metrics. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
                 // ListAggregationResponse result = apiInstance.GetValuationForFund(scope, code, navTypeCode, fundValuationRequest, opts: opts);
 
-                // [EXPERIMENTAL] GetValuationForFund: Perform valuation for a Fund
+                // [EXPERIMENTAL] GetValuationForFund: Perform valuation for a Fund.
                 ListAggregationResponse result = apiInstance.GetValuationForFund(scope, code, navTypeCode, fundValuationRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1798,7 +1798,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetValuationForFund: Perform valuation for a Fund
+    // [EXPERIMENTAL] GetValuationForFund: Perform valuation for a Fund.
     ApiResponse<ListAggregationResponse> response = apiInstance.GetValuationForFundWithHttpInfo(scope, code, navTypeCode, fundValuationRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1816,10 +1816,10 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **scope** | **string** | The scope of the Fund |  |
-| **code** | **string** | The code of the Fund |  |
-| **navTypeCode** | **string?** | When provided runs against the specified NAV Type, otherwise the Primary NAV Type will be used. | [optional]  |
-| **fundValuationRequest** | [**FundValuationRequest?**](FundValuationRequest?.md) | The request specifying the dates (or DiaryEntry) on which to calculate a set of valuation metrics | [optional]  |
+| **scope** | **string** | The scope of the Fund. |  |
+| **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
+| **navTypeCode** | **string?** | When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. | [optional]  |
+| **fundValuationRequest** | [**FundValuationRequest?**](FundValuationRequest?.md) | The request specifying the dates (or DiaryEntry) on which to calculate a set of valuation metrics. | [optional]  |
 
 ### Return type
 
@@ -1846,7 +1846,7 @@ catch (ApiException e)
 
 [EXPERIMENTAL] GetValuationPointData: Get Valuation Point Data for a Fund.
 
-Retrieves the Valuation Point data for a date or specified Diary Entry Id.  The endpoint will internally extract all 'Assets' and 'Liabilities' from the related ABOR's Trial balance to produce a GAV.  Start date will be assumed from the last 'official' DiaryEntry and EndDate will be as provided.
+Retrieves the Valuation Point data between given dates or Valuation Point codes.  The endpoint will internally extract all 'Assets' and 'Liabilities' from the Fund's Trial balance to produce a GAV.  Start date will be assumed from the last 'official' ValuationPoint and EndDate will be as provided.
 
 ### Example
 ```csharp
@@ -1889,9 +1889,9 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
             var scope = "scope_example";  // string | The scope of the Fund.
             var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
-            var valuationPointDataQueryParameters = new ValuationPointDataQueryParameters(); // ValuationPointDataQueryParameters | The arguments to use for querying the Valuation Point data
+            var valuationPointDataQueryParameters = new ValuationPointDataQueryParameters(); // ValuationPointDataQueryParameters | The arguments to use for querying the Valuation Point data.
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the Fund definition. Defaults to returning the latest version of the Fund definition if not specified. (optional) 
-            var navTypeCode = "navTypeCode_example";  // string? | When provided runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional) 
+            var navTypeCode = "navTypeCode_example";  // string? | When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional) 
 
             try
             {
@@ -1939,9 +1939,9 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **scope** | **string** | The scope of the Fund. |  |
 | **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
-| **valuationPointDataQueryParameters** | [**ValuationPointDataQueryParameters**](ValuationPointDataQueryParameters.md) | The arguments to use for querying the Valuation Point data |  |
+| **valuationPointDataQueryParameters** | [**ValuationPointDataQueryParameters**](ValuationPointDataQueryParameters.md) | The arguments to use for querying the Valuation Point data. |  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the Fund definition. Defaults to returning the latest version of the Fund definition if not specified. | [optional]  |
-| **navTypeCode** | **string?** | When provided runs against the specified NAV Type, otherwise the Primary NAV Type will be used. | [optional]  |
+| **navTypeCode** | **string?** | When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. | [optional]  |
 
 ### Return type
 
@@ -1956,7 +1956,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The specified Valuation Point for the Fund. |  -  |
+| **200** | The requested Valuation Point data for the Fund. |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
@@ -1966,9 +1966,9 @@ catch (ApiException e)
 # **GetValuationPointJournalEntryLines**
 > ValuationPointResourceListOfFundJournalEntryLine GetValuationPointJournalEntryLines (string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, string? generalLedgerProfileCode = null, DateTimeOffset? asAt = null, string? filter = null, int? limit = null, string? page = null, List<string>? propertyKeys = null, string? navTypeCode = null)
 
-[EXPERIMENTAL] GetValuationPointJournalEntryLines: Get the Journal Entry lines for the given Fund.
+[EXPERIMENTAL] GetValuationPointJournalEntryLines: Get the Journal Entry Lines for the given Fund.
 
-Gets the Journal Entry lines for the given Valuation Point for a Fund                The Journal Entry lines have been generated from transactions, translated via posting rules and used in the valuation point
+Gets the Journal Entry Lines for the given Valuation Point for a Fund.                The Journal Entry Lines have been generated from transactions, translated via posting rules and used in the valuation point.
 
 ### Example
 ```csharp
@@ -2010,22 +2010,22 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
             var scope = "scope_example";  // string | The scope of the Fund.
-            var code = "code_example";  // string | The code of the Fund. Together with the scope is creating the unique identifier for the given Fund.
-            var valuationPointDataQueryParameters = new ValuationPointDataQueryParameters(); // ValuationPointDataQueryParameters | The arguments to use for querying the Journal Entry lines.
-            var generalLedgerProfileCode = "generalLedgerProfileCode_example";  // string? | The optional code of a general ledger profile used to decorate journal entry lines with levels. (optional) 
-            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve Journal Entry lines. Defaults to returning the latest version               of each transaction if not specified. (optional) 
+            var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
+            var valuationPointDataQueryParameters = new ValuationPointDataQueryParameters(); // ValuationPointDataQueryParameters | The arguments to use for querying the Journal Entry Lines.
+            var generalLedgerProfileCode = "generalLedgerProfileCode_example";  // string? | The optional code of a General Ledger Profile used to decorate Journal Entry Lines with levels. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve Journal Entry Lines. Defaults to returning the latest version if not specified. (optional) 
             var filter = "filter_example";  // string? | Expression to filter the result set. (optional) 
             var limit = 56;  // int? | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional) 
-            var page = "page_example";  // string? | The pagination token to use to continue listing Journal Entry lines from a previous call to GetValuationPointJournalEntryLines. (optional) 
-            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'Instrument', 'Transaction', 'Portfolio', 'Account', 'LegalEntity' or 'CustodianAccount'               domain to decorate onto the journal entry lines. (optional) 
-            var navTypeCode = "navTypeCode_example";  // string? | May be provided to view a specific NAV type. When not provided, Primary NAV will be used. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing Journal Entry Lines from a previous call to GetValuationPointJournalEntryLines. (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'Instrument', 'Transaction', 'Portfolio', 'Account', 'LegalEntity' or 'CustodianAccount'               domain to decorate onto the Journal Entry Lines. (optional) 
+            var navTypeCode = "navTypeCode_example";  // string? | When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
                 // ValuationPointResourceListOfFundJournalEntryLine result = apiInstance.GetValuationPointJournalEntryLines(scope, code, valuationPointDataQueryParameters, generalLedgerProfileCode, asAt, filter, limit, page, propertyKeys, navTypeCode, opts: opts);
 
-                // [EXPERIMENTAL] GetValuationPointJournalEntryLines: Get the Journal Entry lines for the given Fund.
+                // [EXPERIMENTAL] GetValuationPointJournalEntryLines: Get the Journal Entry Lines for the given Fund.
                 ValuationPointResourceListOfFundJournalEntryLine result = apiInstance.GetValuationPointJournalEntryLines(scope, code, valuationPointDataQueryParameters, generalLedgerProfileCode, asAt, filter, limit, page, propertyKeys, navTypeCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -2046,7 +2046,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetValuationPointJournalEntryLines: Get the Journal Entry lines for the given Fund.
+    // [EXPERIMENTAL] GetValuationPointJournalEntryLines: Get the Journal Entry Lines for the given Fund.
     ApiResponse<ValuationPointResourceListOfFundJournalEntryLine> response = apiInstance.GetValuationPointJournalEntryLinesWithHttpInfo(scope, code, valuationPointDataQueryParameters, generalLedgerProfileCode, asAt, filter, limit, page, propertyKeys, navTypeCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -2065,15 +2065,15 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **scope** | **string** | The scope of the Fund. |  |
-| **code** | **string** | The code of the Fund. Together with the scope is creating the unique identifier for the given Fund. |  |
-| **valuationPointDataQueryParameters** | [**ValuationPointDataQueryParameters**](ValuationPointDataQueryParameters.md) | The arguments to use for querying the Journal Entry lines. |  |
-| **generalLedgerProfileCode** | **string?** | The optional code of a general ledger profile used to decorate journal entry lines with levels. | [optional]  |
-| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve Journal Entry lines. Defaults to returning the latest version               of each transaction if not specified. | [optional]  |
+| **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
+| **valuationPointDataQueryParameters** | [**ValuationPointDataQueryParameters**](ValuationPointDataQueryParameters.md) | The arguments to use for querying the Journal Entry Lines. |  |
+| **generalLedgerProfileCode** | **string?** | The optional code of a General Ledger Profile used to decorate Journal Entry Lines with levels. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve Journal Entry Lines. Defaults to returning the latest version if not specified. | [optional]  |
 | **filter** | **string?** | Expression to filter the result set. | [optional]  |
 | **limit** | **int?** | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. | [optional]  |
-| **page** | **string?** | The pagination token to use to continue listing Journal Entry lines from a previous call to GetValuationPointJournalEntryLines. | [optional]  |
-| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;               domain to decorate onto the journal entry lines. | [optional]  |
-| **navTypeCode** | **string?** | May be provided to view a specific NAV type. When not provided, Primary NAV will be used. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing Journal Entry Lines from a previous call to GetValuationPointJournalEntryLines. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;               domain to decorate onto the Journal Entry Lines. | [optional]  |
+| **navTypeCode** | **string?** | When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. | [optional]  |
 
 ### Return type
 
@@ -2088,7 +2088,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The requested Journal Entry lines for the specified Valuation Point for a Fund. |  -  |
+| **200** | The requested Journal Entry Lines for the specified Valuation Point for a Fund. |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
@@ -2100,7 +2100,7 @@ catch (ApiException e)
 
 [EXPERIMENTAL] GetValuationPointPnlSummary: Get a PnL summary for the given Valuation Point in the Fund.
 
-Gets the PnL Summary lines from the journal entry lines produced when calculating the valuation point.
+Gets the PnL Summary lines from the Journal Entry Lines produced when calculating the Valuation Point.
 
 ### Example
 ```csharp
@@ -2142,14 +2142,14 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
             var scope = "scope_example";  // string | The scope of the Fund.
-            var code = "code_example";  // string | The code of the Fund. Together with the scope is the unique identifier for the given Fund.
-            var valuationPointDataQueryParameters = new ValuationPointDataQueryParameters(); // ValuationPointDataQueryParameters | The query parameters used in running the generation of the PnL summary
-            var generalLedgerProfileCode = "generalLedgerProfileCode_example";  // string? | The optional code of a general ledger profile used to decorate journal entry lines with levels. (optional) 
+            var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
+            var valuationPointDataQueryParameters = new ValuationPointDataQueryParameters(); // ValuationPointDataQueryParameters | The arguments to use for generating the PnL summary.
+            var generalLedgerProfileCode = "generalLedgerProfileCode_example";  // string? | The optional code of a General Ledger Profile used to decorate Journal Entry Lines with levels. (optional) 
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve PnL summary. Defaults to returning the latest version              of each transaction if not specified. (optional) 
             var filter = "filter_example";  // string? | \"Expression to filter the result set.\" (optional) 
             var limit = 56;  // int? | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional) 
-            var page = "page_example";  // string? | The pagination token to use to continue listing Trial balance from a previous call to Trial balance. (optional) 
-            var navTypeCode = "navTypeCode_example";  // string? | May be provided to view a specific NAV type. When not provided, Primary NAV will be used. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing results from a previous call to GetValuationPointPnlSummary. (optional) 
+            var navTypeCode = "navTypeCode_example";  // string? | When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional) 
 
             try
             {
@@ -2196,14 +2196,14 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **scope** | **string** | The scope of the Fund. |  |
-| **code** | **string** | The code of the Fund. Together with the scope is the unique identifier for the given Fund. |  |
-| **valuationPointDataQueryParameters** | [**ValuationPointDataQueryParameters**](ValuationPointDataQueryParameters.md) | The query parameters used in running the generation of the PnL summary |  |
-| **generalLedgerProfileCode** | **string?** | The optional code of a general ledger profile used to decorate journal entry lines with levels. | [optional]  |
+| **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
+| **valuationPointDataQueryParameters** | [**ValuationPointDataQueryParameters**](ValuationPointDataQueryParameters.md) | The arguments to use for generating the PnL summary. |  |
+| **generalLedgerProfileCode** | **string?** | The optional code of a General Ledger Profile used to decorate Journal Entry Lines with levels. | [optional]  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve PnL summary. Defaults to returning the latest version              of each transaction if not specified. | [optional]  |
 | **filter** | **string?** | \&quot;Expression to filter the result set.\&quot; | [optional]  |
 | **limit** | **int?** | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. | [optional]  |
-| **page** | **string?** | The pagination token to use to continue listing Trial balance from a previous call to Trial balance. | [optional]  |
-| **navTypeCode** | **string?** | May be provided to view a specific NAV type. When not provided, Primary NAV will be used. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing results from a previous call to GetValuationPointPnlSummary. | [optional]  |
+| **navTypeCode** | **string?** | When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. | [optional]  |
 
 ### Return type
 
@@ -2218,7 +2218,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The requested PnL summary for the specified Fund. |  -  |
+| **200** | The requested PnL summary for the specified Valuation Point for a Fund. |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
@@ -2226,11 +2226,11 @@ catch (ApiException e)
 
 <a id="getvaluationpointtransactions"></a>
 # **GetValuationPointTransactions**
-> ValuationPointResourceListOfAccountedTransaction GetValuationPointTransactions (string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = null, string? filter = null, int? limit = null, string? page = null, List<string>? propertyKeys = null, string? navTypeCode = null)
+> ValuationPointResourceListOfAccountedTransaction GetValuationPointTransactions (string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = null, string? filter = null, int? limit = null, string? page = null, List<string>? propertyKeys = null, string? navTypeCode = null, string? dataModelScope = null, string? dataModelCode = null)
 
 [EXPERIMENTAL] GetValuationPointTransactions: Get the Transactions for the given Fund.
 
-Gets the Transactions for the given Valuation Point for a Fund
+Gets the Transactions for the given Valuation Point for a Fund.
 
 ### Example
 ```csharp
@@ -2272,22 +2272,24 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
             var scope = "scope_example";  // string | The scope of the Fund.
-            var code = "code_example";  // string | The code of the Fund. Together with the scope is creating the unique identifier for the given Fund.
+            var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
             var valuationPointDataQueryParameters = new ValuationPointDataQueryParameters(); // ValuationPointDataQueryParameters | The arguments to use for querying the transactions.
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve transactions. Defaults to returning the latest version              of each transaction if not specified. (optional) 
             var filter = "filter_example";  // string? | Expression to filter the result set. (optional) 
             var limit = 56;  // int? | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional) 
             var page = "page_example";  // string? | The pagination token to use to continue listing transactions from a previous call to GetValuationPointTransactions. (optional) 
-            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'Instrument', 'Transaction', 'Portfolio', 'Account', 'LegalEntity' or 'CustodianAccount'              domain to decorate onto the journal entry lines. (optional) 
-            var navTypeCode = "navTypeCode_example";  // string? | May be provided to view a specific NAV type. When not provided, Primary NAV will be used. (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'Instrument', 'Transaction', 'Portfolio', 'Account', 'LegalEntity' or 'CustodianAccount'              domain to decorate onto the transactions. (optional) 
+            var navTypeCode = "navTypeCode_example";  // string? | When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional) 
+            var dataModelScope = "dataModelScope_example";  // string? | The optional scope of a Custom Data Model to use (optional) 
+            var dataModelCode = "dataModelCode_example";  // string? | The optional code of a Custom Data Model to use (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // ValuationPointResourceListOfAccountedTransaction result = apiInstance.GetValuationPointTransactions(scope, code, valuationPointDataQueryParameters, asAt, filter, limit, page, propertyKeys, navTypeCode, opts: opts);
+                // ValuationPointResourceListOfAccountedTransaction result = apiInstance.GetValuationPointTransactions(scope, code, valuationPointDataQueryParameters, asAt, filter, limit, page, propertyKeys, navTypeCode, dataModelScope, dataModelCode, opts: opts);
 
                 // [EXPERIMENTAL] GetValuationPointTransactions: Get the Transactions for the given Fund.
-                ValuationPointResourceListOfAccountedTransaction result = apiInstance.GetValuationPointTransactions(scope, code, valuationPointDataQueryParameters, asAt, filter, limit, page, propertyKeys, navTypeCode);
+                ValuationPointResourceListOfAccountedTransaction result = apiInstance.GetValuationPointTransactions(scope, code, valuationPointDataQueryParameters, asAt, filter, limit, page, propertyKeys, navTypeCode, dataModelScope, dataModelCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -2308,7 +2310,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] GetValuationPointTransactions: Get the Transactions for the given Fund.
-    ApiResponse<ValuationPointResourceListOfAccountedTransaction> response = apiInstance.GetValuationPointTransactionsWithHttpInfo(scope, code, valuationPointDataQueryParameters, asAt, filter, limit, page, propertyKeys, navTypeCode);
+    ApiResponse<ValuationPointResourceListOfAccountedTransaction> response = apiInstance.GetValuationPointTransactionsWithHttpInfo(scope, code, valuationPointDataQueryParameters, asAt, filter, limit, page, propertyKeys, navTypeCode, dataModelScope, dataModelCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -2326,14 +2328,16 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **scope** | **string** | The scope of the Fund. |  |
-| **code** | **string** | The code of the Fund. Together with the scope is creating the unique identifier for the given Fund. |  |
+| **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
 | **valuationPointDataQueryParameters** | [**ValuationPointDataQueryParameters**](ValuationPointDataQueryParameters.md) | The arguments to use for querying the transactions. |  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve transactions. Defaults to returning the latest version              of each transaction if not specified. | [optional]  |
 | **filter** | **string?** | Expression to filter the result set. | [optional]  |
 | **limit** | **int?** | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. | [optional]  |
 | **page** | **string?** | The pagination token to use to continue listing transactions from a previous call to GetValuationPointTransactions. | [optional]  |
-| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;              domain to decorate onto the journal entry lines. | [optional]  |
-| **navTypeCode** | **string?** | May be provided to view a specific NAV type. When not provided, Primary NAV will be used. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;              domain to decorate onto the transactions. | [optional]  |
+| **navTypeCode** | **string?** | When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. | [optional]  |
+| **dataModelScope** | **string?** | The optional scope of a Custom Data Model to use | [optional]  |
+| **dataModelCode** | **string?** | The optional code of a Custom Data Model to use | [optional]  |
 
 ### Return type
 
@@ -2403,14 +2407,14 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
             var scope = "scope_example";  // string | The scope of the Fund.
             var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
-            var valuationPointDataQueryParameters = new ValuationPointDataQueryParameters(); // ValuationPointDataQueryParameters | The query parameters used in running the generation of the Trial Balance.
-            var generalLedgerProfileCode = "generalLedgerProfileCode_example";  // string? | The optional code of a general ledger profile used to decorate journal entry lines with levels. (optional) 
+            var valuationPointDataQueryParameters = new ValuationPointDataQueryParameters(); // ValuationPointDataQueryParameters | The arguments to use for generating the Trial Balance.
+            var generalLedgerProfileCode = "generalLedgerProfileCode_example";  // string? | The optional code of a General Ledger Profile used to decorate Journal Entry Lines with levels. (optional) 
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the Trial Balance.               Defaults to returning the latest version if not specified. (optional) 
             var filter = "filter_example";  // string? | Expression to filter the results by.               For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional) 
             var limit = 56;  // int? | When paginating, limit the number of returned results to this number.               Defaults to 100 if not specified. (optional) 
             var page = "page_example";  // string? | The pagination token to use to continue listing Trial Balances.               This token is returned from the previous call.               If a pagination token is provided, the filter, effectiveAt and asAt fields               must not have changed since the original request. (optional) 
-            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'Instrument', 'Transaction', 'Portfolio', 'Account', 'LegalEntity' or 'CustodianAccount'               domain to decorate onto the journal entry lines. (optional) 
-            var navTypeCode = "navTypeCode_example";  // string? | May be provided to view a specific NAV type. When not provided, Primary NAV will be used. (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'Instrument', 'Transaction', 'Portfolio', 'Account', 'LegalEntity' or 'CustodianAccount'               domain to decorate onto the TrialBalance. (optional) 
+            var navTypeCode = "navTypeCode_example";  // string? | When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional) 
 
             try
             {
@@ -2458,14 +2462,14 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **scope** | **string** | The scope of the Fund. |  |
 | **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
-| **valuationPointDataQueryParameters** | [**ValuationPointDataQueryParameters**](ValuationPointDataQueryParameters.md) | The query parameters used in running the generation of the Trial Balance. |  |
-| **generalLedgerProfileCode** | **string?** | The optional code of a general ledger profile used to decorate journal entry lines with levels. | [optional]  |
+| **valuationPointDataQueryParameters** | [**ValuationPointDataQueryParameters**](ValuationPointDataQueryParameters.md) | The arguments to use for generating the Trial Balance. |  |
+| **generalLedgerProfileCode** | **string?** | The optional code of a General Ledger Profile used to decorate Journal Entry Lines with levels. | [optional]  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the Trial Balance.               Defaults to returning the latest version if not specified. | [optional]  |
 | **filter** | **string?** | Expression to filter the results by.               For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional]  |
 | **limit** | **int?** | When paginating, limit the number of returned results to this number.               Defaults to 100 if not specified. | [optional]  |
 | **page** | **string?** | The pagination token to use to continue listing Trial Balances.               This token is returned from the previous call.               If a pagination token is provided, the filter, effectiveAt and asAt fields               must not have changed since the original request. | [optional]  |
-| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;               domain to decorate onto the journal entry lines. | [optional]  |
-| **navTypeCode** | **string?** | May be provided to view a specific NAV type. When not provided, Primary NAV will be used. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;               domain to decorate onto the TrialBalance. | [optional]  |
+| **navTypeCode** | **string?** | When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. | [optional]  |
 
 ### Return type
 
@@ -2480,7 +2484,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The requested Trial Balance for the specified Fund. |  -  |
+| **200** | The requested Trial Balance for the specified Valuation Point for a Fund. |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
@@ -2534,7 +2538,7 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
             var scope = "scope_example";  // string | The scope of the Fund.
-            var code = "code_example";  // string | The code of the Fund.
+            var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
             var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to list the TimeVariant properties for the Fees. Defaults to the current LUSID              system datetime if not specified. (optional) 
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the Fees. Defaults to returning the latest version of each Fee if not specified. (optional) 
             var page = "page_example";  // string? | The pagination token to use to continue listing fees; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional) 
@@ -2588,7 +2592,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **scope** | **string** | The scope of the Fund. |  |
-| **code** | **string** | The code of the Fund. |  |
+| **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
 | **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to list the TimeVariant properties for the Fees. Defaults to the current LUSID              system datetime if not specified. | [optional]  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to list the Fees. Defaults to returning the latest version of each Fee if not specified. | [optional]  |
 | **page** | **string?** | The pagination token to use to continue listing fees; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. | [optional]  |
@@ -2663,13 +2667,13 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundsApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
-            var scope = "scope_example";  // string | The Scope for the Fund.
-            var code = "code_example";  // string | The Code for the Fund.
+            var scope = "scope_example";  // string | The scope of the Fund.
+            var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the Calendar. Defaults to returning the latest version of each Calendar Entry if not specified. (optional) 
-            var page = "page_example";  // string? | The pagination token to use to continue listing Valuation Points; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing Calendar Entries; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional) 
             var limit = 56;  // int? | When paginating, limit the results to this number. Defaults to 100 if not specified. (optional) 
-            var filter = "filter_example";  // string? | Expression to filter the results.              For example, to filter on the DisplayName, specify \"displayName eq 'VP 1'\". For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional) 
-            var sortBy = new List<string>?(); // List<string>? | A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\" (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the results. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional) 
+            var sortBy = new List<string>?(); // List<string>? | A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\". (optional) 
             var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'ClosedPeriod' domain to decorate onto each item. (optional) 
 
             try
@@ -2716,13 +2720,13 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **scope** | **string** | The Scope for the Fund. |  |
-| **code** | **string** | The Code for the Fund. |  |
+| **scope** | **string** | The scope of the Fund. |  |
+| **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to list the Calendar. Defaults to returning the latest version of each Calendar Entry if not specified. | [optional]  |
-| **page** | **string?** | The pagination token to use to continue listing Valuation Points; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing Calendar Entries; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. | [optional]  |
 | **limit** | **int?** | When paginating, limit the results to this number. Defaults to 100 if not specified. | [optional]  |
-| **filter** | **string?** | Expression to filter the results.              For example, to filter on the DisplayName, specify \&quot;displayName eq &#39;VP 1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional]  |
-| **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; | [optional]  |
+| **filter** | **string?** | Expression to filter the results. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional]  |
+| **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. | [optional]  |
 | **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;ClosedPeriod&#39; domain to decorate onto each item. | [optional]  |
 
 ### Return type
@@ -2738,7 +2742,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The requested Fund Calendars. |  -  |
+| **200** | The requested Fund Calendar Entries. |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
@@ -2795,7 +2799,7 @@ namespace Examples
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the Funds. Defaults to returning the latest version of each Fund if not specified. (optional) 
             var page = "page_example";  // string? | The pagination token to use to continue listing Funds; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional) 
             var limit = 56;  // int? | When paginating, limit the results to this number. Defaults to 100 if not specified. (optional) 
-            var filter = "filter_example";  // string? | Expression to filter the results.              For example, to filter on the Fund type, specify \"id.Code eq 'Fund1'\". For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the results.              For example, to filter on the Fund code, specify \"id.Code eq 'Fund1'\". For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional) 
             var sortBy = new List<string>?(); // List<string>? | A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\" (optional) 
             var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'Fund' domain to decorate onto each Fund.              These must take the format {domain}/{scope}/{code}, for example 'Fund/Manager/Id'. (optional) 
 
@@ -2847,7 +2851,7 @@ catch (ApiException e)
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to list the Funds. Defaults to returning the latest version of each Fund if not specified. | [optional]  |
 | **page** | **string?** | The pagination token to use to continue listing Funds; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. | [optional]  |
 | **limit** | **int?** | When paginating, limit the results to this number. Defaults to 100 if not specified. | [optional]  |
-| **filter** | **string?** | Expression to filter the results.              For example, to filter on the Fund type, specify \&quot;id.Code eq &#39;Fund1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional]  |
+| **filter** | **string?** | Expression to filter the results.              For example, to filter on the Fund code, specify \&quot;id.Code eq &#39;Fund1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional]  |
 | **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; | [optional]  |
 | **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;Fund&#39; domain to decorate onto each Fund.              These must take the format {domain}/{scope}/{code}, for example &#39;Fund/Manager/Id&#39;. | [optional]  |
 
@@ -2876,7 +2880,7 @@ catch (ApiException e)
 
 [EXPERIMENTAL] ListValuationPointOverview: List Valuation Points Overview for a given Fund.
 
-List all the Valuation Points that match the given criteria for a given Fund.
+List the overview of all the Valuation Points that match the given criteria for a given Fund.
 
 ### Example
 ```csharp
@@ -2918,14 +2922,14 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
             var scope = "scope_example";  // string | The scope of the Fund.
-            var code = "code_example";  // string | The code of the Fund.
-            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to list the TimeVariant properties for the ValuationPoints. Defaults to the current LUSID              system datetime if not specified. (optional) 
-            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the ValuationPoints. Defaults to returning the latest version of each ValuationPoint if not specified. (optional) 
-            var page = "page_example";  // string? | The pagination token to use to continue listing ValuationPoints; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional) 
+            var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to list the TimeVariant properties for the Valuation Points. Defaults to the current LUSID              system datetime if not specified. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the Valuation Points. Defaults to returning the latest version of each Valuation Point if not specified. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing Valuation Points; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional) 
             var limit = 56;  // int? | When paginating, limit the results to this number. Defaults to 100 if not specified. (optional) 
             var filter = "filter_example";  // string? | Expression to filter the results by.              For example, to filter on the NAV, specify \"NAV gt 300\". For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional) 
             var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'DiaryEntry' domain to decorate onto each ValuationPoint.              These must take the format {domain}/{scope}/{code}, for example 'DiaryEntry/ValuationPoint/Id'. (optional) 
-            var navTypeCode = "navTypeCode_example";  // string? | May be provided to view a specific NAV type. When not provided, Primary NAV will be used. (optional) 
+            var navTypeCode = "navTypeCode_example";  // string? | When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional) 
 
             try
             {
@@ -2972,14 +2976,14 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **scope** | **string** | The scope of the Fund. |  |
-| **code** | **string** | The code of the Fund. |  |
-| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to list the TimeVariant properties for the ValuationPoints. Defaults to the current LUSID              system datetime if not specified. | [optional]  |
-| **asAt** | **DateTimeOffset?** | The asAt datetime at which to list the ValuationPoints. Defaults to returning the latest version of each ValuationPoint if not specified. | [optional]  |
-| **page** | **string?** | The pagination token to use to continue listing ValuationPoints; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. | [optional]  |
+| **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to list the TimeVariant properties for the Valuation Points. Defaults to the current LUSID              system datetime if not specified. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to list the Valuation Points. Defaults to returning the latest version of each Valuation Point if not specified. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing Valuation Points; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. | [optional]  |
 | **limit** | **int?** | When paginating, limit the results to this number. Defaults to 100 if not specified. | [optional]  |
 | **filter** | **string?** | Expression to filter the results by.              For example, to filter on the NAV, specify \&quot;NAV gt 300\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional]  |
 | **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;DiaryEntry&#39; domain to decorate onto each ValuationPoint.              These must take the format {domain}/{scope}/{code}, for example &#39;DiaryEntry/ValuationPoint/Id&#39;. | [optional]  |
-| **navTypeCode** | **string?** | May be provided to view a specific NAV type. When not provided, Primary NAV will be used. | [optional]  |
+| **navTypeCode** | **string?** | When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. | [optional]  |
 
 ### Return type
 
@@ -2994,7 +2998,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The requested ValuationPointOverview. |  -  |
+| **200** | The overviews of the requested Valuation Points. |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
@@ -3242,9 +3246,9 @@ catch (ApiException e)
 # **SetShareClassInstruments**
 > Fund SetShareClassInstruments (string scope, string code, SetShareClassInstrumentsRequest setShareClassInstrumentsRequest)
 
-[EXPERIMENTAL] SetShareClassInstruments: Set the ShareClass Instruments on a fund.
+[EXPERIMENTAL] SetShareClassInstruments: Set the ShareClass Instruments on a Fund.
 
-Update the ShareClass Instruments on an existing fund with the set of instruments provided.
+Update the ShareClass Instruments on an existing Fund with the set of instruments provided.
 
 ### Example
 ```csharp
@@ -3286,7 +3290,7 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
             var scope = "scope_example";  // string | The scope of the Fund.
-            var code = "code_example";  // string | The code of the Fund.
+            var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
             var setShareClassInstrumentsRequest = new SetShareClassInstrumentsRequest(); // SetShareClassInstrumentsRequest | The scopes and instrument identifiers for the instruments to be set.
 
             try
@@ -3294,7 +3298,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // Fund result = apiInstance.SetShareClassInstruments(scope, code, setShareClassInstrumentsRequest, opts: opts);
 
-                // [EXPERIMENTAL] SetShareClassInstruments: Set the ShareClass Instruments on a fund.
+                // [EXPERIMENTAL] SetShareClassInstruments: Set the ShareClass Instruments on a Fund.
                 Fund result = apiInstance.SetShareClassInstruments(scope, code, setShareClassInstrumentsRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -3315,7 +3319,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] SetShareClassInstruments: Set the ShareClass Instruments on a fund.
+    // [EXPERIMENTAL] SetShareClassInstruments: Set the ShareClass Instruments on a Fund.
     ApiResponse<Fund> response = apiInstance.SetShareClassInstrumentsWithHttpInfo(scope, code, setShareClassInstrumentsRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -3334,7 +3338,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **scope** | **string** | The scope of the Fund. |  |
-| **code** | **string** | The code of the Fund. |  |
+| **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
 | **setShareClassInstrumentsRequest** | [**SetShareClassInstrumentsRequest**](SetShareClassInstrumentsRequest.md) | The scopes and instrument identifiers for the instruments to be set. |  |
 
 ### Return type
@@ -3350,7 +3354,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The updated fund. |  -  |
+| **200** | The updated Fund definition. |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
@@ -3405,8 +3409,8 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
             var scope = "scope_example";  // string | The scope of the Fund.
             var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
-            var upsertFundBookmarkRequest = new UpsertFundBookmarkRequest(); // UpsertFundBookmarkRequest | The bookmark definition to Upsert
-            var navTypeCode = "navTypeCode_example";  // string? | When provided, Upserts the Valuation Point against the specified NAV Type. When not provided, the Primary NAV Type will be used. (optional) 
+            var upsertFundBookmarkRequest = new UpsertFundBookmarkRequest(); // UpsertFundBookmarkRequest | The bookmark definition to upsert.
+            var navTypeCode = "navTypeCode_example";  // string? | When provided, upserts the Valuation Point against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional) 
 
             try
             {
@@ -3454,8 +3458,8 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **scope** | **string** | The scope of the Fund. |  |
 | **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
-| **upsertFundBookmarkRequest** | [**UpsertFundBookmarkRequest**](UpsertFundBookmarkRequest.md) | The bookmark definition to Upsert |  |
-| **navTypeCode** | **string?** | When provided, Upserts the Valuation Point against the specified NAV Type. When not provided, the Primary NAV Type will be used. | [optional]  |
+| **upsertFundBookmarkRequest** | [**UpsertFundBookmarkRequest**](UpsertFundBookmarkRequest.md) | The bookmark definition to upsert. |  |
+| **navTypeCode** | **string?** | When provided, upserts the Valuation Point against the specified NAV Type, otherwise the Primary NAV Type will be used. | [optional]  |
 
 ### Return type
 
@@ -3480,7 +3484,7 @@ catch (ApiException e)
 # **UpsertDiaryEntryTypeValuationPoint**
 > DiaryEntry UpsertDiaryEntryTypeValuationPoint (string scope, string code, UpsertValuationPointRequest upsertValuationPointRequest, string? navTypeCode = null)
 
-[EXPERIMENTAL] UpsertDiaryEntryTypeValuationPoint: Upsert Valuation Point.
+[EXPERIMENTAL] UpsertDiaryEntryTypeValuationPoint: Upsert a Valuation Point.
 
 Update or insert the estimate Valuation Point.                If the Valuation Point does not exist, this method will create it in estimate state.                If the Valuation Point already exists and is in estimate state, the Valuation Point will be updated with the newly specified information in this request.
 
@@ -3525,15 +3529,15 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
             var scope = "scope_example";  // string | The scope of the Fund.
             var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
-            var upsertValuationPointRequest = new UpsertValuationPointRequest(); // UpsertValuationPointRequest | The Valuation Point Estimate definition to Upsert
-            var navTypeCode = "navTypeCode_example";  // string? | When provided, Upserts the Valuation Point against the specified NAV Type. When not provided the Primary NAV Type will be used. (optional) 
+            var upsertValuationPointRequest = new UpsertValuationPointRequest(); // UpsertValuationPointRequest | The Valuation Point Estimate definition to upsert.
+            var navTypeCode = "navTypeCode_example";  // string? | When provided, upserts the Valuation Point against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
                 // DiaryEntry result = apiInstance.UpsertDiaryEntryTypeValuationPoint(scope, code, upsertValuationPointRequest, navTypeCode, opts: opts);
 
-                // [EXPERIMENTAL] UpsertDiaryEntryTypeValuationPoint: Upsert Valuation Point.
+                // [EXPERIMENTAL] UpsertDiaryEntryTypeValuationPoint: Upsert a Valuation Point.
                 DiaryEntry result = apiInstance.UpsertDiaryEntryTypeValuationPoint(scope, code, upsertValuationPointRequest, navTypeCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -3554,7 +3558,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] UpsertDiaryEntryTypeValuationPoint: Upsert Valuation Point.
+    // [EXPERIMENTAL] UpsertDiaryEntryTypeValuationPoint: Upsert a Valuation Point.
     ApiResponse<DiaryEntry> response = apiInstance.UpsertDiaryEntryTypeValuationPointWithHttpInfo(scope, code, upsertValuationPointRequest, navTypeCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -3574,8 +3578,8 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **scope** | **string** | The scope of the Fund. |  |
 | **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
-| **upsertValuationPointRequest** | [**UpsertValuationPointRequest**](UpsertValuationPointRequest.md) | The Valuation Point Estimate definition to Upsert |  |
-| **navTypeCode** | **string?** | When provided, Upserts the Valuation Point against the specified NAV Type. When not provided the Primary NAV Type will be used. | [optional]  |
+| **upsertValuationPointRequest** | [**UpsertValuationPointRequest**](UpsertValuationPointRequest.md) | The Valuation Point Estimate definition to upsert. |  |
+| **navTypeCode** | **string?** | When provided, upserts the Valuation Point against the specified NAV Type, otherwise the Primary NAV Type will be used. | [optional]  |
 
 ### Return type
 
@@ -3602,7 +3606,7 @@ catch (ApiException e)
 
 [EXPERIMENTAL] UpsertFeeProperties: Upsert Fee properties.
 
-Update or insert one or more properties onto a single Fee. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain 'Fee'.                Upserting a property that exists for an Fee, with a null value, will delete the instance of the property for that group.       Properties have an <i>effectiveFrom</i> datetime for which the property is valid, and an <i>effectiveUntil</i>  datetime until which the property is valid. Not supplying an <i>effectiveUntil</i> datetime results in the property being  valid indefinitely, or until the next <i>effectiveFrom</i> datetime of the property.
+Update or insert one or more properties onto a single Fee. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain 'Fee'.                Upserting a property that exists for an Fee, with a null value, will delete the instance of the property for that group.                Properties have an <i>effectiveFrom</i> datetime for which the property is valid, and an <i>effectiveUntil</i>  datetime until which the property is valid. Not supplying an <i>effectiveUntil</i> datetime results in the property being  valid indefinitely, or until the next <i>effectiveFrom</i> datetime of the property.
 
 ### Example
 ```csharp
@@ -3763,8 +3767,8 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundsApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
-            var scope = "scope_example";  // string | The scope of the Fund to update or insert the properties onto.
-            var code = "code_example";  // string | The code of the Fund to update or insert the properties onto. Together with the scope this uniquely identifies the Fund.
+            var scope = "scope_example";  // string | The scope of the Fund.
+            var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
             var requestBody = new Dictionary<string, Property>?(); // Dictionary<string, Property>? | The properties to be updated or inserted onto the Fund. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \"Fund/Manager/Id\". (optional) 
 
             try
@@ -3811,8 +3815,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **scope** | **string** | The scope of the Fund to update or insert the properties onto. |  |
-| **code** | **string** | The code of the Fund to update or insert the properties onto. Together with the scope this uniquely identifies the Fund. |  |
+| **scope** | **string** | The scope of the Fund. |  |
+| **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
 | **requestBody** | [**Dictionary&lt;string, Property&gt;?**](Property.md) | The properties to be updated or inserted onto the Fund. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;Fund/Manager/Id\&quot;. | [optional]  |
 
 ### Return type

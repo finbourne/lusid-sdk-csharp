@@ -93,10 +93,13 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the data type</param>
         /// <param name="code">The code of the data type</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the data type definition. Defaults to              return the latest version of the instrument definition if not specified. (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>DataType</returns>
-        DataType GetDataType(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        DataType GetDataType(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetDataType: Get data type definition
@@ -108,10 +111,13 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the data type</param>
         /// <param name="code">The code of the data type</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the data type definition. Defaults to              return the latest version of the instrument definition if not specified. (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DataType</returns>
-        Lusid.Sdk.Client.ApiResponse<DataType> GetDataTypeWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<DataType> GetDataTypeWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetUnitsFromDataType: Get units from data type
         /// </summary>
@@ -124,10 +130,13 @@ namespace Lusid.Sdk.Api
         /// <param name="units">One or more unit identifiers for which the definition is being requested (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set.               For example, to filter on the Schema, use \&quot;schema eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="asAt">Optional. The as at of the requested data type (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfIUnitDefinitionDto</returns>
-        ResourceListOfIUnitDefinitionDto GetUnitsFromDataType(string scope, string code, List<string>? units = default(List<string>?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        ResourceListOfIUnitDefinitionDto GetUnitsFromDataType(string scope, string code, List<string>? units = default(List<string>?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetUnitsFromDataType: Get units from data type
@@ -141,10 +150,13 @@ namespace Lusid.Sdk.Api
         /// <param name="units">One or more unit identifiers for which the definition is being requested (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set.               For example, to filter on the Schema, use \&quot;schema eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="asAt">Optional. The as at of the requested data type (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfIUnitDefinitionDto</returns>
-        Lusid.Sdk.Client.ApiResponse<ResourceListOfIUnitDefinitionDto> GetUnitsFromDataTypeWithHttpInfo(string scope, string code, List<string>? units = default(List<string>?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<ResourceListOfIUnitDefinitionDto> GetUnitsFromDataTypeWithHttpInfo(string scope, string code, List<string>? units = default(List<string>?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListDataTypeSummaries: List all data type summaries, without the reference data
         /// </summary>
@@ -157,10 +169,13 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set.                For example, to filter on the Scope, use \&quot;id.scope eq &#39;myscope&#39;\&quot;, to filter on Schema, use \&quot;schema eq &#39;string&#39;\&quot;,               to filter on AcceptableValues use \&quot;acceptableValues any (~ eq &#39;value&#39;)\&quot;               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.               If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.               If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.               If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfDataTypeSummary</returns>
-        PagedResourceListOfDataTypeSummary ListDataTypeSummaries(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        PagedResourceListOfDataTypeSummary ListDataTypeSummaries(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] ListDataTypeSummaries: List all data type summaries, without the reference data
@@ -174,10 +189,13 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set.                For example, to filter on the Scope, use \&quot;id.scope eq &#39;myscope&#39;\&quot;, to filter on Schema, use \&quot;schema eq &#39;string&#39;\&quot;,               to filter on AcceptableValues use \&quot;acceptableValues any (~ eq &#39;value&#39;)\&quot;               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.               If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.               If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.               If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfDataTypeSummary</returns>
-        Lusid.Sdk.Client.ApiResponse<PagedResourceListOfDataTypeSummary> ListDataTypeSummariesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<PagedResourceListOfDataTypeSummary> ListDataTypeSummariesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// ListDataTypes: List data types
         /// </summary>
@@ -191,10 +209,13 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfDataType</returns>
-        ResourceListOfDataType ListDataTypes(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeSystem = default(bool?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        ResourceListOfDataType ListDataTypes(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeSystem = default(bool?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// ListDataTypes: List data types
@@ -209,10 +230,13 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfDataType</returns>
-        Lusid.Sdk.Client.ApiResponse<ResourceListOfDataType> ListDataTypesWithHttpInfo(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeSystem = default(bool?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<ResourceListOfDataType> ListDataTypesWithHttpInfo(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeSystem = default(bool?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] UpdateDataType: Update data type definition
         /// </summary>
@@ -375,11 +399,14 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the data type</param>
         /// <param name="code">The code of the data type</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the data type definition. Defaults to              return the latest version of the instrument definition if not specified. (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DataType</returns>
-        System.Threading.Tasks.Task<DataType> GetDataTypeAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<DataType> GetDataTypeAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetDataType: Get data type definition
@@ -391,11 +418,14 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the data type</param>
         /// <param name="code">The code of the data type</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the data type definition. Defaults to              return the latest version of the instrument definition if not specified. (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DataType)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DataType>> GetDataTypeWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DataType>> GetDataTypeWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetUnitsFromDataType: Get units from data type
         /// </summary>
@@ -408,11 +438,14 @@ namespace Lusid.Sdk.Api
         /// <param name="units">One or more unit identifiers for which the definition is being requested (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set.               For example, to filter on the Schema, use \&quot;schema eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="asAt">Optional. The as at of the requested data type (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfIUnitDefinitionDto</returns>
-        System.Threading.Tasks.Task<ResourceListOfIUnitDefinitionDto> GetUnitsFromDataTypeAsync(string scope, string code, List<string>? units = default(List<string>?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<ResourceListOfIUnitDefinitionDto> GetUnitsFromDataTypeAsync(string scope, string code, List<string>? units = default(List<string>?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetUnitsFromDataType: Get units from data type
@@ -426,11 +459,14 @@ namespace Lusid.Sdk.Api
         /// <param name="units">One or more unit identifiers for which the definition is being requested (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set.               For example, to filter on the Schema, use \&quot;schema eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="asAt">Optional. The as at of the requested data type (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfIUnitDefinitionDto)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfIUnitDefinitionDto>> GetUnitsFromDataTypeWithHttpInfoAsync(string scope, string code, List<string>? units = default(List<string>?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfIUnitDefinitionDto>> GetUnitsFromDataTypeWithHttpInfoAsync(string scope, string code, List<string>? units = default(List<string>?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListDataTypeSummaries: List all data type summaries, without the reference data
         /// </summary>
@@ -443,11 +479,14 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set.                For example, to filter on the Scope, use \&quot;id.scope eq &#39;myscope&#39;\&quot;, to filter on Schema, use \&quot;schema eq &#39;string&#39;\&quot;,               to filter on AcceptableValues use \&quot;acceptableValues any (~ eq &#39;value&#39;)\&quot;               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.               If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.               If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.               If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfDataTypeSummary</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfDataTypeSummary> ListDataTypeSummariesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<PagedResourceListOfDataTypeSummary> ListDataTypeSummariesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] ListDataTypeSummaries: List all data type summaries, without the reference data
@@ -461,11 +500,14 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set.                For example, to filter on the Scope, use \&quot;id.scope eq &#39;myscope&#39;\&quot;, to filter on Schema, use \&quot;schema eq &#39;string&#39;\&quot;,               to filter on AcceptableValues use \&quot;acceptableValues any (~ eq &#39;value&#39;)\&quot;               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.               If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.               If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.               If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfDataTypeSummary)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfDataTypeSummary>> ListDataTypeSummariesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfDataTypeSummary>> ListDataTypeSummariesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// ListDataTypes: List data types
         /// </summary>
@@ -479,11 +521,14 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfDataType</returns>
-        System.Threading.Tasks.Task<ResourceListOfDataType> ListDataTypesAsync(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeSystem = default(bool?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<ResourceListOfDataType> ListDataTypesAsync(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeSystem = default(bool?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// ListDataTypes: List data types
@@ -498,11 +543,14 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfDataType)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfDataType>> ListDataTypesWithHttpInfoAsync(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeSystem = default(bool?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfDataType>> ListDataTypesWithHttpInfoAsync(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeSystem = default(bool?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] UpdateDataType: Update data type definition
         /// </summary>
@@ -1148,12 +1196,15 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the data type</param>
         /// <param name="code">The code of the data type</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the data type definition. Defaults to              return the latest version of the instrument definition if not specified. (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>DataType</returns>
-        public DataType GetDataType(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public DataType GetDataType(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DataType> localVarResponse = GetDataTypeWithHttpInfo(scope, code, asAt, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<DataType> localVarResponse = GetDataTypeWithHttpInfo(scope, code, asAt, timelineScope, timelineCode, closedPeriodId, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1164,10 +1215,13 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the data type</param>
         /// <param name="code">The code of the data type</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the data type definition. Defaults to              return the latest version of the instrument definition if not specified. (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DataType</returns>
-        public Lusid.Sdk.Client.ApiResponse<DataType> GetDataTypeWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<DataType> GetDataTypeWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1221,6 +1275,21 @@ namespace Lusid.Sdk.Api
             {
 
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (timelineScope != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineScope", timelineScope));
+            }
+            if (timelineCode != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineCode", timelineCode));
+            }
+            if (closedPeriodId != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "closedPeriodId", closedPeriodId));
             }
 
             localVarRequestOptions.Operation = "DataTypesApi.GetDataType";
@@ -1264,13 +1333,16 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the data type</param>
         /// <param name="code">The code of the data type</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the data type definition. Defaults to              return the latest version of the instrument definition if not specified. (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DataType</returns>
-        public async System.Threading.Tasks.Task<DataType> GetDataTypeAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<DataType> GetDataTypeAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DataType> localVarResponse = await GetDataTypeWithHttpInfoAsync(scope, code, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<DataType> localVarResponse = await GetDataTypeWithHttpInfoAsync(scope, code, asAt, timelineScope, timelineCode, closedPeriodId, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1281,11 +1353,14 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the data type</param>
         /// <param name="code">The code of the data type</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the data type definition. Defaults to              return the latest version of the instrument definition if not specified. (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DataType)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DataType>> GetDataTypeWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DataType>> GetDataTypeWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1339,6 +1414,18 @@ namespace Lusid.Sdk.Api
             if (asAt != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (timelineScope != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineScope", timelineScope));
+            }
+            if (timelineCode != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineCode", timelineCode));
+            }
+            if (closedPeriodId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "closedPeriodId", closedPeriodId));
             }
 
             localVarRequestOptions.Operation = "DataTypesApi.GetDataType";
@@ -1385,12 +1472,15 @@ namespace Lusid.Sdk.Api
         /// <param name="units">One or more unit identifiers for which the definition is being requested (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set.               For example, to filter on the Schema, use \&quot;schema eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="asAt">Optional. The as at of the requested data type (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfIUnitDefinitionDto</returns>
-        public ResourceListOfIUnitDefinitionDto GetUnitsFromDataType(string scope, string code, List<string>? units = default(List<string>?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public ResourceListOfIUnitDefinitionDto GetUnitsFromDataType(string scope, string code, List<string>? units = default(List<string>?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfIUnitDefinitionDto> localVarResponse = GetUnitsFromDataTypeWithHttpInfo(scope, code, units, filter, asAt, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfIUnitDefinitionDto> localVarResponse = GetUnitsFromDataTypeWithHttpInfo(scope, code, units, filter, asAt, timelineScope, timelineCode, closedPeriodId, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1403,10 +1493,13 @@ namespace Lusid.Sdk.Api
         /// <param name="units">One or more unit identifiers for which the definition is being requested (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set.               For example, to filter on the Schema, use \&quot;schema eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="asAt">Optional. The as at of the requested data type (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfIUnitDefinitionDto</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfIUnitDefinitionDto> GetUnitsFromDataTypeWithHttpInfo(string scope, string code, List<string>? units = default(List<string>?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfIUnitDefinitionDto> GetUnitsFromDataTypeWithHttpInfo(string scope, string code, List<string>? units = default(List<string>?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1470,6 +1563,21 @@ namespace Lusid.Sdk.Api
             {
 
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (timelineScope != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineScope", timelineScope));
+            }
+            if (timelineCode != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineCode", timelineCode));
+            }
+            if (closedPeriodId != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "closedPeriodId", closedPeriodId));
             }
 
             localVarRequestOptions.Operation = "DataTypesApi.GetUnitsFromDataType";
@@ -1515,13 +1623,16 @@ namespace Lusid.Sdk.Api
         /// <param name="units">One or more unit identifiers for which the definition is being requested (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set.               For example, to filter on the Schema, use \&quot;schema eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="asAt">Optional. The as at of the requested data type (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfIUnitDefinitionDto</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfIUnitDefinitionDto> GetUnitsFromDataTypeAsync(string scope, string code, List<string>? units = default(List<string>?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<ResourceListOfIUnitDefinitionDto> GetUnitsFromDataTypeAsync(string scope, string code, List<string>? units = default(List<string>?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfIUnitDefinitionDto> localVarResponse = await GetUnitsFromDataTypeWithHttpInfoAsync(scope, code, units, filter, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfIUnitDefinitionDto> localVarResponse = await GetUnitsFromDataTypeWithHttpInfoAsync(scope, code, units, filter, asAt, timelineScope, timelineCode, closedPeriodId, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1534,11 +1645,14 @@ namespace Lusid.Sdk.Api
         /// <param name="units">One or more unit identifiers for which the definition is being requested (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set.               For example, to filter on the Schema, use \&quot;schema eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="asAt">Optional. The as at of the requested data type (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfIUnitDefinitionDto)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfIUnitDefinitionDto>> GetUnitsFromDataTypeWithHttpInfoAsync(string scope, string code, List<string>? units = default(List<string>?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfIUnitDefinitionDto>> GetUnitsFromDataTypeWithHttpInfoAsync(string scope, string code, List<string>? units = default(List<string>?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1600,6 +1714,18 @@ namespace Lusid.Sdk.Api
             if (asAt != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (timelineScope != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineScope", timelineScope));
+            }
+            if (timelineCode != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineCode", timelineCode));
+            }
+            if (closedPeriodId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "closedPeriodId", closedPeriodId));
             }
 
             localVarRequestOptions.Operation = "DataTypesApi.GetUnitsFromDataType";
@@ -1646,12 +1772,15 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set.                For example, to filter on the Scope, use \&quot;id.scope eq &#39;myscope&#39;\&quot;, to filter on Schema, use \&quot;schema eq &#39;string&#39;\&quot;,               to filter on AcceptableValues use \&quot;acceptableValues any (~ eq &#39;value&#39;)\&quot;               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.               If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.               If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.               If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfDataTypeSummary</returns>
-        public PagedResourceListOfDataTypeSummary ListDataTypeSummaries(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public PagedResourceListOfDataTypeSummary ListDataTypeSummaries(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfDataTypeSummary> localVarResponse = ListDataTypeSummariesWithHttpInfo(asAt, page, limit, filter, sortBy, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfDataTypeSummary> localVarResponse = ListDataTypeSummariesWithHttpInfo(asAt, page, limit, filter, sortBy, timelineScope, timelineCode, closedPeriodId, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1664,10 +1793,13 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set.                For example, to filter on the Scope, use \&quot;id.scope eq &#39;myscope&#39;\&quot;, to filter on Schema, use \&quot;schema eq &#39;string&#39;\&quot;,               to filter on AcceptableValues use \&quot;acceptableValues any (~ eq &#39;value&#39;)\&quot;               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.               If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.               If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.               If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfDataTypeSummary</returns>
-        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfDataTypeSummary> ListDataTypeSummariesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfDataTypeSummary> ListDataTypeSummariesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
 
@@ -1727,6 +1859,21 @@ namespace Lusid.Sdk.Api
             {
 
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "sortBy", sortBy));
+            }
+            if (timelineScope != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineScope", timelineScope));
+            }
+            if (timelineCode != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineCode", timelineCode));
+            }
+            if (closedPeriodId != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "closedPeriodId", closedPeriodId));
             }
 
             localVarRequestOptions.Operation = "DataTypesApi.ListDataTypeSummaries";
@@ -1772,13 +1919,16 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set.                For example, to filter on the Scope, use \&quot;id.scope eq &#39;myscope&#39;\&quot;, to filter on Schema, use \&quot;schema eq &#39;string&#39;\&quot;,               to filter on AcceptableValues use \&quot;acceptableValues any (~ eq &#39;value&#39;)\&quot;               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.               If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.               If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.               If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfDataTypeSummary</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfDataTypeSummary> ListDataTypeSummariesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<PagedResourceListOfDataTypeSummary> ListDataTypeSummariesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfDataTypeSummary> localVarResponse = await ListDataTypeSummariesWithHttpInfoAsync(asAt, page, limit, filter, sortBy, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfDataTypeSummary> localVarResponse = await ListDataTypeSummariesWithHttpInfoAsync(asAt, page, limit, filter, sortBy, timelineScope, timelineCode, closedPeriodId, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1791,11 +1941,14 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set.                For example, to filter on the Scope, use \&quot;id.scope eq &#39;myscope&#39;\&quot;, to filter on Schema, use \&quot;schema eq &#39;string&#39;\&quot;,               to filter on AcceptableValues use \&quot;acceptableValues any (~ eq &#39;value&#39;)\&quot;               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.               If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.               If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.               If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfDataTypeSummary)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfDataTypeSummary>> ListDataTypeSummariesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfDataTypeSummary>> ListDataTypeSummariesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
@@ -1851,6 +2004,18 @@ namespace Lusid.Sdk.Api
             if (sortBy != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "sortBy", sortBy));
+            }
+            if (timelineScope != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineScope", timelineScope));
+            }
+            if (timelineCode != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineCode", timelineCode));
+            }
+            if (closedPeriodId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "closedPeriodId", closedPeriodId));
             }
 
             localVarRequestOptions.Operation = "DataTypesApi.ListDataTypeSummaries";
@@ -1898,12 +2063,15 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfDataType</returns>
-        public ResourceListOfDataType ListDataTypes(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeSystem = default(bool?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public ResourceListOfDataType ListDataTypes(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeSystem = default(bool?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfDataType> localVarResponse = ListDataTypesWithHttpInfo(scope, asAt, includeSystem, sortBy, limit, filter, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfDataType> localVarResponse = ListDataTypesWithHttpInfo(scope, asAt, includeSystem, sortBy, limit, filter, timelineScope, timelineCode, closedPeriodId, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1917,10 +2085,13 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfDataType</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfDataType> ListDataTypesWithHttpInfo(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeSystem = default(bool?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfDataType> ListDataTypesWithHttpInfo(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeSystem = default(bool?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1987,6 +2158,21 @@ namespace Lusid.Sdk.Api
             {
 
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+            if (timelineScope != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineScope", timelineScope));
+            }
+            if (timelineCode != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineCode", timelineCode));
+            }
+            if (closedPeriodId != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "closedPeriodId", closedPeriodId));
             }
 
             localVarRequestOptions.Operation = "DataTypesApi.ListDataTypes";
@@ -2033,13 +2219,16 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfDataType</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfDataType> ListDataTypesAsync(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeSystem = default(bool?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<ResourceListOfDataType> ListDataTypesAsync(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeSystem = default(bool?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfDataType> localVarResponse = await ListDataTypesWithHttpInfoAsync(scope, asAt, includeSystem, sortBy, limit, filter, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfDataType> localVarResponse = await ListDataTypesWithHttpInfoAsync(scope, asAt, includeSystem, sortBy, limit, filter, timelineScope, timelineCode, closedPeriodId, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2053,11 +2242,14 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set.              For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfDataType)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfDataType>> ListDataTypesWithHttpInfoAsync(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeSystem = default(bool?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfDataType>> ListDataTypesWithHttpInfoAsync(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), bool? includeSystem = default(bool?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -2120,6 +2312,18 @@ namespace Lusid.Sdk.Api
             if (filter != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+            if (timelineScope != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineScope", timelineScope));
+            }
+            if (timelineCode != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineCode", timelineCode));
+            }
+            if (closedPeriodId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "closedPeriodId", closedPeriodId));
             }
 
             localVarRequestOptions.Operation = "DataTypesApi.ListDataTypes";
