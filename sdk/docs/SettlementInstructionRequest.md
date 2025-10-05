@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **SubHoldingKeyOverrides** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) |  | [optional] 
 **CustodianAccountOverride** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **InstructionToPortfolioRate** | **decimal?** |  | [optional] 
+**SettlementInLieu** | [**SettlementInLieu**](SettlementInLieu.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -29,6 +30,8 @@ Dictionary<string, string> instrumentIdentifiers = new Dictionary<string, string
 Dictionary<string, PerpetualProperty> subHoldingKeyOverrides = new Dictionary<string, PerpetualProperty>();
 ResourceId? custodianAccountOverride = new ResourceId();
 
+SettlementInLieu? settlementInLieu = new SettlementInLieu();
+
 
 SettlementInstructionRequest settlementInstructionRequestInstance = new SettlementInstructionRequest(
     settlementInstructionId: settlementInstructionId,
@@ -41,7 +44,8 @@ SettlementInstructionRequest settlementInstructionRequestInstance = new Settleme
     units: units,
     subHoldingKeyOverrides: subHoldingKeyOverrides,
     custodianAccountOverride: custodianAccountOverride,
-    instructionToPortfolioRate: instructionToPortfolioRate);
+    instructionToPortfolioRate: instructionToPortfolioRate,
+    settlementInLieu: settlementInLieu);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

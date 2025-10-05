@@ -40,17 +40,18 @@ namespace Lusid.Sdk.Model
         /// <param name="displayName">The name of the Fund. (required).</param>
         /// <param name="description">A description for the Fund..</param>
         /// <param name="baseCurrency">The base currency of the Fund in ISO 4217 currency code format. All portfolios must be of a matching base currency. (required).</param>
+        /// <param name="investorStructure">The Investor structure to be used by the Fund. Supported values are &#39;NonUnitised&#39;, &#39;Classes&#39; and &#39;Custom&#39;..</param>
         /// <param name="portfolioIds">A list of the Portfolio IDs associated with the fund, which are part of the Fund. Note: These must all have the same base currency, which must also much the Fund Base Currency. (required).</param>
         /// <param name="fundConfigurationId">fundConfigurationId (required).</param>
         /// <param name="shareClassInstrumentScopes">The scopes in which the instruments lie, currently limited to one..</param>
         /// <param name="shareClassInstruments">Details the user-provided instrument identifiers and the instrument resolved from them..</param>
-        /// <param name="type">The type of fund; &#39;Standalone&#39;, &#39;Master&#39; or &#39;Feeder&#39; (required).</param>
+        /// <param name="type">The type of fund; &#39;Standalone&#39;, &#39;Master&#39; or &#39;Feeder&#39;.</param>
         /// <param name="inceptionDate">Inception date of the Fund (required).</param>
         /// <param name="decimalPlaces">Number of decimal places for reporting.</param>
         /// <param name="primaryNavType">primaryNavType (required).</param>
         /// <param name="additionalNavTypes">The definitions for any additional NAVs on the Fund..</param>
         /// <param name="properties">A set of properties for the Fund..</param>
-        public FundDefinitionRequest(string code = default(string), string displayName = default(string), string description = default(string), string baseCurrency = default(string), List<PortfolioEntityId> portfolioIds = default(List<PortfolioEntityId>), ResourceId fundConfigurationId = default(ResourceId), List<string> shareClassInstrumentScopes = default(List<string>), List<InstrumentResolutionDetail> shareClassInstruments = default(List<InstrumentResolutionDetail>), string type = default(string), DateTimeOffset inceptionDate = default(DateTimeOffset), int? decimalPlaces = default(int?), NavTypeDefinition primaryNavType = default(NavTypeDefinition), List<NavTypeDefinition> additionalNavTypes = default(List<NavTypeDefinition>), Dictionary<string, Property> properties = default(Dictionary<string, Property>))
+        public FundDefinitionRequest(string code = default(string), string displayName = default(string), string description = default(string), string baseCurrency = default(string), string investorStructure = default(string), List<PortfolioEntityId> portfolioIds = default(List<PortfolioEntityId>), ResourceId fundConfigurationId = default(ResourceId), List<string> shareClassInstrumentScopes = default(List<string>), List<InstrumentResolutionDetail> shareClassInstruments = default(List<InstrumentResolutionDetail>), string type = default(string), DateTimeOffset inceptionDate = default(DateTimeOffset), int? decimalPlaces = default(int?), NavTypeDefinition primaryNavType = default(NavTypeDefinition), List<NavTypeDefinition> additionalNavTypes = default(List<NavTypeDefinition>), Dictionary<string, Property> properties = default(Dictionary<string, Property>))
         {
             // to ensure "code" is required (not null)
             if (code == null)
@@ -82,12 +83,6 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("fundConfigurationId is a required property for FundDefinitionRequest and cannot be null");
             }
             this.FundConfigurationId = fundConfigurationId;
-            // to ensure "type" is required (not null)
-            if (type == null)
-            {
-                throw new ArgumentNullException("type is a required property for FundDefinitionRequest and cannot be null");
-            }
-            this.Type = type;
             this.InceptionDate = inceptionDate;
             // to ensure "primaryNavType" is required (not null)
             if (primaryNavType == null)
@@ -96,8 +91,10 @@ namespace Lusid.Sdk.Model
             }
             this.PrimaryNavType = primaryNavType;
             this.Description = description;
+            this.InvestorStructure = investorStructure;
             this.ShareClassInstrumentScopes = shareClassInstrumentScopes;
             this.ShareClassInstruments = shareClassInstruments;
+            this.Type = type;
             this.DecimalPlaces = decimalPlaces;
             this.AdditionalNavTypes = additionalNavTypes;
             this.Properties = properties;
@@ -132,6 +129,13 @@ namespace Lusid.Sdk.Model
         public string BaseCurrency { get; set; }
 
         /// <summary>
+        /// The Investor structure to be used by the Fund. Supported values are &#39;NonUnitised&#39;, &#39;Classes&#39; and &#39;Custom&#39;.
+        /// </summary>
+        /// <value>The Investor structure to be used by the Fund. Supported values are &#39;NonUnitised&#39;, &#39;Classes&#39; and &#39;Custom&#39;.</value>
+        [DataMember(Name = "investorStructure", EmitDefaultValue = true)]
+        public string InvestorStructure { get; set; }
+
+        /// <summary>
         /// A list of the Portfolio IDs associated with the fund, which are part of the Fund. Note: These must all have the same base currency, which must also much the Fund Base Currency.
         /// </summary>
         /// <value>A list of the Portfolio IDs associated with the fund, which are part of the Fund. Note: These must all have the same base currency, which must also much the Fund Base Currency.</value>
@@ -162,7 +166,7 @@ namespace Lusid.Sdk.Model
         /// The type of fund; &#39;Standalone&#39;, &#39;Master&#39; or &#39;Feeder&#39;
         /// </summary>
         /// <value>The type of fund; &#39;Standalone&#39;, &#39;Master&#39; or &#39;Feeder&#39;</value>
-        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "type", EmitDefaultValue = true)]
         public string Type { get; set; }
 
         /// <summary>
@@ -211,6 +215,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  BaseCurrency: ").Append(BaseCurrency).Append("\n");
+            sb.Append("  InvestorStructure: ").Append(InvestorStructure).Append("\n");
             sb.Append("  PortfolioIds: ").Append(PortfolioIds).Append("\n");
             sb.Append("  FundConfigurationId: ").Append(FundConfigurationId).Append("\n");
             sb.Append("  ShareClassInstrumentScopes: ").Append(ShareClassInstrumentScopes).Append("\n");
@@ -275,6 +280,11 @@ namespace Lusid.Sdk.Model
                     this.BaseCurrency == input.BaseCurrency ||
                     (this.BaseCurrency != null &&
                     this.BaseCurrency.Equals(input.BaseCurrency))
+                ) && 
+                (
+                    this.InvestorStructure == input.InvestorStructure ||
+                    (this.InvestorStructure != null &&
+                    this.InvestorStructure.Equals(input.InvestorStructure))
                 ) && 
                 (
                     this.PortfolioIds == input.PortfolioIds ||
@@ -357,6 +367,10 @@ namespace Lusid.Sdk.Model
                 if (this.BaseCurrency != null)
                 {
                     hashCode = (hashCode * 59) + this.BaseCurrency.GetHashCode();
+                }
+                if (this.InvestorStructure != null)
+                {
+                    hashCode = (hashCode * 59) + this.InvestorStructure.GetHashCode();
                 }
                 if (this.PortfolioIds != null)
                 {
@@ -457,12 +471,6 @@ namespace Lusid.Sdk.Model
             if (false == regexDescription.Match(this.Description).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, must match a pattern of " + regexDescription, new [] { "Description" });
-            }
-
-            // Type (string) minLength
-            if (this.Type != null && this.Type.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Type, length must be greater than 1.", new [] { "Type" });
             }
 
             // DecimalPlaces (int?) maximum

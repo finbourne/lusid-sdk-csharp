@@ -2360,7 +2360,7 @@ catch (ApiException e)
 
 <a id="getvaluationpointtrialbalance"></a>
 # **GetValuationPointTrialBalance**
-> ValuationPointResourceListOfTrialBalance GetValuationPointTrialBalance (string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, string? generalLedgerProfileCode = null, DateTimeOffset? asAt = null, string? filter = null, int? limit = null, string? page = null, List<string>? propertyKeys = null, string? navTypeCode = null)
+> ValuationPointResourceListOfTrialBalance GetValuationPointTrialBalance (string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, string? generalLedgerProfileCode = null, DateTimeOffset? asAt = null, string? filter = null, int? limit = null, string? page = null, List<string>? propertyKeys = null, string? navTypeCode = null, bool? excludeCleardownModule = null)
 
 [EXPERIMENTAL] GetValuationPointTrialBalance: Get Trial Balance for the given Fund.
 
@@ -2415,14 +2415,15 @@ namespace Examples
             var page = "page_example";  // string? | The pagination token to use to continue listing Trial Balances.               This token is returned from the previous call.               If a pagination token is provided, the filter, effectiveAt and asAt fields               must not have changed since the original request. (optional) 
             var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'Instrument', 'Transaction', 'Portfolio', 'Account', 'LegalEntity' or 'CustodianAccount'               domain to decorate onto the TrialBalance. (optional) 
             var navTypeCode = "navTypeCode_example";  // string? | When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional) 
+            var excludeCleardownModule = false;  // bool? | If this is set to true, no Cleardown Module will be applied to the Trial Balance. Defaults to false. (optional)  (default to false)
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // ValuationPointResourceListOfTrialBalance result = apiInstance.GetValuationPointTrialBalance(scope, code, valuationPointDataQueryParameters, generalLedgerProfileCode, asAt, filter, limit, page, propertyKeys, navTypeCode, opts: opts);
+                // ValuationPointResourceListOfTrialBalance result = apiInstance.GetValuationPointTrialBalance(scope, code, valuationPointDataQueryParameters, generalLedgerProfileCode, asAt, filter, limit, page, propertyKeys, navTypeCode, excludeCleardownModule, opts: opts);
 
                 // [EXPERIMENTAL] GetValuationPointTrialBalance: Get Trial Balance for the given Fund.
-                ValuationPointResourceListOfTrialBalance result = apiInstance.GetValuationPointTrialBalance(scope, code, valuationPointDataQueryParameters, generalLedgerProfileCode, asAt, filter, limit, page, propertyKeys, navTypeCode);
+                ValuationPointResourceListOfTrialBalance result = apiInstance.GetValuationPointTrialBalance(scope, code, valuationPointDataQueryParameters, generalLedgerProfileCode, asAt, filter, limit, page, propertyKeys, navTypeCode, excludeCleardownModule);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -2443,7 +2444,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] GetValuationPointTrialBalance: Get Trial Balance for the given Fund.
-    ApiResponse<ValuationPointResourceListOfTrialBalance> response = apiInstance.GetValuationPointTrialBalanceWithHttpInfo(scope, code, valuationPointDataQueryParameters, generalLedgerProfileCode, asAt, filter, limit, page, propertyKeys, navTypeCode);
+    ApiResponse<ValuationPointResourceListOfTrialBalance> response = apiInstance.GetValuationPointTrialBalanceWithHttpInfo(scope, code, valuationPointDataQueryParameters, generalLedgerProfileCode, asAt, filter, limit, page, propertyKeys, navTypeCode, excludeCleardownModule);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -2470,6 +2471,7 @@ catch (ApiException e)
 | **page** | **string?** | The pagination token to use to continue listing Trial Balances.               This token is returned from the previous call.               If a pagination token is provided, the filter, effectiveAt and asAt fields               must not have changed since the original request. | [optional]  |
 | **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39;               domain to decorate onto the TrialBalance. | [optional]  |
 | **navTypeCode** | **string?** | When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. | [optional]  |
+| **excludeCleardownModule** | **bool?** | If this is set to true, no Cleardown Module will be applied to the Trial Balance. Defaults to false. | [optional] [default to false] |
 
 ### Return type
 

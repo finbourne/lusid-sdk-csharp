@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **InstrumentIdentifiers** | **Dictionary&lt;string, string&gt;** | A set of instrument identifiers that can resolve the settlement instruction to a unique instrument. | 
 **Status** | **string** | The status of the settlement instruction - &#39;Invalid&#39;, &#39;Rejected&#39; &#39;Applied&#39; or &#39;Orphan&#39;. | [optional] 
 **InstructionToPortfolioRate** | **decimal?** | The exchange rate between the Settlement Instruction and Portfolio. | [optional] 
+**SettlementInLieu** | [**SettlementInLieu**](SettlementInLieu.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -33,6 +34,8 @@ ResourceId? custodianAccountOverride = new ResourceId();
 
 Dictionary<string, string> instrumentIdentifiers = new Dictionary<string, string>();
 string status = "example status";
+SettlementInLieu? settlementInLieu = new SettlementInLieu();
+
 
 TransactionSettlementInstruction transactionSettlementInstructionInstance = new TransactionSettlementInstruction(
     settlementInstructionId: settlementInstructionId,
@@ -47,7 +50,8 @@ TransactionSettlementInstruction transactionSettlementInstructionInstance = new 
     custodianAccountOverride: custodianAccountOverride,
     instrumentIdentifiers: instrumentIdentifiers,
     status: status,
-    instructionToPortfolioRate: instructionToPortfolioRate);
+    instructionToPortfolioRate: instructionToPortfolioRate,
+    settlementInLieu: settlementInLieu);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

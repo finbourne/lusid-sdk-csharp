@@ -40,6 +40,8 @@ Name | Type | Description | Notes
 **AccountingDate** | **DateTimeOffset?** | The accounting date of the transaction. | [optional] 
 **Economics** | [**List&lt;Economics&gt;**](Economics.md) | Set of economic data related with the transaction impacts. | [optional] 
 **DataModelMembership** | [**DataModelMembership**](DataModelMembership.md) |  | [optional] 
+**Sequence** | **int?** | The sequential position in which this transaction was processed. | [optional] 
+**SequencePriority** | **int?** | The calculated priority level for this transaction. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -115,7 +117,9 @@ OutputTransaction outputTransactionInstance = new OutputTransaction(
     allocationId: allocationId,
     accountingDate: accountingDate,
     economics: economics,
-    dataModelMembership: dataModelMembership);
+    dataModelMembership: dataModelMembership,
+    sequence: sequence,
+    sequencePriority: sequencePriority);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

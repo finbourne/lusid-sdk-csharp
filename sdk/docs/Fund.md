@@ -10,11 +10,12 @@ Name | Type | Description | Notes
 **DisplayName** | **string** | The name of the Fund. | [optional] 
 **Description** | **string** | A description for the Fund. | [optional] 
 **BaseCurrency** | **string** | The base currency of the Fund in ISO 4217 currency code format. All portfolios must be of a matching base currency. | [optional] 
+**InvestorStructure** | **string** | The Investor structure to be used by the Fund. Supported values are &#39;NonUnitised&#39;, &#39;Classes&#39; and &#39;Custom&#39;. | 
 **PortfolioIds** | [**List&lt;PortfolioEntityIdWithDetails&gt;**](PortfolioEntityIdWithDetails.md) | A list of the portfolios on the fund, which are part of the Fund. Note: These must all have the same base currency, which must also much the Fund Base Currency. | [optional] 
 **FundConfigurationId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **AborId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **ShareClassInstruments** | [**List&lt;InstrumentResolutionDetail&gt;**](InstrumentResolutionDetail.md) | Details the user-provided instrument identifiers and the instrument resolved from them. | [optional] 
-**Type** | **string** | The type of fund; &#39;Standalone&#39;, &#39;Master&#39; or &#39;Feeder&#39; | 
+**Type** | **string** | The type of fund; &#39;Standalone&#39;, &#39;Master&#39; or &#39;Feeder&#39; | [optional] 
 **InceptionDate** | **DateTimeOffset** | Inception date of the Fund | 
 **DecimalPlaces** | **int?** | Number of decimal places for reporting | [optional] 
 **YearEndDate** | [**DayMonth**](DayMonth.md) |  | [optional] 
@@ -33,13 +34,14 @@ ResourceId id = new ResourceId();
 string displayName = "example displayName";
 string description = "example description";
 string baseCurrency = "example baseCurrency";
+string investorStructure = "investorStructure";
 List<PortfolioEntityIdWithDetails> portfolioIds = new List<PortfolioEntityIdWithDetails>();
 ResourceId? fundConfigurationId = new ResourceId();
 
 ResourceId? aborId = new ResourceId();
 
 List<InstrumentResolutionDetail> shareClassInstruments = new List<InstrumentResolutionDetail>();
-string type = "type";
+string type = "example type";
 DayMonth? yearEndDate = new DayMonth();
 
 NavTypeDefinition? primaryNavType = new NavTypeDefinition();
@@ -56,6 +58,7 @@ Fund fundInstance = new Fund(
     displayName: displayName,
     description: description,
     baseCurrency: baseCurrency,
+    investorStructure: investorStructure,
     portfolioIds: portfolioIds,
     fundConfigurationId: fundConfigurationId,
     aborId: aborId,

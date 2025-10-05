@@ -41,11 +41,12 @@ namespace Lusid.Sdk.Model
         /// <param name="displayName">The name of the Fund..</param>
         /// <param name="description">A description for the Fund..</param>
         /// <param name="baseCurrency">The base currency of the Fund in ISO 4217 currency code format. All portfolios must be of a matching base currency..</param>
+        /// <param name="investorStructure">The Investor structure to be used by the Fund. Supported values are &#39;NonUnitised&#39;, &#39;Classes&#39; and &#39;Custom&#39;. (required).</param>
         /// <param name="portfolioIds">A list of the portfolios on the fund, which are part of the Fund. Note: These must all have the same base currency, which must also much the Fund Base Currency..</param>
         /// <param name="fundConfigurationId">fundConfigurationId.</param>
         /// <param name="aborId">aborId.</param>
         /// <param name="shareClassInstruments">Details the user-provided instrument identifiers and the instrument resolved from them..</param>
-        /// <param name="type">The type of fund; &#39;Standalone&#39;, &#39;Master&#39; or &#39;Feeder&#39; (required).</param>
+        /// <param name="type">The type of fund; &#39;Standalone&#39;, &#39;Master&#39; or &#39;Feeder&#39;.</param>
         /// <param name="inceptionDate">Inception date of the Fund (required).</param>
         /// <param name="decimalPlaces">Number of decimal places for reporting.</param>
         /// <param name="yearEndDate">yearEndDate.</param>
@@ -54,7 +55,7 @@ namespace Lusid.Sdk.Model
         /// <param name="properties">A set of properties for the Fund..</param>
         /// <param name="varVersion">varVersion.</param>
         /// <param name="links">links.</param>
-        public Fund(string href = default(string), ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), string baseCurrency = default(string), List<PortfolioEntityIdWithDetails> portfolioIds = default(List<PortfolioEntityIdWithDetails>), ResourceId fundConfigurationId = default(ResourceId), ResourceId aborId = default(ResourceId), List<InstrumentResolutionDetail> shareClassInstruments = default(List<InstrumentResolutionDetail>), string type = default(string), DateTimeOffset inceptionDate = default(DateTimeOffset), int? decimalPlaces = default(int?), DayMonth yearEndDate = default(DayMonth), NavTypeDefinition primaryNavType = default(NavTypeDefinition), List<NavTypeDefinition> additionalNavTypes = default(List<NavTypeDefinition>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
+        public Fund(string href = default(string), ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), string baseCurrency = default(string), string investorStructure = default(string), List<PortfolioEntityIdWithDetails> portfolioIds = default(List<PortfolioEntityIdWithDetails>), ResourceId fundConfigurationId = default(ResourceId), ResourceId aborId = default(ResourceId), List<InstrumentResolutionDetail> shareClassInstruments = default(List<InstrumentResolutionDetail>), string type = default(string), DateTimeOffset inceptionDate = default(DateTimeOffset), int? decimalPlaces = default(int?), DayMonth yearEndDate = default(DayMonth), NavTypeDefinition primaryNavType = default(NavTypeDefinition), List<NavTypeDefinition> additionalNavTypes = default(List<NavTypeDefinition>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -62,12 +63,12 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("id is a required property for Fund and cannot be null");
             }
             this.Id = id;
-            // to ensure "type" is required (not null)
-            if (type == null)
+            // to ensure "investorStructure" is required (not null)
+            if (investorStructure == null)
             {
-                throw new ArgumentNullException("type is a required property for Fund and cannot be null");
+                throw new ArgumentNullException("investorStructure is a required property for Fund and cannot be null");
             }
-            this.Type = type;
+            this.InvestorStructure = investorStructure;
             this.InceptionDate = inceptionDate;
             this.Href = href;
             this.DisplayName = displayName;
@@ -77,6 +78,7 @@ namespace Lusid.Sdk.Model
             this.FundConfigurationId = fundConfigurationId;
             this.AborId = aborId;
             this.ShareClassInstruments = shareClassInstruments;
+            this.Type = type;
             this.DecimalPlaces = decimalPlaces;
             this.YearEndDate = yearEndDate;
             this.PrimaryNavType = primaryNavType;
@@ -121,6 +123,13 @@ namespace Lusid.Sdk.Model
         public string BaseCurrency { get; set; }
 
         /// <summary>
+        /// The Investor structure to be used by the Fund. Supported values are &#39;NonUnitised&#39;, &#39;Classes&#39; and &#39;Custom&#39;.
+        /// </summary>
+        /// <value>The Investor structure to be used by the Fund. Supported values are &#39;NonUnitised&#39;, &#39;Classes&#39; and &#39;Custom&#39;.</value>
+        [DataMember(Name = "investorStructure", IsRequired = true, EmitDefaultValue = true)]
+        public string InvestorStructure { get; set; }
+
+        /// <summary>
         /// A list of the portfolios on the fund, which are part of the Fund. Note: These must all have the same base currency, which must also much the Fund Base Currency.
         /// </summary>
         /// <value>A list of the portfolios on the fund, which are part of the Fund. Note: These must all have the same base currency, which must also much the Fund Base Currency.</value>
@@ -150,7 +159,7 @@ namespace Lusid.Sdk.Model
         /// The type of fund; &#39;Standalone&#39;, &#39;Master&#39; or &#39;Feeder&#39;
         /// </summary>
         /// <value>The type of fund; &#39;Standalone&#39;, &#39;Master&#39; or &#39;Feeder&#39;</value>
-        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "type", EmitDefaultValue = true)]
         public string Type { get; set; }
 
         /// <summary>
@@ -218,6 +227,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  BaseCurrency: ").Append(BaseCurrency).Append("\n");
+            sb.Append("  InvestorStructure: ").Append(InvestorStructure).Append("\n");
             sb.Append("  PortfolioIds: ").Append(PortfolioIds).Append("\n");
             sb.Append("  FundConfigurationId: ").Append(FundConfigurationId).Append("\n");
             sb.Append("  AborId: ").Append(AborId).Append("\n");
@@ -290,6 +300,11 @@ namespace Lusid.Sdk.Model
                     this.BaseCurrency == input.BaseCurrency ||
                     (this.BaseCurrency != null &&
                     this.BaseCurrency.Equals(input.BaseCurrency))
+                ) && 
+                (
+                    this.InvestorStructure == input.InvestorStructure ||
+                    (this.InvestorStructure != null &&
+                    this.InvestorStructure.Equals(input.InvestorStructure))
                 ) && 
                 (
                     this.PortfolioIds == input.PortfolioIds ||
@@ -392,6 +407,10 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.BaseCurrency.GetHashCode();
                 }
+                if (this.InvestorStructure != null)
+                {
+                    hashCode = (hashCode * 59) + this.InvestorStructure.GetHashCode();
+                }
                 if (this.PortfolioIds != null)
                 {
                     hashCode = (hashCode * 59) + this.PortfolioIds.GetHashCode();
@@ -486,10 +505,10 @@ namespace Lusid.Sdk.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, must match a pattern of " + regexDescription, new [] { "Description" });
             }
 
-            // Type (string) minLength
-            if (this.Type != null && this.Type.Length < 1)
+            // InvestorStructure (string) minLength
+            if (this.InvestorStructure != null && this.InvestorStructure.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Type, length must be greater than 1.", new [] { "Type" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for InvestorStructure, length must be greater than 1.", new [] { "InvestorStructure" });
             }
 
             // DecimalPlaces (int?) maximum

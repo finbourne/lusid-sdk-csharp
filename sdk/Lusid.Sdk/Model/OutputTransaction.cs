@@ -122,7 +122,9 @@ namespace Lusid.Sdk.Model
         /// <param name="accountingDate">The accounting date of the transaction..</param>
         /// <param name="economics">Set of economic data related with the transaction impacts..</param>
         /// <param name="dataModelMembership">dataModelMembership.</param>
-        public OutputTransaction(string transactionId = default(string), string type = default(string), string description = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string instrumentScope = default(string), string instrumentUid = default(string), DateTimeOffset transactionDate = default(DateTimeOffset), DateTimeOffset settlementDate = default(DateTimeOffset), decimal units = default(decimal), decimal transactionAmount = default(decimal), TransactionPrice transactionPrice = default(TransactionPrice), CurrencyAndAmount totalConsideration = default(CurrencyAndAmount), decimal exchangeRate = default(decimal), decimal? transactionToPortfolioRate = default(decimal?), string transactionCurrency = default(string), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string counterpartyId = default(string), string source = default(string), TransactionStatusEnum ?transactionStatus = default(TransactionStatusEnum?), DateTimeOffset entryDateTime = default(DateTimeOffset), DateTimeOffset? cancelDateTime = default(DateTimeOffset?), List<RealisedGainLoss> realisedGainLoss = default(List<RealisedGainLoss>), List<long> holdingIds = default(List<long>), string sourceType = default(string), string sourceInstrumentEventId = default(string), CustodianAccount custodianAccount = default(CustodianAccount), string transactionGroupId = default(string), TransactionTypeDetails resolvedTransactionTypeDetails = default(TransactionTypeDetails), decimal grossTransactionAmount = default(decimal), OtcConfirmation otcConfirmation = default(OtcConfirmation), ResourceId orderId = default(ResourceId), ResourceId allocationId = default(ResourceId), DateTimeOffset? accountingDate = default(DateTimeOffset?), List<Economics> economics = default(List<Economics>), DataModelMembership dataModelMembership = default(DataModelMembership))
+        /// <param name="sequence">The sequential position in which this transaction was processed..</param>
+        /// <param name="sequencePriority">The calculated priority level for this transaction..</param>
+        public OutputTransaction(string transactionId = default(string), string type = default(string), string description = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string instrumentScope = default(string), string instrumentUid = default(string), DateTimeOffset transactionDate = default(DateTimeOffset), DateTimeOffset settlementDate = default(DateTimeOffset), decimal units = default(decimal), decimal transactionAmount = default(decimal), TransactionPrice transactionPrice = default(TransactionPrice), CurrencyAndAmount totalConsideration = default(CurrencyAndAmount), decimal exchangeRate = default(decimal), decimal? transactionToPortfolioRate = default(decimal?), string transactionCurrency = default(string), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string counterpartyId = default(string), string source = default(string), TransactionStatusEnum ?transactionStatus = default(TransactionStatusEnum?), DateTimeOffset entryDateTime = default(DateTimeOffset), DateTimeOffset? cancelDateTime = default(DateTimeOffset?), List<RealisedGainLoss> realisedGainLoss = default(List<RealisedGainLoss>), List<long> holdingIds = default(List<long>), string sourceType = default(string), string sourceInstrumentEventId = default(string), CustodianAccount custodianAccount = default(CustodianAccount), string transactionGroupId = default(string), TransactionTypeDetails resolvedTransactionTypeDetails = default(TransactionTypeDetails), decimal grossTransactionAmount = default(decimal), OtcConfirmation otcConfirmation = default(OtcConfirmation), ResourceId orderId = default(ResourceId), ResourceId allocationId = default(ResourceId), DateTimeOffset? accountingDate = default(DateTimeOffset?), List<Economics> economics = default(List<Economics>), DataModelMembership dataModelMembership = default(DataModelMembership), int? sequence = default(int?), int? sequencePriority = default(int?))
         {
             // to ensure "transactionId" is required (not null)
             if (transactionId == null)
@@ -174,6 +176,8 @@ namespace Lusid.Sdk.Model
             this.AccountingDate = accountingDate;
             this.Economics = economics;
             this.DataModelMembership = dataModelMembership;
+            this.Sequence = sequence;
+            this.SequencePriority = sequencePriority;
         }
 
         /// <summary>
@@ -407,6 +411,20 @@ namespace Lusid.Sdk.Model
         public DataModelMembership DataModelMembership { get; set; }
 
         /// <summary>
+        /// The sequential position in which this transaction was processed.
+        /// </summary>
+        /// <value>The sequential position in which this transaction was processed.</value>
+        [DataMember(Name = "sequence", EmitDefaultValue = true)]
+        public int? Sequence { get; set; }
+
+        /// <summary>
+        /// The calculated priority level for this transaction.
+        /// </summary>
+        /// <value>The calculated priority level for this transaction.</value>
+        [DataMember(Name = "sequencePriority", EmitDefaultValue = true)]
+        public int? SequencePriority { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -449,6 +467,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  AccountingDate: ").Append(AccountingDate).Append("\n");
             sb.Append("  Economics: ").Append(Economics).Append("\n");
             sb.Append("  DataModelMembership: ").Append(DataModelMembership).Append("\n");
+            sb.Append("  Sequence: ").Append(Sequence).Append("\n");
+            sb.Append("  SequencePriority: ").Append(SequencePriority).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -658,6 +678,16 @@ namespace Lusid.Sdk.Model
                     this.DataModelMembership == input.DataModelMembership ||
                     (this.DataModelMembership != null &&
                     this.DataModelMembership.Equals(input.DataModelMembership))
+                ) && 
+                (
+                    this.Sequence == input.Sequence ||
+                    (this.Sequence != null &&
+                    this.Sequence.Equals(input.Sequence))
+                ) && 
+                (
+                    this.SequencePriority == input.SequencePriority ||
+                    (this.SequencePriority != null &&
+                    this.SequencePriority.Equals(input.SequencePriority))
                 );
         }
 
@@ -794,6 +824,14 @@ namespace Lusid.Sdk.Model
                 if (this.DataModelMembership != null)
                 {
                     hashCode = (hashCode * 59) + this.DataModelMembership.GetHashCode();
+                }
+                if (this.Sequence != null)
+                {
+                    hashCode = (hashCode * 59) + this.Sequence.GetHashCode();
+                }
+                if (this.SequencePriority != null)
+                {
+                    hashCode = (hashCode * 59) + this.SequencePriority.GetHashCode();
                 }
                 return hashCode;
             }

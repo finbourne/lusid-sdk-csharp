@@ -23,43 +23,43 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// The parameters used in getting the ValuationPointData.
+    /// SettlementInLieu
     /// </summary>
-    [DataContract(Name = "ValuationPointDataQueryParameters")]
-    public partial class ValuationPointDataQueryParameters : IEquatable<ValuationPointDataQueryParameters>, IValidatableObject
+    [DataContract(Name = "SettlementInLieu")]
+    public partial class SettlementInLieu : IEquatable<SettlementInLieu>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ValuationPointDataQueryParameters" /> class.
+        /// Initializes a new instance of the <see cref="SettlementInLieu" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected ValuationPointDataQueryParameters() { }
+        protected SettlementInLieu() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ValuationPointDataQueryParameters" /> class.
+        /// Initializes a new instance of the <see cref="SettlementInLieu" /> class.
         /// </summary>
-        /// <param name="start">start.</param>
-        /// <param name="end">end (required).</param>
-        public ValuationPointDataQueryParameters(DateOrDiaryEntry start = default(DateOrDiaryEntry), DateOrDiaryEntry end = default(DateOrDiaryEntry))
+        /// <param name="originalSettlementCurrency">originalSettlementCurrency (required).</param>
+        /// <param name="amount">amount.</param>
+        public SettlementInLieu(string originalSettlementCurrency = default(string), decimal? amount = default(decimal?))
         {
-            // to ensure "end" is required (not null)
-            if (end == null)
+            // to ensure "originalSettlementCurrency" is required (not null)
+            if (originalSettlementCurrency == null)
             {
-                throw new ArgumentNullException("end is a required property for ValuationPointDataQueryParameters and cannot be null");
+                throw new ArgumentNullException("originalSettlementCurrency is a required property for SettlementInLieu and cannot be null");
             }
-            this.End = end;
-            this.Start = start;
+            this.OriginalSettlementCurrency = originalSettlementCurrency;
+            this.Amount = amount;
         }
 
         /// <summary>
-        /// Gets or Sets Start
+        /// Gets or Sets OriginalSettlementCurrency
         /// </summary>
-        [DataMember(Name = "start", EmitDefaultValue = false)]
-        public DateOrDiaryEntry Start { get; set; }
+        [DataMember(Name = "originalSettlementCurrency", IsRequired = true, EmitDefaultValue = true)]
+        public string OriginalSettlementCurrency { get; set; }
 
         /// <summary>
-        /// Gets or Sets End
+        /// Gets or Sets Amount
         /// </summary>
-        [DataMember(Name = "end", IsRequired = true, EmitDefaultValue = true)]
-        public DateOrDiaryEntry End { get; set; }
+        [DataMember(Name = "amount", EmitDefaultValue = true)]
+        public decimal? Amount { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -68,9 +68,9 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ValuationPointDataQueryParameters {\n");
-            sb.Append("  Start: ").Append(Start).Append("\n");
-            sb.Append("  End: ").Append(End).Append("\n");
+            sb.Append("class SettlementInLieu {\n");
+            sb.Append("  OriginalSettlementCurrency: ").Append(OriginalSettlementCurrency).Append("\n");
+            sb.Append("  Amount: ").Append(Amount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -91,15 +91,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ValuationPointDataQueryParameters);
+            return this.Equals(input as SettlementInLieu);
         }
 
         /// <summary>
-        /// Returns true if ValuationPointDataQueryParameters instances are equal
+        /// Returns true if SettlementInLieu instances are equal
         /// </summary>
-        /// <param name="input">Instance of ValuationPointDataQueryParameters to be compared</param>
+        /// <param name="input">Instance of SettlementInLieu to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ValuationPointDataQueryParameters input)
+        public bool Equals(SettlementInLieu input)
         {
             if (input == null)
             {
@@ -107,14 +107,14 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
-                    this.Start == input.Start ||
-                    (this.Start != null &&
-                    this.Start.Equals(input.Start))
+                    this.OriginalSettlementCurrency == input.OriginalSettlementCurrency ||
+                    (this.OriginalSettlementCurrency != null &&
+                    this.OriginalSettlementCurrency.Equals(input.OriginalSettlementCurrency))
                 ) && 
                 (
-                    this.End == input.End ||
-                    (this.End != null &&
-                    this.End.Equals(input.End))
+                    this.Amount == input.Amount ||
+                    (this.Amount != null &&
+                    this.Amount.Equals(input.Amount))
                 );
         }
 
@@ -127,13 +127,13 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Start != null)
+                if (this.OriginalSettlementCurrency != null)
                 {
-                    hashCode = (hashCode * 59) + this.Start.GetHashCode();
+                    hashCode = (hashCode * 59) + this.OriginalSettlementCurrency.GetHashCode();
                 }
-                if (this.End != null)
+                if (this.Amount != null)
                 {
-                    hashCode = (hashCode * 59) + this.End.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Amount.GetHashCode();
                 }
                 return hashCode;
             }
