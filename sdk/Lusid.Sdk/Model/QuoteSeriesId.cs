@@ -288,6 +288,21 @@ namespace Lusid.Sdk.Model
         public string Field { get; set; }
 
         /// <summary>
+        /// The entity unique ID of the quote series. Together with the InstrumentId, EffectiveAt and AsAt this can uniquely identify a single quote. This field is readonly and cannot be provided on upsert.
+        /// </summary>
+        /// <value>The entity unique ID of the quote series. Together with the InstrumentId, EffectiveAt and AsAt this can uniquely identify a single quote. This field is readonly and cannot be provided on upsert.</value>
+        [DataMember(Name = "entityUniqueId", EmitDefaultValue = true)]
+        public string EntityUniqueId { get; private set; }
+
+        /// <summary>
+        /// Returns false as EntityUniqueId should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeEntityUniqueId()
+        {
+            return false;
+        }
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -301,6 +316,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  InstrumentIdType: ").Append(InstrumentIdType).Append("\n");
             sb.Append("  QuoteType: ").Append(QuoteType).Append("\n");
             sb.Append("  Field: ").Append(Field).Append("\n");
+            sb.Append("  EntityUniqueId: ").Append(EntityUniqueId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -363,6 +379,11 @@ namespace Lusid.Sdk.Model
                     this.Field == input.Field ||
                     (this.Field != null &&
                     this.Field.Equals(input.Field))
+                ) && 
+                (
+                    this.EntityUniqueId == input.EntityUniqueId ||
+                    (this.EntityUniqueId != null &&
+                    this.EntityUniqueId.Equals(input.EntityUniqueId))
                 );
         }
 
@@ -393,6 +414,10 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Field.GetHashCode();
                 }
+                if (this.EntityUniqueId != null)
+                {
+                    hashCode = (hashCode * 59) + this.EntityUniqueId.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -420,6 +445,25 @@ namespace Lusid.Sdk.Model
             if (this.Field != null && this.Field.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Field, length must be greater than 1.", new [] { "Field" });
+            }
+
+            // EntityUniqueId (string) maxLength
+            if (this.EntityUniqueId != null && this.EntityUniqueId.Length > 36)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EntityUniqueId, length must be less than 36.", new [] { "EntityUniqueId" });
+            }
+
+            // EntityUniqueId (string) minLength
+            if (this.EntityUniqueId != null && this.EntityUniqueId.Length < 36)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EntityUniqueId, length must be greater than 36.", new [] { "EntityUniqueId" });
+            }
+
+            // EntityUniqueId (string) pattern
+            Regex regexEntityUniqueId = new Regex(@"^[a-zA-Z0-9\-]+$", RegexOptions.CultureInvariant);
+            if (false == regexEntityUniqueId.Match(this.EntityUniqueId).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EntityUniqueId, must match a pattern of " + regexEntityUniqueId, new [] { "EntityUniqueId" });
             }
 
             yield break;
