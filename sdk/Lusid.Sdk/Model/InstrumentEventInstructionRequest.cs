@@ -43,7 +43,8 @@ namespace Lusid.Sdk.Model
         /// <param name="holdingId">For holding instructions, the id of the holding for which the instruction will apply.</param>
         /// <param name="entitlementDateInstructed">The instructed entitlement date for the event (where none is set on the event itself).</param>
         /// <param name="quantityInstructed">quantityInstructed.</param>
-        public InstrumentEventInstructionRequest(string instrumentEventInstructionId = default(string), string instrumentEventId = default(string), string instructionType = default(string), string electionKey = default(string), long? holdingId = default(long?), DateTimeOffset? entitlementDateInstructed = default(DateTimeOffset?), QuantityInstructed quantityInstructed = default(QuantityInstructed))
+        /// <param name="taxLotId">For loan facility holding instructions, the tax lot id of the holding for which the instruction will apply.</param>
+        public InstrumentEventInstructionRequest(string instrumentEventInstructionId = default(string), string instrumentEventId = default(string), string instructionType = default(string), string electionKey = default(string), long? holdingId = default(long?), DateTimeOffset? entitlementDateInstructed = default(DateTimeOffset?), QuantityInstructed quantityInstructed = default(QuantityInstructed), string taxLotId = default(string))
         {
             // to ensure "instrumentEventInstructionId" is required (not null)
             if (instrumentEventInstructionId == null)
@@ -67,6 +68,7 @@ namespace Lusid.Sdk.Model
             this.HoldingId = holdingId;
             this.EntitlementDateInstructed = entitlementDateInstructed;
             this.QuantityInstructed = quantityInstructed;
+            this.TaxLotId = taxLotId;
         }
 
         /// <summary>
@@ -118,6 +120,13 @@ namespace Lusid.Sdk.Model
         public QuantityInstructed QuantityInstructed { get; set; }
 
         /// <summary>
+        /// For loan facility holding instructions, the tax lot id of the holding for which the instruction will apply
+        /// </summary>
+        /// <value>For loan facility holding instructions, the tax lot id of the holding for which the instruction will apply</value>
+        [DataMember(Name = "taxLotId", EmitDefaultValue = true)]
+        public string TaxLotId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -132,6 +141,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  HoldingId: ").Append(HoldingId).Append("\n");
             sb.Append("  EntitlementDateInstructed: ").Append(EntitlementDateInstructed).Append("\n");
             sb.Append("  QuantityInstructed: ").Append(QuantityInstructed).Append("\n");
+            sb.Append("  TaxLotId: ").Append(TaxLotId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -201,6 +211,11 @@ namespace Lusid.Sdk.Model
                     this.QuantityInstructed == input.QuantityInstructed ||
                     (this.QuantityInstructed != null &&
                     this.QuantityInstructed.Equals(input.QuantityInstructed))
+                ) && 
+                (
+                    this.TaxLotId == input.TaxLotId ||
+                    (this.TaxLotId != null &&
+                    this.TaxLotId.Equals(input.TaxLotId))
                 );
         }
 
@@ -241,6 +256,10 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.QuantityInstructed.GetHashCode();
                 }
+                if (this.TaxLotId != null)
+                {
+                    hashCode = (hashCode * 59) + this.TaxLotId.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -268,6 +287,18 @@ namespace Lusid.Sdk.Model
             if (this.InstructionType != null && this.InstructionType.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for InstructionType, length must be greater than 1.", new [] { "InstructionType" });
+            }
+
+            // TaxLotId (string) maxLength
+            if (this.TaxLotId != null && this.TaxLotId.Length > 50)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TaxLotId, length must be less than 50.", new [] { "TaxLotId" });
+            }
+
+            // TaxLotId (string) minLength
+            if (this.TaxLotId != null && this.TaxLotId.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TaxLotId, length must be greater than 0.", new [] { "TaxLotId" });
             }
 
             yield break;

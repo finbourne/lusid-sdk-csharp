@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **Href** | **string** | The uri for this version of this instruction | [optional] 
 **EntitlementDateInstructed** | **DateTimeOffset?** | The instructed entitlement date for the event (where none is set on the event itself) | [optional] 
 **QuantityInstructed** | [**QuantityInstructed**](QuantityInstructed.md) |  | [optional] 
+**TaxLotId** | **string** | For loan facility holding instructions, the tax lot id of the holding for which the instruction will apply | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -32,6 +33,7 @@ ModelVersion? varVersion = new ModelVersion();
 string href = "example href";
 QuantityInstructed? quantityInstructed = new QuantityInstructed();
 
+string taxLotId = "example taxLotId";
 List<Link> links = new List<Link>();
 
 InstrumentEventInstruction instrumentEventInstructionInstance = new InstrumentEventInstruction(
@@ -45,6 +47,7 @@ InstrumentEventInstruction instrumentEventInstructionInstance = new InstrumentEv
     href: href,
     entitlementDateInstructed: entitlementDateInstructed,
     quantityInstructed: quantityInstructed,
+    taxLotId: taxLotId,
     links: links);
 ```
 
