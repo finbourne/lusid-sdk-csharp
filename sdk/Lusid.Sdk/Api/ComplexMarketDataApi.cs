@@ -131,12 +131,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the complex market data to append.</param>
         /// <param name="appendComplexMarketDataRequest">Request definition of the point to append.</param>
-        /// <param name="effectiveAt">The effective datetime at which to retrieve the complex market data.               Defaults to the current LUSID system datetime if not specified.               Must match the effectiveAt of the ComplexMarketDataId given in the request body. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the complex market data. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>UpsertSingleStructuredDataResponse</returns>
-        UpsertSingleStructuredDataResponse UpsertAppendComplexMarketData(string scope, AppendComplexMarketDataRequest appendComplexMarketDataRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        UpsertSingleStructuredDataResponse UpsertAppendComplexMarketData(string scope, AppendComplexMarketDataRequest appendComplexMarketDataRequest, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] UpsertAppendComplexMarketData: Appends a new point to the end of a ComplexMarketData definition.
@@ -147,12 +146,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the complex market data to append.</param>
         /// <param name="appendComplexMarketDataRequest">Request definition of the point to append.</param>
-        /// <param name="effectiveAt">The effective datetime at which to retrieve the complex market data.               Defaults to the current LUSID system datetime if not specified.               Must match the effectiveAt of the ComplexMarketDataId given in the request body. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the complex market data. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of UpsertSingleStructuredDataResponse</returns>
-        Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse> UpsertAppendComplexMarketDataWithHttpInfo(string scope, AppendComplexMarketDataRequest appendComplexMarketDataRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse> UpsertAppendComplexMarketDataWithHttpInfo(string scope, AppendComplexMarketDataRequest appendComplexMarketDataRequest, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// UpsertComplexMarketData: Upsert a set of complex market data items. This creates or updates the data in Lusid.
         /// </summary>
@@ -295,13 +293,12 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the complex market data to append.</param>
         /// <param name="appendComplexMarketDataRequest">Request definition of the point to append.</param>
-        /// <param name="effectiveAt">The effective datetime at which to retrieve the complex market data.               Defaults to the current LUSID system datetime if not specified.               Must match the effectiveAt of the ComplexMarketDataId given in the request body. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the complex market data. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of UpsertSingleStructuredDataResponse</returns>
-        System.Threading.Tasks.Task<UpsertSingleStructuredDataResponse> UpsertAppendComplexMarketDataAsync(string scope, AppendComplexMarketDataRequest appendComplexMarketDataRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<UpsertSingleStructuredDataResponse> UpsertAppendComplexMarketDataAsync(string scope, AppendComplexMarketDataRequest appendComplexMarketDataRequest, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] UpsertAppendComplexMarketData: Appends a new point to the end of a ComplexMarketData definition.
@@ -312,13 +309,12 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the complex market data to append.</param>
         /// <param name="appendComplexMarketDataRequest">Request definition of the point to append.</param>
-        /// <param name="effectiveAt">The effective datetime at which to retrieve the complex market data.               Defaults to the current LUSID system datetime if not specified.               Must match the effectiveAt of the ComplexMarketDataId given in the request body. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the complex market data. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (UpsertSingleStructuredDataResponse)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse>> UpsertAppendComplexMarketDataWithHttpInfoAsync(string scope, AppendComplexMarketDataRequest appendComplexMarketDataRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse>> UpsertAppendComplexMarketDataWithHttpInfoAsync(string scope, AppendComplexMarketDataRequest appendComplexMarketDataRequest, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// UpsertComplexMarketData: Upsert a set of complex market data items. This creates or updates the data in Lusid.
         /// </summary>
@@ -1214,14 +1210,13 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the complex market data to append.</param>
         /// <param name="appendComplexMarketDataRequest">Request definition of the point to append.</param>
-        /// <param name="effectiveAt">The effective datetime at which to retrieve the complex market data.               Defaults to the current LUSID system datetime if not specified.               Must match the effectiveAt of the ComplexMarketDataId given in the request body. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the complex market data. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>UpsertSingleStructuredDataResponse</returns>
-        public UpsertSingleStructuredDataResponse UpsertAppendComplexMarketData(string scope, AppendComplexMarketDataRequest appendComplexMarketDataRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public UpsertSingleStructuredDataResponse UpsertAppendComplexMarketData(string scope, AppendComplexMarketDataRequest appendComplexMarketDataRequest, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse> localVarResponse = UpsertAppendComplexMarketDataWithHttpInfo(scope, appendComplexMarketDataRequest, effectiveAt, asAt, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse> localVarResponse = UpsertAppendComplexMarketDataWithHttpInfo(scope, appendComplexMarketDataRequest, asAt, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1231,12 +1226,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the complex market data to append.</param>
         /// <param name="appendComplexMarketDataRequest">Request definition of the point to append.</param>
-        /// <param name="effectiveAt">The effective datetime at which to retrieve the complex market data.               Defaults to the current LUSID system datetime if not specified.               Must match the effectiveAt of the ComplexMarketDataId given in the request body. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the complex market data. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of UpsertSingleStructuredDataResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse> UpsertAppendComplexMarketDataWithHttpInfo(string scope, AppendComplexMarketDataRequest appendComplexMarketDataRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse> UpsertAppendComplexMarketDataWithHttpInfo(string scope, AppendComplexMarketDataRequest appendComplexMarketDataRequest, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1289,11 +1283,6 @@ namespace Lusid.Sdk.Api
             }
 
             localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
-            if (effectiveAt != null)
-            {
-
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "effectiveAt", effectiveAt));
-            }
             if (asAt != null)
             {
 
@@ -1341,15 +1330,14 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the complex market data to append.</param>
         /// <param name="appendComplexMarketDataRequest">Request definition of the point to append.</param>
-        /// <param name="effectiveAt">The effective datetime at which to retrieve the complex market data.               Defaults to the current LUSID system datetime if not specified.               Must match the effectiveAt of the ComplexMarketDataId given in the request body. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the complex market data. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of UpsertSingleStructuredDataResponse</returns>
-        public async System.Threading.Tasks.Task<UpsertSingleStructuredDataResponse> UpsertAppendComplexMarketDataAsync(string scope, AppendComplexMarketDataRequest appendComplexMarketDataRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<UpsertSingleStructuredDataResponse> UpsertAppendComplexMarketDataAsync(string scope, AppendComplexMarketDataRequest appendComplexMarketDataRequest, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse> localVarResponse = await UpsertAppendComplexMarketDataWithHttpInfoAsync(scope, appendComplexMarketDataRequest, effectiveAt, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse> localVarResponse = await UpsertAppendComplexMarketDataWithHttpInfoAsync(scope, appendComplexMarketDataRequest, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1359,13 +1347,12 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the complex market data to append.</param>
         /// <param name="appendComplexMarketDataRequest">Request definition of the point to append.</param>
-        /// <param name="effectiveAt">The effective datetime at which to retrieve the complex market data.               Defaults to the current LUSID system datetime if not specified.               Must match the effectiveAt of the ComplexMarketDataId given in the request body. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the complex market data. Defaults to return the latest version if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (UpsertSingleStructuredDataResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse>> UpsertAppendComplexMarketDataWithHttpInfoAsync(string scope, AppendComplexMarketDataRequest appendComplexMarketDataRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertSingleStructuredDataResponse>> UpsertAppendComplexMarketDataWithHttpInfoAsync(string scope, AppendComplexMarketDataRequest appendComplexMarketDataRequest, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1419,10 +1406,6 @@ namespace Lusid.Sdk.Api
             }
 
             localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
-            if (effectiveAt != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "effectiveAt", effectiveAt));
-            }
             if (asAt != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));

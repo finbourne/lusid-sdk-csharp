@@ -370,7 +370,7 @@ catch (ApiException e)
 
 <a id="upsertappendcomplexmarketdata"></a>
 # **UpsertAppendComplexMarketData**
-> UpsertSingleStructuredDataResponse UpsertAppendComplexMarketData (string scope, AppendComplexMarketDataRequest appendComplexMarketDataRequest, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null)
+> UpsertSingleStructuredDataResponse UpsertAppendComplexMarketData (string scope, AppendComplexMarketDataRequest appendComplexMarketDataRequest, DateTimeOffset? asAt = null)
 
 [EARLY ACCESS] UpsertAppendComplexMarketData: Appends a new point to the end of a ComplexMarketData definition.
 
@@ -417,16 +417,15 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ComplexMarketDataApi>();
             var scope = "scope_example";  // string | The scope of the complex market data to append.
             var appendComplexMarketDataRequest = new AppendComplexMarketDataRequest(); // AppendComplexMarketDataRequest | Request definition of the point to append.
-            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime at which to retrieve the complex market data.               Defaults to the current LUSID system datetime if not specified.               Must match the effectiveAt of the ComplexMarketDataId given in the request body. (optional) 
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the complex market data. Defaults to return the latest version if not specified. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // UpsertSingleStructuredDataResponse result = apiInstance.UpsertAppendComplexMarketData(scope, appendComplexMarketDataRequest, effectiveAt, asAt, opts: opts);
+                // UpsertSingleStructuredDataResponse result = apiInstance.UpsertAppendComplexMarketData(scope, appendComplexMarketDataRequest, asAt, opts: opts);
 
                 // [EARLY ACCESS] UpsertAppendComplexMarketData: Appends a new point to the end of a ComplexMarketData definition.
-                UpsertSingleStructuredDataResponse result = apiInstance.UpsertAppendComplexMarketData(scope, appendComplexMarketDataRequest, effectiveAt, asAt);
+                UpsertSingleStructuredDataResponse result = apiInstance.UpsertAppendComplexMarketData(scope, appendComplexMarketDataRequest, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -447,7 +446,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EARLY ACCESS] UpsertAppendComplexMarketData: Appends a new point to the end of a ComplexMarketData definition.
-    ApiResponse<UpsertSingleStructuredDataResponse> response = apiInstance.UpsertAppendComplexMarketDataWithHttpInfo(scope, appendComplexMarketDataRequest, effectiveAt, asAt);
+    ApiResponse<UpsertSingleStructuredDataResponse> response = apiInstance.UpsertAppendComplexMarketDataWithHttpInfo(scope, appendComplexMarketDataRequest, asAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -466,7 +465,6 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **scope** | **string** | The scope of the complex market data to append. |  |
 | **appendComplexMarketDataRequest** | [**AppendComplexMarketDataRequest**](AppendComplexMarketDataRequest.md) | Request definition of the point to append. |  |
-| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime at which to retrieve the complex market data.               Defaults to the current LUSID system datetime if not specified.               Must match the effectiveAt of the ComplexMarketDataId given in the request body. | [optional]  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the complex market data. Defaults to return the latest version if not specified. | [optional]  |
 
 ### Return type

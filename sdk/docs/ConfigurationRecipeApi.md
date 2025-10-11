@@ -250,7 +250,7 @@ catch (ApiException e)
 
 <a id="getconfigurationrecipe"></a>
 # **GetConfigurationRecipe**
-> GetRecipeResponse GetConfigurationRecipe (string scope, string code, DateTimeOffset? asAt = null, string? timelineScope = null, string? timelineCode = null, string? closedPeriodId = null)
+> GetRecipeResponse GetConfigurationRecipe (string scope, string code, DateTimeOffset? asAt = null)
 
 GetConfigurationRecipe: Get Configuration Recipe
 
@@ -298,17 +298,14 @@ namespace Examples
             var scope = "scope_example";  // string | The scope of the Configuration Recipe to retrieve.
             var code = "code_example";  // string | The name of the recipe to retrieve the data for.
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the Configuration Recipe. Defaults to return the latest version if not specified. (optional) 
-            var timelineScope = "timelineScope_example";  // string? | The scope of the Timeline, used to override the AsAt.               If this is provided, timelineCode and closedPeriodId must also be provided. (optional) 
-            var timelineCode = "timelineCode_example";  // string? | The code of the Timeline, used to override the AsAt.               If this is provided, timelineScope and closedPeriodId must also be provided. (optional) 
-            var closedPeriodId = "closedPeriodId_example";  // string? | The code of the ClosedPeriod attached to the timeline, used to override the AsAt.               If this is provided, timelineScope and timelineCode must also be provided. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // GetRecipeResponse result = apiInstance.GetConfigurationRecipe(scope, code, asAt, timelineScope, timelineCode, closedPeriodId, opts: opts);
+                // GetRecipeResponse result = apiInstance.GetConfigurationRecipe(scope, code, asAt, opts: opts);
 
                 // GetConfigurationRecipe: Get Configuration Recipe
-                GetRecipeResponse result = apiInstance.GetConfigurationRecipe(scope, code, asAt, timelineScope, timelineCode, closedPeriodId);
+                GetRecipeResponse result = apiInstance.GetConfigurationRecipe(scope, code, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -329,7 +326,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // GetConfigurationRecipe: Get Configuration Recipe
-    ApiResponse<GetRecipeResponse> response = apiInstance.GetConfigurationRecipeWithHttpInfo(scope, code, asAt, timelineScope, timelineCode, closedPeriodId);
+    ApiResponse<GetRecipeResponse> response = apiInstance.GetConfigurationRecipeWithHttpInfo(scope, code, asAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -349,9 +346,6 @@ catch (ApiException e)
 | **scope** | **string** | The scope of the Configuration Recipe to retrieve. |  |
 | **code** | **string** | The name of the recipe to retrieve the data for. |  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the Configuration Recipe. Defaults to return the latest version if not specified. | [optional]  |
-| **timelineScope** | **string?** | The scope of the Timeline, used to override the AsAt.               If this is provided, timelineCode and closedPeriodId must also be provided. | [optional]  |
-| **timelineCode** | **string?** | The code of the Timeline, used to override the AsAt.               If this is provided, timelineScope and closedPeriodId must also be provided. | [optional]  |
-| **closedPeriodId** | **string?** | The code of the ClosedPeriod attached to the timeline, used to override the AsAt.               If this is provided, timelineScope and timelineCode must also be provided. | [optional]  |
 
 ### Return type
 
@@ -374,7 +368,7 @@ catch (ApiException e)
 
 <a id="getderivedrecipe"></a>
 # **GetDerivedRecipe**
-> GetRecipeResponse GetDerivedRecipe (string scope, string code, DateTimeOffset? asAt = null, string? timelineScope = null, string? timelineCode = null, string? closedPeriodId = null)
+> GetRecipeResponse GetDerivedRecipe (string scope, string code, DateTimeOffset? asAt = null)
 
 GetDerivedRecipe: Get Configuration Recipe either from the store or expanded from a Recipe Composer.
 
@@ -422,17 +416,14 @@ namespace Examples
             var scope = "scope_example";  // string | The scope of the Configuration Recipe or Recipe Composer to return.
             var code = "code_example";  // string | The code of the Configuration Recipe or Recipe Composer to return.
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the Configuration Recipe. Defaults to return the latest version if not specified. (optional) 
-            var timelineScope = "timelineScope_example";  // string? | The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional) 
-            var timelineCode = "timelineCode_example";  // string? | The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional) 
-            var closedPeriodId = "closedPeriodId_example";  // string? | The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // GetRecipeResponse result = apiInstance.GetDerivedRecipe(scope, code, asAt, timelineScope, timelineCode, closedPeriodId, opts: opts);
+                // GetRecipeResponse result = apiInstance.GetDerivedRecipe(scope, code, asAt, opts: opts);
 
                 // GetDerivedRecipe: Get Configuration Recipe either from the store or expanded from a Recipe Composer.
-                GetRecipeResponse result = apiInstance.GetDerivedRecipe(scope, code, asAt, timelineScope, timelineCode, closedPeriodId);
+                GetRecipeResponse result = apiInstance.GetDerivedRecipe(scope, code, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -453,7 +444,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // GetDerivedRecipe: Get Configuration Recipe either from the store or expanded from a Recipe Composer.
-    ApiResponse<GetRecipeResponse> response = apiInstance.GetDerivedRecipeWithHttpInfo(scope, code, asAt, timelineScope, timelineCode, closedPeriodId);
+    ApiResponse<GetRecipeResponse> response = apiInstance.GetDerivedRecipeWithHttpInfo(scope, code, asAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -473,9 +464,6 @@ catch (ApiException e)
 | **scope** | **string** | The scope of the Configuration Recipe or Recipe Composer to return. |  |
 | **code** | **string** | The code of the Configuration Recipe or Recipe Composer to return. |  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the Configuration Recipe. Defaults to return the latest version if not specified. | [optional]  |
-| **timelineScope** | **string?** | The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. | [optional]  |
-| **timelineCode** | **string?** | The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. | [optional]  |
-| **closedPeriodId** | **string?** | The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. | [optional]  |
 
 ### Return type
 
@@ -498,7 +486,7 @@ catch (ApiException e)
 
 <a id="getrecipecomposer"></a>
 # **GetRecipeComposer**
-> GetRecipeComposerResponse GetRecipeComposer (string scope, string code, DateTimeOffset? asAt = null, string? timelineScope = null, string? timelineCode = null, string? closedPeriodId = null)
+> GetRecipeComposerResponse GetRecipeComposer (string scope, string code, DateTimeOffset? asAt = null)
 
 GetRecipeComposer: Get Recipe Composer
 
@@ -546,17 +534,14 @@ namespace Examples
             var scope = "scope_example";  // string | The scope of the Recipe Composer to retrieve.
             var code = "code_example";  // string | The name of the Recipe Composer to retrieve the data for.
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the Recipe Composer. Defaults to return the latest version if not specified. (optional) 
-            var timelineScope = "timelineScope_example";  // string? | The scope of the Timeline, used to override the AsAt.               If this is provided, timelineCode and closedPeriodId must also be provided. (optional) 
-            var timelineCode = "timelineCode_example";  // string? | The code of the Timeline, used to override the AsAt.               If this is provided, timelineScope and closedPeriodId must also be provided. (optional) 
-            var closedPeriodId = "closedPeriodId_example";  // string? | The code of the ClosedPeriod attached to the timeline, used to override the AsAt.               If this is provided, timelineScope and timelineCode must also be provided. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // GetRecipeComposerResponse result = apiInstance.GetRecipeComposer(scope, code, asAt, timelineScope, timelineCode, closedPeriodId, opts: opts);
+                // GetRecipeComposerResponse result = apiInstance.GetRecipeComposer(scope, code, asAt, opts: opts);
 
                 // GetRecipeComposer: Get Recipe Composer
-                GetRecipeComposerResponse result = apiInstance.GetRecipeComposer(scope, code, asAt, timelineScope, timelineCode, closedPeriodId);
+                GetRecipeComposerResponse result = apiInstance.GetRecipeComposer(scope, code, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -577,7 +562,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // GetRecipeComposer: Get Recipe Composer
-    ApiResponse<GetRecipeComposerResponse> response = apiInstance.GetRecipeComposerWithHttpInfo(scope, code, asAt, timelineScope, timelineCode, closedPeriodId);
+    ApiResponse<GetRecipeComposerResponse> response = apiInstance.GetRecipeComposerWithHttpInfo(scope, code, asAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -597,9 +582,6 @@ catch (ApiException e)
 | **scope** | **string** | The scope of the Recipe Composer to retrieve. |  |
 | **code** | **string** | The name of the Recipe Composer to retrieve the data for. |  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the Recipe Composer. Defaults to return the latest version if not specified. | [optional]  |
-| **timelineScope** | **string?** | The scope of the Timeline, used to override the AsAt.               If this is provided, timelineCode and closedPeriodId must also be provided. | [optional]  |
-| **timelineCode** | **string?** | The code of the Timeline, used to override the AsAt.               If this is provided, timelineScope and closedPeriodId must also be provided. | [optional]  |
-| **closedPeriodId** | **string?** | The code of the ClosedPeriod attached to the timeline, used to override the AsAt.               If this is provided, timelineScope and timelineCode must also be provided. | [optional]  |
 
 ### Return type
 
@@ -736,7 +718,7 @@ catch (ApiException e)
 
 <a id="listconfigurationrecipes"></a>
 # **ListConfigurationRecipes**
-> ResourceListOfGetRecipeResponse ListConfigurationRecipes (DateTimeOffset? asAt = null, string? filter = null, string? timelineScope = null, string? timelineCode = null, string? closedPeriodId = null)
+> ResourceListOfGetRecipeResponse ListConfigurationRecipes (DateTimeOffset? asAt = null, string? filter = null)
 
 ListConfigurationRecipes: List the set of Configuration Recipes
 
@@ -783,17 +765,14 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ConfigurationRecipeApi>();
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the Configuration Recipes. Defaults to latest if not specified. (optional) 
             var filter = "filter_example";  // string? | Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional) 
-            var timelineScope = "timelineScope_example";  // string? | The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional) 
-            var timelineCode = "timelineCode_example";  // string? | The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional) 
-            var closedPeriodId = "closedPeriodId_example";  // string? | The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // ResourceListOfGetRecipeResponse result = apiInstance.ListConfigurationRecipes(asAt, filter, timelineScope, timelineCode, closedPeriodId, opts: opts);
+                // ResourceListOfGetRecipeResponse result = apiInstance.ListConfigurationRecipes(asAt, filter, opts: opts);
 
                 // ListConfigurationRecipes: List the set of Configuration Recipes
-                ResourceListOfGetRecipeResponse result = apiInstance.ListConfigurationRecipes(asAt, filter, timelineScope, timelineCode, closedPeriodId);
+                ResourceListOfGetRecipeResponse result = apiInstance.ListConfigurationRecipes(asAt, filter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -814,7 +793,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // ListConfigurationRecipes: List the set of Configuration Recipes
-    ApiResponse<ResourceListOfGetRecipeResponse> response = apiInstance.ListConfigurationRecipesWithHttpInfo(asAt, filter, timelineScope, timelineCode, closedPeriodId);
+    ApiResponse<ResourceListOfGetRecipeResponse> response = apiInstance.ListConfigurationRecipesWithHttpInfo(asAt, filter);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -833,9 +812,6 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to list the Configuration Recipes. Defaults to latest if not specified. | [optional]  |
 | **filter** | **string?** | Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
-| **timelineScope** | **string?** | The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. | [optional]  |
-| **timelineCode** | **string?** | The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. | [optional]  |
-| **closedPeriodId** | **string?** | The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. | [optional]  |
 
 ### Return type
 
@@ -858,7 +834,7 @@ catch (ApiException e)
 
 <a id="listderivedrecipes"></a>
 # **ListDerivedRecipes**
-> ResourceListOfGetRecipeResponse ListDerivedRecipes (DateTimeOffset? asAt = null, string? filter = null, string? timelineScope = null, string? timelineCode = null, string? closedPeriodId = null)
+> ResourceListOfGetRecipeResponse ListDerivedRecipes (DateTimeOffset? asAt = null, string? filter = null)
 
 ListDerivedRecipes: List the complete set of all Configuration Recipes, both from the configuration recipe store and also from expanded recipe composers.
 
@@ -905,17 +881,14 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ConfigurationRecipeApi>();
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the Configuration Recipes. Defaults to latest if not specified. (optional) 
             var filter = "filter_example";  // string? | Expression to filter the result set, note this functionality is not yet enabled for this endpoint. (optional) 
-            var timelineScope = "timelineScope_example";  // string? | The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional) 
-            var timelineCode = "timelineCode_example";  // string? | The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional) 
-            var closedPeriodId = "closedPeriodId_example";  // string? | The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // ResourceListOfGetRecipeResponse result = apiInstance.ListDerivedRecipes(asAt, filter, timelineScope, timelineCode, closedPeriodId, opts: opts);
+                // ResourceListOfGetRecipeResponse result = apiInstance.ListDerivedRecipes(asAt, filter, opts: opts);
 
                 // ListDerivedRecipes: List the complete set of all Configuration Recipes, both from the configuration recipe store and also from expanded recipe composers.
-                ResourceListOfGetRecipeResponse result = apiInstance.ListDerivedRecipes(asAt, filter, timelineScope, timelineCode, closedPeriodId);
+                ResourceListOfGetRecipeResponse result = apiInstance.ListDerivedRecipes(asAt, filter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -936,7 +909,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // ListDerivedRecipes: List the complete set of all Configuration Recipes, both from the configuration recipe store and also from expanded recipe composers.
-    ApiResponse<ResourceListOfGetRecipeResponse> response = apiInstance.ListDerivedRecipesWithHttpInfo(asAt, filter, timelineScope, timelineCode, closedPeriodId);
+    ApiResponse<ResourceListOfGetRecipeResponse> response = apiInstance.ListDerivedRecipesWithHttpInfo(asAt, filter);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -955,9 +928,6 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to list the Configuration Recipes. Defaults to latest if not specified. | [optional]  |
 | **filter** | **string?** | Expression to filter the result set, note this functionality is not yet enabled for this endpoint. | [optional]  |
-| **timelineScope** | **string?** | The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. | [optional]  |
-| **timelineCode** | **string?** | The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. | [optional]  |
-| **closedPeriodId** | **string?** | The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. | [optional]  |
 
 ### Return type
 
@@ -980,7 +950,7 @@ catch (ApiException e)
 
 <a id="listrecipecomposers"></a>
 # **ListRecipeComposers**
-> ResourceListOfGetRecipeComposerResponse ListRecipeComposers (DateTimeOffset? asAt = null, string? filter = null, string? timelineScope = null, string? timelineCode = null, string? closedPeriodId = null)
+> ResourceListOfGetRecipeComposerResponse ListRecipeComposers (DateTimeOffset? asAt = null, string? filter = null)
 
 ListRecipeComposers: List the set of Recipe Composers
 
@@ -1027,17 +997,14 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ConfigurationRecipeApi>();
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the Recipes Composers. Defaults to latest if not specified. (optional) 
             var filter = "filter_example";  // string? | Expression to filter the result set, note this functionality is not yet enabled for this endpoint. (optional) 
-            var timelineScope = "timelineScope_example";  // string? | The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional) 
-            var timelineCode = "timelineCode_example";  // string? | The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional) 
-            var closedPeriodId = "closedPeriodId_example";  // string? | The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // ResourceListOfGetRecipeComposerResponse result = apiInstance.ListRecipeComposers(asAt, filter, timelineScope, timelineCode, closedPeriodId, opts: opts);
+                // ResourceListOfGetRecipeComposerResponse result = apiInstance.ListRecipeComposers(asAt, filter, opts: opts);
 
                 // ListRecipeComposers: List the set of Recipe Composers
-                ResourceListOfGetRecipeComposerResponse result = apiInstance.ListRecipeComposers(asAt, filter, timelineScope, timelineCode, closedPeriodId);
+                ResourceListOfGetRecipeComposerResponse result = apiInstance.ListRecipeComposers(asAt, filter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -1058,7 +1025,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // ListRecipeComposers: List the set of Recipe Composers
-    ApiResponse<ResourceListOfGetRecipeComposerResponse> response = apiInstance.ListRecipeComposersWithHttpInfo(asAt, filter, timelineScope, timelineCode, closedPeriodId);
+    ApiResponse<ResourceListOfGetRecipeComposerResponse> response = apiInstance.ListRecipeComposersWithHttpInfo(asAt, filter);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -1077,9 +1044,6 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to list the Recipes Composers. Defaults to latest if not specified. | [optional]  |
 | **filter** | **string?** | Expression to filter the result set, note this functionality is not yet enabled for this endpoint. | [optional]  |
-| **timelineScope** | **string?** | The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. | [optional]  |
-| **timelineCode** | **string?** | The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. | [optional]  |
-| **closedPeriodId** | **string?** | The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. | [optional]  |
 
 ### Return type
 

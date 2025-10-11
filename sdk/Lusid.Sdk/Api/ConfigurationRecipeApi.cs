@@ -95,13 +95,10 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Configuration Recipe to retrieve.</param>
         /// <param name="code">The name of the recipe to retrieve the data for.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Configuration Recipe. Defaults to return the latest version if not specified. (optional)</param>
-        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.               If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.               If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.               If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>GetRecipeResponse</returns>
-        GetRecipeResponse GetConfigurationRecipe(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        GetRecipeResponse GetConfigurationRecipe(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetConfigurationRecipe: Get Configuration Recipe
@@ -113,13 +110,10 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Configuration Recipe to retrieve.</param>
         /// <param name="code">The name of the recipe to retrieve the data for.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Configuration Recipe. Defaults to return the latest version if not specified. (optional)</param>
-        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.               If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.               If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.               If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GetRecipeResponse</returns>
-        Lusid.Sdk.Client.ApiResponse<GetRecipeResponse> GetConfigurationRecipeWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<GetRecipeResponse> GetConfigurationRecipeWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// GetDerivedRecipe: Get Configuration Recipe either from the store or expanded from a Recipe Composer.
         /// </summary>
@@ -130,13 +124,10 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Configuration Recipe or Recipe Composer to return.</param>
         /// <param name="code">The code of the Configuration Recipe or Recipe Composer to return.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Configuration Recipe. Defaults to return the latest version if not specified. (optional)</param>
-        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>GetRecipeResponse</returns>
-        GetRecipeResponse GetDerivedRecipe(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        GetRecipeResponse GetDerivedRecipe(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetDerivedRecipe: Get Configuration Recipe either from the store or expanded from a Recipe Composer.
@@ -148,13 +139,10 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Configuration Recipe or Recipe Composer to return.</param>
         /// <param name="code">The code of the Configuration Recipe or Recipe Composer to return.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Configuration Recipe. Defaults to return the latest version if not specified. (optional)</param>
-        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GetRecipeResponse</returns>
-        Lusid.Sdk.Client.ApiResponse<GetRecipeResponse> GetDerivedRecipeWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<GetRecipeResponse> GetDerivedRecipeWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// GetRecipeComposer: Get Recipe Composer
         /// </summary>
@@ -165,13 +153,10 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Recipe Composer to retrieve.</param>
         /// <param name="code">The name of the Recipe Composer to retrieve the data for.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Recipe Composer. Defaults to return the latest version if not specified. (optional)</param>
-        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.               If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.               If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.               If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>GetRecipeComposerResponse</returns>
-        GetRecipeComposerResponse GetRecipeComposer(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        GetRecipeComposerResponse GetRecipeComposer(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetRecipeComposer: Get Recipe Composer
@@ -183,13 +168,10 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Recipe Composer to retrieve.</param>
         /// <param name="code">The name of the Recipe Composer to retrieve the data for.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Recipe Composer. Defaults to return the latest version if not specified. (optional)</param>
-        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.               If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.               If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.               If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GetRecipeComposerResponse</returns>
-        Lusid.Sdk.Client.ApiResponse<GetRecipeComposerResponse> GetRecipeComposerWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<GetRecipeComposerResponse> GetRecipeComposerWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// GetRecipeComposerResolvedInline: Given a Recipe Composer, this endpoint expands into a Configuration Recipe without persistence. Primarily used for testing purposes.
         /// </summary>
@@ -224,13 +206,10 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Configuration Recipes. Defaults to latest if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfGetRecipeResponse</returns>
-        ResourceListOfGetRecipeResponse ListConfigurationRecipes(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        ResourceListOfGetRecipeResponse ListConfigurationRecipes(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// ListConfigurationRecipes: List the set of Configuration Recipes
@@ -241,13 +220,10 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Configuration Recipes. Defaults to latest if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfGetRecipeResponse</returns>
-        Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeResponse> ListConfigurationRecipesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeResponse> ListConfigurationRecipesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// ListDerivedRecipes: List the complete set of all Configuration Recipes, both from the configuration recipe store and also from expanded recipe composers.
         /// </summary>
@@ -257,13 +233,10 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Configuration Recipes. Defaults to latest if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set, note this functionality is not yet enabled for this endpoint. (optional)</param>
-        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfGetRecipeResponse</returns>
-        ResourceListOfGetRecipeResponse ListDerivedRecipes(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        ResourceListOfGetRecipeResponse ListDerivedRecipes(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// ListDerivedRecipes: List the complete set of all Configuration Recipes, both from the configuration recipe store and also from expanded recipe composers.
@@ -274,13 +247,10 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Configuration Recipes. Defaults to latest if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set, note this functionality is not yet enabled for this endpoint. (optional)</param>
-        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfGetRecipeResponse</returns>
-        Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeResponse> ListDerivedRecipesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeResponse> ListDerivedRecipesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// ListRecipeComposers: List the set of Recipe Composers
         /// </summary>
@@ -290,13 +260,10 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Recipes Composers. Defaults to latest if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set, note this functionality is not yet enabled for this endpoint. (optional)</param>
-        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfGetRecipeComposerResponse</returns>
-        ResourceListOfGetRecipeComposerResponse ListRecipeComposers(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        ResourceListOfGetRecipeComposerResponse ListRecipeComposers(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// ListRecipeComposers: List the set of Recipe Composers
@@ -307,13 +274,10 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Recipes Composers. Defaults to latest if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set, note this functionality is not yet enabled for this endpoint. (optional)</param>
-        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfGetRecipeComposerResponse</returns>
-        Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeComposerResponse> ListRecipeComposersWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeComposerResponse> ListRecipeComposersWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// UpsertConfigurationRecipe: Upsert a Configuration Recipe. This creates or updates the data in Lusid.
         /// </summary>
@@ -441,14 +405,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Configuration Recipe to retrieve.</param>
         /// <param name="code">The name of the recipe to retrieve the data for.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Configuration Recipe. Defaults to return the latest version if not specified. (optional)</param>
-        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.               If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.               If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.               If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of GetRecipeResponse</returns>
-        System.Threading.Tasks.Task<GetRecipeResponse> GetConfigurationRecipeAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<GetRecipeResponse> GetConfigurationRecipeAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetConfigurationRecipe: Get Configuration Recipe
@@ -460,14 +421,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Configuration Recipe to retrieve.</param>
         /// <param name="code">The name of the recipe to retrieve the data for.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Configuration Recipe. Defaults to return the latest version if not specified. (optional)</param>
-        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.               If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.               If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.               If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (GetRecipeResponse)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GetRecipeResponse>> GetConfigurationRecipeWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GetRecipeResponse>> GetConfigurationRecipeWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// GetDerivedRecipe: Get Configuration Recipe either from the store or expanded from a Recipe Composer.
         /// </summary>
@@ -478,14 +436,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Configuration Recipe or Recipe Composer to return.</param>
         /// <param name="code">The code of the Configuration Recipe or Recipe Composer to return.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Configuration Recipe. Defaults to return the latest version if not specified. (optional)</param>
-        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of GetRecipeResponse</returns>
-        System.Threading.Tasks.Task<GetRecipeResponse> GetDerivedRecipeAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<GetRecipeResponse> GetDerivedRecipeAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetDerivedRecipe: Get Configuration Recipe either from the store or expanded from a Recipe Composer.
@@ -497,14 +452,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Configuration Recipe or Recipe Composer to return.</param>
         /// <param name="code">The code of the Configuration Recipe or Recipe Composer to return.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Configuration Recipe. Defaults to return the latest version if not specified. (optional)</param>
-        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (GetRecipeResponse)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GetRecipeResponse>> GetDerivedRecipeWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GetRecipeResponse>> GetDerivedRecipeWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// GetRecipeComposer: Get Recipe Composer
         /// </summary>
@@ -515,14 +467,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Recipe Composer to retrieve.</param>
         /// <param name="code">The name of the Recipe Composer to retrieve the data for.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Recipe Composer. Defaults to return the latest version if not specified. (optional)</param>
-        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.               If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.               If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.               If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of GetRecipeComposerResponse</returns>
-        System.Threading.Tasks.Task<GetRecipeComposerResponse> GetRecipeComposerAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<GetRecipeComposerResponse> GetRecipeComposerAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetRecipeComposer: Get Recipe Composer
@@ -534,14 +483,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Recipe Composer to retrieve.</param>
         /// <param name="code">The name of the Recipe Composer to retrieve the data for.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Recipe Composer. Defaults to return the latest version if not specified. (optional)</param>
-        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.               If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.               If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.               If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (GetRecipeComposerResponse)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GetRecipeComposerResponse>> GetRecipeComposerWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GetRecipeComposerResponse>> GetRecipeComposerWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// GetRecipeComposerResolvedInline: Given a Recipe Composer, this endpoint expands into a Configuration Recipe without persistence. Primarily used for testing purposes.
         /// </summary>
@@ -578,14 +524,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Configuration Recipes. Defaults to latest if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfGetRecipeResponse</returns>
-        System.Threading.Tasks.Task<ResourceListOfGetRecipeResponse> ListConfigurationRecipesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<ResourceListOfGetRecipeResponse> ListConfigurationRecipesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// ListConfigurationRecipes: List the set of Configuration Recipes
@@ -596,14 +539,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Configuration Recipes. Defaults to latest if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfGetRecipeResponse)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeResponse>> ListConfigurationRecipesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeResponse>> ListConfigurationRecipesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// ListDerivedRecipes: List the complete set of all Configuration Recipes, both from the configuration recipe store and also from expanded recipe composers.
         /// </summary>
@@ -613,14 +553,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Configuration Recipes. Defaults to latest if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set, note this functionality is not yet enabled for this endpoint. (optional)</param>
-        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfGetRecipeResponse</returns>
-        System.Threading.Tasks.Task<ResourceListOfGetRecipeResponse> ListDerivedRecipesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<ResourceListOfGetRecipeResponse> ListDerivedRecipesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// ListDerivedRecipes: List the complete set of all Configuration Recipes, both from the configuration recipe store and also from expanded recipe composers.
@@ -631,14 +568,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Configuration Recipes. Defaults to latest if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set, note this functionality is not yet enabled for this endpoint. (optional)</param>
-        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfGetRecipeResponse)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeResponse>> ListDerivedRecipesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeResponse>> ListDerivedRecipesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// ListRecipeComposers: List the set of Recipe Composers
         /// </summary>
@@ -648,14 +582,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Recipes Composers. Defaults to latest if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set, note this functionality is not yet enabled for this endpoint. (optional)</param>
-        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfGetRecipeComposerResponse</returns>
-        System.Threading.Tasks.Task<ResourceListOfGetRecipeComposerResponse> ListRecipeComposersAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<ResourceListOfGetRecipeComposerResponse> ListRecipeComposersAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// ListRecipeComposers: List the set of Recipe Composers
@@ -666,14 +597,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Recipes Composers. Defaults to latest if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set, note this functionality is not yet enabled for this endpoint. (optional)</param>
-        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfGetRecipeComposerResponse)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeComposerResponse>> ListRecipeComposersWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeComposerResponse>> ListRecipeComposersWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// UpsertConfigurationRecipe: Upsert a Configuration Recipe. This creates or updates the data in Lusid.
         /// </summary>
@@ -1302,15 +1230,12 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Configuration Recipe to retrieve.</param>
         /// <param name="code">The name of the recipe to retrieve the data for.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Configuration Recipe. Defaults to return the latest version if not specified. (optional)</param>
-        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.               If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.               If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.               If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>GetRecipeResponse</returns>
-        public GetRecipeResponse GetConfigurationRecipe(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public GetRecipeResponse GetConfigurationRecipe(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<GetRecipeResponse> localVarResponse = GetConfigurationRecipeWithHttpInfo(scope, code, asAt, timelineScope, timelineCode, closedPeriodId, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<GetRecipeResponse> localVarResponse = GetConfigurationRecipeWithHttpInfo(scope, code, asAt, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1321,13 +1246,10 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Configuration Recipe to retrieve.</param>
         /// <param name="code">The name of the recipe to retrieve the data for.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Configuration Recipe. Defaults to return the latest version if not specified. (optional)</param>
-        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.               If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.               If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.               If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GetRecipeResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<GetRecipeResponse> GetConfigurationRecipeWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<GetRecipeResponse> GetConfigurationRecipeWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1381,21 +1303,6 @@ namespace Lusid.Sdk.Api
             {
 
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
-            }
-            if (timelineScope != null)
-            {
-
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineScope", timelineScope));
-            }
-            if (timelineCode != null)
-            {
-
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineCode", timelineCode));
-            }
-            if (closedPeriodId != null)
-            {
-
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "closedPeriodId", closedPeriodId));
             }
 
             localVarRequestOptions.Operation = "ConfigurationRecipeApi.GetConfigurationRecipe";
@@ -1439,16 +1346,13 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Configuration Recipe to retrieve.</param>
         /// <param name="code">The name of the recipe to retrieve the data for.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Configuration Recipe. Defaults to return the latest version if not specified. (optional)</param>
-        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.               If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.               If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.               If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of GetRecipeResponse</returns>
-        public async System.Threading.Tasks.Task<GetRecipeResponse> GetConfigurationRecipeAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<GetRecipeResponse> GetConfigurationRecipeAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<GetRecipeResponse> localVarResponse = await GetConfigurationRecipeWithHttpInfoAsync(scope, code, asAt, timelineScope, timelineCode, closedPeriodId, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<GetRecipeResponse> localVarResponse = await GetConfigurationRecipeWithHttpInfoAsync(scope, code, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1459,14 +1363,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Configuration Recipe to retrieve.</param>
         /// <param name="code">The name of the recipe to retrieve the data for.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Configuration Recipe. Defaults to return the latest version if not specified. (optional)</param>
-        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.               If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.               If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.               If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (GetRecipeResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GetRecipeResponse>> GetConfigurationRecipeWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GetRecipeResponse>> GetConfigurationRecipeWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1520,18 +1421,6 @@ namespace Lusid.Sdk.Api
             if (asAt != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
-            }
-            if (timelineScope != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineScope", timelineScope));
-            }
-            if (timelineCode != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineCode", timelineCode));
-            }
-            if (closedPeriodId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "closedPeriodId", closedPeriodId));
             }
 
             localVarRequestOptions.Operation = "ConfigurationRecipeApi.GetConfigurationRecipe";
@@ -1576,15 +1465,12 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Configuration Recipe or Recipe Composer to return.</param>
         /// <param name="code">The code of the Configuration Recipe or Recipe Composer to return.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Configuration Recipe. Defaults to return the latest version if not specified. (optional)</param>
-        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>GetRecipeResponse</returns>
-        public GetRecipeResponse GetDerivedRecipe(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public GetRecipeResponse GetDerivedRecipe(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<GetRecipeResponse> localVarResponse = GetDerivedRecipeWithHttpInfo(scope, code, asAt, timelineScope, timelineCode, closedPeriodId, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<GetRecipeResponse> localVarResponse = GetDerivedRecipeWithHttpInfo(scope, code, asAt, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1595,13 +1481,10 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Configuration Recipe or Recipe Composer to return.</param>
         /// <param name="code">The code of the Configuration Recipe or Recipe Composer to return.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Configuration Recipe. Defaults to return the latest version if not specified. (optional)</param>
-        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GetRecipeResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<GetRecipeResponse> GetDerivedRecipeWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<GetRecipeResponse> GetDerivedRecipeWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1655,21 +1538,6 @@ namespace Lusid.Sdk.Api
             {
 
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
-            }
-            if (timelineScope != null)
-            {
-
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineScope", timelineScope));
-            }
-            if (timelineCode != null)
-            {
-
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineCode", timelineCode));
-            }
-            if (closedPeriodId != null)
-            {
-
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "closedPeriodId", closedPeriodId));
             }
 
             localVarRequestOptions.Operation = "ConfigurationRecipeApi.GetDerivedRecipe";
@@ -1713,16 +1581,13 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Configuration Recipe or Recipe Composer to return.</param>
         /// <param name="code">The code of the Configuration Recipe or Recipe Composer to return.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Configuration Recipe. Defaults to return the latest version if not specified. (optional)</param>
-        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of GetRecipeResponse</returns>
-        public async System.Threading.Tasks.Task<GetRecipeResponse> GetDerivedRecipeAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<GetRecipeResponse> GetDerivedRecipeAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<GetRecipeResponse> localVarResponse = await GetDerivedRecipeWithHttpInfoAsync(scope, code, asAt, timelineScope, timelineCode, closedPeriodId, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<GetRecipeResponse> localVarResponse = await GetDerivedRecipeWithHttpInfoAsync(scope, code, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1733,14 +1598,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Configuration Recipe or Recipe Composer to return.</param>
         /// <param name="code">The code of the Configuration Recipe or Recipe Composer to return.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Configuration Recipe. Defaults to return the latest version if not specified. (optional)</param>
-        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (GetRecipeResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GetRecipeResponse>> GetDerivedRecipeWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GetRecipeResponse>> GetDerivedRecipeWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1794,18 +1656,6 @@ namespace Lusid.Sdk.Api
             if (asAt != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
-            }
-            if (timelineScope != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineScope", timelineScope));
-            }
-            if (timelineCode != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineCode", timelineCode));
-            }
-            if (closedPeriodId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "closedPeriodId", closedPeriodId));
             }
 
             localVarRequestOptions.Operation = "ConfigurationRecipeApi.GetDerivedRecipe";
@@ -1850,15 +1700,12 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Recipe Composer to retrieve.</param>
         /// <param name="code">The name of the Recipe Composer to retrieve the data for.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Recipe Composer. Defaults to return the latest version if not specified. (optional)</param>
-        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.               If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.               If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.               If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>GetRecipeComposerResponse</returns>
-        public GetRecipeComposerResponse GetRecipeComposer(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public GetRecipeComposerResponse GetRecipeComposer(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<GetRecipeComposerResponse> localVarResponse = GetRecipeComposerWithHttpInfo(scope, code, asAt, timelineScope, timelineCode, closedPeriodId, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<GetRecipeComposerResponse> localVarResponse = GetRecipeComposerWithHttpInfo(scope, code, asAt, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1869,13 +1716,10 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Recipe Composer to retrieve.</param>
         /// <param name="code">The name of the Recipe Composer to retrieve the data for.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Recipe Composer. Defaults to return the latest version if not specified. (optional)</param>
-        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.               If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.               If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.               If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GetRecipeComposerResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<GetRecipeComposerResponse> GetRecipeComposerWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<GetRecipeComposerResponse> GetRecipeComposerWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1929,21 +1773,6 @@ namespace Lusid.Sdk.Api
             {
 
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
-            }
-            if (timelineScope != null)
-            {
-
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineScope", timelineScope));
-            }
-            if (timelineCode != null)
-            {
-
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineCode", timelineCode));
-            }
-            if (closedPeriodId != null)
-            {
-
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "closedPeriodId", closedPeriodId));
             }
 
             localVarRequestOptions.Operation = "ConfigurationRecipeApi.GetRecipeComposer";
@@ -1987,16 +1816,13 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Recipe Composer to retrieve.</param>
         /// <param name="code">The name of the Recipe Composer to retrieve the data for.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Recipe Composer. Defaults to return the latest version if not specified. (optional)</param>
-        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.               If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.               If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.               If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of GetRecipeComposerResponse</returns>
-        public async System.Threading.Tasks.Task<GetRecipeComposerResponse> GetRecipeComposerAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<GetRecipeComposerResponse> GetRecipeComposerAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<GetRecipeComposerResponse> localVarResponse = await GetRecipeComposerWithHttpInfoAsync(scope, code, asAt, timelineScope, timelineCode, closedPeriodId, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<GetRecipeComposerResponse> localVarResponse = await GetRecipeComposerWithHttpInfoAsync(scope, code, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2007,14 +1833,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Recipe Composer to retrieve.</param>
         /// <param name="code">The name of the Recipe Composer to retrieve the data for.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Recipe Composer. Defaults to return the latest version if not specified. (optional)</param>
-        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.               If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.               If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.               If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (GetRecipeComposerResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GetRecipeComposerResponse>> GetRecipeComposerWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GetRecipeComposerResponse>> GetRecipeComposerWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -2068,18 +1891,6 @@ namespace Lusid.Sdk.Api
             if (asAt != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
-            }
-            if (timelineScope != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineScope", timelineScope));
-            }
-            if (timelineCode != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineCode", timelineCode));
-            }
-            if (closedPeriodId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "closedPeriodId", closedPeriodId));
             }
 
             localVarRequestOptions.Operation = "ConfigurationRecipeApi.GetRecipeComposer";
@@ -2335,15 +2146,12 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Configuration Recipes. Defaults to latest if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfGetRecipeResponse</returns>
-        public ResourceListOfGetRecipeResponse ListConfigurationRecipes(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public ResourceListOfGetRecipeResponse ListConfigurationRecipes(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeResponse> localVarResponse = ListConfigurationRecipesWithHttpInfo(asAt, filter, timelineScope, timelineCode, closedPeriodId, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeResponse> localVarResponse = ListConfigurationRecipesWithHttpInfo(asAt, filter, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2353,13 +2161,10 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Configuration Recipes. Defaults to latest if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfGetRecipeResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeResponse> ListConfigurationRecipesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeResponse> ListConfigurationRecipesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
 
@@ -2404,21 +2209,6 @@ namespace Lusid.Sdk.Api
             {
 
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
-            }
-            if (timelineScope != null)
-            {
-
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineScope", timelineScope));
-            }
-            if (timelineCode != null)
-            {
-
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineCode", timelineCode));
-            }
-            if (closedPeriodId != null)
-            {
-
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "closedPeriodId", closedPeriodId));
             }
 
             localVarRequestOptions.Operation = "ConfigurationRecipeApi.ListConfigurationRecipes";
@@ -2461,16 +2251,13 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Configuration Recipes. Defaults to latest if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfGetRecipeResponse</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfGetRecipeResponse> ListConfigurationRecipesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<ResourceListOfGetRecipeResponse> ListConfigurationRecipesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeResponse> localVarResponse = await ListConfigurationRecipesWithHttpInfoAsync(asAt, filter, timelineScope, timelineCode, closedPeriodId, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeResponse> localVarResponse = await ListConfigurationRecipesWithHttpInfoAsync(asAt, filter, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2480,14 +2267,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Configuration Recipes. Defaults to latest if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfGetRecipeResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeResponse>> ListConfigurationRecipesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeResponse>> ListConfigurationRecipesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
@@ -2531,18 +2315,6 @@ namespace Lusid.Sdk.Api
             if (filter != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
-            }
-            if (timelineScope != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineScope", timelineScope));
-            }
-            if (timelineCode != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineCode", timelineCode));
-            }
-            if (closedPeriodId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "closedPeriodId", closedPeriodId));
             }
 
             localVarRequestOptions.Operation = "ConfigurationRecipeApi.ListConfigurationRecipes";
@@ -2586,15 +2358,12 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Configuration Recipes. Defaults to latest if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set, note this functionality is not yet enabled for this endpoint. (optional)</param>
-        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfGetRecipeResponse</returns>
-        public ResourceListOfGetRecipeResponse ListDerivedRecipes(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public ResourceListOfGetRecipeResponse ListDerivedRecipes(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeResponse> localVarResponse = ListDerivedRecipesWithHttpInfo(asAt, filter, timelineScope, timelineCode, closedPeriodId, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeResponse> localVarResponse = ListDerivedRecipesWithHttpInfo(asAt, filter, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2604,13 +2373,10 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Configuration Recipes. Defaults to latest if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set, note this functionality is not yet enabled for this endpoint. (optional)</param>
-        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfGetRecipeResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeResponse> ListDerivedRecipesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeResponse> ListDerivedRecipesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
 
@@ -2655,21 +2421,6 @@ namespace Lusid.Sdk.Api
             {
 
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
-            }
-            if (timelineScope != null)
-            {
-
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineScope", timelineScope));
-            }
-            if (timelineCode != null)
-            {
-
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineCode", timelineCode));
-            }
-            if (closedPeriodId != null)
-            {
-
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "closedPeriodId", closedPeriodId));
             }
 
             localVarRequestOptions.Operation = "ConfigurationRecipeApi.ListDerivedRecipes";
@@ -2712,16 +2463,13 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Configuration Recipes. Defaults to latest if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set, note this functionality is not yet enabled for this endpoint. (optional)</param>
-        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfGetRecipeResponse</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfGetRecipeResponse> ListDerivedRecipesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<ResourceListOfGetRecipeResponse> ListDerivedRecipesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeResponse> localVarResponse = await ListDerivedRecipesWithHttpInfoAsync(asAt, filter, timelineScope, timelineCode, closedPeriodId, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeResponse> localVarResponse = await ListDerivedRecipesWithHttpInfoAsync(asAt, filter, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2731,14 +2479,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Configuration Recipes. Defaults to latest if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set, note this functionality is not yet enabled for this endpoint. (optional)</param>
-        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfGetRecipeResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeResponse>> ListDerivedRecipesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeResponse>> ListDerivedRecipesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
@@ -2782,18 +2527,6 @@ namespace Lusid.Sdk.Api
             if (filter != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
-            }
-            if (timelineScope != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineScope", timelineScope));
-            }
-            if (timelineCode != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineCode", timelineCode));
-            }
-            if (closedPeriodId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "closedPeriodId", closedPeriodId));
             }
 
             localVarRequestOptions.Operation = "ConfigurationRecipeApi.ListDerivedRecipes";
@@ -2837,15 +2570,12 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Recipes Composers. Defaults to latest if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set, note this functionality is not yet enabled for this endpoint. (optional)</param>
-        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfGetRecipeComposerResponse</returns>
-        public ResourceListOfGetRecipeComposerResponse ListRecipeComposers(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public ResourceListOfGetRecipeComposerResponse ListRecipeComposers(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeComposerResponse> localVarResponse = ListRecipeComposersWithHttpInfo(asAt, filter, timelineScope, timelineCode, closedPeriodId, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeComposerResponse> localVarResponse = ListRecipeComposersWithHttpInfo(asAt, filter, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2855,13 +2585,10 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Recipes Composers. Defaults to latest if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set, note this functionality is not yet enabled for this endpoint. (optional)</param>
-        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfGetRecipeComposerResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeComposerResponse> ListRecipeComposersWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeComposerResponse> ListRecipeComposersWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
 
@@ -2906,21 +2633,6 @@ namespace Lusid.Sdk.Api
             {
 
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
-            }
-            if (timelineScope != null)
-            {
-
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineScope", timelineScope));
-            }
-            if (timelineCode != null)
-            {
-
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineCode", timelineCode));
-            }
-            if (closedPeriodId != null)
-            {
-
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "closedPeriodId", closedPeriodId));
             }
 
             localVarRequestOptions.Operation = "ConfigurationRecipeApi.ListRecipeComposers";
@@ -2963,16 +2675,13 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Recipes Composers. Defaults to latest if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set, note this functionality is not yet enabled for this endpoint. (optional)</param>
-        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfGetRecipeComposerResponse</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfGetRecipeComposerResponse> ListRecipeComposersAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<ResourceListOfGetRecipeComposerResponse> ListRecipeComposersAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeComposerResponse> localVarResponse = await ListRecipeComposersWithHttpInfoAsync(asAt, filter, timelineScope, timelineCode, closedPeriodId, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeComposerResponse> localVarResponse = await ListRecipeComposersWithHttpInfoAsync(asAt, filter, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2982,14 +2691,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Recipes Composers. Defaults to latest if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set, note this functionality is not yet enabled for this endpoint. (optional)</param>
-        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
-        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfGetRecipeComposerResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeComposerResponse>> ListRecipeComposersWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfGetRecipeComposerResponse>> ListRecipeComposersWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
@@ -3033,18 +2739,6 @@ namespace Lusid.Sdk.Api
             if (filter != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
-            }
-            if (timelineScope != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineScope", timelineScope));
-            }
-            if (timelineCode != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineCode", timelineCode));
-            }
-            if (closedPeriodId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "closedPeriodId", closedPeriodId));
             }
 
             localVarRequestOptions.Operation = "ConfigurationRecipeApi.ListRecipeComposers";
