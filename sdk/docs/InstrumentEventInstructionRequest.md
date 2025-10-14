@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **InstrumentEventInstructionId** | **string** | The unique identifier for this instruction | 
 **InstrumentEventId** | **string** | The identifier of the instrument event being instructed | 
-**InstructionType** | **string** | The type of instruction (Ignore, ElectForPortfolio, ElectForHolding) | 
+**InstructionType** | **string** | The type of instruction (Ignore, ElectForPortfolio, ElectForHolding, ElectForLoanFacilityHolding) | 
 **ElectionKey** | **string** | For elected instructions, the key to be chosen | [optional] 
 **HoldingId** | **long?** | For holding instructions, the id of the holding for which the instruction will apply | [optional] 
 **EntitlementDateInstructed** | **DateTimeOffset?** | The instructed entitlement date for the event (where none is set on the event itself) | [optional] 

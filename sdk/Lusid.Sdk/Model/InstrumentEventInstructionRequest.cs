@@ -38,7 +38,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="instrumentEventInstructionId">The unique identifier for this instruction (required).</param>
         /// <param name="instrumentEventId">The identifier of the instrument event being instructed (required).</param>
-        /// <param name="instructionType">The type of instruction (Ignore, ElectForPortfolio, ElectForHolding) (required).</param>
+        /// <param name="instructionType">The type of instruction (Ignore, ElectForPortfolio, ElectForHolding, ElectForLoanFacilityHolding) (required).</param>
         /// <param name="electionKey">For elected instructions, the key to be chosen.</param>
         /// <param name="holdingId">For holding instructions, the id of the holding for which the instruction will apply.</param>
         /// <param name="entitlementDateInstructed">The instructed entitlement date for the event (where none is set on the event itself).</param>
@@ -86,9 +86,9 @@ namespace Lusid.Sdk.Model
         public string InstrumentEventId { get; set; }
 
         /// <summary>
-        /// The type of instruction (Ignore, ElectForPortfolio, ElectForHolding)
+        /// The type of instruction (Ignore, ElectForPortfolio, ElectForHolding, ElectForLoanFacilityHolding)
         /// </summary>
-        /// <value>The type of instruction (Ignore, ElectForPortfolio, ElectForHolding)</value>
+        /// <value>The type of instruction (Ignore, ElectForPortfolio, ElectForHolding, ElectForLoanFacilityHolding)</value>
         [DataMember(Name = "instructionType", IsRequired = true, EmitDefaultValue = true)]
         public string InstructionType { get; set; }
 

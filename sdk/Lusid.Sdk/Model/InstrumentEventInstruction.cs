@@ -34,7 +34,7 @@ namespace Lusid.Sdk.Model
         /// <param name="instrumentEventInstructionId">The unique identifier for this instruction.</param>
         /// <param name="portfolioId">portfolioId.</param>
         /// <param name="instrumentEventId">The identifier of the instrument event being instructed.</param>
-        /// <param name="instructionType">The type of instruction (Ignore, ElectForPortfolio, ElectForHolding).</param>
+        /// <param name="instructionType">The type of instruction (Ignore, ElectForPortfolio, ElectForHolding, ElectForLoanFacilityHolding).</param>
         /// <param name="electionKey">For elected instructions, the key to be chosen.</param>
         /// <param name="holdingId">For holding instructions, the id of the holding for which the instruction will apply.</param>
         /// <param name="varVersion">varVersion.</param>
@@ -80,9 +80,9 @@ namespace Lusid.Sdk.Model
         public string InstrumentEventId { get; set; }
 
         /// <summary>
-        /// The type of instruction (Ignore, ElectForPortfolio, ElectForHolding)
+        /// The type of instruction (Ignore, ElectForPortfolio, ElectForHolding, ElectForLoanFacilityHolding)
         /// </summary>
-        /// <value>The type of instruction (Ignore, ElectForPortfolio, ElectForHolding)</value>
+        /// <value>The type of instruction (Ignore, ElectForPortfolio, ElectForHolding, ElectForLoanFacilityHolding)</value>
         [DataMember(Name = "instructionType", EmitDefaultValue = true)]
         public string InstructionType { get; set; }
 
