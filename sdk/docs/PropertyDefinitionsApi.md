@@ -8,6 +8,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**CreatePropertyDefinition**](PropertyDefinitionsApi.md#createpropertydefinition) | **POST** /api/propertydefinitions | CreatePropertyDefinition: Create property definition |
 | [**DeletePropertyDefinition**](PropertyDefinitionsApi.md#deletepropertydefinition) | **DELETE** /api/propertydefinitions/{domain}/{scope}/{code} | DeletePropertyDefinition: Delete property definition |
 | [**DeletePropertyDefinitionProperties**](PropertyDefinitionsApi.md#deletepropertydefinitionproperties) | **POST** /api/propertydefinitions/{domain}/{scope}/{code}/properties/$delete | [EARLY ACCESS] DeletePropertyDefinitionProperties: Delete property definition properties |
+| [**GetDerivedFormulaExplanation**](PropertyDefinitionsApi.md#getderivedformulaexplanation) | **GET** /api/propertydefinitions/derived/$formulaExplanation | [INTERNAL] GetDerivedFormulaExplanation: Get explanation of a derived property formula |
 | [**GetMultiplePropertyDefinitions**](PropertyDefinitionsApi.md#getmultiplepropertydefinitions) | **GET** /api/propertydefinitions | GetMultiplePropertyDefinitions: Get multiple property definitions |
 | [**GetPropertyDefinition**](PropertyDefinitionsApi.md#getpropertydefinition) | **GET** /api/propertydefinitions/{domain}/{scope}/{code} | GetPropertyDefinition: Get property definition |
 | [**GetPropertyDefinitionPropertyTimeSeries**](PropertyDefinitionsApi.md#getpropertydefinitionpropertytimeseries) | **GET** /api/propertydefinitions/{domain}/{scope}/{code}/properties/time-series | [EARLY ACCESS] GetPropertyDefinitionPropertyTimeSeries: Get Property Definition Property Time Series |
@@ -479,6 +480,124 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The datetime that the properties were deleted from the specified definition |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="getderivedformulaexplanation"></a>
+# **GetDerivedFormulaExplanation**
+> DerivedPropertyComponent GetDerivedFormulaExplanation (DerivationFormulaExplainRequest derivationFormulaExplainRequest, DateTimeOffset? asAt = null, DateTimeOrCutLabel? effectiveAt = null)
+
+[INTERNAL] GetDerivedFormulaExplanation: Get explanation of a derived property formula
+
+Produces a manifest that shows the nested hierarchy of any source properties and the actions taken upon them to create the derived property.  This can either be done against an existing entity, which will produce a manifest that includes the values of the source properties  at the specified effective date time, or it can be done without providing an entity which will produce a manifest without values.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PropertyDefinitionsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PropertyDefinitionsApi>();
+            var derivationFormulaExplainRequest = new DerivationFormulaExplainRequest(); // DerivationFormulaExplainRequest | Information about the derivation formula to explain, and optionally, the entity to resolve the formula against.
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to resolve the entity. Defaults to returning the latest asAt in LUSID              if not specified. (optional) 
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to resolve the entity. Defaults to the current LUSID              system datetime if not specified. (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // DerivedPropertyComponent result = apiInstance.GetDerivedFormulaExplanation(derivationFormulaExplainRequest, asAt, effectiveAt, opts: opts);
+
+                // [INTERNAL] GetDerivedFormulaExplanation: Get explanation of a derived property formula
+                DerivedPropertyComponent result = apiInstance.GetDerivedFormulaExplanation(derivationFormulaExplainRequest, asAt, effectiveAt);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling PropertyDefinitionsApi.GetDerivedFormulaExplanation: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetDerivedFormulaExplanationWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [INTERNAL] GetDerivedFormulaExplanation: Get explanation of a derived property formula
+    ApiResponse<DerivedPropertyComponent> response = apiInstance.GetDerivedFormulaExplanationWithHttpInfo(derivationFormulaExplainRequest, asAt, effectiveAt);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling PropertyDefinitionsApi.GetDerivedFormulaExplanationWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **derivationFormulaExplainRequest** | [**DerivationFormulaExplainRequest**](DerivationFormulaExplainRequest.md) | Information about the derivation formula to explain, and optionally, the entity to resolve the formula against. |  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to resolve the entity. Defaults to returning the latest asAt in LUSID              if not specified. | [optional]  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to resolve the entity. Defaults to the current LUSID              system datetime if not specified. | [optional]  |
+
+### Return type
+
+[**DerivedPropertyComponent**](DerivedPropertyComponent.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The requested derived property formula components. |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 

@@ -144,6 +144,35 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
         Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeletePropertyDefinitionPropertiesWithHttpInfo(string domain, string scope, string code, List<string> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
+        /// [INTERNAL] GetDerivedFormulaExplanation: Get explanation of a derived property formula
+        /// </summary>
+        /// <remarks>
+        /// Produces a manifest that shows the nested hierarchy of any source properties and the actions taken upon them to create the derived property.  This can either be done against an existing entity, which will produce a manifest that includes the values of the source properties  at the specified effective date time, or it can be done without providing an entity which will produce a manifest without values.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="derivationFormulaExplainRequest">Information about the derivation formula to explain, and optionally, the entity to resolve the formula against.</param>
+        /// <param name="asAt">The asAt datetime at which to resolve the entity. Defaults to returning the latest asAt in LUSID              if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to resolve the entity. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>DerivedPropertyComponent</returns>
+        DerivedPropertyComponent GetDerivedFormulaExplanation(DerivationFormulaExplainRequest derivationFormulaExplainRequest, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [INTERNAL] GetDerivedFormulaExplanation: Get explanation of a derived property formula
+        /// </summary>
+        /// <remarks>
+        /// Produces a manifest that shows the nested hierarchy of any source properties and the actions taken upon them to create the derived property.  This can either be done against an existing entity, which will produce a manifest that includes the values of the source properties  at the specified effective date time, or it can be done without providing an entity which will produce a manifest without values.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="derivationFormulaExplainRequest">Information about the derivation formula to explain, and optionally, the entity to resolve the formula against.</param>
+        /// <param name="asAt">The asAt datetime at which to resolve the entity. Defaults to returning the latest asAt in LUSID              if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to resolve the entity. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of DerivedPropertyComponent</returns>
+        Lusid.Sdk.Client.ApiResponse<DerivedPropertyComponent> GetDerivedFormulaExplanationWithHttpInfo(DerivationFormulaExplainRequest derivationFormulaExplainRequest, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// GetMultiplePropertyDefinitions: Get multiple property definitions
         /// </summary>
         /// <remarks>
@@ -507,6 +536,37 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeletePropertyDefinitionPropertiesWithHttpInfoAsync(string domain, string scope, string code, List<string> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [INTERNAL] GetDerivedFormulaExplanation: Get explanation of a derived property formula
+        /// </summary>
+        /// <remarks>
+        /// Produces a manifest that shows the nested hierarchy of any source properties and the actions taken upon them to create the derived property.  This can either be done against an existing entity, which will produce a manifest that includes the values of the source properties  at the specified effective date time, or it can be done without providing an entity which will produce a manifest without values.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="derivationFormulaExplainRequest">Information about the derivation formula to explain, and optionally, the entity to resolve the formula against.</param>
+        /// <param name="asAt">The asAt datetime at which to resolve the entity. Defaults to returning the latest asAt in LUSID              if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to resolve the entity. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of DerivedPropertyComponent</returns>
+        System.Threading.Tasks.Task<DerivedPropertyComponent> GetDerivedFormulaExplanationAsync(DerivationFormulaExplainRequest derivationFormulaExplainRequest, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [INTERNAL] GetDerivedFormulaExplanation: Get explanation of a derived property formula
+        /// </summary>
+        /// <remarks>
+        /// Produces a manifest that shows the nested hierarchy of any source properties and the actions taken upon them to create the derived property.  This can either be done against an existing entity, which will produce a manifest that includes the values of the source properties  at the specified effective date time, or it can be done without providing an entity which will produce a manifest without values.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="derivationFormulaExplainRequest">Information about the derivation formula to explain, and optionally, the entity to resolve the formula against.</param>
+        /// <param name="asAt">The asAt datetime at which to resolve the entity. Defaults to returning the latest asAt in LUSID              if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to resolve the entity. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (DerivedPropertyComponent)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DerivedPropertyComponent>> GetDerivedFormulaExplanationWithHttpInfoAsync(DerivationFormulaExplainRequest derivationFormulaExplainRequest, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// GetMultiplePropertyDefinitions: Get multiple property definitions
         /// </summary>
@@ -1813,6 +1873,244 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeletePropertyDefinitionProperties", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [INTERNAL] GetDerivedFormulaExplanation: Get explanation of a derived property formula Produces a manifest that shows the nested hierarchy of any source properties and the actions taken upon them to create the derived property.  This can either be done against an existing entity, which will produce a manifest that includes the values of the source properties  at the specified effective date time, or it can be done without providing an entity which will produce a manifest without values.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="derivationFormulaExplainRequest">Information about the derivation formula to explain, and optionally, the entity to resolve the formula against.</param>
+        /// <param name="asAt">The asAt datetime at which to resolve the entity. Defaults to returning the latest asAt in LUSID              if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to resolve the entity. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>DerivedPropertyComponent</returns>
+        public DerivedPropertyComponent GetDerivedFormulaExplanation(DerivationFormulaExplainRequest derivationFormulaExplainRequest, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<DerivedPropertyComponent> localVarResponse = GetDerivedFormulaExplanationWithHttpInfo(derivationFormulaExplainRequest, asAt, effectiveAt, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [INTERNAL] GetDerivedFormulaExplanation: Get explanation of a derived property formula Produces a manifest that shows the nested hierarchy of any source properties and the actions taken upon them to create the derived property.  This can either be done against an existing entity, which will produce a manifest that includes the values of the source properties  at the specified effective date time, or it can be done without providing an entity which will produce a manifest without values.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="derivationFormulaExplainRequest">Information about the derivation formula to explain, and optionally, the entity to resolve the formula against.</param>
+        /// <param name="asAt">The asAt datetime at which to resolve the entity. Defaults to returning the latest asAt in LUSID              if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to resolve the entity. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of DerivedPropertyComponent</returns>
+        public Lusid.Sdk.Client.ApiResponse<DerivedPropertyComponent> GetDerivedFormulaExplanationWithHttpInfo(DerivationFormulaExplainRequest derivationFormulaExplainRequest, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'derivationFormulaExplainRequest' is set
+            if (derivationFormulaExplainRequest == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'derivationFormulaExplainRequest' when calling PropertyDefinitionsApi->GetDerivedFormulaExplanation");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (asAt != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (effectiveAt != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "effectiveAt", effectiveAt));
+            }
+            localVarRequestOptions.Data = derivationFormulaExplainRequest;
+
+            localVarRequestOptions.Operation = "PropertyDefinitionsApi.GetDerivedFormulaExplanation";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<DerivedPropertyComponent>("/api/propertydefinitions/derived/$formulaExplanation", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetDerivedFormulaExplanation", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [INTERNAL] GetDerivedFormulaExplanation: Get explanation of a derived property formula Produces a manifest that shows the nested hierarchy of any source properties and the actions taken upon them to create the derived property.  This can either be done against an existing entity, which will produce a manifest that includes the values of the source properties  at the specified effective date time, or it can be done without providing an entity which will produce a manifest without values.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="derivationFormulaExplainRequest">Information about the derivation formula to explain, and optionally, the entity to resolve the formula against.</param>
+        /// <param name="asAt">The asAt datetime at which to resolve the entity. Defaults to returning the latest asAt in LUSID              if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to resolve the entity. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of DerivedPropertyComponent</returns>
+        public async System.Threading.Tasks.Task<DerivedPropertyComponent> GetDerivedFormulaExplanationAsync(DerivationFormulaExplainRequest derivationFormulaExplainRequest, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<DerivedPropertyComponent> localVarResponse = await GetDerivedFormulaExplanationWithHttpInfoAsync(derivationFormulaExplainRequest, asAt, effectiveAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [INTERNAL] GetDerivedFormulaExplanation: Get explanation of a derived property formula Produces a manifest that shows the nested hierarchy of any source properties and the actions taken upon them to create the derived property.  This can either be done against an existing entity, which will produce a manifest that includes the values of the source properties  at the specified effective date time, or it can be done without providing an entity which will produce a manifest without values.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="derivationFormulaExplainRequest">Information about the derivation formula to explain, and optionally, the entity to resolve the formula against.</param>
+        /// <param name="asAt">The asAt datetime at which to resolve the entity. Defaults to returning the latest asAt in LUSID              if not specified. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to resolve the entity. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (DerivedPropertyComponent)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DerivedPropertyComponent>> GetDerivedFormulaExplanationWithHttpInfoAsync(DerivationFormulaExplainRequest derivationFormulaExplainRequest, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'derivationFormulaExplainRequest' is set
+            if (derivationFormulaExplainRequest == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'derivationFormulaExplainRequest' when calling PropertyDefinitionsApi->GetDerivedFormulaExplanation");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (effectiveAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "effectiveAt", effectiveAt));
+            }
+            localVarRequestOptions.Data = derivationFormulaExplainRequest;
+
+            localVarRequestOptions.Operation = "PropertyDefinitionsApi.GetDerivedFormulaExplanation";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<DerivedPropertyComponent>("/api/propertydefinitions/derived/$formulaExplanation", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetDerivedFormulaExplanation", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
