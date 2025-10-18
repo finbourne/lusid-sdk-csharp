@@ -158,7 +158,13 @@ namespace Lusid.Sdk.Model
         /// Enum OverrideOnlyPricer for value: OverrideOnlyPricer
         /// </summary>
         [EnumMember(Value = "OverrideOnlyPricer")]
-        OverrideOnlyPricer = 22
+        OverrideOnlyPricer = 22,
+
+        /// <summary>
+        /// Enum FlexibleRepoSimplePricer for value: FlexibleRepoSimplePricer
+        /// </summary>
+        [EnumMember(Value = "FlexibleRepoSimplePricer")]
+        FlexibleRepoSimplePricer = 23
     }
 
 }

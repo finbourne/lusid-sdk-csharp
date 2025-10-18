@@ -1987,7 +1987,7 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<DerivedPropertyComponent>("/api/propertydefinitions/derived/$formulaExplanation", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<DerivedPropertyComponent>("/api/propertydefinitions/derived/$formulaExplanation", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetDerivedFormulaExplanation", localVarResponse);
@@ -2106,7 +2106,7 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<DerivedPropertyComponent>("/api/propertydefinitions/derived/$formulaExplanation", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<DerivedPropertyComponent>("/api/propertydefinitions/derived/$formulaExplanation", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
