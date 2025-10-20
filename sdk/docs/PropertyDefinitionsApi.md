@@ -8,7 +8,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**CreatePropertyDefinition**](PropertyDefinitionsApi.md#createpropertydefinition) | **POST** /api/propertydefinitions | CreatePropertyDefinition: Create property definition |
 | [**DeletePropertyDefinition**](PropertyDefinitionsApi.md#deletepropertydefinition) | **DELETE** /api/propertydefinitions/{domain}/{scope}/{code} | DeletePropertyDefinition: Delete property definition |
 | [**DeletePropertyDefinitionProperties**](PropertyDefinitionsApi.md#deletepropertydefinitionproperties) | **POST** /api/propertydefinitions/{domain}/{scope}/{code}/properties/$delete | [EARLY ACCESS] DeletePropertyDefinitionProperties: Delete property definition properties |
-| [**GetDerivedFormulaExplanation**](PropertyDefinitionsApi.md#getderivedformulaexplanation) | **POST** /api/propertydefinitions/derived/$formulaExplanation | [INTERNAL] GetDerivedFormulaExplanation: Get explanation of a derived property formula |
+| [**GetDerivedFormulaExplanation**](PropertyDefinitionsApi.md#getderivedformulaexplanation) | **POST** /api/propertydefinitions/derived/$formulaExplanation | GetDerivedFormulaExplanation: Get explanation of a derived property formula |
 | [**GetMultiplePropertyDefinitions**](PropertyDefinitionsApi.md#getmultiplepropertydefinitions) | **GET** /api/propertydefinitions | GetMultiplePropertyDefinitions: Get multiple property definitions |
 | [**GetPropertyDefinition**](PropertyDefinitionsApi.md#getpropertydefinition) | **GET** /api/propertydefinitions/{domain}/{scope}/{code} | GetPropertyDefinition: Get property definition |
 | [**GetPropertyDefinitionPropertyTimeSeries**](PropertyDefinitionsApi.md#getpropertydefinitionpropertytimeseries) | **GET** /api/propertydefinitions/{domain}/{scope}/{code}/properties/time-series | [EARLY ACCESS] GetPropertyDefinitionPropertyTimeSeries: Get Property Definition Property Time Series |
@@ -489,7 +489,7 @@ catch (ApiException e)
 # **GetDerivedFormulaExplanation**
 > DerivedPropertyComponent GetDerivedFormulaExplanation (DerivationFormulaExplainRequest derivationFormulaExplainRequest, DateTimeOffset? asAt = null, DateTimeOrCutLabel? effectiveAt = null)
 
-[INTERNAL] GetDerivedFormulaExplanation: Get explanation of a derived property formula
+GetDerivedFormulaExplanation: Get explanation of a derived property formula
 
 Produces a manifest that shows the nested hierarchy of any source properties and the actions taken upon them to create the derived property.  This can either be done against an existing entity, which will produce a manifest that includes the values of the source properties  at the specified effective date time, or it can be done without providing an entity which will produce a manifest without values.
 
@@ -541,7 +541,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // DerivedPropertyComponent result = apiInstance.GetDerivedFormulaExplanation(derivationFormulaExplainRequest, asAt, effectiveAt, opts: opts);
 
-                // [INTERNAL] GetDerivedFormulaExplanation: Get explanation of a derived property formula
+                // GetDerivedFormulaExplanation: Get explanation of a derived property formula
                 DerivedPropertyComponent result = apiInstance.GetDerivedFormulaExplanation(derivationFormulaExplainRequest, asAt, effectiveAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -562,7 +562,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [INTERNAL] GetDerivedFormulaExplanation: Get explanation of a derived property formula
+    // GetDerivedFormulaExplanation: Get explanation of a derived property formula
     ApiResponse<DerivedPropertyComponent> response = apiInstance.GetDerivedFormulaExplanationWithHttpInfo(derivationFormulaExplainRequest, asAt, effectiveAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));

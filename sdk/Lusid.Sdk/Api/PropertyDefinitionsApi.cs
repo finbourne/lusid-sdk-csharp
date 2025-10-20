@@ -144,7 +144,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
         Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeletePropertyDefinitionPropertiesWithHttpInfo(string domain, string scope, string code, List<string> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [INTERNAL] GetDerivedFormulaExplanation: Get explanation of a derived property formula
+        /// GetDerivedFormulaExplanation: Get explanation of a derived property formula
         /// </summary>
         /// <remarks>
         /// Produces a manifest that shows the nested hierarchy of any source properties and the actions taken upon them to create the derived property.  This can either be done against an existing entity, which will produce a manifest that includes the values of the source properties  at the specified effective date time, or it can be done without providing an entity which will produce a manifest without values.
@@ -159,7 +159,7 @@ namespace Lusid.Sdk.Api
         DerivedPropertyComponent GetDerivedFormulaExplanation(DerivationFormulaExplainRequest derivationFormulaExplainRequest, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [INTERNAL] GetDerivedFormulaExplanation: Get explanation of a derived property formula
+        /// GetDerivedFormulaExplanation: Get explanation of a derived property formula
         /// </summary>
         /// <remarks>
         /// Produces a manifest that shows the nested hierarchy of any source properties and the actions taken upon them to create the derived property.  This can either be done against an existing entity, which will produce a manifest that includes the values of the source properties  at the specified effective date time, or it can be done without providing an entity which will produce a manifest without values.
@@ -537,7 +537,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeletePropertyDefinitionPropertiesWithHttpInfoAsync(string domain, string scope, string code, List<string> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [INTERNAL] GetDerivedFormulaExplanation: Get explanation of a derived property formula
+        /// GetDerivedFormulaExplanation: Get explanation of a derived property formula
         /// </summary>
         /// <remarks>
         /// Produces a manifest that shows the nested hierarchy of any source properties and the actions taken upon them to create the derived property.  This can either be done against an existing entity, which will produce a manifest that includes the values of the source properties  at the specified effective date time, or it can be done without providing an entity which will produce a manifest without values.
@@ -553,7 +553,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<DerivedPropertyComponent> GetDerivedFormulaExplanationAsync(DerivationFormulaExplainRequest derivationFormulaExplainRequest, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [INTERNAL] GetDerivedFormulaExplanation: Get explanation of a derived property formula
+        /// GetDerivedFormulaExplanation: Get explanation of a derived property formula
         /// </summary>
         /// <remarks>
         /// Produces a manifest that shows the nested hierarchy of any source properties and the actions taken upon them to create the derived property.  This can either be done against an existing entity, which will produce a manifest that includes the values of the source properties  at the specified effective date time, or it can be done without providing an entity which will produce a manifest without values.
@@ -1883,7 +1883,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [INTERNAL] GetDerivedFormulaExplanation: Get explanation of a derived property formula Produces a manifest that shows the nested hierarchy of any source properties and the actions taken upon them to create the derived property.  This can either be done against an existing entity, which will produce a manifest that includes the values of the source properties  at the specified effective date time, or it can be done without providing an entity which will produce a manifest without values.
+        /// GetDerivedFormulaExplanation: Get explanation of a derived property formula Produces a manifest that shows the nested hierarchy of any source properties and the actions taken upon them to create the derived property.  This can either be done against an existing entity, which will produce a manifest that includes the values of the source properties  at the specified effective date time, or it can be done without providing an entity which will produce a manifest without values.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="derivationFormulaExplainRequest">Information about the derivation formula to explain, and optionally, the entity to resolve the formula against.</param>
@@ -1899,7 +1899,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [INTERNAL] GetDerivedFormulaExplanation: Get explanation of a derived property formula Produces a manifest that shows the nested hierarchy of any source properties and the actions taken upon them to create the derived property.  This can either be done against an existing entity, which will produce a manifest that includes the values of the source properties  at the specified effective date time, or it can be done without providing an entity which will produce a manifest without values.
+        /// GetDerivedFormulaExplanation: Get explanation of a derived property formula Produces a manifest that shows the nested hierarchy of any source properties and the actions taken upon them to create the derived property.  This can either be done against an existing entity, which will produce a manifest that includes the values of the source properties  at the specified effective date time, or it can be done without providing an entity which will produce a manifest without values.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="derivationFormulaExplainRequest">Information about the derivation formula to explain, and optionally, the entity to resolve the formula against.</param>
@@ -2001,7 +2001,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [INTERNAL] GetDerivedFormulaExplanation: Get explanation of a derived property formula Produces a manifest that shows the nested hierarchy of any source properties and the actions taken upon them to create the derived property.  This can either be done against an existing entity, which will produce a manifest that includes the values of the source properties  at the specified effective date time, or it can be done without providing an entity which will produce a manifest without values.
+        /// GetDerivedFormulaExplanation: Get explanation of a derived property formula Produces a manifest that shows the nested hierarchy of any source properties and the actions taken upon them to create the derived property.  This can either be done against an existing entity, which will produce a manifest that includes the values of the source properties  at the specified effective date time, or it can be done without providing an entity which will produce a manifest without values.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="derivationFormulaExplainRequest">Information about the derivation formula to explain, and optionally, the entity to resolve the formula against.</param>
@@ -2018,7 +2018,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [INTERNAL] GetDerivedFormulaExplanation: Get explanation of a derived property formula Produces a manifest that shows the nested hierarchy of any source properties and the actions taken upon them to create the derived property.  This can either be done against an existing entity, which will produce a manifest that includes the values of the source properties  at the specified effective date time, or it can be done without providing an entity which will produce a manifest without values.
+        /// GetDerivedFormulaExplanation: Get explanation of a derived property formula Produces a manifest that shows the nested hierarchy of any source properties and the actions taken upon them to create the derived property.  This can either be done against an existing entity, which will produce a manifest that includes the values of the source properties  at the specified effective date time, or it can be done without providing an entity which will produce a manifest without values.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="derivationFormulaExplainRequest">Information about the derivation formula to explain, and optionally, the entity to resolve the formula against.</param>
