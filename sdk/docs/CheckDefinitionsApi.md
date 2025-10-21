@@ -8,6 +8,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**DeleteCheckDefinition**](CheckDefinitionsApi.md#deletecheckdefinition) | **DELETE** /api/dataquality/checkdefinitions/{scope}/{code} | [EXPERIMENTAL] DeleteCheckDefinition: Deletes a particular Check Definition |
 | [**GetCheckDefinition**](CheckDefinitionsApi.md#getcheckdefinition) | **GET** /api/dataquality/checkdefinitions/{scope}/{code} | [EXPERIMENTAL] GetCheckDefinition: Get a single Check Definition by scope and code. |
 | [**ListCheckDefinitions**](CheckDefinitionsApi.md#listcheckdefinitions) | **GET** /api/dataquality/checkdefinitions | [EXPERIMENTAL] ListCheckDefinitions: List Check Definitions |
+| [**RunCheckDefinition**](CheckDefinitionsApi.md#runcheckdefinition) | **PUT** /api/dataquality/checkdefinitions/{scope}/{code}/$run | [EXPERIMENTAL] RunCheckDefinition: Runs a Check Definition against given dataset. |
 | [**UpdateCheckDefinition**](CheckDefinitionsApi.md#updatecheckdefinition) | **PUT** /api/dataquality/checkdefinitions/{scope}/{code} | [EXPERIMENTAL] UpdateCheckDefinition: Update Check Definition defined by scope and code |
 
 <a id="createcheckdefinition"></a>
@@ -483,6 +484,124 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The requested Check Definitions. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="runcheckdefinition"></a>
+# **RunCheckDefinition**
+> RunCheckResponse RunCheckDefinition (string scope, string code, RunCheckRequest? runCheckRequest = null)
+
+[EXPERIMENTAL] RunCheckDefinition: Runs a Check Definition against given dataset.
+
+Runs a Check Definition against given dataset.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CheckDefinitionsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CheckDefinitionsApi>();
+            var scope = "scope_example";  // string | Scope of the CheckDefinition to run.
+            var code = "code_example";  // string | Code of the CheckDefinition to run.
+            var runCheckRequest = new RunCheckRequest?(); // RunCheckRequest? | Run request defining what dataset to run against. (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // RunCheckResponse result = apiInstance.RunCheckDefinition(scope, code, runCheckRequest, opts: opts);
+
+                // [EXPERIMENTAL] RunCheckDefinition: Runs a Check Definition against given dataset.
+                RunCheckResponse result = apiInstance.RunCheckDefinition(scope, code, runCheckRequest);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling CheckDefinitionsApi.RunCheckDefinition: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the RunCheckDefinitionWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] RunCheckDefinition: Runs a Check Definition against given dataset.
+    ApiResponse<RunCheckResponse> response = apiInstance.RunCheckDefinitionWithHttpInfo(scope, code, runCheckRequest);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling CheckDefinitionsApi.RunCheckDefinitionWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | Scope of the CheckDefinition to run. |  |
+| **code** | **string** | Code of the CheckDefinition to run. |  |
+| **runCheckRequest** | [**RunCheckRequest?**](RunCheckRequest?.md) | Run request defining what dataset to run against. | [optional]  |
+
+### Return type
+
+[**RunCheckResponse**](RunCheckResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 

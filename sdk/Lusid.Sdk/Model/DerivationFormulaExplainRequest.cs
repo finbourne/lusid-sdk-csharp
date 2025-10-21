@@ -37,11 +37,12 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="DerivationFormulaExplainRequest" /> class.
         /// </summary>
         /// <param name="entityType">The type of the entity for which the derived property or partial formula is to be resolved against. (required).</param>
-        /// <param name="scope">The scope that entity exists in. If no scope is provided, the default scope for the entity type will be used..</param>
-        /// <param name="identifier">An identifier key/value pair that uniquely identifies the entity to explain the derived property for. This can be either an instrument identifier, an identifier property, or a scope/code identifier which take the format {entityType}/default/code : {identifier}. If no identifiers are provided, the logical evaluation tree without resolved values is returned..</param>
-        /// <param name="propertyKey">The key of the derived property to explain. This takes the format {domain}/{scope}/{code}..</param>
-        /// <param name="partialFormula">A partial derivation formula to explain. Can be provided in lieu of a property key..</param>
-        public DerivationFormulaExplainRequest(string entityType = default(string), string scope = default(string), Dictionary<string, string> identifier = default(Dictionary<string, string>), string propertyKey = default(string), string partialFormula = default(string))
+        /// <param name="scope">(Optional) The scope that entity exists in. If no scope is provided, the default scope for the entity type will be used..</param>
+        /// <param name="code">(Optional) The code of the entity, to be provided for entities that support scope/code retrieval. If no code or identifier is provided, the logical evaluation tree without resolved values is returned..</param>
+        /// <param name="identifier">(Optional). An identifier key/value pair that uniquely identifies the entity to explain the derived property for. This can be either an instrument identifier, or an identifier property. If no code or identifier is provided, the logical evaluation tree without resolved values is returned..</param>
+        /// <param name="propertyKey">(Optional) The key of the derived property to get an explanation for. This takes the format {domain}/{scope}/{code}. One of either property key or partial formula must be provided..</param>
+        /// <param name="partialFormula">(Optional) A partial derivation formula to get an explanation for. Can be provided in lieu of a property key. One of either property key or partial formula must be provided..</param>
+        public DerivationFormulaExplainRequest(string entityType = default(string), string scope = default(string), string code = default(string), Dictionary<string, string> identifier = default(Dictionary<string, string>), string propertyKey = default(string), string partialFormula = default(string))
         {
             // to ensure "entityType" is required (not null)
             if (entityType == null)
@@ -50,6 +51,7 @@ namespace Lusid.Sdk.Model
             }
             this.EntityType = entityType;
             this.Scope = scope;
+            this.Code = code;
             this.Identifier = identifier;
             this.PropertyKey = propertyKey;
             this.PartialFormula = partialFormula;
@@ -63,30 +65,37 @@ namespace Lusid.Sdk.Model
         public string EntityType { get; set; }
 
         /// <summary>
-        /// The scope that entity exists in. If no scope is provided, the default scope for the entity type will be used.
+        /// (Optional) The scope that entity exists in. If no scope is provided, the default scope for the entity type will be used.
         /// </summary>
-        /// <value>The scope that entity exists in. If no scope is provided, the default scope for the entity type will be used.</value>
+        /// <value>(Optional) The scope that entity exists in. If no scope is provided, the default scope for the entity type will be used.</value>
         [DataMember(Name = "scope", EmitDefaultValue = true)]
         public string Scope { get; set; }
 
         /// <summary>
-        /// An identifier key/value pair that uniquely identifies the entity to explain the derived property for. This can be either an instrument identifier, an identifier property, or a scope/code identifier which take the format {entityType}/default/code : {identifier}. If no identifiers are provided, the logical evaluation tree without resolved values is returned.
+        /// (Optional) The code of the entity, to be provided for entities that support scope/code retrieval. If no code or identifier is provided, the logical evaluation tree without resolved values is returned.
         /// </summary>
-        /// <value>An identifier key/value pair that uniquely identifies the entity to explain the derived property for. This can be either an instrument identifier, an identifier property, or a scope/code identifier which take the format {entityType}/default/code : {identifier}. If no identifiers are provided, the logical evaluation tree without resolved values is returned.</value>
+        /// <value>(Optional) The code of the entity, to be provided for entities that support scope/code retrieval. If no code or identifier is provided, the logical evaluation tree without resolved values is returned.</value>
+        [DataMember(Name = "code", EmitDefaultValue = true)]
+        public string Code { get; set; }
+
+        /// <summary>
+        /// (Optional). An identifier key/value pair that uniquely identifies the entity to explain the derived property for. This can be either an instrument identifier, or an identifier property. If no code or identifier is provided, the logical evaluation tree without resolved values is returned.
+        /// </summary>
+        /// <value>(Optional). An identifier key/value pair that uniquely identifies the entity to explain the derived property for. This can be either an instrument identifier, or an identifier property. If no code or identifier is provided, the logical evaluation tree without resolved values is returned.</value>
         [DataMember(Name = "identifier", EmitDefaultValue = true)]
         public Dictionary<string, string> Identifier { get; set; }
 
         /// <summary>
-        /// The key of the derived property to explain. This takes the format {domain}/{scope}/{code}.
+        /// (Optional) The key of the derived property to get an explanation for. This takes the format {domain}/{scope}/{code}. One of either property key or partial formula must be provided.
         /// </summary>
-        /// <value>The key of the derived property to explain. This takes the format {domain}/{scope}/{code}.</value>
+        /// <value>(Optional) The key of the derived property to get an explanation for. This takes the format {domain}/{scope}/{code}. One of either property key or partial formula must be provided.</value>
         [DataMember(Name = "propertyKey", EmitDefaultValue = true)]
         public string PropertyKey { get; set; }
 
         /// <summary>
-        /// A partial derivation formula to explain. Can be provided in lieu of a property key.
+        /// (Optional) A partial derivation formula to get an explanation for. Can be provided in lieu of a property key. One of either property key or partial formula must be provided.
         /// </summary>
-        /// <value>A partial derivation formula to explain. Can be provided in lieu of a property key.</value>
+        /// <value>(Optional) A partial derivation formula to get an explanation for. Can be provided in lieu of a property key. One of either property key or partial formula must be provided.</value>
         [DataMember(Name = "partialFormula", EmitDefaultValue = true)]
         public string PartialFormula { get; set; }
 
@@ -100,6 +109,7 @@ namespace Lusid.Sdk.Model
             sb.Append("class DerivationFormulaExplainRequest {\n");
             sb.Append("  EntityType: ").Append(EntityType).Append("\n");
             sb.Append("  Scope: ").Append(Scope).Append("\n");
+            sb.Append("  Code: ").Append(Code).Append("\n");
             sb.Append("  Identifier: ").Append(Identifier).Append("\n");
             sb.Append("  PropertyKey: ").Append(PropertyKey).Append("\n");
             sb.Append("  PartialFormula: ").Append(PartialFormula).Append("\n");
@@ -149,6 +159,11 @@ namespace Lusid.Sdk.Model
                     this.Scope.Equals(input.Scope))
                 ) && 
                 (
+                    this.Code == input.Code ||
+                    (this.Code != null &&
+                    this.Code.Equals(input.Code))
+                ) && 
+                (
                     this.Identifier == input.Identifier ||
                     this.Identifier != null &&
                     input.Identifier != null &&
@@ -182,6 +197,10 @@ namespace Lusid.Sdk.Model
                 if (this.Scope != null)
                 {
                     hashCode = (hashCode * 59) + this.Scope.GetHashCode();
+                }
+                if (this.Code != null)
+                {
+                    hashCode = (hashCode * 59) + this.Code.GetHashCode();
                 }
                 if (this.Identifier != null)
                 {
@@ -235,6 +254,25 @@ namespace Lusid.Sdk.Model
             if (false == regexScope.Match(this.Scope).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Scope, must match a pattern of " + regexScope, new [] { "Scope" });
+            }
+
+            // Code (string) maxLength
+            if (this.Code != null && this.Code.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Code, length must be less than 64.", new [] { "Code" });
+            }
+
+            // Code (string) minLength
+            if (this.Code != null && this.Code.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Code, length must be greater than 1.", new [] { "Code" });
+            }
+
+            // Code (string) pattern
+            Regex regexCode = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
+            if (false == regexCode.Match(this.Code).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Code, must match a pattern of " + regexCode, new [] { "Code" });
             }
 
             // PartialFormula (string) maxLength
