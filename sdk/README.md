@@ -105,10 +105,12 @@ Class | Method | HTTP request | Description
 *ChartOfAccountsApi* | [**UpsertChartOfAccountsProperties**](docs/ChartOfAccountsApi.md#upsertchartofaccountsproperties) | **POST** /api/chartofaccounts/{scope}/{code}/properties/$upsert | [EXPERIMENTAL] UpsertChartOfAccountsProperties: Upsert Chart of Accounts properties
 *CheckDefinitionsApi* | [**CreateCheckDefinition**](docs/CheckDefinitionsApi.md#createcheckdefinition) | **POST** /api/dataquality/checkdefinitions | [EXPERIMENTAL] CreateCheckDefinition: Create a Check Definition
 *CheckDefinitionsApi* | [**DeleteCheckDefinition**](docs/CheckDefinitionsApi.md#deletecheckdefinition) | **DELETE** /api/dataquality/checkdefinitions/{scope}/{code} | [EXPERIMENTAL] DeleteCheckDefinition: Deletes a particular Check Definition
+*CheckDefinitionsApi* | [**DeleteRules**](docs/CheckDefinitionsApi.md#deleterules) | **POST** /api/dataquality/checkdefinitions/{scope}/{code}/$deleteRules | [EXPERIMENTAL] DeleteRules: Delete rules on a particular Check Definition
 *CheckDefinitionsApi* | [**GetCheckDefinition**](docs/CheckDefinitionsApi.md#getcheckdefinition) | **GET** /api/dataquality/checkdefinitions/{scope}/{code} | [EXPERIMENTAL] GetCheckDefinition: Get a single Check Definition by scope and code.
 *CheckDefinitionsApi* | [**ListCheckDefinitions**](docs/CheckDefinitionsApi.md#listcheckdefinitions) | **GET** /api/dataquality/checkdefinitions | [EXPERIMENTAL] ListCheckDefinitions: List Check Definitions
 *CheckDefinitionsApi* | [**RunCheckDefinition**](docs/CheckDefinitionsApi.md#runcheckdefinition) | **PUT** /api/dataquality/checkdefinitions/{scope}/{code}/$run | [EXPERIMENTAL] RunCheckDefinition: Runs a Check Definition against given dataset.
 *CheckDefinitionsApi* | [**UpdateCheckDefinition**](docs/CheckDefinitionsApi.md#updatecheckdefinition) | **PUT** /api/dataquality/checkdefinitions/{scope}/{code} | [EXPERIMENTAL] UpdateCheckDefinition: Update Check Definition defined by scope and code
+*CheckDefinitionsApi* | [**UpsertRules**](docs/CheckDefinitionsApi.md#upsertrules) | **POST** /api/dataquality/checkdefinitions/{scope}/{code}/$upsertRules | [EXPERIMENTAL] UpsertRules: Upsert rules to a particular Check Definition
 *ComplexMarketDataApi* | [**DeleteComplexMarketData**](docs/ComplexMarketDataApi.md#deletecomplexmarketdata) | **POST** /api/complexmarketdata/{scope}/$delete | DeleteComplexMarketData: Delete one or more items of complex market data, assuming they are present.
 *ComplexMarketDataApi* | [**GetComplexMarketData**](docs/ComplexMarketDataApi.md#getcomplexmarketdata) | **POST** /api/complexmarketdata/{scope}/$get | GetComplexMarketData: Get complex market data
 *ComplexMarketDataApi* | [**ListComplexMarketData**](docs/ComplexMarketDataApi.md#listcomplexmarketdata) | **GET** /api/complexmarketdata | ListComplexMarketData: List the set of ComplexMarketData
@@ -996,6 +998,7 @@ Class | Method | HTTP request | Description
  - [DecoratedComplianceRunSummary](docs/DecoratedComplianceRunSummary.md)
  - [DeleteAccountsResponse](docs/DeleteAccountsResponse.md)
  - [DeleteCustodianAccountsResponse](docs/DeleteCustodianAccountsResponse.md)
+ - [DeleteDataQualityRule](docs/DeleteDataQualityRule.md)
  - [DeleteInstrumentPropertiesResponse](docs/DeleteInstrumentPropertiesResponse.md)
  - [DeleteInstrumentResponse](docs/DeleteInstrumentResponse.md)
  - [DeleteInstrumentsResponse](docs/DeleteInstrumentsResponse.md)
@@ -1888,6 +1891,7 @@ Class | Method | HTTP request | Description
  - [UpsertCreditSupportAnnexRequest](docs/UpsertCreditSupportAnnexRequest.md)
  - [UpsertCustomEntitiesResponse](docs/UpsertCustomEntitiesResponse.md)
  - [UpsertCustomEntityAccessMetadataRequest](docs/UpsertCustomEntityAccessMetadataRequest.md)
+ - [UpsertDataQualityRule](docs/UpsertDataQualityRule.md)
  - [UpsertDialectRequest](docs/UpsertDialectRequest.md)
  - [UpsertFlowConventionsRequest](docs/UpsertFlowConventionsRequest.md)
  - [UpsertFundBookmarkRequest](docs/UpsertFundBookmarkRequest.md)

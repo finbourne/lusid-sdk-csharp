@@ -6,10 +6,12 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 |--------|--------------|-------------|
 | [**CreateCheckDefinition**](CheckDefinitionsApi.md#createcheckdefinition) | **POST** /api/dataquality/checkdefinitions | [EXPERIMENTAL] CreateCheckDefinition: Create a Check Definition |
 | [**DeleteCheckDefinition**](CheckDefinitionsApi.md#deletecheckdefinition) | **DELETE** /api/dataquality/checkdefinitions/{scope}/{code} | [EXPERIMENTAL] DeleteCheckDefinition: Deletes a particular Check Definition |
+| [**DeleteRules**](CheckDefinitionsApi.md#deleterules) | **POST** /api/dataquality/checkdefinitions/{scope}/{code}/$deleteRules | [EXPERIMENTAL] DeleteRules: Delete rules on a particular Check Definition |
 | [**GetCheckDefinition**](CheckDefinitionsApi.md#getcheckdefinition) | **GET** /api/dataquality/checkdefinitions/{scope}/{code} | [EXPERIMENTAL] GetCheckDefinition: Get a single Check Definition by scope and code. |
 | [**ListCheckDefinitions**](CheckDefinitionsApi.md#listcheckdefinitions) | **GET** /api/dataquality/checkdefinitions | [EXPERIMENTAL] ListCheckDefinitions: List Check Definitions |
 | [**RunCheckDefinition**](CheckDefinitionsApi.md#runcheckdefinition) | **PUT** /api/dataquality/checkdefinitions/{scope}/{code}/$run | [EXPERIMENTAL] RunCheckDefinition: Runs a Check Definition against given dataset. |
 | [**UpdateCheckDefinition**](CheckDefinitionsApi.md#updatecheckdefinition) | **PUT** /api/dataquality/checkdefinitions/{scope}/{code} | [EXPERIMENTAL] UpdateCheckDefinition: Update Check Definition defined by scope and code |
+| [**UpsertRules**](CheckDefinitionsApi.md#upsertrules) | **POST** /api/dataquality/checkdefinitions/{scope}/{code}/$upsertRules | [EXPERIMENTAL] UpsertRules: Upsert rules to a particular Check Definition |
 
 <a id="createcheckdefinition"></a>
 # **CreateCheckDefinition**
@@ -236,6 +238,124 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The deleted entity metadata |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="deleterules"></a>
+# **DeleteRules**
+> CheckDefinition DeleteRules (string scope, string code, List<DeleteDataQualityRule>? deleteDataQualityRule = null)
+
+[EXPERIMENTAL] DeleteRules: Delete rules on a particular Check Definition
+
+Delete rules for a given check definition. This will not affect any other rules that are not included in the request.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CheckDefinitionsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CheckDefinitionsApi>();
+            var scope = "scope_example";  // string | The scope of the specified Check Definition.
+            var code = "code_example";  // string | The code of the specified Check Definition. Together with the domain and scope this uniquely              identifies the Check Definition.
+            var deleteDataQualityRule = new List<DeleteDataQualityRule>?(); // List<DeleteDataQualityRule>? | The request containing the rules to be deleted (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // CheckDefinition result = apiInstance.DeleteRules(scope, code, deleteDataQualityRule, opts: opts);
+
+                // [EXPERIMENTAL] DeleteRules: Delete rules on a particular Check Definition
+                CheckDefinition result = apiInstance.DeleteRules(scope, code, deleteDataQualityRule);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling CheckDefinitionsApi.DeleteRules: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the DeleteRulesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] DeleteRules: Delete rules on a particular Check Definition
+    ApiResponse<CheckDefinition> response = apiInstance.DeleteRulesWithHttpInfo(scope, code, deleteDataQualityRule);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling CheckDefinitionsApi.DeleteRulesWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the specified Check Definition. |  |
+| **code** | **string** | The code of the specified Check Definition. Together with the domain and scope this uniquely              identifies the Check Definition. |  |
+| **deleteDataQualityRule** | [**List&lt;DeleteDataQualityRule&gt;?**](DeleteDataQualityRule.md) | The request containing the rules to be deleted | [optional]  |
+
+### Return type
+
+[**CheckDefinition**](CheckDefinition.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The updated check definition |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
@@ -720,6 +840,124 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The updated version of the requested Check Definition |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="upsertrules"></a>
+# **UpsertRules**
+> CheckDefinition UpsertRules (string scope, string code, List<UpsertDataQualityRule>? upsertDataQualityRule = null)
+
+[EXPERIMENTAL] UpsertRules: Upsert rules to a particular Check Definition
+
+Upsert rules for a given check definition. This will not affect any other rules that are not included in the request.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CheckDefinitionsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CheckDefinitionsApi>();
+            var scope = "scope_example";  // string | The scope of the specified Check Definition.
+            var code = "code_example";  // string | The code of the specified Check Definition. Together with the domain and scope this uniquely              identifies the Check Definition.
+            var upsertDataQualityRule = new List<UpsertDataQualityRule>?(); // List<UpsertDataQualityRule>? | The request containing the rules to be upserted (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // CheckDefinition result = apiInstance.UpsertRules(scope, code, upsertDataQualityRule, opts: opts);
+
+                // [EXPERIMENTAL] UpsertRules: Upsert rules to a particular Check Definition
+                CheckDefinition result = apiInstance.UpsertRules(scope, code, upsertDataQualityRule);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling CheckDefinitionsApi.UpsertRules: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the UpsertRulesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] UpsertRules: Upsert rules to a particular Check Definition
+    ApiResponse<CheckDefinition> response = apiInstance.UpsertRulesWithHttpInfo(scope, code, upsertDataQualityRule);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling CheckDefinitionsApi.UpsertRulesWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the specified Check Definition. |  |
+| **code** | **string** | The code of the specified Check Definition. Together with the domain and scope this uniquely              identifies the Check Definition. |  |
+| **upsertDataQualityRule** | [**List&lt;UpsertDataQualityRule&gt;?**](UpsertDataQualityRule.md) | The request containing the rules to be upserted | [optional]  |
+
+### Return type
+
+[**CheckDefinition**](CheckDefinition.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The updated check definition |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 

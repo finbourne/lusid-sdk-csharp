@@ -84,6 +84,35 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
         Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteCheckDefinitionWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EXPERIMENTAL] DeleteRules: Delete rules on a particular Check Definition
+        /// </summary>
+        /// <remarks>
+        /// Delete rules for a given check definition. This will not affect any other rules that are not included in the request.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the specified Check Definition.</param>
+        /// <param name="code">The code of the specified Check Definition. Together with the domain and scope this uniquely              identifies the Check Definition.</param>
+        /// <param name="deleteDataQualityRule">The request containing the rules to be deleted (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>CheckDefinition</returns>
+        CheckDefinition DeleteRules(string scope, string code, List<DeleteDataQualityRule>? deleteDataQualityRule = default(List<DeleteDataQualityRule>?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] DeleteRules: Delete rules on a particular Check Definition
+        /// </summary>
+        /// <remarks>
+        /// Delete rules for a given check definition. This will not affect any other rules that are not included in the request.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the specified Check Definition.</param>
+        /// <param name="code">The code of the specified Check Definition. Together with the domain and scope this uniquely              identifies the Check Definition.</param>
+        /// <param name="deleteDataQualityRule">The request containing the rules to be deleted (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of CheckDefinition</returns>
+        Lusid.Sdk.Client.ApiResponse<CheckDefinition> DeleteRulesWithHttpInfo(string scope, string code, List<DeleteDataQualityRule>? deleteDataQualityRule = default(List<DeleteDataQualityRule>?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EXPERIMENTAL] GetCheckDefinition: Get a single Check Definition by scope and code.
         /// </summary>
         /// <remarks>
@@ -211,6 +240,35 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of CheckDefinition</returns>
         Lusid.Sdk.Client.ApiResponse<CheckDefinition> UpdateCheckDefinitionWithHttpInfo(string scope, string code, UpdateCheckDefinitionRequest? updateCheckDefinitionRequest = default(UpdateCheckDefinitionRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] UpsertRules: Upsert rules to a particular Check Definition
+        /// </summary>
+        /// <remarks>
+        /// Upsert rules for a given check definition. This will not affect any other rules that are not included in the request.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the specified Check Definition.</param>
+        /// <param name="code">The code of the specified Check Definition. Together with the domain and scope this uniquely              identifies the Check Definition.</param>
+        /// <param name="upsertDataQualityRule">The request containing the rules to be upserted (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>CheckDefinition</returns>
+        CheckDefinition UpsertRules(string scope, string code, List<UpsertDataQualityRule>? upsertDataQualityRule = default(List<UpsertDataQualityRule>?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] UpsertRules: Upsert rules to a particular Check Definition
+        /// </summary>
+        /// <remarks>
+        /// Upsert rules for a given check definition. This will not affect any other rules that are not included in the request.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the specified Check Definition.</param>
+        /// <param name="code">The code of the specified Check Definition. Together with the domain and scope this uniquely              identifies the Check Definition.</param>
+        /// <param name="upsertDataQualityRule">The request containing the rules to be upserted (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of CheckDefinition</returns>
+        Lusid.Sdk.Client.ApiResponse<CheckDefinition> UpsertRulesWithHttpInfo(string scope, string code, List<UpsertDataQualityRule>? upsertDataQualityRule = default(List<UpsertDataQualityRule>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -276,6 +334,37 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteCheckDefinitionWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] DeleteRules: Delete rules on a particular Check Definition
+        /// </summary>
+        /// <remarks>
+        /// Delete rules for a given check definition. This will not affect any other rules that are not included in the request.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the specified Check Definition.</param>
+        /// <param name="code">The code of the specified Check Definition. Together with the domain and scope this uniquely              identifies the Check Definition.</param>
+        /// <param name="deleteDataQualityRule">The request containing the rules to be deleted (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of CheckDefinition</returns>
+        System.Threading.Tasks.Task<CheckDefinition> DeleteRulesAsync(string scope, string code, List<DeleteDataQualityRule>? deleteDataQualityRule = default(List<DeleteDataQualityRule>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] DeleteRules: Delete rules on a particular Check Definition
+        /// </summary>
+        /// <remarks>
+        /// Delete rules for a given check definition. This will not affect any other rules that are not included in the request.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the specified Check Definition.</param>
+        /// <param name="code">The code of the specified Check Definition. Together with the domain and scope this uniquely              identifies the Check Definition.</param>
+        /// <param name="deleteDataQualityRule">The request containing the rules to be deleted (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (CheckDefinition)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CheckDefinition>> DeleteRulesWithHttpInfoAsync(string scope, string code, List<DeleteDataQualityRule>? deleteDataQualityRule = default(List<DeleteDataQualityRule>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetCheckDefinition: Get a single Check Definition by scope and code.
         /// </summary>
@@ -412,6 +501,37 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (CheckDefinition)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CheckDefinition>> UpdateCheckDefinitionWithHttpInfoAsync(string scope, string code, UpdateCheckDefinitionRequest? updateCheckDefinitionRequest = default(UpdateCheckDefinitionRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] UpsertRules: Upsert rules to a particular Check Definition
+        /// </summary>
+        /// <remarks>
+        /// Upsert rules for a given check definition. This will not affect any other rules that are not included in the request.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the specified Check Definition.</param>
+        /// <param name="code">The code of the specified Check Definition. Together with the domain and scope this uniquely              identifies the Check Definition.</param>
+        /// <param name="upsertDataQualityRule">The request containing the rules to be upserted (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of CheckDefinition</returns>
+        System.Threading.Tasks.Task<CheckDefinition> UpsertRulesAsync(string scope, string code, List<UpsertDataQualityRule>? upsertDataQualityRule = default(List<UpsertDataQualityRule>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] UpsertRules: Upsert rules to a particular Check Definition
+        /// </summary>
+        /// <remarks>
+        /// Upsert rules for a given check definition. This will not affect any other rules that are not included in the request.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the specified Check Definition.</param>
+        /// <param name="code">The code of the specified Check Definition. Together with the domain and scope this uniquely              identifies the Check Definition.</param>
+        /// <param name="upsertDataQualityRule">The request containing the rules to be upserted (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (CheckDefinition)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CheckDefinition>> UpsertRulesWithHttpInfoAsync(string scope, string code, List<UpsertDataQualityRule>? upsertDataQualityRule = default(List<UpsertDataQualityRule>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -948,6 +1068,242 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteCheckDefinition", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] DeleteRules: Delete rules on a particular Check Definition Delete rules for a given check definition. This will not affect any other rules that are not included in the request.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the specified Check Definition.</param>
+        /// <param name="code">The code of the specified Check Definition. Together with the domain and scope this uniquely              identifies the Check Definition.</param>
+        /// <param name="deleteDataQualityRule">The request containing the rules to be deleted (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>CheckDefinition</returns>
+        public CheckDefinition DeleteRules(string scope, string code, List<DeleteDataQualityRule>? deleteDataQualityRule = default(List<DeleteDataQualityRule>?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<CheckDefinition> localVarResponse = DeleteRulesWithHttpInfo(scope, code, deleteDataQualityRule, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] DeleteRules: Delete rules on a particular Check Definition Delete rules for a given check definition. This will not affect any other rules that are not included in the request.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the specified Check Definition.</param>
+        /// <param name="code">The code of the specified Check Definition. Together with the domain and scope this uniquely              identifies the Check Definition.</param>
+        /// <param name="deleteDataQualityRule">The request containing the rules to be deleted (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of CheckDefinition</returns>
+        public Lusid.Sdk.Client.ApiResponse<CheckDefinition> DeleteRulesWithHttpInfo(string scope, string code, List<DeleteDataQualityRule>? deleteDataQualityRule = default(List<DeleteDataQualityRule>?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling CheckDefinitionsApi->DeleteRules");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling CheckDefinitionsApi->DeleteRules");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.Data = deleteDataQualityRule;
+
+            localVarRequestOptions.Operation = "CheckDefinitionsApi.DeleteRules";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<CheckDefinition>("/api/dataquality/checkdefinitions/{scope}/{code}/$deleteRules", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteRules", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] DeleteRules: Delete rules on a particular Check Definition Delete rules for a given check definition. This will not affect any other rules that are not included in the request.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the specified Check Definition.</param>
+        /// <param name="code">The code of the specified Check Definition. Together with the domain and scope this uniquely              identifies the Check Definition.</param>
+        /// <param name="deleteDataQualityRule">The request containing the rules to be deleted (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of CheckDefinition</returns>
+        public async System.Threading.Tasks.Task<CheckDefinition> DeleteRulesAsync(string scope, string code, List<DeleteDataQualityRule>? deleteDataQualityRule = default(List<DeleteDataQualityRule>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<CheckDefinition> localVarResponse = await DeleteRulesWithHttpInfoAsync(scope, code, deleteDataQualityRule, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] DeleteRules: Delete rules on a particular Check Definition Delete rules for a given check definition. This will not affect any other rules that are not included in the request.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the specified Check Definition.</param>
+        /// <param name="code">The code of the specified Check Definition. Together with the domain and scope this uniquely              identifies the Check Definition.</param>
+        /// <param name="deleteDataQualityRule">The request containing the rules to be deleted (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (CheckDefinition)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CheckDefinition>> DeleteRulesWithHttpInfoAsync(string scope, string code, List<DeleteDataQualityRule>? deleteDataQualityRule = default(List<DeleteDataQualityRule>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling CheckDefinitionsApi->DeleteRules");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling CheckDefinitionsApi->DeleteRules");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.Data = deleteDataQualityRule;
+
+            localVarRequestOptions.Operation = "CheckDefinitionsApi.DeleteRules";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<CheckDefinition>("/api/dataquality/checkdefinitions/{scope}/{code}/$deleteRules", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteRules", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1958,6 +2314,242 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateCheckDefinition", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] UpsertRules: Upsert rules to a particular Check Definition Upsert rules for a given check definition. This will not affect any other rules that are not included in the request.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the specified Check Definition.</param>
+        /// <param name="code">The code of the specified Check Definition. Together with the domain and scope this uniquely              identifies the Check Definition.</param>
+        /// <param name="upsertDataQualityRule">The request containing the rules to be upserted (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>CheckDefinition</returns>
+        public CheckDefinition UpsertRules(string scope, string code, List<UpsertDataQualityRule>? upsertDataQualityRule = default(List<UpsertDataQualityRule>?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<CheckDefinition> localVarResponse = UpsertRulesWithHttpInfo(scope, code, upsertDataQualityRule, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] UpsertRules: Upsert rules to a particular Check Definition Upsert rules for a given check definition. This will not affect any other rules that are not included in the request.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the specified Check Definition.</param>
+        /// <param name="code">The code of the specified Check Definition. Together with the domain and scope this uniquely              identifies the Check Definition.</param>
+        /// <param name="upsertDataQualityRule">The request containing the rules to be upserted (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of CheckDefinition</returns>
+        public Lusid.Sdk.Client.ApiResponse<CheckDefinition> UpsertRulesWithHttpInfo(string scope, string code, List<UpsertDataQualityRule>? upsertDataQualityRule = default(List<UpsertDataQualityRule>?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling CheckDefinitionsApi->UpsertRules");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling CheckDefinitionsApi->UpsertRules");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.Data = upsertDataQualityRule;
+
+            localVarRequestOptions.Operation = "CheckDefinitionsApi.UpsertRules";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<CheckDefinition>("/api/dataquality/checkdefinitions/{scope}/{code}/$upsertRules", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpsertRules", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] UpsertRules: Upsert rules to a particular Check Definition Upsert rules for a given check definition. This will not affect any other rules that are not included in the request.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the specified Check Definition.</param>
+        /// <param name="code">The code of the specified Check Definition. Together with the domain and scope this uniquely              identifies the Check Definition.</param>
+        /// <param name="upsertDataQualityRule">The request containing the rules to be upserted (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of CheckDefinition</returns>
+        public async System.Threading.Tasks.Task<CheckDefinition> UpsertRulesAsync(string scope, string code, List<UpsertDataQualityRule>? upsertDataQualityRule = default(List<UpsertDataQualityRule>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<CheckDefinition> localVarResponse = await UpsertRulesWithHttpInfoAsync(scope, code, upsertDataQualityRule, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] UpsertRules: Upsert rules to a particular Check Definition Upsert rules for a given check definition. This will not affect any other rules that are not included in the request.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the specified Check Definition.</param>
+        /// <param name="code">The code of the specified Check Definition. Together with the domain and scope this uniquely              identifies the Check Definition.</param>
+        /// <param name="upsertDataQualityRule">The request containing the rules to be upserted (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (CheckDefinition)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CheckDefinition>> UpsertRulesWithHttpInfoAsync(string scope, string code, List<UpsertDataQualityRule>? upsertDataQualityRule = default(List<UpsertDataQualityRule>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling CheckDefinitionsApi->UpsertRules");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling CheckDefinitionsApi->UpsertRules");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.Data = upsertDataQualityRule;
+
+            localVarRequestOptions.Operation = "CheckDefinitionsApi.UpsertRules";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<CheckDefinition>("/api/dataquality/checkdefinitions/{scope}/{code}/$upsertRules", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpsertRules", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
