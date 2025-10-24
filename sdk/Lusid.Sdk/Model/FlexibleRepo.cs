@@ -53,8 +53,9 @@ namespace Lusid.Sdk.Model
         /// <param name="repurchasePrice">The repurchase price of the repo, if known.  Only one of RepurchasePrice and RepoRateSchedules should be provided.  In the case of an OpenRepo, RepurchasePrice should not be provided,  and RepoRateSchedules should be provided instead in order to calculate the RepoRate..</param>
         /// <param name="timeZoneConventions">timeZoneConventions.</param>
         /// <param name="tradingConventions">tradingConventions.</param>
+        /// <param name="isCollateralTransferActivated">Indicates whether the FlexibleRepoCollateralTransfer event is activated.  Determines the behavior of manufactured coupons and related boolean parameters.  Defaults to false.  When true:  - Generates the FlexibleRepoCollateralTransfer event  - Processes collateral transfer transactions into holding changes  - Generates manufactured payments when due to be paid                When false:  - Does not generate the event  - Generates manufactured payments when due to be received.</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit, FlexibleRepo (required) (default to &quot;FlexibleRepo&quot;).</param>
-        public FlexibleRepo(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset? maturityDate = default(DateTimeOffset?), string buyerOrSeller = default(string), string repoCcy = default(string), string repoType = default(string), string accrualBasis = default(string), Collateral collateral = default(Collateral), decimal? haircut = default(decimal?), decimal? margin = default(decimal?), string openRepoRollingPeriod = default(string), decimal? purchasePrice = default(decimal?), List<Schedule> repoRateSchedules = default(List<Schedule>), decimal? repurchasePrice = default(decimal?), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), TradingConventions tradingConventions = default(TradingConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
+        public FlexibleRepo(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset? maturityDate = default(DateTimeOffset?), string buyerOrSeller = default(string), string repoCcy = default(string), string repoType = default(string), string accrualBasis = default(string), Collateral collateral = default(Collateral), decimal? haircut = default(decimal?), decimal? margin = default(decimal?), string openRepoRollingPeriod = default(string), decimal? purchasePrice = default(decimal?), List<Schedule> repoRateSchedules = default(List<Schedule>), decimal? repurchasePrice = default(decimal?), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), TradingConventions tradingConventions = default(TradingConventions), bool isCollateralTransferActivated = default(bool), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
         {
             this.StartDate = startDate;
             // to ensure "buyerOrSeller" is required (not null)
@@ -86,6 +87,7 @@ namespace Lusid.Sdk.Model
             this.RepurchasePrice = repurchasePrice;
             this.TimeZoneConventions = timeZoneConventions;
             this.TradingConventions = tradingConventions;
+            this.IsCollateralTransferActivated = isCollateralTransferActivated;
         }
 
         /// <summary>
@@ -191,6 +193,13 @@ namespace Lusid.Sdk.Model
         public TradingConventions TradingConventions { get; set; }
 
         /// <summary>
+        /// Indicates whether the FlexibleRepoCollateralTransfer event is activated.  Determines the behavior of manufactured coupons and related boolean parameters.  Defaults to false.  When true:  - Generates the FlexibleRepoCollateralTransfer event  - Processes collateral transfer transactions into holding changes  - Generates manufactured payments when due to be paid                When false:  - Does not generate the event  - Generates manufactured payments when due to be received
+        /// </summary>
+        /// <value>Indicates whether the FlexibleRepoCollateralTransfer event is activated.  Determines the behavior of manufactured coupons and related boolean parameters.  Defaults to false.  When true:  - Generates the FlexibleRepoCollateralTransfer event  - Processes collateral transfer transactions into holding changes  - Generates manufactured payments when due to be paid                When false:  - Does not generate the event  - Generates manufactured payments when due to be received</value>
+        [DataMember(Name = "isCollateralTransferActivated", EmitDefaultValue = true)]
+        public bool IsCollateralTransferActivated { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -214,6 +223,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  RepurchasePrice: ").Append(RepurchasePrice).Append("\n");
             sb.Append("  TimeZoneConventions: ").Append(TimeZoneConventions).Append("\n");
             sb.Append("  TradingConventions: ").Append(TradingConventions).Append("\n");
+            sb.Append("  IsCollateralTransferActivated: ").Append(IsCollateralTransferActivated).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -324,6 +334,10 @@ namespace Lusid.Sdk.Model
                     this.TradingConventions == input.TradingConventions ||
                     (this.TradingConventions != null &&
                     this.TradingConventions.Equals(input.TradingConventions))
+                ) && base.Equals(input) && 
+                (
+                    this.IsCollateralTransferActivated == input.IsCollateralTransferActivated ||
+                    this.IsCollateralTransferActivated.Equals(input.IsCollateralTransferActivated)
                 );
         }
 
@@ -396,6 +410,7 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.TradingConventions.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.IsCollateralTransferActivated.GetHashCode();
                 return hashCode;
             }
         }

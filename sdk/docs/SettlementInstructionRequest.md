@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **CustodianAccountOverride** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **InstructionToPortfolioRate** | **decimal?** |  | [optional] 
 **SettlementInLieu** | [**SettlementInLieu**](SettlementInLieu.md) |  | [optional] 
+**Properties** | [**List&lt;PerpetualProperty&gt;**](PerpetualProperty.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -32,6 +33,7 @@ ResourceId? custodianAccountOverride = new ResourceId();
 
 SettlementInLieu? settlementInLieu = new SettlementInLieu();
 
+List<PerpetualProperty> properties = new List<PerpetualProperty>();
 
 SettlementInstructionRequest settlementInstructionRequestInstance = new SettlementInstructionRequest(
     settlementInstructionId: settlementInstructionId,
@@ -45,7 +47,8 @@ SettlementInstructionRequest settlementInstructionRequestInstance = new Settleme
     subHoldingKeyOverrides: subHoldingKeyOverrides,
     custodianAccountOverride: custodianAccountOverride,
     instructionToPortfolioRate: instructionToPortfolioRate,
-    settlementInLieu: settlementInLieu);
+    settlementInLieu: settlementInLieu,
+    properties: properties);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **RepurchasePrice** | **decimal?** | The repurchase price of the repo, if known.  Only one of RepurchasePrice and RepoRateSchedules should be provided.  In the case of an OpenRepo, RepurchasePrice should not be provided,  and RepoRateSchedules should be provided instead in order to calculate the RepoRate. | [optional] 
 **TimeZoneConventions** | [**TimeZoneConventions**](TimeZoneConventions.md) |  | [optional] 
 **TradingConventions** | [**TradingConventions**](TradingConventions.md) |  | [optional] 
+**IsCollateralTransferActivated** | **bool** | Indicates whether the FlexibleRepoCollateralTransfer event is activated.  Determines the behavior of manufactured coupons and related boolean parameters.  Defaults to false.  When true:  - Generates the FlexibleRepoCollateralTransfer event  - Processes collateral transfer transactions into holding changes  - Generates manufactured payments when due to be paid                When false:  - Does not generate the event  - Generates manufactured payments when due to be received | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -38,6 +39,7 @@ TimeZoneConventions? timeZoneConventions = new TimeZoneConventions();
 
 TradingConventions? tradingConventions = new TradingConventions();
 
+bool isCollateralTransferActivated = //"True";
 
 FlexibleRepo flexibleRepoInstance = new FlexibleRepo(
     startDate: startDate,
@@ -54,7 +56,8 @@ FlexibleRepo flexibleRepoInstance = new FlexibleRepo(
     repoRateSchedules: repoRateSchedules,
     repurchasePrice: repurchasePrice,
     timeZoneConventions: timeZoneConventions,
-    tradingConventions: tradingConventions);
+    tradingConventions: tradingConventions,
+    isCollateralTransferActivated: isCollateralTransferActivated);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

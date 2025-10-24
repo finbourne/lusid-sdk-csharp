@@ -519,7 +519,13 @@ namespace Lusid.Sdk.Model
         /// Enum IdentifierDefinition for value: IdentifierDefinition
         /// </summary>
         [EnumMember(Value = "IdentifierDefinition")]
-        IdentifierDefinition = 82
+        IdentifierDefinition = 82,
+
+        /// <summary>
+        /// Enum SettlementInstruction for value: SettlementInstruction
+        /// </summary>
+        [EnumMember(Value = "SettlementInstruction")]
+        SettlementInstruction = 83
     }
 
 }

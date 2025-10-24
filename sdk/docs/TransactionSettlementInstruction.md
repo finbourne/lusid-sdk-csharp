@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **Status** | **string** | The status of the settlement instruction - &#39;Invalid&#39;, &#39;Rejected&#39; &#39;Applied&#39; or &#39;Orphan&#39;. | [optional] 
 **InstructionToPortfolioRate** | **decimal?** | The exchange rate between the Settlement Instruction and Portfolio. | [optional] 
 **SettlementInLieu** | [**SettlementInLieu**](SettlementInLieu.md) |  | [optional] 
+**Properties** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) | The properties which have been requested to be decorated onto the settlement instruction. These will be from the &#39;SettlementInstruction&#39;, &#39;Portfolio&#39;, or &#39;Instrument&#39; domains. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -36,6 +37,7 @@ Dictionary<string, string> instrumentIdentifiers = new Dictionary<string, string
 string status = "example status";
 SettlementInLieu? settlementInLieu = new SettlementInLieu();
 
+Dictionary<string, PerpetualProperty> properties = new Dictionary<string, PerpetualProperty>();
 
 TransactionSettlementInstruction transactionSettlementInstructionInstance = new TransactionSettlementInstruction(
     settlementInstructionId: settlementInstructionId,
@@ -51,7 +53,8 @@ TransactionSettlementInstruction transactionSettlementInstructionInstance = new 
     instrumentIdentifiers: instrumentIdentifiers,
     status: status,
     instructionToPortfolioRate: instructionToPortfolioRate,
-    settlementInLieu: settlementInLieu);
+    settlementInLieu: settlementInLieu,
+    properties: properties);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

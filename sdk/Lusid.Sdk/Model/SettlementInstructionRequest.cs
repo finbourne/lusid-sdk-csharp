@@ -48,7 +48,8 @@ namespace Lusid.Sdk.Model
         /// <param name="custodianAccountOverride">custodianAccountOverride.</param>
         /// <param name="instructionToPortfolioRate">instructionToPortfolioRate.</param>
         /// <param name="settlementInLieu">settlementInLieu.</param>
-        public SettlementInstructionRequest(string settlementInstructionId = default(string), string transactionId = default(string), string settlementCategory = default(string), string instructionType = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), DateTimeOffset? contractualSettlementDate = default(DateTimeOffset?), DateTimeOffset actualSettlementDate = default(DateTimeOffset), decimal units = default(decimal), Dictionary<string, PerpetualProperty> subHoldingKeyOverrides = default(Dictionary<string, PerpetualProperty>), ResourceId custodianAccountOverride = default(ResourceId), decimal? instructionToPortfolioRate = default(decimal?), SettlementInLieu settlementInLieu = default(SettlementInLieu))
+        /// <param name="properties">properties.</param>
+        public SettlementInstructionRequest(string settlementInstructionId = default(string), string transactionId = default(string), string settlementCategory = default(string), string instructionType = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), DateTimeOffset? contractualSettlementDate = default(DateTimeOffset?), DateTimeOffset actualSettlementDate = default(DateTimeOffset), decimal units = default(decimal), Dictionary<string, PerpetualProperty> subHoldingKeyOverrides = default(Dictionary<string, PerpetualProperty>), ResourceId custodianAccountOverride = default(ResourceId), decimal? instructionToPortfolioRate = default(decimal?), SettlementInLieu settlementInLieu = default(SettlementInLieu), List<PerpetualProperty> properties = default(List<PerpetualProperty>))
         {
             // to ensure "settlementInstructionId" is required (not null)
             if (settlementInstructionId == null)
@@ -82,6 +83,7 @@ namespace Lusid.Sdk.Model
             this.CustodianAccountOverride = custodianAccountOverride;
             this.InstructionToPortfolioRate = instructionToPortfolioRate;
             this.SettlementInLieu = settlementInLieu;
+            this.Properties = properties;
         }
 
         /// <summary>
@@ -157,6 +159,12 @@ namespace Lusid.Sdk.Model
         public SettlementInLieu SettlementInLieu { get; set; }
 
         /// <summary>
+        /// Gets or Sets Properties
+        /// </summary>
+        [DataMember(Name = "properties", EmitDefaultValue = true)]
+        public List<PerpetualProperty> Properties { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -176,6 +184,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  CustodianAccountOverride: ").Append(CustodianAccountOverride).Append("\n");
             sb.Append("  InstructionToPortfolioRate: ").Append(InstructionToPortfolioRate).Append("\n");
             sb.Append("  SettlementInLieu: ").Append(SettlementInLieu).Append("\n");
+            sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -271,6 +280,12 @@ namespace Lusid.Sdk.Model
                     this.SettlementInLieu == input.SettlementInLieu ||
                     (this.SettlementInLieu != null &&
                     this.SettlementInLieu.Equals(input.SettlementInLieu))
+                ) && 
+                (
+                    this.Properties == input.Properties ||
+                    this.Properties != null &&
+                    input.Properties != null &&
+                    this.Properties.SequenceEqual(input.Properties)
                 );
         }
 
@@ -327,6 +342,10 @@ namespace Lusid.Sdk.Model
                 if (this.SettlementInLieu != null)
                 {
                     hashCode = (hashCode * 59) + this.SettlementInLieu.GetHashCode();
+                }
+                if (this.Properties != null)
+                {
+                    hashCode = (hashCode * 59) + this.Properties.GetHashCode();
                 }
                 return hashCode;
             }
