@@ -519,6 +519,8 @@ Class | Method | HTTP request | Description
 *RelationalDatasetDefinitionApi* | [**GetRelationalDatasetDefinition**](docs/RelationalDatasetDefinitionApi.md#getrelationaldatasetdefinition) | **GET** /api/relationaldatasetdefinitions/{scope}/{code} | [EARLY ACCESS] GetRelationalDatasetDefinition: Get a Relational Dataset Definition
 *RelationalDatasetDefinitionApi* | [**ListRelationalDatasetDefinitions**](docs/RelationalDatasetDefinitionApi.md#listrelationaldatasetdefinitions) | **GET** /api/relationaldatasetdefinitions | [EARLY ACCESS] ListRelationalDatasetDefinitions: List Relational Dataset Definitions
 *RelationalDatasetDefinitionApi* | [**UpdateRelationalDatasetDefinition**](docs/RelationalDatasetDefinitionApi.md#updaterelationaldatasetdefinition) | **PUT** /api/relationaldatasetdefinitions/{scope}/{code} | [EARLY ACCESS] UpdateRelationalDatasetDefinition: Update a Relational Dataset Definition
+*RelationalDatasetsApi* | [**BatchUpsertRelationalData**](docs/RelationalDatasetsApi.md#batchupsertrelationaldata) | **POST** /api/relationaldatasets/{relationalDatasetDefinitionScope}/{relationalDatasetDefinitionCode}/$batchUpsert | [EXPERIMENTAL] BatchUpsertRelationalData: Batch Upsert Relational Data Points for a given Relational Dataset Definition.
+*RelationalDatasetsApi* | [**QueryRelationalData**](docs/RelationalDatasetsApi.md#queryrelationaldata) | **POST** /api/relationaldatasets/{relationalDatasetDefinitionScope}/{relationalDatasetDefinitionCode}/$query | [EXPERIMENTAL] QueryRelationalData: Query Relational Data Points for a given Relational Dataset Definition.
 *RelationsApi* | [**CreateRelation**](docs/RelationsApi.md#createrelation) | **POST** /api/relations/{scope}/{code} | [EXPERIMENTAL] CreateRelation: Create Relation
 *RelationsApi* | [**DeleteRelation**](docs/RelationsApi.md#deleterelation) | **POST** /api/relations/{scope}/{code}/$delete | [EXPERIMENTAL] DeleteRelation: Delete a relation
 *RelationshipDefinitionsApi* | [**CreateRelationshipDefinition**](docs/RelationshipDefinitionsApi.md#createrelationshipdefinition) | **POST** /api/relationshipdefinitions | [EARLY ACCESS] CreateRelationshipDefinition: Create Relationship Definition
@@ -741,6 +743,7 @@ Class | Method | HTTP request | Description
  - [AppendFxForwardTenorPipsCurveData](docs/AppendFxForwardTenorPipsCurveData.md)
  - [AppendMarketData](docs/AppendMarketData.md)
  - [AppendMarketDataType](docs/AppendMarketDataType.md)
+ - [ApplicableEntity](docs/ApplicableEntity.md)
  - [ApplicableInstrumentEvent](docs/ApplicableInstrumentEvent.md)
  - [AssetClass](docs/AssetClass.md)
  - [AssetLeg](docs/AssetLeg.md)
@@ -758,6 +761,7 @@ Class | Method | HTTP request | Description
  - [BatchUpsertPortfolioAccessMetadataResponseItem](docs/BatchUpsertPortfolioAccessMetadataResponseItem.md)
  - [BatchUpsertPortfolioTransactionsResponse](docs/BatchUpsertPortfolioTransactionsResponse.md)
  - [BatchUpsertPropertyDefinitionPropertiesResponse](docs/BatchUpsertPropertyDefinitionPropertiesResponse.md)
+ - [BatchUpsertRelationalDatasetsResponse](docs/BatchUpsertRelationalDatasetsResponse.md)
  - [BatchUpsertTransactionSettlementInstructionResponse](docs/BatchUpsertTransactionSettlementInstructionResponse.md)
  - [Block](docs/Block.md)
  - [BlockAndOrderIdRequest](docs/BlockAndOrderIdRequest.md)
@@ -1441,6 +1445,7 @@ Class | Method | HTTP request | Description
  - [PagedResourceListOfPropertyDefinitionSearchResult](docs/PagedResourceListOfPropertyDefinitionSearchResult.md)
  - [PagedResourceListOfReconciliation](docs/PagedResourceListOfReconciliation.md)
  - [PagedResourceListOfReferenceListResponse](docs/PagedResourceListOfReferenceListResponse.md)
+ - [PagedResourceListOfRelationalDataPointResponse](docs/PagedResourceListOfRelationalDataPointResponse.md)
  - [PagedResourceListOfRelationalDatasetDefinition](docs/PagedResourceListOfRelationalDatasetDefinition.md)
  - [PagedResourceListOfRelationshipDefinition](docs/PagedResourceListOfRelationshipDefinition.md)
  - [PagedResourceListOfSequenceDefinition](docs/PagedResourceListOfSequenceDefinition.md)
@@ -1545,6 +1550,7 @@ Class | Method | HTTP request | Description
  - [QueryBucketedCashFlowsRequest](docs/QueryBucketedCashFlowsRequest.md)
  - [QueryCashFlowsRequest](docs/QueryCashFlowsRequest.md)
  - [QueryInstrumentEventsRequest](docs/QueryInstrumentEventsRequest.md)
+ - [QueryRelationalDatasetRequest](docs/QueryRelationalDatasetRequest.md)
  - [QueryTradeTicketsRequest](docs/QueryTradeTicketsRequest.md)
  - [QueryableKey](docs/QueryableKey.md)
  - [Quote](docs/Quote.md)
@@ -1591,6 +1597,9 @@ Class | Method | HTTP request | Description
  - [RelatedEntity](docs/RelatedEntity.md)
  - [Relation](docs/Relation.md)
  - [RelationDefinition](docs/RelationDefinition.md)
+ - [RelationalDataPointFieldValueResponse](docs/RelationalDataPointFieldValueResponse.md)
+ - [RelationalDataPointResponse](docs/RelationalDataPointResponse.md)
+ - [RelationalDataSeriesResponse](docs/RelationalDataSeriesResponse.md)
  - [RelationalDatasetDefinition](docs/RelationalDatasetDefinition.md)
  - [RelationalDatasetFieldDefinition](docs/RelationalDatasetFieldDefinition.md)
  - [Relationship](docs/Relationship.md)
@@ -1923,6 +1932,8 @@ Class | Method | HTTP request | Description
  - [UpsertReferencePortfolioConstituentPropertiesResponse](docs/UpsertReferencePortfolioConstituentPropertiesResponse.md)
  - [UpsertReferencePortfolioConstituentsRequest](docs/UpsertReferencePortfolioConstituentsRequest.md)
  - [UpsertReferencePortfolioConstituentsResponse](docs/UpsertReferencePortfolioConstituentsResponse.md)
+ - [UpsertRelationalDataPointDataSeries](docs/UpsertRelationalDataPointDataSeries.md)
+ - [UpsertRelationalDataPointRequest](docs/UpsertRelationalDataPointRequest.md)
  - [UpsertResultValuesDataRequest](docs/UpsertResultValuesDataRequest.md)
  - [UpsertReturnsResponse](docs/UpsertReturnsResponse.md)
  - [UpsertSingleStructuredDataResponse](docs/UpsertSingleStructuredDataResponse.md)

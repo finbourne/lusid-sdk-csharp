@@ -43,8 +43,9 @@ namespace Lusid.Sdk.Model
         /// <param name="lapseElections">Election for controlling whether the Principal is paid automatically or not.  Exactly one election must be provided..</param>
         /// <param name="fraction">Fraction of the outstanding settled principal balance to be repaid. Must be between 0 and 1, inclusive.  Defaults to 1 if not set. Ignored if the field Amount is set to a value different than zero..</param>
         /// <param name="amount">Amount to be repaid (independent of the fraction).  This field is not used at all if not set or set to 0, in this case the fraction field will be used instead.  Otherwise, the fraction field is ignored..</param>
+        /// <param name="withInterest">If set to true, then active contracts whose balance is reduced by the repayment will have  their accrued interest repaid proportionally to the balance reduction..</param>
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent, CapletFloorletCashFlowEvent (required) (default to &quot;LoanPrincipalRepaymentEvent&quot;).</param>
-        public LoanPrincipalRepaymentEvent(DateTimeOffset paymentDate = default(DateTimeOffset), string currency = default(string), List<LapseElection> lapseElections = default(List<LapseElection>), decimal? fraction = default(decimal?), decimal? amount = default(decimal?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
+        public LoanPrincipalRepaymentEvent(DateTimeOffset paymentDate = default(DateTimeOffset), string currency = default(string), List<LapseElection> lapseElections = default(List<LapseElection>), decimal? fraction = default(decimal?), decimal? amount = default(decimal?), bool withInterest = default(bool), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
             // to ensure "currency" is required (not null)
             if (currency == null)
@@ -56,6 +57,7 @@ namespace Lusid.Sdk.Model
             this.LapseElections = lapseElections;
             this.Fraction = fraction;
             this.Amount = amount;
+            this.WithInterest = withInterest;
         }
 
         /// <summary>
@@ -94,6 +96,13 @@ namespace Lusid.Sdk.Model
         public decimal? Amount { get; set; }
 
         /// <summary>
+        /// If set to true, then active contracts whose balance is reduced by the repayment will have  their accrued interest repaid proportionally to the balance reduction.
+        /// </summary>
+        /// <value>If set to true, then active contracts whose balance is reduced by the repayment will have  their accrued interest repaid proportionally to the balance reduction.</value>
+        [DataMember(Name = "withInterest", EmitDefaultValue = true)]
+        public bool WithInterest { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -107,6 +116,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  LapseElections: ").Append(LapseElections).Append("\n");
             sb.Append("  Fraction: ").Append(Fraction).Append("\n");
             sb.Append("  Amount: ").Append(Amount).Append("\n");
+            sb.Append("  WithInterest: ").Append(WithInterest).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -167,6 +177,10 @@ namespace Lusid.Sdk.Model
                     this.Amount == input.Amount ||
                     (this.Amount != null &&
                     this.Amount.Equals(input.Amount))
+                ) && base.Equals(input) && 
+                (
+                    this.WithInterest == input.WithInterest ||
+                    this.WithInterest.Equals(input.WithInterest)
                 );
         }
 
@@ -199,6 +213,7 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Amount.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.WithInterest.GetHashCode();
                 return hashCode;
             }
         }
