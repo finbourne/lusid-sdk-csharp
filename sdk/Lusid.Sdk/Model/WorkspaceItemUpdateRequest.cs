@@ -218,7 +218,7 @@ namespace Lusid.Sdk.Model
             }
 
             // Type (string) pattern
-            Regex regexType = new Regex(@"^(luminesce-saved-query|lusid-web-dashboard|lusid-web-dashboard-set|mesa-dashboard|lusid-web-favourites)$", RegexOptions.CultureInvariant);
+            Regex regexType = new Regex(@"^(luminesce-saved-query|lusid-web-dashboard|lusid-web-dashboard-set|mesa-dashboard|mesa-source-factory|lusid-web-favourites)$", RegexOptions.CultureInvariant);
             if (false == regexType.Match(this.Type).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Type, must match a pattern of " + regexType, new [] { "Type" });
