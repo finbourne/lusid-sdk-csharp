@@ -21,6 +21,8 @@ Name | Type | Description | Notes
 **Compounding** | [**Compounding**](Compounding.md) |  | [optional] 
 **ResetConvention** | **string** | Control how resets are generated relative to payment convention(s).    Supported string (enumeration) values are: [InAdvance, InArrears].  Defaults to \&quot;InAdvance\&quot; if not set. | [optional] 
 **UseAnnualisedDirectRates** | **bool** | Flag indicating whether to use daily updated annualised interest  rates for calculating the accrued interest. Defaults to false. | [optional] 
+**CapRate** | **decimal?** | The maximum floating rate which a cashflow can accrue. | [optional] 
+**FloorRate** | **decimal?** | The minimum floating rate which a cashflow can accrue. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -58,7 +60,9 @@ FloatSchedule floatScheduleInstance = new FloatSchedule(
     exDividendConfiguration: exDividendConfiguration,
     compounding: compounding,
     resetConvention: resetConvention,
-    useAnnualisedDirectRates: useAnnualisedDirectRates);
+    useAnnualisedDirectRates: useAnnualisedDirectRates,
+    capRate: capRate,
+    floorRate: floorRate);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
