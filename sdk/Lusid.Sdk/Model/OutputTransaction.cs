@@ -124,7 +124,8 @@ namespace Lusid.Sdk.Model
         /// <param name="dataModelMembership">dataModelMembership.</param>
         /// <param name="sequence">The sequential position in which this transaction was processed..</param>
         /// <param name="sequencePriority">The calculated priority level for this transaction..</param>
-        public OutputTransaction(string transactionId = default(string), string type = default(string), string description = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string instrumentScope = default(string), string instrumentUid = default(string), DateTimeOffset transactionDate = default(DateTimeOffset), DateTimeOffset settlementDate = default(DateTimeOffset), decimal units = default(decimal), decimal transactionAmount = default(decimal), TransactionPrice transactionPrice = default(TransactionPrice), CurrencyAndAmount totalConsideration = default(CurrencyAndAmount), decimal exchangeRate = default(decimal), decimal? transactionToPortfolioRate = default(decimal?), string transactionCurrency = default(string), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string counterpartyId = default(string), string source = default(string), TransactionStatusEnum ?transactionStatus = default(TransactionStatusEnum?), DateTimeOffset entryDateTime = default(DateTimeOffset), DateTimeOffset? cancelDateTime = default(DateTimeOffset?), List<RealisedGainLoss> realisedGainLoss = default(List<RealisedGainLoss>), List<long> holdingIds = default(List<long>), string sourceType = default(string), string sourceInstrumentEventId = default(string), CustodianAccount custodianAccount = default(CustodianAccount), string transactionGroupId = default(string), TransactionTypeDetails resolvedTransactionTypeDetails = default(TransactionTypeDetails), decimal grossTransactionAmount = default(decimal), OtcConfirmation otcConfirmation = default(OtcConfirmation), ResourceId orderId = default(ResourceId), ResourceId allocationId = default(ResourceId), DateTimeOffset? accountingDate = default(DateTimeOffset?), List<Economics> economics = default(List<Economics>), DataModelMembership dataModelMembership = default(DataModelMembership), int? sequence = default(int?), int? sequencePriority = default(int?))
+        /// <param name="settlementSummary">settlementSummary.</param>
+        public OutputTransaction(string transactionId = default(string), string type = default(string), string description = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string instrumentScope = default(string), string instrumentUid = default(string), DateTimeOffset transactionDate = default(DateTimeOffset), DateTimeOffset settlementDate = default(DateTimeOffset), decimal units = default(decimal), decimal transactionAmount = default(decimal), TransactionPrice transactionPrice = default(TransactionPrice), CurrencyAndAmount totalConsideration = default(CurrencyAndAmount), decimal exchangeRate = default(decimal), decimal? transactionToPortfolioRate = default(decimal?), string transactionCurrency = default(string), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string counterpartyId = default(string), string source = default(string), TransactionStatusEnum ?transactionStatus = default(TransactionStatusEnum?), DateTimeOffset entryDateTime = default(DateTimeOffset), DateTimeOffset? cancelDateTime = default(DateTimeOffset?), List<RealisedGainLoss> realisedGainLoss = default(List<RealisedGainLoss>), List<long> holdingIds = default(List<long>), string sourceType = default(string), string sourceInstrumentEventId = default(string), CustodianAccount custodianAccount = default(CustodianAccount), string transactionGroupId = default(string), TransactionTypeDetails resolvedTransactionTypeDetails = default(TransactionTypeDetails), decimal grossTransactionAmount = default(decimal), OtcConfirmation otcConfirmation = default(OtcConfirmation), ResourceId orderId = default(ResourceId), ResourceId allocationId = default(ResourceId), DateTimeOffset? accountingDate = default(DateTimeOffset?), List<Economics> economics = default(List<Economics>), DataModelMembership dataModelMembership = default(DataModelMembership), int? sequence = default(int?), int? sequencePriority = default(int?), TransactionSettlementSummary settlementSummary = default(TransactionSettlementSummary))
         {
             // to ensure "transactionId" is required (not null)
             if (transactionId == null)
@@ -178,6 +179,7 @@ namespace Lusid.Sdk.Model
             this.DataModelMembership = dataModelMembership;
             this.Sequence = sequence;
             this.SequencePriority = sequencePriority;
+            this.SettlementSummary = settlementSummary;
         }
 
         /// <summary>
@@ -425,6 +427,12 @@ namespace Lusid.Sdk.Model
         public int? SequencePriority { get; set; }
 
         /// <summary>
+        /// Gets or Sets SettlementSummary
+        /// </summary>
+        [DataMember(Name = "settlementSummary", EmitDefaultValue = false)]
+        public TransactionSettlementSummary SettlementSummary { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -469,6 +477,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  DataModelMembership: ").Append(DataModelMembership).Append("\n");
             sb.Append("  Sequence: ").Append(Sequence).Append("\n");
             sb.Append("  SequencePriority: ").Append(SequencePriority).Append("\n");
+            sb.Append("  SettlementSummary: ").Append(SettlementSummary).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -688,6 +697,11 @@ namespace Lusid.Sdk.Model
                     this.SequencePriority == input.SequencePriority ||
                     (this.SequencePriority != null &&
                     this.SequencePriority.Equals(input.SequencePriority))
+                ) && 
+                (
+                    this.SettlementSummary == input.SettlementSummary ||
+                    (this.SettlementSummary != null &&
+                    this.SettlementSummary.Equals(input.SettlementSummary))
                 );
         }
 
@@ -832,6 +846,10 @@ namespace Lusid.Sdk.Model
                 if (this.SequencePriority != null)
                 {
                     hashCode = (hashCode * 59) + this.SequencePriority.GetHashCode();
+                }
+                if (this.SettlementSummary != null)
+                {
+                    hashCode = (hashCode * 59) + this.SettlementSummary.GetHashCode();
                 }
                 return hashCode;
             }

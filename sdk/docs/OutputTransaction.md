@@ -42,6 +42,7 @@ Name | Type | Description | Notes
 **DataModelMembership** | [**DataModelMembership**](DataModelMembership.md) |  | [optional] 
 **Sequence** | **int?** | The sequential position in which this transaction was processed. | [optional] 
 **SequencePriority** | **int?** | The calculated priority level for this transaction. | [optional] 
+**SettlementSummary** | [**TransactionSettlementSummary**](TransactionSettlementSummary.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -81,6 +82,8 @@ ResourceId? allocationId = new ResourceId();
 List<Economics> economics = new List<Economics>();
 DataModelMembership? dataModelMembership = new DataModelMembership();
 
+TransactionSettlementSummary? settlementSummary = new TransactionSettlementSummary();
+
 
 OutputTransaction outputTransactionInstance = new OutputTransaction(
     transactionId: transactionId,
@@ -119,7 +122,8 @@ OutputTransaction outputTransactionInstance = new OutputTransaction(
     economics: economics,
     dataModelMembership: dataModelMembership,
     sequence: sequence,
-    sequencePriority: sequencePriority);
+    sequencePriority: sequencePriority,
+    settlementSummary: settlementSummary);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
