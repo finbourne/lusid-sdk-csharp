@@ -248,9 +248,9 @@ namespace Lusid.Sdk.Model
             }
 
             // DisplayName (string) minLength
-            if (this.DisplayName != null && this.DisplayName.Length < 1)
+            if (this.DisplayName != null && this.DisplayName.Length < 0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DisplayName, length must be greater than 1.", new [] { "DisplayName" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DisplayName, length must be greater than 0.", new [] { "DisplayName" });
             }
 
             // Description (string) maxLength
@@ -260,9 +260,9 @@ namespace Lusid.Sdk.Model
             }
 
             // Description (string) minLength
-            if (this.Description != null && this.Description.Length < 1)
+            if (this.Description != null && this.Description.Length < 0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be greater than 1.", new [] { "Description" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be greater than 0.", new [] { "Description" });
             }
 
             // Category (string) minLength

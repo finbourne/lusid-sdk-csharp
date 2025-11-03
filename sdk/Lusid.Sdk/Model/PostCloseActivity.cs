@@ -39,7 +39,8 @@ namespace Lusid.Sdk.Model
         /// <param name="entityType">entityType (required).</param>
         /// <param name="entityUniqueId">entityUniqueId (required).</param>
         /// <param name="asAt">asAt (required).</param>
-        public PostCloseActivity(string entityType = default(string), string entityUniqueId = default(string), DateTimeOffset asAt = default(DateTimeOffset))
+        /// <param name="effectiveAt">effectiveAt.</param>
+        public PostCloseActivity(string entityType = default(string), string entityUniqueId = default(string), DateTimeOffset asAt = default(DateTimeOffset), DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel))
         {
             // to ensure "entityType" is required (not null)
             if (entityType == null)
@@ -54,6 +55,7 @@ namespace Lusid.Sdk.Model
             }
             this.EntityUniqueId = entityUniqueId;
             this.AsAt = asAt;
+            this.EffectiveAt = effectiveAt;
         }
 
         /// <summary>
@@ -75,6 +77,12 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset AsAt { get; set; }
 
         /// <summary>
+        /// Gets or Sets EffectiveAt
+        /// </summary>
+        [DataMember(Name = "effectiveAt", EmitDefaultValue = true)]
+        public DateTimeOrCutLabel EffectiveAt { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -85,6 +93,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  EntityType: ").Append(EntityType).Append("\n");
             sb.Append("  EntityUniqueId: ").Append(EntityUniqueId).Append("\n");
             sb.Append("  AsAt: ").Append(AsAt).Append("\n");
+            sb.Append("  EffectiveAt: ").Append(EffectiveAt).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -134,6 +143,11 @@ namespace Lusid.Sdk.Model
                     this.AsAt == input.AsAt ||
                     (this.AsAt != null &&
                     this.AsAt.Equals(input.AsAt))
+                ) && 
+                (
+                    this.EffectiveAt == input.EffectiveAt ||
+                    (this.EffectiveAt != null &&
+                    this.EffectiveAt.Equals(input.EffectiveAt))
                 );
         }
 
@@ -157,6 +171,10 @@ namespace Lusid.Sdk.Model
                 if (this.AsAt != null)
                 {
                     hashCode = (hashCode * 59) + this.AsAt.GetHashCode();
+                }
+                if (this.EffectiveAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.EffectiveAt.GetHashCode();
                 }
                 return hashCode;
             }
@@ -198,6 +216,25 @@ namespace Lusid.Sdk.Model
             if (this.EntityUniqueId != null && this.EntityUniqueId.Length < 0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EntityUniqueId, length must be greater than 0.", new [] { "EntityUniqueId" });
+            }
+
+            // EffectiveAt (DateTimeOrCutLabel) maxLength
+            if (this.EffectiveAt != null && this.EffectiveAt.Length > 256)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EffectiveAt, length must be less than 256.", new [] { "EffectiveAt" });
+            }
+
+            // EffectiveAt (DateTimeOrCutLabel) minLength
+            if (this.EffectiveAt != null && this.EffectiveAt.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EffectiveAt, length must be greater than 0.", new [] { "EffectiveAt" });
+            }
+
+            // EffectiveAt (DateTimeOrCutLabel) pattern
+            Regex regexEffectiveAt = new Regex(@"^[a-zA-Z0-9\-_\+:\.]+$", RegexOptions.CultureInvariant);
+            if (false == regexEffectiveAt.Match(this.EffectiveAt).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EffectiveAt, must match a pattern of " + regexEffectiveAt, new [] { "EffectiveAt" });
             }
 
             yield break;

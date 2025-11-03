@@ -174,6 +174,64 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of RelationalDatasetDefinition</returns>
         Lusid.Sdk.Client.ApiResponse<RelationalDatasetDefinition> UpdateRelationalDatasetDefinitionWithHttpInfo(string scope, string code, UpdateRelationalDatasetDefinitionRequest? updateRelationalDatasetDefinitionRequest = default(UpdateRelationalDatasetDefinitionRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EARLY ACCESS] UpdateRelationalDatasetDetails: Update Relational Dataset Details: DisplayName, Description and ApplicableEntityTypes
+        /// </summary>
+        /// <remarks>
+        /// Update an existing relational dataset definition.  Applicable only to the definitions that are already in use i.e. contain DataPoints associated with this definition.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the relational dataset definition.</param>
+        /// <param name="code">The code of the relational dataset definition.</param>
+        /// <param name="updateRelationalDatasetDetails">The updated details of the relational dataset. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>RelationalDatasetDefinition</returns>
+        RelationalDatasetDefinition UpdateRelationalDatasetDetails(string scope, string code, UpdateRelationalDatasetDetails? updateRelationalDatasetDetails = default(UpdateRelationalDatasetDetails?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] UpdateRelationalDatasetDetails: Update Relational Dataset Details: DisplayName, Description and ApplicableEntityTypes
+        /// </summary>
+        /// <remarks>
+        /// Update an existing relational dataset definition.  Applicable only to the definitions that are already in use i.e. contain DataPoints associated with this definition.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the relational dataset definition.</param>
+        /// <param name="code">The code of the relational dataset definition.</param>
+        /// <param name="updateRelationalDatasetDetails">The updated details of the relational dataset. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of RelationalDatasetDefinition</returns>
+        Lusid.Sdk.Client.ApiResponse<RelationalDatasetDefinition> UpdateRelationalDatasetDetailsWithHttpInfo(string scope, string code, UpdateRelationalDatasetDetails? updateRelationalDatasetDetails = default(UpdateRelationalDatasetDetails?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EARLY ACCESS] UpdateRelationalDatasetFieldSchema: Update Relational Dataset Field Schema
+        /// </summary>
+        /// <remarks>
+        /// Update an existing relational dataset definition with the new field schema.  Applicable only to the definitions that are already in use i.e. contain DataPoints associated with this definition.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the relational dataset definition.</param>
+        /// <param name="code">The code of the relational dataset definition.</param>
+        /// <param name="updateRelationalDatasetFieldSchema">Relational dataset fields to add, update or remove. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>RelationalDatasetDefinition</returns>
+        RelationalDatasetDefinition UpdateRelationalDatasetFieldSchema(string scope, string code, UpdateRelationalDatasetFieldSchema? updateRelationalDatasetFieldSchema = default(UpdateRelationalDatasetFieldSchema?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] UpdateRelationalDatasetFieldSchema: Update Relational Dataset Field Schema
+        /// </summary>
+        /// <remarks>
+        /// Update an existing relational dataset definition with the new field schema.  Applicable only to the definitions that are already in use i.e. contain DataPoints associated with this definition.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the relational dataset definition.</param>
+        /// <param name="code">The code of the relational dataset definition.</param>
+        /// <param name="updateRelationalDatasetFieldSchema">Relational dataset fields to add, update or remove. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of RelationalDatasetDefinition</returns>
+        Lusid.Sdk.Client.ApiResponse<RelationalDatasetDefinition> UpdateRelationalDatasetFieldSchemaWithHttpInfo(string scope, string code, UpdateRelationalDatasetFieldSchema? updateRelationalDatasetFieldSchema = default(UpdateRelationalDatasetFieldSchema?), int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -336,6 +394,68 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (RelationalDatasetDefinition)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<RelationalDatasetDefinition>> UpdateRelationalDatasetDefinitionWithHttpInfoAsync(string scope, string code, UpdateRelationalDatasetDefinitionRequest? updateRelationalDatasetDefinitionRequest = default(UpdateRelationalDatasetDefinitionRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EARLY ACCESS] UpdateRelationalDatasetDetails: Update Relational Dataset Details: DisplayName, Description and ApplicableEntityTypes
+        /// </summary>
+        /// <remarks>
+        /// Update an existing relational dataset definition.  Applicable only to the definitions that are already in use i.e. contain DataPoints associated with this definition.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the relational dataset definition.</param>
+        /// <param name="code">The code of the relational dataset definition.</param>
+        /// <param name="updateRelationalDatasetDetails">The updated details of the relational dataset. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of RelationalDatasetDefinition</returns>
+        System.Threading.Tasks.Task<RelationalDatasetDefinition> UpdateRelationalDatasetDetailsAsync(string scope, string code, UpdateRelationalDatasetDetails? updateRelationalDatasetDetails = default(UpdateRelationalDatasetDetails?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] UpdateRelationalDatasetDetails: Update Relational Dataset Details: DisplayName, Description and ApplicableEntityTypes
+        /// </summary>
+        /// <remarks>
+        /// Update an existing relational dataset definition.  Applicable only to the definitions that are already in use i.e. contain DataPoints associated with this definition.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the relational dataset definition.</param>
+        /// <param name="code">The code of the relational dataset definition.</param>
+        /// <param name="updateRelationalDatasetDetails">The updated details of the relational dataset. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (RelationalDatasetDefinition)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<RelationalDatasetDefinition>> UpdateRelationalDatasetDetailsWithHttpInfoAsync(string scope, string code, UpdateRelationalDatasetDetails? updateRelationalDatasetDetails = default(UpdateRelationalDatasetDetails?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EARLY ACCESS] UpdateRelationalDatasetFieldSchema: Update Relational Dataset Field Schema
+        /// </summary>
+        /// <remarks>
+        /// Update an existing relational dataset definition with the new field schema.  Applicable only to the definitions that are already in use i.e. contain DataPoints associated with this definition.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the relational dataset definition.</param>
+        /// <param name="code">The code of the relational dataset definition.</param>
+        /// <param name="updateRelationalDatasetFieldSchema">Relational dataset fields to add, update or remove. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of RelationalDatasetDefinition</returns>
+        System.Threading.Tasks.Task<RelationalDatasetDefinition> UpdateRelationalDatasetFieldSchemaAsync(string scope, string code, UpdateRelationalDatasetFieldSchema? updateRelationalDatasetFieldSchema = default(UpdateRelationalDatasetFieldSchema?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] UpdateRelationalDatasetFieldSchema: Update Relational Dataset Field Schema
+        /// </summary>
+        /// <remarks>
+        /// Update an existing relational dataset definition with the new field schema.  Applicable only to the definitions that are already in use i.e. contain DataPoints associated with this definition.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the relational dataset definition.</param>
+        /// <param name="code">The code of the relational dataset definition.</param>
+        /// <param name="updateRelationalDatasetFieldSchema">Relational dataset fields to add, update or remove. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (RelationalDatasetDefinition)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<RelationalDatasetDefinition>> UpdateRelationalDatasetFieldSchemaWithHttpInfoAsync(string scope, string code, UpdateRelationalDatasetFieldSchema? updateRelationalDatasetFieldSchema = default(UpdateRelationalDatasetFieldSchema?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -1606,6 +1726,478 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateRelationalDatasetDefinition", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] UpdateRelationalDatasetDetails: Update Relational Dataset Details: DisplayName, Description and ApplicableEntityTypes Update an existing relational dataset definition.  Applicable only to the definitions that are already in use i.e. contain DataPoints associated with this definition.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the relational dataset definition.</param>
+        /// <param name="code">The code of the relational dataset definition.</param>
+        /// <param name="updateRelationalDatasetDetails">The updated details of the relational dataset. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>RelationalDatasetDefinition</returns>
+        public RelationalDatasetDefinition UpdateRelationalDatasetDetails(string scope, string code, UpdateRelationalDatasetDetails? updateRelationalDatasetDetails = default(UpdateRelationalDatasetDetails?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<RelationalDatasetDefinition> localVarResponse = UpdateRelationalDatasetDetailsWithHttpInfo(scope, code, updateRelationalDatasetDetails, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] UpdateRelationalDatasetDetails: Update Relational Dataset Details: DisplayName, Description and ApplicableEntityTypes Update an existing relational dataset definition.  Applicable only to the definitions that are already in use i.e. contain DataPoints associated with this definition.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the relational dataset definition.</param>
+        /// <param name="code">The code of the relational dataset definition.</param>
+        /// <param name="updateRelationalDatasetDetails">The updated details of the relational dataset. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of RelationalDatasetDefinition</returns>
+        public Lusid.Sdk.Client.ApiResponse<RelationalDatasetDefinition> UpdateRelationalDatasetDetailsWithHttpInfo(string scope, string code, UpdateRelationalDatasetDetails? updateRelationalDatasetDetails = default(UpdateRelationalDatasetDetails?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling RelationalDatasetDefinitionApi->UpdateRelationalDatasetDetails");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling RelationalDatasetDefinitionApi->UpdateRelationalDatasetDetails");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.Data = updateRelationalDatasetDetails;
+
+            localVarRequestOptions.Operation = "RelationalDatasetDefinitionApi.UpdateRelationalDatasetDetails";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<RelationalDatasetDefinition>("/api/relationaldatasetdefinitions/{scope}/{code}/details/$update", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateRelationalDatasetDetails", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] UpdateRelationalDatasetDetails: Update Relational Dataset Details: DisplayName, Description and ApplicableEntityTypes Update an existing relational dataset definition.  Applicable only to the definitions that are already in use i.e. contain DataPoints associated with this definition.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the relational dataset definition.</param>
+        /// <param name="code">The code of the relational dataset definition.</param>
+        /// <param name="updateRelationalDatasetDetails">The updated details of the relational dataset. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of RelationalDatasetDefinition</returns>
+        public async System.Threading.Tasks.Task<RelationalDatasetDefinition> UpdateRelationalDatasetDetailsAsync(string scope, string code, UpdateRelationalDatasetDetails? updateRelationalDatasetDetails = default(UpdateRelationalDatasetDetails?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<RelationalDatasetDefinition> localVarResponse = await UpdateRelationalDatasetDetailsWithHttpInfoAsync(scope, code, updateRelationalDatasetDetails, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] UpdateRelationalDatasetDetails: Update Relational Dataset Details: DisplayName, Description and ApplicableEntityTypes Update an existing relational dataset definition.  Applicable only to the definitions that are already in use i.e. contain DataPoints associated with this definition.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the relational dataset definition.</param>
+        /// <param name="code">The code of the relational dataset definition.</param>
+        /// <param name="updateRelationalDatasetDetails">The updated details of the relational dataset. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (RelationalDatasetDefinition)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<RelationalDatasetDefinition>> UpdateRelationalDatasetDetailsWithHttpInfoAsync(string scope, string code, UpdateRelationalDatasetDetails? updateRelationalDatasetDetails = default(UpdateRelationalDatasetDetails?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling RelationalDatasetDefinitionApi->UpdateRelationalDatasetDetails");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling RelationalDatasetDefinitionApi->UpdateRelationalDatasetDetails");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.Data = updateRelationalDatasetDetails;
+
+            localVarRequestOptions.Operation = "RelationalDatasetDefinitionApi.UpdateRelationalDatasetDetails";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<RelationalDatasetDefinition>("/api/relationaldatasetdefinitions/{scope}/{code}/details/$update", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateRelationalDatasetDetails", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] UpdateRelationalDatasetFieldSchema: Update Relational Dataset Field Schema Update an existing relational dataset definition with the new field schema.  Applicable only to the definitions that are already in use i.e. contain DataPoints associated with this definition.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the relational dataset definition.</param>
+        /// <param name="code">The code of the relational dataset definition.</param>
+        /// <param name="updateRelationalDatasetFieldSchema">Relational dataset fields to add, update or remove. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>RelationalDatasetDefinition</returns>
+        public RelationalDatasetDefinition UpdateRelationalDatasetFieldSchema(string scope, string code, UpdateRelationalDatasetFieldSchema? updateRelationalDatasetFieldSchema = default(UpdateRelationalDatasetFieldSchema?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<RelationalDatasetDefinition> localVarResponse = UpdateRelationalDatasetFieldSchemaWithHttpInfo(scope, code, updateRelationalDatasetFieldSchema, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] UpdateRelationalDatasetFieldSchema: Update Relational Dataset Field Schema Update an existing relational dataset definition with the new field schema.  Applicable only to the definitions that are already in use i.e. contain DataPoints associated with this definition.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the relational dataset definition.</param>
+        /// <param name="code">The code of the relational dataset definition.</param>
+        /// <param name="updateRelationalDatasetFieldSchema">Relational dataset fields to add, update or remove. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of RelationalDatasetDefinition</returns>
+        public Lusid.Sdk.Client.ApiResponse<RelationalDatasetDefinition> UpdateRelationalDatasetFieldSchemaWithHttpInfo(string scope, string code, UpdateRelationalDatasetFieldSchema? updateRelationalDatasetFieldSchema = default(UpdateRelationalDatasetFieldSchema?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling RelationalDatasetDefinitionApi->UpdateRelationalDatasetFieldSchema");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling RelationalDatasetDefinitionApi->UpdateRelationalDatasetFieldSchema");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.Data = updateRelationalDatasetFieldSchema;
+
+            localVarRequestOptions.Operation = "RelationalDatasetDefinitionApi.UpdateRelationalDatasetFieldSchema";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<RelationalDatasetDefinition>("/api/relationaldatasetdefinitions/{scope}/{code}/fieldschema/$update", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateRelationalDatasetFieldSchema", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] UpdateRelationalDatasetFieldSchema: Update Relational Dataset Field Schema Update an existing relational dataset definition with the new field schema.  Applicable only to the definitions that are already in use i.e. contain DataPoints associated with this definition.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the relational dataset definition.</param>
+        /// <param name="code">The code of the relational dataset definition.</param>
+        /// <param name="updateRelationalDatasetFieldSchema">Relational dataset fields to add, update or remove. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of RelationalDatasetDefinition</returns>
+        public async System.Threading.Tasks.Task<RelationalDatasetDefinition> UpdateRelationalDatasetFieldSchemaAsync(string scope, string code, UpdateRelationalDatasetFieldSchema? updateRelationalDatasetFieldSchema = default(UpdateRelationalDatasetFieldSchema?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<RelationalDatasetDefinition> localVarResponse = await UpdateRelationalDatasetFieldSchemaWithHttpInfoAsync(scope, code, updateRelationalDatasetFieldSchema, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] UpdateRelationalDatasetFieldSchema: Update Relational Dataset Field Schema Update an existing relational dataset definition with the new field schema.  Applicable only to the definitions that are already in use i.e. contain DataPoints associated with this definition.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the relational dataset definition.</param>
+        /// <param name="code">The code of the relational dataset definition.</param>
+        /// <param name="updateRelationalDatasetFieldSchema">Relational dataset fields to add, update or remove. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (RelationalDatasetDefinition)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<RelationalDatasetDefinition>> UpdateRelationalDatasetFieldSchemaWithHttpInfoAsync(string scope, string code, UpdateRelationalDatasetFieldSchema? updateRelationalDatasetFieldSchema = default(UpdateRelationalDatasetFieldSchema?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling RelationalDatasetDefinitionApi->UpdateRelationalDatasetFieldSchema");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling RelationalDatasetDefinitionApi->UpdateRelationalDatasetFieldSchema");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.Data = updateRelationalDatasetFieldSchema;
+
+            localVarRequestOptions.Operation = "RelationalDatasetDefinitionApi.UpdateRelationalDatasetFieldSchema";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<RelationalDatasetDefinition>("/api/relationaldatasetdefinitions/{scope}/{code}/fieldschema/$update", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateRelationalDatasetFieldSchema", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

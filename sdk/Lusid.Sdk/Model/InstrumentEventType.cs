@@ -441,7 +441,13 @@ namespace Lusid.Sdk.Model
         /// Enum CapletFloorletCashFlowEvent for value: CapletFloorletCashFlowEvent
         /// </summary>
         [EnumMember(Value = "CapletFloorletCashFlowEvent")]
-        CapletFloorletCashFlowEvent = 69
+        CapletFloorletCashFlowEvent = 69,
+
+        /// <summary>
+        /// Enum EarlyCloseOutEvent for value: EarlyCloseOutEvent
+        /// </summary>
+        [EnumMember(Value = "EarlyCloseOutEvent")]
+        EarlyCloseOutEvent = 70
     }
 
 }
