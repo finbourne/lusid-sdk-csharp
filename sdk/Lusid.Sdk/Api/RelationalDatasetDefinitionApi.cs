@@ -149,7 +149,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] UpdateRelationalDatasetDefinition: Update a Relational Dataset Definition
         /// </summary>
         /// <remarks>
-        /// Update an existing relational dataset definition.
+        /// Update an existing relational dataset definition.  Applicable only to the definitions that are not yet in use i.e. there are no DataPoints associated with this definition.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relational dataset definition.</param>
@@ -164,7 +164,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] UpdateRelationalDatasetDefinition: Update a Relational Dataset Definition
         /// </summary>
         /// <remarks>
-        /// Update an existing relational dataset definition.
+        /// Update an existing relational dataset definition.  Applicable only to the definitions that are not yet in use i.e. there are no DataPoints associated with this definition.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relational dataset definition.</param>
@@ -367,7 +367,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] UpdateRelationalDatasetDefinition: Update a Relational Dataset Definition
         /// </summary>
         /// <remarks>
-        /// Update an existing relational dataset definition.
+        /// Update an existing relational dataset definition.  Applicable only to the definitions that are not yet in use i.e. there are no DataPoints associated with this definition.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relational dataset definition.</param>
@@ -383,7 +383,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] UpdateRelationalDatasetDefinition: Update a Relational Dataset Definition
         /// </summary>
         /// <remarks>
-        /// Update an existing relational dataset definition.
+        /// Update an existing relational dataset definition.  Applicable only to the definitions that are not yet in use i.e. there are no DataPoints associated with this definition.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relational dataset definition.</param>
@@ -1500,7 +1500,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpdateRelationalDatasetDefinition: Update a Relational Dataset Definition Update an existing relational dataset definition.
+        /// [EARLY ACCESS] UpdateRelationalDatasetDefinition: Update a Relational Dataset Definition Update an existing relational dataset definition.  Applicable only to the definitions that are not yet in use i.e. there are no DataPoints associated with this definition.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relational dataset definition.</param>
@@ -1516,7 +1516,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpdateRelationalDatasetDefinition: Update a Relational Dataset Definition Update an existing relational dataset definition.
+        /// [EARLY ACCESS] UpdateRelationalDatasetDefinition: Update a Relational Dataset Definition Update an existing relational dataset definition.  Applicable only to the definitions that are not yet in use i.e. there are no DataPoints associated with this definition.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relational dataset definition.</param>
@@ -1616,7 +1616,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpdateRelationalDatasetDefinition: Update a Relational Dataset Definition Update an existing relational dataset definition.
+        /// [EARLY ACCESS] UpdateRelationalDatasetDefinition: Update a Relational Dataset Definition Update an existing relational dataset definition.  Applicable only to the definitions that are not yet in use i.e. there are no DataPoints associated with this definition.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relational dataset definition.</param>
@@ -1633,7 +1633,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpdateRelationalDatasetDefinition: Update a Relational Dataset Definition Update an existing relational dataset definition.
+        /// [EARLY ACCESS] UpdateRelationalDatasetDefinition: Update a Relational Dataset Definition Update an existing relational dataset definition.  Applicable only to the definitions that are not yet in use i.e. there are no DataPoints associated with this definition.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relational dataset definition.</param>
