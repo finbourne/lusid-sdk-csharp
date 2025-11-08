@@ -70,8 +70,9 @@ namespace Lusid.Sdk.Model
         /// <param name="timelineScope">Scope of the Timeline for the Portfolio. The Timeline to be used while building transactions.</param>
         /// <param name="timelineCode">Code of the Timeline for the Portfolio. The Timeline to be used while building transactions.</param>
         /// <param name="includeEconomics">By default is false. When set to true the Economics data would be populated in the response..</param>
-        /// <param name="includeSettlementStatus">By default is false. When set to true the Economics data would be populated in the response..</param>
-        public TransactionQueryParameters(DateTimeOrCutLabel startDate = default(DateTimeOrCutLabel), DateTimeOrCutLabel endDate = default(DateTimeOrCutLabel), QueryModeEnum ?queryMode = default(QueryModeEnum?), bool showCancelledTransactions = default(bool), string timelineScope = default(string), string timelineCode = default(string), bool includeEconomics = default(bool), bool includeSettlementStatus = default(bool))
+        /// <param name="includeSettlementStatus">By default is false. When set to true the Settlement Status data would be populated in the response..</param>
+        /// <param name="settlementStatusDate">Optional date used to specify end of an extended window for settlement information. When provided, transactions will be returned between start and end date, but settlement information between start date and this date will be included. When provided, the value must be greater than or equal to end date..</param>
+        public TransactionQueryParameters(DateTimeOrCutLabel startDate = default(DateTimeOrCutLabel), DateTimeOrCutLabel endDate = default(DateTimeOrCutLabel), QueryModeEnum ?queryMode = default(QueryModeEnum?), bool showCancelledTransactions = default(bool), string timelineScope = default(string), string timelineCode = default(string), bool includeEconomics = default(bool), bool includeSettlementStatus = default(bool), DateTimeOrCutLabel settlementStatusDate = default(DateTimeOrCutLabel))
         {
             // to ensure "startDate" is required (not null)
             if (startDate == null)
@@ -91,6 +92,7 @@ namespace Lusid.Sdk.Model
             this.TimelineCode = timelineCode;
             this.IncludeEconomics = includeEconomics;
             this.IncludeSettlementStatus = includeSettlementStatus;
+            this.SettlementStatusDate = settlementStatusDate;
         }
 
         /// <summary>
@@ -136,11 +138,18 @@ namespace Lusid.Sdk.Model
         public bool IncludeEconomics { get; set; }
 
         /// <summary>
-        /// By default is false. When set to true the Economics data would be populated in the response.
+        /// By default is false. When set to true the Settlement Status data would be populated in the response.
         /// </summary>
-        /// <value>By default is false. When set to true the Economics data would be populated in the response.</value>
+        /// <value>By default is false. When set to true the Settlement Status data would be populated in the response.</value>
         [DataMember(Name = "includeSettlementStatus", EmitDefaultValue = true)]
         public bool IncludeSettlementStatus { get; set; }
+
+        /// <summary>
+        /// Optional date used to specify end of an extended window for settlement information. When provided, transactions will be returned between start and end date, but settlement information between start date and this date will be included. When provided, the value must be greater than or equal to end date.
+        /// </summary>
+        /// <value>Optional date used to specify end of an extended window for settlement information. When provided, transactions will be returned between start and end date, but settlement information between start date and this date will be included. When provided, the value must be greater than or equal to end date.</value>
+        [DataMember(Name = "settlementStatusDate", EmitDefaultValue = true)]
+        public DateTimeOrCutLabel SettlementStatusDate { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -158,6 +167,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  TimelineCode: ").Append(TimelineCode).Append("\n");
             sb.Append("  IncludeEconomics: ").Append(IncludeEconomics).Append("\n");
             sb.Append("  IncludeSettlementStatus: ").Append(IncludeSettlementStatus).Append("\n");
+            sb.Append("  SettlementStatusDate: ").Append(SettlementStatusDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -228,6 +238,11 @@ namespace Lusid.Sdk.Model
                 (
                     this.IncludeSettlementStatus == input.IncludeSettlementStatus ||
                     this.IncludeSettlementStatus.Equals(input.IncludeSettlementStatus)
+                ) && 
+                (
+                    this.SettlementStatusDate == input.SettlementStatusDate ||
+                    (this.SettlementStatusDate != null &&
+                    this.SettlementStatusDate.Equals(input.SettlementStatusDate))
                 );
         }
 
@@ -260,6 +275,10 @@ namespace Lusid.Sdk.Model
                 }
                 hashCode = (hashCode * 59) + this.IncludeEconomics.GetHashCode();
                 hashCode = (hashCode * 59) + this.IncludeSettlementStatus.GetHashCode();
+                if (this.SettlementStatusDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.SettlementStatusDate.GetHashCode();
+                }
                 return hashCode;
             }
         }

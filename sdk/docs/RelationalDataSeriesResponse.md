@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **SeriesScope** | **string** | The scope of the DataSeries. | 
 **ApplicableEntity** | [**ApplicableEntity**](ApplicableEntity.md) |  | 
-**SeriesIdentifiers** | [**Dictionary&lt;string, RelationalDataPointFieldValueResponse&gt;**](RelationalDataPointFieldValueResponse.md) | The identifiers that uniquely define this DataSeries, structured according to the FieldSchema of the parent RelationalDatasetDefinition. | 
+**SeriesIdentifiers** | [**Dictionary&lt;string, RelationalDataPointFieldValueResponse&gt;**](RelationalDataPointFieldValueResponse.md) | The identifiers that uniquely define this DataSeries, if any, structured according to the FieldSchema of the parent RelationalDatasetDefinition. | 
 
 ```csharp
 using Lusid.Sdk.Model;

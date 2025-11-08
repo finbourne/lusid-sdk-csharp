@@ -4,24 +4,25 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RelationalDatasetFieldsToAdd** | [**RelationalDatasetFieldsToAdd**](RelationalDatasetFieldsToAdd.md) |  | [optional] 
-**RelationalDatasetFieldsToUpdate** | [**RelationalDatasetFieldsToUpdate**](RelationalDatasetFieldsToUpdate.md) |  | [optional] 
-**FieldNamesToRemove** | **List&lt;string&gt;** | An array of FieldName(s) to be removed from the FieldSchema. Only Value or Metadata fields can be removed. | [optional] 
+**Add** | [**RelationalDatasetFieldsToAdd**](RelationalDatasetFieldsToAdd.md) |  | [optional] 
+**Update** | [**RelationalDatasetFieldsToUpdate**](RelationalDatasetFieldsToUpdate.md) |  | [optional] 
+**Remove** | [**RelationalDatasetFieldsToRemove**](RelationalDatasetFieldsToRemove.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
 using System;
 
-RelationalDatasetFieldsToAdd? relationalDatasetFieldsToAdd = new RelationalDatasetFieldsToAdd();
+RelationalDatasetFieldsToAdd? add = new RelationalDatasetFieldsToAdd();
 
-RelationalDatasetFieldsToUpdate? relationalDatasetFieldsToUpdate = new RelationalDatasetFieldsToUpdate();
+RelationalDatasetFieldsToUpdate? update = new RelationalDatasetFieldsToUpdate();
 
-List<string> fieldNamesToRemove = new List<string>();
+RelationalDatasetFieldsToRemove? remove = new RelationalDatasetFieldsToRemove();
+
 
 UpdateRelationalDatasetFieldSchema updateRelationalDatasetFieldSchemaInstance = new UpdateRelationalDatasetFieldSchema(
-    relationalDatasetFieldsToAdd: relationalDatasetFieldsToAdd,
-    relationalDatasetFieldsToUpdate: relationalDatasetFieldsToUpdate,
-    fieldNamesToRemove: fieldNamesToRemove);
+    add: add,
+    update: update,
+    remove: remove);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -38,7 +38,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="seriesScope">The scope of the DataSeries. (required).</param>
         /// <param name="applicableEntity">applicableEntity (required).</param>
-        /// <param name="seriesIdentifiers">The identifiers that uniquely define this DataSeries, structured according to the FieldSchema of the parent RelationalDatasetDefinition. (required).</param>
+        /// <param name="seriesIdentifiers">The identifiers that uniquely define this DataSeries, if any, structured according to the FieldSchema of the parent RelationalDatasetDefinition..</param>
         public UpsertRelationalDataPointDataSeries(string seriesScope = default(string), ApplicableEntity applicableEntity = default(ApplicableEntity), Dictionary<string, Object> seriesIdentifiers = default(Dictionary<string, Object>))
         {
             // to ensure "seriesScope" is required (not null)
@@ -53,11 +53,6 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("applicableEntity is a required property for UpsertRelationalDataPointDataSeries and cannot be null");
             }
             this.ApplicableEntity = applicableEntity;
-            // to ensure "seriesIdentifiers" is required (not null)
-            if (seriesIdentifiers == null)
-            {
-                throw new ArgumentNullException("seriesIdentifiers is a required property for UpsertRelationalDataPointDataSeries and cannot be null");
-            }
             this.SeriesIdentifiers = seriesIdentifiers;
         }
 
@@ -75,10 +70,10 @@ namespace Lusid.Sdk.Model
         public ApplicableEntity ApplicableEntity { get; set; }
 
         /// <summary>
-        /// The identifiers that uniquely define this DataSeries, structured according to the FieldSchema of the parent RelationalDatasetDefinition.
+        /// The identifiers that uniquely define this DataSeries, if any, structured according to the FieldSchema of the parent RelationalDatasetDefinition.
         /// </summary>
-        /// <value>The identifiers that uniquely define this DataSeries, structured according to the FieldSchema of the parent RelationalDatasetDefinition.</value>
-        [DataMember(Name = "seriesIdentifiers", IsRequired = true, EmitDefaultValue = true)]
+        /// <value>The identifiers that uniquely define this DataSeries, if any, structured according to the FieldSchema of the parent RelationalDatasetDefinition.</value>
+        [DataMember(Name = "seriesIdentifiers", EmitDefaultValue = true)]
         public Dictionary<string, Object> SeriesIdentifiers { get; set; }
 
         /// <summary>

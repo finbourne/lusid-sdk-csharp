@@ -39,10 +39,11 @@ namespace Lusid.Sdk.Model
         /// <param name="entityType">The type of the entity for which the derived property or partial formula is to be resolved against. (required).</param>
         /// <param name="scope">(Optional) The scope that entity exists in. If no scope is provided, the default scope for the entity type will be used..</param>
         /// <param name="code">(Optional) The code of the entity, to be provided for entities that support scope/code retrieval. If no code or identifier is provided, the logical evaluation tree without resolved values is returned..</param>
+        /// <param name="subentityId">(Optional) The id of the sub-entity to explain the derived property for. This must be provided along with the scope/code of the parent entity..</param>
         /// <param name="identifier">(Optional). An identifier key/value pair that uniquely identifies the entity to explain the derived property for. This can be either an instrument identifier, or an identifier property. If no code or identifier is provided, the logical evaluation tree without resolved values is returned..</param>
         /// <param name="propertyKey">(Optional) The key of the derived property to get an explanation for. This takes the format {domain}/{scope}/{code}. One of either property key or partial formula must be provided..</param>
         /// <param name="partialFormula">(Optional) A partial derivation formula to get an explanation for. Can be provided in lieu of a property key. One of either property key or partial formula must be provided..</param>
-        public DerivationFormulaExplainRequest(string entityType = default(string), string scope = default(string), string code = default(string), Dictionary<string, string> identifier = default(Dictionary<string, string>), string propertyKey = default(string), string partialFormula = default(string))
+        public DerivationFormulaExplainRequest(string entityType = default(string), string scope = default(string), string code = default(string), string subentityId = default(string), Dictionary<string, string> identifier = default(Dictionary<string, string>), string propertyKey = default(string), string partialFormula = default(string))
         {
             // to ensure "entityType" is required (not null)
             if (entityType == null)
@@ -52,6 +53,7 @@ namespace Lusid.Sdk.Model
             this.EntityType = entityType;
             this.Scope = scope;
             this.Code = code;
+            this.SubentityId = subentityId;
             this.Identifier = identifier;
             this.PropertyKey = propertyKey;
             this.PartialFormula = partialFormula;
@@ -77,6 +79,13 @@ namespace Lusid.Sdk.Model
         /// <value>(Optional) The code of the entity, to be provided for entities that support scope/code retrieval. If no code or identifier is provided, the logical evaluation tree without resolved values is returned.</value>
         [DataMember(Name = "code", EmitDefaultValue = true)]
         public string Code { get; set; }
+
+        /// <summary>
+        /// (Optional) The id of the sub-entity to explain the derived property for. This must be provided along with the scope/code of the parent entity.
+        /// </summary>
+        /// <value>(Optional) The id of the sub-entity to explain the derived property for. This must be provided along with the scope/code of the parent entity.</value>
+        [DataMember(Name = "subentityId", EmitDefaultValue = true)]
+        public string SubentityId { get; set; }
 
         /// <summary>
         /// (Optional). An identifier key/value pair that uniquely identifies the entity to explain the derived property for. This can be either an instrument identifier, or an identifier property. If no code or identifier is provided, the logical evaluation tree without resolved values is returned.
@@ -110,6 +119,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  EntityType: ").Append(EntityType).Append("\n");
             sb.Append("  Scope: ").Append(Scope).Append("\n");
             sb.Append("  Code: ").Append(Code).Append("\n");
+            sb.Append("  SubentityId: ").Append(SubentityId).Append("\n");
             sb.Append("  Identifier: ").Append(Identifier).Append("\n");
             sb.Append("  PropertyKey: ").Append(PropertyKey).Append("\n");
             sb.Append("  PartialFormula: ").Append(PartialFormula).Append("\n");
@@ -164,6 +174,11 @@ namespace Lusid.Sdk.Model
                     this.Code.Equals(input.Code))
                 ) && 
                 (
+                    this.SubentityId == input.SubentityId ||
+                    (this.SubentityId != null &&
+                    this.SubentityId.Equals(input.SubentityId))
+                ) && 
+                (
                     this.Identifier == input.Identifier ||
                     this.Identifier != null &&
                     input.Identifier != null &&
@@ -201,6 +216,10 @@ namespace Lusid.Sdk.Model
                 if (this.Code != null)
                 {
                     hashCode = (hashCode * 59) + this.Code.GetHashCode();
+                }
+                if (this.SubentityId != null)
+                {
+                    hashCode = (hashCode * 59) + this.SubentityId.GetHashCode();
                 }
                 if (this.Identifier != null)
                 {
@@ -273,6 +292,18 @@ namespace Lusid.Sdk.Model
             if (false == regexCode.Match(this.Code).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Code, must match a pattern of " + regexCode, new [] { "Code" });
+            }
+
+            // SubentityId (string) maxLength
+            if (this.SubentityId != null && this.SubentityId.Length > 1024)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SubentityId, length must be less than 1024.", new [] { "SubentityId" });
+            }
+
+            // SubentityId (string) minLength
+            if (this.SubentityId != null && this.SubentityId.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SubentityId, length must be greater than 0.", new [] { "SubentityId" });
             }
 
             // PartialFormula (string) maxLength

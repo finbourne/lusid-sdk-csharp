@@ -11,7 +11,8 @@ Name | Type | Description | Notes
 **TimelineScope** | **string** | Scope of the Timeline for the Portfolio. The Timeline to be used while building transactions | [optional] 
 **TimelineCode** | **string** | Code of the Timeline for the Portfolio. The Timeline to be used while building transactions | [optional] 
 **IncludeEconomics** | **bool** | By default is false. When set to true the Economics data would be populated in the response. | [optional] 
-**IncludeSettlementStatus** | **bool** | By default is false. When set to true the Economics data would be populated in the response. | [optional] 
+**IncludeSettlementStatus** | **bool** | By default is false. When set to true the Settlement Status data would be populated in the response. | [optional] 
+**SettlementStatusDate** | [**DateTimeOrCutLabel**](DateTimeOrCutLabel.md) | Optional date used to specify end of an extended window for settlement information. When provided, transactions will be returned between start and end date, but settlement information between start date and this date will be included. When provided, the value must be greater than or equal to end date. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -25,6 +26,7 @@ string timelineScope = "example timelineScope";
 string timelineCode = "example timelineCode";
 bool includeEconomics = //"True";
 bool includeSettlementStatus = //"True";
+DateTimeOrCutLabel settlementStatusDate = "example settlementStatusDate";
 
 TransactionQueryParameters transactionQueryParametersInstance = new TransactionQueryParameters(
     startDate: startDate,
@@ -34,7 +36,8 @@ TransactionQueryParameters transactionQueryParametersInstance = new TransactionQ
     timelineScope: timelineScope,
     timelineCode: timelineCode,
     includeEconomics: includeEconomics,
-    includeSettlementStatus: includeSettlementStatus);
+    includeSettlementStatus: includeSettlementStatus,
+    settlementStatusDate: settlementStatusDate);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -38,7 +38,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="seriesScope">The scope of the DataSeries. (required).</param>
         /// <param name="applicableEntity">applicableEntity (required).</param>
-        /// <param name="seriesIdentifiers">The identifiers that uniquely define this DataSeries, structured according to the FieldSchema of the parent RelationalDatasetDefinition. (required).</param>
+        /// <param name="seriesIdentifiers">The identifiers that uniquely define this DataSeries, if any, structured according to the FieldSchema of the parent RelationalDatasetDefinition. (required).</param>
         public RelationalDataSeriesResponse(string seriesScope = default(string), ApplicableEntity applicableEntity = default(ApplicableEntity), Dictionary<string, RelationalDataPointFieldValueResponse> seriesIdentifiers = default(Dictionary<string, RelationalDataPointFieldValueResponse>))
         {
             // to ensure "seriesScope" is required (not null)
@@ -75,9 +75,9 @@ namespace Lusid.Sdk.Model
         public ApplicableEntity ApplicableEntity { get; set; }
 
         /// <summary>
-        /// The identifiers that uniquely define this DataSeries, structured according to the FieldSchema of the parent RelationalDatasetDefinition.
+        /// The identifiers that uniquely define this DataSeries, if any, structured according to the FieldSchema of the parent RelationalDatasetDefinition.
         /// </summary>
-        /// <value>The identifiers that uniquely define this DataSeries, structured according to the FieldSchema of the parent RelationalDatasetDefinition.</value>
+        /// <value>The identifiers that uniquely define this DataSeries, if any, structured according to the FieldSchema of the parent RelationalDatasetDefinition.</value>
         [DataMember(Name = "seriesIdentifiers", IsRequired = true, EmitDefaultValue = true)]
         public Dictionary<string, RelationalDataPointFieldValueResponse> SeriesIdentifiers { get; set; }
 

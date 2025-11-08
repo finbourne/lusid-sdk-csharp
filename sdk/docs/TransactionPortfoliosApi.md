@@ -2603,7 +2603,7 @@ catch (ApiException e)
 
 <a id="getholdingcontributors"></a>
 # **GetHoldingContributors**
-> VersionedResourceListOfHoldingContributor GetHoldingContributors (string scope, string code, long holdingId, DateTimeOrCutLabel? effectiveDate = null, DateTimeOrCutLabel? fromTradeDate = null, DateTimeOrCutLabel? toTradeDate = null, bool? includeHistoric = null, string? taxLotId = null, bool? includeUnsettledMovements = null, int? limit = null, DateTimeOffset? asAt = null, string? page = null)
+> VersionedResourceListOfHoldingContributor GetHoldingContributors (string scope, string code, long holdingId, DateTimeOrCutLabel? effectiveDate = null, DateTimeOrCutLabel? fromTradeDate = null, DateTimeOrCutLabel? toTradeDate = null, bool? includeHistoric = null, string? taxLotId = null, bool? includeUnsettledMovements = null, int? limit = null, DateTimeOffset? asAt = null, string? page = null, string? timelineScope = null, string? timelineCode = null)
 
 GetHoldingContributors: Get Holdings Contributors
 
@@ -2660,14 +2660,16 @@ namespace Examples
             var limit = 56;  // int? | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional) 
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified. (optional) 
             var page = "page_example";  // string? | The pagination token to use to continue listing transactions from a previous call to GetHoldingContributors. (optional) 
+            var timelineScope = "timelineScope_example";  // string? | The scope of the timeline used for evaluation. If provided, you must also provide a timelineCode. (optional) 
+            var timelineCode = "timelineCode_example";  // string? | The code of the timeline used for evaluation. If provided, you must also provide a timelineScope. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // VersionedResourceListOfHoldingContributor result = apiInstance.GetHoldingContributors(scope, code, holdingId, effectiveDate, fromTradeDate, toTradeDate, includeHistoric, taxLotId, includeUnsettledMovements, limit, asAt, page, opts: opts);
+                // VersionedResourceListOfHoldingContributor result = apiInstance.GetHoldingContributors(scope, code, holdingId, effectiveDate, fromTradeDate, toTradeDate, includeHistoric, taxLotId, includeUnsettledMovements, limit, asAt, page, timelineScope, timelineCode, opts: opts);
 
                 // GetHoldingContributors: Get Holdings Contributors
-                VersionedResourceListOfHoldingContributor result = apiInstance.GetHoldingContributors(scope, code, holdingId, effectiveDate, fromTradeDate, toTradeDate, includeHistoric, taxLotId, includeUnsettledMovements, limit, asAt, page);
+                VersionedResourceListOfHoldingContributor result = apiInstance.GetHoldingContributors(scope, code, holdingId, effectiveDate, fromTradeDate, toTradeDate, includeHistoric, taxLotId, includeUnsettledMovements, limit, asAt, page, timelineScope, timelineCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -2688,7 +2690,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // GetHoldingContributors: Get Holdings Contributors
-    ApiResponse<VersionedResourceListOfHoldingContributor> response = apiInstance.GetHoldingContributorsWithHttpInfo(scope, code, holdingId, effectiveDate, fromTradeDate, toTradeDate, includeHistoric, taxLotId, includeUnsettledMovements, limit, asAt, page);
+    ApiResponse<VersionedResourceListOfHoldingContributor> response = apiInstance.GetHoldingContributorsWithHttpInfo(scope, code, holdingId, effectiveDate, fromTradeDate, toTradeDate, includeHistoric, taxLotId, includeUnsettledMovements, limit, asAt, page, timelineScope, timelineCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -2717,6 +2719,8 @@ catch (ApiException e)
 | **limit** | **int?** | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. | [optional]  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified. | [optional]  |
 | **page** | **string?** | The pagination token to use to continue listing transactions from a previous call to GetHoldingContributors. | [optional]  |
+| **timelineScope** | **string?** | The scope of the timeline used for evaluation. If provided, you must also provide a timelineCode. | [optional]  |
+| **timelineCode** | **string?** | The code of the timeline used for evaluation. If provided, you must also provide a timelineScope. | [optional]  |
 
 ### Return type
 
@@ -3127,7 +3131,7 @@ catch (ApiException e)
 
 <a id="getmultipleholdingcontributors"></a>
 # **GetMultipleHoldingContributors**
-> VersionedResourceListOfHoldingContributor GetMultipleHoldingContributors (string scope, string code, HoldingIdsRequest holdingIdsRequest, DateTimeOrCutLabel? effectiveDate = null, DateTimeOrCutLabel? fromTransactionDate = null, DateTimeOrCutLabel? toTransactionDate = null, bool? includeHistoric = null, string? taxLotId = null, bool? includeUnsettledMovements = null, int? limit = null, DateTimeOffset? asAt = null, string? page = null)
+> VersionedResourceListOfHoldingContributor GetMultipleHoldingContributors (string scope, string code, HoldingIdsRequest holdingIdsRequest, DateTimeOrCutLabel? effectiveDate = null, DateTimeOrCutLabel? fromTransactionDate = null, DateTimeOrCutLabel? toTransactionDate = null, bool? includeHistoric = null, string? taxLotId = null, bool? includeUnsettledMovements = null, int? limit = null, DateTimeOffset? asAt = null, string? page = null, string? timelineScope = null, string? timelineCode = null)
 
 GetMultipleHoldingContributors: Get Multiple Holding Contributors
 
@@ -3184,14 +3188,16 @@ namespace Examples
             var limit = 56;  // int? | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional) 
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified. (optional) 
             var page = "page_example";  // string? | The pagination token to use to continue listing transactions from a previous call to GetHoldingContributors. (optional) 
+            var timelineScope = "timelineScope_example";  // string? | The scope of the timeline used for evaluation. If provided, you must also provide a timelineCode. (optional) 
+            var timelineCode = "timelineCode_example";  // string? | The code of the timeline used for evaluation. If provided, you must also provide a timelineScope. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // VersionedResourceListOfHoldingContributor result = apiInstance.GetMultipleHoldingContributors(scope, code, holdingIdsRequest, effectiveDate, fromTransactionDate, toTransactionDate, includeHistoric, taxLotId, includeUnsettledMovements, limit, asAt, page, opts: opts);
+                // VersionedResourceListOfHoldingContributor result = apiInstance.GetMultipleHoldingContributors(scope, code, holdingIdsRequest, effectiveDate, fromTransactionDate, toTransactionDate, includeHistoric, taxLotId, includeUnsettledMovements, limit, asAt, page, timelineScope, timelineCode, opts: opts);
 
                 // GetMultipleHoldingContributors: Get Multiple Holding Contributors
-                VersionedResourceListOfHoldingContributor result = apiInstance.GetMultipleHoldingContributors(scope, code, holdingIdsRequest, effectiveDate, fromTransactionDate, toTransactionDate, includeHistoric, taxLotId, includeUnsettledMovements, limit, asAt, page);
+                VersionedResourceListOfHoldingContributor result = apiInstance.GetMultipleHoldingContributors(scope, code, holdingIdsRequest, effectiveDate, fromTransactionDate, toTransactionDate, includeHistoric, taxLotId, includeUnsettledMovements, limit, asAt, page, timelineScope, timelineCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -3212,7 +3218,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // GetMultipleHoldingContributors: Get Multiple Holding Contributors
-    ApiResponse<VersionedResourceListOfHoldingContributor> response = apiInstance.GetMultipleHoldingContributorsWithHttpInfo(scope, code, holdingIdsRequest, effectiveDate, fromTransactionDate, toTransactionDate, includeHistoric, taxLotId, includeUnsettledMovements, limit, asAt, page);
+    ApiResponse<VersionedResourceListOfHoldingContributor> response = apiInstance.GetMultipleHoldingContributorsWithHttpInfo(scope, code, holdingIdsRequest, effectiveDate, fromTransactionDate, toTransactionDate, includeHistoric, taxLotId, includeUnsettledMovements, limit, asAt, page, timelineScope, timelineCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -3241,6 +3247,8 @@ catch (ApiException e)
 | **limit** | **int?** | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. | [optional]  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified. | [optional]  |
 | **page** | **string?** | The pagination token to use to continue listing transactions from a previous call to GetHoldingContributors. | [optional]  |
+| **timelineScope** | **string?** | The scope of the timeline used for evaluation. If provided, you must also provide a timelineCode. | [optional]  |
+| **timelineCode** | **string?** | The code of the timeline used for evaluation. If provided, you must also provide a timelineScope. | [optional]  |
 
 ### Return type
 

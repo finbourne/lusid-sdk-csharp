@@ -31,34 +31,33 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateRelationalDatasetFieldSchema" /> class.
         /// </summary>
-        /// <param name="relationalDatasetFieldsToAdd">relationalDatasetFieldsToAdd.</param>
-        /// <param name="relationalDatasetFieldsToUpdate">relationalDatasetFieldsToUpdate.</param>
-        /// <param name="fieldNamesToRemove">An array of FieldName(s) to be removed from the FieldSchema. Only Value or Metadata fields can be removed..</param>
-        public UpdateRelationalDatasetFieldSchema(RelationalDatasetFieldsToAdd relationalDatasetFieldsToAdd = default(RelationalDatasetFieldsToAdd), RelationalDatasetFieldsToUpdate relationalDatasetFieldsToUpdate = default(RelationalDatasetFieldsToUpdate), List<string> fieldNamesToRemove = default(List<string>))
+        /// <param name="add">add.</param>
+        /// <param name="update">update.</param>
+        /// <param name="remove">remove.</param>
+        public UpdateRelationalDatasetFieldSchema(RelationalDatasetFieldsToAdd add = default(RelationalDatasetFieldsToAdd), RelationalDatasetFieldsToUpdate update = default(RelationalDatasetFieldsToUpdate), RelationalDatasetFieldsToRemove remove = default(RelationalDatasetFieldsToRemove))
         {
-            this.RelationalDatasetFieldsToAdd = relationalDatasetFieldsToAdd;
-            this.RelationalDatasetFieldsToUpdate = relationalDatasetFieldsToUpdate;
-            this.FieldNamesToRemove = fieldNamesToRemove;
+            this.Add = add;
+            this.Update = update;
+            this.Remove = remove;
         }
 
         /// <summary>
-        /// Gets or Sets RelationalDatasetFieldsToAdd
+        /// Gets or Sets Add
         /// </summary>
-        [DataMember(Name = "relationalDatasetFieldsToAdd", EmitDefaultValue = false)]
-        public RelationalDatasetFieldsToAdd RelationalDatasetFieldsToAdd { get; set; }
+        [DataMember(Name = "add", EmitDefaultValue = false)]
+        public RelationalDatasetFieldsToAdd Add { get; set; }
 
         /// <summary>
-        /// Gets or Sets RelationalDatasetFieldsToUpdate
+        /// Gets or Sets Update
         /// </summary>
-        [DataMember(Name = "relationalDatasetFieldsToUpdate", EmitDefaultValue = false)]
-        public RelationalDatasetFieldsToUpdate RelationalDatasetFieldsToUpdate { get; set; }
+        [DataMember(Name = "update", EmitDefaultValue = false)]
+        public RelationalDatasetFieldsToUpdate Update { get; set; }
 
         /// <summary>
-        /// An array of FieldName(s) to be removed from the FieldSchema. Only Value or Metadata fields can be removed.
+        /// Gets or Sets Remove
         /// </summary>
-        /// <value>An array of FieldName(s) to be removed from the FieldSchema. Only Value or Metadata fields can be removed.</value>
-        [DataMember(Name = "fieldNamesToRemove", EmitDefaultValue = true)]
-        public List<string> FieldNamesToRemove { get; set; }
+        [DataMember(Name = "remove", EmitDefaultValue = false)]
+        public RelationalDatasetFieldsToRemove Remove { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -68,9 +67,9 @@ namespace Lusid.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class UpdateRelationalDatasetFieldSchema {\n");
-            sb.Append("  RelationalDatasetFieldsToAdd: ").Append(RelationalDatasetFieldsToAdd).Append("\n");
-            sb.Append("  RelationalDatasetFieldsToUpdate: ").Append(RelationalDatasetFieldsToUpdate).Append("\n");
-            sb.Append("  FieldNamesToRemove: ").Append(FieldNamesToRemove).Append("\n");
+            sb.Append("  Add: ").Append(Add).Append("\n");
+            sb.Append("  Update: ").Append(Update).Append("\n");
+            sb.Append("  Remove: ").Append(Remove).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -107,20 +106,19 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
-                    this.RelationalDatasetFieldsToAdd == input.RelationalDatasetFieldsToAdd ||
-                    (this.RelationalDatasetFieldsToAdd != null &&
-                    this.RelationalDatasetFieldsToAdd.Equals(input.RelationalDatasetFieldsToAdd))
+                    this.Add == input.Add ||
+                    (this.Add != null &&
+                    this.Add.Equals(input.Add))
                 ) && 
                 (
-                    this.RelationalDatasetFieldsToUpdate == input.RelationalDatasetFieldsToUpdate ||
-                    (this.RelationalDatasetFieldsToUpdate != null &&
-                    this.RelationalDatasetFieldsToUpdate.Equals(input.RelationalDatasetFieldsToUpdate))
+                    this.Update == input.Update ||
+                    (this.Update != null &&
+                    this.Update.Equals(input.Update))
                 ) && 
                 (
-                    this.FieldNamesToRemove == input.FieldNamesToRemove ||
-                    this.FieldNamesToRemove != null &&
-                    input.FieldNamesToRemove != null &&
-                    this.FieldNamesToRemove.SequenceEqual(input.FieldNamesToRemove)
+                    this.Remove == input.Remove ||
+                    (this.Remove != null &&
+                    this.Remove.Equals(input.Remove))
                 );
         }
 
@@ -133,17 +131,17 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.RelationalDatasetFieldsToAdd != null)
+                if (this.Add != null)
                 {
-                    hashCode = (hashCode * 59) + this.RelationalDatasetFieldsToAdd.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Add.GetHashCode();
                 }
-                if (this.RelationalDatasetFieldsToUpdate != null)
+                if (this.Update != null)
                 {
-                    hashCode = (hashCode * 59) + this.RelationalDatasetFieldsToUpdate.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Update.GetHashCode();
                 }
-                if (this.FieldNamesToRemove != null)
+                if (this.Remove != null)
                 {
-                    hashCode = (hashCode * 59) + this.FieldNamesToRemove.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Remove.GetHashCode();
                 }
                 return hashCode;
             }
