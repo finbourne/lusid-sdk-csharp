@@ -71,15 +71,15 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="relationalDatasetDefinitionScope">The Scope of the relational dataset definition.</param>
         /// <param name="relationalDatasetDefinitionCode">The Code of the relational dataset definition.</param>
-        /// <param name="queryRelationalDatasetRequest">The query request.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the dataset(s). Defaults to returning the latest version of each dataset if not specified. (optional)</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to query the datasets.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue query datasets. This value is returned from the previous call.              If a pagination token is provided, the filter, customSortBy, effectiveAt and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="queryRelationalDatasetRequest">The query request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfRelationalDataPointResponse</returns>
-        PagedResourceListOfRelationalDataPointResponse QueryRelationalData(string relationalDatasetDefinitionScope, string relationalDatasetDefinitionCode, QueryRelationalDatasetRequest queryRelationalDatasetRequest, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        PagedResourceListOfRelationalDataPointResponse QueryRelationalData(string relationalDatasetDefinitionScope, string relationalDatasetDefinitionCode, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), QueryRelationalDatasetRequest? queryRelationalDatasetRequest = default(QueryRelationalDatasetRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] QueryRelationalData: Query Relational Data Points for a given Relational Dataset Definition.
@@ -90,15 +90,15 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="relationalDatasetDefinitionScope">The Scope of the relational dataset definition.</param>
         /// <param name="relationalDatasetDefinitionCode">The Code of the relational dataset definition.</param>
-        /// <param name="queryRelationalDatasetRequest">The query request.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the dataset(s). Defaults to returning the latest version of each dataset if not specified. (optional)</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to query the datasets.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue query datasets. This value is returned from the previous call.              If a pagination token is provided, the filter, customSortBy, effectiveAt and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="queryRelationalDatasetRequest">The query request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfRelationalDataPointResponse</returns>
-        Lusid.Sdk.Client.ApiResponse<PagedResourceListOfRelationalDataPointResponse> QueryRelationalDataWithHttpInfo(string relationalDatasetDefinitionScope, string relationalDatasetDefinitionCode, QueryRelationalDatasetRequest queryRelationalDatasetRequest, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<PagedResourceListOfRelationalDataPointResponse> QueryRelationalDataWithHttpInfo(string relationalDatasetDefinitionScope, string relationalDatasetDefinitionCode, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), QueryRelationalDatasetRequest? queryRelationalDatasetRequest = default(QueryRelationalDatasetRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -150,16 +150,16 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="relationalDatasetDefinitionScope">The Scope of the relational dataset definition.</param>
         /// <param name="relationalDatasetDefinitionCode">The Code of the relational dataset definition.</param>
-        /// <param name="queryRelationalDatasetRequest">The query request.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the dataset(s). Defaults to returning the latest version of each dataset if not specified. (optional)</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to query the datasets.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue query datasets. This value is returned from the previous call.              If a pagination token is provided, the filter, customSortBy, effectiveAt and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="queryRelationalDatasetRequest">The query request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfRelationalDataPointResponse</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfRelationalDataPointResponse> QueryRelationalDataAsync(string relationalDatasetDefinitionScope, string relationalDatasetDefinitionCode, QueryRelationalDatasetRequest queryRelationalDatasetRequest, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<PagedResourceListOfRelationalDataPointResponse> QueryRelationalDataAsync(string relationalDatasetDefinitionScope, string relationalDatasetDefinitionCode, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), QueryRelationalDatasetRequest? queryRelationalDatasetRequest = default(QueryRelationalDatasetRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] QueryRelationalData: Query Relational Data Points for a given Relational Dataset Definition.
@@ -170,16 +170,16 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="relationalDatasetDefinitionScope">The Scope of the relational dataset definition.</param>
         /// <param name="relationalDatasetDefinitionCode">The Code of the relational dataset definition.</param>
-        /// <param name="queryRelationalDatasetRequest">The query request.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the dataset(s). Defaults to returning the latest version of each dataset if not specified. (optional)</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to query the datasets.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue query datasets. This value is returned from the previous call.              If a pagination token is provided, the filter, customSortBy, effectiveAt and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="queryRelationalDatasetRequest">The query request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfRelationalDataPointResponse)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfRelationalDataPointResponse>> QueryRelationalDataWithHttpInfoAsync(string relationalDatasetDefinitionScope, string relationalDatasetDefinitionCode, QueryRelationalDatasetRequest queryRelationalDatasetRequest, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfRelationalDataPointResponse>> QueryRelationalDataWithHttpInfoAsync(string relationalDatasetDefinitionScope, string relationalDatasetDefinitionCode, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), QueryRelationalDatasetRequest? queryRelationalDatasetRequest = default(QueryRelationalDatasetRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -570,17 +570,17 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="relationalDatasetDefinitionScope">The Scope of the relational dataset definition.</param>
         /// <param name="relationalDatasetDefinitionCode">The Code of the relational dataset definition.</param>
-        /// <param name="queryRelationalDatasetRequest">The query request.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the dataset(s). Defaults to returning the latest version of each dataset if not specified. (optional)</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to query the datasets.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue query datasets. This value is returned from the previous call.              If a pagination token is provided, the filter, customSortBy, effectiveAt and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="queryRelationalDatasetRequest">The query request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfRelationalDataPointResponse</returns>
-        public PagedResourceListOfRelationalDataPointResponse QueryRelationalData(string relationalDatasetDefinitionScope, string relationalDatasetDefinitionCode, QueryRelationalDatasetRequest queryRelationalDatasetRequest, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public PagedResourceListOfRelationalDataPointResponse QueryRelationalData(string relationalDatasetDefinitionScope, string relationalDatasetDefinitionCode, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), QueryRelationalDatasetRequest? queryRelationalDatasetRequest = default(QueryRelationalDatasetRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfRelationalDataPointResponse> localVarResponse = QueryRelationalDataWithHttpInfo(relationalDatasetDefinitionScope, relationalDatasetDefinitionCode, queryRelationalDatasetRequest, asAt, effectiveAt, page, limit, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfRelationalDataPointResponse> localVarResponse = QueryRelationalDataWithHttpInfo(relationalDatasetDefinitionScope, relationalDatasetDefinitionCode, asAt, effectiveAt, page, limit, queryRelationalDatasetRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -590,15 +590,15 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="relationalDatasetDefinitionScope">The Scope of the relational dataset definition.</param>
         /// <param name="relationalDatasetDefinitionCode">The Code of the relational dataset definition.</param>
-        /// <param name="queryRelationalDatasetRequest">The query request.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the dataset(s). Defaults to returning the latest version of each dataset if not specified. (optional)</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to query the datasets.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue query datasets. This value is returned from the previous call.              If a pagination token is provided, the filter, customSortBy, effectiveAt and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="queryRelationalDatasetRequest">The query request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfRelationalDataPointResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfRelationalDataPointResponse> QueryRelationalDataWithHttpInfo(string relationalDatasetDefinitionScope, string relationalDatasetDefinitionCode, QueryRelationalDatasetRequest queryRelationalDatasetRequest, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfRelationalDataPointResponse> QueryRelationalDataWithHttpInfo(string relationalDatasetDefinitionScope, string relationalDatasetDefinitionCode, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), QueryRelationalDatasetRequest? queryRelationalDatasetRequest = default(QueryRelationalDatasetRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'relationalDatasetDefinitionScope' is set
             if (relationalDatasetDefinitionScope == null)
@@ -610,12 +610,6 @@ namespace Lusid.Sdk.Api
             if (relationalDatasetDefinitionCode == null)
             {
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'relationalDatasetDefinitionCode' when calling RelationalDatasetsApi->QueryRelationalData");
-            }
-
-            // verify the required parameter 'queryRelationalDatasetRequest' is set
-            if (queryRelationalDatasetRequest == null)
-            {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'queryRelationalDatasetRequest' when calling RelationalDatasetsApi->QueryRelationalData");
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
@@ -720,18 +714,18 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="relationalDatasetDefinitionScope">The Scope of the relational dataset definition.</param>
         /// <param name="relationalDatasetDefinitionCode">The Code of the relational dataset definition.</param>
-        /// <param name="queryRelationalDatasetRequest">The query request.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the dataset(s). Defaults to returning the latest version of each dataset if not specified. (optional)</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to query the datasets.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue query datasets. This value is returned from the previous call.              If a pagination token is provided, the filter, customSortBy, effectiveAt and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="queryRelationalDatasetRequest">The query request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfRelationalDataPointResponse</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfRelationalDataPointResponse> QueryRelationalDataAsync(string relationalDatasetDefinitionScope, string relationalDatasetDefinitionCode, QueryRelationalDatasetRequest queryRelationalDatasetRequest, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<PagedResourceListOfRelationalDataPointResponse> QueryRelationalDataAsync(string relationalDatasetDefinitionScope, string relationalDatasetDefinitionCode, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), QueryRelationalDatasetRequest? queryRelationalDatasetRequest = default(QueryRelationalDatasetRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfRelationalDataPointResponse> localVarResponse = await QueryRelationalDataWithHttpInfoAsync(relationalDatasetDefinitionScope, relationalDatasetDefinitionCode, queryRelationalDatasetRequest, asAt, effectiveAt, page, limit, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfRelationalDataPointResponse> localVarResponse = await QueryRelationalDataWithHttpInfoAsync(relationalDatasetDefinitionScope, relationalDatasetDefinitionCode, asAt, effectiveAt, page, limit, queryRelationalDatasetRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -741,16 +735,16 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="relationalDatasetDefinitionScope">The Scope of the relational dataset definition.</param>
         /// <param name="relationalDatasetDefinitionCode">The Code of the relational dataset definition.</param>
-        /// <param name="queryRelationalDatasetRequest">The query request.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the dataset(s). Defaults to returning the latest version of each dataset if not specified. (optional)</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to query the datasets.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue query datasets. This value is returned from the previous call.              If a pagination token is provided, the filter, customSortBy, effectiveAt and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="queryRelationalDatasetRequest">The query request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfRelationalDataPointResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfRelationalDataPointResponse>> QueryRelationalDataWithHttpInfoAsync(string relationalDatasetDefinitionScope, string relationalDatasetDefinitionCode, QueryRelationalDatasetRequest queryRelationalDatasetRequest, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfRelationalDataPointResponse>> QueryRelationalDataWithHttpInfoAsync(string relationalDatasetDefinitionScope, string relationalDatasetDefinitionCode, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), QueryRelationalDatasetRequest? queryRelationalDatasetRequest = default(QueryRelationalDatasetRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'relationalDatasetDefinitionScope' is set
             if (relationalDatasetDefinitionScope == null)
@@ -762,12 +756,6 @@ namespace Lusid.Sdk.Api
             if (relationalDatasetDefinitionCode == null)
             {
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'relationalDatasetDefinitionCode' when calling RelationalDatasetsApi->QueryRelationalData");
-            }
-
-            // verify the required parameter 'queryRelationalDatasetRequest' is set
-            if (queryRelationalDatasetRequest == null)
-            {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'queryRelationalDatasetRequest' when calling RelationalDatasetsApi->QueryRelationalData");
             }
 
 

@@ -31,21 +31,11 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="QueryRelationalDatasetRequest" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected QueryRelationalDatasetRequest() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="QueryRelationalDatasetRequest" /> class.
-        /// </summary>
-        /// <param name="queryMethod">The method used to query data points. Can be either &#39;Latest&#39; or &#39;TimeSeries&#39;. (required).</param>
+        /// <param name="queryMethod">The method used to query data points. Can be either &#39;Latest&#39; or &#39;TimeSeries&#39;..</param>
         /// <param name="filter">Expression to filter the result set. For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914..</param>
         /// <param name="customSortBy">A list of fields to sort the results by. For example, to sort by a Value field &#39;AValueField&#39; in descending order, specify &#39;AValueField DESC&#39;..</param>
         public QueryRelationalDatasetRequest(string queryMethod = default(string), string filter = default(string), List<string> customSortBy = default(List<string>))
         {
-            // to ensure "queryMethod" is required (not null)
-            if (queryMethod == null)
-            {
-                throw new ArgumentNullException("queryMethod is a required property for QueryRelationalDatasetRequest and cannot be null");
-            }
             this.QueryMethod = queryMethod;
             this.Filter = filter;
             this.CustomSortBy = customSortBy;
@@ -55,7 +45,7 @@ namespace Lusid.Sdk.Model
         /// The method used to query data points. Can be either &#39;Latest&#39; or &#39;TimeSeries&#39;.
         /// </summary>
         /// <value>The method used to query data points. Can be either &#39;Latest&#39; or &#39;TimeSeries&#39;.</value>
-        [DataMember(Name = "queryMethod", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "queryMethod", EmitDefaultValue = true)]
         public string QueryMethod { get; set; }
 
         /// <summary>

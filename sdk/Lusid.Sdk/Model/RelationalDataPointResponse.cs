@@ -42,7 +42,8 @@ namespace Lusid.Sdk.Model
         /// <param name="valueFields">The values associated with the DataPoint, structured according to the FieldSchema of the parent RelationalDatasetDefinition. (required).</param>
         /// <param name="metaDataFields">The metadata associated with the DataPoint, structured according to the FieldSchema of the parent RelationalDatasetDefinition. (required).</param>
         /// <param name="effectiveAtEntered">The effectiveAt datetime as entered when the DataPoint was created. (required).</param>
-        public RelationalDataPointResponse(ResourceId relationalDatasetDefinitionId = default(ResourceId), RelationalDataSeriesResponse dataSeries = default(RelationalDataSeriesResponse), DateTimeOffset effectiveAt = default(DateTimeOffset), Dictionary<string, RelationalDataPointFieldValueResponse> valueFields = default(Dictionary<string, RelationalDataPointFieldValueResponse>), Dictionary<string, RelationalDataPointFieldValueResponse> metaDataFields = default(Dictionary<string, RelationalDataPointFieldValueResponse>), string effectiveAtEntered = default(string))
+        /// <param name="dataPointVersion">dataPointVersion.</param>
+        public RelationalDataPointResponse(ResourceId relationalDatasetDefinitionId = default(ResourceId), RelationalDataSeriesResponse dataSeries = default(RelationalDataSeriesResponse), DateTimeOffset effectiveAt = default(DateTimeOffset), Dictionary<string, RelationalDataPointFieldValueResponse> valueFields = default(Dictionary<string, RelationalDataPointFieldValueResponse>), Dictionary<string, RelationalDataPointFieldValueResponse> metaDataFields = default(Dictionary<string, RelationalDataPointFieldValueResponse>), string effectiveAtEntered = default(string), DataPointVersion dataPointVersion = default(DataPointVersion))
         {
             // to ensure "relationalDatasetDefinitionId" is required (not null)
             if (relationalDatasetDefinitionId == null)
@@ -75,6 +76,7 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("effectiveAtEntered is a required property for RelationalDataPointResponse and cannot be null");
             }
             this.EffectiveAtEntered = effectiveAtEntered;
+            this.DataPointVersion = dataPointVersion;
         }
 
         /// <summary>
@@ -118,6 +120,12 @@ namespace Lusid.Sdk.Model
         public string EffectiveAtEntered { get; set; }
 
         /// <summary>
+        /// Gets or Sets DataPointVersion
+        /// </summary>
+        [DataMember(Name = "dataPointVersion", EmitDefaultValue = false)]
+        public DataPointVersion DataPointVersion { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -131,6 +139,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  ValueFields: ").Append(ValueFields).Append("\n");
             sb.Append("  MetaDataFields: ").Append(MetaDataFields).Append("\n");
             sb.Append("  EffectiveAtEntered: ").Append(EffectiveAtEntered).Append("\n");
+            sb.Append("  DataPointVersion: ").Append(DataPointVersion).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -197,6 +206,11 @@ namespace Lusid.Sdk.Model
                     this.EffectiveAtEntered == input.EffectiveAtEntered ||
                     (this.EffectiveAtEntered != null &&
                     this.EffectiveAtEntered.Equals(input.EffectiveAtEntered))
+                ) && 
+                (
+                    this.DataPointVersion == input.DataPointVersion ||
+                    (this.DataPointVersion != null &&
+                    this.DataPointVersion.Equals(input.DataPointVersion))
                 );
         }
 
@@ -232,6 +246,10 @@ namespace Lusid.Sdk.Model
                 if (this.EffectiveAtEntered != null)
                 {
                     hashCode = (hashCode * 59) + this.EffectiveAtEntered.GetHashCode();
+                }
+                if (this.DataPointVersion != null)
+                {
+                    hashCode = (hashCode * 59) + this.DataPointVersion.GetHashCode();
                 }
                 return hashCode;
             }

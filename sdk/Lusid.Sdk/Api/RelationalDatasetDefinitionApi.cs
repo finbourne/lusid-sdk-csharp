@@ -60,7 +60,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] DeleteRelationalDatasetDefinition: Delete a Relational Dataset Definition
         /// </summary>
         /// <remarks>
-        /// Delete a relational dataset definition.
+        /// Delete a relational dataset definition.  WARNING! This operation is irreversible. Deleting a relational dataset definition will also delete all associated data points.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relational dataset definition.</param>
@@ -74,7 +74,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] DeleteRelationalDatasetDefinition: Delete a Relational Dataset Definition
         /// </summary>
         /// <remarks>
-        /// Delete a relational dataset definition.
+        /// Delete a relational dataset definition.  WARNING! This operation is irreversible. Deleting a relational dataset definition will also delete all associated data points.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relational dataset definition.</param>
@@ -272,7 +272,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] DeleteRelationalDatasetDefinition: Delete a Relational Dataset Definition
         /// </summary>
         /// <remarks>
-        /// Delete a relational dataset definition.
+        /// Delete a relational dataset definition.  WARNING! This operation is irreversible. Deleting a relational dataset definition will also delete all associated data points.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relational dataset definition.</param>
@@ -287,7 +287,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] DeleteRelationalDatasetDefinition: Delete a Relational Dataset Definition
         /// </summary>
         /// <remarks>
-        /// Delete a relational dataset definition.
+        /// Delete a relational dataset definition.  WARNING! This operation is irreversible. Deleting a relational dataset definition will also delete all associated data points.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relational dataset definition.</param>
@@ -792,7 +792,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteRelationalDatasetDefinition: Delete a Relational Dataset Definition Delete a relational dataset definition.
+        /// [EARLY ACCESS] DeleteRelationalDatasetDefinition: Delete a Relational Dataset Definition Delete a relational dataset definition.  WARNING! This operation is irreversible. Deleting a relational dataset definition will also delete all associated data points.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relational dataset definition.</param>
@@ -807,7 +807,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteRelationalDatasetDefinition: Delete a Relational Dataset Definition Delete a relational dataset definition.
+        /// [EARLY ACCESS] DeleteRelationalDatasetDefinition: Delete a Relational Dataset Definition Delete a relational dataset definition.  WARNING! This operation is irreversible. Deleting a relational dataset definition will also delete all associated data points.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relational dataset definition.</param>
@@ -901,7 +901,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteRelationalDatasetDefinition: Delete a Relational Dataset Definition Delete a relational dataset definition.
+        /// [EARLY ACCESS] DeleteRelationalDatasetDefinition: Delete a Relational Dataset Definition Delete a relational dataset definition.  WARNING! This operation is irreversible. Deleting a relational dataset definition will also delete all associated data points.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relational dataset definition.</param>
@@ -917,7 +917,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteRelationalDatasetDefinition: Delete a Relational Dataset Definition Delete a relational dataset definition.
+        /// [EARLY ACCESS] DeleteRelationalDatasetDefinition: Delete a Relational Dataset Definition Delete a relational dataset definition.  WARNING! This operation is irreversible. Deleting a relational dataset definition will also delete all associated data points.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relational dataset definition.</param>

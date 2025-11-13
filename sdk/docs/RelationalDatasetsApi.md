@@ -129,7 +129,7 @@ catch (ApiException e)
 
 <a id="queryrelationaldata"></a>
 # **QueryRelationalData**
-> PagedResourceListOfRelationalDataPointResponse QueryRelationalData (string relationalDatasetDefinitionScope, string relationalDatasetDefinitionCode, QueryRelationalDatasetRequest queryRelationalDatasetRequest, DateTimeOffset? asAt = null, DateTimeOrCutLabel? effectiveAt = null, string? page = null, int? limit = null)
+> PagedResourceListOfRelationalDataPointResponse QueryRelationalData (string relationalDatasetDefinitionScope, string relationalDatasetDefinitionCode, DateTimeOffset? asAt = null, DateTimeOrCutLabel? effectiveAt = null, string? page = null, int? limit = null, QueryRelationalDatasetRequest? queryRelationalDatasetRequest = null)
 
 [EXPERIMENTAL] QueryRelationalData: Query Relational Data Points for a given Relational Dataset Definition.
 
@@ -176,19 +176,19 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<RelationalDatasetsApi>();
             var relationalDatasetDefinitionScope = "relationalDatasetDefinitionScope_example";  // string | The Scope of the relational dataset definition.
             var relationalDatasetDefinitionCode = "relationalDatasetDefinitionCode_example";  // string | The Code of the relational dataset definition.
-            var queryRelationalDatasetRequest = new QueryRelationalDatasetRequest(); // QueryRelationalDatasetRequest | The query request.
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the dataset(s). Defaults to returning the latest version of each dataset if not specified. (optional) 
             var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to query the datasets.              Defaults to the current LUSID system datetime if not specified. (optional) 
             var page = "page_example";  // string? | The pagination token to use to continue query datasets. This value is returned from the previous call.              If a pagination token is provided, the filter, customSortBy, effectiveAt and asAt fields must not have changed since the original request. (optional) 
             var limit = 56;  // int? | When paginating, limit the results to this number. Defaults to 100 if not specified. (optional) 
+            var queryRelationalDatasetRequest = new QueryRelationalDatasetRequest?(); // QueryRelationalDatasetRequest? | The query request. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // PagedResourceListOfRelationalDataPointResponse result = apiInstance.QueryRelationalData(relationalDatasetDefinitionScope, relationalDatasetDefinitionCode, queryRelationalDatasetRequest, asAt, effectiveAt, page, limit, opts: opts);
+                // PagedResourceListOfRelationalDataPointResponse result = apiInstance.QueryRelationalData(relationalDatasetDefinitionScope, relationalDatasetDefinitionCode, asAt, effectiveAt, page, limit, queryRelationalDatasetRequest, opts: opts);
 
                 // [EXPERIMENTAL] QueryRelationalData: Query Relational Data Points for a given Relational Dataset Definition.
-                PagedResourceListOfRelationalDataPointResponse result = apiInstance.QueryRelationalData(relationalDatasetDefinitionScope, relationalDatasetDefinitionCode, queryRelationalDatasetRequest, asAt, effectiveAt, page, limit);
+                PagedResourceListOfRelationalDataPointResponse result = apiInstance.QueryRelationalData(relationalDatasetDefinitionScope, relationalDatasetDefinitionCode, asAt, effectiveAt, page, limit, queryRelationalDatasetRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -209,7 +209,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] QueryRelationalData: Query Relational Data Points for a given Relational Dataset Definition.
-    ApiResponse<PagedResourceListOfRelationalDataPointResponse> response = apiInstance.QueryRelationalDataWithHttpInfo(relationalDatasetDefinitionScope, relationalDatasetDefinitionCode, queryRelationalDatasetRequest, asAt, effectiveAt, page, limit);
+    ApiResponse<PagedResourceListOfRelationalDataPointResponse> response = apiInstance.QueryRelationalDataWithHttpInfo(relationalDatasetDefinitionScope, relationalDatasetDefinitionCode, asAt, effectiveAt, page, limit, queryRelationalDatasetRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -228,11 +228,11 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **relationalDatasetDefinitionScope** | **string** | The Scope of the relational dataset definition. |  |
 | **relationalDatasetDefinitionCode** | **string** | The Code of the relational dataset definition. |  |
-| **queryRelationalDatasetRequest** | [**QueryRelationalDatasetRequest**](QueryRelationalDatasetRequest.md) | The query request. |  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the dataset(s). Defaults to returning the latest version of each dataset if not specified. | [optional]  |
 | **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to query the datasets.              Defaults to the current LUSID system datetime if not specified. | [optional]  |
 | **page** | **string?** | The pagination token to use to continue query datasets. This value is returned from the previous call.              If a pagination token is provided, the filter, customSortBy, effectiveAt and asAt fields must not have changed since the original request. | [optional]  |
 | **limit** | **int?** | When paginating, limit the results to this number. Defaults to 100 if not specified. | [optional]  |
+| **queryRelationalDatasetRequest** | [**QueryRelationalDatasetRequest?**](QueryRelationalDatasetRequest?.md) | The query request. | [optional]  |
 
 ### Return type
 

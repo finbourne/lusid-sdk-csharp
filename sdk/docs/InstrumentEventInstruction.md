@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **EntitlementDateInstructed** | **DateTimeOffset?** | The instructed entitlement date for the event (where none is set on the event itself) | [optional] 
 **QuantityInstructed** | [**QuantityInstructed**](QuantityInstructed.md) |  | [optional] 
 **TaxLotId** | **string** | For loan facility holding instructions, the tax lot id of the holding for which the instruction will apply | [optional] 
+**IgnoreCostImpact** | **bool** | For loan facility holding instructions, set this flag to &#39;true&#39; if you want the event to not impact cost. If you want to use this option, do not add multiple instructions to the same tax lot or you will get undefined behaviour. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -34,6 +35,7 @@ string href = "example href";
 QuantityInstructed? quantityInstructed = new QuantityInstructed();
 
 string taxLotId = "example taxLotId";
+bool ignoreCostImpact = //"True";
 List<Link> links = new List<Link>();
 
 InstrumentEventInstruction instrumentEventInstructionInstance = new InstrumentEventInstruction(
@@ -48,6 +50,7 @@ InstrumentEventInstruction instrumentEventInstructionInstance = new InstrumentEv
     entitlementDateInstructed: entitlementDateInstructed,
     quantityInstructed: quantityInstructed,
     taxLotId: taxLotId,
+    ignoreCostImpact: ignoreCostImpact,
     links: links);
 ```
 

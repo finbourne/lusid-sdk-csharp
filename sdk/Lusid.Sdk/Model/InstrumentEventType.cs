@@ -447,7 +447,13 @@ namespace Lusid.Sdk.Model
         /// Enum EarlyCloseOutEvent for value: EarlyCloseOutEvent
         /// </summary>
         [EnumMember(Value = "EarlyCloseOutEvent")]
-        EarlyCloseOutEvent = 70
+        EarlyCloseOutEvent = 70,
+
+        /// <summary>
+        /// Enum DepositRollEvent for value: DepositRollEvent
+        /// </summary>
+        [EnumMember(Value = "DepositRollEvent")]
+        DepositRollEvent = 71
     }
 
 }

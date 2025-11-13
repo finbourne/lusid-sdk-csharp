@@ -41,7 +41,7 @@ namespace Lusid.Sdk.Model
         /// <param name="displayName">The name of the Fund..</param>
         /// <param name="description">A description for the Fund..</param>
         /// <param name="baseCurrency">The base currency of the Fund in ISO 4217 currency code format. All portfolios must be of a matching base currency..</param>
-        /// <param name="investorStructure">The Investor structure to be used by the Fund. Supported values are &#39;NonUnitised&#39;, &#39;Classes&#39; and &#39;Custom&#39;. (required).</param>
+        /// <param name="investorStructure">The Investor structure to be used by the Fund. Supported values are &#39;NonUnitised&#39; and &#39;Classes&#39;. (required).</param>
         /// <param name="portfolioIds">A list of the portfolios on the fund, which are part of the Fund. Note: These must all have the same base currency, which must also much the Fund Base Currency..</param>
         /// <param name="fundConfigurationId">fundConfigurationId.</param>
         /// <param name="aborId">aborId.</param>
@@ -123,9 +123,9 @@ namespace Lusid.Sdk.Model
         public string BaseCurrency { get; set; }
 
         /// <summary>
-        /// The Investor structure to be used by the Fund. Supported values are &#39;NonUnitised&#39;, &#39;Classes&#39; and &#39;Custom&#39;.
+        /// The Investor structure to be used by the Fund. Supported values are &#39;NonUnitised&#39; and &#39;Classes&#39;.
         /// </summary>
-        /// <value>The Investor structure to be used by the Fund. Supported values are &#39;NonUnitised&#39;, &#39;Classes&#39; and &#39;Custom&#39;.</value>
+        /// <value>The Investor structure to be used by the Fund. Supported values are &#39;NonUnitised&#39; and &#39;Classes&#39;.</value>
         [DataMember(Name = "investorStructure", IsRequired = true, EmitDefaultValue = true)]
         public string InvestorStructure { get; set; }
 

@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **ValueFields** | [**Dictionary&lt;string, RelationalDataPointFieldValueResponse&gt;**](RelationalDataPointFieldValueResponse.md) | The values associated with the DataPoint, structured according to the FieldSchema of the parent RelationalDatasetDefinition. | 
 **MetaDataFields** | [**Dictionary&lt;string, RelationalDataPointFieldValueResponse&gt;**](RelationalDataPointFieldValueResponse.md) | The metadata associated with the DataPoint, structured according to the FieldSchema of the parent RelationalDatasetDefinition. | 
 **EffectiveAtEntered** | **string** | The effectiveAt datetime as entered when the DataPoint was created. | 
+**DataPointVersion** | [**DataPointVersion**](DataPointVersion.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -20,6 +21,8 @@ RelationalDataSeriesResponse dataSeries = new RelationalDataSeriesResponse();
 Dictionary<string, RelationalDataPointFieldValueResponse> valueFields = new Dictionary<string, RelationalDataPointFieldValueResponse>();
 Dictionary<string, RelationalDataPointFieldValueResponse> metaDataFields = new Dictionary<string, RelationalDataPointFieldValueResponse>();
 string effectiveAtEntered = "effectiveAtEntered";
+DataPointVersion? dataPointVersion = new DataPointVersion();
+
 
 RelationalDataPointResponse relationalDataPointResponseInstance = new RelationalDataPointResponse(
     relationalDatasetDefinitionId: relationalDatasetDefinitionId,
@@ -27,7 +30,8 @@ RelationalDataPointResponse relationalDataPointResponseInstance = new Relational
     effectiveAt: effectiveAt,
     valueFields: valueFields,
     metaDataFields: metaDataFields,
-    effectiveAtEntered: effectiveAtEntered);
+    effectiveAtEntered: effectiveAtEntered,
+    dataPointVersion: dataPointVersion);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

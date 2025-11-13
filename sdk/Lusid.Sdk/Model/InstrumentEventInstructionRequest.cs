@@ -44,7 +44,8 @@ namespace Lusid.Sdk.Model
         /// <param name="entitlementDateInstructed">The instructed entitlement date for the event (where none is set on the event itself).</param>
         /// <param name="quantityInstructed">quantityInstructed.</param>
         /// <param name="taxLotId">For loan facility holding instructions, the tax lot id of the holding for which the instruction will apply.</param>
-        public InstrumentEventInstructionRequest(string instrumentEventInstructionId = default(string), string instrumentEventId = default(string), string instructionType = default(string), string electionKey = default(string), long? holdingId = default(long?), DateTimeOffset? entitlementDateInstructed = default(DateTimeOffset?), QuantityInstructed quantityInstructed = default(QuantityInstructed), string taxLotId = default(string))
+        /// <param name="ignoreCostImpact">For loan facility holding instructions, set this flag to &#39;true&#39; if you want the event to not impact cost. If you want to use this option, do not add multiple instructions to the same tax lot or you will get undefined behaviour..</param>
+        public InstrumentEventInstructionRequest(string instrumentEventInstructionId = default(string), string instrumentEventId = default(string), string instructionType = default(string), string electionKey = default(string), long? holdingId = default(long?), DateTimeOffset? entitlementDateInstructed = default(DateTimeOffset?), QuantityInstructed quantityInstructed = default(QuantityInstructed), string taxLotId = default(string), bool ignoreCostImpact = default(bool))
         {
             // to ensure "instrumentEventInstructionId" is required (not null)
             if (instrumentEventInstructionId == null)
@@ -69,6 +70,7 @@ namespace Lusid.Sdk.Model
             this.EntitlementDateInstructed = entitlementDateInstructed;
             this.QuantityInstructed = quantityInstructed;
             this.TaxLotId = taxLotId;
+            this.IgnoreCostImpact = ignoreCostImpact;
         }
 
         /// <summary>
@@ -127,6 +129,13 @@ namespace Lusid.Sdk.Model
         public string TaxLotId { get; set; }
 
         /// <summary>
+        /// For loan facility holding instructions, set this flag to &#39;true&#39; if you want the event to not impact cost. If you want to use this option, do not add multiple instructions to the same tax lot or you will get undefined behaviour.
+        /// </summary>
+        /// <value>For loan facility holding instructions, set this flag to &#39;true&#39; if you want the event to not impact cost. If you want to use this option, do not add multiple instructions to the same tax lot or you will get undefined behaviour.</value>
+        [DataMember(Name = "ignoreCostImpact", EmitDefaultValue = true)]
+        public bool IgnoreCostImpact { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -142,6 +151,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  EntitlementDateInstructed: ").Append(EntitlementDateInstructed).Append("\n");
             sb.Append("  QuantityInstructed: ").Append(QuantityInstructed).Append("\n");
             sb.Append("  TaxLotId: ").Append(TaxLotId).Append("\n");
+            sb.Append("  IgnoreCostImpact: ").Append(IgnoreCostImpact).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -216,6 +226,10 @@ namespace Lusid.Sdk.Model
                     this.TaxLotId == input.TaxLotId ||
                     (this.TaxLotId != null &&
                     this.TaxLotId.Equals(input.TaxLotId))
+                ) && 
+                (
+                    this.IgnoreCostImpact == input.IgnoreCostImpact ||
+                    this.IgnoreCostImpact.Equals(input.IgnoreCostImpact)
                 );
         }
 
@@ -260,6 +274,7 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.TaxLotId.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.IgnoreCostImpact.GetHashCode();
                 return hashCode;
             }
         }
