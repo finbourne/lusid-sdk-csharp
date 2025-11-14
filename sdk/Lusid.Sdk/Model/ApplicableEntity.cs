@@ -41,7 +41,8 @@ namespace Lusid.Sdk.Model
         /// <param name="identifierScope">The scope of the identifier used to uniquely identify the entity..</param>
         /// <param name="identifierType">The type of identifier (e.g., Figi, Isin) used to uniquely identify the entity..</param>
         /// <param name="identifierValue">The value of the identifier used to uniquely identify the entity..</param>
-        public ApplicableEntity(string entityType = default(string), string entityScope = default(string), string identifierScope = default(string), string identifierType = default(string), string identifierValue = default(string))
+        /// <param name="subEntityId">An optional sub-entity identifier, if applicable..</param>
+        public ApplicableEntity(string entityType = default(string), string entityScope = default(string), string identifierScope = default(string), string identifierType = default(string), string identifierValue = default(string), string subEntityId = default(string))
         {
             // to ensure "entityType" is required (not null)
             if (entityType == null)
@@ -53,6 +54,7 @@ namespace Lusid.Sdk.Model
             this.IdentifierScope = identifierScope;
             this.IdentifierType = identifierType;
             this.IdentifierValue = identifierValue;
+            this.SubEntityId = subEntityId;
         }
 
         /// <summary>
@@ -91,6 +93,13 @@ namespace Lusid.Sdk.Model
         public string IdentifierValue { get; set; }
 
         /// <summary>
+        /// An optional sub-entity identifier, if applicable.
+        /// </summary>
+        /// <value>An optional sub-entity identifier, if applicable.</value>
+        [DataMember(Name = "subEntityId", EmitDefaultValue = true)]
+        public string SubEntityId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -103,6 +112,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  IdentifierScope: ").Append(IdentifierScope).Append("\n");
             sb.Append("  IdentifierType: ").Append(IdentifierType).Append("\n");
             sb.Append("  IdentifierValue: ").Append(IdentifierValue).Append("\n");
+            sb.Append("  SubEntityId: ").Append(SubEntityId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -162,6 +172,11 @@ namespace Lusid.Sdk.Model
                     this.IdentifierValue == input.IdentifierValue ||
                     (this.IdentifierValue != null &&
                     this.IdentifierValue.Equals(input.IdentifierValue))
+                ) && 
+                (
+                    this.SubEntityId == input.SubEntityId ||
+                    (this.SubEntityId != null &&
+                    this.SubEntityId.Equals(input.SubEntityId))
                 );
         }
 
@@ -193,6 +208,10 @@ namespace Lusid.Sdk.Model
                 if (this.IdentifierValue != null)
                 {
                     hashCode = (hashCode * 59) + this.IdentifierValue.GetHashCode();
+                }
+                if (this.SubEntityId != null)
+                {
+                    hashCode = (hashCode * 59) + this.SubEntityId.GetHashCode();
                 }
                 return hashCode;
             }
@@ -270,6 +289,18 @@ namespace Lusid.Sdk.Model
             if (this.IdentifierValue != null && this.IdentifierValue.Length < 0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for IdentifierValue, length must be greater than 0.", new [] { "IdentifierValue" });
+            }
+
+            // SubEntityId (string) maxLength
+            if (this.SubEntityId != null && this.SubEntityId.Length > 512)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SubEntityId, length must be less than 512.", new [] { "SubEntityId" });
+            }
+
+            // SubEntityId (string) minLength
+            if (this.SubEntityId != null && this.SubEntityId.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SubEntityId, length must be greater than 0.", new [] { "SubEntityId" });
             }
 
             yield break;
