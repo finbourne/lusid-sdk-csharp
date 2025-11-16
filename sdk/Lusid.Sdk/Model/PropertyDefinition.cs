@@ -825,8 +825,9 @@ namespace Lusid.Sdk.Model
         /// <param name="stagedModifications">stagedModifications.</param>
         /// <param name="isFilterable">Bool indicating whether the values of this property are fitlerable, this is true for all non-derived property defintions.  For a derived definition this must be set true to enable filtering..</param>
         /// <param name="customEntityTypes">The custom entity types that properties relating to this property definition can be applied to..</param>
+        /// <param name="valueFormat">The format in which values for this property definition should be represented..</param>
         /// <param name="links">links.</param>
-        public PropertyDefinition(string href = default(string), string key = default(string), ValueTypeEnum ?valueType = default(ValueTypeEnum?), string displayName = default(string), ResourceId dataTypeId = default(ResourceId), TypeEnum ?type = default(TypeEnum?), UnitSchemaEnum ?unitSchema = default(UnitSchemaEnum?), DomainEnum ?domain = default(DomainEnum?), bool valueRequired = default(bool), LifeTimeEnum ?lifeTime = default(LifeTimeEnum?), string constraintStyle = default(string), PropertyDefinitionTypeEnum ?propertyDefinitionType = default(PropertyDefinitionTypeEnum?), string propertyDescription = default(string), string derivationFormula = default(string), string collectionType = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion varVersion = default(ModelVersion), StagedModificationsInfo stagedModifications = default(StagedModificationsInfo), bool isFilterable = default(bool), List<string> customEntityTypes = default(List<string>), List<Link> links = default(List<Link>))
+        public PropertyDefinition(string href = default(string), string key = default(string), ValueTypeEnum ?valueType = default(ValueTypeEnum?), string displayName = default(string), ResourceId dataTypeId = default(ResourceId), TypeEnum ?type = default(TypeEnum?), UnitSchemaEnum ?unitSchema = default(UnitSchemaEnum?), DomainEnum ?domain = default(DomainEnum?), bool valueRequired = default(bool), LifeTimeEnum ?lifeTime = default(LifeTimeEnum?), string constraintStyle = default(string), PropertyDefinitionTypeEnum ?propertyDefinitionType = default(PropertyDefinitionTypeEnum?), string propertyDescription = default(string), string derivationFormula = default(string), string collectionType = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion varVersion = default(ModelVersion), StagedModificationsInfo stagedModifications = default(StagedModificationsInfo), bool isFilterable = default(bool), List<string> customEntityTypes = default(List<string>), string valueFormat = default(string), List<Link> links = default(List<Link>))
         {
             this.Href = href;
             this.Key = key;
@@ -848,6 +849,7 @@ namespace Lusid.Sdk.Model
             this.StagedModifications = stagedModifications;
             this.IsFilterable = isFilterable;
             this.CustomEntityTypes = customEntityTypes;
+            this.ValueFormat = valueFormat;
             this.Links = links;
         }
 
@@ -977,6 +979,13 @@ namespace Lusid.Sdk.Model
         public List<string> CustomEntityTypes { get; set; }
 
         /// <summary>
+        /// The format in which values for this property definition should be represented.
+        /// </summary>
+        /// <value>The format in which values for this property definition should be represented.</value>
+        [DataMember(Name = "valueFormat", EmitDefaultValue = true)]
+        public string ValueFormat { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -1012,6 +1021,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  StagedModifications: ").Append(StagedModifications).Append("\n");
             sb.Append("  IsFilterable: ").Append(IsFilterable).Append("\n");
             sb.Append("  CustomEntityTypes: ").Append(CustomEntityTypes).Append("\n");
+            sb.Append("  ValueFormat: ").Append(ValueFormat).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -1153,6 +1163,11 @@ namespace Lusid.Sdk.Model
                     this.CustomEntityTypes.SequenceEqual(input.CustomEntityTypes)
                 ) && 
                 (
+                    this.ValueFormat == input.ValueFormat ||
+                    (this.ValueFormat != null &&
+                    this.ValueFormat.Equals(input.ValueFormat))
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -1232,6 +1247,10 @@ namespace Lusid.Sdk.Model
                 if (this.CustomEntityTypes != null)
                 {
                     hashCode = (hashCode * 59) + this.CustomEntityTypes.GetHashCode();
+                }
+                if (this.ValueFormat != null)
+                {
+                    hashCode = (hashCode * 59) + this.ValueFormat.GetHashCode();
                 }
                 if (this.Links != null)
                 {

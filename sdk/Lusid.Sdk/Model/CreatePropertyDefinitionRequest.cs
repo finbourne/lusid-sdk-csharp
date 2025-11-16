@@ -587,7 +587,8 @@ namespace Lusid.Sdk.Model
         /// <param name="propertyDescription">Describes the property.</param>
         /// <param name="collectionType">Describes whether a collection property should behave as a set or as an array..</param>
         /// <param name="customEntityTypes">The custom entity types that properties relating to this property definition can be applied to..</param>
-        public CreatePropertyDefinitionRequest(DomainEnum domain = default(DomainEnum), string scope = default(string), string code = default(string), bool valueRequired = default(bool), string displayName = default(string), ResourceId dataTypeId = default(ResourceId), LifeTimeEnum ?lifeTime = default(LifeTimeEnum?), string constraintStyle = default(string), string propertyDescription = default(string), string collectionType = default(string), List<string> customEntityTypes = default(List<string>))
+        /// <param name="valueFormat">The format in which values for this property definition should be represented..</param>
+        public CreatePropertyDefinitionRequest(DomainEnum domain = default(DomainEnum), string scope = default(string), string code = default(string), bool valueRequired = default(bool), string displayName = default(string), ResourceId dataTypeId = default(ResourceId), LifeTimeEnum ?lifeTime = default(LifeTimeEnum?), string constraintStyle = default(string), string propertyDescription = default(string), string collectionType = default(string), List<string> customEntityTypes = default(List<string>), string valueFormat = default(string))
         {
             this.Domain = domain;
             // to ensure "scope" is required (not null)
@@ -620,6 +621,7 @@ namespace Lusid.Sdk.Model
             this.PropertyDescription = propertyDescription;
             this.CollectionType = collectionType;
             this.CustomEntityTypes = customEntityTypes;
+            this.ValueFormat = valueFormat;
         }
 
         /// <summary>
@@ -685,6 +687,13 @@ namespace Lusid.Sdk.Model
         public List<string> CustomEntityTypes { get; set; }
 
         /// <summary>
+        /// The format in which values for this property definition should be represented.
+        /// </summary>
+        /// <value>The format in which values for this property definition should be represented.</value>
+        [DataMember(Name = "valueFormat", EmitDefaultValue = true)]
+        public string ValueFormat { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -703,6 +712,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  PropertyDescription: ").Append(PropertyDescription).Append("\n");
             sb.Append("  CollectionType: ").Append(CollectionType).Append("\n");
             sb.Append("  CustomEntityTypes: ").Append(CustomEntityTypes).Append("\n");
+            sb.Append("  ValueFormat: ").Append(ValueFormat).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -790,6 +800,11 @@ namespace Lusid.Sdk.Model
                     this.CustomEntityTypes != null &&
                     input.CustomEntityTypes != null &&
                     this.CustomEntityTypes.SequenceEqual(input.CustomEntityTypes)
+                ) && 
+                (
+                    this.ValueFormat == input.ValueFormat ||
+                    (this.ValueFormat != null &&
+                    this.ValueFormat.Equals(input.ValueFormat))
                 );
         }
 
@@ -837,6 +852,10 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.CustomEntityTypes.GetHashCode();
                 }
+                if (this.ValueFormat != null)
+                {
+                    hashCode = (hashCode * 59) + this.ValueFormat.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -858,6 +877,18 @@ namespace Lusid.Sdk.Model
             if (this.PropertyDescription != null && this.PropertyDescription.Length > 512)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PropertyDescription, length must be less than 512.", new [] { "PropertyDescription" });
+            }
+
+            // ValueFormat (string) maxLength
+            if (this.ValueFormat != null && this.ValueFormat.Length > 512)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ValueFormat, length must be less than 512.", new [] { "ValueFormat" });
+            }
+
+            // ValueFormat (string) minLength
+            if (this.ValueFormat != null && this.ValueFormat.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ValueFormat, length must be greater than 0.", new [] { "ValueFormat" });
             }
 
             yield break;

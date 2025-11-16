@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **PropertyDescription** | **string** | Describes the property | [optional] 
 **CollectionType** | **string** | Describes whether a collection property should behave as a set or as an array. | [optional] 
 **CustomEntityTypes** | **List&lt;string&gt;** | The custom entity types that properties relating to this property definition can be applied to. | [optional] 
+**ValueFormat** | **string** | The format in which values for this property definition should be represented. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -31,6 +32,7 @@ string constraintStyle = "example constraintStyle";
 string propertyDescription = "example propertyDescription";
 string collectionType = "example collectionType";
 List<string> customEntityTypes = new List<string>();
+string valueFormat = "example valueFormat";
 
 CreatePropertyDefinitionRequest createPropertyDefinitionRequestInstance = new CreatePropertyDefinitionRequest(
     domain: domain,
@@ -43,7 +45,8 @@ CreatePropertyDefinitionRequest createPropertyDefinitionRequestInstance = new Cr
     constraintStyle: constraintStyle,
     propertyDescription: propertyDescription,
     collectionType: collectionType,
-    customEntityTypes: customEntityTypes);
+    customEntityTypes: customEntityTypes,
+    valueFormat: valueFormat);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
