@@ -32,14 +32,16 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="DerivedPropertyComponent" /> class.
         /// </summary>
         /// <param name="component">The component of the formula which is being evaluated..</param>
+        /// <param name="displayName">The display name of the component being evaluated..</param>
         /// <param name="type">The type of the formula component. This can be a Literal, Variable, DerivedProperty, or PartialFormula..</param>
         /// <param name="value">value.</param>
         /// <param name="derivationFormula">The derivation formula of the component. This field will only be populated if the component is a derived property..</param>
         /// <param name="subComponents">Any sub-components of this formula. If this formula cannot be further decomposed, this collection will be null..</param>
         /// <param name="links">links.</param>
-        public DerivedPropertyComponent(string component = default(string), string type = default(string), PropertyValue value = default(PropertyValue), string derivationFormula = default(string), List<DerivedPropertyComponent> subComponents = default(List<DerivedPropertyComponent>), List<Link> links = default(List<Link>))
+        public DerivedPropertyComponent(string component = default(string), string displayName = default(string), string type = default(string), PropertyValue value = default(PropertyValue), string derivationFormula = default(string), List<DerivedPropertyComponent> subComponents = default(List<DerivedPropertyComponent>), List<Link> links = default(List<Link>))
         {
             this.Component = component;
+            this.DisplayName = displayName;
             this.Type = type;
             this.Value = value;
             this.DerivationFormula = derivationFormula;
@@ -53,6 +55,13 @@ namespace Lusid.Sdk.Model
         /// <value>The component of the formula which is being evaluated.</value>
         [DataMember(Name = "component", EmitDefaultValue = true)]
         public string Component { get; set; }
+
+        /// <summary>
+        /// The display name of the component being evaluated.
+        /// </summary>
+        /// <value>The display name of the component being evaluated.</value>
+        [DataMember(Name = "displayName", EmitDefaultValue = true)]
+        public string DisplayName { get; set; }
 
         /// <summary>
         /// The type of the formula component. This can be a Literal, Variable, DerivedProperty, or PartialFormula.
@@ -96,6 +105,7 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class DerivedPropertyComponent {\n");
             sb.Append("  Component: ").Append(Component).Append("\n");
+            sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("  DerivationFormula: ").Append(DerivationFormula).Append("\n");
@@ -142,6 +152,11 @@ namespace Lusid.Sdk.Model
                     this.Component.Equals(input.Component))
                 ) && 
                 (
+                    this.DisplayName == input.DisplayName ||
+                    (this.DisplayName != null &&
+                    this.DisplayName.Equals(input.DisplayName))
+                ) && 
+                (
                     this.Type == input.Type ||
                     (this.Type != null &&
                     this.Type.Equals(input.Type))
@@ -182,6 +197,10 @@ namespace Lusid.Sdk.Model
                 if (this.Component != null)
                 {
                     hashCode = (hashCode * 59) + this.Component.GetHashCode();
+                }
+                if (this.DisplayName != null)
+                {
+                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
                 }
                 if (this.Type != null)
                 {

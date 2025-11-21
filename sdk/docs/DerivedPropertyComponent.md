@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Component** | **string** | The component of the formula which is being evaluated. | [optional] 
+**DisplayName** | **string** | The display name of the component being evaluated. | [optional] 
 **Type** | **string** | The type of the formula component. This can be a Literal, Variable, DerivedProperty, or PartialFormula. | [optional] 
 **Value** | [**PropertyValue**](PropertyValue.md) |  | [optional] 
 **DerivationFormula** | **string** | The derivation formula of the component. This field will only be populated if the component is a derived property. | [optional] 
@@ -16,6 +17,7 @@ using Lusid.Sdk.Model;
 using System;
 
 string component = "example component";
+string displayName = "example displayName";
 string type = "example type";
 PropertyValue? value = new PropertyValue();
 
@@ -25,6 +27,7 @@ List<Link> links = new List<Link>();
 
 DerivedPropertyComponent derivedPropertyComponentInstance = new DerivedPropertyComponent(
     component: component,
+    displayName: displayName,
     type: type,
     value: value,
     derivationFormula: derivationFormula,

@@ -235,6 +235,39 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
         Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteFundWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EXPERIMENTAL] DeleteNavActivityAdjustments: Delete Nav activity adjustments.
+        /// </summary>
+        /// <remarks>
+        /// Delete Nav activity adjustments on a Valuation Point.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope is the unique identifier for the given Fund.</param>
+        /// <param name="valuationPointCode">The valuation point Code to delete the adjustment from</param>
+        /// <param name="navTypeCode">The Nav Type Code to delete the adjustment from</param>
+        /// <param name="navActivityAdjustment">The request describing the Nav activity adjustments to delete from a specific valuation point and nav type</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>DeletedEntityResponse</returns>
+        DeletedEntityResponse DeleteNavActivityAdjustments(string scope, string code, string valuationPointCode, string navTypeCode, List<NavActivityAdjustment> navActivityAdjustment, int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] DeleteNavActivityAdjustments: Delete Nav activity adjustments.
+        /// </summary>
+        /// <remarks>
+        /// Delete Nav activity adjustments on a Valuation Point.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope is the unique identifier for the given Fund.</param>
+        /// <param name="valuationPointCode">The valuation point Code to delete the adjustment from</param>
+        /// <param name="navTypeCode">The Nav Type Code to delete the adjustment from</param>
+        /// <param name="navActivityAdjustment">The request describing the Nav activity adjustments to delete from a specific valuation point and nav type</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of DeletedEntityResponse</returns>
+        Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteNavActivityAdjustmentsWithHttpInfo(string scope, string code, string valuationPointCode, string navTypeCode, List<NavActivityAdjustment> navActivityAdjustment, int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EXPERIMENTAL] DeleteValuationPoint: Delete a Valuation Point.
         /// </summary>
         /// <remarks>
@@ -827,6 +860,43 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of PagedResourceListOfFund</returns>
         Lusid.Sdk.Client.ApiResponse<PagedResourceListOfFund> ListFundsWithHttpInfo(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EXPERIMENTAL] ListNavActivityAdjustments: List NAV adjustment activities applied to a valuation point
+        /// </summary>
+        /// <remarks>
+        /// Lists the NAV adjustment activities applied to the specified valuation point for a Fund.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope is the unique identifier for the given Fund.</param>
+        /// <param name="valuationPointCode">Fetch all NAV adjustment activities for this valuation point.</param>
+        /// <param name="navTypeCode">Fetch all NAV adjustment activities for this Nav type.</param>
+        /// <param name="asAt">The asAt datetime at which to list the Nav activity adjustments. Defaults to returning the latest version of each adjustment if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Nav activity adjustments; this              value is returned from the previous call. If a pagination token is provided, the filter,              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ResourceListOfNavActivityAdjustment</returns>
+        ResourceListOfNavActivityAdjustment ListNavActivityAdjustments(string scope, string code, string valuationPointCode, string navTypeCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] ListNavActivityAdjustments: List NAV adjustment activities applied to a valuation point
+        /// </summary>
+        /// <remarks>
+        /// Lists the NAV adjustment activities applied to the specified valuation point for a Fund.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope is the unique identifier for the given Fund.</param>
+        /// <param name="valuationPointCode">Fetch all NAV adjustment activities for this valuation point.</param>
+        /// <param name="navTypeCode">Fetch all NAV adjustment activities for this Nav type.</param>
+        /// <param name="asAt">The asAt datetime at which to list the Nav activity adjustments. Defaults to returning the latest version of each adjustment if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Nav activity adjustments; this              value is returned from the previous call. If a pagination token is provided, the filter,              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of ResourceListOfNavActivityAdjustment</returns>
+        Lusid.Sdk.Client.ApiResponse<ResourceListOfNavActivityAdjustment> ListNavActivityAdjustmentsWithHttpInfo(string scope, string code, string valuationPointCode, string navTypeCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EXPERIMENTAL] ListValuationPointOverview: List Valuation Points Overview for a given Fund.
         /// </summary>
         /// <remarks>
@@ -1078,6 +1148,39 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of FundProperties</returns>
         Lusid.Sdk.Client.ApiResponse<FundProperties> UpsertFundPropertiesWithHttpInfo(string scope, string code, Dictionary<string, Property>? requestBody = default(Dictionary<string, Property>?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] UpsertNavActivityAdjustments: Upsert NAV adjustment activities to a valuation point
+        /// </summary>
+        /// <remarks>
+        /// Upserts the NAV adjustment activities to the specified valuation point for a Fund.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope is the unique identifier for the given Fund.</param>
+        /// <param name="valuationPointCode">The valuation point Code to apply the adjustment to</param>
+        /// <param name="navTypeCode">The Nav Type Code to apply the adjustment to</param>
+        /// <param name="navActivityAdjustment">The request describing the Nav activity adjustments to apply to a specific valuation point and nav type</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>DateTimeOffset</returns>
+        DateTimeOffset UpsertNavActivityAdjustments(string scope, string code, string valuationPointCode, string navTypeCode, List<NavActivityAdjustment> navActivityAdjustment, int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] UpsertNavActivityAdjustments: Upsert NAV adjustment activities to a valuation point
+        /// </summary>
+        /// <remarks>
+        /// Upserts the NAV adjustment activities to the specified valuation point for a Fund.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope is the unique identifier for the given Fund.</param>
+        /// <param name="valuationPointCode">The valuation point Code to apply the adjustment to</param>
+        /// <param name="navTypeCode">The Nav Type Code to apply the adjustment to</param>
+        /// <param name="navActivityAdjustment">The request describing the Nav activity adjustments to apply to a specific valuation point and nav type</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of DateTimeOffset</returns>
+        Lusid.Sdk.Client.ApiResponse<DateTimeOffset> UpsertNavActivityAdjustmentsWithHttpInfo(string scope, string code, string valuationPointCode, string navTypeCode, List<NavActivityAdjustment> navActivityAdjustment, int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -1304,6 +1407,41 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteFundWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] DeleteNavActivityAdjustments: Delete Nav activity adjustments.
+        /// </summary>
+        /// <remarks>
+        /// Delete Nav activity adjustments on a Valuation Point.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope is the unique identifier for the given Fund.</param>
+        /// <param name="valuationPointCode">The valuation point Code to delete the adjustment from</param>
+        /// <param name="navTypeCode">The Nav Type Code to delete the adjustment from</param>
+        /// <param name="navActivityAdjustment">The request describing the Nav activity adjustments to delete from a specific valuation point and nav type</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of DeletedEntityResponse</returns>
+        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteNavActivityAdjustmentsAsync(string scope, string code, string valuationPointCode, string navTypeCode, List<NavActivityAdjustment> navActivityAdjustment, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] DeleteNavActivityAdjustments: Delete Nav activity adjustments.
+        /// </summary>
+        /// <remarks>
+        /// Delete Nav activity adjustments on a Valuation Point.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope is the unique identifier for the given Fund.</param>
+        /// <param name="valuationPointCode">The valuation point Code to delete the adjustment from</param>
+        /// <param name="navTypeCode">The Nav Type Code to delete the adjustment from</param>
+        /// <param name="navActivityAdjustment">The request describing the Nav activity adjustments to delete from a specific valuation point and nav type</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteNavActivityAdjustmentsWithHttpInfoAsync(string scope, string code, string valuationPointCode, string navTypeCode, List<NavActivityAdjustment> navActivityAdjustment, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] DeleteValuationPoint: Delete a Valuation Point.
         /// </summary>
@@ -1929,6 +2067,45 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (PagedResourceListOfFund)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfFund>> ListFundsWithHttpInfoAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EXPERIMENTAL] ListNavActivityAdjustments: List NAV adjustment activities applied to a valuation point
+        /// </summary>
+        /// <remarks>
+        /// Lists the NAV adjustment activities applied to the specified valuation point for a Fund.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope is the unique identifier for the given Fund.</param>
+        /// <param name="valuationPointCode">Fetch all NAV adjustment activities for this valuation point.</param>
+        /// <param name="navTypeCode">Fetch all NAV adjustment activities for this Nav type.</param>
+        /// <param name="asAt">The asAt datetime at which to list the Nav activity adjustments. Defaults to returning the latest version of each adjustment if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Nav activity adjustments; this              value is returned from the previous call. If a pagination token is provided, the filter,              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ResourceListOfNavActivityAdjustment</returns>
+        System.Threading.Tasks.Task<ResourceListOfNavActivityAdjustment> ListNavActivityAdjustmentsAsync(string scope, string code, string valuationPointCode, string navTypeCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] ListNavActivityAdjustments: List NAV adjustment activities applied to a valuation point
+        /// </summary>
+        /// <remarks>
+        /// Lists the NAV adjustment activities applied to the specified valuation point for a Fund.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope is the unique identifier for the given Fund.</param>
+        /// <param name="valuationPointCode">Fetch all NAV adjustment activities for this valuation point.</param>
+        /// <param name="navTypeCode">Fetch all NAV adjustment activities for this Nav type.</param>
+        /// <param name="asAt">The asAt datetime at which to list the Nav activity adjustments. Defaults to returning the latest version of each adjustment if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Nav activity adjustments; this              value is returned from the previous call. If a pagination token is provided, the filter,              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (ResourceListOfNavActivityAdjustment)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfNavActivityAdjustment>> ListNavActivityAdjustmentsWithHttpInfoAsync(string scope, string code, string valuationPointCode, string navTypeCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EXPERIMENTAL] ListValuationPointOverview: List Valuation Points Overview for a given Fund.
         /// </summary>
         /// <remarks>
@@ -2196,6 +2373,41 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (FundProperties)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<FundProperties>> UpsertFundPropertiesWithHttpInfoAsync(string scope, string code, Dictionary<string, Property>? requestBody = default(Dictionary<string, Property>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] UpsertNavActivityAdjustments: Upsert NAV adjustment activities to a valuation point
+        /// </summary>
+        /// <remarks>
+        /// Upserts the NAV adjustment activities to the specified valuation point for a Fund.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope is the unique identifier for the given Fund.</param>
+        /// <param name="valuationPointCode">The valuation point Code to apply the adjustment to</param>
+        /// <param name="navTypeCode">The Nav Type Code to apply the adjustment to</param>
+        /// <param name="navActivityAdjustment">The request describing the Nav activity adjustments to apply to a specific valuation point and nav type</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of DateTimeOffset</returns>
+        System.Threading.Tasks.Task<DateTimeOffset> UpsertNavActivityAdjustmentsAsync(string scope, string code, string valuationPointCode, string navTypeCode, List<NavActivityAdjustment> navActivityAdjustment, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] UpsertNavActivityAdjustments: Upsert NAV adjustment activities to a valuation point
+        /// </summary>
+        /// <remarks>
+        /// Upserts the NAV adjustment activities to the specified valuation point for a Fund.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope is the unique identifier for the given Fund.</param>
+        /// <param name="valuationPointCode">The valuation point Code to apply the adjustment to</param>
+        /// <param name="navTypeCode">The Nav Type Code to apply the adjustment to</param>
+        /// <param name="navActivityAdjustment">The request describing the Nav activity adjustments to apply to a specific valuation point and nav type</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (DateTimeOffset)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DateTimeOffset>> UpsertNavActivityAdjustmentsWithHttpInfoAsync(string scope, string code, string valuationPointCode, string navTypeCode, List<NavActivityAdjustment> navActivityAdjustment, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -4007,6 +4219,290 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteFund", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] DeleteNavActivityAdjustments: Delete Nav activity adjustments. Delete Nav activity adjustments on a Valuation Point.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope is the unique identifier for the given Fund.</param>
+        /// <param name="valuationPointCode">The valuation point Code to delete the adjustment from</param>
+        /// <param name="navTypeCode">The Nav Type Code to delete the adjustment from</param>
+        /// <param name="navActivityAdjustment">The request describing the Nav activity adjustments to delete from a specific valuation point and nav type</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>DeletedEntityResponse</returns>
+        public DeletedEntityResponse DeleteNavActivityAdjustments(string scope, string code, string valuationPointCode, string navTypeCode, List<NavActivityAdjustment> navActivityAdjustment, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteNavActivityAdjustmentsWithHttpInfo(scope, code, valuationPointCode, navTypeCode, navActivityAdjustment, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] DeleteNavActivityAdjustments: Delete Nav activity adjustments. Delete Nav activity adjustments on a Valuation Point.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope is the unique identifier for the given Fund.</param>
+        /// <param name="valuationPointCode">The valuation point Code to delete the adjustment from</param>
+        /// <param name="navTypeCode">The Nav Type Code to delete the adjustment from</param>
+        /// <param name="navActivityAdjustment">The request describing the Nav activity adjustments to delete from a specific valuation point and nav type</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of DeletedEntityResponse</returns>
+        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteNavActivityAdjustmentsWithHttpInfo(string scope, string code, string valuationPointCode, string navTypeCode, List<NavActivityAdjustment> navActivityAdjustment, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling FundsApi->DeleteNavActivityAdjustments");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling FundsApi->DeleteNavActivityAdjustments");
+            }
+
+            // verify the required parameter 'valuationPointCode' is set
+            if (valuationPointCode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'valuationPointCode' when calling FundsApi->DeleteNavActivityAdjustments");
+            }
+
+            // verify the required parameter 'navTypeCode' is set
+            if (navTypeCode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'navTypeCode' when calling FundsApi->DeleteNavActivityAdjustments");
+            }
+
+            // verify the required parameter 'navActivityAdjustment' is set
+            if (navActivityAdjustment == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'navActivityAdjustment' when calling FundsApi->DeleteNavActivityAdjustments");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "valuationPointCode", valuationPointCode));
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "navTypeCode", navTypeCode));
+            localVarRequestOptions.Data = navActivityAdjustment;
+
+            localVarRequestOptions.Operation = "FundsApi.DeleteNavActivityAdjustments";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<DeletedEntityResponse>("/api/funds/{scope}/{code}/navAdjustment/$delete", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteNavActivityAdjustments", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] DeleteNavActivityAdjustments: Delete Nav activity adjustments. Delete Nav activity adjustments on a Valuation Point.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope is the unique identifier for the given Fund.</param>
+        /// <param name="valuationPointCode">The valuation point Code to delete the adjustment from</param>
+        /// <param name="navTypeCode">The Nav Type Code to delete the adjustment from</param>
+        /// <param name="navActivityAdjustment">The request describing the Nav activity adjustments to delete from a specific valuation point and nav type</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of DeletedEntityResponse</returns>
+        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteNavActivityAdjustmentsAsync(string scope, string code, string valuationPointCode, string navTypeCode, List<NavActivityAdjustment> navActivityAdjustment, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteNavActivityAdjustmentsWithHttpInfoAsync(scope, code, valuationPointCode, navTypeCode, navActivityAdjustment, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] DeleteNavActivityAdjustments: Delete Nav activity adjustments. Delete Nav activity adjustments on a Valuation Point.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope is the unique identifier for the given Fund.</param>
+        /// <param name="valuationPointCode">The valuation point Code to delete the adjustment from</param>
+        /// <param name="navTypeCode">The Nav Type Code to delete the adjustment from</param>
+        /// <param name="navActivityAdjustment">The request describing the Nav activity adjustments to delete from a specific valuation point and nav type</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteNavActivityAdjustmentsWithHttpInfoAsync(string scope, string code, string valuationPointCode, string navTypeCode, List<NavActivityAdjustment> navActivityAdjustment, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling FundsApi->DeleteNavActivityAdjustments");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling FundsApi->DeleteNavActivityAdjustments");
+            }
+
+            // verify the required parameter 'valuationPointCode' is set
+            if (valuationPointCode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'valuationPointCode' when calling FundsApi->DeleteNavActivityAdjustments");
+            }
+
+            // verify the required parameter 'navTypeCode' is set
+            if (navTypeCode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'navTypeCode' when calling FundsApi->DeleteNavActivityAdjustments");
+            }
+
+            // verify the required parameter 'navActivityAdjustment' is set
+            if (navActivityAdjustment == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'navActivityAdjustment' when calling FundsApi->DeleteNavActivityAdjustments");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "valuationPointCode", valuationPointCode));
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "navTypeCode", navTypeCode));
+            localVarRequestOptions.Data = navActivityAdjustment;
+
+            localVarRequestOptions.Operation = "FundsApi.DeleteNavActivityAdjustments";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<DeletedEntityResponse>("/api/funds/{scope}/{code}/navAdjustment/$delete", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteNavActivityAdjustments", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -8706,6 +9202,303 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
+        /// [EXPERIMENTAL] ListNavActivityAdjustments: List NAV adjustment activities applied to a valuation point Lists the NAV adjustment activities applied to the specified valuation point for a Fund.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope is the unique identifier for the given Fund.</param>
+        /// <param name="valuationPointCode">Fetch all NAV adjustment activities for this valuation point.</param>
+        /// <param name="navTypeCode">Fetch all NAV adjustment activities for this Nav type.</param>
+        /// <param name="asAt">The asAt datetime at which to list the Nav activity adjustments. Defaults to returning the latest version of each adjustment if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Nav activity adjustments; this              value is returned from the previous call. If a pagination token is provided, the filter,              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ResourceListOfNavActivityAdjustment</returns>
+        public ResourceListOfNavActivityAdjustment ListNavActivityAdjustments(string scope, string code, string valuationPointCode, string navTypeCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfNavActivityAdjustment> localVarResponse = ListNavActivityAdjustmentsWithHttpInfo(scope, code, valuationPointCode, navTypeCode, asAt, page, limit, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ListNavActivityAdjustments: List NAV adjustment activities applied to a valuation point Lists the NAV adjustment activities applied to the specified valuation point for a Fund.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope is the unique identifier for the given Fund.</param>
+        /// <param name="valuationPointCode">Fetch all NAV adjustment activities for this valuation point.</param>
+        /// <param name="navTypeCode">Fetch all NAV adjustment activities for this Nav type.</param>
+        /// <param name="asAt">The asAt datetime at which to list the Nav activity adjustments. Defaults to returning the latest version of each adjustment if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Nav activity adjustments; this              value is returned from the previous call. If a pagination token is provided, the filter,              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of ResourceListOfNavActivityAdjustment</returns>
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfNavActivityAdjustment> ListNavActivityAdjustmentsWithHttpInfo(string scope, string code, string valuationPointCode, string navTypeCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling FundsApi->ListNavActivityAdjustments");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling FundsApi->ListNavActivityAdjustments");
+            }
+
+            // verify the required parameter 'valuationPointCode' is set
+            if (valuationPointCode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'valuationPointCode' when calling FundsApi->ListNavActivityAdjustments");
+            }
+
+            // verify the required parameter 'navTypeCode' is set
+            if (navTypeCode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'navTypeCode' when calling FundsApi->ListNavActivityAdjustments");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "valuationPointCode", valuationPointCode));
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "navTypeCode", navTypeCode));
+            if (asAt != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (page != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (limit != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+
+            localVarRequestOptions.Operation = "FundsApi.ListNavActivityAdjustments";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<ResourceListOfNavActivityAdjustment>("/api/funds/{scope}/{code}/navAdjustment", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListNavActivityAdjustments", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ListNavActivityAdjustments: List NAV adjustment activities applied to a valuation point Lists the NAV adjustment activities applied to the specified valuation point for a Fund.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope is the unique identifier for the given Fund.</param>
+        /// <param name="valuationPointCode">Fetch all NAV adjustment activities for this valuation point.</param>
+        /// <param name="navTypeCode">Fetch all NAV adjustment activities for this Nav type.</param>
+        /// <param name="asAt">The asAt datetime at which to list the Nav activity adjustments. Defaults to returning the latest version of each adjustment if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Nav activity adjustments; this              value is returned from the previous call. If a pagination token is provided, the filter,              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ResourceListOfNavActivityAdjustment</returns>
+        public async System.Threading.Tasks.Task<ResourceListOfNavActivityAdjustment> ListNavActivityAdjustmentsAsync(string scope, string code, string valuationPointCode, string navTypeCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfNavActivityAdjustment> localVarResponse = await ListNavActivityAdjustmentsWithHttpInfoAsync(scope, code, valuationPointCode, navTypeCode, asAt, page, limit, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ListNavActivityAdjustments: List NAV adjustment activities applied to a valuation point Lists the NAV adjustment activities applied to the specified valuation point for a Fund.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope is the unique identifier for the given Fund.</param>
+        /// <param name="valuationPointCode">Fetch all NAV adjustment activities for this valuation point.</param>
+        /// <param name="navTypeCode">Fetch all NAV adjustment activities for this Nav type.</param>
+        /// <param name="asAt">The asAt datetime at which to list the Nav activity adjustments. Defaults to returning the latest version of each adjustment if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Nav activity adjustments; this              value is returned from the previous call. If a pagination token is provided, the filter,              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (ResourceListOfNavActivityAdjustment)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfNavActivityAdjustment>> ListNavActivityAdjustmentsWithHttpInfoAsync(string scope, string code, string valuationPointCode, string navTypeCode, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling FundsApi->ListNavActivityAdjustments");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling FundsApi->ListNavActivityAdjustments");
+            }
+
+            // verify the required parameter 'valuationPointCode' is set
+            if (valuationPointCode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'valuationPointCode' when calling FundsApi->ListNavActivityAdjustments");
+            }
+
+            // verify the required parameter 'navTypeCode' is set
+            if (navTypeCode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'navTypeCode' when calling FundsApi->ListNavActivityAdjustments");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "valuationPointCode", valuationPointCode));
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "navTypeCode", navTypeCode));
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+
+            localVarRequestOptions.Operation = "FundsApi.ListNavActivityAdjustments";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<ResourceListOfNavActivityAdjustment>("/api/funds/{scope}/{code}/navAdjustment", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListNavActivityAdjustments", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// [EXPERIMENTAL] ListValuationPointOverview: List Valuation Points Overview for a given Fund. List the overview of all the Valuation Points that match the given criteria for a given Fund.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
@@ -10783,6 +11576,290 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpsertFundProperties", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] UpsertNavActivityAdjustments: Upsert NAV adjustment activities to a valuation point Upserts the NAV adjustment activities to the specified valuation point for a Fund.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope is the unique identifier for the given Fund.</param>
+        /// <param name="valuationPointCode">The valuation point Code to apply the adjustment to</param>
+        /// <param name="navTypeCode">The Nav Type Code to apply the adjustment to</param>
+        /// <param name="navActivityAdjustment">The request describing the Nav activity adjustments to apply to a specific valuation point and nav type</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>DateTimeOffset</returns>
+        public DateTimeOffset UpsertNavActivityAdjustments(string scope, string code, string valuationPointCode, string navTypeCode, List<NavActivityAdjustment> navActivityAdjustment, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<DateTimeOffset> localVarResponse = UpsertNavActivityAdjustmentsWithHttpInfo(scope, code, valuationPointCode, navTypeCode, navActivityAdjustment, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] UpsertNavActivityAdjustments: Upsert NAV adjustment activities to a valuation point Upserts the NAV adjustment activities to the specified valuation point for a Fund.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope is the unique identifier for the given Fund.</param>
+        /// <param name="valuationPointCode">The valuation point Code to apply the adjustment to</param>
+        /// <param name="navTypeCode">The Nav Type Code to apply the adjustment to</param>
+        /// <param name="navActivityAdjustment">The request describing the Nav activity adjustments to apply to a specific valuation point and nav type</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of DateTimeOffset</returns>
+        public Lusid.Sdk.Client.ApiResponse<DateTimeOffset> UpsertNavActivityAdjustmentsWithHttpInfo(string scope, string code, string valuationPointCode, string navTypeCode, List<NavActivityAdjustment> navActivityAdjustment, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling FundsApi->UpsertNavActivityAdjustments");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling FundsApi->UpsertNavActivityAdjustments");
+            }
+
+            // verify the required parameter 'valuationPointCode' is set
+            if (valuationPointCode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'valuationPointCode' when calling FundsApi->UpsertNavActivityAdjustments");
+            }
+
+            // verify the required parameter 'navTypeCode' is set
+            if (navTypeCode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'navTypeCode' when calling FundsApi->UpsertNavActivityAdjustments");
+            }
+
+            // verify the required parameter 'navActivityAdjustment' is set
+            if (navActivityAdjustment == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'navActivityAdjustment' when calling FundsApi->UpsertNavActivityAdjustments");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "valuationPointCode", valuationPointCode));
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "navTypeCode", navTypeCode));
+            localVarRequestOptions.Data = navActivityAdjustment;
+
+            localVarRequestOptions.Operation = "FundsApi.UpsertNavActivityAdjustments";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<DateTimeOffset>("/api/funds/{scope}/{code}/navAdjustment", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpsertNavActivityAdjustments", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] UpsertNavActivityAdjustments: Upsert NAV adjustment activities to a valuation point Upserts the NAV adjustment activities to the specified valuation point for a Fund.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope is the unique identifier for the given Fund.</param>
+        /// <param name="valuationPointCode">The valuation point Code to apply the adjustment to</param>
+        /// <param name="navTypeCode">The Nav Type Code to apply the adjustment to</param>
+        /// <param name="navActivityAdjustment">The request describing the Nav activity adjustments to apply to a specific valuation point and nav type</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of DateTimeOffset</returns>
+        public async System.Threading.Tasks.Task<DateTimeOffset> UpsertNavActivityAdjustmentsAsync(string scope, string code, string valuationPointCode, string navTypeCode, List<NavActivityAdjustment> navActivityAdjustment, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<DateTimeOffset> localVarResponse = await UpsertNavActivityAdjustmentsWithHttpInfoAsync(scope, code, valuationPointCode, navTypeCode, navActivityAdjustment, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] UpsertNavActivityAdjustments: Upsert NAV adjustment activities to a valuation point Upserts the NAV adjustment activities to the specified valuation point for a Fund.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope is the unique identifier for the given Fund.</param>
+        /// <param name="valuationPointCode">The valuation point Code to apply the adjustment to</param>
+        /// <param name="navTypeCode">The Nav Type Code to apply the adjustment to</param>
+        /// <param name="navActivityAdjustment">The request describing the Nav activity adjustments to apply to a specific valuation point and nav type</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (DateTimeOffset)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DateTimeOffset>> UpsertNavActivityAdjustmentsWithHttpInfoAsync(string scope, string code, string valuationPointCode, string navTypeCode, List<NavActivityAdjustment> navActivityAdjustment, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling FundsApi->UpsertNavActivityAdjustments");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling FundsApi->UpsertNavActivityAdjustments");
+            }
+
+            // verify the required parameter 'valuationPointCode' is set
+            if (valuationPointCode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'valuationPointCode' when calling FundsApi->UpsertNavActivityAdjustments");
+            }
+
+            // verify the required parameter 'navTypeCode' is set
+            if (navTypeCode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'navTypeCode' when calling FundsApi->UpsertNavActivityAdjustments");
+            }
+
+            // verify the required parameter 'navActivityAdjustment' is set
+            if (navActivityAdjustment == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'navActivityAdjustment' when calling FundsApi->UpsertNavActivityAdjustments");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "valuationPointCode", valuationPointCode));
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "navTypeCode", navTypeCode));
+            localVarRequestOptions.Data = navActivityAdjustment;
+
+            localVarRequestOptions.Operation = "FundsApi.UpsertNavActivityAdjustments";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<DateTimeOffset>("/api/funds/{scope}/{code}/navAdjustment", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpsertNavActivityAdjustments", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

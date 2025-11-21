@@ -40,7 +40,8 @@ namespace Lusid.Sdk.Model
         /// <param name="scope">The scope of the unique identifier associated with the Custom Data Model. (required).</param>
         /// <param name="code">The code of the unique identifier associated with the Custom Data Model. (required).</param>
         /// <param name="displayName">The name of the Custom Data Model. (required).</param>
-        public MembershipAndStatus(string status = default(string), string scope = default(string), string code = default(string), string displayName = default(string))
+        /// <param name="validationFailures">A list of validation failures returned when the entity&#39;s status with respect to the current model is &#39;Invalid&#39; or &#39;Inadmissible&#39; (required).</param>
+        public MembershipAndStatus(string status = default(string), string scope = default(string), string code = default(string), string displayName = default(string), List<string> validationFailures = default(List<string>))
         {
             // to ensure "status" is required (not null)
             if (status == null)
@@ -66,6 +67,12 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("displayName is a required property for MembershipAndStatus and cannot be null");
             }
             this.DisplayName = displayName;
+            // to ensure "validationFailures" is required (not null)
+            if (validationFailures == null)
+            {
+                throw new ArgumentNullException("validationFailures is a required property for MembershipAndStatus and cannot be null");
+            }
+            this.ValidationFailures = validationFailures;
         }
 
         /// <summary>
@@ -97,6 +104,13 @@ namespace Lusid.Sdk.Model
         public string DisplayName { get; set; }
 
         /// <summary>
+        /// A list of validation failures returned when the entity&#39;s status with respect to the current model is &#39;Invalid&#39; or &#39;Inadmissible&#39;
+        /// </summary>
+        /// <value>A list of validation failures returned when the entity&#39;s status with respect to the current model is &#39;Invalid&#39; or &#39;Inadmissible&#39;</value>
+        [DataMember(Name = "validationFailures", IsRequired = true, EmitDefaultValue = true)]
+        public List<string> ValidationFailures { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -108,6 +122,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Scope: ").Append(Scope).Append("\n");
             sb.Append("  Code: ").Append(Code).Append("\n");
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
+            sb.Append("  ValidationFailures: ").Append(ValidationFailures).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -162,6 +177,12 @@ namespace Lusid.Sdk.Model
                     this.DisplayName == input.DisplayName ||
                     (this.DisplayName != null &&
                     this.DisplayName.Equals(input.DisplayName))
+                ) && 
+                (
+                    this.ValidationFailures == input.ValidationFailures ||
+                    this.ValidationFailures != null &&
+                    input.ValidationFailures != null &&
+                    this.ValidationFailures.SequenceEqual(input.ValidationFailures)
                 );
         }
 
@@ -189,6 +210,10 @@ namespace Lusid.Sdk.Model
                 if (this.DisplayName != null)
                 {
                     hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
+                }
+                if (this.ValidationFailures != null)
+                {
+                    hashCode = (hashCode * 59) + this.ValidationFailures.GetHashCode();
                 }
                 return hashCode;
             }
