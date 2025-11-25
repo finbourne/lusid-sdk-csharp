@@ -1,4 +1,4 @@
-# Lusid.Sdk.Model.UpsertRelationalDataPointDataSeries
+# Lusid.Sdk.Model.DataSeries
 
 ## Properties
 
@@ -16,7 +16,7 @@ string seriesScope = "seriesScope";
 ApplicableEntity applicableEntity = new ApplicableEntity();
 Dictionary<string, Object> seriesIdentifiers = new Dictionary<string, Object>();
 
-UpsertRelationalDataPointDataSeries upsertRelationalDataPointDataSeriesInstance = new UpsertRelationalDataPointDataSeries(
+DataSeries dataSeriesInstance = new DataSeries(
     seriesScope: seriesScope,
     applicableEntity: applicableEntity,
     seriesIdentifiers: seriesIdentifiers);

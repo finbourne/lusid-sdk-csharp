@@ -36,18 +36,18 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UpsertRelationalDataPointRequest" /> class.
         /// </summary>
-        /// <param name="dataPointDataSeries">dataPointDataSeries (required).</param>
+        /// <param name="dataSeries">dataSeries (required).</param>
         /// <param name="effectiveAt">The effectiveAt or cut-label datetime of the DataPoint. (required).</param>
         /// <param name="valueFields">The values associated with the DataPoint, structured according to the FieldSchema of the parent RelationalDatasetDefinition. (required).</param>
         /// <param name="metaDataFields">The metadata associated with the DataPoint, structured according to the FieldSchema of the parent RelationalDatasetDefinition..</param>
-        public UpsertRelationalDataPointRequest(UpsertRelationalDataPointDataSeries dataPointDataSeries = default(UpsertRelationalDataPointDataSeries), string effectiveAt = default(string), Dictionary<string, Object> valueFields = default(Dictionary<string, Object>), Dictionary<string, Object> metaDataFields = default(Dictionary<string, Object>))
+        public UpsertRelationalDataPointRequest(DataSeries dataSeries = default(DataSeries), string effectiveAt = default(string), Dictionary<string, Object> valueFields = default(Dictionary<string, Object>), Dictionary<string, Object> metaDataFields = default(Dictionary<string, Object>))
         {
-            // to ensure "dataPointDataSeries" is required (not null)
-            if (dataPointDataSeries == null)
+            // to ensure "dataSeries" is required (not null)
+            if (dataSeries == null)
             {
-                throw new ArgumentNullException("dataPointDataSeries is a required property for UpsertRelationalDataPointRequest and cannot be null");
+                throw new ArgumentNullException("dataSeries is a required property for UpsertRelationalDataPointRequest and cannot be null");
             }
-            this.DataPointDataSeries = dataPointDataSeries;
+            this.DataSeries = dataSeries;
             // to ensure "effectiveAt" is required (not null)
             if (effectiveAt == null)
             {
@@ -64,10 +64,10 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// Gets or Sets DataPointDataSeries
+        /// Gets or Sets DataSeries
         /// </summary>
-        [DataMember(Name = "dataPointDataSeries", IsRequired = true, EmitDefaultValue = true)]
-        public UpsertRelationalDataPointDataSeries DataPointDataSeries { get; set; }
+        [DataMember(Name = "dataSeries", IsRequired = true, EmitDefaultValue = true)]
+        public DataSeries DataSeries { get; set; }
 
         /// <summary>
         /// The effectiveAt or cut-label datetime of the DataPoint.
@@ -98,7 +98,7 @@ namespace Lusid.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class UpsertRelationalDataPointRequest {\n");
-            sb.Append("  DataPointDataSeries: ").Append(DataPointDataSeries).Append("\n");
+            sb.Append("  DataSeries: ").Append(DataSeries).Append("\n");
             sb.Append("  EffectiveAt: ").Append(EffectiveAt).Append("\n");
             sb.Append("  ValueFields: ").Append(ValueFields).Append("\n");
             sb.Append("  MetaDataFields: ").Append(MetaDataFields).Append("\n");
@@ -138,9 +138,9 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
-                    this.DataPointDataSeries == input.DataPointDataSeries ||
-                    (this.DataPointDataSeries != null &&
-                    this.DataPointDataSeries.Equals(input.DataPointDataSeries))
+                    this.DataSeries == input.DataSeries ||
+                    (this.DataSeries != null &&
+                    this.DataSeries.Equals(input.DataSeries))
                 ) && 
                 (
                     this.EffectiveAt == input.EffectiveAt ||
@@ -170,9 +170,9 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.DataPointDataSeries != null)
+                if (this.DataSeries != null)
                 {
-                    hashCode = (hashCode * 59) + this.DataPointDataSeries.GetHashCode();
+                    hashCode = (hashCode * 59) + this.DataSeries.GetHashCode();
                 }
                 if (this.EffectiveAt != null)
                 {

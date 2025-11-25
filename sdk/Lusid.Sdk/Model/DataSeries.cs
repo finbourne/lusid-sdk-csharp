@@ -23,34 +23,34 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// UpsertRelationalDataPointDataSeries
+    /// DataSeries
     /// </summary>
-    [DataContract(Name = "UpsertRelationalDataPointDataSeries")]
-    public partial class UpsertRelationalDataPointDataSeries : IEquatable<UpsertRelationalDataPointDataSeries>, IValidatableObject
+    [DataContract(Name = "DataSeries")]
+    public partial class DataSeries : IEquatable<DataSeries>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UpsertRelationalDataPointDataSeries" /> class.
+        /// Initializes a new instance of the <see cref="DataSeries" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected UpsertRelationalDataPointDataSeries() { }
+        protected DataSeries() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="UpsertRelationalDataPointDataSeries" /> class.
+        /// Initializes a new instance of the <see cref="DataSeries" /> class.
         /// </summary>
         /// <param name="seriesScope">The scope of the DataSeries. (required).</param>
         /// <param name="applicableEntity">applicableEntity (required).</param>
         /// <param name="seriesIdentifiers">The identifiers that uniquely define this DataSeries, if any, structured according to the FieldSchema of the parent RelationalDatasetDefinition..</param>
-        public UpsertRelationalDataPointDataSeries(string seriesScope = default(string), ApplicableEntity applicableEntity = default(ApplicableEntity), Dictionary<string, Object> seriesIdentifiers = default(Dictionary<string, Object>))
+        public DataSeries(string seriesScope = default(string), ApplicableEntity applicableEntity = default(ApplicableEntity), Dictionary<string, Object> seriesIdentifiers = default(Dictionary<string, Object>))
         {
             // to ensure "seriesScope" is required (not null)
             if (seriesScope == null)
             {
-                throw new ArgumentNullException("seriesScope is a required property for UpsertRelationalDataPointDataSeries and cannot be null");
+                throw new ArgumentNullException("seriesScope is a required property for DataSeries and cannot be null");
             }
             this.SeriesScope = seriesScope;
             // to ensure "applicableEntity" is required (not null)
             if (applicableEntity == null)
             {
-                throw new ArgumentNullException("applicableEntity is a required property for UpsertRelationalDataPointDataSeries and cannot be null");
+                throw new ArgumentNullException("applicableEntity is a required property for DataSeries and cannot be null");
             }
             this.ApplicableEntity = applicableEntity;
             this.SeriesIdentifiers = seriesIdentifiers;
@@ -83,7 +83,7 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class UpsertRelationalDataPointDataSeries {\n");
+            sb.Append("class DataSeries {\n");
             sb.Append("  SeriesScope: ").Append(SeriesScope).Append("\n");
             sb.Append("  ApplicableEntity: ").Append(ApplicableEntity).Append("\n");
             sb.Append("  SeriesIdentifiers: ").Append(SeriesIdentifiers).Append("\n");
@@ -107,15 +107,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as UpsertRelationalDataPointDataSeries);
+            return this.Equals(input as DataSeries);
         }
 
         /// <summary>
-        /// Returns true if UpsertRelationalDataPointDataSeries instances are equal
+        /// Returns true if DataSeries instances are equal
         /// </summary>
-        /// <param name="input">Instance of UpsertRelationalDataPointDataSeries to be compared</param>
+        /// <param name="input">Instance of DataSeries to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UpsertRelationalDataPointDataSeries input)
+        public bool Equals(DataSeries input)
         {
             if (input == null)
             {

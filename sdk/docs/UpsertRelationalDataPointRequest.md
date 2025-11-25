@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DataPointDataSeries** | [**UpsertRelationalDataPointDataSeries**](UpsertRelationalDataPointDataSeries.md) |  | 
+**DataSeries** | [**DataSeries**](DataSeries.md) |  | 
 **EffectiveAt** | **string** | The effectiveAt or cut-label datetime of the DataPoint. | 
 **ValueFields** | **Dictionary&lt;string, Object&gt;** | The values associated with the DataPoint, structured according to the FieldSchema of the parent RelationalDatasetDefinition. | 
 **MetaDataFields** | **Dictionary&lt;string, Object&gt;** | The metadata associated with the DataPoint, structured according to the FieldSchema of the parent RelationalDatasetDefinition. | [optional] 
@@ -13,13 +13,13 @@ Name | Type | Description | Notes
 using Lusid.Sdk.Model;
 using System;
 
-UpsertRelationalDataPointDataSeries dataPointDataSeries = new UpsertRelationalDataPointDataSeries();
+DataSeries dataSeries = new DataSeries();
 string effectiveAt = "effectiveAt";
 Dictionary<string, Object> valueFields = new Dictionary<string, Object>();
 Dictionary<string, Object> metaDataFields = new Dictionary<string, Object>();
 
 UpsertRelationalDataPointRequest upsertRelationalDataPointRequestInstance = new UpsertRelationalDataPointRequest(
-    dataPointDataSeries: dataPointDataSeries,
+    dataSeries: dataSeries,
     effectiveAt: effectiveAt,
     valueFields: valueFields,
     metaDataFields: metaDataFields);
