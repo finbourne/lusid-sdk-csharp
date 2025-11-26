@@ -42,7 +42,7 @@ namespace Lusid.Sdk.Model
         /// <param name="datasetSchema">datasetSchema.</param>
         /// <param name="ruleSets">A collection of rule sets for the Check Definition. (required).</param>
         /// <param name="properties">A set of properties for the Check Definition..</param>
-        public CreateCheckDefinitionRequest(ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), CheckDefinitionDatasetSchema datasetSchema = default(CheckDefinitionDatasetSchema), List<CheckDefinitionRuleSet> ruleSets = default(List<CheckDefinitionRuleSet>), Dictionary<string, Property> properties = default(Dictionary<string, Property>))
+        public CreateCheckDefinitionRequest(ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), CheckDefinitionDatasetSchema datasetSchema = default(CheckDefinitionDatasetSchema), List<UpdateCheckDefinitionRuleSet> ruleSets = default(List<UpdateCheckDefinitionRuleSet>), Dictionary<string, Property> properties = default(Dictionary<string, Property>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -103,7 +103,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <value>A collection of rule sets for the Check Definition.</value>
         [DataMember(Name = "ruleSets", IsRequired = true, EmitDefaultValue = true)]
-        public List<CheckDefinitionRuleSet> RuleSets { get; set; }
+        public List<UpdateCheckDefinitionRuleSet> RuleSets { get; set; }
 
         /// <summary>
         /// A set of properties for the Check Definition.

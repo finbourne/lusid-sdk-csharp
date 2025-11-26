@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **DisplayName** | **string** | The name of the Check Definition. | 
 **Description** | **string** | A description for the Check Definition. | 
 **DatasetSchema** | [**CheckDefinitionDatasetSchema**](CheckDefinitionDatasetSchema.md) |  | [optional] 
-**RuleSets** | [**List&lt;CheckDefinitionRuleSet&gt;**](CheckDefinitionRuleSet.md) | A collection of rule sets for the Check Definition. | 
+**RuleSets** | [**List&lt;UpdateCheckDefinitionRuleSet&gt;**](UpdateCheckDefinitionRuleSet.md) | A collection of rule sets for the Check Definition. | 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | A set of properties for the Check Definition. | [optional] 
 
 ```csharp
@@ -18,7 +18,7 @@ string displayName = "displayName";
 string description = "description";
 CheckDefinitionDatasetSchema? datasetSchema = new CheckDefinitionDatasetSchema();
 
-List<CheckDefinitionRuleSet> ruleSets = new List<CheckDefinitionRuleSet>();
+List<UpdateCheckDefinitionRuleSet> ruleSets = new List<UpdateCheckDefinitionRuleSet>();
 Dictionary<string, Property> properties = new Dictionary<string, Property>();
 
 UpdateCheckDefinitionRequest updateCheckDefinitionRequestInstance = new UpdateCheckDefinitionRequest(

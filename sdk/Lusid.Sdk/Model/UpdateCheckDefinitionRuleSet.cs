@@ -23,81 +23,53 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// UpdateCheckDefinitionRequest
+    /// UpdateCheckDefinitionRuleSet
     /// </summary>
-    [DataContract(Name = "UpdateCheckDefinitionRequest")]
-    public partial class UpdateCheckDefinitionRequest : IEquatable<UpdateCheckDefinitionRequest>, IValidatableObject
+    [DataContract(Name = "UpdateCheckDefinitionRuleSet")]
+    public partial class UpdateCheckDefinitionRuleSet : IEquatable<UpdateCheckDefinitionRuleSet>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UpdateCheckDefinitionRequest" /> class.
+        /// Initializes a new instance of the <see cref="UpdateCheckDefinitionRuleSet" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected UpdateCheckDefinitionRequest() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="UpdateCheckDefinitionRequest" /> class.
-        /// </summary>
-        /// <param name="displayName">The name of the Check Definition. (required).</param>
-        /// <param name="description">A description for the Check Definition. (required).</param>
-        /// <param name="datasetSchema">datasetSchema.</param>
-        /// <param name="ruleSets">A collection of rule sets for the Check Definition. (required).</param>
-        /// <param name="properties">A set of properties for the Check Definition..</param>
-        public UpdateCheckDefinitionRequest(string displayName = default(string), string description = default(string), CheckDefinitionDatasetSchema datasetSchema = default(CheckDefinitionDatasetSchema), List<UpdateCheckDefinitionRuleSet> ruleSets = default(List<UpdateCheckDefinitionRuleSet>), Dictionary<string, Property> properties = default(Dictionary<string, Property>))
+        /// <param name="ruleSetKey">The Key of the Rule Set..</param>
+        /// <param name="displayName">The name of the Rule Set..</param>
+        /// <param name="description">A description for the Rule Set..</param>
+        /// <param name="ruleSetFilter">A filter for the Rule Set to filter entity instances the rule set applies to..</param>
+        public UpdateCheckDefinitionRuleSet(string ruleSetKey = default(string), string displayName = default(string), string description = default(string), string ruleSetFilter = default(string))
         {
-            // to ensure "displayName" is required (not null)
-            if (displayName == null)
-            {
-                throw new ArgumentNullException("displayName is a required property for UpdateCheckDefinitionRequest and cannot be null");
-            }
+            this.RuleSetKey = ruleSetKey;
             this.DisplayName = displayName;
-            // to ensure "description" is required (not null)
-            if (description == null)
-            {
-                throw new ArgumentNullException("description is a required property for UpdateCheckDefinitionRequest and cannot be null");
-            }
             this.Description = description;
-            // to ensure "ruleSets" is required (not null)
-            if (ruleSets == null)
-            {
-                throw new ArgumentNullException("ruleSets is a required property for UpdateCheckDefinitionRequest and cannot be null");
-            }
-            this.RuleSets = ruleSets;
-            this.DatasetSchema = datasetSchema;
-            this.Properties = properties;
+            this.RuleSetFilter = ruleSetFilter;
         }
 
         /// <summary>
-        /// The name of the Check Definition.
+        /// The Key of the Rule Set.
         /// </summary>
-        /// <value>The name of the Check Definition.</value>
-        [DataMember(Name = "displayName", IsRequired = true, EmitDefaultValue = true)]
+        /// <value>The Key of the Rule Set.</value>
+        [DataMember(Name = "ruleSetKey", EmitDefaultValue = true)]
+        public string RuleSetKey { get; set; }
+
+        /// <summary>
+        /// The name of the Rule Set.
+        /// </summary>
+        /// <value>The name of the Rule Set.</value>
+        [DataMember(Name = "displayName", EmitDefaultValue = true)]
         public string DisplayName { get; set; }
 
         /// <summary>
-        /// A description for the Check Definition.
+        /// A description for the Rule Set.
         /// </summary>
-        /// <value>A description for the Check Definition.</value>
-        [DataMember(Name = "description", IsRequired = true, EmitDefaultValue = true)]
+        /// <value>A description for the Rule Set.</value>
+        [DataMember(Name = "description", EmitDefaultValue = true)]
         public string Description { get; set; }
 
         /// <summary>
-        /// Gets or Sets DatasetSchema
+        /// A filter for the Rule Set to filter entity instances the rule set applies to.
         /// </summary>
-        [DataMember(Name = "datasetSchema", EmitDefaultValue = false)]
-        public CheckDefinitionDatasetSchema DatasetSchema { get; set; }
-
-        /// <summary>
-        /// A collection of rule sets for the Check Definition.
-        /// </summary>
-        /// <value>A collection of rule sets for the Check Definition.</value>
-        [DataMember(Name = "ruleSets", IsRequired = true, EmitDefaultValue = true)]
-        public List<UpdateCheckDefinitionRuleSet> RuleSets { get; set; }
-
-        /// <summary>
-        /// A set of properties for the Check Definition.
-        /// </summary>
-        /// <value>A set of properties for the Check Definition.</value>
-        [DataMember(Name = "properties", EmitDefaultValue = true)]
-        public Dictionary<string, Property> Properties { get; set; }
+        /// <value>A filter for the Rule Set to filter entity instances the rule set applies to.</value>
+        [DataMember(Name = "ruleSetFilter", EmitDefaultValue = true)]
+        public string RuleSetFilter { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -106,12 +78,11 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class UpdateCheckDefinitionRequest {\n");
+            sb.Append("class UpdateCheckDefinitionRuleSet {\n");
+            sb.Append("  RuleSetKey: ").Append(RuleSetKey).Append("\n");
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
-            sb.Append("  DatasetSchema: ").Append(DatasetSchema).Append("\n");
-            sb.Append("  RuleSets: ").Append(RuleSets).Append("\n");
-            sb.Append("  Properties: ").Append(Properties).Append("\n");
+            sb.Append("  RuleSetFilter: ").Append(RuleSetFilter).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -132,21 +103,26 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as UpdateCheckDefinitionRequest);
+            return this.Equals(input as UpdateCheckDefinitionRuleSet);
         }
 
         /// <summary>
-        /// Returns true if UpdateCheckDefinitionRequest instances are equal
+        /// Returns true if UpdateCheckDefinitionRuleSet instances are equal
         /// </summary>
-        /// <param name="input">Instance of UpdateCheckDefinitionRequest to be compared</param>
+        /// <param name="input">Instance of UpdateCheckDefinitionRuleSet to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UpdateCheckDefinitionRequest input)
+        public bool Equals(UpdateCheckDefinitionRuleSet input)
         {
             if (input == null)
             {
                 return false;
             }
             return 
+                (
+                    this.RuleSetKey == input.RuleSetKey ||
+                    (this.RuleSetKey != null &&
+                    this.RuleSetKey.Equals(input.RuleSetKey))
+                ) && 
                 (
                     this.DisplayName == input.DisplayName ||
                     (this.DisplayName != null &&
@@ -158,21 +134,9 @@ namespace Lusid.Sdk.Model
                     this.Description.Equals(input.Description))
                 ) && 
                 (
-                    this.DatasetSchema == input.DatasetSchema ||
-                    (this.DatasetSchema != null &&
-                    this.DatasetSchema.Equals(input.DatasetSchema))
-                ) && 
-                (
-                    this.RuleSets == input.RuleSets ||
-                    this.RuleSets != null &&
-                    input.RuleSets != null &&
-                    this.RuleSets.SequenceEqual(input.RuleSets)
-                ) && 
-                (
-                    this.Properties == input.Properties ||
-                    this.Properties != null &&
-                    input.Properties != null &&
-                    this.Properties.SequenceEqual(input.Properties)
+                    this.RuleSetFilter == input.RuleSetFilter ||
+                    (this.RuleSetFilter != null &&
+                    this.RuleSetFilter.Equals(input.RuleSetFilter))
                 );
         }
 
@@ -185,6 +149,10 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.RuleSetKey != null)
+                {
+                    hashCode = (hashCode * 59) + this.RuleSetKey.GetHashCode();
+                }
                 if (this.DisplayName != null)
                 {
                     hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
@@ -193,17 +161,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Description.GetHashCode();
                 }
-                if (this.DatasetSchema != null)
+                if (this.RuleSetFilter != null)
                 {
-                    hashCode = (hashCode * 59) + this.DatasetSchema.GetHashCode();
-                }
-                if (this.RuleSets != null)
-                {
-                    hashCode = (hashCode * 59) + this.RuleSets.GetHashCode();
-                }
-                if (this.Properties != null)
-                {
-                    hashCode = (hashCode * 59) + this.Properties.GetHashCode();
+                    hashCode = (hashCode * 59) + this.RuleSetFilter.GetHashCode();
                 }
                 return hashCode;
             }
@@ -216,6 +176,18 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // RuleSetKey (string) maxLength
+            if (this.RuleSetKey != null && this.RuleSetKey.Length > 50)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RuleSetKey, length must be less than 50.", new [] { "RuleSetKey" });
+            }
+
+            // RuleSetKey (string) minLength
+            if (this.RuleSetKey != null && this.RuleSetKey.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RuleSetKey, length must be greater than 0.", new [] { "RuleSetKey" });
+            }
+
             // DisplayName (string) maxLength
             if (this.DisplayName != null && this.DisplayName.Length > 512)
             {
@@ -242,9 +214,9 @@ namespace Lusid.Sdk.Model
             }
 
             // Description (string) minLength
-            if (this.Description != null && this.Description.Length < 0)
+            if (this.Description != null && this.Description.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be greater than 0.", new [] { "Description" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be greater than 1.", new [] { "Description" });
             }
 
             // Description (string) pattern
@@ -252,6 +224,25 @@ namespace Lusid.Sdk.Model
             if (false == regexDescription.Match(this.Description).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, must match a pattern of " + regexDescription, new [] { "Description" });
+            }
+
+            // RuleSetFilter (string) maxLength
+            if (this.RuleSetFilter != null && this.RuleSetFilter.Length > 16384)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RuleSetFilter, length must be less than 16384.", new [] { "RuleSetFilter" });
+            }
+
+            // RuleSetFilter (string) minLength
+            if (this.RuleSetFilter != null && this.RuleSetFilter.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RuleSetFilter, length must be greater than 0.", new [] { "RuleSetFilter" });
+            }
+
+            // RuleSetFilter (string) pattern
+            Regex regexRuleSetFilter = new Regex(@"^[\s\S]*$", RegexOptions.CultureInvariant);
+            if (false == regexRuleSetFilter.Match(this.RuleSetFilter).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RuleSetFilter, must match a pattern of " + regexRuleSetFilter, new [] { "RuleSetFilter" });
             }
 
             yield break;

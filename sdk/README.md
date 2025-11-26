@@ -1886,6 +1886,7 @@ Class | Method | HTTP request | Description
  - [UpdateAmortisationRuleSetDetailsRequest](docs/UpdateAmortisationRuleSetDetailsRequest.md)
  - [UpdateCalendarRequest](docs/UpdateCalendarRequest.md)
  - [UpdateCheckDefinitionRequest](docs/UpdateCheckDefinitionRequest.md)
+ - [UpdateCheckDefinitionRuleSet](docs/UpdateCheckDefinitionRuleSet.md)
  - [UpdateComplianceTemplateRequest](docs/UpdateComplianceTemplateRequest.md)
  - [UpdateCustomDataModelRequest](docs/UpdateCustomDataModelRequest.md)
  - [UpdateCustomEntityDefinitionRequest](docs/UpdateCustomEntityDefinitionRequest.md)
