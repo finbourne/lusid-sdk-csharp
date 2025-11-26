@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **BuyerReceivesCorporateActionPayments** | **bool** | Does the buyer of the FlexibleRepo receive any dividend or cash payments as the result of a corporate action  on any of the collateral instruments, or are these amounts paid to the seller.  Referred to as \&quot;manufactured payments\&quot; in the UK, and valid only under a repo with GMRA in Europe | 
 **CollateralInstruments** | [**List&lt;CollateralInstrument&gt;**](CollateralInstrument.md) | List of any collateral instruments. | [optional] 
 **CollateralValue** | **decimal?** | Total value of the collateral before any margin or haircut applied.  Can be provided instead of PurchasePrice, so that PurchasePrice can be inferred from the CollateralValue and one of  Haircut or Margin. | [optional] 
+**DeferManufacturedPayments** | **bool** | Indicates whether manufactured collateral payments are capitalised (i.e. deferred). Capitalised payments will  be deferred to the maturity date of the repo and if applicable interest will be accrued at the repo rate.  Defaults to false. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -17,12 +18,14 @@ using System;
 bool buyerReceivesCashflows = //"True";
 bool buyerReceivesCorporateActionPayments = //"True";
 List<CollateralInstrument> collateralInstruments = new List<CollateralInstrument>();
+bool deferManufacturedPayments = //"True";
 
 Collateral collateralInstance = new Collateral(
     buyerReceivesCashflows: buyerReceivesCashflows,
     buyerReceivesCorporateActionPayments: buyerReceivesCorporateActionPayments,
     collateralInstruments: collateralInstruments,
-    collateralValue: collateralValue);
+    collateralValue: collateralValue,
+    deferManufacturedPayments: deferManufacturedPayments);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

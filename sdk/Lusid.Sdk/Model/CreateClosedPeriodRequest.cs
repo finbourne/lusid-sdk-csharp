@@ -43,7 +43,8 @@ namespace Lusid.Sdk.Model
         /// <param name="displayName">The name of the Closed Period..</param>
         /// <param name="description">A description for the Closed Period..</param>
         /// <param name="holdingsAsAtClosedOverride">The optional AsAtClosed Override to use for building holdings in the Closed Period.If not specified, the AsAtClosed on the Closed Period will be used..</param>
-        public CreateClosedPeriodRequest(string closedPeriodId = default(string), DateTimeOffset effectiveEnd = default(DateTimeOffset), Dictionary<string, Property> properties = default(Dictionary<string, Property>), DateTimeOffset? asAtClosed = default(DateTimeOffset?), string displayName = default(string), string description = default(string), DateTimeOffset? holdingsAsAtClosedOverride = default(DateTimeOffset?))
+        /// <param name="valuationAsAtClosedOverride">The optional AsAtClosed Override to use for performing valuations in the Closed Period.If not specified, the AsAtClosed on the Closed Period will be used..</param>
+        public CreateClosedPeriodRequest(string closedPeriodId = default(string), DateTimeOffset effectiveEnd = default(DateTimeOffset), Dictionary<string, Property> properties = default(Dictionary<string, Property>), DateTimeOffset? asAtClosed = default(DateTimeOffset?), string displayName = default(string), string description = default(string), DateTimeOffset? holdingsAsAtClosedOverride = default(DateTimeOffset?), DateTimeOffset? valuationAsAtClosedOverride = default(DateTimeOffset?))
         {
             // to ensure "closedPeriodId" is required (not null)
             if (closedPeriodId == null)
@@ -57,6 +58,7 @@ namespace Lusid.Sdk.Model
             this.DisplayName = displayName;
             this.Description = description;
             this.HoldingsAsAtClosedOverride = holdingsAsAtClosedOverride;
+            this.ValuationAsAtClosedOverride = valuationAsAtClosedOverride;
         }
 
         /// <summary>
@@ -109,6 +111,13 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset? HoldingsAsAtClosedOverride { get; set; }
 
         /// <summary>
+        /// The optional AsAtClosed Override to use for performing valuations in the Closed Period.If not specified, the AsAtClosed on the Closed Period will be used.
+        /// </summary>
+        /// <value>The optional AsAtClosed Override to use for performing valuations in the Closed Period.If not specified, the AsAtClosed on the Closed Period will be used.</value>
+        [DataMember(Name = "valuationAsAtClosedOverride", EmitDefaultValue = true)]
+        public DateTimeOffset? ValuationAsAtClosedOverride { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -123,6 +132,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  HoldingsAsAtClosedOverride: ").Append(HoldingsAsAtClosedOverride).Append("\n");
+            sb.Append("  ValuationAsAtClosedOverride: ").Append(ValuationAsAtClosedOverride).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -193,6 +203,11 @@ namespace Lusid.Sdk.Model
                     this.HoldingsAsAtClosedOverride == input.HoldingsAsAtClosedOverride ||
                     (this.HoldingsAsAtClosedOverride != null &&
                     this.HoldingsAsAtClosedOverride.Equals(input.HoldingsAsAtClosedOverride))
+                ) && 
+                (
+                    this.ValuationAsAtClosedOverride == input.ValuationAsAtClosedOverride ||
+                    (this.ValuationAsAtClosedOverride != null &&
+                    this.ValuationAsAtClosedOverride.Equals(input.ValuationAsAtClosedOverride))
                 );
         }
 
@@ -232,6 +247,10 @@ namespace Lusid.Sdk.Model
                 if (this.HoldingsAsAtClosedOverride != null)
                 {
                     hashCode = (hashCode * 59) + this.HoldingsAsAtClosedOverride.GetHashCode();
+                }
+                if (this.ValuationAsAtClosedOverride != null)
+                {
+                    hashCode = (hashCode * 59) + this.ValuationAsAtClosedOverride.GetHashCode();
                 }
                 return hashCode;
             }

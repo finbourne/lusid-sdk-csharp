@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **IdentifierTypes** | [**List&lt;CustomDataModelIdentifierTypeSpecification&gt;**](CustomDataModelIdentifierTypeSpecification.md) | The identifier types that are required or allowed on the bound entity. | [optional] 
 **AttributeAliases** | [**List&lt;Alias&gt;**](Alias.md) | The aliases for property keys, identifier types, and fields on the bound entity. | [optional] 
 **RecommendedSortBy** | [**List&lt;RecommendedSortBy&gt;**](RecommendedSortBy.md) | The preferred default sorting instructions. | [optional] 
+**SupplementalPropertyKeys** | **List&lt;string&gt;** | Additional property keys that should be decorated on the bound entity. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -26,6 +27,7 @@ List<CustomDataModelPropertySpecification> properties = new List<CustomDataModel
 List<CustomDataModelIdentifierTypeSpecification> identifierTypes = new List<CustomDataModelIdentifierTypeSpecification>();
 List<Alias> attributeAliases = new List<Alias>();
 List<RecommendedSortBy> recommendedSortBy = new List<RecommendedSortBy>();
+List<string> supplementalPropertyKeys = new List<string>();
 
 UpdateCustomDataModelRequest updateCustomDataModelRequestInstance = new UpdateCustomDataModelRequest(
     displayName: displayName,
@@ -35,7 +37,8 @@ UpdateCustomDataModelRequest updateCustomDataModelRequestInstance = new UpdateCu
     properties: properties,
     identifierTypes: identifierTypes,
     attributeAliases: attributeAliases,
-    recommendedSortBy: recommendedSortBy);
+    recommendedSortBy: recommendedSortBy,
+    supplementalPropertyKeys: supplementalPropertyKeys);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

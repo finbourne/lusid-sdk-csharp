@@ -86,7 +86,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of CorporateActionSource</returns>
         Lusid.Sdk.Client.ApiResponse<CorporateActionSource> CreateCorporateActionSourceWithHttpInfo(CreateCorporateActionSourceRequest createCorporateActionSourceRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [BETA] DeleteCorporateActionSource: Delete a corporate action source
+        /// [EARLY ACCESS] DeleteCorporateActionSource: Delete a corporate action source
         /// </summary>
         /// <remarks>
         /// Deletes a single corporate action source
@@ -100,7 +100,7 @@ namespace Lusid.Sdk.Api
         DeletedEntityResponse DeleteCorporateActionSource(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [BETA] DeleteCorporateActionSource: Delete a corporate action source
+        /// [EARLY ACCESS] DeleteCorporateActionSource: Delete a corporate action source
         /// </summary>
         /// <remarks>
         /// Deletes a single corporate action source
@@ -374,7 +374,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (CorporateActionSource)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CorporateActionSource>> CreateCorporateActionSourceWithHttpInfoAsync(CreateCorporateActionSourceRequest createCorporateActionSourceRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [BETA] DeleteCorporateActionSource: Delete a corporate action source
+        /// [EARLY ACCESS] DeleteCorporateActionSource: Delete a corporate action source
         /// </summary>
         /// <remarks>
         /// Deletes a single corporate action source
@@ -389,7 +389,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<DeletedEntityResponse> DeleteCorporateActionSourceAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [BETA] DeleteCorporateActionSource: Delete a corporate action source
+        /// [EARLY ACCESS] DeleteCorporateActionSource: Delete a corporate action source
         /// </summary>
         /// <remarks>
         /// Deletes a single corporate action source
@@ -1180,7 +1180,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [BETA] DeleteCorporateActionSource: Delete a corporate action source Deletes a single corporate action source
+        /// [EARLY ACCESS] DeleteCorporateActionSource: Delete a corporate action source Deletes a single corporate action source
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the corporate action source to be deleted</param>
@@ -1195,7 +1195,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [BETA] DeleteCorporateActionSource: Delete a corporate action source Deletes a single corporate action source
+        /// [EARLY ACCESS] DeleteCorporateActionSource: Delete a corporate action source Deletes a single corporate action source
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the corporate action source to be deleted</param>
@@ -1289,7 +1289,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [BETA] DeleteCorporateActionSource: Delete a corporate action source Deletes a single corporate action source
+        /// [EARLY ACCESS] DeleteCorporateActionSource: Delete a corporate action source Deletes a single corporate action source
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the corporate action source to be deleted</param>
@@ -1305,7 +1305,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [BETA] DeleteCorporateActionSource: Delete a corporate action source Deletes a single corporate action source
+        /// [EARLY ACCESS] DeleteCorporateActionSource: Delete a corporate action source Deletes a single corporate action source
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the corporate action source to be deleted</param>

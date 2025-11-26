@@ -40,12 +40,14 @@ namespace Lusid.Sdk.Model
         /// <param name="buyerReceivesCorporateActionPayments">Does the buyer of the FlexibleRepo receive any dividend or cash payments as the result of a corporate action  on any of the collateral instruments, or are these amounts paid to the seller.  Referred to as \&quot;manufactured payments\&quot; in the UK, and valid only under a repo with GMRA in Europe (required).</param>
         /// <param name="collateralInstruments">List of any collateral instruments..</param>
         /// <param name="collateralValue">Total value of the collateral before any margin or haircut applied.  Can be provided instead of PurchasePrice, so that PurchasePrice can be inferred from the CollateralValue and one of  Haircut or Margin..</param>
-        public Collateral(bool buyerReceivesCashflows = default(bool), bool buyerReceivesCorporateActionPayments = default(bool), List<CollateralInstrument> collateralInstruments = default(List<CollateralInstrument>), decimal? collateralValue = default(decimal?))
+        /// <param name="deferManufacturedPayments">Indicates whether manufactured collateral payments are capitalised (i.e. deferred). Capitalised payments will  be deferred to the maturity date of the repo and if applicable interest will be accrued at the repo rate.  Defaults to false..</param>
+        public Collateral(bool buyerReceivesCashflows = default(bool), bool buyerReceivesCorporateActionPayments = default(bool), List<CollateralInstrument> collateralInstruments = default(List<CollateralInstrument>), decimal? collateralValue = default(decimal?), bool deferManufacturedPayments = default(bool))
         {
             this.BuyerReceivesCashflows = buyerReceivesCashflows;
             this.BuyerReceivesCorporateActionPayments = buyerReceivesCorporateActionPayments;
             this.CollateralInstruments = collateralInstruments;
             this.CollateralValue = collateralValue;
+            this.DeferManufacturedPayments = deferManufacturedPayments;
         }
 
         /// <summary>
@@ -77,6 +79,13 @@ namespace Lusid.Sdk.Model
         public decimal? CollateralValue { get; set; }
 
         /// <summary>
+        /// Indicates whether manufactured collateral payments are capitalised (i.e. deferred). Capitalised payments will  be deferred to the maturity date of the repo and if applicable interest will be accrued at the repo rate.  Defaults to false.
+        /// </summary>
+        /// <value>Indicates whether manufactured collateral payments are capitalised (i.e. deferred). Capitalised payments will  be deferred to the maturity date of the repo and if applicable interest will be accrued at the repo rate.  Defaults to false.</value>
+        [DataMember(Name = "deferManufacturedPayments", EmitDefaultValue = true)]
+        public bool DeferManufacturedPayments { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -88,6 +97,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  BuyerReceivesCorporateActionPayments: ").Append(BuyerReceivesCorporateActionPayments).Append("\n");
             sb.Append("  CollateralInstruments: ").Append(CollateralInstruments).Append("\n");
             sb.Append("  CollateralValue: ").Append(CollateralValue).Append("\n");
+            sb.Append("  DeferManufacturedPayments: ").Append(DeferManufacturedPayments).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -141,6 +151,10 @@ namespace Lusid.Sdk.Model
                     this.CollateralValue == input.CollateralValue ||
                     (this.CollateralValue != null &&
                     this.CollateralValue.Equals(input.CollateralValue))
+                ) && 
+                (
+                    this.DeferManufacturedPayments == input.DeferManufacturedPayments ||
+                    this.DeferManufacturedPayments.Equals(input.DeferManufacturedPayments)
                 );
         }
 
@@ -163,6 +177,7 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.CollateralValue.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.DeferManufacturedPayments.GetHashCode();
                 return hashCode;
             }
         }

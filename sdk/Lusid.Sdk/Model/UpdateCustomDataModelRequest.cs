@@ -44,7 +44,8 @@ namespace Lusid.Sdk.Model
         /// <param name="identifierTypes">The identifier types that are required or allowed on the bound entity..</param>
         /// <param name="attributeAliases">The aliases for property keys, identifier types, and fields on the bound entity..</param>
         /// <param name="recommendedSortBy">The preferred default sorting instructions..</param>
-        public UpdateCustomDataModelRequest(string displayName = default(string), string description = default(string), ResourceId parentDataModel = default(ResourceId), string conditions = default(string), List<CustomDataModelPropertySpecification> properties = default(List<CustomDataModelPropertySpecification>), List<CustomDataModelIdentifierTypeSpecification> identifierTypes = default(List<CustomDataModelIdentifierTypeSpecification>), List<Alias> attributeAliases = default(List<Alias>), List<RecommendedSortBy> recommendedSortBy = default(List<RecommendedSortBy>))
+        /// <param name="supplementalPropertyKeys">Additional property keys that should be decorated on the bound entity..</param>
+        public UpdateCustomDataModelRequest(string displayName = default(string), string description = default(string), ResourceId parentDataModel = default(ResourceId), string conditions = default(string), List<CustomDataModelPropertySpecification> properties = default(List<CustomDataModelPropertySpecification>), List<CustomDataModelIdentifierTypeSpecification> identifierTypes = default(List<CustomDataModelIdentifierTypeSpecification>), List<Alias> attributeAliases = default(List<Alias>), List<RecommendedSortBy> recommendedSortBy = default(List<RecommendedSortBy>), List<string> supplementalPropertyKeys = default(List<string>))
         {
             // to ensure "displayName" is required (not null)
             if (displayName == null)
@@ -64,6 +65,7 @@ namespace Lusid.Sdk.Model
             this.IdentifierTypes = identifierTypes;
             this.AttributeAliases = attributeAliases;
             this.RecommendedSortBy = recommendedSortBy;
+            this.SupplementalPropertyKeys = supplementalPropertyKeys;
         }
 
         /// <summary>
@@ -122,6 +124,13 @@ namespace Lusid.Sdk.Model
         public List<RecommendedSortBy> RecommendedSortBy { get; set; }
 
         /// <summary>
+        /// Additional property keys that should be decorated on the bound entity.
+        /// </summary>
+        /// <value>Additional property keys that should be decorated on the bound entity.</value>
+        [DataMember(Name = "supplementalPropertyKeys", EmitDefaultValue = true)]
+        public List<string> SupplementalPropertyKeys { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -137,6 +146,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  IdentifierTypes: ").Append(IdentifierTypes).Append("\n");
             sb.Append("  AttributeAliases: ").Append(AttributeAliases).Append("\n");
             sb.Append("  RecommendedSortBy: ").Append(RecommendedSortBy).Append("\n");
+            sb.Append("  SupplementalPropertyKeys: ").Append(SupplementalPropertyKeys).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -215,6 +225,12 @@ namespace Lusid.Sdk.Model
                     this.RecommendedSortBy != null &&
                     input.RecommendedSortBy != null &&
                     this.RecommendedSortBy.SequenceEqual(input.RecommendedSortBy)
+                ) && 
+                (
+                    this.SupplementalPropertyKeys == input.SupplementalPropertyKeys ||
+                    this.SupplementalPropertyKeys != null &&
+                    input.SupplementalPropertyKeys != null &&
+                    this.SupplementalPropertyKeys.SequenceEqual(input.SupplementalPropertyKeys)
                 );
         }
 
@@ -258,6 +274,10 @@ namespace Lusid.Sdk.Model
                 if (this.RecommendedSortBy != null)
                 {
                     hashCode = (hashCode * 59) + this.RecommendedSortBy.GetHashCode();
+                }
+                if (this.SupplementalPropertyKeys != null)
+                {
+                    hashCode = (hashCode * 59) + this.SupplementalPropertyKeys.GetHashCode();
                 }
                 return hashCode;
             }
