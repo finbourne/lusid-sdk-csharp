@@ -1954,7 +1954,7 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<RunCheckResponse>("/api/dataquality/checkdefinitions/{scope}/{code}/$run", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<RunCheckResponse>("/api/dataquality/checkdefinitions/{scope}/{code}/$run", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("RunCheckDefinition", localVarResponse);
@@ -2073,7 +2073,7 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PutAsync<RunCheckResponse>("/api/dataquality/checkdefinitions/{scope}/{code}/$run", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<RunCheckResponse>("/api/dataquality/checkdefinitions/{scope}/{code}/$run", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
