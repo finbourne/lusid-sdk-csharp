@@ -4427,7 +4427,7 @@ catch (ApiException e)
 
 <a id="listsettlementinstructions"></a>
 # **ListSettlementInstructions**
-> ResourceListOfTransactionSettlementInstruction ListSettlementInstructions (string scope, string code, DateTimeOrCutLabel? fromDate = null, DateTimeOrCutLabel? toDate = null, string? page = null, int? limit = null, string? filter = null, DateTimeOffset? asAt = null)
+> VersionedResourceListOfTransactionSettlementInstruction ListSettlementInstructions (string scope, string code, DateTimeOrCutLabel? fromDate = null, DateTimeOrCutLabel? toDate = null, string? page = null, int? limit = null, string? filter = null, DateTimeOffset? asAt = null, List<string>? propertyKeys = null)
 
 [EARLY ACCESS] ListSettlementInstructions: List Settlement Instructions.
 
@@ -4480,14 +4480,15 @@ namespace Examples
             var limit = 56;  // int? | When paginating, limit the results to this number. Defaults to 100 if not specified. (optional) 
             var filter = "filter_example";  // string? | The expression to filter out settlement instructions (optional) 
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the settlement instructions. Defaults to return the latest if not specified. (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'SettlementInstruction', 'Instrument' or 'Portfolio' domains to decorate onto              settlement instructions. These must have the format {domain}/{scope}/{code}, for example 'Instrument/system/Name' or 'SettlementInstruction/strategy/quantsignal'. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // ResourceListOfTransactionSettlementInstruction result = apiInstance.ListSettlementInstructions(scope, code, fromDate, toDate, page, limit, filter, asAt, opts: opts);
+                // VersionedResourceListOfTransactionSettlementInstruction result = apiInstance.ListSettlementInstructions(scope, code, fromDate, toDate, page, limit, filter, asAt, propertyKeys, opts: opts);
 
                 // [EARLY ACCESS] ListSettlementInstructions: List Settlement Instructions.
-                ResourceListOfTransactionSettlementInstruction result = apiInstance.ListSettlementInstructions(scope, code, fromDate, toDate, page, limit, filter, asAt);
+                VersionedResourceListOfTransactionSettlementInstruction result = apiInstance.ListSettlementInstructions(scope, code, fromDate, toDate, page, limit, filter, asAt, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -4508,7 +4509,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EARLY ACCESS] ListSettlementInstructions: List Settlement Instructions.
-    ApiResponse<ResourceListOfTransactionSettlementInstruction> response = apiInstance.ListSettlementInstructionsWithHttpInfo(scope, code, fromDate, toDate, page, limit, filter, asAt);
+    ApiResponse<VersionedResourceListOfTransactionSettlementInstruction> response = apiInstance.ListSettlementInstructionsWithHttpInfo(scope, code, fromDate, toDate, page, limit, filter, asAt, propertyKeys);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -4533,10 +4534,11 @@ catch (ApiException e)
 | **limit** | **int?** | When paginating, limit the results to this number. Defaults to 100 if not specified. | [optional]  |
 | **filter** | **string?** | The expression to filter out settlement instructions | [optional]  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the settlement instructions. Defaults to return the latest if not specified. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;SettlementInstruction&#39;, &#39;Instrument&#39; or &#39;Portfolio&#39; domains to decorate onto              settlement instructions. These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39; or &#39;SettlementInstruction/strategy/quantsignal&#39;. | [optional]  |
 
 ### Return type
 
-[**ResourceListOfTransactionSettlementInstruction**](ResourceListOfTransactionSettlementInstruction.md)
+[**VersionedResourceListOfTransactionSettlementInstruction**](VersionedResourceListOfTransactionSettlementInstruction.md)
 
 ### HTTP request headers
 
