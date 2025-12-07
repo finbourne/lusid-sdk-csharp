@@ -42,9 +42,10 @@ namespace Lusid.Sdk.Model
         /// <param name="postCloseActivities">All the post close activities for the closed period..</param>
         /// <param name="holdingsAsAtClosedOverride">The optional AsAtClosed Override to use for building holdings in the Closed Period.If not specified, the AsAtClosed on the Closed Period will be used..</param>
         /// <param name="valuationAsAtClosedOverride">The optional AsAtClosed Override to use for performing valuations in the Closed Period.If not specified, the AsAtClosed on the Closed Period will be used..</param>
+        /// <param name="branchStatus">The branch status of the closed period, e.g. Confirmed/Unconfirmed..</param>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested asAt datetime..</param>
         /// <param name="links">links.</param>
-        public ClosedPeriod(string closedPeriodId = default(string), string displayName = default(string), string description = default(string), DateTimeOffset effectiveStart = default(DateTimeOffset), DateTimeOffset effectiveEnd = default(DateTimeOffset), DateTimeOffset asAtClosed = default(DateTimeOffset), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion varVersion = default(ModelVersion), List<PostCloseActivity> postCloseActivities = default(List<PostCloseActivity>), DateTimeOffset? holdingsAsAtClosedOverride = default(DateTimeOffset?), DateTimeOffset? valuationAsAtClosedOverride = default(DateTimeOffset?), string href = default(string), List<Link> links = default(List<Link>))
+        public ClosedPeriod(string closedPeriodId = default(string), string displayName = default(string), string description = default(string), DateTimeOffset effectiveStart = default(DateTimeOffset), DateTimeOffset effectiveEnd = default(DateTimeOffset), DateTimeOffset asAtClosed = default(DateTimeOffset), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion varVersion = default(ModelVersion), List<PostCloseActivity> postCloseActivities = default(List<PostCloseActivity>), DateTimeOffset? holdingsAsAtClosedOverride = default(DateTimeOffset?), DateTimeOffset? valuationAsAtClosedOverride = default(DateTimeOffset?), string branchStatus = default(string), string href = default(string), List<Link> links = default(List<Link>))
         {
             this.ClosedPeriodId = closedPeriodId;
             this.DisplayName = displayName;
@@ -57,6 +58,7 @@ namespace Lusid.Sdk.Model
             this.PostCloseActivities = postCloseActivities;
             this.HoldingsAsAtClosedOverride = holdingsAsAtClosedOverride;
             this.ValuationAsAtClosedOverride = valuationAsAtClosedOverride;
+            this.BranchStatus = branchStatus;
             this.Href = href;
             this.Links = links;
         }
@@ -138,6 +140,13 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset? ValuationAsAtClosedOverride { get; set; }
 
         /// <summary>
+        /// The branch status of the closed period, e.g. Confirmed/Unconfirmed.
+        /// </summary>
+        /// <value>The branch status of the closed period, e.g. Confirmed/Unconfirmed.</value>
+        [DataMember(Name = "branchStatus", EmitDefaultValue = true)]
+        public string BranchStatus { get; set; }
+
+        /// <summary>
         /// The specific Uniform Resource Identifier (URI) for this resource at the requested asAt datetime.
         /// </summary>
         /// <value>The specific Uniform Resource Identifier (URI) for this resource at the requested asAt datetime.</value>
@@ -169,6 +178,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  PostCloseActivities: ").Append(PostCloseActivities).Append("\n");
             sb.Append("  HoldingsAsAtClosedOverride: ").Append(HoldingsAsAtClosedOverride).Append("\n");
             sb.Append("  ValuationAsAtClosedOverride: ").Append(ValuationAsAtClosedOverride).Append("\n");
+            sb.Append("  BranchStatus: ").Append(BranchStatus).Append("\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
@@ -264,6 +274,11 @@ namespace Lusid.Sdk.Model
                     this.ValuationAsAtClosedOverride.Equals(input.ValuationAsAtClosedOverride))
                 ) && 
                 (
+                    this.BranchStatus == input.BranchStatus ||
+                    (this.BranchStatus != null &&
+                    this.BranchStatus.Equals(input.BranchStatus))
+                ) && 
+                (
                     this.Href == input.Href ||
                     (this.Href != null &&
                     this.Href.Equals(input.Href))
@@ -328,6 +343,10 @@ namespace Lusid.Sdk.Model
                 if (this.ValuationAsAtClosedOverride != null)
                 {
                     hashCode = (hashCode * 59) + this.ValuationAsAtClosedOverride.GetHashCode();
+                }
+                if (this.BranchStatus != null)
+                {
+                    hashCode = (hashCode * 59) + this.BranchStatus.GetHashCode();
                 }
                 if (this.Href != null)
                 {

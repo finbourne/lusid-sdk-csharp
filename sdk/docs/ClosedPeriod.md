@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **PostCloseActivities** | [**List&lt;PostCloseActivity&gt;**](PostCloseActivity.md) | All the post close activities for the closed period. | [optional] 
 **HoldingsAsAtClosedOverride** | **DateTimeOffset?** | The optional AsAtClosed Override to use for building holdings in the Closed Period.If not specified, the AsAtClosed on the Closed Period will be used. | [optional] 
 **ValuationAsAtClosedOverride** | **DateTimeOffset?** | The optional AsAtClosed Override to use for performing valuations in the Closed Period.If not specified, the AsAtClosed on the Closed Period will be used. | [optional] 
+**BranchStatus** | **string** | The branch status of the closed period, e.g. Confirmed/Unconfirmed. | [optional] 
 **Href** | **string** | The specific Uniform Resource Identifier (URI) for this resource at the requested asAt datetime. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
@@ -29,6 +30,7 @@ Dictionary<string, Property> properties = new Dictionary<string, Property>();
 ModelVersion? varVersion = new ModelVersion();
 
 List<PostCloseActivity> postCloseActivities = new List<PostCloseActivity>();
+string branchStatus = "example branchStatus";
 string href = "example href";
 List<Link> links = new List<Link>();
 
@@ -44,6 +46,7 @@ ClosedPeriod closedPeriodInstance = new ClosedPeriod(
     postCloseActivities: postCloseActivities,
     holdingsAsAtClosedOverride: holdingsAsAtClosedOverride,
     valuationAsAtClosedOverride: valuationAsAtClosedOverride,
+    branchStatus: branchStatus,
     href: href,
     links: links);
 ```

@@ -31,41 +31,21 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LusidEntityDataset" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected LusidEntityDataset() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="LusidEntityDataset" /> class.
-        /// </summary>
         /// <param name="asAt">The asAt date to fetch the data. Nullable. Defaults to latest..</param>
         /// <param name="effectiveAt">The effectiveAt date to fetch the data. Nullable. Defaults to latest..</param>
-        /// <param name="scope">The scope of the entities to check. Required. (required).</param>
+        /// <param name="scope">The scope of the entities to check. Required..</param>
         /// <param name="asAtModifiedSince">Nullable. Filters the dataset for version.asAtModified greater than or equal to this value..</param>
-        /// <param name="selectorAttribute">An attribute (field name, propertyKey or identifierKey) to use to sub-divide the dataset. (required).</param>
-        /// <param name="selectorValue">The value of the above attribute used to sub-divide the dataset. (required).</param>
+        /// <param name="selectorAttribute">An attribute (field name, propertyKey or identifierKey) to use to sub-divide the dataset..</param>
+        /// <param name="selectorValue">The value of the above attribute used to sub-divide the dataset..</param>
         /// <param name="returnIdentifierKey">The preferred identifier to return for entities with multiple external identifiers..</param>
         public LusidEntityDataset(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOffset? effectiveAt = default(DateTimeOffset?), string scope = default(string), DateTimeOffset? asAtModifiedSince = default(DateTimeOffset?), string selectorAttribute = default(string), string selectorValue = default(string), string returnIdentifierKey = default(string))
         {
-            // to ensure "scope" is required (not null)
-            if (scope == null)
-            {
-                throw new ArgumentNullException("scope is a required property for LusidEntityDataset and cannot be null");
-            }
-            this.Scope = scope;
-            // to ensure "selectorAttribute" is required (not null)
-            if (selectorAttribute == null)
-            {
-                throw new ArgumentNullException("selectorAttribute is a required property for LusidEntityDataset and cannot be null");
-            }
-            this.SelectorAttribute = selectorAttribute;
-            // to ensure "selectorValue" is required (not null)
-            if (selectorValue == null)
-            {
-                throw new ArgumentNullException("selectorValue is a required property for LusidEntityDataset and cannot be null");
-            }
-            this.SelectorValue = selectorValue;
             this.AsAt = asAt;
             this.EffectiveAt = effectiveAt;
+            this.Scope = scope;
             this.AsAtModifiedSince = asAtModifiedSince;
+            this.SelectorAttribute = selectorAttribute;
+            this.SelectorValue = selectorValue;
             this.ReturnIdentifierKey = returnIdentifierKey;
         }
 
@@ -87,7 +67,7 @@ namespace Lusid.Sdk.Model
         /// The scope of the entities to check. Required.
         /// </summary>
         /// <value>The scope of the entities to check. Required.</value>
-        [DataMember(Name = "scope", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "scope", EmitDefaultValue = true)]
         public string Scope { get; set; }
 
         /// <summary>
@@ -101,14 +81,14 @@ namespace Lusid.Sdk.Model
         /// An attribute (field name, propertyKey or identifierKey) to use to sub-divide the dataset.
         /// </summary>
         /// <value>An attribute (field name, propertyKey or identifierKey) to use to sub-divide the dataset.</value>
-        [DataMember(Name = "selectorAttribute", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "selectorAttribute", EmitDefaultValue = true)]
         public string SelectorAttribute { get; set; }
 
         /// <summary>
         /// The value of the above attribute used to sub-divide the dataset.
         /// </summary>
         /// <value>The value of the above attribute used to sub-divide the dataset.</value>
-        [DataMember(Name = "selectorValue", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "selectorValue", EmitDefaultValue = true)]
         public string SelectorValue { get; set; }
 
         /// <summary>

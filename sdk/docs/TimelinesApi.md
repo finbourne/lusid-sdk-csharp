@@ -4,7 +4,9 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
+| [**ConfirmClosedPeriod**](TimelinesApi.md#confirmclosedperiod) | **POST** /api/timelines/{scope}/{code}/closedperiods/{closedPeriodId}/$confirm | [EXPERIMENTAL] ConfirmClosedPeriod: Confirm a Closed Period against a Timeline Entity |
 | [**CreateClosedPeriod**](TimelinesApi.md#createclosedperiod) | **POST** /api/timelines/{scope}/{code}/closedperiods | [EXPERIMENTAL] CreateClosedPeriod: Create a new closed period against a timeline entity |
+| [**CreateClosedPeriodCandidate**](TimelinesApi.md#createclosedperiodcandidate) | **POST** /api/timelines/{scope}/{code}/closedperiods/candidate | [EXPERIMENTAL] CreateClosedPeriodCandidate: Create a new closed period candidate against a timeline entity |
 | [**CreateTimeline**](TimelinesApi.md#createtimeline) | **POST** /api/timelines | [EXPERIMENTAL] CreateTimeline: Create a Timeline |
 | [**DeleteTimeline**](TimelinesApi.md#deletetimeline) | **DELETE** /api/timelines/{scope}/{code} | [EXPERIMENTAL] DeleteTimeline: Deletes a particular Timeline |
 | [**GetClosedPeriod**](TimelinesApi.md#getclosedperiod) | **GET** /api/timelines/{scope}/{code}/closedperiods/{closedPeriodId} | [EXPERIMENTAL] GetClosedPeriod: Gets a Closed Period entity. |
@@ -12,7 +14,128 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**ListClosedPeriods**](TimelinesApi.md#listclosedperiods) | **GET** /api/timelines/{scope}/{code}/closedperiods | [EXPERIMENTAL] ListClosedPeriods: List ClosedPeriods for a specified Timeline. |
 | [**ListTimelines**](TimelinesApi.md#listtimelines) | **GET** /api/timelines | [EXPERIMENTAL] ListTimelines: List Timelines |
 | [**SetPostCloseActivity**](TimelinesApi.md#setpostcloseactivity) | **POST** /api/timelines/{scope}/{code}/closedperiods/{closedPeriodId}/postcloseactivity | [EXPERIMENTAL] SetPostCloseActivity: Sets post close activities to a closed period. |
+| [**UnconfirmClosedPeriod**](TimelinesApi.md#unconfirmclosedperiod) | **POST** /api/timelines/{scope}/{code}/closedperiods/{closedPeriodId}/$unconfirm | [EXPERIMENTAL] UnconfirmClosedPeriod: Unconfirm the last confirmed Closed Period against a Timeline Entity |
 | [**UpdateTimeline**](TimelinesApi.md#updatetimeline) | **PUT** /api/timelines/{scope}/{code} | [EXPERIMENTAL] UpdateTimeline: Update Timeline defined by scope and code |
+
+<a id="confirmclosedperiod"></a>
+# **ConfirmClosedPeriod**
+> ClosedPeriod ConfirmClosedPeriod (string scope, string code, string closedPeriodId, Object? body = null)
+
+[EXPERIMENTAL] ConfirmClosedPeriod: Confirm a Closed Period against a Timeline Entity
+
+Confirms a Closed Period against a Timeline Entity. Deletes any other unconfirmed Closed Periods on the Timeline.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TimelinesApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TimelinesApi>();
+            var scope = "scope_example";  // string | The scope of the specified Timeline.
+            var code = "code_example";  // string | The code of the specified Timeline. Together with the scope this uniquely identifies the Timeline.
+            var closedPeriodId = "closedPeriodId_example";  // string | The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod
+            var body = {};  // Object? | Not in use at the moment (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // ClosedPeriod result = apiInstance.ConfirmClosedPeriod(scope, code, closedPeriodId, body, opts: opts);
+
+                // [EXPERIMENTAL] ConfirmClosedPeriod: Confirm a Closed Period against a Timeline Entity
+                ClosedPeriod result = apiInstance.ConfirmClosedPeriod(scope, code, closedPeriodId, body);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling TimelinesApi.ConfirmClosedPeriod: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the ConfirmClosedPeriodWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] ConfirmClosedPeriod: Confirm a Closed Period against a Timeline Entity
+    ApiResponse<ClosedPeriod> response = apiInstance.ConfirmClosedPeriodWithHttpInfo(scope, code, closedPeriodId, body);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling TimelinesApi.ConfirmClosedPeriodWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the specified Timeline. |  |
+| **code** | **string** | The code of the specified Timeline. Together with the scope this uniquely identifies the Timeline. |  |
+| **closedPeriodId** | **string** | The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod |  |
+| **body** | **Object?** | Not in use at the moment | [optional]  |
+
+### Return type
+
+[**ClosedPeriod**](ClosedPeriod.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The confirmed closed period |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="createclosedperiod"></a>
 # **CreateClosedPeriod**
@@ -111,6 +234,124 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **scope** | **string** | The scope of the specified Timeline. |  |
 | **code** | **string** | The code of the specified Timeline. Together with the domain and scope this uniquely identifies the Timeline. |  |
+| **createClosedPeriodRequest** | [**CreateClosedPeriodRequest?**](CreateClosedPeriodRequest?.md) | The request containing the details of the Closed Period | [optional]  |
+
+### Return type
+
+[**ClosedPeriod**](ClosedPeriod.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | The created closed period |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="createclosedperiodcandidate"></a>
+# **CreateClosedPeriodCandidate**
+> ClosedPeriod CreateClosedPeriodCandidate (string scope, string code, CreateClosedPeriodRequest? createClosedPeriodRequest = null)
+
+[EXPERIMENTAL] CreateClosedPeriodCandidate: Create a new closed period candidate against a timeline entity
+
+Creates a new closed period candidate against a timeline entity  Returns the newly created closed period candidate entity with properties
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TimelinesApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TimelinesApi>();
+            var scope = "scope_example";  // string | The scope of the specified Timeline.
+            var code = "code_example";  // string | The code of the specified Timeline. Together with the scope this uniquely identifies the Timeline.
+            var createClosedPeriodRequest = new CreateClosedPeriodRequest?(); // CreateClosedPeriodRequest? | The request containing the details of the Closed Period (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // ClosedPeriod result = apiInstance.CreateClosedPeriodCandidate(scope, code, createClosedPeriodRequest, opts: opts);
+
+                // [EXPERIMENTAL] CreateClosedPeriodCandidate: Create a new closed period candidate against a timeline entity
+                ClosedPeriod result = apiInstance.CreateClosedPeriodCandidate(scope, code, createClosedPeriodRequest);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling TimelinesApi.CreateClosedPeriodCandidate: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the CreateClosedPeriodCandidateWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] CreateClosedPeriodCandidate: Create a new closed period candidate against a timeline entity
+    ApiResponse<ClosedPeriod> response = apiInstance.CreateClosedPeriodCandidateWithHttpInfo(scope, code, createClosedPeriodRequest);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling TimelinesApi.CreateClosedPeriodCandidateWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the specified Timeline. |  |
+| **code** | **string** | The code of the specified Timeline. Together with the scope this uniquely identifies the Timeline. |  |
 | **createClosedPeriodRequest** | [**CreateClosedPeriodRequest?**](CreateClosedPeriodRequest?.md) | The request containing the details of the Closed Period | [optional]  |
 
 ### Return type
@@ -975,6 +1216,126 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The updated closed period |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="unconfirmclosedperiod"></a>
+# **UnconfirmClosedPeriod**
+> ClosedPeriod UnconfirmClosedPeriod (string scope, string code, string closedPeriodId, Object? body = null)
+
+[EXPERIMENTAL] UnconfirmClosedPeriod: Unconfirm the last confirmed Closed Period against a Timeline Entity
+
+Unconfirm the last confirmed Closed Period against a Timeline Entity
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TimelinesApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TimelinesApi>();
+            var scope = "scope_example";  // string | The scope of the specified Timeline.
+            var code = "code_example";  // string | The code of the specified Timeline. Together with the scope this uniquely identifies the Timeline.
+            var closedPeriodId = "closedPeriodId_example";  // string | The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod. The closed period must be the last closed period on the Timeline.
+            var body = {};  // Object? | Not in use at the moment (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // ClosedPeriod result = apiInstance.UnconfirmClosedPeriod(scope, code, closedPeriodId, body, opts: opts);
+
+                // [EXPERIMENTAL] UnconfirmClosedPeriod: Unconfirm the last confirmed Closed Period against a Timeline Entity
+                ClosedPeriod result = apiInstance.UnconfirmClosedPeriod(scope, code, closedPeriodId, body);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling TimelinesApi.UnconfirmClosedPeriod: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the UnconfirmClosedPeriodWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] UnconfirmClosedPeriod: Unconfirm the last confirmed Closed Period against a Timeline Entity
+    ApiResponse<ClosedPeriod> response = apiInstance.UnconfirmClosedPeriodWithHttpInfo(scope, code, closedPeriodId, body);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling TimelinesApi.UnconfirmClosedPeriodWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the specified Timeline. |  |
+| **code** | **string** | The code of the specified Timeline. Together with the scope this uniquely identifies the Timeline. |  |
+| **closedPeriodId** | **string** | The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod. The closed period must be the last closed period on the Timeline. |  |
+| **body** | **Object?** | Not in use at the moment | [optional]  |
+
+### Return type
+
+[**ClosedPeriod**](ClosedPeriod.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The unconfirmed closed period |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
