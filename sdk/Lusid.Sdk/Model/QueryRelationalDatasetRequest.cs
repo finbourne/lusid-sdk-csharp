@@ -33,8 +33,8 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="queryMethod">The method used to query data points. Can be either &#39;Latest&#39; or &#39;TimeSeries&#39;..</param>
         /// <param name="filter">Expression to filter the result set. For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914..</param>
-        /// <param name="customSortBy">A list of fields to sort the results by. For example, to sort by a Value field &#39;AValueField&#39; in descending order, specify &#39;AValueField DESC&#39;..</param>
-        public QueryRelationalDatasetRequest(string queryMethod = default(string), string filter = default(string), List<string> customSortBy = default(List<string>))
+        /// <param name="customSortBy">A list of fields and values to sort the results by..</param>
+        public QueryRelationalDatasetRequest(string queryMethod = default(string), string filter = default(string), List<CustomSortBy> customSortBy = default(List<CustomSortBy>))
         {
             this.QueryMethod = queryMethod;
             this.Filter = filter;
@@ -56,11 +56,11 @@ namespace Lusid.Sdk.Model
         public string Filter { get; set; }
 
         /// <summary>
-        /// A list of fields to sort the results by. For example, to sort by a Value field &#39;AValueField&#39; in descending order, specify &#39;AValueField DESC&#39;.
+        /// A list of fields and values to sort the results by.
         /// </summary>
-        /// <value>A list of fields to sort the results by. For example, to sort by a Value field &#39;AValueField&#39; in descending order, specify &#39;AValueField DESC&#39;.</value>
+        /// <value>A list of fields and values to sort the results by.</value>
         [DataMember(Name = "customSortBy", EmitDefaultValue = true)]
-        public List<string> CustomSortBy { get; set; }
+        public List<CustomSortBy> CustomSortBy { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -41,7 +41,8 @@ namespace Lusid.Sdk.Model
         /// <param name="propertyDescription">Describes the property.</param>
         /// <param name="derivationFormula">The rule that defines how data is composed for a derived property. (required).</param>
         /// <param name="isFilterable">Bool indicating whether the values of this property are fitlerable, this is true for all non-derived property defintions.  For a derived definition this must be set true to enable filtering. (required).</param>
-        public UpdateDerivedPropertyDefinitionRequest(string displayName = default(string), ResourceId dataTypeId = default(ResourceId), string propertyDescription = default(string), string derivationFormula = default(string), bool isFilterable = default(bool))
+        /// <param name="valueFormat">The format in which values for this property definition should be represented..</param>
+        public UpdateDerivedPropertyDefinitionRequest(string displayName = default(string), ResourceId dataTypeId = default(ResourceId), string propertyDescription = default(string), string derivationFormula = default(string), bool isFilterable = default(bool), string valueFormat = default(string))
         {
             // to ensure "displayName" is required (not null)
             if (displayName == null)
@@ -63,6 +64,7 @@ namespace Lusid.Sdk.Model
             this.DerivationFormula = derivationFormula;
             this.IsFilterable = isFilterable;
             this.PropertyDescription = propertyDescription;
+            this.ValueFormat = valueFormat;
         }
 
         /// <summary>
@@ -100,6 +102,13 @@ namespace Lusid.Sdk.Model
         public bool IsFilterable { get; set; }
 
         /// <summary>
+        /// The format in which values for this property definition should be represented.
+        /// </summary>
+        /// <value>The format in which values for this property definition should be represented.</value>
+        [DataMember(Name = "valueFormat", EmitDefaultValue = true)]
+        public string ValueFormat { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -112,6 +121,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  PropertyDescription: ").Append(PropertyDescription).Append("\n");
             sb.Append("  DerivationFormula: ").Append(DerivationFormula).Append("\n");
             sb.Append("  IsFilterable: ").Append(IsFilterable).Append("\n");
+            sb.Append("  ValueFormat: ").Append(ValueFormat).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -170,6 +180,11 @@ namespace Lusid.Sdk.Model
                 (
                     this.IsFilterable == input.IsFilterable ||
                     this.IsFilterable.Equals(input.IsFilterable)
+                ) && 
+                (
+                    this.ValueFormat == input.ValueFormat ||
+                    (this.ValueFormat != null &&
+                    this.ValueFormat.Equals(input.ValueFormat))
                 );
         }
 
@@ -199,6 +214,10 @@ namespace Lusid.Sdk.Model
                     hashCode = (hashCode * 59) + this.DerivationFormula.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.IsFilterable.GetHashCode();
+                if (this.ValueFormat != null)
+                {
+                    hashCode = (hashCode * 59) + this.ValueFormat.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -226,6 +245,18 @@ namespace Lusid.Sdk.Model
             if (this.DerivationFormula != null && this.DerivationFormula.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DerivationFormula, length must be greater than 1.", new [] { "DerivationFormula" });
+            }
+
+            // ValueFormat (string) maxLength
+            if (this.ValueFormat != null && this.ValueFormat.Length > 512)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ValueFormat, length must be less than 512.", new [] { "ValueFormat" });
+            }
+
+            // ValueFormat (string) minLength
+            if (this.ValueFormat != null && this.ValueFormat.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ValueFormat, length must be greater than 0.", new [] { "ValueFormat" });
             }
 
             yield break;
