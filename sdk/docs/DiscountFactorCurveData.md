@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **DiscountFactors** | **List&lt;decimal&gt;** | Discount factors to be applied to cashflow on the specified dates | 
 **Lineage** | **string** | Description of the complex market data&#39;s lineage e.g. &#39;FundAccountant_GreenQuality&#39;. | [optional] 
 **MarketDataOptions** | [**MarketDataOptions**](MarketDataOptions.md) |  | [optional] 
+**VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -21,13 +22,16 @@ List<decimal> discountFactors = new List<decimal>();
 string lineage = "example lineage";
 MarketDataOptions? marketDataOptions = new MarketDataOptions();
 
+ModelVersion? varVersion = new ModelVersion();
+
 
 DiscountFactorCurveData discountFactorCurveDataInstance = new DiscountFactorCurveData(
     baseDate: baseDate,
     dates: dates,
     discountFactors: discountFactors,
     lineage: lineage,
-    marketDataOptions: marketDataOptions);
+    marketDataOptions: marketDataOptions,
+    varVersion: varVersion);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

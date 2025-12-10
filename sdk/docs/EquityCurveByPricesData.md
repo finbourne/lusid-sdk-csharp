@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **Lineage** | **string** | Description of the complex market data&#39;s lineage e.g. &#39;FundAccountant_GreenQuality&#39;. | [optional] 
 **Prices** | **List&lt;decimal&gt;** | Prices provided for the forward price of the Equity at the corresponding date in Dates. | 
 **MarketDataOptions** | [**MarketDataOptions**](MarketDataOptions.md) |  | [optional] 
+**VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -21,13 +22,16 @@ string lineage = "example lineage";
 List<decimal> prices = new List<decimal>();
 MarketDataOptions? marketDataOptions = new MarketDataOptions();
 
+ModelVersion? varVersion = new ModelVersion();
+
 
 EquityCurveByPricesData equityCurveByPricesDataInstance = new EquityCurveByPricesData(
     baseDate: baseDate,
     dates: dates,
     lineage: lineage,
     prices: prices,
-    marketDataOptions: marketDataOptions);
+    marketDataOptions: marketDataOptions,
+    varVersion: varVersion);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

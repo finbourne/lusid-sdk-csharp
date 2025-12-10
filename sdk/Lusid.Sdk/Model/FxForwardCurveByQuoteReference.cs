@@ -46,8 +46,9 @@ namespace Lusid.Sdk.Model
         /// <param name="marketDataOptions">marketDataOptions.</param>
         /// <param name="calendars">The list of conventions that should be used when interpreting tenors as dates..</param>
         /// <param name="spotDaysCalculationType">Configures how to calculate the spot date from the build date using the Calendars provided.  Supported string (enumeration) values are: [ SingleCalendar, UnionCalendars ].</param>
+        /// <param name="varVersion">varVersion.</param>
         /// <param name="marketDataType">The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface (required) (default to &quot;FxForwardCurveByQuoteReference&quot;).</param>
-        public FxForwardCurveByQuoteReference(string domCcy = default(string), string fgnCcy = default(string), List<string> tenors = default(List<string>), List<Dictionary<string, string>> quoteReferences = default(List<Dictionary<string, string>>), string lineage = default(string), MarketDataOptions marketDataOptions = default(MarketDataOptions), List<FxTenorConvention> calendars = default(List<FxTenorConvention>), string spotDaysCalculationType = default(string), MarketDataTypeEnum marketDataType = default(MarketDataTypeEnum)) : base(marketDataType)
+        public FxForwardCurveByQuoteReference(string domCcy = default(string), string fgnCcy = default(string), List<string> tenors = default(List<string>), List<Dictionary<string, string>> quoteReferences = default(List<Dictionary<string, string>>), string lineage = default(string), MarketDataOptions marketDataOptions = default(MarketDataOptions), List<FxTenorConvention> calendars = default(List<FxTenorConvention>), string spotDaysCalculationType = default(string), ModelVersion varVersion = default(ModelVersion), MarketDataTypeEnum marketDataType = default(MarketDataTypeEnum)) : base(marketDataType)
         {
             // to ensure "domCcy" is required (not null)
             if (domCcy == null)
@@ -77,6 +78,7 @@ namespace Lusid.Sdk.Model
             this.MarketDataOptions = marketDataOptions;
             this.Calendars = calendars;
             this.SpotDaysCalculationType = spotDaysCalculationType;
+            this.VarVersion = varVersion;
         }
 
         /// <summary>
@@ -135,6 +137,12 @@ namespace Lusid.Sdk.Model
         public string SpotDaysCalculationType { get; set; }
 
         /// <summary>
+        /// Gets or Sets VarVersion
+        /// </summary>
+        [DataMember(Name = "version", EmitDefaultValue = false)]
+        public ModelVersion VarVersion { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -151,6 +159,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  MarketDataOptions: ").Append(MarketDataOptions).Append("\n");
             sb.Append("  Calendars: ").Append(Calendars).Append("\n");
             sb.Append("  SpotDaysCalculationType: ").Append(SpotDaysCalculationType).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -228,6 +237,11 @@ namespace Lusid.Sdk.Model
                     this.SpotDaysCalculationType == input.SpotDaysCalculationType ||
                     (this.SpotDaysCalculationType != null &&
                     this.SpotDaysCalculationType.Equals(input.SpotDaysCalculationType))
+                ) && base.Equals(input) && 
+                (
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 );
         }
 
@@ -271,6 +285,10 @@ namespace Lusid.Sdk.Model
                 if (this.SpotDaysCalculationType != null)
                 {
                     hashCode = (hashCode * 59) + this.SpotDaysCalculationType.GetHashCode();
+                }
+                if (this.VarVersion != null)
+                {
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 return hashCode;
             }

@@ -378,7 +378,7 @@ catch (ApiException e)
 
 <a id="getinstrumentbyentityuniqueid"></a>
 # **GetInstrumentByEntityUniqueId**
-> InstrumentEntity GetInstrumentByEntityUniqueId (string entityUniqueId, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, List<string>? previews = null)
+> InstrumentEntity GetInstrumentByEntityUniqueId (string entityUniqueId, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, List<string>? previews = null, string? dataModelScope = null, string? dataModelCode = null)
 
 GetInstrumentByEntityUniqueId: Get instrument by EntityUniqueId
 
@@ -427,14 +427,16 @@ namespace Examples
             var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to retrieve the Instrument definition. Defaults to the current LUSID system datetime if not specified. (optional) 
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the instrument definition. Defaults to returning the latest version of the instrument definition if not specified. (optional) 
             var previews = new List<string>?(); // List<string>? | The ids of the staged modifications to be previewed in the response. (optional) 
+            var dataModelScope = "dataModelScope_example";  // string? | The optional scope of a Custom Data Model to use. (optional) 
+            var dataModelCode = "dataModelCode_example";  // string? | The optional code of a Custom Data Model to use. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // InstrumentEntity result = apiInstance.GetInstrumentByEntityUniqueId(entityUniqueId, effectiveAt, asAt, previews, opts: opts);
+                // InstrumentEntity result = apiInstance.GetInstrumentByEntityUniqueId(entityUniqueId, effectiveAt, asAt, previews, dataModelScope, dataModelCode, opts: opts);
 
                 // GetInstrumentByEntityUniqueId: Get instrument by EntityUniqueId
-                InstrumentEntity result = apiInstance.GetInstrumentByEntityUniqueId(entityUniqueId, effectiveAt, asAt, previews);
+                InstrumentEntity result = apiInstance.GetInstrumentByEntityUniqueId(entityUniqueId, effectiveAt, asAt, previews, dataModelScope, dataModelCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -455,7 +457,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // GetInstrumentByEntityUniqueId: Get instrument by EntityUniqueId
-    ApiResponse<InstrumentEntity> response = apiInstance.GetInstrumentByEntityUniqueIdWithHttpInfo(entityUniqueId, effectiveAt, asAt, previews);
+    ApiResponse<InstrumentEntity> response = apiInstance.GetInstrumentByEntityUniqueIdWithHttpInfo(entityUniqueId, effectiveAt, asAt, previews, dataModelScope, dataModelCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -476,6 +478,8 @@ catch (ApiException e)
 | **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to retrieve the Instrument definition. Defaults to the current LUSID system datetime if not specified. | [optional]  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the instrument definition. Defaults to returning the latest version of the instrument definition if not specified. | [optional]  |
 | **previews** | [**List&lt;string&gt;?**](string.md) | The ids of the staged modifications to be previewed in the response. | [optional]  |
+| **dataModelScope** | **string?** | The optional scope of a Custom Data Model to use. | [optional]  |
+| **dataModelCode** | **string?** | The optional code of a Custom Data Model to use. | [optional]  |
 
 ### Return type
 

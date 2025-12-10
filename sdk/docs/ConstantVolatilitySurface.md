@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **AssetType** | **string** | What is the asset that the engine is for.  Supported string (enumeration) values are: [Cash, Commodity, Credit, Equity, Fx, Rates, FxVol, IrVol, EquityVol, HolidayCalendar, IndexConvention, FlowConvention, CdsFlowConvention, CorporateActions, FxForwards, Quote, Inflation, EquityCurve, All, VendorOpaque]. | 
 **Lineage** | **string** |  | [optional] 
 **Volatility** | **decimal** | Volatility value. | 
+**VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -18,12 +19,15 @@ using System;
 string assetType = "assetType";
 string lineage = "example lineage";decimal volatility = "volatility";
 
+ModelVersion? varVersion = new ModelVersion();
+
 
 ConstantVolatilitySurface constantVolatilitySurfaceInstance = new ConstantVolatilitySurface(
     baseDate: baseDate,
     assetType: assetType,
     lineage: lineage,
-    volatility: volatility);
+    volatility: volatility,
+    varVersion: varVersion);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

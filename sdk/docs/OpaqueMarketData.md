@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **Format** | **string** | What format is the document stored in, e.g. Xml.  Supported string (enumeration) values are: [Unknown, Xml, Json, Csv]. | 
 **Name** | **string** | Internal name of document. This is not used for search, it is simply a designator that helps identify the document  and could be anything (filename, ftp address or similar) | 
 **Lineage** | **string** | Description of the complex market data&#39;s lineage e.g. &#39;FundAccountant_GreenQuality&#39;. | [optional] 
+**VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -19,12 +20,15 @@ string document = "document";
 string format = "format";
 string name = "name";
 string lineage = "example lineage";
+ModelVersion? varVersion = new ModelVersion();
+
 
 OpaqueMarketData opaqueMarketDataInstance = new OpaqueMarketData(
     document: document,
     format: format,
     name: name,
-    lineage: lineage);
+    lineage: lineage,
+    varVersion: varVersion);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

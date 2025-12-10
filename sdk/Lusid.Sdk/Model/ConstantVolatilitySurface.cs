@@ -42,8 +42,9 @@ namespace Lusid.Sdk.Model
         /// <param name="assetType">What is the asset that the engine is for.  Supported string (enumeration) values are: [Cash, Commodity, Credit, Equity, Fx, Rates, FxVol, IrVol, EquityVol, HolidayCalendar, IndexConvention, FlowConvention, CdsFlowConvention, CorporateActions, FxForwards, Quote, Inflation, EquityCurve, All, VendorOpaque]. (required).</param>
         /// <param name="lineage">lineage.</param>
         /// <param name="volatility">Volatility value. (required).</param>
+        /// <param name="varVersion">varVersion.</param>
         /// <param name="marketDataType">The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface (required) (default to &quot;ConstantVolatilitySurface&quot;).</param>
-        public ConstantVolatilitySurface(DateTimeOffset baseDate = default(DateTimeOffset), string assetType = default(string), string lineage = default(string), decimal volatility = default(decimal), MarketDataTypeEnum marketDataType = default(MarketDataTypeEnum)) : base(marketDataType)
+        public ConstantVolatilitySurface(DateTimeOffset baseDate = default(DateTimeOffset), string assetType = default(string), string lineage = default(string), decimal volatility = default(decimal), ModelVersion varVersion = default(ModelVersion), MarketDataTypeEnum marketDataType = default(MarketDataTypeEnum)) : base(marketDataType)
         {
             this.BaseDate = baseDate;
             // to ensure "assetType" is required (not null)
@@ -54,6 +55,7 @@ namespace Lusid.Sdk.Model
             this.AssetType = assetType;
             this.Volatility = volatility;
             this.Lineage = lineage;
+            this.VarVersion = varVersion;
         }
 
         /// <summary>
@@ -84,6 +86,12 @@ namespace Lusid.Sdk.Model
         public decimal Volatility { get; set; }
 
         /// <summary>
+        /// Gets or Sets VarVersion
+        /// </summary>
+        [DataMember(Name = "version", EmitDefaultValue = false)]
+        public ModelVersion VarVersion { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -96,6 +104,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  AssetType: ").Append(AssetType).Append("\n");
             sb.Append("  Lineage: ").Append(Lineage).Append("\n");
             sb.Append("  Volatility: ").Append(Volatility).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -149,6 +158,11 @@ namespace Lusid.Sdk.Model
                 (
                     this.Volatility == input.Volatility ||
                     this.Volatility.Equals(input.Volatility)
+                ) && base.Equals(input) && 
+                (
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 );
         }
 
@@ -174,6 +188,10 @@ namespace Lusid.Sdk.Model
                     hashCode = (hashCode * 59) + this.Lineage.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Volatility.GetHashCode();
+                if (this.VarVersion != null)
+                {
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
+                }
                 return hashCode;
             }
         }

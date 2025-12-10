@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **MarketDataOptions** | [**MarketDataOptions**](MarketDataOptions.md) |  | [optional] 
 **Calendars** | [**List&lt;FxTenorConvention&gt;**](FxTenorConvention.md) | The list of conventions that should be used when interpreting tenors as dates. | [optional] 
 **SpotDaysCalculationType** | **string** | Configures how to calculate the spot date from the build date using the Calendars provided.  Supported string (enumeration) values are: [ SingleCalendar, UnionCalendars ] | [optional] 
+**VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -28,6 +29,8 @@ MarketDataOptions? marketDataOptions = new MarketDataOptions();
 
 List<FxTenorConvention> calendars = new List<FxTenorConvention>();
 string spotDaysCalculationType = "example spotDaysCalculationType";
+ModelVersion? varVersion = new ModelVersion();
+
 
 FxForwardCurveByQuoteReference fxForwardCurveByQuoteReferenceInstance = new FxForwardCurveByQuoteReference(
     domCcy: domCcy,
@@ -37,7 +40,8 @@ FxForwardCurveByQuoteReference fxForwardCurveByQuoteReferenceInstance = new FxFo
     lineage: lineage,
     marketDataOptions: marketDataOptions,
     calendars: calendars,
-    spotDaysCalculationType: spotDaysCalculationType);
+    spotDaysCalculationType: spotDaysCalculationType,
+    varVersion: varVersion);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

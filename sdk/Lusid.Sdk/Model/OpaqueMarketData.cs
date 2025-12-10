@@ -42,8 +42,9 @@ namespace Lusid.Sdk.Model
         /// <param name="format">What format is the document stored in, e.g. Xml.  Supported string (enumeration) values are: [Unknown, Xml, Json, Csv]. (required).</param>
         /// <param name="name">Internal name of document. This is not used for search, it is simply a designator that helps identify the document  and could be anything (filename, ftp address or similar) (required).</param>
         /// <param name="lineage">Description of the complex market data&#39;s lineage e.g. &#39;FundAccountant_GreenQuality&#39;..</param>
+        /// <param name="varVersion">varVersion.</param>
         /// <param name="marketDataType">The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface (required) (default to &quot;OpaqueMarketData&quot;).</param>
-        public OpaqueMarketData(string document = default(string), string format = default(string), string name = default(string), string lineage = default(string), MarketDataTypeEnum marketDataType = default(MarketDataTypeEnum)) : base(marketDataType)
+        public OpaqueMarketData(string document = default(string), string format = default(string), string name = default(string), string lineage = default(string), ModelVersion varVersion = default(ModelVersion), MarketDataTypeEnum marketDataType = default(MarketDataTypeEnum)) : base(marketDataType)
         {
             // to ensure "document" is required (not null)
             if (document == null)
@@ -64,6 +65,7 @@ namespace Lusid.Sdk.Model
             }
             this.Name = name;
             this.Lineage = lineage;
+            this.VarVersion = varVersion;
         }
 
         /// <summary>
@@ -95,6 +97,12 @@ namespace Lusid.Sdk.Model
         public string Lineage { get; set; }
 
         /// <summary>
+        /// Gets or Sets VarVersion
+        /// </summary>
+        [DataMember(Name = "version", EmitDefaultValue = false)]
+        public ModelVersion VarVersion { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -107,6 +115,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Format: ").Append(Format).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Lineage: ").Append(Lineage).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -161,6 +170,11 @@ namespace Lusid.Sdk.Model
                     this.Lineage == input.Lineage ||
                     (this.Lineage != null &&
                     this.Lineage.Equals(input.Lineage))
+                ) && base.Equals(input) && 
+                (
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 );
         }
 
@@ -188,6 +202,10 @@ namespace Lusid.Sdk.Model
                 if (this.Lineage != null)
                 {
                     hashCode = (hashCode * 59) + this.Lineage.GetHashCode();
+                }
+                if (this.VarVersion != null)
+                {
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 return hashCode;
             }

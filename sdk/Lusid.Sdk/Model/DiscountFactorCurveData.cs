@@ -43,8 +43,9 @@ namespace Lusid.Sdk.Model
         /// <param name="discountFactors">Discount factors to be applied to cashflow on the specified dates (required).</param>
         /// <param name="lineage">Description of the complex market data&#39;s lineage e.g. &#39;FundAccountant_GreenQuality&#39;..</param>
         /// <param name="marketDataOptions">marketDataOptions.</param>
+        /// <param name="varVersion">varVersion.</param>
         /// <param name="marketDataType">The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface (required) (default to &quot;DiscountFactorCurveData&quot;).</param>
-        public DiscountFactorCurveData(DateTimeOffset baseDate = default(DateTimeOffset), List<DateTimeOffset> dates = default(List<DateTimeOffset>), List<decimal> discountFactors = default(List<decimal>), string lineage = default(string), MarketDataOptions marketDataOptions = default(MarketDataOptions), MarketDataTypeEnum marketDataType = default(MarketDataTypeEnum)) : base(marketDataType)
+        public DiscountFactorCurveData(DateTimeOffset baseDate = default(DateTimeOffset), List<DateTimeOffset> dates = default(List<DateTimeOffset>), List<decimal> discountFactors = default(List<decimal>), string lineage = default(string), MarketDataOptions marketDataOptions = default(MarketDataOptions), ModelVersion varVersion = default(ModelVersion), MarketDataTypeEnum marketDataType = default(MarketDataTypeEnum)) : base(marketDataType)
         {
             this.BaseDate = baseDate;
             // to ensure "dates" is required (not null)
@@ -61,6 +62,7 @@ namespace Lusid.Sdk.Model
             this.DiscountFactors = discountFactors;
             this.Lineage = lineage;
             this.MarketDataOptions = marketDataOptions;
+            this.VarVersion = varVersion;
         }
 
         /// <summary>
@@ -98,6 +100,12 @@ namespace Lusid.Sdk.Model
         public MarketDataOptions MarketDataOptions { get; set; }
 
         /// <summary>
+        /// Gets or Sets VarVersion
+        /// </summary>
+        [DataMember(Name = "version", EmitDefaultValue = false)]
+        public ModelVersion VarVersion { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -111,6 +119,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  DiscountFactors: ").Append(DiscountFactors).Append("\n");
             sb.Append("  Lineage: ").Append(Lineage).Append("\n");
             sb.Append("  MarketDataOptions: ").Append(MarketDataOptions).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -172,6 +181,11 @@ namespace Lusid.Sdk.Model
                     this.MarketDataOptions == input.MarketDataOptions ||
                     (this.MarketDataOptions != null &&
                     this.MarketDataOptions.Equals(input.MarketDataOptions))
+                ) && base.Equals(input) && 
+                (
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 );
         }
 
@@ -203,6 +217,10 @@ namespace Lusid.Sdk.Model
                 if (this.MarketDataOptions != null)
                 {
                     hashCode = (hashCode * 59) + this.MarketDataOptions.GetHashCode();
+                }
+                if (this.VarVersion != null)
+                {
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 return hashCode;
             }

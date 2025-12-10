@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **Maturities** | **List&lt;DateTimeOffset&gt;** | The maturity dates for which the rates apply.  Either tenors or maturities should be provided, not both. | [optional] 
 **Lineage** | **string** | Description of the complex market data&#39;s lineage e.g. &#39;FundAccountant_GreenQuality&#39;. | [optional] 
 **MarketDataOptions** | [**MarketDataOptions**](MarketDataOptions.md) |  | [optional] 
+**VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -28,6 +29,8 @@ List<DateTimeOffset> maturities = new List<DateTimeOffset>();
 string lineage = "example lineage";
 MarketDataOptions? marketDataOptions = new MarketDataOptions();
 
+ModelVersion? varVersion = new ModelVersion();
+
 
 CreditSpreadCurveData creditSpreadCurveDataInstance = new CreditSpreadCurveData(
     baseDate: baseDate,
@@ -38,7 +41,8 @@ CreditSpreadCurveData creditSpreadCurveDataInstance = new CreditSpreadCurveData(
     referenceDate: referenceDate,
     maturities: maturities,
     lineage: lineage,
-    marketDataOptions: marketDataOptions);
+    marketDataOptions: marketDataOptions,
+    varVersion: varVersion);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
