@@ -49,7 +49,8 @@ namespace Lusid.Sdk.Model
         /// <param name="amortisationMethod">amortisationMethod (required).</param>
         /// <param name="transactionTypeScope">transactionTypeScope (required).</param>
         /// <param name="cashGainLossCalculationDate">cashGainLossCalculationDate (required).</param>
-        public NavTypeDefinition(string code = default(string), string displayName = default(string), string description = default(string), ResourceId chartOfAccountsId = default(ResourceId), List<string> postingModuleCodes = default(List<string>), List<string> cleardownModuleCodes = default(List<string>), ResourceId valuationRecipeId = default(ResourceId), ResourceId holdingRecipeId = default(ResourceId), string accountingMethod = default(string), List<string> subHoldingKeys = default(List<string>), string amortisationMethod = default(string), string transactionTypeScope = default(string), string cashGainLossCalculationDate = default(string))
+        /// <param name="amortisationRuleSetId">amortisationRuleSetId.</param>
+        public NavTypeDefinition(string code = default(string), string displayName = default(string), string description = default(string), ResourceId chartOfAccountsId = default(ResourceId), List<string> postingModuleCodes = default(List<string>), List<string> cleardownModuleCodes = default(List<string>), ResourceId valuationRecipeId = default(ResourceId), ResourceId holdingRecipeId = default(ResourceId), string accountingMethod = default(string), List<string> subHoldingKeys = default(List<string>), string amortisationMethod = default(string), string transactionTypeScope = default(string), string cashGainLossCalculationDate = default(string), ResourceId amortisationRuleSetId = default(ResourceId))
         {
             // to ensure "chartOfAccountsId" is required (not null)
             if (chartOfAccountsId == null)
@@ -99,6 +100,7 @@ namespace Lusid.Sdk.Model
             this.PostingModuleCodes = postingModuleCodes;
             this.CleardownModuleCodes = cleardownModuleCodes;
             this.SubHoldingKeys = subHoldingKeys;
+            this.AmortisationRuleSetId = amortisationRuleSetId;
         }
 
         /// <summary>
@@ -181,6 +183,12 @@ namespace Lusid.Sdk.Model
         public string CashGainLossCalculationDate { get; set; }
 
         /// <summary>
+        /// Gets or Sets AmortisationRuleSetId
+        /// </summary>
+        [DataMember(Name = "amortisationRuleSetId", EmitDefaultValue = false)]
+        public ResourceId AmortisationRuleSetId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -201,6 +209,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  AmortisationMethod: ").Append(AmortisationMethod).Append("\n");
             sb.Append("  TransactionTypeScope: ").Append(TransactionTypeScope).Append("\n");
             sb.Append("  CashGainLossCalculationDate: ").Append(CashGainLossCalculationDate).Append("\n");
+            sb.Append("  AmortisationRuleSetId: ").Append(AmortisationRuleSetId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -303,6 +312,11 @@ namespace Lusid.Sdk.Model
                     this.CashGainLossCalculationDate == input.CashGainLossCalculationDate ||
                     (this.CashGainLossCalculationDate != null &&
                     this.CashGainLossCalculationDate.Equals(input.CashGainLossCalculationDate))
+                ) && 
+                (
+                    this.AmortisationRuleSetId == input.AmortisationRuleSetId ||
+                    (this.AmortisationRuleSetId != null &&
+                    this.AmortisationRuleSetId.Equals(input.AmortisationRuleSetId))
                 );
         }
 
@@ -366,6 +380,10 @@ namespace Lusid.Sdk.Model
                 if (this.CashGainLossCalculationDate != null)
                 {
                     hashCode = (hashCode * 59) + this.CashGainLossCalculationDate.GetHashCode();
+                }
+                if (this.AmortisationRuleSetId != null)
+                {
+                    hashCode = (hashCode * 59) + this.AmortisationRuleSetId.GetHashCode();
                 }
                 return hashCode;
             }

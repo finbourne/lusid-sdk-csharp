@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **AmortisationMethod** | **string** |  | 
 **TransactionTypeScope** | **string** |  | 
 **CashGainLossCalculationDate** | **string** |  | 
+**AmortisationRuleSetId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -35,6 +36,8 @@ List<string> subHoldingKeys = new List<string>();
 string amortisationMethod = "amortisationMethod";
 string transactionTypeScope = "transactionTypeScope";
 string cashGainLossCalculationDate = "cashGainLossCalculationDate";
+ResourceId? amortisationRuleSetId = new ResourceId();
+
 
 NavTypeDefinition navTypeDefinitionInstance = new NavTypeDefinition(
     code: code,
@@ -49,7 +52,8 @@ NavTypeDefinition navTypeDefinitionInstance = new NavTypeDefinition(
     subHoldingKeys: subHoldingKeys,
     amortisationMethod: amortisationMethod,
     transactionTypeScope: transactionTypeScope,
-    cashGainLossCalculationDate: cashGainLossCalculationDate);
+    cashGainLossCalculationDate: cashGainLossCalculationDate,
+    amortisationRuleSetId: amortisationRuleSetId);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
