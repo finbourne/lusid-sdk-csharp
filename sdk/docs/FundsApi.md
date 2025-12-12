@@ -3502,7 +3502,7 @@ catch (ApiException e)
 
 <a id="revertvaluationpointtoestimate"></a>
 # **RevertValuationPointToEstimate**
-> ValuationPointDataResponse RevertValuationPointToEstimate (string scope, string code, ValuationPointDataRequest valuationPointDataRequest, string? navTypeCode = null)
+> ValuationPointDataResponse RevertValuationPointToEstimate (string scope, string code, RevertValuationPointDataRequest revertValuationPointDataRequest, string? navTypeCode = null)
 
 [EXPERIMENTAL] RevertValuationPointToEstimate: Reverts a Final Valuation Point to Estimate.
 
@@ -3549,16 +3549,16 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
             var scope = "scope_example";  // string | The scope of the Fund.
             var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
-            var valuationPointDataRequest = new ValuationPointDataRequest(); // ValuationPointDataRequest | The valuationPointDataRequest which contains the Diary Entry code for the Final Valuation Point to move to Estimate status.
+            var revertValuationPointDataRequest = new RevertValuationPointDataRequest(); // RevertValuationPointDataRequest | The revertValuationPointRequest which contains the Diary Entry code for the Final Valuation Point to move to Estimate status.
             var navTypeCode = "navTypeCode_example";  // string? | When provided, sets the status of the Valuation Point of the specified NAV Type to be Estimate.              Otherwise, the Primary NAV Type will be used. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // ValuationPointDataResponse result = apiInstance.RevertValuationPointToEstimate(scope, code, valuationPointDataRequest, navTypeCode, opts: opts);
+                // ValuationPointDataResponse result = apiInstance.RevertValuationPointToEstimate(scope, code, revertValuationPointDataRequest, navTypeCode, opts: opts);
 
                 // [EXPERIMENTAL] RevertValuationPointToEstimate: Reverts a Final Valuation Point to Estimate.
-                ValuationPointDataResponse result = apiInstance.RevertValuationPointToEstimate(scope, code, valuationPointDataRequest, navTypeCode);
+                ValuationPointDataResponse result = apiInstance.RevertValuationPointToEstimate(scope, code, revertValuationPointDataRequest, navTypeCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -3579,7 +3579,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] RevertValuationPointToEstimate: Reverts a Final Valuation Point to Estimate.
-    ApiResponse<ValuationPointDataResponse> response = apiInstance.RevertValuationPointToEstimateWithHttpInfo(scope, code, valuationPointDataRequest, navTypeCode);
+    ApiResponse<ValuationPointDataResponse> response = apiInstance.RevertValuationPointToEstimateWithHttpInfo(scope, code, revertValuationPointDataRequest, navTypeCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -3598,7 +3598,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **scope** | **string** | The scope of the Fund. |  |
 | **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
-| **valuationPointDataRequest** | [**ValuationPointDataRequest**](ValuationPointDataRequest.md) | The valuationPointDataRequest which contains the Diary Entry code for the Final Valuation Point to move to Estimate status. |  |
+| **revertValuationPointDataRequest** | [**RevertValuationPointDataRequest**](RevertValuationPointDataRequest.md) | The revertValuationPointRequest which contains the Diary Entry code for the Final Valuation Point to move to Estimate status. |  |
 | **navTypeCode** | **string?** | When provided, sets the status of the Valuation Point of the specified NAV Type to be Estimate.              Otherwise, the Primary NAV Type will be used. | [optional]  |
 
 ### Return type

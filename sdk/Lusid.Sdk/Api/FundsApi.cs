@@ -1008,12 +1008,12 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="valuationPointDataRequest">The valuationPointDataRequest which contains the Diary Entry code for the Final Valuation Point to move to Estimate status.</param>
+        /// <param name="revertValuationPointDataRequest">The revertValuationPointRequest which contains the Diary Entry code for the Final Valuation Point to move to Estimate status.</param>
         /// <param name="navTypeCode">When provided, sets the status of the Valuation Point of the specified NAV Type to be Estimate.              Otherwise, the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ValuationPointDataResponse</returns>
-        ValuationPointDataResponse RevertValuationPointToEstimate(string scope, string code, ValuationPointDataRequest valuationPointDataRequest, string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        ValuationPointDataResponse RevertValuationPointToEstimate(string scope, string code, RevertValuationPointDataRequest revertValuationPointDataRequest, string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] RevertValuationPointToEstimate: Reverts a Final Valuation Point to Estimate.
@@ -1024,12 +1024,12 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="valuationPointDataRequest">The valuationPointDataRequest which contains the Diary Entry code for the Final Valuation Point to move to Estimate status.</param>
+        /// <param name="revertValuationPointDataRequest">The revertValuationPointRequest which contains the Diary Entry code for the Final Valuation Point to move to Estimate status.</param>
         /// <param name="navTypeCode">When provided, sets the status of the Valuation Point of the specified NAV Type to be Estimate.              Otherwise, the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ValuationPointDataResponse</returns>
-        Lusid.Sdk.Client.ApiResponse<ValuationPointDataResponse> RevertValuationPointToEstimateWithHttpInfo(string scope, string code, ValuationPointDataRequest valuationPointDataRequest, string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<ValuationPointDataResponse> RevertValuationPointToEstimateWithHttpInfo(string scope, string code, RevertValuationPointDataRequest revertValuationPointDataRequest, string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] SetShareClassInstruments: Set the ShareClass Instruments on a Fund.
         /// </summary>
@@ -2256,13 +2256,13 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="valuationPointDataRequest">The valuationPointDataRequest which contains the Diary Entry code for the Final Valuation Point to move to Estimate status.</param>
+        /// <param name="revertValuationPointDataRequest">The revertValuationPointRequest which contains the Diary Entry code for the Final Valuation Point to move to Estimate status.</param>
         /// <param name="navTypeCode">When provided, sets the status of the Valuation Point of the specified NAV Type to be Estimate.              Otherwise, the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ValuationPointDataResponse</returns>
-        System.Threading.Tasks.Task<ValuationPointDataResponse> RevertValuationPointToEstimateAsync(string scope, string code, ValuationPointDataRequest valuationPointDataRequest, string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<ValuationPointDataResponse> RevertValuationPointToEstimateAsync(string scope, string code, RevertValuationPointDataRequest revertValuationPointDataRequest, string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] RevertValuationPointToEstimate: Reverts a Final Valuation Point to Estimate.
@@ -2273,13 +2273,13 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="valuationPointDataRequest">The valuationPointDataRequest which contains the Diary Entry code for the Final Valuation Point to move to Estimate status.</param>
+        /// <param name="revertValuationPointDataRequest">The revertValuationPointRequest which contains the Diary Entry code for the Final Valuation Point to move to Estimate status.</param>
         /// <param name="navTypeCode">When provided, sets the status of the Valuation Point of the specified NAV Type to be Estimate.              Otherwise, the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ValuationPointDataResponse)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ValuationPointDataResponse>> RevertValuationPointToEstimateWithHttpInfoAsync(string scope, string code, ValuationPointDataRequest valuationPointDataRequest, string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ValuationPointDataResponse>> RevertValuationPointToEstimateWithHttpInfoAsync(string scope, string code, RevertValuationPointDataRequest revertValuationPointDataRequest, string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] SetShareClassInstruments: Set the ShareClass Instruments on a Fund.
         /// </summary>
@@ -10412,14 +10412,14 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="valuationPointDataRequest">The valuationPointDataRequest which contains the Diary Entry code for the Final Valuation Point to move to Estimate status.</param>
+        /// <param name="revertValuationPointDataRequest">The revertValuationPointRequest which contains the Diary Entry code for the Final Valuation Point to move to Estimate status.</param>
         /// <param name="navTypeCode">When provided, sets the status of the Valuation Point of the specified NAV Type to be Estimate.              Otherwise, the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ValuationPointDataResponse</returns>
-        public ValuationPointDataResponse RevertValuationPointToEstimate(string scope, string code, ValuationPointDataRequest valuationPointDataRequest, string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public ValuationPointDataResponse RevertValuationPointToEstimate(string scope, string code, RevertValuationPointDataRequest revertValuationPointDataRequest, string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ValuationPointDataResponse> localVarResponse = RevertValuationPointToEstimateWithHttpInfo(scope, code, valuationPointDataRequest, navTypeCode, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<ValuationPointDataResponse> localVarResponse = RevertValuationPointToEstimateWithHttpInfo(scope, code, revertValuationPointDataRequest, navTypeCode, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -10429,12 +10429,12 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="valuationPointDataRequest">The valuationPointDataRequest which contains the Diary Entry code for the Final Valuation Point to move to Estimate status.</param>
+        /// <param name="revertValuationPointDataRequest">The revertValuationPointRequest which contains the Diary Entry code for the Final Valuation Point to move to Estimate status.</param>
         /// <param name="navTypeCode">When provided, sets the status of the Valuation Point of the specified NAV Type to be Estimate.              Otherwise, the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ValuationPointDataResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<ValuationPointDataResponse> RevertValuationPointToEstimateWithHttpInfo(string scope, string code, ValuationPointDataRequest valuationPointDataRequest, string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<ValuationPointDataResponse> RevertValuationPointToEstimateWithHttpInfo(string scope, string code, RevertValuationPointDataRequest revertValuationPointDataRequest, string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -10448,10 +10448,10 @@ namespace Lusid.Sdk.Api
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling FundsApi->RevertValuationPointToEstimate");
             }
 
-            // verify the required parameter 'valuationPointDataRequest' is set
-            if (valuationPointDataRequest == null)
+            // verify the required parameter 'revertValuationPointDataRequest' is set
+            if (revertValuationPointDataRequest == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'valuationPointDataRequest' when calling FundsApi->RevertValuationPointToEstimate");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'revertValuationPointDataRequest' when calling FundsApi->RevertValuationPointToEstimate");
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
@@ -10499,7 +10499,7 @@ namespace Lusid.Sdk.Api
 
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "navTypeCode", navTypeCode));
             }
-            localVarRequestOptions.Data = valuationPointDataRequest;
+            localVarRequestOptions.Data = revertValuationPointDataRequest;
 
             localVarRequestOptions.Operation = "FundsApi.RevertValuationPointToEstimate";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -10541,15 +10541,15 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="valuationPointDataRequest">The valuationPointDataRequest which contains the Diary Entry code for the Final Valuation Point to move to Estimate status.</param>
+        /// <param name="revertValuationPointDataRequest">The revertValuationPointRequest which contains the Diary Entry code for the Final Valuation Point to move to Estimate status.</param>
         /// <param name="navTypeCode">When provided, sets the status of the Valuation Point of the specified NAV Type to be Estimate.              Otherwise, the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ValuationPointDataResponse</returns>
-        public async System.Threading.Tasks.Task<ValuationPointDataResponse> RevertValuationPointToEstimateAsync(string scope, string code, ValuationPointDataRequest valuationPointDataRequest, string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<ValuationPointDataResponse> RevertValuationPointToEstimateAsync(string scope, string code, RevertValuationPointDataRequest revertValuationPointDataRequest, string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ValuationPointDataResponse> localVarResponse = await RevertValuationPointToEstimateWithHttpInfoAsync(scope, code, valuationPointDataRequest, navTypeCode, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ValuationPointDataResponse> localVarResponse = await RevertValuationPointToEstimateWithHttpInfoAsync(scope, code, revertValuationPointDataRequest, navTypeCode, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -10559,13 +10559,13 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
-        /// <param name="valuationPointDataRequest">The valuationPointDataRequest which contains the Diary Entry code for the Final Valuation Point to move to Estimate status.</param>
+        /// <param name="revertValuationPointDataRequest">The revertValuationPointRequest which contains the Diary Entry code for the Final Valuation Point to move to Estimate status.</param>
         /// <param name="navTypeCode">When provided, sets the status of the Valuation Point of the specified NAV Type to be Estimate.              Otherwise, the Primary NAV Type will be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ValuationPointDataResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ValuationPointDataResponse>> RevertValuationPointToEstimateWithHttpInfoAsync(string scope, string code, ValuationPointDataRequest valuationPointDataRequest, string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ValuationPointDataResponse>> RevertValuationPointToEstimateWithHttpInfoAsync(string scope, string code, RevertValuationPointDataRequest revertValuationPointDataRequest, string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -10579,10 +10579,10 @@ namespace Lusid.Sdk.Api
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling FundsApi->RevertValuationPointToEstimate");
             }
 
-            // verify the required parameter 'valuationPointDataRequest' is set
-            if (valuationPointDataRequest == null)
+            // verify the required parameter 'revertValuationPointDataRequest' is set
+            if (revertValuationPointDataRequest == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'valuationPointDataRequest' when calling FundsApi->RevertValuationPointToEstimate");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'revertValuationPointDataRequest' when calling FundsApi->RevertValuationPointToEstimate");
             }
 
 
@@ -10630,7 +10630,7 @@ namespace Lusid.Sdk.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "navTypeCode", navTypeCode));
             }
-            localVarRequestOptions.Data = valuationPointDataRequest;
+            localVarRequestOptions.Data = revertValuationPointDataRequest;
 
             localVarRequestOptions.Operation = "FundsApi.RevertValuationPointToEstimate";
             localVarRequestOptions.OperationIndex = operationIndex;
