@@ -38,7 +38,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="id">id (required).</param>
         /// <param name="displayName">The name of the Custom Data Model. (required).</param>
-        /// <param name="description">A description for the Custom Data Model. (required).</param>
+        /// <param name="description">A description for the Custom Data Model..</param>
         /// <param name="parentDataModel">parentDataModel.</param>
         /// <param name="conditions">The conditions that the bound entity must meet to be valid..</param>
         /// <param name="properties">The properties that are required or allowed on the bound entity..</param>
@@ -60,11 +60,6 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("displayName is a required property for CreateCustomDataModelRequest and cannot be null");
             }
             this.DisplayName = displayName;
-            // to ensure "description" is required (not null)
-            if (description == null)
-            {
-                throw new ArgumentNullException("description is a required property for CreateCustomDataModelRequest and cannot be null");
-            }
             this.Description = description;
             this.ParentDataModel = parentDataModel;
             this.Conditions = conditions;
@@ -92,7 +87,7 @@ namespace Lusid.Sdk.Model
         /// A description for the Custom Data Model.
         /// </summary>
         /// <value>A description for the Custom Data Model.</value>
-        [DataMember(Name = "description", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "description", EmitDefaultValue = true)]
         public string Description { get; set; }
 
         /// <summary>
@@ -333,9 +328,9 @@ namespace Lusid.Sdk.Model
             }
 
             // Description (string) maxLength
-            if (this.Description != null && this.Description.Length > 512)
+            if (this.Description != null && this.Description.Length > 1024)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be less than 512.", new [] { "Description" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be less than 1024.", new [] { "Description" });
             }
 
             // Description (string) minLength

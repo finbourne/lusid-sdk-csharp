@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | [**ResourceId**](ResourceId.md) |  | 
 **DisplayName** | **string** | The name of the Custom Data Model. | 
-**Description** | **string** | A description for the Custom Data Model. | 
+**Description** | **string** | A description for the Custom Data Model. | [optional] 
 **EntityType** | **string** | The entity type that the Custom Data Model binds to. | 
 **Type** | **string** | Either Root or Leaf or Intermediate. | 
 **Precedence** | **int** | Where in the hierarchy this model sits. | 
@@ -19,7 +19,7 @@ using System;
 
 ResourceId id = new ResourceId();
 string displayName = "displayName";
-string description = "description";
+string description = "example description";
 string entityType = "entityType";
 string type = "type";
 ResourceId? parent = new ResourceId();

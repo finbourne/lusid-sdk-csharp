@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **DisplayName** | **string** | The name of the Fund Calendar entry. | 
 **Description** | **string** | A description for the Fund Calendar entry. | [optional] 
 **NavTypeCode** | **string** | The navTypeCode of the Fund Calendar Entry. This is the code of the NAV type that this Calendar Entry is associated with. | 
+**TimelineId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **PreviousEntry** | [**PreviousFundCalendarEntry**](PreviousFundCalendarEntry.md) |  | [optional] 
 **EffectiveAt** | **DateTimeOffset** | The effective at of the Calendar Entry. | [optional] 
 **AsAt** | **DateTimeOffset** | The asAt datetime for the Calendar Entry. | 
@@ -26,6 +27,8 @@ string code = "code";
 string displayName = "displayName";
 string description = "example description";
 string navTypeCode = "navTypeCode";
+ResourceId? timelineId = new ResourceId();
+
 PreviousFundCalendarEntry? previousEntry = new PreviousFundCalendarEntry();
 
 string entryType = "entryType";
@@ -40,6 +43,7 @@ FundCalendarEntry fundCalendarEntryInstance = new FundCalendarEntry(
     displayName: displayName,
     description: description,
     navTypeCode: navTypeCode,
+    timelineId: timelineId,
     previousEntry: previousEntry,
     effectiveAt: effectiveAt,
     asAt: asAt,

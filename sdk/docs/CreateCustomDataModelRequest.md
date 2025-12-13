@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | [**ResourceId**](ResourceId.md) |  | 
 **DisplayName** | **string** | The name of the Custom Data Model. | 
-**Description** | **string** | A description for the Custom Data Model. | 
+**Description** | **string** | A description for the Custom Data Model. | [optional] 
 **ParentDataModel** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **Conditions** | **string** | The conditions that the bound entity must meet to be valid. | [optional] 
 **Properties** | [**List&lt;CustomDataModelPropertySpecification&gt;**](CustomDataModelPropertySpecification.md) | The properties that are required or allowed on the bound entity. | [optional] 
@@ -21,7 +21,7 @@ using System;
 
 ResourceId id = new ResourceId();
 string displayName = "displayName";
-string description = "description";
+string description = "example description";
 ResourceId? parentDataModel = new ResourceId();
 
 string conditions = "example conditions";
