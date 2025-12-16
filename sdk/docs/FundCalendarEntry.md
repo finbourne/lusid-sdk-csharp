@@ -4,7 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Code** | **string** | The unique Code of the Calendar Entry. The Calendar Entry, together with the Fund Scope and Code, uniquely identifies a Fund Calendar Entry | 
+**Code** | **string** | The unique Code of the Calendar Entry. The Calendar Entry, together with the Fund Scope and Code, uniquely identifies a Fund Calendar Entry. | 
+**Variant** | **string** | The Variant of the Calendar Entry. Together with the valuation point code marks the unique branch for the NavType. | [optional] 
 **DisplayName** | **string** | The name of the Fund Calendar entry. | 
 **Description** | **string** | A description for the Fund Calendar entry. | [optional] 
 **NavTypeCode** | **string** | The navTypeCode of the Fund Calendar Entry. This is the code of the NAV type that this Calendar Entry is associated with. | 
@@ -24,6 +25,7 @@ using Lusid.Sdk.Model;
 using System;
 
 string code = "code";
+string variant = "example variant";
 string displayName = "displayName";
 string description = "example description";
 string navTypeCode = "navTypeCode";
@@ -40,6 +42,7 @@ string href = "example href";
 
 FundCalendarEntry fundCalendarEntryInstance = new FundCalendarEntry(
     code: code,
+    variant: variant,
     displayName: displayName,
     description: description,
     navTypeCode: navTypeCode,

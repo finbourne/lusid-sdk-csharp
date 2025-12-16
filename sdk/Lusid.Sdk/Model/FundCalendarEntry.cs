@@ -63,7 +63,8 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FundCalendarEntry" /> class.
         /// </summary>
-        /// <param name="code">The unique Code of the Calendar Entry. The Calendar Entry, together with the Fund Scope and Code, uniquely identifies a Fund Calendar Entry (required).</param>
+        /// <param name="code">The unique Code of the Calendar Entry. The Calendar Entry, together with the Fund Scope and Code, uniquely identifies a Fund Calendar Entry. (required).</param>
+        /// <param name="variant">The Variant of the Calendar Entry. Together with the valuation point code marks the unique branch for the NavType..</param>
         /// <param name="displayName">The name of the Fund Calendar entry. (required).</param>
         /// <param name="description">A description for the Fund Calendar entry..</param>
         /// <param name="navTypeCode">The navTypeCode of the Fund Calendar Entry. This is the code of the NAV type that this Calendar Entry is associated with. (required).</param>
@@ -77,7 +78,7 @@ namespace Lusid.Sdk.Model
         /// <param name="properties">The properties for the Calendar Entry. These will be from the &#39;ClosedPeriod&#39; domain..</param>
         /// <param name="varVersion">varVersion (required).</param>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested asAt datetime..</param>
-        public FundCalendarEntry(string code = default(string), string displayName = default(string), string description = default(string), string navTypeCode = default(string), ResourceId timelineId = default(ResourceId), PreviousFundCalendarEntry previousEntry = default(PreviousFundCalendarEntry), DateTimeOffset effectiveAt = default(DateTimeOffset), DateTimeOffset asAt = default(DateTimeOffset), EntryTypeEnum entryType = default(EntryTypeEnum), string status = default(string), bool applyClearDown = default(bool), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion varVersion = default(ModelVersion), string href = default(string))
+        public FundCalendarEntry(string code = default(string), string variant = default(string), string displayName = default(string), string description = default(string), string navTypeCode = default(string), ResourceId timelineId = default(ResourceId), PreviousFundCalendarEntry previousEntry = default(PreviousFundCalendarEntry), DateTimeOffset effectiveAt = default(DateTimeOffset), DateTimeOffset asAt = default(DateTimeOffset), EntryTypeEnum entryType = default(EntryTypeEnum), string status = default(string), bool applyClearDown = default(bool), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion varVersion = default(ModelVersion), string href = default(string))
         {
             // to ensure "code" is required (not null)
             if (code == null)
@@ -106,6 +107,7 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("varVersion is a required property for FundCalendarEntry and cannot be null");
             }
             this.VarVersion = varVersion;
+            this.Variant = variant;
             this.Description = description;
             this.TimelineId = timelineId;
             this.PreviousEntry = previousEntry;
@@ -116,11 +118,18 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The unique Code of the Calendar Entry. The Calendar Entry, together with the Fund Scope and Code, uniquely identifies a Fund Calendar Entry
+        /// The unique Code of the Calendar Entry. The Calendar Entry, together with the Fund Scope and Code, uniquely identifies a Fund Calendar Entry.
         /// </summary>
-        /// <value>The unique Code of the Calendar Entry. The Calendar Entry, together with the Fund Scope and Code, uniquely identifies a Fund Calendar Entry</value>
+        /// <value>The unique Code of the Calendar Entry. The Calendar Entry, together with the Fund Scope and Code, uniquely identifies a Fund Calendar Entry.</value>
         [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = true)]
         public string Code { get; set; }
+
+        /// <summary>
+        /// The Variant of the Calendar Entry. Together with the valuation point code marks the unique branch for the NavType.
+        /// </summary>
+        /// <value>The Variant of the Calendar Entry. Together with the valuation point code marks the unique branch for the NavType.</value>
+        [DataMember(Name = "variant", EmitDefaultValue = true)]
+        public string Variant { get; set; }
 
         /// <summary>
         /// The name of the Fund Calendar entry.
@@ -212,6 +221,7 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class FundCalendarEntry {\n");
             sb.Append("  Code: ").Append(Code).Append("\n");
+            sb.Append("  Variant: ").Append(Variant).Append("\n");
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  NavTypeCode: ").Append(NavTypeCode).Append("\n");
@@ -264,6 +274,11 @@ namespace Lusid.Sdk.Model
                     this.Code == input.Code ||
                     (this.Code != null &&
                     this.Code.Equals(input.Code))
+                ) && 
+                (
+                    this.Variant == input.Variant ||
+                    (this.Variant != null &&
+                    this.Variant.Equals(input.Variant))
                 ) && 
                 (
                     this.DisplayName == input.DisplayName ||
@@ -343,6 +358,10 @@ namespace Lusid.Sdk.Model
                 if (this.Code != null)
                 {
                     hashCode = (hashCode * 59) + this.Code.GetHashCode();
+                }
+                if (this.Variant != null)
+                {
+                    hashCode = (hashCode * 59) + this.Variant.GetHashCode();
                 }
                 if (this.DisplayName != null)
                 {

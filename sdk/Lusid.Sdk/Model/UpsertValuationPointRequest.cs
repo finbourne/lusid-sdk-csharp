@@ -37,12 +37,13 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="UpsertValuationPointRequest" /> class.
         /// </summary>
         /// <param name="diaryEntryCode">Unique code for the Valuation Point. (required).</param>
+        /// <param name="diaryEntryVariant">Unique Variant for the given Diary Entry Code. Together with the valuation point code marks the unique branch for the NavType..</param>
         /// <param name="name">Identifiable Name assigned to the Valuation Point..</param>
         /// <param name="effectiveAt">The effective time of the diary entry. (required).</param>
         /// <param name="queryAsAt">The query time of the diary entry. Defaults to latest..</param>
         /// <param name="properties">A set of properties for the diary entry..</param>
         /// <param name="applyClearDown">Defaults to false. Set to true if you want that the closed period to have the clear down applied..</param>
-        public UpsertValuationPointRequest(string diaryEntryCode = default(string), string name = default(string), DateTimeOffset effectiveAt = default(DateTimeOffset), DateTimeOffset? queryAsAt = default(DateTimeOffset?), Dictionary<string, Property> properties = default(Dictionary<string, Property>), bool applyClearDown = default(bool))
+        public UpsertValuationPointRequest(string diaryEntryCode = default(string), string diaryEntryVariant = default(string), string name = default(string), DateTimeOffset effectiveAt = default(DateTimeOffset), DateTimeOffset? queryAsAt = default(DateTimeOffset?), Dictionary<string, Property> properties = default(Dictionary<string, Property>), bool applyClearDown = default(bool))
         {
             // to ensure "diaryEntryCode" is required (not null)
             if (diaryEntryCode == null)
@@ -51,6 +52,7 @@ namespace Lusid.Sdk.Model
             }
             this.DiaryEntryCode = diaryEntryCode;
             this.EffectiveAt = effectiveAt;
+            this.DiaryEntryVariant = diaryEntryVariant;
             this.Name = name;
             this.QueryAsAt = queryAsAt;
             this.Properties = properties;
@@ -63,6 +65,13 @@ namespace Lusid.Sdk.Model
         /// <value>Unique code for the Valuation Point.</value>
         [DataMember(Name = "diaryEntryCode", IsRequired = true, EmitDefaultValue = true)]
         public string DiaryEntryCode { get; set; }
+
+        /// <summary>
+        /// Unique Variant for the given Diary Entry Code. Together with the valuation point code marks the unique branch for the NavType.
+        /// </summary>
+        /// <value>Unique Variant for the given Diary Entry Code. Together with the valuation point code marks the unique branch for the NavType.</value>
+        [DataMember(Name = "diaryEntryVariant", EmitDefaultValue = true)]
+        public string DiaryEntryVariant { get; set; }
 
         /// <summary>
         /// Identifiable Name assigned to the Valuation Point.
@@ -108,6 +117,7 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class UpsertValuationPointRequest {\n");
             sb.Append("  DiaryEntryCode: ").Append(DiaryEntryCode).Append("\n");
+            sb.Append("  DiaryEntryVariant: ").Append(DiaryEntryVariant).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  EffectiveAt: ").Append(EffectiveAt).Append("\n");
             sb.Append("  QueryAsAt: ").Append(QueryAsAt).Append("\n");
@@ -154,6 +164,11 @@ namespace Lusid.Sdk.Model
                     this.DiaryEntryCode.Equals(input.DiaryEntryCode))
                 ) && 
                 (
+                    this.DiaryEntryVariant == input.DiaryEntryVariant ||
+                    (this.DiaryEntryVariant != null &&
+                    this.DiaryEntryVariant.Equals(input.DiaryEntryVariant))
+                ) && 
+                (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
@@ -192,6 +207,10 @@ namespace Lusid.Sdk.Model
                 if (this.DiaryEntryCode != null)
                 {
                     hashCode = (hashCode * 59) + this.DiaryEntryCode.GetHashCode();
+                }
+                if (this.DiaryEntryVariant != null)
+                {
+                    hashCode = (hashCode * 59) + this.DiaryEntryVariant.GetHashCode();
                 }
                 if (this.Name != null)
                 {
@@ -238,6 +257,25 @@ namespace Lusid.Sdk.Model
             if (false == regexDiaryEntryCode.Match(this.DiaryEntryCode).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DiaryEntryCode, must match a pattern of " + regexDiaryEntryCode, new [] { "DiaryEntryCode" });
+            }
+
+            // DiaryEntryVariant (string) maxLength
+            if (this.DiaryEntryVariant != null && this.DiaryEntryVariant.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DiaryEntryVariant, length must be less than 64.", new [] { "DiaryEntryVariant" });
+            }
+
+            // DiaryEntryVariant (string) minLength
+            if (this.DiaryEntryVariant != null && this.DiaryEntryVariant.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DiaryEntryVariant, length must be greater than 1.", new [] { "DiaryEntryVariant" });
+            }
+
+            // DiaryEntryVariant (string) pattern
+            Regex regexDiaryEntryVariant = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
+            if (false == regexDiaryEntryVariant.Match(this.DiaryEntryVariant).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DiaryEntryVariant, must match a pattern of " + regexDiaryEntryVariant, new [] { "DiaryEntryVariant" });
             }
 
             // Name (string) maxLength

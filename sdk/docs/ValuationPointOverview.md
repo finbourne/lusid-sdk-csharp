@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Href** | **string** | The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime. | [optional] 
 **DiaryEntryCode** | **string** | The code for the Valuation Point. | 
+**DiaryEntryVariant** | **string** | The Variant for the Valuation Point. Together with the valuation point code marks the unique branch for the NavType. | [optional] 
 **EffectiveFrom** | **DateTimeOffset** | The effective time of the last Valuation Point. | 
 **EffectiveTo** | **DateTimeOffset** | The effective time of the current Valuation Point. | 
 **QueryAsAt** | **DateTimeOffset** | The query time of the Valuation Point. Defaults to latest. | [optional] 
@@ -22,6 +23,7 @@ using System;
 
 string href = "example href";
 string diaryEntryCode = "diaryEntryCode";
+string diaryEntryVariant = "example diaryEntryVariant";
 string type = "type";
 string status = "status";decimal gav = "gav";
 decimal nav = "nav";
@@ -32,6 +34,7 @@ List<Link> links = new List<Link>();
 ValuationPointOverview valuationPointOverviewInstance = new ValuationPointOverview(
     href: href,
     diaryEntryCode: diaryEntryCode,
+    diaryEntryVariant: diaryEntryVariant,
     effectiveFrom: effectiveFrom,
     effectiveTo: effectiveTo,
     queryAsAt: queryAsAt,

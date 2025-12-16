@@ -6,6 +6,7 @@ A definition for the period you wish to close
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DiaryEntryCode** | **string** | Unique code for the Valuation Point. | 
+**DiaryEntryVariant** | **string** | Unique Variant for the given Diary Entry Code. Together with the valuation point code marks the unique branch for the NavType. | [optional] 
 **Name** | **string** | Identifiable Name assigned to the Valuation Point. | [optional] 
 **EffectiveAt** | **DateTimeOffset** | The effective time of the diary entry. | 
 **QueryAsAt** | **DateTimeOffset?** | The query time of the diary entry. Defaults to latest. | [optional] 
@@ -17,12 +18,14 @@ using Lusid.Sdk.Model;
 using System;
 
 string diaryEntryCode = "diaryEntryCode";
+string diaryEntryVariant = "example diaryEntryVariant";
 string name = "example name";
 Dictionary<string, Property> properties = new Dictionary<string, Property>();
 bool applyClearDown = //"True";
 
 UpsertValuationPointRequest upsertValuationPointRequestInstance = new UpsertValuationPointRequest(
     diaryEntryCode: diaryEntryCode,
+    diaryEntryVariant: diaryEntryVariant,
     name: name,
     effectiveAt: effectiveAt,
     queryAsAt: queryAsAt,

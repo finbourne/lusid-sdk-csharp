@@ -37,7 +37,8 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="ValuationPointDataRequest" /> class.
         /// </summary>
         /// <param name="diaryEntryCode">Unique code for the Valuation Point. (required).</param>
-        public ValuationPointDataRequest(string diaryEntryCode = default(string))
+        /// <param name="diaryEntryVariant">Unique Variant for the given Diary Entry Code. Together with the valuation point code marks the unique branch for the NavType..</param>
+        public ValuationPointDataRequest(string diaryEntryCode = default(string), string diaryEntryVariant = default(string))
         {
             // to ensure "diaryEntryCode" is required (not null)
             if (diaryEntryCode == null)
@@ -45,6 +46,7 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("diaryEntryCode is a required property for ValuationPointDataRequest and cannot be null");
             }
             this.DiaryEntryCode = diaryEntryCode;
+            this.DiaryEntryVariant = diaryEntryVariant;
         }
 
         /// <summary>
@@ -55,6 +57,13 @@ namespace Lusid.Sdk.Model
         public string DiaryEntryCode { get; set; }
 
         /// <summary>
+        /// Unique Variant for the given Diary Entry Code. Together with the valuation point code marks the unique branch for the NavType.
+        /// </summary>
+        /// <value>Unique Variant for the given Diary Entry Code. Together with the valuation point code marks the unique branch for the NavType.</value>
+        [DataMember(Name = "diaryEntryVariant", EmitDefaultValue = true)]
+        public string DiaryEntryVariant { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -63,6 +72,7 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class ValuationPointDataRequest {\n");
             sb.Append("  DiaryEntryCode: ").Append(DiaryEntryCode).Append("\n");
+            sb.Append("  DiaryEntryVariant: ").Append(DiaryEntryVariant).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -102,6 +112,11 @@ namespace Lusid.Sdk.Model
                     this.DiaryEntryCode == input.DiaryEntryCode ||
                     (this.DiaryEntryCode != null &&
                     this.DiaryEntryCode.Equals(input.DiaryEntryCode))
+                ) && 
+                (
+                    this.DiaryEntryVariant == input.DiaryEntryVariant ||
+                    (this.DiaryEntryVariant != null &&
+                    this.DiaryEntryVariant.Equals(input.DiaryEntryVariant))
                 );
         }
 
@@ -117,6 +132,10 @@ namespace Lusid.Sdk.Model
                 if (this.DiaryEntryCode != null)
                 {
                     hashCode = (hashCode * 59) + this.DiaryEntryCode.GetHashCode();
+                }
+                if (this.DiaryEntryVariant != null)
+                {
+                    hashCode = (hashCode * 59) + this.DiaryEntryVariant.GetHashCode();
                 }
                 return hashCode;
             }
@@ -146,6 +165,25 @@ namespace Lusid.Sdk.Model
             if (false == regexDiaryEntryCode.Match(this.DiaryEntryCode).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DiaryEntryCode, must match a pattern of " + regexDiaryEntryCode, new [] { "DiaryEntryCode" });
+            }
+
+            // DiaryEntryVariant (string) maxLength
+            if (this.DiaryEntryVariant != null && this.DiaryEntryVariant.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DiaryEntryVariant, length must be less than 64.", new [] { "DiaryEntryVariant" });
+            }
+
+            // DiaryEntryVariant (string) minLength
+            if (this.DiaryEntryVariant != null && this.DiaryEntryVariant.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DiaryEntryVariant, length must be greater than 1.", new [] { "DiaryEntryVariant" });
+            }
+
+            // DiaryEntryVariant (string) pattern
+            Regex regexDiaryEntryVariant = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
+            if (false == regexDiaryEntryVariant.Match(this.DiaryEntryVariant).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DiaryEntryVariant, must match a pattern of " + regexDiaryEntryVariant, new [] { "DiaryEntryVariant" });
             }
 
             yield break;

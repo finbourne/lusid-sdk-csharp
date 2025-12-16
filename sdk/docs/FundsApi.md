@@ -868,7 +868,7 @@ catch (ApiException e)
 
 <a id="deletenavactivityadjustments"></a>
 # **DeleteNavActivityAdjustments**
-> DeletedEntityResponse DeleteNavActivityAdjustments (string scope, string code, string valuationPointCode, string navTypeCode, List<NavActivityAdjustment> navActivityAdjustment)
+> DeletedEntityResponse DeleteNavActivityAdjustments (string scope, string code, string valuationPointCode, string navTypeCode, List<NavActivityAdjustment> navActivityAdjustment, string? valuationPointCodeVariant = null)
 
 [EXPERIMENTAL] DeleteNavActivityAdjustments: Delete Nav activity adjustments.
 
@@ -918,14 +918,15 @@ namespace Examples
             var valuationPointCode = "valuationPointCode_example";  // string | The valuation point Code to delete the adjustment from
             var navTypeCode = "navTypeCode_example";  // string | The Nav Type Code to delete the adjustment from
             var navActivityAdjustment = new List<NavActivityAdjustment>(); // List<NavActivityAdjustment> | The request describing the Nav activity adjustments to delete from a specific valuation point and nav type
+            var valuationPointCodeVariant = "valuationPointCodeVariant_example";  // string? | The variant of the valuation point used in the request. Together with the valuation point code marks the unique branch for the NavType. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // DeletedEntityResponse result = apiInstance.DeleteNavActivityAdjustments(scope, code, valuationPointCode, navTypeCode, navActivityAdjustment, opts: opts);
+                // DeletedEntityResponse result = apiInstance.DeleteNavActivityAdjustments(scope, code, valuationPointCode, navTypeCode, navActivityAdjustment, valuationPointCodeVariant, opts: opts);
 
                 // [EXPERIMENTAL] DeleteNavActivityAdjustments: Delete Nav activity adjustments.
-                DeletedEntityResponse result = apiInstance.DeleteNavActivityAdjustments(scope, code, valuationPointCode, navTypeCode, navActivityAdjustment);
+                DeletedEntityResponse result = apiInstance.DeleteNavActivityAdjustments(scope, code, valuationPointCode, navTypeCode, navActivityAdjustment, valuationPointCodeVariant);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -946,7 +947,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] DeleteNavActivityAdjustments: Delete Nav activity adjustments.
-    ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteNavActivityAdjustmentsWithHttpInfo(scope, code, valuationPointCode, navTypeCode, navActivityAdjustment);
+    ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteNavActivityAdjustmentsWithHttpInfo(scope, code, valuationPointCode, navTypeCode, navActivityAdjustment, valuationPointCodeVariant);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -968,6 +969,7 @@ catch (ApiException e)
 | **valuationPointCode** | **string** | The valuation point Code to delete the adjustment from |  |
 | **navTypeCode** | **string** | The Nav Type Code to delete the adjustment from |  |
 | **navActivityAdjustment** | [**List&lt;NavActivityAdjustment&gt;**](NavActivityAdjustment.md) | The request describing the Nav activity adjustments to delete from a specific valuation point and nav type |  |
+| **valuationPointCodeVariant** | **string?** | The variant of the valuation point used in the request. Together with the valuation point code marks the unique branch for the NavType. | [optional]  |
 
 ### Return type
 
@@ -990,7 +992,7 @@ catch (ApiException e)
 
 <a id="deletevaluationpoint"></a>
 # **DeleteValuationPoint**
-> DeletedEntityResponse DeleteValuationPoint (string scope, string code, string diaryEntryCode, string? navTypeCode = null)
+> DeletedEntityResponse DeleteValuationPoint (string scope, string code, string diaryEntryCode, string? diaryEntryCodeVariant = null, string? navTypeCode = null)
 
 [EXPERIMENTAL] DeleteValuationPoint: Delete a Valuation Point.
 
@@ -1038,15 +1040,16 @@ namespace Examples
             var scope = "scope_example";  // string | The scope of the Fund.
             var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
             var diaryEntryCode = "diaryEntryCode_example";  // string | The diary entry code for the valuation Point to be deleted.
+            var diaryEntryCodeVariant = "diaryEntryCodeVariant_example";  // string? | The variant of the valuation point used in the request. Together with the valuation point code marks the unique branch for the NavType. This is working only for the Estimates. (optional) 
             var navTypeCode = "navTypeCode_example";  // string? | When provided, deletes the Valuation Point against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // DeletedEntityResponse result = apiInstance.DeleteValuationPoint(scope, code, diaryEntryCode, navTypeCode, opts: opts);
+                // DeletedEntityResponse result = apiInstance.DeleteValuationPoint(scope, code, diaryEntryCode, diaryEntryCodeVariant, navTypeCode, opts: opts);
 
                 // [EXPERIMENTAL] DeleteValuationPoint: Delete a Valuation Point.
-                DeletedEntityResponse result = apiInstance.DeleteValuationPoint(scope, code, diaryEntryCode, navTypeCode);
+                DeletedEntityResponse result = apiInstance.DeleteValuationPoint(scope, code, diaryEntryCode, diaryEntryCodeVariant, navTypeCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -1067,7 +1070,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] DeleteValuationPoint: Delete a Valuation Point.
-    ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteValuationPointWithHttpInfo(scope, code, diaryEntryCode, navTypeCode);
+    ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteValuationPointWithHttpInfo(scope, code, diaryEntryCode, diaryEntryCodeVariant, navTypeCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -1087,6 +1090,7 @@ catch (ApiException e)
 | **scope** | **string** | The scope of the Fund. |  |
 | **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
 | **diaryEntryCode** | **string** | The diary entry code for the valuation Point to be deleted. |  |
+| **diaryEntryCodeVariant** | **string?** | The variant of the valuation point used in the request. Together with the valuation point code marks the unique branch for the NavType. This is working only for the Estimates. | [optional]  |
 | **navTypeCode** | **string?** | When provided, deletes the Valuation Point against the specified NAV Type, otherwise the Primary NAV Type will be used. | [optional]  |
 
 ### Return type
@@ -3006,7 +3010,7 @@ catch (ApiException e)
 
 <a id="listnavactivityadjustments"></a>
 # **ListNavActivityAdjustments**
-> ResourceListOfNavActivityAdjustment ListNavActivityAdjustments (string scope, string code, string valuationPointCode, string navTypeCode, DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null)
+> ResourceListOfNavActivityAdjustment ListNavActivityAdjustments (string scope, string code, string valuationPointCode, string navTypeCode, DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null, string? valuationPointCodeVariant = null)
 
 [EXPERIMENTAL] ListNavActivityAdjustments: List NAV adjustment activities applied to a valuation point
 
@@ -3059,14 +3063,15 @@ namespace Examples
             var page = "page_example";  // string? | The pagination token to use to continue listing Nav activity adjustments; this              value is returned from the previous call. If a pagination token is provided, the filter,              and asAt fields must not have changed since the original request. (optional) 
             var limit = 56;  // int? | When paginating, limit the results to this number. Defaults to 100 if not specified. (optional) 
             var filter = "filter_example";  // string? | Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
+            var valuationPointCodeVariant = "valuationPointCodeVariant_example";  // string? | The variant of the valuation point used in the request. Together with the valuation point code marks the unique branch for the NavType. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // ResourceListOfNavActivityAdjustment result = apiInstance.ListNavActivityAdjustments(scope, code, valuationPointCode, navTypeCode, asAt, page, limit, filter, opts: opts);
+                // ResourceListOfNavActivityAdjustment result = apiInstance.ListNavActivityAdjustments(scope, code, valuationPointCode, navTypeCode, asAt, page, limit, filter, valuationPointCodeVariant, opts: opts);
 
                 // [EXPERIMENTAL] ListNavActivityAdjustments: List NAV adjustment activities applied to a valuation point
-                ResourceListOfNavActivityAdjustment result = apiInstance.ListNavActivityAdjustments(scope, code, valuationPointCode, navTypeCode, asAt, page, limit, filter);
+                ResourceListOfNavActivityAdjustment result = apiInstance.ListNavActivityAdjustments(scope, code, valuationPointCode, navTypeCode, asAt, page, limit, filter, valuationPointCodeVariant);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -3087,7 +3092,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] ListNavActivityAdjustments: List NAV adjustment activities applied to a valuation point
-    ApiResponse<ResourceListOfNavActivityAdjustment> response = apiInstance.ListNavActivityAdjustmentsWithHttpInfo(scope, code, valuationPointCode, navTypeCode, asAt, page, limit, filter);
+    ApiResponse<ResourceListOfNavActivityAdjustment> response = apiInstance.ListNavActivityAdjustmentsWithHttpInfo(scope, code, valuationPointCode, navTypeCode, asAt, page, limit, filter, valuationPointCodeVariant);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -3112,6 +3117,7 @@ catch (ApiException e)
 | **page** | **string?** | The pagination token to use to continue listing Nav activity adjustments; this              value is returned from the previous call. If a pagination token is provided, the filter,              and asAt fields must not have changed since the original request. | [optional]  |
 | **limit** | **int?** | When paginating, limit the results to this number. Defaults to 100 if not specified. | [optional]  |
 | **filter** | **string?** | Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
+| **valuationPointCodeVariant** | **string?** | The variant of the valuation point used in the request. Together with the valuation point code marks the unique branch for the NavType. | [optional]  |
 
 ### Return type
 
@@ -4218,7 +4224,7 @@ catch (ApiException e)
 
 <a id="upsertnavactivityadjustments"></a>
 # **UpsertNavActivityAdjustments**
-> DateTimeOffset UpsertNavActivityAdjustments (string scope, string code, string valuationPointCode, string navTypeCode, List<NavActivityAdjustment> navActivityAdjustment)
+> DateTimeOffset UpsertNavActivityAdjustments (string scope, string code, string valuationPointCode, string navTypeCode, List<NavActivityAdjustment> navActivityAdjustment, string? valuationPointCodeVariant = null)
 
 [EXPERIMENTAL] UpsertNavActivityAdjustments: Upsert NAV adjustment activities to a valuation point
 
@@ -4268,14 +4274,15 @@ namespace Examples
             var valuationPointCode = "valuationPointCode_example";  // string | The valuation point Code to apply the adjustment to
             var navTypeCode = "navTypeCode_example";  // string | The Nav Type Code to apply the adjustment to
             var navActivityAdjustment = new List<NavActivityAdjustment>(); // List<NavActivityAdjustment> | The request describing the Nav activity adjustments to apply to a specific valuation point and nav type
+            var valuationPointCodeVariant = "valuationPointCodeVariant_example";  // string? | The variant of the valuation point used in the request. Together with the valuation point code marks the unique branch for the NavType. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // DateTimeOffset result = apiInstance.UpsertNavActivityAdjustments(scope, code, valuationPointCode, navTypeCode, navActivityAdjustment, opts: opts);
+                // DateTimeOffset result = apiInstance.UpsertNavActivityAdjustments(scope, code, valuationPointCode, navTypeCode, navActivityAdjustment, valuationPointCodeVariant, opts: opts);
 
                 // [EXPERIMENTAL] UpsertNavActivityAdjustments: Upsert NAV adjustment activities to a valuation point
-                DateTimeOffset result = apiInstance.UpsertNavActivityAdjustments(scope, code, valuationPointCode, navTypeCode, navActivityAdjustment);
+                DateTimeOffset result = apiInstance.UpsertNavActivityAdjustments(scope, code, valuationPointCode, navTypeCode, navActivityAdjustment, valuationPointCodeVariant);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -4296,7 +4303,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] UpsertNavActivityAdjustments: Upsert NAV adjustment activities to a valuation point
-    ApiResponse<DateTimeOffset> response = apiInstance.UpsertNavActivityAdjustmentsWithHttpInfo(scope, code, valuationPointCode, navTypeCode, navActivityAdjustment);
+    ApiResponse<DateTimeOffset> response = apiInstance.UpsertNavActivityAdjustmentsWithHttpInfo(scope, code, valuationPointCode, navTypeCode, navActivityAdjustment, valuationPointCodeVariant);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -4318,6 +4325,7 @@ catch (ApiException e)
 | **valuationPointCode** | **string** | The valuation point Code to apply the adjustment to |  |
 | **navTypeCode** | **string** | The Nav Type Code to apply the adjustment to |  |
 | **navActivityAdjustment** | [**List&lt;NavActivityAdjustment&gt;**](NavActivityAdjustment.md) | The request describing the Nav activity adjustments to apply to a specific valuation point and nav type |  |
+| **valuationPointCodeVariant** | **string?** | The variant of the valuation point used in the request. Together with the valuation point code marks the unique branch for the NavType. | [optional]  |
 
 ### Return type
 

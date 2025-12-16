@@ -38,6 +38,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
         /// <param name="diaryEntryCode">The code for the Valuation Point. (required).</param>
+        /// <param name="diaryEntryVariant">The Variant for the Valuation Point. Together with the valuation point code marks the unique branch for the NavType..</param>
         /// <param name="effectiveFrom">The effective time of the last Valuation Point. (required).</param>
         /// <param name="effectiveTo">The effective time of the current Valuation Point. (required).</param>
         /// <param name="queryAsAt">The query time of the Valuation Point. Defaults to latest..</param>
@@ -47,7 +48,7 @@ namespace Lusid.Sdk.Model
         /// <param name="nav">The Net Asset Value of the Fund or Share Class at the Valuation Point. This represents the GAV with any fees applied in the period. (required).</param>
         /// <param name="properties">The Fee properties. These will be from the &#39;Fee&#39; domain..</param>
         /// <param name="links">links.</param>
-        public ValuationPointOverview(string href = default(string), string diaryEntryCode = default(string), DateTimeOffset effectiveFrom = default(DateTimeOffset), DateTimeOffset effectiveTo = default(DateTimeOffset), DateTimeOffset queryAsAt = default(DateTimeOffset), string type = default(string), string status = default(string), decimal gav = default(decimal), decimal nav = default(decimal), Dictionary<string, Property> properties = default(Dictionary<string, Property>), List<Link> links = default(List<Link>))
+        public ValuationPointOverview(string href = default(string), string diaryEntryCode = default(string), string diaryEntryVariant = default(string), DateTimeOffset effectiveFrom = default(DateTimeOffset), DateTimeOffset effectiveTo = default(DateTimeOffset), DateTimeOffset queryAsAt = default(DateTimeOffset), string type = default(string), string status = default(string), decimal gav = default(decimal), decimal nav = default(decimal), Dictionary<string, Property> properties = default(Dictionary<string, Property>), List<Link> links = default(List<Link>))
         {
             // to ensure "diaryEntryCode" is required (not null)
             if (diaryEntryCode == null)
@@ -72,6 +73,7 @@ namespace Lusid.Sdk.Model
             this.Gav = gav;
             this.Nav = nav;
             this.Href = href;
+            this.DiaryEntryVariant = diaryEntryVariant;
             this.QueryAsAt = queryAsAt;
             this.Properties = properties;
             this.Links = links;
@@ -90,6 +92,13 @@ namespace Lusid.Sdk.Model
         /// <value>The code for the Valuation Point.</value>
         [DataMember(Name = "diaryEntryCode", IsRequired = true, EmitDefaultValue = true)]
         public string DiaryEntryCode { get; set; }
+
+        /// <summary>
+        /// The Variant for the Valuation Point. Together with the valuation point code marks the unique branch for the NavType.
+        /// </summary>
+        /// <value>The Variant for the Valuation Point. Together with the valuation point code marks the unique branch for the NavType.</value>
+        [DataMember(Name = "diaryEntryVariant", EmitDefaultValue = true)]
+        public string DiaryEntryVariant { get; set; }
 
         /// <summary>
         /// The effective time of the last Valuation Point.
@@ -163,6 +172,7 @@ namespace Lusid.Sdk.Model
             sb.Append("class ValuationPointOverview {\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("  DiaryEntryCode: ").Append(DiaryEntryCode).Append("\n");
+            sb.Append("  DiaryEntryVariant: ").Append(DiaryEntryVariant).Append("\n");
             sb.Append("  EffectiveFrom: ").Append(EffectiveFrom).Append("\n");
             sb.Append("  EffectiveTo: ").Append(EffectiveTo).Append("\n");
             sb.Append("  QueryAsAt: ").Append(QueryAsAt).Append("\n");
@@ -216,6 +226,11 @@ namespace Lusid.Sdk.Model
                     this.DiaryEntryCode == input.DiaryEntryCode ||
                     (this.DiaryEntryCode != null &&
                     this.DiaryEntryCode.Equals(input.DiaryEntryCode))
+                ) && 
+                (
+                    this.DiaryEntryVariant == input.DiaryEntryVariant ||
+                    (this.DiaryEntryVariant != null &&
+                    this.DiaryEntryVariant.Equals(input.DiaryEntryVariant))
                 ) && 
                 (
                     this.EffectiveFrom == input.EffectiveFrom ||
@@ -281,6 +296,10 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.DiaryEntryCode.GetHashCode();
                 }
+                if (this.DiaryEntryVariant != null)
+                {
+                    hashCode = (hashCode * 59) + this.DiaryEntryVariant.GetHashCode();
+                }
                 if (this.EffectiveFrom != null)
                 {
                     hashCode = (hashCode * 59) + this.EffectiveFrom.GetHashCode();
@@ -322,6 +341,25 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // DiaryEntryVariant (string) maxLength
+            if (this.DiaryEntryVariant != null && this.DiaryEntryVariant.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DiaryEntryVariant, length must be less than 64.", new [] { "DiaryEntryVariant" });
+            }
+
+            // DiaryEntryVariant (string) minLength
+            if (this.DiaryEntryVariant != null && this.DiaryEntryVariant.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DiaryEntryVariant, length must be greater than 1.", new [] { "DiaryEntryVariant" });
+            }
+
+            // DiaryEntryVariant (string) pattern
+            Regex regexDiaryEntryVariant = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
+            if (false == regexDiaryEntryVariant.Match(this.DiaryEntryVariant).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DiaryEntryVariant, must match a pattern of " + regexDiaryEntryVariant, new [] { "DiaryEntryVariant" });
+            }
+
             // Type (string) minLength
             if (this.Type != null && this.Type.Length < 1)
             {

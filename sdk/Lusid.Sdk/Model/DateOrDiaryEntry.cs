@@ -33,10 +33,12 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="date">A date. If specified, DiaryEntry must not be specified..</param>
         /// <param name="diaryEntry">The code of a diary entry. If specified, Date must not be specified..</param>
-        public DateOrDiaryEntry(DateTimeOrCutLabel date = default(DateTimeOrCutLabel), string diaryEntry = default(string))
+        /// <param name="diaryEntryVariant">Unique Variant for the given Diary Entry Code. If not provided, defaults to empty string..</param>
+        public DateOrDiaryEntry(DateTimeOrCutLabel date = default(DateTimeOrCutLabel), string diaryEntry = default(string), string diaryEntryVariant = default(string))
         {
             this.Date = date;
             this.DiaryEntry = diaryEntry;
+            this.DiaryEntryVariant = diaryEntryVariant;
         }
 
         /// <summary>
@@ -54,6 +56,13 @@ namespace Lusid.Sdk.Model
         public string DiaryEntry { get; set; }
 
         /// <summary>
+        /// Unique Variant for the given Diary Entry Code. If not provided, defaults to empty string.
+        /// </summary>
+        /// <value>Unique Variant for the given Diary Entry Code. If not provided, defaults to empty string.</value>
+        [DataMember(Name = "diaryEntryVariant", EmitDefaultValue = true)]
+        public string DiaryEntryVariant { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -63,6 +72,7 @@ namespace Lusid.Sdk.Model
             sb.Append("class DateOrDiaryEntry {\n");
             sb.Append("  Date: ").Append(Date).Append("\n");
             sb.Append("  DiaryEntry: ").Append(DiaryEntry).Append("\n");
+            sb.Append("  DiaryEntryVariant: ").Append(DiaryEntryVariant).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -107,6 +117,11 @@ namespace Lusid.Sdk.Model
                     this.DiaryEntry == input.DiaryEntry ||
                     (this.DiaryEntry != null &&
                     this.DiaryEntry.Equals(input.DiaryEntry))
+                ) && 
+                (
+                    this.DiaryEntryVariant == input.DiaryEntryVariant ||
+                    (this.DiaryEntryVariant != null &&
+                    this.DiaryEntryVariant.Equals(input.DiaryEntryVariant))
                 );
         }
 
@@ -126,6 +141,10 @@ namespace Lusid.Sdk.Model
                 if (this.DiaryEntry != null)
                 {
                     hashCode = (hashCode * 59) + this.DiaryEntry.GetHashCode();
+                }
+                if (this.DiaryEntryVariant != null)
+                {
+                    hashCode = (hashCode * 59) + this.DiaryEntryVariant.GetHashCode();
                 }
                 return hashCode;
             }
@@ -155,6 +174,25 @@ namespace Lusid.Sdk.Model
             if (false == regexDiaryEntry.Match(this.DiaryEntry).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DiaryEntry, must match a pattern of " + regexDiaryEntry, new [] { "DiaryEntry" });
+            }
+
+            // DiaryEntryVariant (string) maxLength
+            if (this.DiaryEntryVariant != null && this.DiaryEntryVariant.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DiaryEntryVariant, length must be less than 64.", new [] { "DiaryEntryVariant" });
+            }
+
+            // DiaryEntryVariant (string) minLength
+            if (this.DiaryEntryVariant != null && this.DiaryEntryVariant.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DiaryEntryVariant, length must be greater than 1.", new [] { "DiaryEntryVariant" });
+            }
+
+            // DiaryEntryVariant (string) pattern
+            Regex regexDiaryEntryVariant = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
+            if (false == regexDiaryEntryVariant.Match(this.DiaryEntryVariant).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DiaryEntryVariant, must match a pattern of " + regexDiaryEntryVariant, new [] { "DiaryEntryVariant" });
             }
 
             yield break;
