@@ -725,10 +725,11 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>VersionedResourceListOfTransaction</returns>
-        VersionedResourceListOfTransaction GetTransactionsForPortfolioGroup(string scope, string code, DateTimeOrCutLabel? fromTransactionDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTransactionDate = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int? limit = default(int?), string? page = default(string?), bool? showCancelledTransactions = default(bool?), List<string>? sortBy = default(List<string>?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        VersionedResourceListOfTransaction GetTransactionsForPortfolioGroup(string scope, string code, DateTimeOrCutLabel? fromTransactionDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTransactionDate = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int? limit = default(int?), string? page = default(string?), bool? showCancelledTransactions = default(bool?), List<string>? sortBy = default(List<string>?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), string? membershipType = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetTransactionsForPortfolioGroup: Get transactions for transaction portfolios in a portfolio group
@@ -750,10 +751,11 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of VersionedResourceListOfTransaction</returns>
-        Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfTransaction> GetTransactionsForPortfolioGroupWithHttpInfo(string scope, string code, DateTimeOrCutLabel? fromTransactionDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTransactionDate = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int? limit = default(int?), string? page = default(string?), bool? showCancelledTransactions = default(bool?), List<string>? sortBy = default(List<string>?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfTransaction> GetTransactionsForPortfolioGroupWithHttpInfo(string scope, string code, DateTimeOrCutLabel? fromTransactionDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTransactionDate = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int? limit = default(int?), string? page = default(string?), bool? showCancelledTransactions = default(bool?), List<string>? sortBy = default(List<string>?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), string? membershipType = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// ListPortfolioGroups: List portfolio groups
         /// </summary>
@@ -1666,11 +1668,12 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of VersionedResourceListOfTransaction</returns>
-        System.Threading.Tasks.Task<VersionedResourceListOfTransaction> GetTransactionsForPortfolioGroupAsync(string scope, string code, DateTimeOrCutLabel? fromTransactionDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTransactionDate = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int? limit = default(int?), string? page = default(string?), bool? showCancelledTransactions = default(bool?), List<string>? sortBy = default(List<string>?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<VersionedResourceListOfTransaction> GetTransactionsForPortfolioGroupAsync(string scope, string code, DateTimeOrCutLabel? fromTransactionDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTransactionDate = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int? limit = default(int?), string? page = default(string?), bool? showCancelledTransactions = default(bool?), List<string>? sortBy = default(List<string>?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), string? membershipType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetTransactionsForPortfolioGroup: Get transactions for transaction portfolios in a portfolio group
@@ -1692,11 +1695,12 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (VersionedResourceListOfTransaction)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfTransaction>> GetTransactionsForPortfolioGroupWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? fromTransactionDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTransactionDate = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int? limit = default(int?), string? page = default(string?), bool? showCancelledTransactions = default(bool?), List<string>? sortBy = default(List<string>?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfTransaction>> GetTransactionsForPortfolioGroupWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? fromTransactionDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTransactionDate = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int? limit = default(int?), string? page = default(string?), bool? showCancelledTransactions = default(bool?), List<string>? sortBy = default(List<string>?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), string? membershipType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// ListPortfolioGroups: List portfolio groups
         /// </summary>
@@ -7396,12 +7400,13 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>VersionedResourceListOfTransaction</returns>
-        public VersionedResourceListOfTransaction GetTransactionsForPortfolioGroup(string scope, string code, DateTimeOrCutLabel? fromTransactionDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTransactionDate = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int? limit = default(int?), string? page = default(string?), bool? showCancelledTransactions = default(bool?), List<string>? sortBy = default(List<string>?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public VersionedResourceListOfTransaction GetTransactionsForPortfolioGroup(string scope, string code, DateTimeOrCutLabel? fromTransactionDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTransactionDate = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int? limit = default(int?), string? page = default(string?), bool? showCancelledTransactions = default(bool?), List<string>? sortBy = default(List<string>?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), string? membershipType = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfTransaction> localVarResponse = GetTransactionsForPortfolioGroupWithHttpInfo(scope, code, fromTransactionDate, toTransactionDate, asAt, filter, propertyKeys, limit, page, showCancelledTransactions, sortBy, dataModelScope, dataModelCode, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfTransaction> localVarResponse = GetTransactionsForPortfolioGroupWithHttpInfo(scope, code, fromTransactionDate, toTransactionDate, asAt, filter, propertyKeys, limit, page, showCancelledTransactions, sortBy, dataModelScope, dataModelCode, membershipType, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -7422,10 +7427,11 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of VersionedResourceListOfTransaction</returns>
-        public Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfTransaction> GetTransactionsForPortfolioGroupWithHttpInfo(string scope, string code, DateTimeOrCutLabel? fromTransactionDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTransactionDate = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int? limit = default(int?), string? page = default(string?), bool? showCancelledTransactions = default(bool?), List<string>? sortBy = default(List<string>?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfTransaction> GetTransactionsForPortfolioGroupWithHttpInfo(string scope, string code, DateTimeOrCutLabel? fromTransactionDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTransactionDate = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int? limit = default(int?), string? page = default(string?), bool? showCancelledTransactions = default(bool?), List<string>? sortBy = default(List<string>?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), string? membershipType = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -7529,6 +7535,11 @@ namespace Lusid.Sdk.Api
             {
 
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dataModelCode", dataModelCode));
+            }
+            if (membershipType != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "membershipType", membershipType));
             }
 
             localVarRequestOptions.Operation = "PortfolioGroupsApi.GetTransactionsForPortfolioGroup";
@@ -7582,13 +7593,14 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of VersionedResourceListOfTransaction</returns>
-        public async System.Threading.Tasks.Task<VersionedResourceListOfTransaction> GetTransactionsForPortfolioGroupAsync(string scope, string code, DateTimeOrCutLabel? fromTransactionDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTransactionDate = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int? limit = default(int?), string? page = default(string?), bool? showCancelledTransactions = default(bool?), List<string>? sortBy = default(List<string>?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<VersionedResourceListOfTransaction> GetTransactionsForPortfolioGroupAsync(string scope, string code, DateTimeOrCutLabel? fromTransactionDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTransactionDate = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int? limit = default(int?), string? page = default(string?), bool? showCancelledTransactions = default(bool?), List<string>? sortBy = default(List<string>?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), string? membershipType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfTransaction> localVarResponse = await GetTransactionsForPortfolioGroupWithHttpInfoAsync(scope, code, fromTransactionDate, toTransactionDate, asAt, filter, propertyKeys, limit, page, showCancelledTransactions, sortBy, dataModelScope, dataModelCode, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfTransaction> localVarResponse = await GetTransactionsForPortfolioGroupWithHttpInfoAsync(scope, code, fromTransactionDate, toTransactionDate, asAt, filter, propertyKeys, limit, page, showCancelledTransactions, sortBy, dataModelScope, dataModelCode, membershipType, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -7609,11 +7621,12 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (VersionedResourceListOfTransaction)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfTransaction>> GetTransactionsForPortfolioGroupWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? fromTransactionDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTransactionDate = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int? limit = default(int?), string? page = default(string?), bool? showCancelledTransactions = default(bool?), List<string>? sortBy = default(List<string>?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfTransaction>> GetTransactionsForPortfolioGroupWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? fromTransactionDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTransactionDate = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int? limit = default(int?), string? page = default(string?), bool? showCancelledTransactions = default(bool?), List<string>? sortBy = default(List<string>?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), string? membershipType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -7707,6 +7720,10 @@ namespace Lusid.Sdk.Api
             if (dataModelCode != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dataModelCode", dataModelCode));
+            }
+            if (membershipType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "membershipType", membershipType));
             }
 
             localVarRequestOptions.Operation = "PortfolioGroupsApi.GetTransactionsForPortfolioGroup";

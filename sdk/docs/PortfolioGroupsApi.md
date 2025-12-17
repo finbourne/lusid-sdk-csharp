@@ -2487,7 +2487,7 @@ catch (ApiException e)
 
 <a id="gettransactionsforportfoliogroup"></a>
 # **GetTransactionsForPortfolioGroup**
-> VersionedResourceListOfTransaction GetTransactionsForPortfolioGroup (string scope, string code, DateTimeOrCutLabel? fromTransactionDate = null, DateTimeOrCutLabel? toTransactionDate = null, DateTimeOffset? asAt = null, string? filter = null, List<string>? propertyKeys = null, int? limit = null, string? page = null, bool? showCancelledTransactions = null, List<string>? sortBy = null, string? dataModelScope = null, string? dataModelCode = null)
+> VersionedResourceListOfTransaction GetTransactionsForPortfolioGroup (string scope, string code, DateTimeOrCutLabel? fromTransactionDate = null, DateTimeOrCutLabel? toTransactionDate = null, DateTimeOffset? asAt = null, string? filter = null, List<string>? propertyKeys = null, int? limit = null, string? page = null, bool? showCancelledTransactions = null, List<string>? sortBy = null, string? dataModelScope = null, string? dataModelCode = null, string? membershipType = null)
 
 GetTransactionsForPortfolioGroup: Get transactions for transaction portfolios in a portfolio group
 
@@ -2545,14 +2545,15 @@ namespace Examples
             var sortBy = new List<string>?(); // List<string>? | A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\". (optional) 
             var dataModelScope = "dataModelScope_example";  // string? | The optional scope of a Custom Data Model to use (optional) 
             var dataModelCode = "dataModelCode_example";  // string? | The optional code of a Custom Data Model to use (optional) 
+            var membershipType = "membershipType_example";  // string? | The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // VersionedResourceListOfTransaction result = apiInstance.GetTransactionsForPortfolioGroup(scope, code, fromTransactionDate, toTransactionDate, asAt, filter, propertyKeys, limit, page, showCancelledTransactions, sortBy, dataModelScope, dataModelCode, opts: opts);
+                // VersionedResourceListOfTransaction result = apiInstance.GetTransactionsForPortfolioGroup(scope, code, fromTransactionDate, toTransactionDate, asAt, filter, propertyKeys, limit, page, showCancelledTransactions, sortBy, dataModelScope, dataModelCode, membershipType, opts: opts);
 
                 // GetTransactionsForPortfolioGroup: Get transactions for transaction portfolios in a portfolio group
-                VersionedResourceListOfTransaction result = apiInstance.GetTransactionsForPortfolioGroup(scope, code, fromTransactionDate, toTransactionDate, asAt, filter, propertyKeys, limit, page, showCancelledTransactions, sortBy, dataModelScope, dataModelCode);
+                VersionedResourceListOfTransaction result = apiInstance.GetTransactionsForPortfolioGroup(scope, code, fromTransactionDate, toTransactionDate, asAt, filter, propertyKeys, limit, page, showCancelledTransactions, sortBy, dataModelScope, dataModelCode, membershipType);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -2573,7 +2574,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // GetTransactionsForPortfolioGroup: Get transactions for transaction portfolios in a portfolio group
-    ApiResponse<VersionedResourceListOfTransaction> response = apiInstance.GetTransactionsForPortfolioGroupWithHttpInfo(scope, code, fromTransactionDate, toTransactionDate, asAt, filter, propertyKeys, limit, page, showCancelledTransactions, sortBy, dataModelScope, dataModelCode);
+    ApiResponse<VersionedResourceListOfTransaction> response = apiInstance.GetTransactionsForPortfolioGroupWithHttpInfo(scope, code, fromTransactionDate, toTransactionDate, asAt, filter, propertyKeys, limit, page, showCancelledTransactions, sortBy, dataModelScope, dataModelCode, membershipType);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -2603,6 +2604,7 @@ catch (ApiException e)
 | **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. | [optional]  |
 | **dataModelScope** | **string?** | The optional scope of a Custom Data Model to use | [optional]  |
 | **dataModelCode** | **string?** | The optional code of a Custom Data Model to use | [optional]  |
+| **membershipType** | **string?** | The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. | [optional]  |
 
 ### Return type
 
