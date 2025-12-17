@@ -72,11 +72,19 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="IndexModelOptions" /> class.
         /// </summary>
         /// <param name="portfolioScaling">The available values are: Sum, AbsoluteSum, Unity (required).</param>
+        /// <param name="lookthroughPortfolioRelationshipId">lookthroughPortfolioRelationshipId.</param>
         /// <param name="modelOptionsType">The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions (required) (default to &quot;IndexModelOptions&quot;).</param>
-        public IndexModelOptions(PortfolioScalingEnum portfolioScaling = default(PortfolioScalingEnum), ModelOptionsTypeEnum modelOptionsType = default(ModelOptionsTypeEnum)) : base(modelOptionsType)
+        public IndexModelOptions(PortfolioScalingEnum portfolioScaling = default(PortfolioScalingEnum), ResourceId lookthroughPortfolioRelationshipId = default(ResourceId), ModelOptionsTypeEnum modelOptionsType = default(ModelOptionsTypeEnum)) : base(modelOptionsType)
         {
             this.PortfolioScaling = portfolioScaling;
+            this.LookthroughPortfolioRelationshipId = lookthroughPortfolioRelationshipId;
         }
+
+        /// <summary>
+        /// Gets or Sets LookthroughPortfolioRelationshipId
+        /// </summary>
+        [DataMember(Name = "lookthroughPortfolioRelationshipId", EmitDefaultValue = false)]
+        public ResourceId LookthroughPortfolioRelationshipId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -88,6 +96,7 @@ namespace Lusid.Sdk.Model
             sb.Append("class IndexModelOptions {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  PortfolioScaling: ").Append(PortfolioScaling).Append("\n");
+            sb.Append("  LookthroughPortfolioRelationshipId: ").Append(LookthroughPortfolioRelationshipId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -126,6 +135,11 @@ namespace Lusid.Sdk.Model
                 (
                     this.PortfolioScaling == input.PortfolioScaling ||
                     this.PortfolioScaling.Equals(input.PortfolioScaling)
+                ) && base.Equals(input) && 
+                (
+                    this.LookthroughPortfolioRelationshipId == input.LookthroughPortfolioRelationshipId ||
+                    (this.LookthroughPortfolioRelationshipId != null &&
+                    this.LookthroughPortfolioRelationshipId.Equals(input.LookthroughPortfolioRelationshipId))
                 );
         }
 
@@ -139,6 +153,10 @@ namespace Lusid.Sdk.Model
             {
                 int hashCode = base.GetHashCode();
                 hashCode = (hashCode * 59) + this.PortfolioScaling.GetHashCode();
+                if (this.LookthroughPortfolioRelationshipId != null)
+                {
+                    hashCode = (hashCode * 59) + this.LookthroughPortfolioRelationshipId.GetHashCode();
+                }
                 return hashCode;
             }
         }
