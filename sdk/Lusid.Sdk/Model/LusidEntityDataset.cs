@@ -276,18 +276,6 @@ namespace Lusid.Sdk.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SelectorValue, length must be greater than 0.", new [] { "SelectorValue" });
             }
 
-            // ReturnIdentifierKey (string) maxLength
-            if (this.ReturnIdentifierKey != null && this.ReturnIdentifierKey.Length > 1024)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReturnIdentifierKey, length must be less than 1024.", new [] { "ReturnIdentifierKey" });
-            }
-
-            // ReturnIdentifierKey (string) minLength
-            if (this.ReturnIdentifierKey != null && this.ReturnIdentifierKey.Length < 0)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReturnIdentifierKey, length must be greater than 0.", new [] { "ReturnIdentifierKey" });
-            }
-
             yield break;
         }
     }
