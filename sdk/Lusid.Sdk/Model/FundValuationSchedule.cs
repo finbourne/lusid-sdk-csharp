@@ -34,18 +34,18 @@ namespace Lusid.Sdk.Model
         /// <param name="effectiveFrom">If present, the EffectiveFrom and EffectiveAt dates are interpreted as a range of dates for which to perform a valuation.  In this case, valuation is calculated for the portfolio(s) for each business day in the given range..</param>
         /// <param name="effectiveAt">The market data time, i.e. the time to run the valuation request effective of..</param>
         /// <param name="diaryEntry">The diary entry to use for the valuation schedule. This is used to determine the date on which the valuation should be performed..</param>
-        /// <param name="diaryEntryVariant">The diary entry variant to use, together with the diary entry to be used for the valuation schedule..</param>
+        /// <param name="variant">The diary entry variant to use, together with the diary entry to be used for the valuation schedule..</param>
         /// <param name="tenor">Tenor, e.g \&quot;1D\&quot;, \&quot;1M\&quot; to be used in generating the date schedule when effectiveFrom and effectiveAt are both given and are not the same..</param>
         /// <param name="rollConvention">When Tenor is given and is \&quot;1M\&quot; or longer, this specifies the rule which should be used to generate the date schedule.  For example, \&quot;EndOfMonth\&quot; to generate end of month dates, or \&quot;1\&quot; to specify the first day of the applicable month..</param>
         /// <param name="holidayCalendars">The holiday calendar(s) that should be used in determining the date schedule.  Holiday calendar(s) are supplied by their names, for example, \&quot;CoppClark\&quot;.  Note that when the calendars are not available (e.g. when the user has insufficient permissions),  a recipe setting will be used to determine whether the whole batch should then fail or whether the calendar not being available should simply be ignored..</param>
         /// <param name="valuationDateTimes">If given, this is the exact set of dates on which to perform a valuation. This will replace/override all other specified values if given..</param>
         /// <param name="businessDayConvention">When Tenor is given and is not equal to \&quot;1D\&quot;, there may be cases where \&quot;date + tenor\&quot; land on non-business days around month end.  In that case, the BusinessDayConvention, e.g. modified following \&quot;MF\&quot; would be applied to determine the next GBD..</param>
-        public FundValuationSchedule(DateTimeOrCutLabel effectiveFrom = default(DateTimeOrCutLabel), DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), string diaryEntry = default(string), string diaryEntryVariant = default(string), string tenor = default(string), string rollConvention = default(string), List<string> holidayCalendars = default(List<string>), List<string> valuationDateTimes = default(List<string>), string businessDayConvention = default(string))
+        public FundValuationSchedule(DateTimeOrCutLabel effectiveFrom = default(DateTimeOrCutLabel), DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), string diaryEntry = default(string), string variant = default(string), string tenor = default(string), string rollConvention = default(string), List<string> holidayCalendars = default(List<string>), List<string> valuationDateTimes = default(List<string>), string businessDayConvention = default(string))
         {
             this.EffectiveFrom = effectiveFrom;
             this.EffectiveAt = effectiveAt;
             this.DiaryEntry = diaryEntry;
-            this.DiaryEntryVariant = diaryEntryVariant;
+            this.Variant = variant;
             this.Tenor = tenor;
             this.RollConvention = rollConvention;
             this.HolidayCalendars = holidayCalendars;
@@ -78,8 +78,8 @@ namespace Lusid.Sdk.Model
         /// The diary entry variant to use, together with the diary entry to be used for the valuation schedule.
         /// </summary>
         /// <value>The diary entry variant to use, together with the diary entry to be used for the valuation schedule.</value>
-        [DataMember(Name = "diaryEntryVariant", EmitDefaultValue = true)]
-        public string DiaryEntryVariant { get; set; }
+        [DataMember(Name = "variant", EmitDefaultValue = true)]
+        public string Variant { get; set; }
 
         /// <summary>
         /// Tenor, e.g \&quot;1D\&quot;, \&quot;1M\&quot; to be used in generating the date schedule when effectiveFrom and effectiveAt are both given and are not the same.
@@ -127,7 +127,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  EffectiveFrom: ").Append(EffectiveFrom).Append("\n");
             sb.Append("  EffectiveAt: ").Append(EffectiveAt).Append("\n");
             sb.Append("  DiaryEntry: ").Append(DiaryEntry).Append("\n");
-            sb.Append("  DiaryEntryVariant: ").Append(DiaryEntryVariant).Append("\n");
+            sb.Append("  Variant: ").Append(Variant).Append("\n");
             sb.Append("  Tenor: ").Append(Tenor).Append("\n");
             sb.Append("  RollConvention: ").Append(RollConvention).Append("\n");
             sb.Append("  HolidayCalendars: ").Append(HolidayCalendars).Append("\n");
@@ -184,9 +184,9 @@ namespace Lusid.Sdk.Model
                     this.DiaryEntry.Equals(input.DiaryEntry))
                 ) && 
                 (
-                    this.DiaryEntryVariant == input.DiaryEntryVariant ||
-                    (this.DiaryEntryVariant != null &&
-                    this.DiaryEntryVariant.Equals(input.DiaryEntryVariant))
+                    this.Variant == input.Variant ||
+                    (this.Variant != null &&
+                    this.Variant.Equals(input.Variant))
                 ) && 
                 (
                     this.Tenor == input.Tenor ||
@@ -238,9 +238,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.DiaryEntry.GetHashCode();
                 }
-                if (this.DiaryEntryVariant != null)
+                if (this.Variant != null)
                 {
-                    hashCode = (hashCode * 59) + this.DiaryEntryVariant.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Variant.GetHashCode();
                 }
                 if (this.Tenor != null)
                 {
@@ -292,23 +292,23 @@ namespace Lusid.Sdk.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DiaryEntry, must match a pattern of " + regexDiaryEntry, new [] { "DiaryEntry" });
             }
 
-            // DiaryEntryVariant (string) maxLength
-            if (this.DiaryEntryVariant != null && this.DiaryEntryVariant.Length > 64)
+            // Variant (string) maxLength
+            if (this.Variant != null && this.Variant.Length > 64)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DiaryEntryVariant, length must be less than 64.", new [] { "DiaryEntryVariant" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Variant, length must be less than 64.", new [] { "Variant" });
             }
 
-            // DiaryEntryVariant (string) minLength
-            if (this.DiaryEntryVariant != null && this.DiaryEntryVariant.Length < 1)
+            // Variant (string) minLength
+            if (this.Variant != null && this.Variant.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DiaryEntryVariant, length must be greater than 1.", new [] { "DiaryEntryVariant" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Variant, length must be greater than 1.", new [] { "Variant" });
             }
 
-            // DiaryEntryVariant (string) pattern
-            Regex regexDiaryEntryVariant = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
-            if (false == regexDiaryEntryVariant.Match(this.DiaryEntryVariant).Success)
+            // Variant (string) pattern
+            Regex regexVariant = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
+            if (false == regexVariant.Match(this.Variant).Success)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DiaryEntryVariant, must match a pattern of " + regexDiaryEntryVariant, new [] { "DiaryEntryVariant" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Variant, must match a pattern of " + regexVariant, new [] { "Variant" });
             }
 
             // Tenor (string) maxLength

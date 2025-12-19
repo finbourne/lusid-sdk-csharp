@@ -38,7 +38,8 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="start">start.</param>
         /// <param name="end">end (required).</param>
-        public ValuationPointDataQueryParameters(DateOrDiaryEntry start = default(DateOrDiaryEntry), DateOrDiaryEntry end = default(DateOrDiaryEntry))
+        /// <param name="variant">Optional variant code. Only required when it is necessary to choose between scenarios with multiple estimates..</param>
+        public ValuationPointDataQueryParameters(DateOrDiaryEntry start = default(DateOrDiaryEntry), DateOrDiaryEntry end = default(DateOrDiaryEntry), string variant = default(string))
         {
             // to ensure "end" is required (not null)
             if (end == null)
@@ -47,6 +48,7 @@ namespace Lusid.Sdk.Model
             }
             this.End = end;
             this.Start = start;
+            this.Variant = variant;
         }
 
         /// <summary>
@@ -62,6 +64,13 @@ namespace Lusid.Sdk.Model
         public DateOrDiaryEntry End { get; set; }
 
         /// <summary>
+        /// Optional variant code. Only required when it is necessary to choose between scenarios with multiple estimates.
+        /// </summary>
+        /// <value>Optional variant code. Only required when it is necessary to choose between scenarios with multiple estimates.</value>
+        [DataMember(Name = "variant", EmitDefaultValue = true)]
+        public string Variant { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -71,6 +80,7 @@ namespace Lusid.Sdk.Model
             sb.Append("class ValuationPointDataQueryParameters {\n");
             sb.Append("  Start: ").Append(Start).Append("\n");
             sb.Append("  End: ").Append(End).Append("\n");
+            sb.Append("  Variant: ").Append(Variant).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -115,6 +125,11 @@ namespace Lusid.Sdk.Model
                     this.End == input.End ||
                     (this.End != null &&
                     this.End.Equals(input.End))
+                ) && 
+                (
+                    this.Variant == input.Variant ||
+                    (this.Variant != null &&
+                    this.Variant.Equals(input.Variant))
                 );
         }
 
@@ -135,6 +150,10 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.End.GetHashCode();
                 }
+                if (this.Variant != null)
+                {
+                    hashCode = (hashCode * 59) + this.Variant.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -146,6 +165,25 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Variant (string) maxLength
+            if (this.Variant != null && this.Variant.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Variant, length must be less than 64.", new [] { "Variant" });
+            }
+
+            // Variant (string) minLength
+            if (this.Variant != null && this.Variant.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Variant, length must be greater than 1.", new [] { "Variant" });
+            }
+
+            // Variant (string) pattern
+            Regex regexVariant = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
+            if (false == regexVariant.Match(this.Variant).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Variant, must match a pattern of " + regexVariant, new [] { "Variant" });
+            }
+
             yield break;
         }
     }

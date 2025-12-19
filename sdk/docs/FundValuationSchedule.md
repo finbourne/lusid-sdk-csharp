@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **EffectiveFrom** | [**DateTimeOrCutLabel**](DateTimeOrCutLabel.md) | If present, the EffectiveFrom and EffectiveAt dates are interpreted as a range of dates for which to perform a valuation.  In this case, valuation is calculated for the portfolio(s) for each business day in the given range. | [optional] 
 **EffectiveAt** | [**DateTimeOrCutLabel**](DateTimeOrCutLabel.md) | The market data time, i.e. the time to run the valuation request effective of. | [optional] 
 **DiaryEntry** | **string** | The diary entry to use for the valuation schedule. This is used to determine the date on which the valuation should be performed. | [optional] 
-**DiaryEntryVariant** | **string** | The diary entry variant to use, together with the diary entry to be used for the valuation schedule. | [optional] 
+**Variant** | **string** | The diary entry variant to use, together with the diary entry to be used for the valuation schedule. | [optional] 
 **Tenor** | **string** | Tenor, e.g \&quot;1D\&quot;, \&quot;1M\&quot; to be used in generating the date schedule when effectiveFrom and effectiveAt are both given and are not the same. | [optional] 
 **RollConvention** | **string** | When Tenor is given and is \&quot;1M\&quot; or longer, this specifies the rule which should be used to generate the date schedule.  For example, \&quot;EndOfMonth\&quot; to generate end of month dates, or \&quot;1\&quot; to specify the first day of the applicable month. | [optional] 
 **HolidayCalendars** | **List&lt;string&gt;** | The holiday calendar(s) that should be used in determining the date schedule.  Holiday calendar(s) are supplied by their names, for example, \&quot;CoppClark\&quot;.  Note that when the calendars are not available (e.g. when the user has insufficient permissions),  a recipe setting will be used to determine whether the whole batch should then fail or whether the calendar not being available should simply be ignored. | [optional] 
@@ -22,7 +22,7 @@ using System;
 DateTimeOrCutLabel effectiveFrom = "example effectiveFrom";
 DateTimeOrCutLabel effectiveAt = "example effectiveAt";
 string diaryEntry = "example diaryEntry";
-string diaryEntryVariant = "example diaryEntryVariant";
+string variant = "example variant";
 string tenor = "example tenor";
 string rollConvention = "example rollConvention";
 List<string> holidayCalendars = new List<string>();
@@ -33,7 +33,7 @@ FundValuationSchedule fundValuationScheduleInstance = new FundValuationSchedule(
     effectiveFrom: effectiveFrom,
     effectiveAt: effectiveAt,
     diaryEntry: diaryEntry,
-    diaryEntryVariant: diaryEntryVariant,
+    variant: variant,
     tenor: tenor,
     rollConvention: rollConvention,
     holidayCalendars: holidayCalendars,

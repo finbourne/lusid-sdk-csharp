@@ -6,7 +6,7 @@ The ValuationPointDataRequest.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DiaryEntryCode** | **string** | Unique code for the Valuation Point. | 
-**DiaryEntryVariant** | **string** | Unique Variant for the given Diary Entry Code. Together with the valuation point code marks the unique branch for the NavType. | [optional] 
+**DiaryEntryVariant** | **string** | Optional variant code. Only required when it is necessary to choose between scenarios with multiple estimates. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;

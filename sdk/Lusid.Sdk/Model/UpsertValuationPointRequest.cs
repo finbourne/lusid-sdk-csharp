@@ -37,7 +37,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="UpsertValuationPointRequest" /> class.
         /// </summary>
         /// <param name="diaryEntryCode">Unique code for the Valuation Point. (required).</param>
-        /// <param name="diaryEntryVariant">Unique Variant for the given Diary Entry Code. Together with the valuation point code marks the unique branch for the NavType..</param>
+        /// <param name="diaryEntryVariant">Optional variant code. Only required when it is necessary to choose between scenarios with multiple estimates..</param>
         /// <param name="name">Identifiable Name assigned to the Valuation Point..</param>
         /// <param name="effectiveAt">The effective time of the diary entry. (required).</param>
         /// <param name="queryAsAt">The query time of the diary entry. Defaults to latest..</param>
@@ -67,9 +67,9 @@ namespace Lusid.Sdk.Model
         public string DiaryEntryCode { get; set; }
 
         /// <summary>
-        /// Unique Variant for the given Diary Entry Code. Together with the valuation point code marks the unique branch for the NavType.
+        /// Optional variant code. Only required when it is necessary to choose between scenarios with multiple estimates.
         /// </summary>
-        /// <value>Unique Variant for the given Diary Entry Code. Together with the valuation point code marks the unique branch for the NavType.</value>
+        /// <value>Optional variant code. Only required when it is necessary to choose between scenarios with multiple estimates.</value>
         [DataMember(Name = "diaryEntryVariant", EmitDefaultValue = true)]
         public string DiaryEntryVariant { get; set; }
 

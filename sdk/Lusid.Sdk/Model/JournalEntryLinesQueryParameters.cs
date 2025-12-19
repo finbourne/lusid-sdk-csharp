@@ -33,13 +33,15 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="start">start.</param>
         /// <param name="end">end.</param>
+        /// <param name="variant">Unique Variant for the given Valuation points. If not provided, defaults to empty string..</param>
         /// <param name="dateMode">The mode of calculation of the journal entry lines. The available values are: ActivityDate, AccountingDate..</param>
         /// <param name="generalLedgerProfileCode">The optional code of a general ledger profile used to decorate journal entry lines with levels..</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39; domain to decorate onto the journal entry lines..</param>
-        public JournalEntryLinesQueryParameters(DateOrDiaryEntry start = default(DateOrDiaryEntry), DateOrDiaryEntry end = default(DateOrDiaryEntry), string dateMode = default(string), string generalLedgerProfileCode = default(string), List<string> propertyKeys = default(List<string>))
+        public JournalEntryLinesQueryParameters(DateOrDiaryEntry start = default(DateOrDiaryEntry), DateOrDiaryEntry end = default(DateOrDiaryEntry), string variant = default(string), string dateMode = default(string), string generalLedgerProfileCode = default(string), List<string> propertyKeys = default(List<string>))
         {
             this.Start = start;
             this.End = end;
+            this.Variant = variant;
             this.DateMode = dateMode;
             this.GeneralLedgerProfileCode = generalLedgerProfileCode;
             this.PropertyKeys = propertyKeys;
@@ -56,6 +58,13 @@ namespace Lusid.Sdk.Model
         /// </summary>
         [DataMember(Name = "end", EmitDefaultValue = false)]
         public DateOrDiaryEntry End { get; set; }
+
+        /// <summary>
+        /// Unique Variant for the given Valuation points. If not provided, defaults to empty string.
+        /// </summary>
+        /// <value>Unique Variant for the given Valuation points. If not provided, defaults to empty string.</value>
+        [DataMember(Name = "variant", EmitDefaultValue = true)]
+        public string Variant { get; set; }
 
         /// <summary>
         /// The mode of calculation of the journal entry lines. The available values are: ActivityDate, AccountingDate.
@@ -88,6 +97,7 @@ namespace Lusid.Sdk.Model
             sb.Append("class JournalEntryLinesQueryParameters {\n");
             sb.Append("  Start: ").Append(Start).Append("\n");
             sb.Append("  End: ").Append(End).Append("\n");
+            sb.Append("  Variant: ").Append(Variant).Append("\n");
             sb.Append("  DateMode: ").Append(DateMode).Append("\n");
             sb.Append("  GeneralLedgerProfileCode: ").Append(GeneralLedgerProfileCode).Append("\n");
             sb.Append("  PropertyKeys: ").Append(PropertyKeys).Append("\n");
@@ -137,6 +147,11 @@ namespace Lusid.Sdk.Model
                     this.End.Equals(input.End))
                 ) && 
                 (
+                    this.Variant == input.Variant ||
+                    (this.Variant != null &&
+                    this.Variant.Equals(input.Variant))
+                ) && 
+                (
                     this.DateMode == input.DateMode ||
                     (this.DateMode != null &&
                     this.DateMode.Equals(input.DateMode))
@@ -171,6 +186,10 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.End.GetHashCode();
                 }
+                if (this.Variant != null)
+                {
+                    hashCode = (hashCode * 59) + this.Variant.GetHashCode();
+                }
                 if (this.DateMode != null)
                 {
                     hashCode = (hashCode * 59) + this.DateMode.GetHashCode();
@@ -194,6 +213,25 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Variant (string) maxLength
+            if (this.Variant != null && this.Variant.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Variant, length must be less than 64.", new [] { "Variant" });
+            }
+
+            // Variant (string) minLength
+            if (this.Variant != null && this.Variant.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Variant, length must be greater than 1.", new [] { "Variant" });
+            }
+
+            // Variant (string) pattern
+            Regex regexVariant = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
+            if (false == regexVariant.Match(this.Variant).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Variant, must match a pattern of " + regexVariant, new [] { "Variant" });
+            }
+
             // GeneralLedgerProfileCode (string) maxLength
             if (this.GeneralLedgerProfileCode != null && this.GeneralLedgerProfileCode.Length > 64)
             {

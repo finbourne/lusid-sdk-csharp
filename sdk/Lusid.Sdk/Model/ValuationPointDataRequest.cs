@@ -37,7 +37,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="ValuationPointDataRequest" /> class.
         /// </summary>
         /// <param name="diaryEntryCode">Unique code for the Valuation Point. (required).</param>
-        /// <param name="diaryEntryVariant">Unique Variant for the given Diary Entry Code. Together with the valuation point code marks the unique branch for the NavType..</param>
+        /// <param name="diaryEntryVariant">Optional variant code. Only required when it is necessary to choose between scenarios with multiple estimates..</param>
         public ValuationPointDataRequest(string diaryEntryCode = default(string), string diaryEntryVariant = default(string))
         {
             // to ensure "diaryEntryCode" is required (not null)
@@ -57,9 +57,9 @@ namespace Lusid.Sdk.Model
         public string DiaryEntryCode { get; set; }
 
         /// <summary>
-        /// Unique Variant for the given Diary Entry Code. Together with the valuation point code marks the unique branch for the NavType.
+        /// Optional variant code. Only required when it is necessary to choose between scenarios with multiple estimates.
         /// </summary>
-        /// <value>Unique Variant for the given Diary Entry Code. Together with the valuation point code marks the unique branch for the NavType.</value>
+        /// <value>Optional variant code. Only required when it is necessary to choose between scenarios with multiple estimates.</value>
         [DataMember(Name = "diaryEntryVariant", EmitDefaultValue = true)]
         public string DiaryEntryVariant { get; set; }
 
