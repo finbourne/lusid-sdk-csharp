@@ -466,6 +466,55 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of FundProperties</returns>
         Lusid.Sdk.Client.ApiResponse<FundProperties> GetFundPropertiesWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EXPERIMENTAL] GetHoldingContributorsForFund: Get holdings contributors for transaction portfolios in a Fund.
+        /// </summary>
+        /// <remarks>
+        /// Get the holdings of transaction portfolios in a specified Fund.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="holdingId">The unique holding identifier</param>
+        /// <param name="singleValuationPointQueryParameters">The arguments to use for querying the holdings.This can be a date, valuationPoint or a bookmark.</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="fromTradeDate">The from trade date, defaults to first time this holding is opened, lower bound for transactions (optional)</param>
+        /// <param name="toTradeDate">The to trade date upper bound date, defaults to effectiveDate. upper bound for transactions (optional)</param>
+        /// <param name="includeHistoric">If true, transactions from previously closed holdings are returned.              If false, only transactions from last time position is opened. (optional, default to false)</param>
+        /// <param name="taxLotId">Constrains the Holding Contributors to those which contributed to the specified tax lot. (optional)</param>
+        /// <param name="includeUnsettledMovements">If true, contributing transaction which have not settled yet will also be returned. False by default (optional, default to false)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing transactions from a previous call to GetHoldingContributors. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>VersionedResourceListOfHoldingContributor</returns>
+        VersionedResourceListOfHoldingContributor GetHoldingContributorsForFund(string scope, string code, long holdingId, SingleValuationPointQueryParameters singleValuationPointQueryParameters, string? navTypeCode = default(string?), DateTimeOrCutLabel? fromTradeDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTradeDate = default(DateTimeOrCutLabel?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), bool? includeUnsettledMovements = default(bool?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetHoldingContributorsForFund: Get holdings contributors for transaction portfolios in a Fund.
+        /// </summary>
+        /// <remarks>
+        /// Get the holdings of transaction portfolios in a specified Fund.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="holdingId">The unique holding identifier</param>
+        /// <param name="singleValuationPointQueryParameters">The arguments to use for querying the holdings.This can be a date, valuationPoint or a bookmark.</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="fromTradeDate">The from trade date, defaults to first time this holding is opened, lower bound for transactions (optional)</param>
+        /// <param name="toTradeDate">The to trade date upper bound date, defaults to effectiveDate. upper bound for transactions (optional)</param>
+        /// <param name="includeHistoric">If true, transactions from previously closed holdings are returned.              If false, only transactions from last time position is opened. (optional, default to false)</param>
+        /// <param name="taxLotId">Constrains the Holding Contributors to those which contributed to the specified tax lot. (optional)</param>
+        /// <param name="includeUnsettledMovements">If true, contributing transaction which have not settled yet will also be returned. False by default (optional, default to false)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing transactions from a previous call to GetHoldingContributors. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of VersionedResourceListOfHoldingContributor</returns>
+        Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfHoldingContributor> GetHoldingContributorsForFundWithHttpInfo(string scope, string code, long holdingId, SingleValuationPointQueryParameters singleValuationPointQueryParameters, string? navTypeCode = default(string?), DateTimeOrCutLabel? fromTradeDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTradeDate = default(DateTimeOrCutLabel?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), bool? includeUnsettledMovements = default(bool?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EXPERIMENTAL] GetHoldingsForFund: Get holdings for transaction portfolios in a Fund.
         /// </summary>
         /// <remarks>
@@ -1693,6 +1742,57 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (FundProperties)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<FundProperties>> GetFundPropertiesWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] GetHoldingContributorsForFund: Get holdings contributors for transaction portfolios in a Fund.
+        /// </summary>
+        /// <remarks>
+        /// Get the holdings of transaction portfolios in a specified Fund.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="holdingId">The unique holding identifier</param>
+        /// <param name="singleValuationPointQueryParameters">The arguments to use for querying the holdings.This can be a date, valuationPoint or a bookmark.</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="fromTradeDate">The from trade date, defaults to first time this holding is opened, lower bound for transactions (optional)</param>
+        /// <param name="toTradeDate">The to trade date upper bound date, defaults to effectiveDate. upper bound for transactions (optional)</param>
+        /// <param name="includeHistoric">If true, transactions from previously closed holdings are returned.              If false, only transactions from last time position is opened. (optional, default to false)</param>
+        /// <param name="taxLotId">Constrains the Holding Contributors to those which contributed to the specified tax lot. (optional)</param>
+        /// <param name="includeUnsettledMovements">If true, contributing transaction which have not settled yet will also be returned. False by default (optional, default to false)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing transactions from a previous call to GetHoldingContributors. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of VersionedResourceListOfHoldingContributor</returns>
+        System.Threading.Tasks.Task<VersionedResourceListOfHoldingContributor> GetHoldingContributorsForFundAsync(string scope, string code, long holdingId, SingleValuationPointQueryParameters singleValuationPointQueryParameters, string? navTypeCode = default(string?), DateTimeOrCutLabel? fromTradeDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTradeDate = default(DateTimeOrCutLabel?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), bool? includeUnsettledMovements = default(bool?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetHoldingContributorsForFund: Get holdings contributors for transaction portfolios in a Fund.
+        /// </summary>
+        /// <remarks>
+        /// Get the holdings of transaction portfolios in a specified Fund.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="holdingId">The unique holding identifier</param>
+        /// <param name="singleValuationPointQueryParameters">The arguments to use for querying the holdings.This can be a date, valuationPoint or a bookmark.</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="fromTradeDate">The from trade date, defaults to first time this holding is opened, lower bound for transactions (optional)</param>
+        /// <param name="toTradeDate">The to trade date upper bound date, defaults to effectiveDate. upper bound for transactions (optional)</param>
+        /// <param name="includeHistoric">If true, transactions from previously closed holdings are returned.              If false, only transactions from last time position is opened. (optional, default to false)</param>
+        /// <param name="taxLotId">Constrains the Holding Contributors to those which contributed to the specified tax lot. (optional)</param>
+        /// <param name="includeUnsettledMovements">If true, contributing transaction which have not settled yet will also be returned. False by default (optional, default to false)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing transactions from a previous call to GetHoldingContributors. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (VersionedResourceListOfHoldingContributor)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfHoldingContributor>> GetHoldingContributorsForFundWithHttpInfoAsync(string scope, string code, long holdingId, SingleValuationPointQueryParameters singleValuationPointQueryParameters, string? navTypeCode = default(string?), DateTimeOrCutLabel? fromTradeDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTradeDate = default(DateTimeOrCutLabel?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), bool? includeUnsettledMovements = default(bool?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetHoldingsForFund: Get holdings for transaction portfolios in a Fund.
         /// </summary>
@@ -6181,6 +6281,377 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFundProperties", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetHoldingContributorsForFund: Get holdings contributors for transaction portfolios in a Fund. Get the holdings of transaction portfolios in a specified Fund.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="holdingId">The unique holding identifier</param>
+        /// <param name="singleValuationPointQueryParameters">The arguments to use for querying the holdings.This can be a date, valuationPoint or a bookmark.</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="fromTradeDate">The from trade date, defaults to first time this holding is opened, lower bound for transactions (optional)</param>
+        /// <param name="toTradeDate">The to trade date upper bound date, defaults to effectiveDate. upper bound for transactions (optional)</param>
+        /// <param name="includeHistoric">If true, transactions from previously closed holdings are returned.              If false, only transactions from last time position is opened. (optional, default to false)</param>
+        /// <param name="taxLotId">Constrains the Holding Contributors to those which contributed to the specified tax lot. (optional)</param>
+        /// <param name="includeUnsettledMovements">If true, contributing transaction which have not settled yet will also be returned. False by default (optional, default to false)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing transactions from a previous call to GetHoldingContributors. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>VersionedResourceListOfHoldingContributor</returns>
+        public VersionedResourceListOfHoldingContributor GetHoldingContributorsForFund(string scope, string code, long holdingId, SingleValuationPointQueryParameters singleValuationPointQueryParameters, string? navTypeCode = default(string?), DateTimeOrCutLabel? fromTradeDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTradeDate = default(DateTimeOrCutLabel?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), bool? includeUnsettledMovements = default(bool?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfHoldingContributor> localVarResponse = GetHoldingContributorsForFundWithHttpInfo(scope, code, holdingId, singleValuationPointQueryParameters, navTypeCode, fromTradeDate, toTradeDate, includeHistoric, taxLotId, includeUnsettledMovements, limit, asAt, page, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetHoldingContributorsForFund: Get holdings contributors for transaction portfolios in a Fund. Get the holdings of transaction portfolios in a specified Fund.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="holdingId">The unique holding identifier</param>
+        /// <param name="singleValuationPointQueryParameters">The arguments to use for querying the holdings.This can be a date, valuationPoint or a bookmark.</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="fromTradeDate">The from trade date, defaults to first time this holding is opened, lower bound for transactions (optional)</param>
+        /// <param name="toTradeDate">The to trade date upper bound date, defaults to effectiveDate. upper bound for transactions (optional)</param>
+        /// <param name="includeHistoric">If true, transactions from previously closed holdings are returned.              If false, only transactions from last time position is opened. (optional, default to false)</param>
+        /// <param name="taxLotId">Constrains the Holding Contributors to those which contributed to the specified tax lot. (optional)</param>
+        /// <param name="includeUnsettledMovements">If true, contributing transaction which have not settled yet will also be returned. False by default (optional, default to false)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing transactions from a previous call to GetHoldingContributors. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of VersionedResourceListOfHoldingContributor</returns>
+        public Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfHoldingContributor> GetHoldingContributorsForFundWithHttpInfo(string scope, string code, long holdingId, SingleValuationPointQueryParameters singleValuationPointQueryParameters, string? navTypeCode = default(string?), DateTimeOrCutLabel? fromTradeDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTradeDate = default(DateTimeOrCutLabel?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), bool? includeUnsettledMovements = default(bool?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling FundsApi->GetHoldingContributorsForFund");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling FundsApi->GetHoldingContributorsForFund");
+            }
+
+            // verify the required parameter 'singleValuationPointQueryParameters' is set
+            if (singleValuationPointQueryParameters == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'singleValuationPointQueryParameters' when calling FundsApi->GetHoldingContributorsForFund");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.PathParameters.Add("holdingId", Lusid.Sdk.Client.ClientUtils.ParameterToString(holdingId)); // path parameter
+            if (navTypeCode != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "navTypeCode", navTypeCode));
+            }
+            if (fromTradeDate != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "fromTradeDate", fromTradeDate));
+            }
+            if (toTradeDate != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "toTradeDate", toTradeDate));
+            }
+            if (includeHistoric != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "includeHistoric", includeHistoric));
+            }
+            if (taxLotId != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "taxLotId", taxLotId));
+            }
+            if (includeUnsettledMovements != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "includeUnsettledMovements", includeUnsettledMovements));
+            }
+            if (limit != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (asAt != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (page != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            localVarRequestOptions.Data = singleValuationPointQueryParameters;
+
+            localVarRequestOptions.Operation = "FundsApi.GetHoldingContributorsForFund";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<VersionedResourceListOfHoldingContributor>("/api/funds/{scope}/{code}/holdings/{holdingId}/contributors", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetHoldingContributorsForFund", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetHoldingContributorsForFund: Get holdings contributors for transaction portfolios in a Fund. Get the holdings of transaction portfolios in a specified Fund.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="holdingId">The unique holding identifier</param>
+        /// <param name="singleValuationPointQueryParameters">The arguments to use for querying the holdings.This can be a date, valuationPoint or a bookmark.</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="fromTradeDate">The from trade date, defaults to first time this holding is opened, lower bound for transactions (optional)</param>
+        /// <param name="toTradeDate">The to trade date upper bound date, defaults to effectiveDate. upper bound for transactions (optional)</param>
+        /// <param name="includeHistoric">If true, transactions from previously closed holdings are returned.              If false, only transactions from last time position is opened. (optional, default to false)</param>
+        /// <param name="taxLotId">Constrains the Holding Contributors to those which contributed to the specified tax lot. (optional)</param>
+        /// <param name="includeUnsettledMovements">If true, contributing transaction which have not settled yet will also be returned. False by default (optional, default to false)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing transactions from a previous call to GetHoldingContributors. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of VersionedResourceListOfHoldingContributor</returns>
+        public async System.Threading.Tasks.Task<VersionedResourceListOfHoldingContributor> GetHoldingContributorsForFundAsync(string scope, string code, long holdingId, SingleValuationPointQueryParameters singleValuationPointQueryParameters, string? navTypeCode = default(string?), DateTimeOrCutLabel? fromTradeDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTradeDate = default(DateTimeOrCutLabel?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), bool? includeUnsettledMovements = default(bool?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfHoldingContributor> localVarResponse = await GetHoldingContributorsForFundWithHttpInfoAsync(scope, code, holdingId, singleValuationPointQueryParameters, navTypeCode, fromTradeDate, toTradeDate, includeHistoric, taxLotId, includeUnsettledMovements, limit, asAt, page, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetHoldingContributorsForFund: Get holdings contributors for transaction portfolios in a Fund. Get the holdings of transaction portfolios in a specified Fund.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="holdingId">The unique holding identifier</param>
+        /// <param name="singleValuationPointQueryParameters">The arguments to use for querying the holdings.This can be a date, valuationPoint or a bookmark.</param>
+        /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
+        /// <param name="fromTradeDate">The from trade date, defaults to first time this holding is opened, lower bound for transactions (optional)</param>
+        /// <param name="toTradeDate">The to trade date upper bound date, defaults to effectiveDate. upper bound for transactions (optional)</param>
+        /// <param name="includeHistoric">If true, transactions from previously closed holdings are returned.              If false, only transactions from last time position is opened. (optional, default to false)</param>
+        /// <param name="taxLotId">Constrains the Holding Contributors to those which contributed to the specified tax lot. (optional)</param>
+        /// <param name="includeUnsettledMovements">If true, contributing transaction which have not settled yet will also be returned. False by default (optional, default to false)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing transactions from a previous call to GetHoldingContributors. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (VersionedResourceListOfHoldingContributor)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfHoldingContributor>> GetHoldingContributorsForFundWithHttpInfoAsync(string scope, string code, long holdingId, SingleValuationPointQueryParameters singleValuationPointQueryParameters, string? navTypeCode = default(string?), DateTimeOrCutLabel? fromTradeDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTradeDate = default(DateTimeOrCutLabel?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), bool? includeUnsettledMovements = default(bool?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling FundsApi->GetHoldingContributorsForFund");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling FundsApi->GetHoldingContributorsForFund");
+            }
+
+            // verify the required parameter 'singleValuationPointQueryParameters' is set
+            if (singleValuationPointQueryParameters == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'singleValuationPointQueryParameters' when calling FundsApi->GetHoldingContributorsForFund");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.PathParameters.Add("holdingId", Lusid.Sdk.Client.ClientUtils.ParameterToString(holdingId)); // path parameter
+            if (navTypeCode != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "navTypeCode", navTypeCode));
+            }
+            if (fromTradeDate != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "fromTradeDate", fromTradeDate));
+            }
+            if (toTradeDate != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "toTradeDate", toTradeDate));
+            }
+            if (includeHistoric != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "includeHistoric", includeHistoric));
+            }
+            if (taxLotId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "taxLotId", taxLotId));
+            }
+            if (includeUnsettledMovements != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "includeUnsettledMovements", includeUnsettledMovements));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            localVarRequestOptions.Data = singleValuationPointQueryParameters;
+
+            localVarRequestOptions.Operation = "FundsApi.GetHoldingContributorsForFund";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<VersionedResourceListOfHoldingContributor>("/api/funds/{scope}/{code}/holdings/{holdingId}/contributors", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetHoldingContributorsForFund", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
