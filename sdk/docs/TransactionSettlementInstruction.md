@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **Status** | **string** | The status of the settlement instruction - &#39;Invalid&#39;, &#39;Rejected&#39; &#39;Applied&#39; or &#39;Orphan&#39;. | [optional] 
 **InstructionToPortfolioRate** | **decimal?** | The exchange rate between the Settlement Instruction and Portfolio. | [optional] 
 **SettlementInLieu** | [**SettlementInLieu**](SettlementInLieu.md) |  | [optional] 
+**IsActive** | **bool** | Indicates whether the settlement instruction is active. When false, the instruction has no impact on settlement positions, but remains visible. Defaults to true. | [optional] 
 **Properties** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) | The properties which have been requested to be decorated onto the settlement instruction. These will be from the &#39;SettlementInstruction&#39;, &#39;Portfolio&#39;, or &#39;Instrument&#39; domains. | [optional] 
 
 ```csharp
@@ -37,6 +38,7 @@ Dictionary<string, string> instrumentIdentifiers = new Dictionary<string, string
 string status = "example status";
 SettlementInLieu? settlementInLieu = new SettlementInLieu();
 
+bool isActive = //"True";
 Dictionary<string, PerpetualProperty> properties = new Dictionary<string, PerpetualProperty>();
 
 TransactionSettlementInstruction transactionSettlementInstructionInstance = new TransactionSettlementInstruction(
@@ -54,6 +56,7 @@ TransactionSettlementInstruction transactionSettlementInstructionInstance = new 
     status: status,
     instructionToPortfolioRate: instructionToPortfolioRate,
     settlementInLieu: settlementInLieu,
+    isActive: isActive,
     properties: properties);
 ```
 

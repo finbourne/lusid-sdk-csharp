@@ -50,8 +50,9 @@ namespace Lusid.Sdk.Model
         /// <param name="status">The status of the settlement instruction - &#39;Invalid&#39;, &#39;Rejected&#39; &#39;Applied&#39; or &#39;Orphan&#39;..</param>
         /// <param name="instructionToPortfolioRate">The exchange rate between the Settlement Instruction and Portfolio..</param>
         /// <param name="settlementInLieu">settlementInLieu.</param>
+        /// <param name="isActive">Indicates whether the settlement instruction is active. When false, the instruction has no impact on settlement positions, but remains visible. Defaults to true..</param>
         /// <param name="properties">The properties which have been requested to be decorated onto the settlement instruction. These will be from the &#39;SettlementInstruction&#39;, &#39;Portfolio&#39;, or &#39;Instrument&#39; domains..</param>
-        public TransactionSettlementInstruction(string settlementInstructionId = default(string), string instructionType = default(string), DateTimeOffset actualSettlementDate = default(DateTimeOffset), decimal units = default(decimal), string transactionId = default(string), string settlementCategory = default(string), string lusidInstrumentId = default(string), DateTimeOffset? contractualSettlementDate = default(DateTimeOffset?), Dictionary<string, PerpetualProperty> subHoldingKeyOverrides = default(Dictionary<string, PerpetualProperty>), ResourceId custodianAccountOverride = default(ResourceId), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string status = default(string), decimal? instructionToPortfolioRate = default(decimal?), SettlementInLieu settlementInLieu = default(SettlementInLieu), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>))
+        public TransactionSettlementInstruction(string settlementInstructionId = default(string), string instructionType = default(string), DateTimeOffset actualSettlementDate = default(DateTimeOffset), decimal units = default(decimal), string transactionId = default(string), string settlementCategory = default(string), string lusidInstrumentId = default(string), DateTimeOffset? contractualSettlementDate = default(DateTimeOffset?), Dictionary<string, PerpetualProperty> subHoldingKeyOverrides = default(Dictionary<string, PerpetualProperty>), ResourceId custodianAccountOverride = default(ResourceId), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string status = default(string), decimal? instructionToPortfolioRate = default(decimal?), SettlementInLieu settlementInLieu = default(SettlementInLieu), bool isActive = default(bool), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>))
         {
             // to ensure "settlementInstructionId" is required (not null)
             if (settlementInstructionId == null)
@@ -97,6 +98,7 @@ namespace Lusid.Sdk.Model
             this.Status = status;
             this.InstructionToPortfolioRate = instructionToPortfolioRate;
             this.SettlementInLieu = settlementInLieu;
+            this.IsActive = isActive;
             this.Properties = properties;
         }
 
@@ -197,6 +199,13 @@ namespace Lusid.Sdk.Model
         public SettlementInLieu SettlementInLieu { get; set; }
 
         /// <summary>
+        /// Indicates whether the settlement instruction is active. When false, the instruction has no impact on settlement positions, but remains visible. Defaults to true.
+        /// </summary>
+        /// <value>Indicates whether the settlement instruction is active. When false, the instruction has no impact on settlement positions, but remains visible. Defaults to true.</value>
+        [DataMember(Name = "isActive", EmitDefaultValue = true)]
+        public bool IsActive { get; set; }
+
+        /// <summary>
         /// The properties which have been requested to be decorated onto the settlement instruction. These will be from the &#39;SettlementInstruction&#39;, &#39;Portfolio&#39;, or &#39;Instrument&#39; domains.
         /// </summary>
         /// <value>The properties which have been requested to be decorated onto the settlement instruction. These will be from the &#39;SettlementInstruction&#39;, &#39;Portfolio&#39;, or &#39;Instrument&#39; domains.</value>
@@ -225,6 +234,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  InstructionToPortfolioRate: ").Append(InstructionToPortfolioRate).Append("\n");
             sb.Append("  SettlementInLieu: ").Append(SettlementInLieu).Append("\n");
+            sb.Append("  IsActive: ").Append(IsActive).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -333,6 +343,10 @@ namespace Lusid.Sdk.Model
                     this.SettlementInLieu.Equals(input.SettlementInLieu))
                 ) && 
                 (
+                    this.IsActive == input.IsActive ||
+                    this.IsActive.Equals(input.IsActive)
+                ) && 
+                (
                     this.Properties == input.Properties ||
                     this.Properties != null &&
                     input.Properties != null &&
@@ -402,6 +416,7 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.SettlementInLieu.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.IsActive.GetHashCode();
                 if (this.Properties != null)
                 {
                     hashCode = (hashCode * 59) + this.Properties.GetHashCode();
