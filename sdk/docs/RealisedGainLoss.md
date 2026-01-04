@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **RealisedCurrency** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
 **TaxLotId** | **string** | The identifier of the tax lot with which this gain or loss is associated. | [optional] 
 **RealisedAmortisation** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
+**TradeDateToSettlementDateRealisedCurrency** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -37,6 +38,8 @@ CurrencyAndAmount? realisedCurrency = new CurrencyAndAmount();
 string taxLotId = "example taxLotId";
 CurrencyAndAmount? realisedAmortisation = new CurrencyAndAmount();
 
+CurrencyAndAmount? tradeDateToSettlementDateRealisedCurrency = new CurrencyAndAmount();
+
 
 RealisedGainLoss realisedGainLossInstance = new RealisedGainLoss(
     instrumentScope: instrumentScope,
@@ -52,7 +55,8 @@ RealisedGainLoss realisedGainLossInstance = new RealisedGainLoss(
     realisedMarket: realisedMarket,
     realisedCurrency: realisedCurrency,
     taxLotId: taxLotId,
-    realisedAmortisation: realisedAmortisation);
+    realisedAmortisation: realisedAmortisation,
+    tradeDateToSettlementDateRealisedCurrency: tradeDateToSettlementDateRealisedCurrency);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
