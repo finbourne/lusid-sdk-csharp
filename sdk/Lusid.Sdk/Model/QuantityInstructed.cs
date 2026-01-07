@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// QuantityInstructed
+    /// The quantity of the event that was instructed, represented either as a percentage of the overall holdings or the number of units instructed.
     /// </summary>
     [DataContract(Name = "QuantityInstructed")]
     public partial class QuantityInstructed : IEquatable<QuantityInstructed>, IValidatableObject
@@ -36,8 +36,8 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="QuantityInstructed" /> class.
         /// </summary>
-        /// <param name="type">type (required).</param>
-        /// <param name="amount">amount (required).</param>
+        /// <param name="type">The type of quantity instructed, either Percentage or Units. (required).</param>
+        /// <param name="amount">The actual amount instructed. For Type Percentage, this is between 0 and 100. (required).</param>
         public QuantityInstructed(string type = default(string), decimal amount = default(decimal))
         {
             // to ensure "type" is required (not null)
@@ -50,14 +50,16 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// Gets or Sets Type
+        /// The type of quantity instructed, either Percentage or Units.
         /// </summary>
+        /// <value>The type of quantity instructed, either Percentage or Units.</value>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or Sets Amount
+        /// The actual amount instructed. For Type Percentage, this is between 0 and 100.
         /// </summary>
+        /// <value>The actual amount instructed. For Type Percentage, this is between 0 and 100.</value>
         [DataMember(Name = "amount", IsRequired = true, EmitDefaultValue = true)]
         public decimal Amount { get; set; }
 

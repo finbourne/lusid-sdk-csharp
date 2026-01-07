@@ -1,11 +1,12 @@
 # Lusid.Sdk.Model.QuantityInstructed
+The quantity of the event that was instructed, represented either as a percentage of the overall holdings or the number of units instructed.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **string** |  | 
-**Amount** | **decimal** |  | 
+**Type** | **string** | The type of quantity instructed, either Percentage or Units. | 
+**Amount** | **decimal** | The actual amount instructed. For Type Percentage, this is between 0 and 100. | 
 
 ```csharp
 using Lusid.Sdk.Model;
