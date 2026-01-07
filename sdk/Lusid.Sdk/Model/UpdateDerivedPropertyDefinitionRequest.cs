@@ -42,7 +42,8 @@ namespace Lusid.Sdk.Model
         /// <param name="derivationFormula">The rule that defines how data is composed for a derived property. (required).</param>
         /// <param name="isFilterable">Bool indicating whether the values of this property are fitlerable, this is true for all non-derived property defintions.  For a derived definition this must be set true to enable filtering. (required).</param>
         /// <param name="valueFormat">The format in which values for this property definition should be represented..</param>
-        public UpdateDerivedPropertyDefinitionRequest(string displayName = default(string), ResourceId dataTypeId = default(ResourceId), string propertyDescription = default(string), string derivationFormula = default(string), bool isFilterable = default(bool), string valueFormat = default(string))
+        /// <param name="customEntityType">The custom entity type that this derived property definition can be applied to..</param>
+        public UpdateDerivedPropertyDefinitionRequest(string displayName = default(string), ResourceId dataTypeId = default(ResourceId), string propertyDescription = default(string), string derivationFormula = default(string), bool isFilterable = default(bool), string valueFormat = default(string), string customEntityType = default(string))
         {
             // to ensure "displayName" is required (not null)
             if (displayName == null)
@@ -65,6 +66,7 @@ namespace Lusid.Sdk.Model
             this.IsFilterable = isFilterable;
             this.PropertyDescription = propertyDescription;
             this.ValueFormat = valueFormat;
+            this.CustomEntityType = customEntityType;
         }
 
         /// <summary>
@@ -109,6 +111,13 @@ namespace Lusid.Sdk.Model
         public string ValueFormat { get; set; }
 
         /// <summary>
+        /// The custom entity type that this derived property definition can be applied to.
+        /// </summary>
+        /// <value>The custom entity type that this derived property definition can be applied to.</value>
+        [DataMember(Name = "customEntityType", EmitDefaultValue = true)]
+        public string CustomEntityType { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -122,6 +131,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  DerivationFormula: ").Append(DerivationFormula).Append("\n");
             sb.Append("  IsFilterable: ").Append(IsFilterable).Append("\n");
             sb.Append("  ValueFormat: ").Append(ValueFormat).Append("\n");
+            sb.Append("  CustomEntityType: ").Append(CustomEntityType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -185,6 +195,11 @@ namespace Lusid.Sdk.Model
                     this.ValueFormat == input.ValueFormat ||
                     (this.ValueFormat != null &&
                     this.ValueFormat.Equals(input.ValueFormat))
+                ) && 
+                (
+                    this.CustomEntityType == input.CustomEntityType ||
+                    (this.CustomEntityType != null &&
+                    this.CustomEntityType.Equals(input.CustomEntityType))
                 );
         }
 
@@ -217,6 +232,10 @@ namespace Lusid.Sdk.Model
                 if (this.ValueFormat != null)
                 {
                     hashCode = (hashCode * 59) + this.ValueFormat.GetHashCode();
+                }
+                if (this.CustomEntityType != null)
+                {
+                    hashCode = (hashCode * 59) + this.CustomEntityType.GetHashCode();
                 }
                 return hashCode;
             }
@@ -257,6 +276,18 @@ namespace Lusid.Sdk.Model
             if (this.ValueFormat != null && this.ValueFormat.Length < 0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ValueFormat, length must be greater than 0.", new [] { "ValueFormat" });
+            }
+
+            // CustomEntityType (string) maxLength
+            if (this.CustomEntityType != null && this.CustomEntityType.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CustomEntityType, length must be less than 64.", new [] { "CustomEntityType" });
+            }
+
+            // CustomEntityType (string) minLength
+            if (this.CustomEntityType != null && this.CustomEntityType.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CustomEntityType, length must be greater than 1.", new [] { "CustomEntityType" });
             }
 
             yield break;
