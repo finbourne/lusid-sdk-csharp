@@ -2663,7 +2663,7 @@ namespace Examples
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified. (optional) 
             var page = "page_example";  // string? | The pagination token to use to continue listing transactions from a previous call to GetHoldingContributors. (optional) 
             var timelineScope = "timelineScope_example";  // string? | The scope of the timeline used for evaluation. If provided, you must also provide a timelineCode. (optional) 
-            var timelineCode = "timelineCode_example";  // string? | The code of the timeline used for evaluation. If provided, you must also provide a timelineScope. (optional) 
+            var timelineCode = "timelineCode_example";  // string? | The code of the Timeline. This can optionally include a colon, followed by the Closed Period Id to use at the head of the timeline, for a timeline with unconfirmed periods. (optional) 
 
             try
             {
@@ -2722,7 +2722,7 @@ catch (ApiException e)
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified. | [optional]  |
 | **page** | **string?** | The pagination token to use to continue listing transactions from a previous call to GetHoldingContributors. | [optional]  |
 | **timelineScope** | **string?** | The scope of the timeline used for evaluation. If provided, you must also provide a timelineCode. | [optional]  |
-| **timelineCode** | **string?** | The code of the timeline used for evaluation. If provided, you must also provide a timelineScope. | [optional]  |
+| **timelineCode** | **string?** | The code of the Timeline. This can optionally include a colon, followed by the Closed Period Id to use at the head of the timeline, for a timeline with unconfirmed periods. | [optional]  |
 
 ### Return type
 
@@ -2799,7 +2799,7 @@ namespace Examples
             var byTaxlots = true;  // bool? | Whether or not to expand the holdings to return the underlying tax-lots. Defaults to              False. (optional) 
             var includeSettlementEventsAfterDays = 56;  // int? | Number of days ahead to bring back settlements from, in relation to the specified effectiveAt (optional) 
             var timelineScope = "timelineScope_example";  // string? | The scope of the Timeline. (optional) 
-            var timelineCode = "timelineCode_example";  // string? | The code of the Timeline. (optional) 
+            var timelineCode = "timelineCode_example";  // string? | The code of the Timeline. This can optionally include a colon, followed by the Closed Period Id to use at the head of the timeline, for a timeline with unconfirmed periods. (optional) 
             var closedPeriodId = "closedPeriodId_example";  // string? | The closed period ID. If this is specified, both timelineScope and timelineCode must be specified. Either closedPeriodId or effectiveAt can be used with a Timeline. (optional) 
 
             try
@@ -2855,7 +2855,7 @@ catch (ApiException e)
 | **byTaxlots** | **bool?** | Whether or not to expand the holdings to return the underlying tax-lots. Defaults to              False. | [optional]  |
 | **includeSettlementEventsAfterDays** | **int?** | Number of days ahead to bring back settlements from, in relation to the specified effectiveAt | [optional]  |
 | **timelineScope** | **string?** | The scope of the Timeline. | [optional]  |
-| **timelineCode** | **string?** | The code of the Timeline. | [optional]  |
+| **timelineCode** | **string?** | The code of the Timeline. This can optionally include a colon, followed by the Closed Period Id to use at the head of the timeline, for a timeline with unconfirmed periods. | [optional]  |
 | **closedPeriodId** | **string?** | The closed period ID. If this is specified, both timelineScope and timelineCode must be specified. Either closedPeriodId or effectiveAt can be used with a Timeline. | [optional]  |
 
 ### Return type
@@ -3191,7 +3191,7 @@ namespace Examples
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified. (optional) 
             var page = "page_example";  // string? | The pagination token to use to continue listing transactions from a previous call to GetHoldingContributors. (optional) 
             var timelineScope = "timelineScope_example";  // string? | The scope of the timeline used for evaluation. If provided, you must also provide a timelineCode. (optional) 
-            var timelineCode = "timelineCode_example";  // string? | The code of the timeline used for evaluation. If provided, you must also provide a timelineScope. (optional) 
+            var timelineCode = "timelineCode_example";  // string? | The code of the Timeline. This can optionally include a colon, followed by the Closed Period Id to use at the head of the timeline, for a timeline with unconfirmed periods. (optional) 
 
             try
             {
@@ -3250,7 +3250,7 @@ catch (ApiException e)
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified. | [optional]  |
 | **page** | **string?** | The pagination token to use to continue listing transactions from a previous call to GetHoldingContributors. | [optional]  |
 | **timelineScope** | **string?** | The scope of the timeline used for evaluation. If provided, you must also provide a timelineCode. | [optional]  |
-| **timelineCode** | **string?** | The code of the timeline used for evaluation. If provided, you must also provide a timelineScope. | [optional]  |
+| **timelineCode** | **string?** | The code of the Timeline. This can optionally include a colon, followed by the Closed Period Id to use at the head of the timeline, for a timeline with unconfirmed periods. | [optional]  |
 
 ### Return type
 

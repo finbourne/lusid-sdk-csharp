@@ -734,7 +734,7 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to GetHoldingContributors. (optional)</param>
         /// <param name="timelineScope">The scope of the timeline used for evaluation. If provided, you must also provide a timelineCode. (optional)</param>
-        /// <param name="timelineCode">The code of the timeline used for evaluation. If provided, you must also provide a timelineScope. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline. This can optionally include a colon, followed by the Closed Period Id to use at the head of the timeline, for a timeline with unconfirmed periods. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>VersionedResourceListOfHoldingContributor</returns>
@@ -760,7 +760,7 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to GetHoldingContributors. (optional)</param>
         /// <param name="timelineScope">The scope of the timeline used for evaluation. If provided, you must also provide a timelineCode. (optional)</param>
-        /// <param name="timelineCode">The code of the timeline used for evaluation. If provided, you must also provide a timelineScope. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline. This can optionally include a colon, followed by the Closed Period Id to use at the head of the timeline, for a timeline with unconfirmed periods. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of VersionedResourceListOfHoldingContributor</returns>
@@ -781,7 +781,7 @@ namespace Lusid.Sdk.Api
         /// <param name="byTaxlots">Whether or not to expand the holdings to return the underlying tax-lots. Defaults to              False. (optional)</param>
         /// <param name="includeSettlementEventsAfterDays">Number of days ahead to bring back settlements from, in relation to the specified effectiveAt (optional)</param>
         /// <param name="timelineScope">The scope of the Timeline. (optional)</param>
-        /// <param name="timelineCode">The code of the Timeline. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline. This can optionally include a colon, followed by the Closed Period Id to use at the head of the timeline, for a timeline with unconfirmed periods. (optional)</param>
         /// <param name="closedPeriodId">The closed period ID. If this is specified, both timelineScope and timelineCode must be specified. Either closedPeriodId or effectiveAt can be used with a Timeline. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -804,7 +804,7 @@ namespace Lusid.Sdk.Api
         /// <param name="byTaxlots">Whether or not to expand the holdings to return the underlying tax-lots. Defaults to              False. (optional)</param>
         /// <param name="includeSettlementEventsAfterDays">Number of days ahead to bring back settlements from, in relation to the specified effectiveAt (optional)</param>
         /// <param name="timelineScope">The scope of the Timeline. (optional)</param>
-        /// <param name="timelineCode">The code of the Timeline. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline. This can optionally include a colon, followed by the Closed Period Id to use at the head of the timeline, for a timeline with unconfirmed periods. (optional)</param>
         /// <param name="closedPeriodId">The closed period ID. If this is specified, both timelineScope and timelineCode must be specified. Either closedPeriodId or effectiveAt can be used with a Timeline. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -906,7 +906,7 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to GetHoldingContributors. (optional)</param>
         /// <param name="timelineScope">The scope of the timeline used for evaluation. If provided, you must also provide a timelineCode. (optional)</param>
-        /// <param name="timelineCode">The code of the timeline used for evaluation. If provided, you must also provide a timelineScope. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline. This can optionally include a colon, followed by the Closed Period Id to use at the head of the timeline, for a timeline with unconfirmed periods. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>VersionedResourceListOfHoldingContributor</returns>
@@ -932,7 +932,7 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to GetHoldingContributors. (optional)</param>
         /// <param name="timelineScope">The scope of the timeline used for evaluation. If provided, you must also provide a timelineCode. (optional)</param>
-        /// <param name="timelineCode">The code of the timeline used for evaluation. If provided, you must also provide a timelineScope. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline. This can optionally include a colon, followed by the Closed Period Id to use at the head of the timeline, for a timeline with unconfirmed periods. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of VersionedResourceListOfHoldingContributor</returns>
@@ -2421,7 +2421,7 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to GetHoldingContributors. (optional)</param>
         /// <param name="timelineScope">The scope of the timeline used for evaluation. If provided, you must also provide a timelineCode. (optional)</param>
-        /// <param name="timelineCode">The code of the timeline used for evaluation. If provided, you must also provide a timelineScope. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline. This can optionally include a colon, followed by the Closed Period Id to use at the head of the timeline, for a timeline with unconfirmed periods. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2448,7 +2448,7 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to GetHoldingContributors. (optional)</param>
         /// <param name="timelineScope">The scope of the timeline used for evaluation. If provided, you must also provide a timelineCode. (optional)</param>
-        /// <param name="timelineCode">The code of the timeline used for evaluation. If provided, you must also provide a timelineScope. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline. This can optionally include a colon, followed by the Closed Period Id to use at the head of the timeline, for a timeline with unconfirmed periods. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2470,7 +2470,7 @@ namespace Lusid.Sdk.Api
         /// <param name="byTaxlots">Whether or not to expand the holdings to return the underlying tax-lots. Defaults to              False. (optional)</param>
         /// <param name="includeSettlementEventsAfterDays">Number of days ahead to bring back settlements from, in relation to the specified effectiveAt (optional)</param>
         /// <param name="timelineScope">The scope of the Timeline. (optional)</param>
-        /// <param name="timelineCode">The code of the Timeline. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline. This can optionally include a colon, followed by the Closed Period Id to use at the head of the timeline, for a timeline with unconfirmed periods. (optional)</param>
         /// <param name="closedPeriodId">The closed period ID. If this is specified, both timelineScope and timelineCode must be specified. Either closedPeriodId or effectiveAt can be used with a Timeline. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2494,7 +2494,7 @@ namespace Lusid.Sdk.Api
         /// <param name="byTaxlots">Whether or not to expand the holdings to return the underlying tax-lots. Defaults to              False. (optional)</param>
         /// <param name="includeSettlementEventsAfterDays">Number of days ahead to bring back settlements from, in relation to the specified effectiveAt (optional)</param>
         /// <param name="timelineScope">The scope of the Timeline. (optional)</param>
-        /// <param name="timelineCode">The code of the Timeline. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline. This can optionally include a colon, followed by the Closed Period Id to use at the head of the timeline, for a timeline with unconfirmed periods. (optional)</param>
         /// <param name="closedPeriodId">The closed period ID. If this is specified, both timelineScope and timelineCode must be specified. Either closedPeriodId or effectiveAt can be used with a Timeline. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2601,7 +2601,7 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to GetHoldingContributors. (optional)</param>
         /// <param name="timelineScope">The scope of the timeline used for evaluation. If provided, you must also provide a timelineCode. (optional)</param>
-        /// <param name="timelineCode">The code of the timeline used for evaluation. If provided, you must also provide a timelineScope. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline. This can optionally include a colon, followed by the Closed Period Id to use at the head of the timeline, for a timeline with unconfirmed periods. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2628,7 +2628,7 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to GetHoldingContributors. (optional)</param>
         /// <param name="timelineScope">The scope of the timeline used for evaluation. If provided, you must also provide a timelineCode. (optional)</param>
-        /// <param name="timelineCode">The code of the timeline used for evaluation. If provided, you must also provide a timelineScope. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline. This can optionally include a colon, followed by the Closed Period Id to use at the head of the timeline, for a timeline with unconfirmed periods. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -9180,7 +9180,7 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to GetHoldingContributors. (optional)</param>
         /// <param name="timelineScope">The scope of the timeline used for evaluation. If provided, you must also provide a timelineCode. (optional)</param>
-        /// <param name="timelineCode">The code of the timeline used for evaluation. If provided, you must also provide a timelineScope. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline. This can optionally include a colon, followed by the Closed Period Id to use at the head of the timeline, for a timeline with unconfirmed periods. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>VersionedResourceListOfHoldingContributor</returns>
@@ -9207,7 +9207,7 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to GetHoldingContributors. (optional)</param>
         /// <param name="timelineScope">The scope of the timeline used for evaluation. If provided, you must also provide a timelineCode. (optional)</param>
-        /// <param name="timelineCode">The code of the timeline used for evaluation. If provided, you must also provide a timelineScope. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline. This can optionally include a colon, followed by the Closed Period Id to use at the head of the timeline, for a timeline with unconfirmed periods. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of VersionedResourceListOfHoldingContributor</returns>
@@ -9369,7 +9369,7 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to GetHoldingContributors. (optional)</param>
         /// <param name="timelineScope">The scope of the timeline used for evaluation. If provided, you must also provide a timelineCode. (optional)</param>
-        /// <param name="timelineCode">The code of the timeline used for evaluation. If provided, you must also provide a timelineScope. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline. This can optionally include a colon, followed by the Closed Period Id to use at the head of the timeline, for a timeline with unconfirmed periods. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -9397,7 +9397,7 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to GetHoldingContributors. (optional)</param>
         /// <param name="timelineScope">The scope of the timeline used for evaluation. If provided, you must also provide a timelineCode. (optional)</param>
-        /// <param name="timelineCode">The code of the timeline used for evaluation. If provided, you must also provide a timelineScope. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline. This can optionally include a colon, followed by the Closed Period Id to use at the head of the timeline, for a timeline with unconfirmed periods. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -9547,7 +9547,7 @@ namespace Lusid.Sdk.Api
         /// <param name="byTaxlots">Whether or not to expand the holdings to return the underlying tax-lots. Defaults to              False. (optional)</param>
         /// <param name="includeSettlementEventsAfterDays">Number of days ahead to bring back settlements from, in relation to the specified effectiveAt (optional)</param>
         /// <param name="timelineScope">The scope of the Timeline. (optional)</param>
-        /// <param name="timelineCode">The code of the Timeline. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline. This can optionally include a colon, followed by the Closed Period Id to use at the head of the timeline, for a timeline with unconfirmed periods. (optional)</param>
         /// <param name="closedPeriodId">The closed period ID. If this is specified, both timelineScope and timelineCode must be specified. Either closedPeriodId or effectiveAt can be used with a Timeline. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -9571,7 +9571,7 @@ namespace Lusid.Sdk.Api
         /// <param name="byTaxlots">Whether or not to expand the holdings to return the underlying tax-lots. Defaults to              False. (optional)</param>
         /// <param name="includeSettlementEventsAfterDays">Number of days ahead to bring back settlements from, in relation to the specified effectiveAt (optional)</param>
         /// <param name="timelineScope">The scope of the Timeline. (optional)</param>
-        /// <param name="timelineCode">The code of the Timeline. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline. This can optionally include a colon, followed by the Closed Period Id to use at the head of the timeline, for a timeline with unconfirmed periods. (optional)</param>
         /// <param name="closedPeriodId">The closed period ID. If this is specified, both timelineScope and timelineCode must be specified. Either closedPeriodId or effectiveAt can be used with a Timeline. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -9719,7 +9719,7 @@ namespace Lusid.Sdk.Api
         /// <param name="byTaxlots">Whether or not to expand the holdings to return the underlying tax-lots. Defaults to              False. (optional)</param>
         /// <param name="includeSettlementEventsAfterDays">Number of days ahead to bring back settlements from, in relation to the specified effectiveAt (optional)</param>
         /// <param name="timelineScope">The scope of the Timeline. (optional)</param>
-        /// <param name="timelineCode">The code of the Timeline. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline. This can optionally include a colon, followed by the Closed Period Id to use at the head of the timeline, for a timeline with unconfirmed periods. (optional)</param>
         /// <param name="closedPeriodId">The closed period ID. If this is specified, both timelineScope and timelineCode must be specified. Either closedPeriodId or effectiveAt can be used with a Timeline. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -9744,7 +9744,7 @@ namespace Lusid.Sdk.Api
         /// <param name="byTaxlots">Whether or not to expand the holdings to return the underlying tax-lots. Defaults to              False. (optional)</param>
         /// <param name="includeSettlementEventsAfterDays">Number of days ahead to bring back settlements from, in relation to the specified effectiveAt (optional)</param>
         /// <param name="timelineScope">The scope of the Timeline. (optional)</param>
-        /// <param name="timelineCode">The code of the Timeline. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline. This can optionally include a colon, followed by the Closed Period Id to use at the head of the timeline, for a timeline with unconfirmed periods. (optional)</param>
         /// <param name="closedPeriodId">The closed period ID. If this is specified, both timelineScope and timelineCode must be specified. Either closedPeriodId or effectiveAt can be used with a Timeline. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -10482,7 +10482,7 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to GetHoldingContributors. (optional)</param>
         /// <param name="timelineScope">The scope of the timeline used for evaluation. If provided, you must also provide a timelineCode. (optional)</param>
-        /// <param name="timelineCode">The code of the timeline used for evaluation. If provided, you must also provide a timelineScope. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline. This can optionally include a colon, followed by the Closed Period Id to use at the head of the timeline, for a timeline with unconfirmed periods. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>VersionedResourceListOfHoldingContributor</returns>
@@ -10509,7 +10509,7 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to GetHoldingContributors. (optional)</param>
         /// <param name="timelineScope">The scope of the timeline used for evaluation. If provided, you must also provide a timelineCode. (optional)</param>
-        /// <param name="timelineCode">The code of the timeline used for evaluation. If provided, you must also provide a timelineScope. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline. This can optionally include a colon, followed by the Closed Period Id to use at the head of the timeline, for a timeline with unconfirmed periods. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of VersionedResourceListOfHoldingContributor</returns>
@@ -10681,7 +10681,7 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to GetHoldingContributors. (optional)</param>
         /// <param name="timelineScope">The scope of the timeline used for evaluation. If provided, you must also provide a timelineCode. (optional)</param>
-        /// <param name="timelineCode">The code of the timeline used for evaluation. If provided, you must also provide a timelineScope. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline. This can optionally include a colon, followed by the Closed Period Id to use at the head of the timeline, for a timeline with unconfirmed periods. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -10709,7 +10709,7 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to GetHoldingContributors. (optional)</param>
         /// <param name="timelineScope">The scope of the timeline used for evaluation. If provided, you must also provide a timelineCode. (optional)</param>
-        /// <param name="timelineCode">The code of the timeline used for evaluation. If provided, you must also provide a timelineScope. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline. This can optionally include a colon, followed by the Closed Period Id to use at the head of the timeline, for a timeline with unconfirmed periods. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>

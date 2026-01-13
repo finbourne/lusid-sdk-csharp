@@ -68,7 +68,7 @@ namespace Lusid.Sdk.Model
         /// <param name="queryMode">The date to compare against the upper and lower bounds for the effective datetime or cut label. Defaults to &#39;TradeDate&#39; if not specified. The available values are: TradeDate, SettleDate.</param>
         /// <param name="showCancelledTransactions">Option to specify whether or not to include cancelled transactions in the output. Defaults to False if not specified..</param>
         /// <param name="timelineScope">Scope of the Timeline for the Portfolio. The Timeline to be used while building transactions.</param>
-        /// <param name="timelineCode">Code of the Timeline for the Portfolio. The Timeline to be used while building transactions.</param>
+        /// <param name="timelineCode">Code of the Timeline for the Portfolio. The Timeline to be used while building transactions. This can optionally include a colon, followed by the Closed Period Id to use at the head of the timeline, for a timeline with unconfirmed periods..</param>
         /// <param name="includeEconomics">By default is false. When set to true the Economics data would be populated in the response..</param>
         /// <param name="includeSettlementStatus">By default is false. When set to true the Settlement Status data would be populated in the response..</param>
         /// <param name="settlementStatusDate">Optional date used to specify end of an extended window for settlement information. When provided, transactions will be returned between start and end date, but settlement information between start date and this date will be included. When provided, the value must be greater than or equal to end date..</param>
@@ -124,9 +124,9 @@ namespace Lusid.Sdk.Model
         public string TimelineScope { get; set; }
 
         /// <summary>
-        /// Code of the Timeline for the Portfolio. The Timeline to be used while building transactions
+        /// Code of the Timeline for the Portfolio. The Timeline to be used while building transactions. This can optionally include a colon, followed by the Closed Period Id to use at the head of the timeline, for a timeline with unconfirmed periods.
         /// </summary>
-        /// <value>Code of the Timeline for the Portfolio. The Timeline to be used while building transactions</value>
+        /// <value>Code of the Timeline for the Portfolio. The Timeline to be used while building transactions. This can optionally include a colon, followed by the Closed Period Id to use at the head of the timeline, for a timeline with unconfirmed periods.</value>
         [DataMember(Name = "timelineCode", EmitDefaultValue = true)]
         public string TimelineCode { get; set; }
 
@@ -322,9 +322,9 @@ namespace Lusid.Sdk.Model
             }
 
             // TimelineCode (string) maxLength
-            if (this.TimelineCode != null && this.TimelineCode.Length > 64)
+            if (this.TimelineCode != null && this.TimelineCode.Length > 1025)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TimelineCode, length must be less than 64.", new [] { "TimelineCode" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TimelineCode, length must be less than 1025.", new [] { "TimelineCode" });
             }
 
             // TimelineCode (string) minLength
@@ -334,7 +334,7 @@ namespace Lusid.Sdk.Model
             }
 
             // TimelineCode (string) pattern
-            Regex regexTimelineCode = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
+            Regex regexTimelineCode = new Regex(@"^[a-zA-Z0-9\-_]+(:[a-zA-Z0-9\-_]+)?$", RegexOptions.CultureInvariant);
             if (false == regexTimelineCode.Match(this.TimelineCode).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TimelineCode, must match a pattern of " + regexTimelineCode, new [] { "TimelineCode" });
