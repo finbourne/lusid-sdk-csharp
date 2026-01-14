@@ -722,10 +722,11 @@ namespace Lusid.Sdk.Api
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="showCancelledTransactions">Option to specify whether or not to include cancelled transactions,              including previous versions of transactions which have since been amended.              Defaults to False if not specified. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ValuationPointResourceListOfAccountedTransaction</returns>
-        ValuationPointResourceListOfAccountedTransaction GetValuationPointTransactions(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), bool? showCancelledTransactions = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        ValuationPointResourceListOfAccountedTransaction GetValuationPointTransactions(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), bool? showCancelledTransactions = default(bool?), string? membershipType = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetValuationPointTransactions: Get the Transactions for the given Fund.
@@ -746,10 +747,11 @@ namespace Lusid.Sdk.Api
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="showCancelledTransactions">Option to specify whether or not to include cancelled transactions,              including previous versions of transactions which have since been amended.              Defaults to False if not specified. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ValuationPointResourceListOfAccountedTransaction</returns>
-        Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfAccountedTransaction> GetValuationPointTransactionsWithHttpInfo(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), bool? showCancelledTransactions = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfAccountedTransaction> GetValuationPointTransactionsWithHttpInfo(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), bool? showCancelledTransactions = default(bool?), string? membershipType = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetValuationPointTrialBalance: Get Trial Balance for the given Fund.
         /// </summary>
@@ -2011,11 +2013,12 @@ namespace Lusid.Sdk.Api
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="showCancelledTransactions">Option to specify whether or not to include cancelled transactions,              including previous versions of transactions which have since been amended.              Defaults to False if not specified. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ValuationPointResourceListOfAccountedTransaction</returns>
-        System.Threading.Tasks.Task<ValuationPointResourceListOfAccountedTransaction> GetValuationPointTransactionsAsync(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), bool? showCancelledTransactions = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<ValuationPointResourceListOfAccountedTransaction> GetValuationPointTransactionsAsync(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), bool? showCancelledTransactions = default(bool?), string? membershipType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetValuationPointTransactions: Get the Transactions for the given Fund.
@@ -2036,11 +2039,12 @@ namespace Lusid.Sdk.Api
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="showCancelledTransactions">Option to specify whether or not to include cancelled transactions,              including previous versions of transactions which have since been amended.              Defaults to False if not specified. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ValuationPointResourceListOfAccountedTransaction)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfAccountedTransaction>> GetValuationPointTransactionsWithHttpInfoAsync(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), bool? showCancelledTransactions = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfAccountedTransaction>> GetValuationPointTransactionsWithHttpInfoAsync(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), bool? showCancelledTransactions = default(bool?), string? membershipType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetValuationPointTrialBalance: Get Trial Balance for the given Fund.
         /// </summary>
@@ -8191,12 +8195,13 @@ namespace Lusid.Sdk.Api
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="showCancelledTransactions">Option to specify whether or not to include cancelled transactions,              including previous versions of transactions which have since been amended.              Defaults to False if not specified. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ValuationPointResourceListOfAccountedTransaction</returns>
-        public ValuationPointResourceListOfAccountedTransaction GetValuationPointTransactions(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), bool? showCancelledTransactions = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public ValuationPointResourceListOfAccountedTransaction GetValuationPointTransactions(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), bool? showCancelledTransactions = default(bool?), string? membershipType = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfAccountedTransaction> localVarResponse = GetValuationPointTransactionsWithHttpInfo(scope, code, valuationPointDataQueryParameters, asAt, filter, limit, page, propertyKeys, navTypeCode, dataModelScope, dataModelCode, showCancelledTransactions, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfAccountedTransaction> localVarResponse = GetValuationPointTransactionsWithHttpInfo(scope, code, valuationPointDataQueryParameters, asAt, filter, limit, page, propertyKeys, navTypeCode, dataModelScope, dataModelCode, showCancelledTransactions, membershipType, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -8216,10 +8221,11 @@ namespace Lusid.Sdk.Api
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="showCancelledTransactions">Option to specify whether or not to include cancelled transactions,              including previous versions of transactions which have since been amended.              Defaults to False if not specified. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ValuationPointResourceListOfAccountedTransaction</returns>
-        public Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfAccountedTransaction> GetValuationPointTransactionsWithHttpInfo(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), bool? showCancelledTransactions = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfAccountedTransaction> GetValuationPointTransactionsWithHttpInfo(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), bool? showCancelledTransactions = default(bool?), string? membershipType = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -8324,6 +8330,11 @@ namespace Lusid.Sdk.Api
 
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "showCancelledTransactions", showCancelledTransactions));
             }
+            if (membershipType != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "membershipType", membershipType));
+            }
             localVarRequestOptions.Data = valuationPointDataQueryParameters;
 
             localVarRequestOptions.Operation = "FundsApi.GetValuationPointTransactions";
@@ -8376,13 +8387,14 @@ namespace Lusid.Sdk.Api
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="showCancelledTransactions">Option to specify whether or not to include cancelled transactions,              including previous versions of transactions which have since been amended.              Defaults to False if not specified. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ValuationPointResourceListOfAccountedTransaction</returns>
-        public async System.Threading.Tasks.Task<ValuationPointResourceListOfAccountedTransaction> GetValuationPointTransactionsAsync(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), bool? showCancelledTransactions = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<ValuationPointResourceListOfAccountedTransaction> GetValuationPointTransactionsAsync(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), bool? showCancelledTransactions = default(bool?), string? membershipType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfAccountedTransaction> localVarResponse = await GetValuationPointTransactionsWithHttpInfoAsync(scope, code, valuationPointDataQueryParameters, asAt, filter, limit, page, propertyKeys, navTypeCode, dataModelScope, dataModelCode, showCancelledTransactions, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfAccountedTransaction> localVarResponse = await GetValuationPointTransactionsWithHttpInfoAsync(scope, code, valuationPointDataQueryParameters, asAt, filter, limit, page, propertyKeys, navTypeCode, dataModelScope, dataModelCode, showCancelledTransactions, membershipType, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -8402,11 +8414,12 @@ namespace Lusid.Sdk.Api
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="showCancelledTransactions">Option to specify whether or not to include cancelled transactions,              including previous versions of transactions which have since been amended.              Defaults to False if not specified. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ValuationPointResourceListOfAccountedTransaction)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfAccountedTransaction>> GetValuationPointTransactionsWithHttpInfoAsync(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), bool? showCancelledTransactions = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfAccountedTransaction>> GetValuationPointTransactionsWithHttpInfoAsync(string scope, string code, ValuationPointDataQueryParameters valuationPointDataQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), bool? showCancelledTransactions = default(bool?), string? membershipType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -8502,6 +8515,10 @@ namespace Lusid.Sdk.Api
             if (showCancelledTransactions != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "showCancelledTransactions", showCancelledTransactions));
+            }
+            if (membershipType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "membershipType", membershipType));
             }
             localVarRequestOptions.Data = valuationPointDataQueryParameters;
 
