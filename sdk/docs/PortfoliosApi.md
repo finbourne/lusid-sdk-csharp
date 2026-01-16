@@ -1004,7 +1004,7 @@ catch (ApiException e)
 
 <a id="getinstrumenteventinstruction"></a>
 # **GetInstrumentEventInstruction**
-> InstrumentEventInstruction GetInstrumentEventInstruction (string scope, string code, string instrumentEventInstructionId, DateTimeOrCutLabel? portfolioEffectiveAt = null, DateTimeOffset? asAt = null)
+> InstrumentEventInstruction GetInstrumentEventInstruction (string scope, string code, string instrumentEventInstructionId, DateTimeOrCutLabel? portfolioEffectiveAt = null, DateTimeOffset? asAt = null, string? timelineScope = null, string? timelineCode = null, string? closedPeriodId = null)
 
 [EARLY ACCESS] GetInstrumentEventInstruction: Get Instrument Event Instruction
 
@@ -1054,14 +1054,17 @@ namespace Examples
             var instrumentEventInstructionId = "instrumentEventInstructionId_example";  // string | The id of the instruction to be retrieved.
             var portfolioEffectiveAt = "portfolioEffectiveAt_example";  // DateTimeOrCutLabel? | The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional) 
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the instruction. Defaults to return the latest version of the instruction if not specified. (optional) 
+            var timelineScope = "timelineScope_example";  // string? | The scope of the Timeline, used to override the AsAt, and fetch post close activity data.              If this is provided, timelineCode must also be provided. (optional) 
+            var timelineCode = "timelineCode_example";  // string? | The code of the Timeline, used to override the AsAt, and fetch post close activity data.              If this is provided, timelineScope must also be provided. (optional) 
+            var closedPeriodId = "closedPeriodId_example";  // string? | The code of the ClosedPeriod attached to the timeline, used to override the AsAt, and fetch post close activity data.              If this field is left empty and the timelineScope and timelineCode fields are filled out, the portfolioEffectiveAt will be used to resolve the relevant closed period. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // InstrumentEventInstruction result = apiInstance.GetInstrumentEventInstruction(scope, code, instrumentEventInstructionId, portfolioEffectiveAt, asAt, opts: opts);
+                // InstrumentEventInstruction result = apiInstance.GetInstrumentEventInstruction(scope, code, instrumentEventInstructionId, portfolioEffectiveAt, asAt, timelineScope, timelineCode, closedPeriodId, opts: opts);
 
                 // [EARLY ACCESS] GetInstrumentEventInstruction: Get Instrument Event Instruction
-                InstrumentEventInstruction result = apiInstance.GetInstrumentEventInstruction(scope, code, instrumentEventInstructionId, portfolioEffectiveAt, asAt);
+                InstrumentEventInstruction result = apiInstance.GetInstrumentEventInstruction(scope, code, instrumentEventInstructionId, portfolioEffectiveAt, asAt, timelineScope, timelineCode, closedPeriodId);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -1082,7 +1085,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EARLY ACCESS] GetInstrumentEventInstruction: Get Instrument Event Instruction
-    ApiResponse<InstrumentEventInstruction> response = apiInstance.GetInstrumentEventInstructionWithHttpInfo(scope, code, instrumentEventInstructionId, portfolioEffectiveAt, asAt);
+    ApiResponse<InstrumentEventInstruction> response = apiInstance.GetInstrumentEventInstructionWithHttpInfo(scope, code, instrumentEventInstructionId, portfolioEffectiveAt, asAt, timelineScope, timelineCode, closedPeriodId);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -1104,6 +1107,9 @@ catch (ApiException e)
 | **instrumentEventInstructionId** | **string** | The id of the instruction to be retrieved. |  |
 | **portfolioEffectiveAt** | **DateTimeOrCutLabel?** | The effective date at which the portfolio will be resolved. Defaults to current time if not specified. | [optional]  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the instruction. Defaults to return the latest version of the instruction if not specified. | [optional]  |
+| **timelineScope** | **string?** | The scope of the Timeline, used to override the AsAt, and fetch post close activity data.              If this is provided, timelineCode must also be provided. | [optional]  |
+| **timelineCode** | **string?** | The code of the Timeline, used to override the AsAt, and fetch post close activity data.              If this is provided, timelineScope must also be provided. | [optional]  |
+| **closedPeriodId** | **string?** | The code of the ClosedPeriod attached to the timeline, used to override the AsAt, and fetch post close activity data.              If this field is left empty and the timelineScope and timelineCode fields are filled out, the portfolioEffectiveAt will be used to resolve the relevant closed period. | [optional]  |
 
 ### Return type
 
@@ -2506,7 +2512,7 @@ catch (ApiException e)
 
 <a id="listinstrumenteventinstructions"></a>
 # **ListInstrumentEventInstructions**
-> PagedResourceListOfInstrumentEventInstruction ListInstrumentEventInstructions (string scope, string code, DateTimeOrCutLabel? portfolioEffectiveAt = null, DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null, List<string>? sortBy = null)
+> PagedResourceListOfInstrumentEventInstruction ListInstrumentEventInstructions (string scope, string code, DateTimeOrCutLabel? portfolioEffectiveAt = null, DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null, List<string>? sortBy = null, string? timelineScope = null, string? timelineCode = null, string? closedPeriodId = null)
 
 [EARLY ACCESS] ListInstrumentEventInstructions: List Instrument Event Instructions
 
@@ -2559,14 +2565,17 @@ namespace Examples
             var limit = 56;  // int? | When paginating, limit the results to this number. Defaults to 100 if not specified. (optional) 
             var filter = "filter_example";  // string? | Expression to filter the results. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional) 
             var sortBy = new List<string>?(); // List<string>? | A list of field names to sort by, each suffixed by \" ASC\" or \" DESC\". (optional) 
+            var timelineScope = "timelineScope_example";  // string? | The scope of the Timeline, used to override the AsAt, and fetch post close activity data.              If this is provided, timelineCode must also be provided. (optional) 
+            var timelineCode = "timelineCode_example";  // string? | The code of the Timeline, used to override the AsAt, and fetch post close activity data.              If this is provided, timelineScope must also be provided. (optional) 
+            var closedPeriodId = "closedPeriodId_example";  // string? | The code of the ClosedPeriod attached to the timeline, used to override the AsAt, and fetch post close activity data.              If this field is left empty and the timelineScope and timelineCode fields are filled out, the portfolioEffectiveAt will be used to resolve the relevant closed period. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // PagedResourceListOfInstrumentEventInstruction result = apiInstance.ListInstrumentEventInstructions(scope, code, portfolioEffectiveAt, asAt, page, limit, filter, sortBy, opts: opts);
+                // PagedResourceListOfInstrumentEventInstruction result = apiInstance.ListInstrumentEventInstructions(scope, code, portfolioEffectiveAt, asAt, page, limit, filter, sortBy, timelineScope, timelineCode, closedPeriodId, opts: opts);
 
                 // [EARLY ACCESS] ListInstrumentEventInstructions: List Instrument Event Instructions
-                PagedResourceListOfInstrumentEventInstruction result = apiInstance.ListInstrumentEventInstructions(scope, code, portfolioEffectiveAt, asAt, page, limit, filter, sortBy);
+                PagedResourceListOfInstrumentEventInstruction result = apiInstance.ListInstrumentEventInstructions(scope, code, portfolioEffectiveAt, asAt, page, limit, filter, sortBy, timelineScope, timelineCode, closedPeriodId);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -2587,7 +2596,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EARLY ACCESS] ListInstrumentEventInstructions: List Instrument Event Instructions
-    ApiResponse<PagedResourceListOfInstrumentEventInstruction> response = apiInstance.ListInstrumentEventInstructionsWithHttpInfo(scope, code, portfolioEffectiveAt, asAt, page, limit, filter, sortBy);
+    ApiResponse<PagedResourceListOfInstrumentEventInstruction> response = apiInstance.ListInstrumentEventInstructionsWithHttpInfo(scope, code, portfolioEffectiveAt, asAt, page, limit, filter, sortBy, timelineScope, timelineCode, closedPeriodId);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -2612,6 +2621,9 @@ catch (ApiException e)
 | **limit** | **int?** | When paginating, limit the results to this number. Defaults to 100 if not specified. | [optional]  |
 | **filter** | **string?** | Expression to filter the results. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional]  |
 | **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. | [optional]  |
+| **timelineScope** | **string?** | The scope of the Timeline, used to override the AsAt, and fetch post close activity data.              If this is provided, timelineCode must also be provided. | [optional]  |
+| **timelineCode** | **string?** | The code of the Timeline, used to override the AsAt, and fetch post close activity data.              If this is provided, timelineScope must also be provided. | [optional]  |
+| **closedPeriodId** | **string?** | The code of the ClosedPeriod attached to the timeline, used to override the AsAt, and fetch post close activity data.              If this field is left empty and the timelineScope and timelineCode fields are filled out, the portfolioEffectiveAt will be used to resolve the relevant closed period. | [optional]  |
 
 ### Return type
 
