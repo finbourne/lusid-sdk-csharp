@@ -43,7 +43,8 @@ namespace Lusid.Sdk.Model
         /// <param name="queryAsAt">The query time of the diary entry. Defaults to latest..</param>
         /// <param name="properties">A set of properties for the diary entry..</param>
         /// <param name="applyClearDown">Defaults to false. Set to true if you want that the closed period to have the clear down applied..</param>
-        public UpsertValuationPointRequest(string diaryEntryCode = default(string), string diaryEntryVariant = default(string), string name = default(string), DateTimeOffset effectiveAt = default(DateTimeOffset), DateTimeOffset? queryAsAt = default(DateTimeOffset?), Dictionary<string, Property> properties = default(Dictionary<string, Property>), bool applyClearDown = default(bool))
+        /// <param name="updateInclusionDateNavAdjustments">Defaults to false. Set to true if you have the required licence and want the InclusionDate property values to be used to determine whether items should be automatically included in the post close activities..</param>
+        public UpsertValuationPointRequest(string diaryEntryCode = default(string), string diaryEntryVariant = default(string), string name = default(string), DateTimeOffset effectiveAt = default(DateTimeOffset), DateTimeOffset? queryAsAt = default(DateTimeOffset?), Dictionary<string, Property> properties = default(Dictionary<string, Property>), bool applyClearDown = default(bool), bool updateInclusionDateNavAdjustments = default(bool))
         {
             // to ensure "diaryEntryCode" is required (not null)
             if (diaryEntryCode == null)
@@ -57,6 +58,7 @@ namespace Lusid.Sdk.Model
             this.QueryAsAt = queryAsAt;
             this.Properties = properties;
             this.ApplyClearDown = applyClearDown;
+            this.UpdateInclusionDateNavAdjustments = updateInclusionDateNavAdjustments;
         }
 
         /// <summary>
@@ -109,6 +111,13 @@ namespace Lusid.Sdk.Model
         public bool ApplyClearDown { get; set; }
 
         /// <summary>
+        /// Defaults to false. Set to true if you have the required licence and want the InclusionDate property values to be used to determine whether items should be automatically included in the post close activities.
+        /// </summary>
+        /// <value>Defaults to false. Set to true if you have the required licence and want the InclusionDate property values to be used to determine whether items should be automatically included in the post close activities.</value>
+        [DataMember(Name = "updateInclusionDateNavAdjustments", EmitDefaultValue = true)]
+        public bool UpdateInclusionDateNavAdjustments { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -123,6 +132,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  QueryAsAt: ").Append(QueryAsAt).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  ApplyClearDown: ").Append(ApplyClearDown).Append("\n");
+            sb.Append("  UpdateInclusionDateNavAdjustments: ").Append(UpdateInclusionDateNavAdjustments).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -192,6 +202,10 @@ namespace Lusid.Sdk.Model
                 (
                     this.ApplyClearDown == input.ApplyClearDown ||
                     this.ApplyClearDown.Equals(input.ApplyClearDown)
+                ) && 
+                (
+                    this.UpdateInclusionDateNavAdjustments == input.UpdateInclusionDateNavAdjustments ||
+                    this.UpdateInclusionDateNavAdjustments.Equals(input.UpdateInclusionDateNavAdjustments)
                 );
         }
 
@@ -229,6 +243,7 @@ namespace Lusid.Sdk.Model
                     hashCode = (hashCode * 59) + this.Properties.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.ApplyClearDown.GetHashCode();
+                hashCode = (hashCode * 59) + this.UpdateInclusionDateNavAdjustments.GetHashCode();
                 return hashCode;
             }
         }

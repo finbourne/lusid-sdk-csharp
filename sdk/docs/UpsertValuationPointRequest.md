@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **QueryAsAt** | **DateTimeOffset?** | The query time of the diary entry. Defaults to latest. | [optional] 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | A set of properties for the diary entry. | [optional] 
 **ApplyClearDown** | **bool** | Defaults to false. Set to true if you want that the closed period to have the clear down applied. | [optional] 
+**UpdateInclusionDateNavAdjustments** | **bool** | Defaults to false. Set to true if you have the required licence and want the InclusionDate property values to be used to determine whether items should be automatically included in the post close activities. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -22,6 +23,7 @@ string diaryEntryVariant = "example diaryEntryVariant";
 string name = "example name";
 Dictionary<string, Property> properties = new Dictionary<string, Property>();
 bool applyClearDown = //"True";
+bool updateInclusionDateNavAdjustments = //"True";
 
 UpsertValuationPointRequest upsertValuationPointRequestInstance = new UpsertValuationPointRequest(
     diaryEntryCode: diaryEntryCode,
@@ -30,7 +32,8 @@ UpsertValuationPointRequest upsertValuationPointRequestInstance = new UpsertValu
     effectiveAt: effectiveAt,
     queryAsAt: queryAsAt,
     properties: properties,
-    applyClearDown: applyClearDown);
+    applyClearDown: applyClearDown,
+    updateInclusionDateNavAdjustments: updateInclusionDateNavAdjustments);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
