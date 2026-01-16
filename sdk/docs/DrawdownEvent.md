@@ -9,18 +9,20 @@ Name | Type | Description | Notes
 **Amount** | **decimal** | Amount to be drawn down.  Must be positive. | 
 **Date** | **DateTimeOffset** | Date of the drawdown | [optional] 
 **ContractDetails** | [**ContractDetails**](ContractDetails.md) |  | 
+**AgencyFxRate** | **decimal** | Agency FX rate for multi-currency drawdowns.  When a drawdown is in a currency that&#39;s different to the facility&#39;s, an agency FX rate is specified for converting drawdown amount into facility currency to alter the facility&#39;s balance.  Default value of 1. | [optional] [default to 1D]
 
 ```csharp
 using Lusid.Sdk.Model;
 using System;
 decimal amount = "amount";
 
-ContractDetails contractDetails = new ContractDetails();
+ContractDetails contractDetails = new ContractDetails();decimal? agencyFxRate = "example agencyFxRate";
 
 DrawdownEvent drawdownEventInstance = new DrawdownEvent(
     amount: amount,
     date: date,
-    contractDetails: contractDetails);
+    contractDetails: contractDetails,
+    agencyFxRate: agencyFxRate);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

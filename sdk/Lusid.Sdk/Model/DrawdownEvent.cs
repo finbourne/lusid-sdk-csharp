@@ -41,8 +41,9 @@ namespace Lusid.Sdk.Model
         /// <param name="amount">Amount to be drawn down.  Must be positive. (required).</param>
         /// <param name="date">Date of the drawdown.</param>
         /// <param name="contractDetails">contractDetails (required).</param>
+        /// <param name="agencyFxRate">Agency FX rate for multi-currency drawdowns.  When a drawdown is in a currency that&#39;s different to the facility&#39;s, an agency FX rate is specified for converting drawdown amount into facility currency to alter the facility&#39;s balance.  Default value of 1. (default to 1D).</param>
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent, CapletFloorletCashFlowEvent, EarlyCloseOutEvent, DepositRollEvent (required) (default to &quot;DrawdownEvent&quot;).</param>
-        public DrawdownEvent(decimal amount = default(decimal), DateTimeOffset date = default(DateTimeOffset), ContractDetails contractDetails = default(ContractDetails), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
+        public DrawdownEvent(decimal amount = default(decimal), DateTimeOffset date = default(DateTimeOffset), ContractDetails contractDetails = default(ContractDetails), decimal agencyFxRate = (decimal)1D, InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
             this.Amount = amount;
             // to ensure "contractDetails" is required (not null)
@@ -52,6 +53,7 @@ namespace Lusid.Sdk.Model
             }
             this.ContractDetails = contractDetails;
             this.Date = date;
+            this.AgencyFxRate = agencyFxRate;
         }
 
         /// <summary>
@@ -75,6 +77,13 @@ namespace Lusid.Sdk.Model
         public ContractDetails ContractDetails { get; set; }
 
         /// <summary>
+        /// Agency FX rate for multi-currency drawdowns.  When a drawdown is in a currency that&#39;s different to the facility&#39;s, an agency FX rate is specified for converting drawdown amount into facility currency to alter the facility&#39;s balance.  Default value of 1.
+        /// </summary>
+        /// <value>Agency FX rate for multi-currency drawdowns.  When a drawdown is in a currency that&#39;s different to the facility&#39;s, an agency FX rate is specified for converting drawdown amount into facility currency to alter the facility&#39;s balance.  Default value of 1.</value>
+        [DataMember(Name = "agencyFxRate", EmitDefaultValue = true)]
+        public decimal AgencyFxRate { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -86,6 +95,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Amount: ").Append(Amount).Append("\n");
             sb.Append("  Date: ").Append(Date).Append("\n");
             sb.Append("  ContractDetails: ").Append(ContractDetails).Append("\n");
+            sb.Append("  AgencyFxRate: ").Append(AgencyFxRate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -134,6 +144,10 @@ namespace Lusid.Sdk.Model
                     this.ContractDetails == input.ContractDetails ||
                     (this.ContractDetails != null &&
                     this.ContractDetails.Equals(input.ContractDetails))
+                ) && base.Equals(input) && 
+                (
+                    this.AgencyFxRate == input.AgencyFxRate ||
+                    this.AgencyFxRate.Equals(input.AgencyFxRate)
                 );
         }
 
@@ -155,6 +169,7 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.ContractDetails.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.AgencyFxRate.GetHashCode();
                 return hashCode;
             }
         }
