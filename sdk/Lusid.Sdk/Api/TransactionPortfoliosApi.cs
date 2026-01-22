@@ -173,10 +173,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the portfolio.</param>
         /// <param name="code">The code of the portfolio.</param>
         /// <param name="requestBody">The definition of the settlement instruction.</param>
+        /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial (optional, default to &quot;Partial&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>BatchUpsertTransactionSettlementInstructionResponse</returns>
-        BatchUpsertTransactionSettlementInstructionResponse BatchUpsertSettlementInstructions(string scope, string code, Dictionary<string, SettlementInstructionRequest> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
+        BatchUpsertTransactionSettlementInstructionResponse BatchUpsertSettlementInstructions(string scope, string code, Dictionary<string, SettlementInstructionRequest> requestBody, string? successMode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] BatchUpsertSettlementInstructions: Batch Upsert Settlement Instructions.
@@ -188,10 +189,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the portfolio.</param>
         /// <param name="code">The code of the portfolio.</param>
         /// <param name="requestBody">The definition of the settlement instruction.</param>
+        /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial (optional, default to &quot;Partial&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of BatchUpsertTransactionSettlementInstructionResponse</returns>
-        Lusid.Sdk.Client.ApiResponse<BatchUpsertTransactionSettlementInstructionResponse> BatchUpsertSettlementInstructionsWithHttpInfo(string scope, string code, Dictionary<string, SettlementInstructionRequest> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<BatchUpsertTransactionSettlementInstructionResponse> BatchUpsertSettlementInstructionsWithHttpInfo(string scope, string code, Dictionary<string, SettlementInstructionRequest> requestBody, string? successMode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// BatchUpsertTransactions: Batch upsert transactions
         /// </summary>
@@ -1826,11 +1828,12 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the portfolio.</param>
         /// <param name="code">The code of the portfolio.</param>
         /// <param name="requestBody">The definition of the settlement instruction.</param>
+        /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial (optional, default to &quot;Partial&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of BatchUpsertTransactionSettlementInstructionResponse</returns>
-        System.Threading.Tasks.Task<BatchUpsertTransactionSettlementInstructionResponse> BatchUpsertSettlementInstructionsAsync(string scope, string code, Dictionary<string, SettlementInstructionRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<BatchUpsertTransactionSettlementInstructionResponse> BatchUpsertSettlementInstructionsAsync(string scope, string code, Dictionary<string, SettlementInstructionRequest> requestBody, string? successMode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] BatchUpsertSettlementInstructions: Batch Upsert Settlement Instructions.
@@ -1842,11 +1845,12 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the portfolio.</param>
         /// <param name="code">The code of the portfolio.</param>
         /// <param name="requestBody">The definition of the settlement instruction.</param>
+        /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial (optional, default to &quot;Partial&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (BatchUpsertTransactionSettlementInstructionResponse)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<BatchUpsertTransactionSettlementInstructionResponse>> BatchUpsertSettlementInstructionsWithHttpInfoAsync(string scope, string code, Dictionary<string, SettlementInstructionRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<BatchUpsertTransactionSettlementInstructionResponse>> BatchUpsertSettlementInstructionsWithHttpInfoAsync(string scope, string code, Dictionary<string, SettlementInstructionRequest> requestBody, string? successMode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// BatchUpsertTransactions: Batch upsert transactions
         /// </summary>
@@ -4645,12 +4649,13 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the portfolio.</param>
         /// <param name="code">The code of the portfolio.</param>
         /// <param name="requestBody">The definition of the settlement instruction.</param>
+        /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial (optional, default to &quot;Partial&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>BatchUpsertTransactionSettlementInstructionResponse</returns>
-        public BatchUpsertTransactionSettlementInstructionResponse BatchUpsertSettlementInstructions(string scope, string code, Dictionary<string, SettlementInstructionRequest> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null)
+        public BatchUpsertTransactionSettlementInstructionResponse BatchUpsertSettlementInstructions(string scope, string code, Dictionary<string, SettlementInstructionRequest> requestBody, string? successMode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<BatchUpsertTransactionSettlementInstructionResponse> localVarResponse = BatchUpsertSettlementInstructionsWithHttpInfo(scope, code, requestBody, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<BatchUpsertTransactionSettlementInstructionResponse> localVarResponse = BatchUpsertSettlementInstructionsWithHttpInfo(scope, code, requestBody, successMode, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -4661,10 +4666,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the portfolio.</param>
         /// <param name="code">The code of the portfolio.</param>
         /// <param name="requestBody">The definition of the settlement instruction.</param>
+        /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial (optional, default to &quot;Partial&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of BatchUpsertTransactionSettlementInstructionResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<BatchUpsertTransactionSettlementInstructionResponse> BatchUpsertSettlementInstructionsWithHttpInfo(string scope, string code, Dictionary<string, SettlementInstructionRequest> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<BatchUpsertTransactionSettlementInstructionResponse> BatchUpsertSettlementInstructionsWithHttpInfo(string scope, string code, Dictionary<string, SettlementInstructionRequest> requestBody, string? successMode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -4724,6 +4730,11 @@ namespace Lusid.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
             localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            if (successMode != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "successMode", successMode));
+            }
             localVarRequestOptions.Data = requestBody;
 
             localVarRequestOptions.Operation = "TransactionPortfoliosApi.BatchUpsertSettlementInstructions";
@@ -4767,13 +4778,14 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the portfolio.</param>
         /// <param name="code">The code of the portfolio.</param>
         /// <param name="requestBody">The definition of the settlement instruction.</param>
+        /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial (optional, default to &quot;Partial&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of BatchUpsertTransactionSettlementInstructionResponse</returns>
-        public async System.Threading.Tasks.Task<BatchUpsertTransactionSettlementInstructionResponse> BatchUpsertSettlementInstructionsAsync(string scope, string code, Dictionary<string, SettlementInstructionRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<BatchUpsertTransactionSettlementInstructionResponse> BatchUpsertSettlementInstructionsAsync(string scope, string code, Dictionary<string, SettlementInstructionRequest> requestBody, string? successMode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<BatchUpsertTransactionSettlementInstructionResponse> localVarResponse = await BatchUpsertSettlementInstructionsWithHttpInfoAsync(scope, code, requestBody, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<BatchUpsertTransactionSettlementInstructionResponse> localVarResponse = await BatchUpsertSettlementInstructionsWithHttpInfoAsync(scope, code, requestBody, successMode, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4784,11 +4796,12 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the portfolio.</param>
         /// <param name="code">The code of the portfolio.</param>
         /// <param name="requestBody">The definition of the settlement instruction.</param>
+        /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial (optional, default to &quot;Partial&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (BatchUpsertTransactionSettlementInstructionResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<BatchUpsertTransactionSettlementInstructionResponse>> BatchUpsertSettlementInstructionsWithHttpInfoAsync(string scope, string code, Dictionary<string, SettlementInstructionRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<BatchUpsertTransactionSettlementInstructionResponse>> BatchUpsertSettlementInstructionsWithHttpInfoAsync(string scope, string code, Dictionary<string, SettlementInstructionRequest> requestBody, string? successMode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -4849,6 +4862,10 @@ namespace Lusid.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
             localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            if (successMode != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "successMode", successMode));
+            }
             localVarRequestOptions.Data = requestBody;
 
             localVarRequestOptions.Operation = "TransactionPortfoliosApi.BatchUpsertSettlementInstructions";

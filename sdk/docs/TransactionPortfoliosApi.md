@@ -541,7 +541,7 @@ catch (ApiException e)
 
 <a id="batchupsertsettlementinstructions"></a>
 # **BatchUpsertSettlementInstructions**
-> BatchUpsertTransactionSettlementInstructionResponse BatchUpsertSettlementInstructions (string scope, string code, Dictionary<string, SettlementInstructionRequest> requestBody)
+> BatchUpsertTransactionSettlementInstructionResponse BatchUpsertSettlementInstructions (string scope, string code, Dictionary<string, SettlementInstructionRequest> requestBody, string? successMode = null)
 
 [EARLY ACCESS] BatchUpsertSettlementInstructions: Batch Upsert Settlement Instructions.
 
@@ -589,14 +589,15 @@ namespace Examples
             var scope = "scope_example";  // string | The scope of the portfolio.
             var code = "code_example";  // string | The code of the portfolio.
             var requestBody = new Dictionary<string, SettlementInstructionRequest>(); // Dictionary<string, SettlementInstructionRequest> | The definition of the settlement instruction.
+            var successMode = "\"Partial\"";  // string? | Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial (optional)  (default to "Partial")
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // BatchUpsertTransactionSettlementInstructionResponse result = apiInstance.BatchUpsertSettlementInstructions(scope, code, requestBody, opts: opts);
+                // BatchUpsertTransactionSettlementInstructionResponse result = apiInstance.BatchUpsertSettlementInstructions(scope, code, requestBody, successMode, opts: opts);
 
                 // [EARLY ACCESS] BatchUpsertSettlementInstructions: Batch Upsert Settlement Instructions.
-                BatchUpsertTransactionSettlementInstructionResponse result = apiInstance.BatchUpsertSettlementInstructions(scope, code, requestBody);
+                BatchUpsertTransactionSettlementInstructionResponse result = apiInstance.BatchUpsertSettlementInstructions(scope, code, requestBody, successMode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -617,7 +618,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EARLY ACCESS] BatchUpsertSettlementInstructions: Batch Upsert Settlement Instructions.
-    ApiResponse<BatchUpsertTransactionSettlementInstructionResponse> response = apiInstance.BatchUpsertSettlementInstructionsWithHttpInfo(scope, code, requestBody);
+    ApiResponse<BatchUpsertTransactionSettlementInstructionResponse> response = apiInstance.BatchUpsertSettlementInstructionsWithHttpInfo(scope, code, requestBody, successMode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -637,6 +638,7 @@ catch (ApiException e)
 | **scope** | **string** | The scope of the portfolio. |  |
 | **code** | **string** | The code of the portfolio. |  |
 | **requestBody** | [**Dictionary&lt;string, SettlementInstructionRequest&gt;**](SettlementInstructionRequest.md) | The definition of the settlement instruction. |  |
+| **successMode** | **string?** | Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial | [optional] [default to &quot;Partial&quot;] |
 
 ### Return type
 
