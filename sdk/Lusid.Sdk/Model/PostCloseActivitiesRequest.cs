@@ -36,7 +36,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PostCloseActivitiesRequest" /> class.
         /// </summary>
-        /// <param name="postCloseActivities">Collection of post close activites. (required).</param>
+        /// <param name="postCloseActivities">A collection of post-close activities. (required).</param>
         public PostCloseActivitiesRequest(List<PostCloseActivity> postCloseActivities = default(List<PostCloseActivity>))
         {
             // to ensure "postCloseActivities" is required (not null)
@@ -48,9 +48,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// Collection of post close activites.
+        /// A collection of post-close activities.
         /// </summary>
-        /// <value>Collection of post close activites.</value>
+        /// <value>A collection of post-close activities.</value>
         [DataMember(Name = "postCloseActivities", IsRequired = true, EmitDefaultValue = true)]
         public List<PostCloseActivity> PostCloseActivities { get; set; }
 

@@ -315,32 +315,32 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of PagedResourceListOfTimeline</returns>
         Lusid.Sdk.Client.ApiResponse<PagedResourceListOfTimeline> ListTimelinesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] SetPostCloseActivity: Sets post close activities to a closed period.
+        /// [EXPERIMENTAL] SetPostCloseActivity: Sets post-close activities to a Closed Period.
         /// </summary>
         /// <remarks>
-        /// Sets empty or more post close activities to the specific closed period.
+        /// This sets the given post-close activities to the given Closed Period.                **This is an overwriting action!**                The possible types of entity are:  * &#x60;PortfolioTransaction&#x60;,  * &#x60;Instrument&#x60;,  * &#x60;InstrumentEvent&#x60;,  * &#x60;InstrumentEventInstruction&#x60;,  * &#x60;PortfolioSettlementInstruction&#x60;, and,  * &#x60;Quote&#x60;.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Timeline.</param>
         /// <param name="code">The code of the Timeline.</param>
-        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod</param>
-        /// <param name="postCloseActivitiesRequest">Specifies collection of post close activities (optional)</param>
+        /// <param name="closedPeriodId">The ID of the Closed Period.               This ID together with the scope and code of the Timeline uniquely defines the Closed Period.</param>
+        /// <param name="postCloseActivitiesRequest">This specifies a collection of post-close activities. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ClosedPeriod</returns>
         ClosedPeriod SetPostCloseActivity(string scope, string code, string closedPeriodId, PostCloseActivitiesRequest? postCloseActivitiesRequest = default(PostCloseActivitiesRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] SetPostCloseActivity: Sets post close activities to a closed period.
+        /// [EXPERIMENTAL] SetPostCloseActivity: Sets post-close activities to a Closed Period.
         /// </summary>
         /// <remarks>
-        /// Sets empty or more post close activities to the specific closed period.
+        /// This sets the given post-close activities to the given Closed Period.                **This is an overwriting action!**                The possible types of entity are:  * &#x60;PortfolioTransaction&#x60;,  * &#x60;Instrument&#x60;,  * &#x60;InstrumentEvent&#x60;,  * &#x60;InstrumentEventInstruction&#x60;,  * &#x60;PortfolioSettlementInstruction&#x60;, and,  * &#x60;Quote&#x60;.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Timeline.</param>
         /// <param name="code">The code of the Timeline.</param>
-        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod</param>
-        /// <param name="postCloseActivitiesRequest">Specifies collection of post close activities (optional)</param>
+        /// <param name="closedPeriodId">The ID of the Closed Period.               This ID together with the scope and code of the Timeline uniquely defines the Closed Period.</param>
+        /// <param name="postCloseActivitiesRequest">This specifies a collection of post-close activities. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ClosedPeriod</returns>
@@ -716,16 +716,16 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (PagedResourceListOfTimeline)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfTimeline>> ListTimelinesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] SetPostCloseActivity: Sets post close activities to a closed period.
+        /// [EXPERIMENTAL] SetPostCloseActivity: Sets post-close activities to a Closed Period.
         /// </summary>
         /// <remarks>
-        /// Sets empty or more post close activities to the specific closed period.
+        /// This sets the given post-close activities to the given Closed Period.                **This is an overwriting action!**                The possible types of entity are:  * &#x60;PortfolioTransaction&#x60;,  * &#x60;Instrument&#x60;,  * &#x60;InstrumentEvent&#x60;,  * &#x60;InstrumentEventInstruction&#x60;,  * &#x60;PortfolioSettlementInstruction&#x60;, and,  * &#x60;Quote&#x60;.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Timeline.</param>
         /// <param name="code">The code of the Timeline.</param>
-        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod</param>
-        /// <param name="postCloseActivitiesRequest">Specifies collection of post close activities (optional)</param>
+        /// <param name="closedPeriodId">The ID of the Closed Period.               This ID together with the scope and code of the Timeline uniquely defines the Closed Period.</param>
+        /// <param name="postCloseActivitiesRequest">This specifies a collection of post-close activities. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -733,16 +733,16 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ClosedPeriod> SetPostCloseActivityAsync(string scope, string code, string closedPeriodId, PostCloseActivitiesRequest? postCloseActivitiesRequest = default(PostCloseActivitiesRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] SetPostCloseActivity: Sets post close activities to a closed period.
+        /// [EXPERIMENTAL] SetPostCloseActivity: Sets post-close activities to a Closed Period.
         /// </summary>
         /// <remarks>
-        /// Sets empty or more post close activities to the specific closed period.
+        /// This sets the given post-close activities to the given Closed Period.                **This is an overwriting action!**                The possible types of entity are:  * &#x60;PortfolioTransaction&#x60;,  * &#x60;Instrument&#x60;,  * &#x60;InstrumentEvent&#x60;,  * &#x60;InstrumentEventInstruction&#x60;,  * &#x60;PortfolioSettlementInstruction&#x60;, and,  * &#x60;Quote&#x60;.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Timeline.</param>
         /// <param name="code">The code of the Timeline.</param>
-        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod</param>
-        /// <param name="postCloseActivitiesRequest">Specifies collection of post close activities (optional)</param>
+        /// <param name="closedPeriodId">The ID of the Closed Period.               This ID together with the scope and code of the Timeline uniquely defines the Closed Period.</param>
+        /// <param name="postCloseActivitiesRequest">This specifies a collection of post-close activities. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -3188,13 +3188,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] SetPostCloseActivity: Sets post close activities to a closed period. Sets empty or more post close activities to the specific closed period.
+        /// [EXPERIMENTAL] SetPostCloseActivity: Sets post-close activities to a Closed Period. This sets the given post-close activities to the given Closed Period.                **This is an overwriting action!**                The possible types of entity are:  * &#x60;PortfolioTransaction&#x60;,  * &#x60;Instrument&#x60;,  * &#x60;InstrumentEvent&#x60;,  * &#x60;InstrumentEventInstruction&#x60;,  * &#x60;PortfolioSettlementInstruction&#x60;, and,  * &#x60;Quote&#x60;.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Timeline.</param>
         /// <param name="code">The code of the Timeline.</param>
-        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod</param>
-        /// <param name="postCloseActivitiesRequest">Specifies collection of post close activities (optional)</param>
+        /// <param name="closedPeriodId">The ID of the Closed Period.               This ID together with the scope and code of the Timeline uniquely defines the Closed Period.</param>
+        /// <param name="postCloseActivitiesRequest">This specifies a collection of post-close activities. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ClosedPeriod</returns>
@@ -3205,13 +3205,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] SetPostCloseActivity: Sets post close activities to a closed period. Sets empty or more post close activities to the specific closed period.
+        /// [EXPERIMENTAL] SetPostCloseActivity: Sets post-close activities to a Closed Period. This sets the given post-close activities to the given Closed Period.                **This is an overwriting action!**                The possible types of entity are:  * &#x60;PortfolioTransaction&#x60;,  * &#x60;Instrument&#x60;,  * &#x60;InstrumentEvent&#x60;,  * &#x60;InstrumentEventInstruction&#x60;,  * &#x60;PortfolioSettlementInstruction&#x60;, and,  * &#x60;Quote&#x60;.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Timeline.</param>
         /// <param name="code">The code of the Timeline.</param>
-        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod</param>
-        /// <param name="postCloseActivitiesRequest">Specifies collection of post close activities (optional)</param>
+        /// <param name="closedPeriodId">The ID of the Closed Period.               This ID together with the scope and code of the Timeline uniquely defines the Closed Period.</param>
+        /// <param name="postCloseActivitiesRequest">This specifies a collection of post-close activities. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ClosedPeriod</returns>
@@ -3313,13 +3313,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] SetPostCloseActivity: Sets post close activities to a closed period. Sets empty or more post close activities to the specific closed period.
+        /// [EXPERIMENTAL] SetPostCloseActivity: Sets post-close activities to a Closed Period. This sets the given post-close activities to the given Closed Period.                **This is an overwriting action!**                The possible types of entity are:  * &#x60;PortfolioTransaction&#x60;,  * &#x60;Instrument&#x60;,  * &#x60;InstrumentEvent&#x60;,  * &#x60;InstrumentEventInstruction&#x60;,  * &#x60;PortfolioSettlementInstruction&#x60;, and,  * &#x60;Quote&#x60;.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Timeline.</param>
         /// <param name="code">The code of the Timeline.</param>
-        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod</param>
-        /// <param name="postCloseActivitiesRequest">Specifies collection of post close activities (optional)</param>
+        /// <param name="closedPeriodId">The ID of the Closed Period.               This ID together with the scope and code of the Timeline uniquely defines the Closed Period.</param>
+        /// <param name="postCloseActivitiesRequest">This specifies a collection of post-close activities. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -3331,13 +3331,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] SetPostCloseActivity: Sets post close activities to a closed period. Sets empty or more post close activities to the specific closed period.
+        /// [EXPERIMENTAL] SetPostCloseActivity: Sets post-close activities to a Closed Period. This sets the given post-close activities to the given Closed Period.                **This is an overwriting action!**                The possible types of entity are:  * &#x60;PortfolioTransaction&#x60;,  * &#x60;Instrument&#x60;,  * &#x60;InstrumentEvent&#x60;,  * &#x60;InstrumentEventInstruction&#x60;,  * &#x60;PortfolioSettlementInstruction&#x60;, and,  * &#x60;Quote&#x60;.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Timeline.</param>
         /// <param name="code">The code of the Timeline.</param>
-        /// <param name="closedPeriodId">The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod</param>
-        /// <param name="postCloseActivitiesRequest">Specifies collection of post close activities (optional)</param>
+        /// <param name="closedPeriodId">The ID of the Closed Period.               This ID together with the scope and code of the Timeline uniquely defines the Closed Period.</param>
+        /// <param name="postCloseActivitiesRequest">This specifies a collection of post-close activities. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PostCloseActivities** | [**List&lt;PostCloseActivity&gt;**](PostCloseActivity.md) | Collection of post close activites. | 
+**PostCloseActivities** | [**List&lt;PostCloseActivity&gt;**](PostCloseActivity.md) | A collection of post-close activities. | 
 
 ```csharp
 using Lusid.Sdk.Model;

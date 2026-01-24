@@ -13,7 +13,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**GetTimeline**](TimelinesApi.md#gettimeline) | **GET** /api/timelines/{scope}/{code} | [EXPERIMENTAL] GetTimeline: Get a single Timeline by scope and code. |
 | [**ListClosedPeriods**](TimelinesApi.md#listclosedperiods) | **GET** /api/timelines/{scope}/{code}/closedperiods | [EXPERIMENTAL] ListClosedPeriods: List ClosedPeriods for a specified Timeline. |
 | [**ListTimelines**](TimelinesApi.md#listtimelines) | **GET** /api/timelines | [EXPERIMENTAL] ListTimelines: List Timelines |
-| [**SetPostCloseActivity**](TimelinesApi.md#setpostcloseactivity) | **POST** /api/timelines/{scope}/{code}/closedperiods/{closedPeriodId}/postcloseactivity | [EXPERIMENTAL] SetPostCloseActivity: Sets post close activities to a closed period. |
+| [**SetPostCloseActivity**](TimelinesApi.md#setpostcloseactivity) | **POST** /api/timelines/{scope}/{code}/closedperiods/{closedPeriodId}/postcloseactivity | [EXPERIMENTAL] SetPostCloseActivity: Sets post-close activities to a Closed Period. |
 | [**UnconfirmClosedPeriod**](TimelinesApi.md#unconfirmclosedperiod) | **POST** /api/timelines/{scope}/{code}/closedperiods/{closedPeriodId}/$unconfirm | [EXPERIMENTAL] UnconfirmClosedPeriod: Unconfirm the last confirmed Closed Period against a Timeline Entity |
 | [**UpdateTimeline**](TimelinesApi.md#updatetimeline) | **PUT** /api/timelines/{scope}/{code} | [EXPERIMENTAL] UpdateTimeline: Update Timeline defined by scope and code |
 
@@ -1105,9 +1105,9 @@ catch (ApiException e)
 # **SetPostCloseActivity**
 > ClosedPeriod SetPostCloseActivity (string scope, string code, string closedPeriodId, PostCloseActivitiesRequest? postCloseActivitiesRequest = null)
 
-[EXPERIMENTAL] SetPostCloseActivity: Sets post close activities to a closed period.
+[EXPERIMENTAL] SetPostCloseActivity: Sets post-close activities to a Closed Period.
 
-Sets empty or more post close activities to the specific closed period.
+This sets the given post-close activities to the given Closed Period.                **This is an overwriting action!**                The possible types of entity are:  * `PortfolioTransaction`,  * `Instrument`,  * `InstrumentEvent`,  * `InstrumentEventInstruction`,  * `PortfolioSettlementInstruction`, and,  * `Quote`.
 
 ### Example
 ```csharp
@@ -1150,15 +1150,15 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TimelinesApi>();
             var scope = "scope_example";  // string | The scope of the Timeline.
             var code = "code_example";  // string | The code of the Timeline.
-            var closedPeriodId = "closedPeriodId_example";  // string | The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod
-            var postCloseActivitiesRequest = new PostCloseActivitiesRequest?(); // PostCloseActivitiesRequest? | Specifies collection of post close activities (optional) 
+            var closedPeriodId = "closedPeriodId_example";  // string | The ID of the Closed Period.               This ID together with the scope and code of the Timeline uniquely defines the Closed Period.
+            var postCloseActivitiesRequest = new PostCloseActivitiesRequest?(); // PostCloseActivitiesRequest? | This specifies a collection of post-close activities. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
                 // ClosedPeriod result = apiInstance.SetPostCloseActivity(scope, code, closedPeriodId, postCloseActivitiesRequest, opts: opts);
 
-                // [EXPERIMENTAL] SetPostCloseActivity: Sets post close activities to a closed period.
+                // [EXPERIMENTAL] SetPostCloseActivity: Sets post-close activities to a Closed Period.
                 ClosedPeriod result = apiInstance.SetPostCloseActivity(scope, code, closedPeriodId, postCloseActivitiesRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1179,7 +1179,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] SetPostCloseActivity: Sets post close activities to a closed period.
+    // [EXPERIMENTAL] SetPostCloseActivity: Sets post-close activities to a Closed Period.
     ApiResponse<ClosedPeriod> response = apiInstance.SetPostCloseActivityWithHttpInfo(scope, code, closedPeriodId, postCloseActivitiesRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1199,8 +1199,8 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **scope** | **string** | The scope of the Timeline. |  |
 | **code** | **string** | The code of the Timeline. |  |
-| **closedPeriodId** | **string** | The id of the Closed Period. Together with the scope and code of the Timeline,              this uniquely identifies the ClosedPeriod |  |
-| **postCloseActivitiesRequest** | [**PostCloseActivitiesRequest?**](PostCloseActivitiesRequest?.md) | Specifies collection of post close activities | [optional]  |
+| **closedPeriodId** | **string** | The ID of the Closed Period.               This ID together with the scope and code of the Timeline uniquely defines the Closed Period. |  |
+| **postCloseActivitiesRequest** | [**PostCloseActivitiesRequest?**](PostCloseActivitiesRequest?.md) | This specifies a collection of post-close activities. | [optional]  |
 
 ### Return type
 
@@ -1215,7 +1215,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The updated closed period |  -  |
+| **200** | The updated Closed Period. |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
