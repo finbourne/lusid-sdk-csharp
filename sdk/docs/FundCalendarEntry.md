@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | The properties for the Calendar Entry. These will be from the &#39;ClosedPeriod&#39; domain. | [optional] 
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | 
 **Href** | **string** | The specific Uniform Resource Identifier (URI) for this resource at the requested asAt datetime. | [optional] 
+**LeaderNavTypeCode** | **string** | The code of the Nav Type that this Nav Type will follow when set. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -41,6 +42,7 @@ bool applyClearDown = //"True";
 Dictionary<string, Property> properties = new Dictionary<string, Property>();
 ModelVersion varVersion = new ModelVersion();
 string href = "example href";
+string leaderNavTypeCode = "example leaderNavTypeCode";
 
 FundCalendarEntry fundCalendarEntryInstance = new FundCalendarEntry(
     code: code,
@@ -59,7 +61,8 @@ FundCalendarEntry fundCalendarEntryInstance = new FundCalendarEntry(
     valuationsAsAtOverride: valuationsAsAtOverride,
     properties: properties,
     varVersion: varVersion,
-    href: href);
+    href: href,
+    leaderNavTypeCode: leaderNavTypeCode);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
