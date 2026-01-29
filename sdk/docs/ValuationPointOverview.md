@@ -14,6 +14,8 @@ Name | Type | Description | Notes
 **Status** | **string** | The status of the Valuation Point. Can be &#39;Estimate&#39;, &#39;Candidate&#39; or &#39;Final&#39;. | 
 **Gav** | **decimal** | The Gross Asset Value of the Fund or Share Class at the Valuation Point. This is effectively a summation of all Trial balance entries linked to accounts of types &#39;Asset&#39; and &#39;Liabilities&#39;. | 
 **Nav** | **decimal** | The Net Asset Value of the Fund or Share Class at the Valuation Point. This represents the GAV with any fees applied in the period. | 
+**HoldingsAsAtOverride** | **DateTimeOffset?** | The optional AsAt Override to use for building holdings in the Valuation Point. Defaults to Latest. | [optional] 
+**ValuationsAsAtOverride** | **DateTimeOffset?** | The optional AsAt Override to use for performing valuations in the Valuation Point. Defaults to Latest. | [optional] 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | The Fee properties. These will be from the &#39;Fee&#39; domain. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
@@ -42,6 +44,8 @@ ValuationPointOverview valuationPointOverviewInstance = new ValuationPointOvervi
     status: status,
     gav: gav,
     nav: nav,
+    holdingsAsAtOverride: holdingsAsAtOverride,
+    valuationsAsAtOverride: valuationsAsAtOverride,
     properties: properties,
     links: links);
 ```

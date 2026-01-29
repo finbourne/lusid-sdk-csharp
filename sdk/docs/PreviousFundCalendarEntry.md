@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 **Description** | **string** | A description for the Fund Calendar entry. | [optional] 
 **EffectiveAt** | **DateTimeOffset** | The effective at of the Calendar Entry. | [optional] 
 **AsAt** | **DateTimeOffset** | The asAt datetime for the Calendar Entry. | 
+**HoldingsAsAtOverride** | **DateTimeOffset?** | The optional AsAt Override to use for building holdings in the Valuation Point. Defaults to Latest. | [optional] 
+**ValuationsAsAtOverride** | **DateTimeOffset?** | The optional AsAt Override to use for performing valuations in the Valuation Point. Defaults to Latest. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -23,7 +25,9 @@ PreviousFundCalendarEntry previousFundCalendarEntryInstance = new PreviousFundCa
     displayName: displayName,
     description: description,
     effectiveAt: effectiveAt,
-    asAt: asAt);
+    asAt: asAt,
+    holdingsAsAtOverride: holdingsAsAtOverride,
+    valuationsAsAtOverride: valuationsAsAtOverride);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

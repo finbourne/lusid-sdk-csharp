@@ -75,10 +75,12 @@ namespace Lusid.Sdk.Model
         /// <param name="entryType">The type of the Fund Calendar Entry. Only &#39;ValuationPoint&#39; currently supported. The available values are: ValuationPointFundCalendarEntry, BookmarkFundCalendarEntry (required).</param>
         /// <param name="status">The status of the Fund Calendar Entry. Can be &#39;Estimate&#39;, &#39;Candidate&#39; or &#39;Final&#39;..</param>
         /// <param name="applyClearDown">Set to true if that closed period shoould have the clear down applied. (required).</param>
+        /// <param name="holdingsAsAtOverride">The optional AsAt Override to use for building holdings in the Valuation Point. Defaults to Latest..</param>
+        /// <param name="valuationsAsAtOverride">The optional AsAt Override to use for performing valuations in the Valuation Point. Defaults to Latest..</param>
         /// <param name="properties">The properties for the Calendar Entry. These will be from the &#39;ClosedPeriod&#39; domain..</param>
         /// <param name="varVersion">varVersion (required).</param>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested asAt datetime..</param>
-        public FundCalendarEntry(string code = default(string), string variant = default(string), string displayName = default(string), string description = default(string), string navTypeCode = default(string), ResourceId timelineId = default(ResourceId), PreviousFundCalendarEntry previousEntry = default(PreviousFundCalendarEntry), DateTimeOffset effectiveAt = default(DateTimeOffset), DateTimeOffset asAt = default(DateTimeOffset), EntryTypeEnum entryType = default(EntryTypeEnum), string status = default(string), bool applyClearDown = default(bool), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion varVersion = default(ModelVersion), string href = default(string))
+        public FundCalendarEntry(string code = default(string), string variant = default(string), string displayName = default(string), string description = default(string), string navTypeCode = default(string), ResourceId timelineId = default(ResourceId), PreviousFundCalendarEntry previousEntry = default(PreviousFundCalendarEntry), DateTimeOffset effectiveAt = default(DateTimeOffset), DateTimeOffset asAt = default(DateTimeOffset), EntryTypeEnum entryType = default(EntryTypeEnum), string status = default(string), bool applyClearDown = default(bool), DateTimeOffset? holdingsAsAtOverride = default(DateTimeOffset?), DateTimeOffset? valuationsAsAtOverride = default(DateTimeOffset?), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion varVersion = default(ModelVersion), string href = default(string))
         {
             // to ensure "code" is required (not null)
             if (code == null)
@@ -113,6 +115,8 @@ namespace Lusid.Sdk.Model
             this.PreviousEntry = previousEntry;
             this.EffectiveAt = effectiveAt;
             this.Status = status;
+            this.HoldingsAsAtOverride = holdingsAsAtOverride;
+            this.ValuationsAsAtOverride = valuationsAsAtOverride;
             this.Properties = properties;
             this.Href = href;
         }
@@ -193,6 +197,20 @@ namespace Lusid.Sdk.Model
         public bool ApplyClearDown { get; set; }
 
         /// <summary>
+        /// The optional AsAt Override to use for building holdings in the Valuation Point. Defaults to Latest.
+        /// </summary>
+        /// <value>The optional AsAt Override to use for building holdings in the Valuation Point. Defaults to Latest.</value>
+        [DataMember(Name = "holdingsAsAtOverride", EmitDefaultValue = true)]
+        public DateTimeOffset? HoldingsAsAtOverride { get; set; }
+
+        /// <summary>
+        /// The optional AsAt Override to use for performing valuations in the Valuation Point. Defaults to Latest.
+        /// </summary>
+        /// <value>The optional AsAt Override to use for performing valuations in the Valuation Point. Defaults to Latest.</value>
+        [DataMember(Name = "valuationsAsAtOverride", EmitDefaultValue = true)]
+        public DateTimeOffset? ValuationsAsAtOverride { get; set; }
+
+        /// <summary>
         /// The properties for the Calendar Entry. These will be from the &#39;ClosedPeriod&#39; domain.
         /// </summary>
         /// <value>The properties for the Calendar Entry. These will be from the &#39;ClosedPeriod&#39; domain.</value>
@@ -232,6 +250,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  EntryType: ").Append(EntryType).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  ApplyClearDown: ").Append(ApplyClearDown).Append("\n");
+            sb.Append("  HoldingsAsAtOverride: ").Append(HoldingsAsAtOverride).Append("\n");
+            sb.Append("  ValuationsAsAtOverride: ").Append(ValuationsAsAtOverride).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
@@ -329,6 +349,16 @@ namespace Lusid.Sdk.Model
                     this.ApplyClearDown.Equals(input.ApplyClearDown)
                 ) && 
                 (
+                    this.HoldingsAsAtOverride == input.HoldingsAsAtOverride ||
+                    (this.HoldingsAsAtOverride != null &&
+                    this.HoldingsAsAtOverride.Equals(input.HoldingsAsAtOverride))
+                ) && 
+                (
+                    this.ValuationsAsAtOverride == input.ValuationsAsAtOverride ||
+                    (this.ValuationsAsAtOverride != null &&
+                    this.ValuationsAsAtOverride.Equals(input.ValuationsAsAtOverride))
+                ) && 
+                (
                     this.Properties == input.Properties ||
                     this.Properties != null &&
                     input.Properties != null &&
@@ -397,6 +427,14 @@ namespace Lusid.Sdk.Model
                     hashCode = (hashCode * 59) + this.Status.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.ApplyClearDown.GetHashCode();
+                if (this.HoldingsAsAtOverride != null)
+                {
+                    hashCode = (hashCode * 59) + this.HoldingsAsAtOverride.GetHashCode();
+                }
+                if (this.ValuationsAsAtOverride != null)
+                {
+                    hashCode = (hashCode * 59) + this.ValuationsAsAtOverride.GetHashCode();
+                }
                 if (this.Properties != null)
                 {
                     hashCode = (hashCode * 59) + this.Properties.GetHashCode();

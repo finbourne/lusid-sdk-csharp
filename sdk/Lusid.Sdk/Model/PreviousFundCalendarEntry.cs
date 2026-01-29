@@ -41,7 +41,9 @@ namespace Lusid.Sdk.Model
         /// <param name="description">A description for the Fund Calendar entry..</param>
         /// <param name="effectiveAt">The effective at of the Calendar Entry..</param>
         /// <param name="asAt">The asAt datetime for the Calendar Entry. (required).</param>
-        public PreviousFundCalendarEntry(string code = default(string), string displayName = default(string), string description = default(string), DateTimeOffset effectiveAt = default(DateTimeOffset), DateTimeOffset asAt = default(DateTimeOffset))
+        /// <param name="holdingsAsAtOverride">The optional AsAt Override to use for building holdings in the Valuation Point. Defaults to Latest..</param>
+        /// <param name="valuationsAsAtOverride">The optional AsAt Override to use for performing valuations in the Valuation Point. Defaults to Latest..</param>
+        public PreviousFundCalendarEntry(string code = default(string), string displayName = default(string), string description = default(string), DateTimeOffset effectiveAt = default(DateTimeOffset), DateTimeOffset asAt = default(DateTimeOffset), DateTimeOffset? holdingsAsAtOverride = default(DateTimeOffset?), DateTimeOffset? valuationsAsAtOverride = default(DateTimeOffset?))
         {
             // to ensure "code" is required (not null)
             if (code == null)
@@ -58,6 +60,8 @@ namespace Lusid.Sdk.Model
             this.AsAt = asAt;
             this.Description = description;
             this.EffectiveAt = effectiveAt;
+            this.HoldingsAsAtOverride = holdingsAsAtOverride;
+            this.ValuationsAsAtOverride = valuationsAsAtOverride;
         }
 
         /// <summary>
@@ -96,6 +100,20 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset AsAt { get; set; }
 
         /// <summary>
+        /// The optional AsAt Override to use for building holdings in the Valuation Point. Defaults to Latest.
+        /// </summary>
+        /// <value>The optional AsAt Override to use for building holdings in the Valuation Point. Defaults to Latest.</value>
+        [DataMember(Name = "holdingsAsAtOverride", EmitDefaultValue = true)]
+        public DateTimeOffset? HoldingsAsAtOverride { get; set; }
+
+        /// <summary>
+        /// The optional AsAt Override to use for performing valuations in the Valuation Point. Defaults to Latest.
+        /// </summary>
+        /// <value>The optional AsAt Override to use for performing valuations in the Valuation Point. Defaults to Latest.</value>
+        [DataMember(Name = "valuationsAsAtOverride", EmitDefaultValue = true)]
+        public DateTimeOffset? ValuationsAsAtOverride { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -108,6 +126,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  EffectiveAt: ").Append(EffectiveAt).Append("\n");
             sb.Append("  AsAt: ").Append(AsAt).Append("\n");
+            sb.Append("  HoldingsAsAtOverride: ").Append(HoldingsAsAtOverride).Append("\n");
+            sb.Append("  ValuationsAsAtOverride: ").Append(ValuationsAsAtOverride).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -167,6 +187,16 @@ namespace Lusid.Sdk.Model
                     this.AsAt == input.AsAt ||
                     (this.AsAt != null &&
                     this.AsAt.Equals(input.AsAt))
+                ) && 
+                (
+                    this.HoldingsAsAtOverride == input.HoldingsAsAtOverride ||
+                    (this.HoldingsAsAtOverride != null &&
+                    this.HoldingsAsAtOverride.Equals(input.HoldingsAsAtOverride))
+                ) && 
+                (
+                    this.ValuationsAsAtOverride == input.ValuationsAsAtOverride ||
+                    (this.ValuationsAsAtOverride != null &&
+                    this.ValuationsAsAtOverride.Equals(input.ValuationsAsAtOverride))
                 );
         }
 
@@ -198,6 +228,14 @@ namespace Lusid.Sdk.Model
                 if (this.AsAt != null)
                 {
                     hashCode = (hashCode * 59) + this.AsAt.GetHashCode();
+                }
+                if (this.HoldingsAsAtOverride != null)
+                {
+                    hashCode = (hashCode * 59) + this.HoldingsAsAtOverride.GetHashCode();
+                }
+                if (this.ValuationsAsAtOverride != null)
+                {
+                    hashCode = (hashCode * 59) + this.ValuationsAsAtOverride.GetHashCode();
                 }
                 return hashCode;
             }

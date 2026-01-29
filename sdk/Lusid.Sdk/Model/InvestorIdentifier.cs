@@ -36,7 +36,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InvestorIdentifier" /> class.
         /// </summary>
-        /// <param name="investorType">The type of the investor of the Investor Record. Can be either a Person or a LegalEntity (required).</param>
+        /// <param name="investorType">The type of the investor of the Investor Record. Can be either a Person, LegalEntity or Nominee. (required).</param>
         /// <param name="identifiers">Single identifier that should target the desired person or legal entity.</param>
         public InvestorIdentifier(string investorType = default(string), Dictionary<string, string> identifiers = default(Dictionary<string, string>))
         {
@@ -50,9 +50,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The type of the investor of the Investor Record. Can be either a Person or a LegalEntity
+        /// The type of the investor of the Investor Record. Can be either a Person, LegalEntity or Nominee.
         /// </summary>
-        /// <value>The type of the investor of the Investor Record. Can be either a Person or a LegalEntity</value>
+        /// <value>The type of the investor of the Investor Record. Can be either a Person, LegalEntity or Nominee.</value>
         [DataMember(Name = "investorType", IsRequired = true, EmitDefaultValue = true)]
         public string InvestorType { get; set; }
 

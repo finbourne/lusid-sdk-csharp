@@ -43,8 +43,10 @@ namespace Lusid.Sdk.Model
         /// <param name="queryAsAt">The query time of the diary entry. Defaults to latest..</param>
         /// <param name="properties">A set of properties for the diary entry..</param>
         /// <param name="applyClearDown">Defaults to false. Set to true if you want that the closed period to have the clear down applied..</param>
+        /// <param name="holdingsAsAtOverride">The optional AsAt Override to use for building holdings in the Valuation Point. Defaults to Latest..</param>
+        /// <param name="valuationsAsAtOverride">The optional AsAt Override to use for performing valuations in the Valuation Point. Defaults to Latest..</param>
         /// <param name="updateInclusionDateNavAdjustments">Defaults to false. Set to true if you have the required licence and want the InclusionDate property values to be used to determine whether items should be automatically included in the post close activities..</param>
-        public UpsertValuationPointRequest(string diaryEntryCode = default(string), string diaryEntryVariant = default(string), string name = default(string), DateTimeOffset effectiveAt = default(DateTimeOffset), DateTimeOffset? queryAsAt = default(DateTimeOffset?), Dictionary<string, Property> properties = default(Dictionary<string, Property>), bool applyClearDown = default(bool), bool updateInclusionDateNavAdjustments = default(bool))
+        public UpsertValuationPointRequest(string diaryEntryCode = default(string), string diaryEntryVariant = default(string), string name = default(string), DateTimeOffset effectiveAt = default(DateTimeOffset), DateTimeOffset? queryAsAt = default(DateTimeOffset?), Dictionary<string, Property> properties = default(Dictionary<string, Property>), bool applyClearDown = default(bool), DateTimeOffset? holdingsAsAtOverride = default(DateTimeOffset?), DateTimeOffset? valuationsAsAtOverride = default(DateTimeOffset?), bool updateInclusionDateNavAdjustments = default(bool))
         {
             // to ensure "diaryEntryCode" is required (not null)
             if (diaryEntryCode == null)
@@ -58,6 +60,8 @@ namespace Lusid.Sdk.Model
             this.QueryAsAt = queryAsAt;
             this.Properties = properties;
             this.ApplyClearDown = applyClearDown;
+            this.HoldingsAsAtOverride = holdingsAsAtOverride;
+            this.ValuationsAsAtOverride = valuationsAsAtOverride;
             this.UpdateInclusionDateNavAdjustments = updateInclusionDateNavAdjustments;
         }
 
@@ -111,6 +115,20 @@ namespace Lusid.Sdk.Model
         public bool ApplyClearDown { get; set; }
 
         /// <summary>
+        /// The optional AsAt Override to use for building holdings in the Valuation Point. Defaults to Latest.
+        /// </summary>
+        /// <value>The optional AsAt Override to use for building holdings in the Valuation Point. Defaults to Latest.</value>
+        [DataMember(Name = "holdingsAsAtOverride", EmitDefaultValue = true)]
+        public DateTimeOffset? HoldingsAsAtOverride { get; set; }
+
+        /// <summary>
+        /// The optional AsAt Override to use for performing valuations in the Valuation Point. Defaults to Latest.
+        /// </summary>
+        /// <value>The optional AsAt Override to use for performing valuations in the Valuation Point. Defaults to Latest.</value>
+        [DataMember(Name = "valuationsAsAtOverride", EmitDefaultValue = true)]
+        public DateTimeOffset? ValuationsAsAtOverride { get; set; }
+
+        /// <summary>
         /// Defaults to false. Set to true if you have the required licence and want the InclusionDate property values to be used to determine whether items should be automatically included in the post close activities.
         /// </summary>
         /// <value>Defaults to false. Set to true if you have the required licence and want the InclusionDate property values to be used to determine whether items should be automatically included in the post close activities.</value>
@@ -132,6 +150,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  QueryAsAt: ").Append(QueryAsAt).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  ApplyClearDown: ").Append(ApplyClearDown).Append("\n");
+            sb.Append("  HoldingsAsAtOverride: ").Append(HoldingsAsAtOverride).Append("\n");
+            sb.Append("  ValuationsAsAtOverride: ").Append(ValuationsAsAtOverride).Append("\n");
             sb.Append("  UpdateInclusionDateNavAdjustments: ").Append(UpdateInclusionDateNavAdjustments).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -204,6 +224,16 @@ namespace Lusid.Sdk.Model
                     this.ApplyClearDown.Equals(input.ApplyClearDown)
                 ) && 
                 (
+                    this.HoldingsAsAtOverride == input.HoldingsAsAtOverride ||
+                    (this.HoldingsAsAtOverride != null &&
+                    this.HoldingsAsAtOverride.Equals(input.HoldingsAsAtOverride))
+                ) && 
+                (
+                    this.ValuationsAsAtOverride == input.ValuationsAsAtOverride ||
+                    (this.ValuationsAsAtOverride != null &&
+                    this.ValuationsAsAtOverride.Equals(input.ValuationsAsAtOverride))
+                ) && 
+                (
                     this.UpdateInclusionDateNavAdjustments == input.UpdateInclusionDateNavAdjustments ||
                     this.UpdateInclusionDateNavAdjustments.Equals(input.UpdateInclusionDateNavAdjustments)
                 );
@@ -243,6 +273,14 @@ namespace Lusid.Sdk.Model
                     hashCode = (hashCode * 59) + this.Properties.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.ApplyClearDown.GetHashCode();
+                if (this.HoldingsAsAtOverride != null)
+                {
+                    hashCode = (hashCode * 59) + this.HoldingsAsAtOverride.GetHashCode();
+                }
+                if (this.ValuationsAsAtOverride != null)
+                {
+                    hashCode = (hashCode * 59) + this.ValuationsAsAtOverride.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.UpdateInclusionDateNavAdjustments.GetHashCode();
                 return hashCode;
             }

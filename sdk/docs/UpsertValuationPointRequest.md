@@ -12,6 +12,8 @@ Name | Type | Description | Notes
 **QueryAsAt** | **DateTimeOffset?** | The query time of the diary entry. Defaults to latest. | [optional] 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | A set of properties for the diary entry. | [optional] 
 **ApplyClearDown** | **bool** | Defaults to false. Set to true if you want that the closed period to have the clear down applied. | [optional] 
+**HoldingsAsAtOverride** | **DateTimeOffset?** | The optional AsAt Override to use for building holdings in the Valuation Point. Defaults to Latest. | [optional] 
+**ValuationsAsAtOverride** | **DateTimeOffset?** | The optional AsAt Override to use for performing valuations in the Valuation Point. Defaults to Latest. | [optional] 
 **UpdateInclusionDateNavAdjustments** | **bool** | Defaults to false. Set to true if you have the required licence and want the InclusionDate property values to be used to determine whether items should be automatically included in the post close activities. | [optional] 
 
 ```csharp
@@ -33,6 +35,8 @@ UpsertValuationPointRequest upsertValuationPointRequestInstance = new UpsertValu
     queryAsAt: queryAsAt,
     properties: properties,
     applyClearDown: applyClearDown,
+    holdingsAsAtOverride: holdingsAsAtOverride,
+    valuationsAsAtOverride: valuationsAsAtOverride,
     updateInclusionDateNavAdjustments: updateInclusionDateNavAdjustments);
 ```
 

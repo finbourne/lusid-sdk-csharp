@@ -46,9 +46,11 @@ namespace Lusid.Sdk.Model
         /// <param name="status">The status of the Valuation Point. Can be &#39;Estimate&#39;, &#39;Candidate&#39; or &#39;Final&#39;. (required).</param>
         /// <param name="gav">The Gross Asset Value of the Fund or Share Class at the Valuation Point. This is effectively a summation of all Trial balance entries linked to accounts of types &#39;Asset&#39; and &#39;Liabilities&#39;. (required).</param>
         /// <param name="nav">The Net Asset Value of the Fund or Share Class at the Valuation Point. This represents the GAV with any fees applied in the period. (required).</param>
+        /// <param name="holdingsAsAtOverride">The optional AsAt Override to use for building holdings in the Valuation Point. Defaults to Latest..</param>
+        /// <param name="valuationsAsAtOverride">The optional AsAt Override to use for performing valuations in the Valuation Point. Defaults to Latest..</param>
         /// <param name="properties">The Fee properties. These will be from the &#39;Fee&#39; domain..</param>
         /// <param name="links">links.</param>
-        public ValuationPointOverview(string href = default(string), string diaryEntryCode = default(string), string diaryEntryVariant = default(string), DateTimeOffset effectiveFrom = default(DateTimeOffset), DateTimeOffset effectiveTo = default(DateTimeOffset), DateTimeOffset queryAsAt = default(DateTimeOffset), string type = default(string), string status = default(string), decimal gav = default(decimal), decimal nav = default(decimal), Dictionary<string, Property> properties = default(Dictionary<string, Property>), List<Link> links = default(List<Link>))
+        public ValuationPointOverview(string href = default(string), string diaryEntryCode = default(string), string diaryEntryVariant = default(string), DateTimeOffset effectiveFrom = default(DateTimeOffset), DateTimeOffset effectiveTo = default(DateTimeOffset), DateTimeOffset queryAsAt = default(DateTimeOffset), string type = default(string), string status = default(string), decimal gav = default(decimal), decimal nav = default(decimal), DateTimeOffset? holdingsAsAtOverride = default(DateTimeOffset?), DateTimeOffset? valuationsAsAtOverride = default(DateTimeOffset?), Dictionary<string, Property> properties = default(Dictionary<string, Property>), List<Link> links = default(List<Link>))
         {
             // to ensure "diaryEntryCode" is required (not null)
             if (diaryEntryCode == null)
@@ -75,6 +77,8 @@ namespace Lusid.Sdk.Model
             this.Href = href;
             this.DiaryEntryVariant = diaryEntryVariant;
             this.QueryAsAt = queryAsAt;
+            this.HoldingsAsAtOverride = holdingsAsAtOverride;
+            this.ValuationsAsAtOverride = valuationsAsAtOverride;
             this.Properties = properties;
             this.Links = links;
         }
@@ -150,6 +154,20 @@ namespace Lusid.Sdk.Model
         public decimal Nav { get; set; }
 
         /// <summary>
+        /// The optional AsAt Override to use for building holdings in the Valuation Point. Defaults to Latest.
+        /// </summary>
+        /// <value>The optional AsAt Override to use for building holdings in the Valuation Point. Defaults to Latest.</value>
+        [DataMember(Name = "holdingsAsAtOverride", EmitDefaultValue = true)]
+        public DateTimeOffset? HoldingsAsAtOverride { get; set; }
+
+        /// <summary>
+        /// The optional AsAt Override to use for performing valuations in the Valuation Point. Defaults to Latest.
+        /// </summary>
+        /// <value>The optional AsAt Override to use for performing valuations in the Valuation Point. Defaults to Latest.</value>
+        [DataMember(Name = "valuationsAsAtOverride", EmitDefaultValue = true)]
+        public DateTimeOffset? ValuationsAsAtOverride { get; set; }
+
+        /// <summary>
         /// The Fee properties. These will be from the &#39;Fee&#39; domain.
         /// </summary>
         /// <value>The Fee properties. These will be from the &#39;Fee&#39; domain.</value>
@@ -180,6 +198,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  Gav: ").Append(Gav).Append("\n");
             sb.Append("  Nav: ").Append(Nav).Append("\n");
+            sb.Append("  HoldingsAsAtOverride: ").Append(HoldingsAsAtOverride).Append("\n");
+            sb.Append("  ValuationsAsAtOverride: ").Append(ValuationsAsAtOverride).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
@@ -266,6 +286,16 @@ namespace Lusid.Sdk.Model
                     this.Nav.Equals(input.Nav)
                 ) && 
                 (
+                    this.HoldingsAsAtOverride == input.HoldingsAsAtOverride ||
+                    (this.HoldingsAsAtOverride != null &&
+                    this.HoldingsAsAtOverride.Equals(input.HoldingsAsAtOverride))
+                ) && 
+                (
+                    this.ValuationsAsAtOverride == input.ValuationsAsAtOverride ||
+                    (this.ValuationsAsAtOverride != null &&
+                    this.ValuationsAsAtOverride.Equals(input.ValuationsAsAtOverride))
+                ) && 
+                (
                     this.Properties == input.Properties ||
                     this.Properties != null &&
                     input.Properties != null &&
@@ -322,6 +352,14 @@ namespace Lusid.Sdk.Model
                 }
                 hashCode = (hashCode * 59) + this.Gav.GetHashCode();
                 hashCode = (hashCode * 59) + this.Nav.GetHashCode();
+                if (this.HoldingsAsAtOverride != null)
+                {
+                    hashCode = (hashCode * 59) + this.HoldingsAsAtOverride.GetHashCode();
+                }
+                if (this.ValuationsAsAtOverride != null)
+                {
+                    hashCode = (hashCode * 59) + this.ValuationsAsAtOverride.GetHashCode();
+                }
                 if (this.Properties != null)
                 {
                     hashCode = (hashCode * 59) + this.Properties.GetHashCode();
