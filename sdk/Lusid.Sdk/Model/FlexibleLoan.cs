@@ -85,6 +85,21 @@ namespace Lusid.Sdk.Model
         public string DomCcy { get; set; }
 
         /// <summary>
+        /// The details of the parent loan facility of this loan if this loan is a contract on a facility.
+        /// </summary>
+        /// <value>The details of the parent loan facility of this loan if this loan is a contract on a facility.</value>
+        [DataMember(Name = "parentFacilityDetails", EmitDefaultValue = true)]
+        public Dictionary<string, string> ParentFacilityDetails { get; private set; }
+
+        /// <summary>
+        /// Returns false as ParentFacilityDetails should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeParentFacilityDetails()
+        {
+            return false;
+        }
+        /// <summary>
         /// Repayment schedules for the loan.
         /// </summary>
         /// <value>Repayment schedules for the loan.</value>
@@ -109,6 +124,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  StartDate: ").Append(StartDate).Append("\n");
             sb.Append("  MaturityDate: ").Append(MaturityDate).Append("\n");
             sb.Append("  DomCcy: ").Append(DomCcy).Append("\n");
+            sb.Append("  ParentFacilityDetails: ").Append(ParentFacilityDetails).Append("\n");
             sb.Append("  Schedules: ").Append(Schedules).Append("\n");
             sb.Append("  TimeZoneConventions: ").Append(TimeZoneConventions).Append("\n");
             sb.Append("}\n");
@@ -162,6 +178,12 @@ namespace Lusid.Sdk.Model
                     this.DomCcy.Equals(input.DomCcy))
                 ) && base.Equals(input) && 
                 (
+                    this.ParentFacilityDetails == input.ParentFacilityDetails ||
+                    this.ParentFacilityDetails != null &&
+                    input.ParentFacilityDetails != null &&
+                    this.ParentFacilityDetails.SequenceEqual(input.ParentFacilityDetails)
+                ) && base.Equals(input) && 
+                (
                     this.Schedules == input.Schedules ||
                     this.Schedules != null &&
                     input.Schedules != null &&
@@ -194,6 +216,10 @@ namespace Lusid.Sdk.Model
                 if (this.DomCcy != null)
                 {
                     hashCode = (hashCode * 59) + this.DomCcy.GetHashCode();
+                }
+                if (this.ParentFacilityDetails != null)
+                {
+                    hashCode = (hashCode * 59) + this.ParentFacilityDetails.GetHashCode();
                 }
                 if (this.Schedules != null)
                 {

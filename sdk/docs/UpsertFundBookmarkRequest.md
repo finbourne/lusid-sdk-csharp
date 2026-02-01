@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **EffectiveAt** | **DateTimeOffset** | The effective time of the Bookmark. | 
 **QueryAsAt** | **DateTimeOffset?** | The query time of the Bookmark. Defaults to latest. | [optional] 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | A set of properties for the Bookmark. | [optional] 
+**HoldingsAsAtOverride** | **DateTimeOffset?** | The optional AsAt Override to use for building holdings in the Bookmark. Defaults to Latest. | [optional] 
+**ValuationsAsAtOverride** | **DateTimeOffset?** | The optional AsAt Override to use for performing valuations in the Bookmark. Defaults to Latest. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -27,7 +29,9 @@ UpsertFundBookmarkRequest upsertFundBookmarkRequestInstance = new UpsertFundBook
     description: description,
     effectiveAt: effectiveAt,
     queryAsAt: queryAsAt,
-    properties: properties);
+    properties: properties,
+    holdingsAsAtOverride: holdingsAsAtOverride,
+    valuationsAsAtOverride: valuationsAsAtOverride);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

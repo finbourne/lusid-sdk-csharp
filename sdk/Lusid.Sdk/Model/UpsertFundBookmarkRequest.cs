@@ -42,7 +42,9 @@ namespace Lusid.Sdk.Model
         /// <param name="effectiveAt">The effective time of the Bookmark. (required).</param>
         /// <param name="queryAsAt">The query time of the Bookmark. Defaults to latest..</param>
         /// <param name="properties">A set of properties for the Bookmark..</param>
-        public UpsertFundBookmarkRequest(string bookmarkCode = default(string), string displayName = default(string), string description = default(string), DateTimeOffset effectiveAt = default(DateTimeOffset), DateTimeOffset? queryAsAt = default(DateTimeOffset?), Dictionary<string, Property> properties = default(Dictionary<string, Property>))
+        /// <param name="holdingsAsAtOverride">The optional AsAt Override to use for building holdings in the Bookmark. Defaults to Latest..</param>
+        /// <param name="valuationsAsAtOverride">The optional AsAt Override to use for performing valuations in the Bookmark. Defaults to Latest..</param>
+        public UpsertFundBookmarkRequest(string bookmarkCode = default(string), string displayName = default(string), string description = default(string), DateTimeOffset effectiveAt = default(DateTimeOffset), DateTimeOffset? queryAsAt = default(DateTimeOffset?), Dictionary<string, Property> properties = default(Dictionary<string, Property>), DateTimeOffset? holdingsAsAtOverride = default(DateTimeOffset?), DateTimeOffset? valuationsAsAtOverride = default(DateTimeOffset?))
         {
             // to ensure "bookmarkCode" is required (not null)
             if (bookmarkCode == null)
@@ -60,6 +62,8 @@ namespace Lusid.Sdk.Model
             this.Description = description;
             this.QueryAsAt = queryAsAt;
             this.Properties = properties;
+            this.HoldingsAsAtOverride = holdingsAsAtOverride;
+            this.ValuationsAsAtOverride = valuationsAsAtOverride;
         }
 
         /// <summary>
@@ -105,6 +109,20 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, Property> Properties { get; set; }
 
         /// <summary>
+        /// The optional AsAt Override to use for building holdings in the Bookmark. Defaults to Latest.
+        /// </summary>
+        /// <value>The optional AsAt Override to use for building holdings in the Bookmark. Defaults to Latest.</value>
+        [DataMember(Name = "holdingsAsAtOverride", EmitDefaultValue = true)]
+        public DateTimeOffset? HoldingsAsAtOverride { get; set; }
+
+        /// <summary>
+        /// The optional AsAt Override to use for performing valuations in the Bookmark. Defaults to Latest.
+        /// </summary>
+        /// <value>The optional AsAt Override to use for performing valuations in the Bookmark. Defaults to Latest.</value>
+        [DataMember(Name = "valuationsAsAtOverride", EmitDefaultValue = true)]
+        public DateTimeOffset? ValuationsAsAtOverride { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -118,6 +136,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  EffectiveAt: ").Append(EffectiveAt).Append("\n");
             sb.Append("  QueryAsAt: ").Append(QueryAsAt).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
+            sb.Append("  HoldingsAsAtOverride: ").Append(HoldingsAsAtOverride).Append("\n");
+            sb.Append("  ValuationsAsAtOverride: ").Append(ValuationsAsAtOverride).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -183,6 +203,16 @@ namespace Lusid.Sdk.Model
                     this.Properties != null &&
                     input.Properties != null &&
                     this.Properties.SequenceEqual(input.Properties)
+                ) && 
+                (
+                    this.HoldingsAsAtOverride == input.HoldingsAsAtOverride ||
+                    (this.HoldingsAsAtOverride != null &&
+                    this.HoldingsAsAtOverride.Equals(input.HoldingsAsAtOverride))
+                ) && 
+                (
+                    this.ValuationsAsAtOverride == input.ValuationsAsAtOverride ||
+                    (this.ValuationsAsAtOverride != null &&
+                    this.ValuationsAsAtOverride.Equals(input.ValuationsAsAtOverride))
                 );
         }
 
@@ -218,6 +248,14 @@ namespace Lusid.Sdk.Model
                 if (this.Properties != null)
                 {
                     hashCode = (hashCode * 59) + this.Properties.GetHashCode();
+                }
+                if (this.HoldingsAsAtOverride != null)
+                {
+                    hashCode = (hashCode * 59) + this.HoldingsAsAtOverride.GetHashCode();
+                }
+                if (this.ValuationsAsAtOverride != null)
+                {
+                    hashCode = (hashCode * 59) + this.ValuationsAsAtOverride.GetHashCode();
                 }
                 return hashCode;
             }
