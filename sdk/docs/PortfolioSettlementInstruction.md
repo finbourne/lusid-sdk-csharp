@@ -1,4 +1,4 @@
-# Lusid.Sdk.Model.PortfolioTransaction
+# Lusid.Sdk.Model.PortfolioSettlementInstruction
 
 ## Properties
 
@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **AsAt** | **DateTimeOffset** | The asAt time for which the adjustment is being applied. | 
 **PortfolioScope** | **string** | The portfolio scope of the given entity | 
 **PortfolioCode** | **string** | The portfolio code of the given entity | 
-**TransactionId** | **string** | The transaction Id of the PortfolioTransaction being adjusted | 
+**SettlementInstructionId** | **string** | The settlement instruction Id of the SettlementInstruction being adjusted | 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -16,13 +16,13 @@ using System;
 
 string portfolioScope = "portfolioScope";
 string portfolioCode = "portfolioCode";
-string transactionId = "transactionId";
+string settlementInstructionId = "settlementInstructionId";
 
-PortfolioTransaction portfolioTransactionInstance = new PortfolioTransaction(
+PortfolioSettlementInstruction portfolioSettlementInstructionInstance = new PortfolioSettlementInstruction(
     asAt: asAt,
     portfolioScope: portfolioScope,
     portfolioCode: portfolioCode,
-    transactionId: transactionId);
+    settlementInstructionId: settlementInstructionId);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

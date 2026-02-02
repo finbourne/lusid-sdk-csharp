@@ -24,46 +24,46 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// PortfolioTransaction
+    /// PortfolioSettlementInstruction
     /// </summary>
-    [DataContract(Name = "PortfolioTransaction")]
+    [DataContract(Name = "PortfolioSettlementInstruction")]
     [JsonConverter(typeof(JsonSubtypes), "NavActivityAdjustmentType")]
-    public partial class PortfolioTransaction : NavActivityAdjustment, IEquatable<PortfolioTransaction>, IValidatableObject
+    public partial class PortfolioSettlementInstruction : NavActivityAdjustment, IEquatable<PortfolioSettlementInstruction>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PortfolioTransaction" /> class.
+        /// Initializes a new instance of the <see cref="PortfolioSettlementInstruction" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PortfolioTransaction() { }
+        protected PortfolioSettlementInstruction() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PortfolioTransaction" /> class.
+        /// Initializes a new instance of the <see cref="PortfolioSettlementInstruction" /> class.
         /// </summary>
         /// <param name="asAt">The asAt time for which the adjustment is being applied. (required).</param>
         /// <param name="portfolioScope">The portfolio scope of the given entity (required).</param>
         /// <param name="portfolioCode">The portfolio code of the given entity (required).</param>
-        /// <param name="transactionId">The transaction Id of the PortfolioTransaction being adjusted (required).</param>
-        /// <param name="navActivityAdjustmentType">. The available values are: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity (required) (default to &quot;PortfolioTransaction&quot;).</param>
-        public PortfolioTransaction(DateTimeOffset asAt = default(DateTimeOffset), string portfolioScope = default(string), string portfolioCode = default(string), string transactionId = default(string), NavActivityAdjustmentTypeEnum navActivityAdjustmentType = default(NavActivityAdjustmentTypeEnum)) : base(navActivityAdjustmentType)
+        /// <param name="settlementInstructionId">The settlement instruction Id of the SettlementInstruction being adjusted (required).</param>
+        /// <param name="navActivityAdjustmentType">. The available values are: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity (required) (default to &quot;PortfolioSettlementInstruction&quot;).</param>
+        public PortfolioSettlementInstruction(DateTimeOffset asAt = default(DateTimeOffset), string portfolioScope = default(string), string portfolioCode = default(string), string settlementInstructionId = default(string), NavActivityAdjustmentTypeEnum navActivityAdjustmentType = default(NavActivityAdjustmentTypeEnum)) : base(navActivityAdjustmentType)
         {
             this.AsAt = asAt;
             // to ensure "portfolioScope" is required (not null)
             if (portfolioScope == null)
             {
-                throw new ArgumentNullException("portfolioScope is a required property for PortfolioTransaction and cannot be null");
+                throw new ArgumentNullException("portfolioScope is a required property for PortfolioSettlementInstruction and cannot be null");
             }
             this.PortfolioScope = portfolioScope;
             // to ensure "portfolioCode" is required (not null)
             if (portfolioCode == null)
             {
-                throw new ArgumentNullException("portfolioCode is a required property for PortfolioTransaction and cannot be null");
+                throw new ArgumentNullException("portfolioCode is a required property for PortfolioSettlementInstruction and cannot be null");
             }
             this.PortfolioCode = portfolioCode;
-            // to ensure "transactionId" is required (not null)
-            if (transactionId == null)
+            // to ensure "settlementInstructionId" is required (not null)
+            if (settlementInstructionId == null)
             {
-                throw new ArgumentNullException("transactionId is a required property for PortfolioTransaction and cannot be null");
+                throw new ArgumentNullException("settlementInstructionId is a required property for PortfolioSettlementInstruction and cannot be null");
             }
-            this.TransactionId = transactionId;
+            this.SettlementInstructionId = settlementInstructionId;
         }
 
         /// <summary>
@@ -88,11 +88,11 @@ namespace Lusid.Sdk.Model
         public string PortfolioCode { get; set; }
 
         /// <summary>
-        /// The transaction Id of the PortfolioTransaction being adjusted
+        /// The settlement instruction Id of the SettlementInstruction being adjusted
         /// </summary>
-        /// <value>The transaction Id of the PortfolioTransaction being adjusted</value>
-        [DataMember(Name = "transactionId", IsRequired = true, EmitDefaultValue = true)]
-        public string TransactionId { get; set; }
+        /// <value>The settlement instruction Id of the SettlementInstruction being adjusted</value>
+        [DataMember(Name = "settlementInstructionId", IsRequired = true, EmitDefaultValue = true)]
+        public string SettlementInstructionId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -101,12 +101,12 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class PortfolioTransaction {\n");
+            sb.Append("class PortfolioSettlementInstruction {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  AsAt: ").Append(AsAt).Append("\n");
             sb.Append("  PortfolioScope: ").Append(PortfolioScope).Append("\n");
             sb.Append("  PortfolioCode: ").Append(PortfolioCode).Append("\n");
-            sb.Append("  TransactionId: ").Append(TransactionId).Append("\n");
+            sb.Append("  SettlementInstructionId: ").Append(SettlementInstructionId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -127,15 +127,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PortfolioTransaction);
+            return this.Equals(input as PortfolioSettlementInstruction);
         }
 
         /// <summary>
-        /// Returns true if PortfolioTransaction instances are equal
+        /// Returns true if PortfolioSettlementInstruction instances are equal
         /// </summary>
-        /// <param name="input">Instance of PortfolioTransaction to be compared</param>
+        /// <param name="input">Instance of PortfolioSettlementInstruction to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PortfolioTransaction input)
+        public bool Equals(PortfolioSettlementInstruction input)
         {
             if (input == null)
             {
@@ -158,9 +158,9 @@ namespace Lusid.Sdk.Model
                     this.PortfolioCode.Equals(input.PortfolioCode))
                 ) && base.Equals(input) && 
                 (
-                    this.TransactionId == input.TransactionId ||
-                    (this.TransactionId != null &&
-                    this.TransactionId.Equals(input.TransactionId))
+                    this.SettlementInstructionId == input.SettlementInstructionId ||
+                    (this.SettlementInstructionId != null &&
+                    this.SettlementInstructionId.Equals(input.SettlementInstructionId))
                 );
         }
 
@@ -185,9 +185,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.PortfolioCode.GetHashCode();
                 }
-                if (this.TransactionId != null)
+                if (this.SettlementInstructionId != null)
                 {
-                    hashCode = (hashCode * 59) + this.TransactionId.GetHashCode();
+                    hashCode = (hashCode * 59) + this.SettlementInstructionId.GetHashCode();
                 }
                 return hashCode;
             }
@@ -252,23 +252,23 @@ namespace Lusid.Sdk.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PortfolioCode, must match a pattern of " + regexPortfolioCode, new [] { "PortfolioCode" });
             }
 
-            // TransactionId (string) maxLength
-            if (this.TransactionId != null && this.TransactionId.Length > 64)
+            // SettlementInstructionId (string) maxLength
+            if (this.SettlementInstructionId != null && this.SettlementInstructionId.Length > 64)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionId, length must be less than 64.", new [] { "TransactionId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SettlementInstructionId, length must be less than 64.", new [] { "SettlementInstructionId" });
             }
 
-            // TransactionId (string) minLength
-            if (this.TransactionId != null && this.TransactionId.Length < 1)
+            // SettlementInstructionId (string) minLength
+            if (this.SettlementInstructionId != null && this.SettlementInstructionId.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionId, length must be greater than 1.", new [] { "TransactionId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SettlementInstructionId, length must be greater than 1.", new [] { "SettlementInstructionId" });
             }
 
-            // TransactionId (string) pattern
-            Regex regexTransactionId = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
-            if (false == regexTransactionId.Match(this.TransactionId).Success)
+            // SettlementInstructionId (string) pattern
+            Regex regexSettlementInstructionId = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
+            if (false == regexSettlementInstructionId.Match(this.SettlementInstructionId).Success)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionId, must match a pattern of " + regexTransactionId, new [] { "TransactionId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SettlementInstructionId, must match a pattern of " + regexSettlementInstructionId, new [] { "SettlementInstructionId" });
             }
 
             yield break;

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**NavActivityAdjustmentType** | **string** | . The available values are: PortfolioTransaction | 
+**NavActivityAdjustmentType** | **string** | . The available values are: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity | 
 
 ```csharp
 using Lusid.Sdk.Model;

@@ -1,4 +1,4 @@
-# Lusid.Sdk.Model.PortfolioTransaction
+# Lusid.Sdk.Model.InstrumentActivity
 
 ## Properties
 
@@ -6,23 +6,20 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **NavActivityAdjustmentType** | **string** | . The available values are: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity | 
 **AsAt** | **DateTimeOffset** | The asAt time for which the adjustment is being applied. | 
-**PortfolioScope** | **string** | The portfolio scope of the given entity | 
-**PortfolioCode** | **string** | The portfolio code of the given entity | 
-**TransactionId** | **string** | The transaction Id of the PortfolioTransaction being adjusted | 
+**Scope** | **string** | The Scope of the given entity | 
+**LusidInstrumentId** | **string** | The LusidInstrumentId of the given entity | 
 
 ```csharp
 using Lusid.Sdk.Model;
 using System;
 
-string portfolioScope = "portfolioScope";
-string portfolioCode = "portfolioCode";
-string transactionId = "transactionId";
+string scope = "scope";
+string lusidInstrumentId = "lusidInstrumentId";
 
-PortfolioTransaction portfolioTransactionInstance = new PortfolioTransaction(
+InstrumentActivity instrumentActivityInstance = new InstrumentActivity(
     asAt: asAt,
-    portfolioScope: portfolioScope,
-    portfolioCode: portfolioCode,
-    transactionId: transactionId);
+    scope: scope,
+    lusidInstrumentId: lusidInstrumentId);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

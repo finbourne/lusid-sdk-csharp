@@ -33,7 +33,19 @@ namespace Lusid.Sdk.Model
         /// Enum PortfolioTransaction for value: PortfolioTransaction
         /// </summary>
         [EnumMember(Value = "PortfolioTransaction")]
-        PortfolioTransaction = 1
+        PortfolioTransaction = 1,
+
+        /// <summary>
+        /// Enum PortfolioSettlementInstruction for value: PortfolioSettlementInstruction
+        /// </summary>
+        [EnumMember(Value = "PortfolioSettlementInstruction")]
+        PortfolioSettlementInstruction = 2,
+
+        /// <summary>
+        /// Enum InstrumentActivity for value: InstrumentActivity
+        /// </summary>
+        [EnumMember(Value = "InstrumentActivity")]
+        InstrumentActivity = 3
     }
 
 }

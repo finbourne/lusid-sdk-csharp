@@ -28,13 +28,15 @@ namespace Lusid.Sdk.Model
     /// </summary>
     [DataContract(Name = "NavActivityAdjustment")]
     [JsonConverter(typeof(JsonSubtypes), "NavActivityAdjustmentType")]
+    [JsonSubtypes.KnownSubType(typeof(InstrumentActivity), "InstrumentActivity")]
+    [JsonSubtypes.KnownSubType(typeof(PortfolioSettlementInstruction), "PortfolioSettlementInstruction")]
     [JsonSubtypes.KnownSubType(typeof(PortfolioTransaction), "PortfolioTransaction")]
     public partial class NavActivityAdjustment : IEquatable<NavActivityAdjustment>, IValidatableObject
     {
         /// <summary>
-        /// . The available values are: PortfolioTransaction
+        /// . The available values are: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity
         /// </summary>
-        /// <value>. The available values are: PortfolioTransaction</value>
+        /// <value>. The available values are: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum NavActivityAdjustmentTypeEnum
         {
@@ -42,14 +44,26 @@ namespace Lusid.Sdk.Model
             /// Enum PortfolioTransaction for value: PortfolioTransaction
             /// </summary>
             [EnumMember(Value = "PortfolioTransaction")]
-            PortfolioTransaction = 1
+            PortfolioTransaction = 1,
+
+            /// <summary>
+            /// Enum PortfolioSettlementInstruction for value: PortfolioSettlementInstruction
+            /// </summary>
+            [EnumMember(Value = "PortfolioSettlementInstruction")]
+            PortfolioSettlementInstruction = 2,
+
+            /// <summary>
+            /// Enum InstrumentActivity for value: InstrumentActivity
+            /// </summary>
+            [EnumMember(Value = "InstrumentActivity")]
+            InstrumentActivity = 3
         }
 
 
         /// <summary>
-        /// . The available values are: PortfolioTransaction
+        /// . The available values are: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity
         /// </summary>
-        /// <value>. The available values are: PortfolioTransaction</value>
+        /// <value>. The available values are: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity</value>
         [DataMember(Name = "navActivityAdjustmentType", IsRequired = true, EmitDefaultValue = true)]
         public NavActivityAdjustmentTypeEnum NavActivityAdjustmentType { get; set; }
         /// <summary>
@@ -60,7 +74,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NavActivityAdjustment" /> class.
         /// </summary>
-        /// <param name="navActivityAdjustmentType">. The available values are: PortfolioTransaction (required).</param>
+        /// <param name="navActivityAdjustmentType">. The available values are: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity (required).</param>
         public NavActivityAdjustment(NavActivityAdjustmentTypeEnum navActivityAdjustmentType = default(NavActivityAdjustmentTypeEnum))
         {
             this.NavActivityAdjustmentType = navActivityAdjustmentType;
