@@ -37,7 +37,9 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="OrderGraphBlockAllocationDetail" /> class.
         /// </summary>
         /// <param name="id">id (required).</param>
-        public OrderGraphBlockAllocationDetail(ResourceId id = default(ResourceId))
+        /// <param name="allocatedOrderId">allocatedOrderId.</param>
+        /// <param name="quantity">The quantity of this allocation, with direction relative to the containing block. (required).</param>
+        public OrderGraphBlockAllocationDetail(ResourceId id = default(ResourceId), ResourceId allocatedOrderId = default(ResourceId), decimal quantity = default(decimal))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -45,6 +47,8 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("id is a required property for OrderGraphBlockAllocationDetail and cannot be null");
             }
             this.Id = id;
+            this.Quantity = quantity;
+            this.AllocatedOrderId = allocatedOrderId;
         }
 
         /// <summary>
@@ -52,6 +56,19 @@ namespace Lusid.Sdk.Model
         /// </summary>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public ResourceId Id { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AllocatedOrderId
+        /// </summary>
+        [DataMember(Name = "allocatedOrderId", EmitDefaultValue = false)]
+        public ResourceId AllocatedOrderId { get; set; }
+
+        /// <summary>
+        /// The quantity of this allocation, with direction relative to the containing block.
+        /// </summary>
+        /// <value>The quantity of this allocation, with direction relative to the containing block.</value>
+        [DataMember(Name = "quantity", IsRequired = true, EmitDefaultValue = true)]
+        public decimal Quantity { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -62,6 +79,8 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class OrderGraphBlockAllocationDetail {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  AllocatedOrderId: ").Append(AllocatedOrderId).Append("\n");
+            sb.Append("  Quantity: ").Append(Quantity).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -101,6 +120,15 @@ namespace Lusid.Sdk.Model
                     this.Id == input.Id ||
                     (this.Id != null &&
                     this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.AllocatedOrderId == input.AllocatedOrderId ||
+                    (this.AllocatedOrderId != null &&
+                    this.AllocatedOrderId.Equals(input.AllocatedOrderId))
+                ) && 
+                (
+                    this.Quantity == input.Quantity ||
+                    this.Quantity.Equals(input.Quantity)
                 );
         }
 
@@ -117,6 +145,11 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 }
+                if (this.AllocatedOrderId != null)
+                {
+                    hashCode = (hashCode * 59) + this.AllocatedOrderId.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Quantity.GetHashCode();
                 return hashCode;
             }
         }
