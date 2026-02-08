@@ -1147,7 +1147,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] UpsertDiaryEntryTypeValuationPoint: Upsert a Valuation Point.
         /// </summary>
         /// <remarks>
-        /// Update or insert the estimate Valuation Point.                If the Valuation Point does not exist, this method will create it in estimate state.                If the Valuation Point already exists and is in estimate state, the Valuation Point will be updated with the newly specified information in this request.
+        /// Insert the estimate Valuation Point.                If the Valuation Point does not exist, this method will create it in estimate state.                It is not possible to update an existing Valuation Point. As an alternative, the Valuation Point could be deleted and recreated.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -1163,7 +1163,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] UpsertDiaryEntryTypeValuationPoint: Upsert a Valuation Point.
         /// </summary>
         /// <remarks>
-        /// Update or insert the estimate Valuation Point.                If the Valuation Point does not exist, this method will create it in estimate state.                If the Valuation Point already exists and is in estimate state, the Valuation Point will be updated with the newly specified information in this request.
+        /// Insert the estimate Valuation Point.                If the Valuation Point does not exist, this method will create it in estimate state.                It is not possible to update an existing Valuation Point. As an alternative, the Valuation Point could be deleted and recreated.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -2458,7 +2458,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] UpsertDiaryEntryTypeValuationPoint: Upsert a Valuation Point.
         /// </summary>
         /// <remarks>
-        /// Update or insert the estimate Valuation Point.                If the Valuation Point does not exist, this method will create it in estimate state.                If the Valuation Point already exists and is in estimate state, the Valuation Point will be updated with the newly specified information in this request.
+        /// Insert the estimate Valuation Point.                If the Valuation Point does not exist, this method will create it in estimate state.                It is not possible to update an existing Valuation Point. As an alternative, the Valuation Point could be deleted and recreated.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -2475,7 +2475,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] UpsertDiaryEntryTypeValuationPoint: Upsert a Valuation Point.
         /// </summary>
         /// <remarks>
-        /// Update or insert the estimate Valuation Point.                If the Valuation Point does not exist, this method will create it in estimate state.                If the Valuation Point already exists and is in estimate state, the Valuation Point will be updated with the newly specified information in this request.
+        /// Insert the estimate Valuation Point.                If the Valuation Point does not exist, this method will create it in estimate state.                It is not possible to update an existing Valuation Point. As an alternative, the Valuation Point could be deleted and recreated.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -11686,7 +11686,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertDiaryEntryTypeValuationPoint: Upsert a Valuation Point. Update or insert the estimate Valuation Point.                If the Valuation Point does not exist, this method will create it in estimate state.                If the Valuation Point already exists and is in estimate state, the Valuation Point will be updated with the newly specified information in this request.
+        /// [EXPERIMENTAL] UpsertDiaryEntryTypeValuationPoint: Upsert a Valuation Point. Insert the estimate Valuation Point.                If the Valuation Point does not exist, this method will create it in estimate state.                It is not possible to update an existing Valuation Point. As an alternative, the Valuation Point could be deleted and recreated.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -11703,7 +11703,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertDiaryEntryTypeValuationPoint: Upsert a Valuation Point. Update or insert the estimate Valuation Point.                If the Valuation Point does not exist, this method will create it in estimate state.                If the Valuation Point already exists and is in estimate state, the Valuation Point will be updated with the newly specified information in this request.
+        /// [EXPERIMENTAL] UpsertDiaryEntryTypeValuationPoint: Upsert a Valuation Point. Insert the estimate Valuation Point.                If the Valuation Point does not exist, this method will create it in estimate state.                It is not possible to update an existing Valuation Point. As an alternative, the Valuation Point could be deleted and recreated.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -11815,7 +11815,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertDiaryEntryTypeValuationPoint: Upsert a Valuation Point. Update or insert the estimate Valuation Point.                If the Valuation Point does not exist, this method will create it in estimate state.                If the Valuation Point already exists and is in estimate state, the Valuation Point will be updated with the newly specified information in this request.
+        /// [EXPERIMENTAL] UpsertDiaryEntryTypeValuationPoint: Upsert a Valuation Point. Insert the estimate Valuation Point.                If the Valuation Point does not exist, this method will create it in estimate state.                It is not possible to update an existing Valuation Point. As an alternative, the Valuation Point could be deleted and recreated.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
@@ -11833,7 +11833,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpsertDiaryEntryTypeValuationPoint: Upsert a Valuation Point. Update or insert the estimate Valuation Point.                If the Valuation Point does not exist, this method will create it in estimate state.                If the Valuation Point already exists and is in estimate state, the Valuation Point will be updated with the newly specified information in this request.
+        /// [EXPERIMENTAL] UpsertDiaryEntryTypeValuationPoint: Upsert a Valuation Point. Insert the estimate Valuation Point.                If the Valuation Point does not exist, this method will create it in estimate state.                It is not possible to update an existing Valuation Point. As an alternative, the Valuation Point could be deleted and recreated.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Fund.</param>
