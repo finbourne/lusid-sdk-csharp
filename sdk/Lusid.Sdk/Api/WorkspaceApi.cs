@@ -127,10 +127,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="visibility">The visibility for the workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
         /// <param name="workspaceName">The name of the workspace.</param>
+        /// <param name="recurse">If true, recursively delete items in the workspace. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
-        DeletedEntityResponse DeleteWorkspace(string visibility, string workspaceName, int operationIndex = 0, ConfigurationOptions? opts = null);
+        DeletedEntityResponse DeleteWorkspace(string visibility, string workspaceName, bool? recurse = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] DeleteWorkspace: Delete a workspace.
@@ -141,10 +142,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="visibility">The visibility for the workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
         /// <param name="workspaceName">The name of the workspace.</param>
+        /// <param name="recurse">If true, recursively delete items in the workspace. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteWorkspaceWithHttpInfo(string visibility, string workspaceName, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteWorkspaceWithHttpInfo(string visibility, string workspaceName, bool? recurse = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetItem: Get a single workspace item.
         /// </summary>
@@ -487,11 +489,12 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="visibility">The visibility for the workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
         /// <param name="workspaceName">The name of the workspace.</param>
+        /// <param name="recurse">If true, recursively delete items in the workspace. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteWorkspaceAsync(string visibility, string workspaceName, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteWorkspaceAsync(string visibility, string workspaceName, bool? recurse = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] DeleteWorkspace: Delete a workspace.
@@ -502,11 +505,12 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="visibility">The visibility for the workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
         /// <param name="workspaceName">The name of the workspace.</param>
+        /// <param name="recurse">If true, recursively delete items in the workspace. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteWorkspaceWithHttpInfoAsync(string visibility, string workspaceName, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteWorkspaceWithHttpInfoAsync(string visibility, string workspaceName, bool? recurse = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetItem: Get a single workspace item.
         /// </summary>
@@ -1593,12 +1597,13 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="visibility">The visibility for the workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
         /// <param name="workspaceName">The name of the workspace.</param>
+        /// <param name="recurse">If true, recursively delete items in the workspace. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
-        public DeletedEntityResponse DeleteWorkspace(string visibility, string workspaceName, int operationIndex = 0, ConfigurationOptions? opts = null)
+        public DeletedEntityResponse DeleteWorkspace(string visibility, string workspaceName, bool? recurse = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteWorkspaceWithHttpInfo(visibility, workspaceName, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteWorkspaceWithHttpInfo(visibility, workspaceName, recurse, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1608,10 +1613,11 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="visibility">The visibility for the workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
         /// <param name="workspaceName">The name of the workspace.</param>
+        /// <param name="recurse">If true, recursively delete items in the workspace. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteWorkspaceWithHttpInfo(string visibility, string workspaceName, int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteWorkspaceWithHttpInfo(string visibility, string workspaceName, bool? recurse = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'visibility' is set
             if (visibility == null)
@@ -1661,6 +1667,11 @@ namespace Lusid.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("visibility", Lusid.Sdk.Client.ClientUtils.ParameterToString(visibility)); // path parameter
             localVarRequestOptions.PathParameters.Add("workspaceName", Lusid.Sdk.Client.ClientUtils.ParameterToString(workspaceName)); // path parameter
+            if (recurse != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "recurse", recurse));
+            }
 
             localVarRequestOptions.Operation = "WorkspaceApi.DeleteWorkspace";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1702,13 +1713,14 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="visibility">The visibility for the workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
         /// <param name="workspaceName">The name of the workspace.</param>
+        /// <param name="recurse">If true, recursively delete items in the workspace. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteWorkspaceAsync(string visibility, string workspaceName, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteWorkspaceAsync(string visibility, string workspaceName, bool? recurse = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteWorkspaceWithHttpInfoAsync(visibility, workspaceName, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteWorkspaceWithHttpInfoAsync(visibility, workspaceName, recurse, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1718,11 +1730,12 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="visibility">The visibility for the workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important.</param>
         /// <param name="workspaceName">The name of the workspace.</param>
+        /// <param name="recurse">If true, recursively delete items in the workspace. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteWorkspaceWithHttpInfoAsync(string visibility, string workspaceName, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteWorkspaceWithHttpInfoAsync(string visibility, string workspaceName, bool? recurse = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'visibility' is set
             if (visibility == null)
@@ -1773,6 +1786,10 @@ namespace Lusid.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("visibility", Lusid.Sdk.Client.ClientUtils.ParameterToString(visibility)); // path parameter
             localVarRequestOptions.PathParameters.Add("workspaceName", Lusid.Sdk.Client.ClientUtils.ParameterToString(workspaceName)); // path parameter
+            if (recurse != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "recurse", recurse));
+            }
 
             localVarRequestOptions.Operation = "WorkspaceApi.DeleteWorkspace";
             localVarRequestOptions.OperationIndex = operationIndex;

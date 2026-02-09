@@ -372,7 +372,7 @@ catch (ApiException e)
 
 <a id="deleteworkspace"></a>
 # **DeleteWorkspace**
-> DeletedEntityResponse DeleteWorkspace (string visibility, string workspaceName)
+> DeletedEntityResponse DeleteWorkspace (string visibility, string workspaceName, bool? recurse = null)
 
 [EXPERIMENTAL] DeleteWorkspace: Delete a workspace.
 
@@ -419,14 +419,15 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<WorkspaceApi>();
             var visibility = "shared";  // string | The visibility for the workspace. Must be `shared` or `personal`; case is important.
             var workspaceName = "workspaceName_example";  // string | The name of the workspace.
+            var recurse = false;  // bool? | If true, recursively delete items in the workspace. (optional)  (default to false)
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // DeletedEntityResponse result = apiInstance.DeleteWorkspace(visibility, workspaceName, opts: opts);
+                // DeletedEntityResponse result = apiInstance.DeleteWorkspace(visibility, workspaceName, recurse, opts: opts);
 
                 // [EXPERIMENTAL] DeleteWorkspace: Delete a workspace.
-                DeletedEntityResponse result = apiInstance.DeleteWorkspace(visibility, workspaceName);
+                DeletedEntityResponse result = apiInstance.DeleteWorkspace(visibility, workspaceName, recurse);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -447,7 +448,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] DeleteWorkspace: Delete a workspace.
-    ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteWorkspaceWithHttpInfo(visibility, workspaceName);
+    ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteWorkspaceWithHttpInfo(visibility, workspaceName, recurse);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -466,6 +467,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **visibility** | **string** | The visibility for the workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important. |  |
 | **workspaceName** | **string** | The name of the workspace. |  |
+| **recurse** | **bool?** | If true, recursively delete items in the workspace. | [optional] [default to false] |
 
 ### Return type
 
