@@ -34,11 +34,13 @@ namespace Lusid.Sdk.Model
         /// <param name="method">The method of settlement for the movements of the relevant type(s). Allowed values: &#39;Automatic&#39; and &#39;Instructed&#39;. A value of &#39;Instructed&#39; means that such movements can only be settled with a SettlementInstruction. A value of &#39;Automatic&#39; means that such movements will settle automatically but a SettlementInstruction will still override automatic settlement..</param>
         /// <param name="calculateInstructionToPortfolioRate">An optional flag that allows for the calculation of the instruction to portfolio rate for instructions with settlement category CashSettlement or DeferredCashReceipt, if it is not provided on the settlement instruction. Defaults to false if not specified..</param>
         /// <param name="calculateInLieuSettlementAmount">An optional flag that allows for the calculation of the in lieu amount for instructions with settlement category CashSettlement or DeferredCashReceipt, if it is not provided on the settlement instruction. Defaults to false if not specified..</param>
-        public SettlementConfigurationCategory(string method = default(string), bool calculateInstructionToPortfolioRate = default(bool), bool calculateInLieuSettlementAmount = default(bool))
+        /// <param name="methodOverride">methodOverride.</param>
+        public SettlementConfigurationCategory(string method = default(string), bool calculateInstructionToPortfolioRate = default(bool), bool calculateInLieuSettlementAmount = default(bool), SettlementConfigurationMethodOverride methodOverride = default(SettlementConfigurationMethodOverride))
         {
             this.Method = method;
             this.CalculateInstructionToPortfolioRate = calculateInstructionToPortfolioRate;
             this.CalculateInLieuSettlementAmount = calculateInLieuSettlementAmount;
+            this.MethodOverride = methodOverride;
         }
 
         /// <summary>
@@ -63,6 +65,12 @@ namespace Lusid.Sdk.Model
         public bool CalculateInLieuSettlementAmount { get; set; }
 
         /// <summary>
+        /// Gets or Sets MethodOverride
+        /// </summary>
+        [DataMember(Name = "methodOverride", EmitDefaultValue = false)]
+        public SettlementConfigurationMethodOverride MethodOverride { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -73,6 +81,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Method: ").Append(Method).Append("\n");
             sb.Append("  CalculateInstructionToPortfolioRate: ").Append(CalculateInstructionToPortfolioRate).Append("\n");
             sb.Append("  CalculateInLieuSettlementAmount: ").Append(CalculateInLieuSettlementAmount).Append("\n");
+            sb.Append("  MethodOverride: ").Append(MethodOverride).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -120,6 +129,11 @@ namespace Lusid.Sdk.Model
                 (
                     this.CalculateInLieuSettlementAmount == input.CalculateInLieuSettlementAmount ||
                     this.CalculateInLieuSettlementAmount.Equals(input.CalculateInLieuSettlementAmount)
+                ) && 
+                (
+                    this.MethodOverride == input.MethodOverride ||
+                    (this.MethodOverride != null &&
+                    this.MethodOverride.Equals(input.MethodOverride))
                 );
         }
 
@@ -138,6 +152,10 @@ namespace Lusid.Sdk.Model
                 }
                 hashCode = (hashCode * 59) + this.CalculateInstructionToPortfolioRate.GetHashCode();
                 hashCode = (hashCode * 59) + this.CalculateInLieuSettlementAmount.GetHashCode();
+                if (this.MethodOverride != null)
+                {
+                    hashCode = (hashCode * 59) + this.MethodOverride.GetHashCode();
+                }
                 return hashCode;
             }
         }

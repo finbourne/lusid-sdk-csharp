@@ -1765,6 +1765,7 @@ Class | Method | HTTP request | Description
  - [SetTransactionConfigurationAlias](docs/SetTransactionConfigurationAlias.md)
  - [SetTransactionConfigurationSourceRequest](docs/SetTransactionConfigurationSourceRequest.md)
  - [SettlementConfigurationCategory](docs/SettlementConfigurationCategory.md)
+ - [SettlementConfigurationMethodOverride](docs/SettlementConfigurationMethodOverride.md)
  - [SettlementCycle](docs/SettlementCycle.md)
  - [SettlementInLieu](docs/SettlementInLieu.md)
  - [SettlementInstructionAmendRequest](docs/SettlementInstructionAmendRequest.md)
