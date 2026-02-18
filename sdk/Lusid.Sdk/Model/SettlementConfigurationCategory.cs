@@ -35,12 +35,14 @@ namespace Lusid.Sdk.Model
         /// <param name="calculateInstructionToPortfolioRate">An optional flag that allows for the calculation of the instruction to portfolio rate for instructions with settlement category CashSettlement or DeferredCashReceipt, if it is not provided on the settlement instruction. Defaults to false if not specified..</param>
         /// <param name="calculateInLieuSettlementAmount">An optional flag that allows for the calculation of the in lieu amount for instructions with settlement category CashSettlement or DeferredCashReceipt, if it is not provided on the settlement instruction. Defaults to false if not specified..</param>
         /// <param name="methodOverride">methodOverride.</param>
-        public SettlementConfigurationCategory(string method = default(string), bool calculateInstructionToPortfolioRate = default(bool), bool calculateInLieuSettlementAmount = default(bool), SettlementConfigurationMethodOverride methodOverride = default(SettlementConfigurationMethodOverride))
+        /// <param name="calculateTradeDateToSettlementFxPnL">An optional flag that allows for the calculation of the in lieu amount for instructions with settlement category CashSettlement or DeferredCashReceipt, if it is not provided on the settlement instruction. Defaults to false if not specified..</param>
+        public SettlementConfigurationCategory(string method = default(string), bool calculateInstructionToPortfolioRate = default(bool), bool calculateInLieuSettlementAmount = default(bool), SettlementConfigurationMethodOverride methodOverride = default(SettlementConfigurationMethodOverride), bool calculateTradeDateToSettlementFxPnL = default(bool))
         {
             this.Method = method;
             this.CalculateInstructionToPortfolioRate = calculateInstructionToPortfolioRate;
             this.CalculateInLieuSettlementAmount = calculateInLieuSettlementAmount;
             this.MethodOverride = methodOverride;
+            this.CalculateTradeDateToSettlementFxPnL = calculateTradeDateToSettlementFxPnL;
         }
 
         /// <summary>
@@ -71,6 +73,13 @@ namespace Lusid.Sdk.Model
         public SettlementConfigurationMethodOverride MethodOverride { get; set; }
 
         /// <summary>
+        /// An optional flag that allows for the calculation of the in lieu amount for instructions with settlement category CashSettlement or DeferredCashReceipt, if it is not provided on the settlement instruction. Defaults to false if not specified.
+        /// </summary>
+        /// <value>An optional flag that allows for the calculation of the in lieu amount for instructions with settlement category CashSettlement or DeferredCashReceipt, if it is not provided on the settlement instruction. Defaults to false if not specified.</value>
+        [DataMember(Name = "calculateTradeDateToSettlementFxPnL", EmitDefaultValue = true)]
+        public bool CalculateTradeDateToSettlementFxPnL { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -82,6 +91,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  CalculateInstructionToPortfolioRate: ").Append(CalculateInstructionToPortfolioRate).Append("\n");
             sb.Append("  CalculateInLieuSettlementAmount: ").Append(CalculateInLieuSettlementAmount).Append("\n");
             sb.Append("  MethodOverride: ").Append(MethodOverride).Append("\n");
+            sb.Append("  CalculateTradeDateToSettlementFxPnL: ").Append(CalculateTradeDateToSettlementFxPnL).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -134,6 +144,10 @@ namespace Lusid.Sdk.Model
                     this.MethodOverride == input.MethodOverride ||
                     (this.MethodOverride != null &&
                     this.MethodOverride.Equals(input.MethodOverride))
+                ) && 
+                (
+                    this.CalculateTradeDateToSettlementFxPnL == input.CalculateTradeDateToSettlementFxPnL ||
+                    this.CalculateTradeDateToSettlementFxPnL.Equals(input.CalculateTradeDateToSettlementFxPnL)
                 );
         }
 
@@ -156,6 +170,7 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.MethodOverride.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.CalculateTradeDateToSettlementFxPnL.GetHashCode();
                 return hashCode;
             }
         }

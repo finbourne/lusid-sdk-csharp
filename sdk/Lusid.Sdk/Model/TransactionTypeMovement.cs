@@ -46,7 +46,8 @@ namespace Lusid.Sdk.Model
         /// <param name="settlementDateOverride">Optional property key that must be in the Transaction domain when specified. When the movement is processed and the transaction has this property set to a valid date, then the property value will override the SettlementDate of the transaction..</param>
         /// <param name="condition">The condition that the transaction must satisfy to generate the movement, such as: Portfolio.BaseCurrency eq &#39;GBP&#39;. The condition can contain fields and properties from transactions and portfolios. If no condition is provided, the movement will apply for all transactions of this type..</param>
         /// <param name="settlementMode">Configures how movements should settle. Allowed values: &#39;Internal&#39; and &#39;External&#39;. A movement with &#39;Internal&#39; settlement mode will settle automatically on the contractual settlement date regardlesss of portfolio configuration or settlement instruction. An &#39;External&#39; movement can be settled automatically or by a settlement instruction..</param>
-        public TransactionTypeMovement(string movementTypes = default(string), string side = default(string), int direction = default(int), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), List<TransactionTypePropertyMapping> mappings = default(List<TransactionTypePropertyMapping>), string name = default(string), List<string> movementOptions = default(List<string>), string settlementDateOverride = default(string), string condition = default(string), string settlementMode = default(string))
+        /// <param name="calculateTradeDateToSettlementFxPnL">Configures whether Trade To Settlement Date Realised Gain Loss should be calculated. This overrides the value set at the Portfolio level.If null, then the Portfolio Settlement Configuration TradeToSettlementDateRealisedFxPnl setting will be used.If false, then no TradeToSettlementDateRealisedFxPnl will apply for this movement and if true, then TradeToSettlementDateRealisedFxPnlwill be calculated for this movement..</param>
+        public TransactionTypeMovement(string movementTypes = default(string), string side = default(string), int direction = default(int), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), List<TransactionTypePropertyMapping> mappings = default(List<TransactionTypePropertyMapping>), string name = default(string), List<string> movementOptions = default(List<string>), string settlementDateOverride = default(string), string condition = default(string), string settlementMode = default(string), bool? calculateTradeDateToSettlementFxPnL = default(bool?))
         {
             // to ensure "movementTypes" is required (not null)
             if (movementTypes == null)
@@ -68,6 +69,7 @@ namespace Lusid.Sdk.Model
             this.SettlementDateOverride = settlementDateOverride;
             this.Condition = condition;
             this.SettlementMode = settlementMode;
+            this.CalculateTradeDateToSettlementFxPnL = calculateTradeDateToSettlementFxPnL;
         }
 
         /// <summary>
@@ -141,6 +143,13 @@ namespace Lusid.Sdk.Model
         public string SettlementMode { get; set; }
 
         /// <summary>
+        /// Configures whether Trade To Settlement Date Realised Gain Loss should be calculated. This overrides the value set at the Portfolio level.If null, then the Portfolio Settlement Configuration TradeToSettlementDateRealisedFxPnl setting will be used.If false, then no TradeToSettlementDateRealisedFxPnl will apply for this movement and if true, then TradeToSettlementDateRealisedFxPnlwill be calculated for this movement.
+        /// </summary>
+        /// <value>Configures whether Trade To Settlement Date Realised Gain Loss should be calculated. This overrides the value set at the Portfolio level.If null, then the Portfolio Settlement Configuration TradeToSettlementDateRealisedFxPnl setting will be used.If false, then no TradeToSettlementDateRealisedFxPnl will apply for this movement and if true, then TradeToSettlementDateRealisedFxPnlwill be calculated for this movement.</value>
+        [DataMember(Name = "calculateTradeDateToSettlementFxPnL", EmitDefaultValue = true)]
+        public bool? CalculateTradeDateToSettlementFxPnL { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -158,6 +167,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  SettlementDateOverride: ").Append(SettlementDateOverride).Append("\n");
             sb.Append("  Condition: ").Append(Condition).Append("\n");
             sb.Append("  SettlementMode: ").Append(SettlementMode).Append("\n");
+            sb.Append("  CalculateTradeDateToSettlementFxPnL: ").Append(CalculateTradeDateToSettlementFxPnL).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -244,6 +254,11 @@ namespace Lusid.Sdk.Model
                     this.SettlementMode == input.SettlementMode ||
                     (this.SettlementMode != null &&
                     this.SettlementMode.Equals(input.SettlementMode))
+                ) && 
+                (
+                    this.CalculateTradeDateToSettlementFxPnL == input.CalculateTradeDateToSettlementFxPnL ||
+                    (this.CalculateTradeDateToSettlementFxPnL != null &&
+                    this.CalculateTradeDateToSettlementFxPnL.Equals(input.CalculateTradeDateToSettlementFxPnL))
                 );
         }
 
@@ -292,6 +307,10 @@ namespace Lusid.Sdk.Model
                 if (this.SettlementMode != null)
                 {
                     hashCode = (hashCode * 59) + this.SettlementMode.GetHashCode();
+                }
+                if (this.CalculateTradeDateToSettlementFxPnL != null)
+                {
+                    hashCode = (hashCode * 59) + this.CalculateTradeDateToSettlementFxPnL.GetHashCode();
                 }
                 return hashCode;
             }

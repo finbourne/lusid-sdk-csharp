@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **SettlementDateOverride** | **string** | Optional property key that must be in the Transaction domain when specified. When the movement is processed and the transaction has this property set to a valid date, then the property value will override the SettlementDate of the transaction. | [optional] 
 **Condition** | **string** | The condition that the transaction must satisfy to generate the movement, such as: Portfolio.BaseCurrency eq &#39;GBP&#39;. The condition can contain fields and properties from transactions and portfolios. If no condition is provided, the movement will apply for all transactions of this type. | [optional] 
 **SettlementMode** | **string** | Configures how movements should settle. Allowed values: &#39;Internal&#39; and &#39;External&#39;. A movement with &#39;Internal&#39; settlement mode will settle automatically on the contractual settlement date regardlesss of portfolio configuration or settlement instruction. An &#39;External&#39; movement can be settled automatically or by a settlement instruction. | [optional] 
+**CalculateTradeDateToSettlementFxPnL** | **bool?** | Configures whether Trade To Settlement Date Realised Gain Loss should be calculated. This overrides the value set at the Portfolio level.If null, then the Portfolio Settlement Configuration TradeToSettlementDateRealisedFxPnl setting will be used.If false, then no TradeToSettlementDateRealisedFxPnl will apply for this movement and if true, then TradeToSettlementDateRealisedFxPnlwill be calculated for this movement. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -28,6 +29,7 @@ List<string> movementOptions = new List<string>();
 string settlementDateOverride = "example settlementDateOverride";
 string condition = "example condition";
 string settlementMode = "example settlementMode";
+bool? calculateTradeDateToSettlementFxPnL = //"True";
 
 TransactionTypeMovement transactionTypeMovementInstance = new TransactionTypeMovement(
     movementTypes: movementTypes,
@@ -39,7 +41,8 @@ TransactionTypeMovement transactionTypeMovementInstance = new TransactionTypeMov
     movementOptions: movementOptions,
     settlementDateOverride: settlementDateOverride,
     condition: condition,
-    settlementMode: settlementMode);
+    settlementMode: settlementMode,
+    calculateTradeDateToSettlementFxPnL: calculateTradeDateToSettlementFxPnL);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
