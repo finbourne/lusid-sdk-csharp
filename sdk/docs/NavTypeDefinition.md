@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **CashGainLossCalculationDate** | **string** |  | 
 **AmortisationRuleSetId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **LeaderNavTypeCode** | **string** |  | [optional] 
+**TransactionTemplateScope** | **string** |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -40,6 +41,7 @@ string cashGainLossCalculationDate = "cashGainLossCalculationDate";
 ResourceId? amortisationRuleSetId = new ResourceId();
 
 string leaderNavTypeCode = "example leaderNavTypeCode";
+string transactionTemplateScope = "example transactionTemplateScope";
 
 NavTypeDefinition navTypeDefinitionInstance = new NavTypeDefinition(
     code: code,
@@ -56,7 +58,8 @@ NavTypeDefinition navTypeDefinitionInstance = new NavTypeDefinition(
     transactionTypeScope: transactionTypeScope,
     cashGainLossCalculationDate: cashGainLossCalculationDate,
     amortisationRuleSetId: amortisationRuleSetId,
-    leaderNavTypeCode: leaderNavTypeCode);
+    leaderNavTypeCode: leaderNavTypeCode,
+    transactionTemplateScope: transactionTemplateScope);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

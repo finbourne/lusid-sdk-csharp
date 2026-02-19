@@ -728,7 +728,7 @@ catch (ApiException e)
 
 <a id="getinstrumentevents"></a>
 # **GetInstrumentEvents**
-> PagedResourceListOfInstrumentEventHolder GetInstrumentEvents (string scope, string code, DateTimeOffset? asAt = null, int? limit = null, string? page = null, string? filter = null)
+> PagedResourceListOfInstrumentEventHolder GetInstrumentEvents (string scope, string code, DateTimeOffset? asAt = null, int? limit = null, string? page = null, string? filter = null, string? timelineScope = null, string? timelineCode = null, string? closedPeriodId = null)
 
 [EARLY ACCESS] GetInstrumentEvents: Get extrinsic instrument events out of a given corporate actions source.
 
@@ -779,14 +779,17 @@ namespace Examples
             var limit = 1000;  // int? | Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. (optional)  (default to 1000)
             var page = "page_example";  // string? | Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, asAt, filter and limit must not  be modified. (optional) 
             var filter = "filter_example";  // string? | Optional. Expression to filter the result set. (optional) 
+            var timelineScope = "timelineScope_example";  // string? | The scope of the Timeline, used to override the AsAt, and fetch post close activity data.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional) 
+            var timelineCode = "timelineCode_example";  // string? | The code of the Timeline, used to override the AsAt, and fetch post close activity data.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional) 
+            var closedPeriodId = "closedPeriodId_example";  // string? | The code of the ClosedPeriod attached to the timeline, used to override the AsAt, and fetch post close activity data.              If this is provided, timelineScope and timelineCode must also be provided. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // PagedResourceListOfInstrumentEventHolder result = apiInstance.GetInstrumentEvents(scope, code, asAt, limit, page, filter, opts: opts);
+                // PagedResourceListOfInstrumentEventHolder result = apiInstance.GetInstrumentEvents(scope, code, asAt, limit, page, filter, timelineScope, timelineCode, closedPeriodId, opts: opts);
 
                 // [EARLY ACCESS] GetInstrumentEvents: Get extrinsic instrument events out of a given corporate actions source.
-                PagedResourceListOfInstrumentEventHolder result = apiInstance.GetInstrumentEvents(scope, code, asAt, limit, page, filter);
+                PagedResourceListOfInstrumentEventHolder result = apiInstance.GetInstrumentEvents(scope, code, asAt, limit, page, filter, timelineScope, timelineCode, closedPeriodId);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -807,7 +810,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EARLY ACCESS] GetInstrumentEvents: Get extrinsic instrument events out of a given corporate actions source.
-    ApiResponse<PagedResourceListOfInstrumentEventHolder> response = apiInstance.GetInstrumentEventsWithHttpInfo(scope, code, asAt, limit, page, filter);
+    ApiResponse<PagedResourceListOfInstrumentEventHolder> response = apiInstance.GetInstrumentEventsWithHttpInfo(scope, code, asAt, limit, page, filter, timelineScope, timelineCode, closedPeriodId);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -830,6 +833,9 @@ catch (ApiException e)
 | **limit** | **int?** | Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. | [optional] [default to 1000] |
 | **page** | **string?** | Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, asAt, filter and limit must not  be modified. | [optional]  |
 | **filter** | **string?** | Optional. Expression to filter the result set. | [optional]  |
+| **timelineScope** | **string?** | The scope of the Timeline, used to override the AsAt, and fetch post close activity data.              If this is provided, timelineCode and closedPeriodId must also be provided. | [optional]  |
+| **timelineCode** | **string?** | The code of the Timeline, used to override the AsAt, and fetch post close activity data.              If this is provided, timelineScope and closedPeriodId must also be provided. | [optional]  |
+| **closedPeriodId** | **string?** | The code of the ClosedPeriod attached to the timeline, used to override the AsAt, and fetch post close activity data.              If this is provided, timelineScope and timelineCode must also be provided. | [optional]  |
 
 ### Return type
 

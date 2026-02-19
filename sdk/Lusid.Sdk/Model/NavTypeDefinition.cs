@@ -51,7 +51,8 @@ namespace Lusid.Sdk.Model
         /// <param name="cashGainLossCalculationDate">cashGainLossCalculationDate (required).</param>
         /// <param name="amortisationRuleSetId">amortisationRuleSetId.</param>
         /// <param name="leaderNavTypeCode">leaderNavTypeCode.</param>
-        public NavTypeDefinition(string code = default(string), string displayName = default(string), string description = default(string), ResourceId chartOfAccountsId = default(ResourceId), List<string> postingModuleCodes = default(List<string>), List<string> cleardownModuleCodes = default(List<string>), ResourceId valuationRecipeId = default(ResourceId), ResourceId holdingRecipeId = default(ResourceId), string accountingMethod = default(string), List<string> subHoldingKeys = default(List<string>), string amortisationMethod = default(string), string transactionTypeScope = default(string), string cashGainLossCalculationDate = default(string), ResourceId amortisationRuleSetId = default(ResourceId), string leaderNavTypeCode = default(string))
+        /// <param name="transactionTemplateScope">transactionTemplateScope.</param>
+        public NavTypeDefinition(string code = default(string), string displayName = default(string), string description = default(string), ResourceId chartOfAccountsId = default(ResourceId), List<string> postingModuleCodes = default(List<string>), List<string> cleardownModuleCodes = default(List<string>), ResourceId valuationRecipeId = default(ResourceId), ResourceId holdingRecipeId = default(ResourceId), string accountingMethod = default(string), List<string> subHoldingKeys = default(List<string>), string amortisationMethod = default(string), string transactionTypeScope = default(string), string cashGainLossCalculationDate = default(string), ResourceId amortisationRuleSetId = default(ResourceId), string leaderNavTypeCode = default(string), string transactionTemplateScope = default(string))
         {
             // to ensure "chartOfAccountsId" is required (not null)
             if (chartOfAccountsId == null)
@@ -103,6 +104,7 @@ namespace Lusid.Sdk.Model
             this.SubHoldingKeys = subHoldingKeys;
             this.AmortisationRuleSetId = amortisationRuleSetId;
             this.LeaderNavTypeCode = leaderNavTypeCode;
+            this.TransactionTemplateScope = transactionTemplateScope;
         }
 
         /// <summary>
@@ -197,6 +199,12 @@ namespace Lusid.Sdk.Model
         public string LeaderNavTypeCode { get; set; }
 
         /// <summary>
+        /// Gets or Sets TransactionTemplateScope
+        /// </summary>
+        [DataMember(Name = "transactionTemplateScope", EmitDefaultValue = true)]
+        public string TransactionTemplateScope { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -219,6 +227,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  CashGainLossCalculationDate: ").Append(CashGainLossCalculationDate).Append("\n");
             sb.Append("  AmortisationRuleSetId: ").Append(AmortisationRuleSetId).Append("\n");
             sb.Append("  LeaderNavTypeCode: ").Append(LeaderNavTypeCode).Append("\n");
+            sb.Append("  TransactionTemplateScope: ").Append(TransactionTemplateScope).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -331,6 +340,11 @@ namespace Lusid.Sdk.Model
                     this.LeaderNavTypeCode == input.LeaderNavTypeCode ||
                     (this.LeaderNavTypeCode != null &&
                     this.LeaderNavTypeCode.Equals(input.LeaderNavTypeCode))
+                ) && 
+                (
+                    this.TransactionTemplateScope == input.TransactionTemplateScope ||
+                    (this.TransactionTemplateScope != null &&
+                    this.TransactionTemplateScope.Equals(input.TransactionTemplateScope))
                 );
         }
 
@@ -402,6 +416,10 @@ namespace Lusid.Sdk.Model
                 if (this.LeaderNavTypeCode != null)
                 {
                     hashCode = (hashCode * 59) + this.LeaderNavTypeCode.GetHashCode();
+                }
+                if (this.TransactionTemplateScope != null)
+                {
+                    hashCode = (hashCode * 59) + this.TransactionTemplateScope.GetHashCode();
                 }
                 return hashCode;
             }
@@ -518,6 +536,25 @@ namespace Lusid.Sdk.Model
             if (false == regexLeaderNavTypeCode.Match(this.LeaderNavTypeCode).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LeaderNavTypeCode, must match a pattern of " + regexLeaderNavTypeCode, new [] { "LeaderNavTypeCode" });
+            }
+
+            // TransactionTemplateScope (string) maxLength
+            if (this.TransactionTemplateScope != null && this.TransactionTemplateScope.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionTemplateScope, length must be less than 64.", new [] { "TransactionTemplateScope" });
+            }
+
+            // TransactionTemplateScope (string) minLength
+            if (this.TransactionTemplateScope != null && this.TransactionTemplateScope.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionTemplateScope, length must be greater than 1.", new [] { "TransactionTemplateScope" });
+            }
+
+            // TransactionTemplateScope (string) pattern
+            Regex regexTransactionTemplateScope = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
+            if (false == regexTransactionTemplateScope.Match(this.TransactionTemplateScope).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionTemplateScope, must match a pattern of " + regexTransactionTemplateScope, new [] { "TransactionTemplateScope" });
             }
 
             yield break;

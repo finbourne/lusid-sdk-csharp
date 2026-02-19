@@ -222,10 +222,13 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. (optional, default to 1000)</param>
         /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, asAt, filter and limit must not  be modified. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set. (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt, and fetch post close activity data.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt, and fetch post close activity data.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt, and fetch post close activity data.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfInstrumentEventHolder</returns>
-        PagedResourceListOfInstrumentEventHolder GetInstrumentEvents(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        PagedResourceListOfInstrumentEventHolder GetInstrumentEvents(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), string? filter = default(string?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetInstrumentEvents: Get extrinsic instrument events out of a given corporate actions source.
@@ -240,10 +243,13 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. (optional, default to 1000)</param>
         /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, asAt, filter and limit must not  be modified. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set. (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt, and fetch post close activity data.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt, and fetch post close activity data.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt, and fetch post close activity data.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfInstrumentEventHolder</returns>
-        Lusid.Sdk.Client.ApiResponse<PagedResourceListOfInstrumentEventHolder> GetInstrumentEventsWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<PagedResourceListOfInstrumentEventHolder> GetInstrumentEventsWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), string? filter = default(string?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListCorporateActionSources: List corporate action sources
         /// </summary>
@@ -518,11 +524,14 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. (optional, default to 1000)</param>
         /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, asAt, filter and limit must not  be modified. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set. (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt, and fetch post close activity data.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt, and fetch post close activity data.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt, and fetch post close activity data.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfInstrumentEventHolder</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfInstrumentEventHolder> GetInstrumentEventsAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<PagedResourceListOfInstrumentEventHolder> GetInstrumentEventsAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), string? filter = default(string?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetInstrumentEvents: Get extrinsic instrument events out of a given corporate actions source.
@@ -537,11 +546,14 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. (optional, default to 1000)</param>
         /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, asAt, filter and limit must not  be modified. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set. (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt, and fetch post close activity data.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt, and fetch post close activity data.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt, and fetch post close activity data.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfInstrumentEventHolder)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfInstrumentEventHolder>> GetInstrumentEventsWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfInstrumentEventHolder>> GetInstrumentEventsWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), string? filter = default(string?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListCorporateActionSources: List corporate action sources
         /// </summary>
@@ -2191,12 +2203,15 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. (optional, default to 1000)</param>
         /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, asAt, filter and limit must not  be modified. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set. (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt, and fetch post close activity data.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt, and fetch post close activity data.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt, and fetch post close activity data.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfInstrumentEventHolder</returns>
-        public PagedResourceListOfInstrumentEventHolder GetInstrumentEvents(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public PagedResourceListOfInstrumentEventHolder GetInstrumentEvents(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), string? filter = default(string?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfInstrumentEventHolder> localVarResponse = GetInstrumentEventsWithHttpInfo(scope, code, asAt, limit, page, filter, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfInstrumentEventHolder> localVarResponse = GetInstrumentEventsWithHttpInfo(scope, code, asAt, limit, page, filter, timelineScope, timelineCode, closedPeriodId, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2210,10 +2225,13 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. (optional, default to 1000)</param>
         /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, asAt, filter and limit must not  be modified. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set. (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt, and fetch post close activity data.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt, and fetch post close activity data.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt, and fetch post close activity data.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfInstrumentEventHolder</returns>
-        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfInstrumentEventHolder> GetInstrumentEventsWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfInstrumentEventHolder> GetInstrumentEventsWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), string? filter = default(string?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -2282,6 +2300,21 @@ namespace Lusid.Sdk.Api
             {
 
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+            if (timelineScope != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineScope", timelineScope));
+            }
+            if (timelineCode != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineCode", timelineCode));
+            }
+            if (closedPeriodId != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "closedPeriodId", closedPeriodId));
             }
 
             localVarRequestOptions.Operation = "CorporateActionSourcesApi.GetInstrumentEvents";
@@ -2328,13 +2361,16 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. (optional, default to 1000)</param>
         /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, asAt, filter and limit must not  be modified. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set. (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt, and fetch post close activity data.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt, and fetch post close activity data.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt, and fetch post close activity data.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfInstrumentEventHolder</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfInstrumentEventHolder> GetInstrumentEventsAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<PagedResourceListOfInstrumentEventHolder> GetInstrumentEventsAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), string? filter = default(string?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfInstrumentEventHolder> localVarResponse = await GetInstrumentEventsWithHttpInfoAsync(scope, code, asAt, limit, page, filter, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfInstrumentEventHolder> localVarResponse = await GetInstrumentEventsWithHttpInfoAsync(scope, code, asAt, limit, page, filter, timelineScope, timelineCode, closedPeriodId, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2348,11 +2384,14 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. (optional, default to 1000)</param>
         /// <param name="page">Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, asAt, filter and limit must not  be modified. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set. (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline, used to override the AsAt, and fetch post close activity data.              If this is provided, timelineCode and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline, used to override the AsAt, and fetch post close activity data.              If this is provided, timelineScope and closedPeriodId must also be provided. (optional)</param>
+        /// <param name="closedPeriodId">The code of the ClosedPeriod attached to the timeline, used to override the AsAt, and fetch post close activity data.              If this is provided, timelineScope and timelineCode must also be provided. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfInstrumentEventHolder)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfInstrumentEventHolder>> GetInstrumentEventsWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfInstrumentEventHolder>> GetInstrumentEventsWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), string? filter = default(string?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -2418,6 +2457,18 @@ namespace Lusid.Sdk.Api
             if (filter != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+            if (timelineScope != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineScope", timelineScope));
+            }
+            if (timelineCode != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineCode", timelineCode));
+            }
+            if (closedPeriodId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "closedPeriodId", closedPeriodId));
             }
 
             localVarRequestOptions.Operation = "CorporateActionSourcesApi.GetInstrumentEvents";
