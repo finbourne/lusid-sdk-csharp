@@ -35,7 +35,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**GetPortfolioCashLadder**](TransactionPortfoliosApi.md#getportfoliocashladder) | **GET** /api/transactionportfolios/{scope}/{code}/cashladder | GetPortfolioCashLadder: Get portfolio cash ladder |
 | [**GetPortfolioCashStatement**](TransactionPortfoliosApi.md#getportfoliocashstatement) | **GET** /api/transactionportfolios/{scope}/{code}/cashstatement | GetPortfolioCashStatement: Get portfolio cash statement |
 | [**GetTransactionHistory**](TransactionPortfoliosApi.md#gettransactionhistory) | **GET** /api/transactionportfolios/{scope}/{code}/transactions/{transactionId}/history | GetTransactionHistory: Get the history of a transaction |
-| [**GetTransactionSettlementStatus**](TransactionPortfoliosApi.md#gettransactionsettlementstatus) | **GET** /api/transactionportfolios/{scope}/{code}/transactions/{transactionId}/settlementstatus | [EARLY ACCESS] GetTransactionSettlementStatus: Gets the Transaction Settlement Status for the requested transaction. |
+| [**GetTransactionSettlementStatus**](TransactionPortfoliosApi.md#gettransactionsettlementstatus) | **GET** /api/transactionportfolios/{scope}/{code}/transactions/{transactionId}/settlementstatus | [EARLY ACCESS] GetTransactionSettlementStatus: Get transaction settlement status |
 | [**GetTransactions**](TransactionPortfoliosApi.md#gettransactions) | **GET** /api/transactionportfolios/{scope}/{code}/transactions | GetTransactions: Get transactions |
 | [**GetUpsertablePortfolioCashFlows**](TransactionPortfoliosApi.md#getupsertableportfoliocashflows) | **GET** /api/transactionportfolios/{scope}/{code}/upsertablecashflows | GetUpsertablePortfolioCashFlows: Get upsertable portfolio cash flows. |
 | [**ListCustodianAccounts**](TransactionPortfoliosApi.md#listcustodianaccounts) | **GET** /api/transactionportfolios/{scope}/{code}/custodianaccounts | ListCustodianAccounts: List Custodian Accounts |
@@ -3910,9 +3910,9 @@ catch (ApiException e)
 
 <a id="gettransactionsettlementstatus"></a>
 # **GetTransactionSettlementStatus**
-> TransactionSettlementStatus GetTransactionSettlementStatus (string scope, string code, string transactionId, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null)
+> TransactionSettlementStatus GetTransactionSettlementStatus (string scope, string code, string transactionId, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, List<string>? propertyKeys = null)
 
-[EARLY ACCESS] GetTransactionSettlementStatus: Gets the Transaction Settlement Status for the requested transaction.
+[EARLY ACCESS] GetTransactionSettlementStatus: Get transaction settlement status
 
 Gets the Transaction Settlement Status for the requested transaction.
 
@@ -3956,18 +3956,19 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionPortfoliosApi>();
             var scope = "scope_example";  // string | The scope of the transaction portfolio.
-            var code = "code_example";  // string | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
-            var transactionId = "transactionId_example";  // string | The id of the transaction
-            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label for which to get the transaction               settlement status. Defaults to the current LUSID system datetime if not specified. (optional) 
-            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to get the transaction settlement status.               Defaults to return the latest status if not specified. (optional) 
+            var code = "code_example";  // string | The code of the transaction portfolio. This together with the scope uniquely identifies the transaction portfolio.
+            var transactionId = "transactionId_example";  // string | The ID of the transaction.
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective date and time or cut label to get the transaction settlement status.              This defaults to the current LUSID system time if not specified. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt date and time to get the transaction settlement status.               This defaults to return the latest status if not specified. (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'SettlementInstruction', 'Instrument' or 'Portfolio' domains to decorate onto              settlement instructions. These must have the format {domain}/{scope}/{code}, for example 'Instrument/system/Name' or 'SettlementInstruction/strategy/quantsignal'. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // TransactionSettlementStatus result = apiInstance.GetTransactionSettlementStatus(scope, code, transactionId, effectiveAt, asAt, opts: opts);
+                // TransactionSettlementStatus result = apiInstance.GetTransactionSettlementStatus(scope, code, transactionId, effectiveAt, asAt, propertyKeys, opts: opts);
 
-                // [EARLY ACCESS] GetTransactionSettlementStatus: Gets the Transaction Settlement Status for the requested transaction.
-                TransactionSettlementStatus result = apiInstance.GetTransactionSettlementStatus(scope, code, transactionId, effectiveAt, asAt);
+                // [EARLY ACCESS] GetTransactionSettlementStatus: Get transaction settlement status
+                TransactionSettlementStatus result = apiInstance.GetTransactionSettlementStatus(scope, code, transactionId, effectiveAt, asAt, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -3987,8 +3988,8 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] GetTransactionSettlementStatus: Gets the Transaction Settlement Status for the requested transaction.
-    ApiResponse<TransactionSettlementStatus> response = apiInstance.GetTransactionSettlementStatusWithHttpInfo(scope, code, transactionId, effectiveAt, asAt);
+    // [EARLY ACCESS] GetTransactionSettlementStatus: Get transaction settlement status
+    ApiResponse<TransactionSettlementStatus> response = apiInstance.GetTransactionSettlementStatusWithHttpInfo(scope, code, transactionId, effectiveAt, asAt, propertyKeys);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -4006,10 +4007,11 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **scope** | **string** | The scope of the transaction portfolio. |  |
-| **code** | **string** | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. |  |
-| **transactionId** | **string** | The id of the transaction |  |
-| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label for which to get the transaction               settlement status. Defaults to the current LUSID system datetime if not specified. | [optional]  |
-| **asAt** | **DateTimeOffset?** | The asAt datetime at which to get the transaction settlement status.               Defaults to return the latest status if not specified. | [optional]  |
+| **code** | **string** | The code of the transaction portfolio. This together with the scope uniquely identifies the transaction portfolio. |  |
+| **transactionId** | **string** | The ID of the transaction. |  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective date and time or cut label to get the transaction settlement status.              This defaults to the current LUSID system time if not specified. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt date and time to get the transaction settlement status.               This defaults to return the latest status if not specified. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;SettlementInstruction&#39;, &#39;Instrument&#39; or &#39;Portfolio&#39; domains to decorate onto              settlement instructions. These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39; or &#39;SettlementInstruction/strategy/quantsignal&#39;. | [optional]  |
 
 ### Return type
 

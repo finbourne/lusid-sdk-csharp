@@ -1129,38 +1129,40 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ResourceListOfChangeHistory</returns>
         Lusid.Sdk.Client.ApiResponse<ResourceListOfChangeHistory> GetTransactionHistoryWithHttpInfo(string scope, string code, string transactionId, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] GetTransactionSettlementStatus: Gets the Transaction Settlement Status for the requested transaction.
+        /// [EARLY ACCESS] GetTransactionSettlementStatus: Get transaction settlement status
         /// </summary>
         /// <remarks>
         /// Gets the Transaction Settlement Status for the requested transaction.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
-        /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
-        /// <param name="transactionId">The id of the transaction</param>
-        /// <param name="effectiveAt">The effective datetime or cut label for which to get the transaction               settlement status. Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to get the transaction settlement status.               Defaults to return the latest status if not specified. (optional)</param>
+        /// <param name="code">The code of the transaction portfolio. This together with the scope uniquely identifies the transaction portfolio.</param>
+        /// <param name="transactionId">The ID of the transaction.</param>
+        /// <param name="effectiveAt">The effective date and time or cut label to get the transaction settlement status.              This defaults to the current LUSID system time if not specified. (optional)</param>
+        /// <param name="asAt">The asAt date and time to get the transaction settlement status.               This defaults to return the latest status if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;SettlementInstruction&#39;, &#39;Instrument&#39; or &#39;Portfolio&#39; domains to decorate onto              settlement instructions. These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39; or &#39;SettlementInstruction/strategy/quantsignal&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>TransactionSettlementStatus</returns>
-        TransactionSettlementStatus GetTransactionSettlementStatus(string scope, string code, string transactionId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        TransactionSettlementStatus GetTransactionSettlementStatus(string scope, string code, string transactionId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] GetTransactionSettlementStatus: Gets the Transaction Settlement Status for the requested transaction.
+        /// [EARLY ACCESS] GetTransactionSettlementStatus: Get transaction settlement status
         /// </summary>
         /// <remarks>
         /// Gets the Transaction Settlement Status for the requested transaction.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
-        /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
-        /// <param name="transactionId">The id of the transaction</param>
-        /// <param name="effectiveAt">The effective datetime or cut label for which to get the transaction               settlement status. Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to get the transaction settlement status.               Defaults to return the latest status if not specified. (optional)</param>
+        /// <param name="code">The code of the transaction portfolio. This together with the scope uniquely identifies the transaction portfolio.</param>
+        /// <param name="transactionId">The ID of the transaction.</param>
+        /// <param name="effectiveAt">The effective date and time or cut label to get the transaction settlement status.              This defaults to the current LUSID system time if not specified. (optional)</param>
+        /// <param name="asAt">The asAt date and time to get the transaction settlement status.               This defaults to return the latest status if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;SettlementInstruction&#39;, &#39;Instrument&#39; or &#39;Portfolio&#39; domains to decorate onto              settlement instructions. These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39; or &#39;SettlementInstruction/strategy/quantsignal&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of TransactionSettlementStatus</returns>
-        Lusid.Sdk.Client.ApiResponse<TransactionSettlementStatus> GetTransactionSettlementStatusWithHttpInfo(string scope, string code, string transactionId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<TransactionSettlementStatus> GetTransactionSettlementStatusWithHttpInfo(string scope, string code, string transactionId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// GetTransactions: Get transactions
         /// </summary>
@@ -2869,40 +2871,42 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (ResourceListOfChangeHistory)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfChangeHistory>> GetTransactionHistoryWithHttpInfoAsync(string scope, string code, string transactionId, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] GetTransactionSettlementStatus: Gets the Transaction Settlement Status for the requested transaction.
+        /// [EARLY ACCESS] GetTransactionSettlementStatus: Get transaction settlement status
         /// </summary>
         /// <remarks>
         /// Gets the Transaction Settlement Status for the requested transaction.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
-        /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
-        /// <param name="transactionId">The id of the transaction</param>
-        /// <param name="effectiveAt">The effective datetime or cut label for which to get the transaction               settlement status. Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to get the transaction settlement status.               Defaults to return the latest status if not specified. (optional)</param>
+        /// <param name="code">The code of the transaction portfolio. This together with the scope uniquely identifies the transaction portfolio.</param>
+        /// <param name="transactionId">The ID of the transaction.</param>
+        /// <param name="effectiveAt">The effective date and time or cut label to get the transaction settlement status.              This defaults to the current LUSID system time if not specified. (optional)</param>
+        /// <param name="asAt">The asAt date and time to get the transaction settlement status.               This defaults to return the latest status if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;SettlementInstruction&#39;, &#39;Instrument&#39; or &#39;Portfolio&#39; domains to decorate onto              settlement instructions. These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39; or &#39;SettlementInstruction/strategy/quantsignal&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of TransactionSettlementStatus</returns>
-        System.Threading.Tasks.Task<TransactionSettlementStatus> GetTransactionSettlementStatusAsync(string scope, string code, string transactionId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<TransactionSettlementStatus> GetTransactionSettlementStatusAsync(string scope, string code, string transactionId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] GetTransactionSettlementStatus: Gets the Transaction Settlement Status for the requested transaction.
+        /// [EARLY ACCESS] GetTransactionSettlementStatus: Get transaction settlement status
         /// </summary>
         /// <remarks>
         /// Gets the Transaction Settlement Status for the requested transaction.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
-        /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
-        /// <param name="transactionId">The id of the transaction</param>
-        /// <param name="effectiveAt">The effective datetime or cut label for which to get the transaction               settlement status. Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to get the transaction settlement status.               Defaults to return the latest status if not specified. (optional)</param>
+        /// <param name="code">The code of the transaction portfolio. This together with the scope uniquely identifies the transaction portfolio.</param>
+        /// <param name="transactionId">The ID of the transaction.</param>
+        /// <param name="effectiveAt">The effective date and time or cut label to get the transaction settlement status.              This defaults to the current LUSID system time if not specified. (optional)</param>
+        /// <param name="asAt">The asAt date and time to get the transaction settlement status.               This defaults to return the latest status if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;SettlementInstruction&#39;, &#39;Instrument&#39; or &#39;Portfolio&#39; domains to decorate onto              settlement instructions. These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39; or &#39;SettlementInstruction/strategy/quantsignal&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (TransactionSettlementStatus)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TransactionSettlementStatus>> GetTransactionSettlementStatusWithHttpInfoAsync(string scope, string code, string transactionId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TransactionSettlementStatus>> GetTransactionSettlementStatusWithHttpInfoAsync(string scope, string code, string transactionId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// GetTransactions: Get transactions
         /// </summary>
@@ -12442,36 +12446,38 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetTransactionSettlementStatus: Gets the Transaction Settlement Status for the requested transaction. Gets the Transaction Settlement Status for the requested transaction.
+        /// [EARLY ACCESS] GetTransactionSettlementStatus: Get transaction settlement status Gets the Transaction Settlement Status for the requested transaction.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
-        /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
-        /// <param name="transactionId">The id of the transaction</param>
-        /// <param name="effectiveAt">The effective datetime or cut label for which to get the transaction               settlement status. Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to get the transaction settlement status.               Defaults to return the latest status if not specified. (optional)</param>
+        /// <param name="code">The code of the transaction portfolio. This together with the scope uniquely identifies the transaction portfolio.</param>
+        /// <param name="transactionId">The ID of the transaction.</param>
+        /// <param name="effectiveAt">The effective date and time or cut label to get the transaction settlement status.              This defaults to the current LUSID system time if not specified. (optional)</param>
+        /// <param name="asAt">The asAt date and time to get the transaction settlement status.               This defaults to return the latest status if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;SettlementInstruction&#39;, &#39;Instrument&#39; or &#39;Portfolio&#39; domains to decorate onto              settlement instructions. These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39; or &#39;SettlementInstruction/strategy/quantsignal&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>TransactionSettlementStatus</returns>
-        public TransactionSettlementStatus GetTransactionSettlementStatus(string scope, string code, string transactionId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public TransactionSettlementStatus GetTransactionSettlementStatus(string scope, string code, string transactionId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<TransactionSettlementStatus> localVarResponse = GetTransactionSettlementStatusWithHttpInfo(scope, code, transactionId, effectiveAt, asAt, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<TransactionSettlementStatus> localVarResponse = GetTransactionSettlementStatusWithHttpInfo(scope, code, transactionId, effectiveAt, asAt, propertyKeys, opts: opts);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetTransactionSettlementStatus: Gets the Transaction Settlement Status for the requested transaction. Gets the Transaction Settlement Status for the requested transaction.
+        /// [EARLY ACCESS] GetTransactionSettlementStatus: Get transaction settlement status Gets the Transaction Settlement Status for the requested transaction.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
-        /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
-        /// <param name="transactionId">The id of the transaction</param>
-        /// <param name="effectiveAt">The effective datetime or cut label for which to get the transaction               settlement status. Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to get the transaction settlement status.               Defaults to return the latest status if not specified. (optional)</param>
+        /// <param name="code">The code of the transaction portfolio. This together with the scope uniquely identifies the transaction portfolio.</param>
+        /// <param name="transactionId">The ID of the transaction.</param>
+        /// <param name="effectiveAt">The effective date and time or cut label to get the transaction settlement status.              This defaults to the current LUSID system time if not specified. (optional)</param>
+        /// <param name="asAt">The asAt date and time to get the transaction settlement status.               This defaults to return the latest status if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;SettlementInstruction&#39;, &#39;Instrument&#39; or &#39;Portfolio&#39; domains to decorate onto              settlement instructions. These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39; or &#39;SettlementInstruction/strategy/quantsignal&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of TransactionSettlementStatus</returns>
-        public Lusid.Sdk.Client.ApiResponse<TransactionSettlementStatus> GetTransactionSettlementStatusWithHttpInfo(string scope, string code, string transactionId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<TransactionSettlementStatus> GetTransactionSettlementStatusWithHttpInfo(string scope, string code, string transactionId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -12537,6 +12543,11 @@ namespace Lusid.Sdk.Api
             {
 
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (propertyKeys != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "propertyKeys", propertyKeys));
             }
 
             localVarRequestOptions.Operation = "TransactionPortfoliosApi.GetTransactionSettlementStatus";
@@ -12574,38 +12585,40 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetTransactionSettlementStatus: Gets the Transaction Settlement Status for the requested transaction. Gets the Transaction Settlement Status for the requested transaction.
+        /// [EARLY ACCESS] GetTransactionSettlementStatus: Get transaction settlement status Gets the Transaction Settlement Status for the requested transaction.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
-        /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
-        /// <param name="transactionId">The id of the transaction</param>
-        /// <param name="effectiveAt">The effective datetime or cut label for which to get the transaction               settlement status. Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to get the transaction settlement status.               Defaults to return the latest status if not specified. (optional)</param>
+        /// <param name="code">The code of the transaction portfolio. This together with the scope uniquely identifies the transaction portfolio.</param>
+        /// <param name="transactionId">The ID of the transaction.</param>
+        /// <param name="effectiveAt">The effective date and time or cut label to get the transaction settlement status.              This defaults to the current LUSID system time if not specified. (optional)</param>
+        /// <param name="asAt">The asAt date and time to get the transaction settlement status.               This defaults to return the latest status if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;SettlementInstruction&#39;, &#39;Instrument&#39; or &#39;Portfolio&#39; domains to decorate onto              settlement instructions. These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39; or &#39;SettlementInstruction/strategy/quantsignal&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of TransactionSettlementStatus</returns>
-        public async System.Threading.Tasks.Task<TransactionSettlementStatus> GetTransactionSettlementStatusAsync(string scope, string code, string transactionId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<TransactionSettlementStatus> GetTransactionSettlementStatusAsync(string scope, string code, string transactionId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<TransactionSettlementStatus> localVarResponse = await GetTransactionSettlementStatusWithHttpInfoAsync(scope, code, transactionId, effectiveAt, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<TransactionSettlementStatus> localVarResponse = await GetTransactionSettlementStatusWithHttpInfoAsync(scope, code, transactionId, effectiveAt, asAt, propertyKeys, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetTransactionSettlementStatus: Gets the Transaction Settlement Status for the requested transaction. Gets the Transaction Settlement Status for the requested transaction.
+        /// [EARLY ACCESS] GetTransactionSettlementStatus: Get transaction settlement status Gets the Transaction Settlement Status for the requested transaction.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
-        /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
-        /// <param name="transactionId">The id of the transaction</param>
-        /// <param name="effectiveAt">The effective datetime or cut label for which to get the transaction               settlement status. Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to get the transaction settlement status.               Defaults to return the latest status if not specified. (optional)</param>
+        /// <param name="code">The code of the transaction portfolio. This together with the scope uniquely identifies the transaction portfolio.</param>
+        /// <param name="transactionId">The ID of the transaction.</param>
+        /// <param name="effectiveAt">The effective date and time or cut label to get the transaction settlement status.              This defaults to the current LUSID system time if not specified. (optional)</param>
+        /// <param name="asAt">The asAt date and time to get the transaction settlement status.               This defaults to return the latest status if not specified. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;SettlementInstruction&#39;, &#39;Instrument&#39; or &#39;Portfolio&#39; domains to decorate onto              settlement instructions. These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39; or &#39;SettlementInstruction/strategy/quantsignal&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (TransactionSettlementStatus)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TransactionSettlementStatus>> GetTransactionSettlementStatusWithHttpInfoAsync(string scope, string code, string transactionId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TransactionSettlementStatus>> GetTransactionSettlementStatusWithHttpInfoAsync(string scope, string code, string transactionId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -12670,6 +12683,10 @@ namespace Lusid.Sdk.Api
             if (asAt != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (propertyKeys != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "propertyKeys", propertyKeys));
             }
 
             localVarRequestOptions.Operation = "TransactionPortfoliosApi.GetTransactionSettlementStatus";
