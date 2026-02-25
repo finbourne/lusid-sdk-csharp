@@ -1,11 +1,11 @@
-# Lusid.Sdk.Model.FundCalendarEntry
+# Lusid.Sdk.Model.FundBookmark
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**FundCalendarEntriesType** | **string** | The type of the Calendar Entry. The available values are: FinalisedValuationPoint, FundEstimateValuationPoint, FundBookmark | 
 **Code** | **string** | The unique Code of the Calendar Entry. The Calendar Entry, together with the Fund Scope and Code, uniquely identifies a Fund Calendar Entry. | 
-**Variant** | **string** | The Variant of the Calendar Entry. Together with the valuation point code marks the unique branch for the NavType. | [optional] 
 **DisplayName** | **string** | The name of the Fund Calendar entry. | 
 **Description** | **string** | A description for the Fund Calendar entry. | [optional] 
 **NavTypeCode** | **string** | The navTypeCode of the Fund Calendar Entry. This is the code of the NAV type that this Calendar Entry is associated with. | 
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **AsAt** | **DateTimeOffset** | The asAt datetime for the Calendar Entry. | 
 **EntryType** | **string** | The type of the Fund Calendar Entry. The available values are: ValuationPointFundCalendarEntry, BookmarkFundCalendarEntry | 
 **Status** | **string** | The status of the Fund Calendar Entry. Can be &#39;Estimate&#39;, &#39;Unofficial&#39; or &#39;Final&#39;. | [optional] 
-**ApplyClearDown** | **bool** | Set to true if that closed period should have the clear down applied. | 
+**ApplyClearDown** | **bool** | Set to true if that closed period should have the clear down applied. | [optional] 
 **HoldingsAsAtOverride** | **DateTimeOffset?** | The optional AsAt Override to use for building holdings in the Valuation Point. Defaults to Latest. | [optional] 
 **ValuationsAsAtOverride** | **DateTimeOffset?** | The optional AsAt Override to use for performing valuations in the Valuation Point. Defaults to Latest. | [optional] 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | The properties for the Calendar Entry. These will be from the &#39;ClosedPeriod&#39; domain. | [optional] 
@@ -28,7 +28,6 @@ using Lusid.Sdk.Model;
 using System;
 
 string code = "code";
-string variant = "example variant";
 string displayName = "displayName";
 string description = "example description";
 string navTypeCode = "navTypeCode";
@@ -44,9 +43,8 @@ ModelVersion varVersion = new ModelVersion();
 string href = "example href";
 string leaderNavTypeCode = "example leaderNavTypeCode";
 
-FundCalendarEntry fundCalendarEntryInstance = new FundCalendarEntry(
+FundBookmark fundBookmarkInstance = new FundBookmark(
     code: code,
-    variant: variant,
     displayName: displayName,
     description: description,
     navTypeCode: navTypeCode,

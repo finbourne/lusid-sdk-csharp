@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**NavActivityAdjustmentType** | **string** | . The available values are: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity | 
+**NavActivityAdjustmentType** | **string** | . The available values are: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity, QuoteActivity | 
 **AsAt** | **DateTimeOffset** | The asAt time for which the adjustment is being applied. | 
 **Scope** | **string** | The Scope of the given entity | 
 **LusidInstrumentId** | **string** | The LusidInstrumentId of the given entity | 

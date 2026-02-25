@@ -23,35 +23,28 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Discriminator for NavActivityAdjustment
+    /// Defines FundCalendarEntriesType
     /// </summary>
-    /// <value>Discriminator for NavActivityAdjustment</value>
     [JsonConverter(typeof(StringEnumConverter))]
-    public enum NavActivityAdjustmentType
+    public enum FundCalendarEntriesType
     {
         /// <summary>
-        /// Enum PortfolioTransaction for value: PortfolioTransaction
+        /// Enum FinalisedValuationPoint for value: FinalisedValuationPoint
         /// </summary>
-        [EnumMember(Value = "PortfolioTransaction")]
-        PortfolioTransaction = 1,
+        [EnumMember(Value = "FinalisedValuationPoint")]
+        FinalisedValuationPoint = 1,
 
         /// <summary>
-        /// Enum PortfolioSettlementInstruction for value: PortfolioSettlementInstruction
+        /// Enum FundEstimateValuationPoint for value: FundEstimateValuationPoint
         /// </summary>
-        [EnumMember(Value = "PortfolioSettlementInstruction")]
-        PortfolioSettlementInstruction = 2,
+        [EnumMember(Value = "FundEstimateValuationPoint")]
+        FundEstimateValuationPoint = 2,
 
         /// <summary>
-        /// Enum InstrumentActivity for value: InstrumentActivity
+        /// Enum FundBookmark for value: FundBookmark
         /// </summary>
-        [EnumMember(Value = "InstrumentActivity")]
-        InstrumentActivity = 3,
-
-        /// <summary>
-        /// Enum QuoteActivity for value: QuoteActivity
-        /// </summary>
-        [EnumMember(Value = "QuoteActivity")]
-        QuoteActivity = 4
+        [EnumMember(Value = "FundBookmark")]
+        FundBookmark = 3
     }
 
 }

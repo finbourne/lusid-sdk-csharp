@@ -1,11 +1,12 @@
-# Lusid.Sdk.Model.FundCalendarEntry
+# Lusid.Sdk.Model.FinalisedValuationPoint
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Code** | **string** | The unique Code of the Calendar Entry. The Calendar Entry, together with the Fund Scope and Code, uniquely identifies a Fund Calendar Entry. | 
-**Variant** | **string** | The Variant of the Calendar Entry. Together with the valuation point code marks the unique branch for the NavType. | [optional] 
+**FundCalendarEntriesType** | **string** | The type of the Calendar Entry. The available values are: FinalisedValuationPoint, FundEstimateValuationPoint, FundBookmark | 
+**Code** | **string** | The unique code of the Valuation Point. The Valuation Point Code, together with the Fund Scope and Code, uniquely identifies a Valuation Point. | 
+**FinalisedFromVariant** | **string** | The variant of the Estimate Valuation Point that was finalised to create the Finalised Valuation Point. | [optional] 
 **DisplayName** | **string** | The name of the Fund Calendar entry. | 
 **Description** | **string** | A description for the Fund Calendar entry. | [optional] 
 **NavTypeCode** | **string** | The navTypeCode of the Fund Calendar Entry. This is the code of the NAV type that this Calendar Entry is associated with. | 
@@ -13,7 +14,7 @@ Name | Type | Description | Notes
 **PreviousEntry** | [**PreviousFundCalendarEntry**](PreviousFundCalendarEntry.md) |  | [optional] 
 **EffectiveAt** | **DateTimeOffset** | The effective at of the Calendar Entry. | [optional] 
 **AsAt** | **DateTimeOffset** | The asAt datetime for the Calendar Entry. | 
-**EntryType** | **string** | The type of the Fund Calendar Entry. The available values are: ValuationPointFundCalendarEntry, BookmarkFundCalendarEntry | 
+**EntryType** | **string** | The type of the Fund Calendar Entry. The available values are: FinalisedValuationPoint, FundEstimateValuationPoint, FundBookmark | 
 **Status** | **string** | The status of the Fund Calendar Entry. Can be &#39;Estimate&#39;, &#39;Unofficial&#39; or &#39;Final&#39;. | [optional] 
 **ApplyClearDown** | **bool** | Set to true if that closed period should have the clear down applied. | 
 **HoldingsAsAtOverride** | **DateTimeOffset?** | The optional AsAt Override to use for building holdings in the Valuation Point. Defaults to Latest. | [optional] 
@@ -28,7 +29,7 @@ using Lusid.Sdk.Model;
 using System;
 
 string code = "code";
-string variant = "example variant";
+string finalisedFromVariant = "example finalisedFromVariant";
 string displayName = "displayName";
 string description = "example description";
 string navTypeCode = "navTypeCode";
@@ -44,9 +45,9 @@ ModelVersion varVersion = new ModelVersion();
 string href = "example href";
 string leaderNavTypeCode = "example leaderNavTypeCode";
 
-FundCalendarEntry fundCalendarEntryInstance = new FundCalendarEntry(
+FinalisedValuationPoint finalisedValuationPointInstance = new FinalisedValuationPoint(
     code: code,
-    variant: variant,
+    finalisedFromVariant: finalisedFromVariant,
     displayName: displayName,
     description: description,
     navTypeCode: navTypeCode,

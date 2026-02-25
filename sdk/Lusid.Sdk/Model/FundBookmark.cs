@@ -17,16 +17,18 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using JsonSubTypes;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// FundCalendarEntry
+    /// FundBookmark
     /// </summary>
-    [DataContract(Name = "FundCalendarEntry")]
-    public partial class FundCalendarEntry : IEquatable<FundCalendarEntry>, IValidatableObject
+    [DataContract(Name = "FundBookmark")]
+    [JsonConverter(typeof(JsonSubtypes), "FundCalendarEntriesType")]
+    public partial class FundBookmark : FundCalendarEntries, IEquatable<FundBookmark>, IValidatableObject
     {
         /// <summary>
         /// The type of the Fund Calendar Entry. The available values are: ValuationPointFundCalendarEntry, BookmarkFundCalendarEntry
@@ -56,15 +58,14 @@ namespace Lusid.Sdk.Model
         [DataMember(Name = "entryType", IsRequired = true, EmitDefaultValue = true)]
         public EntryTypeEnum EntryType { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="FundCalendarEntry" /> class.
+        /// Initializes a new instance of the <see cref="FundBookmark" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected FundCalendarEntry() { }
+        protected FundBookmark() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="FundCalendarEntry" /> class.
+        /// Initializes a new instance of the <see cref="FundBookmark" /> class.
         /// </summary>
         /// <param name="code">The unique Code of the Calendar Entry. The Calendar Entry, together with the Fund Scope and Code, uniquely identifies a Fund Calendar Entry. (required).</param>
-        /// <param name="variant">The Variant of the Calendar Entry. Together with the valuation point code marks the unique branch for the NavType..</param>
         /// <param name="displayName">The name of the Fund Calendar entry. (required).</param>
         /// <param name="description">A description for the Fund Calendar entry..</param>
         /// <param name="navTypeCode">The navTypeCode of the Fund Calendar Entry. This is the code of the NAV type that this Calendar Entry is associated with. (required).</param>
@@ -74,48 +75,48 @@ namespace Lusid.Sdk.Model
         /// <param name="asAt">The asAt datetime for the Calendar Entry. (required).</param>
         /// <param name="entryType">The type of the Fund Calendar Entry. The available values are: ValuationPointFundCalendarEntry, BookmarkFundCalendarEntry (required).</param>
         /// <param name="status">The status of the Fund Calendar Entry. Can be &#39;Estimate&#39;, &#39;Unofficial&#39; or &#39;Final&#39;..</param>
-        /// <param name="applyClearDown">Set to true if that closed period should have the clear down applied. (required).</param>
+        /// <param name="applyClearDown">Set to true if that closed period should have the clear down applied..</param>
         /// <param name="holdingsAsAtOverride">The optional AsAt Override to use for building holdings in the Valuation Point. Defaults to Latest..</param>
         /// <param name="valuationsAsAtOverride">The optional AsAt Override to use for performing valuations in the Valuation Point. Defaults to Latest..</param>
         /// <param name="properties">The properties for the Calendar Entry. These will be from the &#39;ClosedPeriod&#39; domain..</param>
         /// <param name="varVersion">varVersion (required).</param>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested asAt datetime..</param>
         /// <param name="leaderNavTypeCode">The code of the Nav Type that this Nav Type will follow when set..</param>
-        public FundCalendarEntry(string code = default(string), string variant = default(string), string displayName = default(string), string description = default(string), string navTypeCode = default(string), ResourceId timelineId = default(ResourceId), PreviousFundCalendarEntry previousEntry = default(PreviousFundCalendarEntry), DateTimeOffset effectiveAt = default(DateTimeOffset), DateTimeOffset asAt = default(DateTimeOffset), EntryTypeEnum entryType = default(EntryTypeEnum), string status = default(string), bool applyClearDown = default(bool), DateTimeOffset? holdingsAsAtOverride = default(DateTimeOffset?), DateTimeOffset? valuationsAsAtOverride = default(DateTimeOffset?), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion varVersion = default(ModelVersion), string href = default(string), string leaderNavTypeCode = default(string))
+        /// <param name="fundCalendarEntriesType">The type of the Calendar Entry. The available values are: FinalisedValuationPoint, FundEstimateValuationPoint, FundBookmark (required) (default to &quot;FundBookmark&quot;).</param>
+        public FundBookmark(string code = default(string), string displayName = default(string), string description = default(string), string navTypeCode = default(string), ResourceId timelineId = default(ResourceId), PreviousFundCalendarEntry previousEntry = default(PreviousFundCalendarEntry), DateTimeOffset effectiveAt = default(DateTimeOffset), DateTimeOffset asAt = default(DateTimeOffset), EntryTypeEnum entryType = default(EntryTypeEnum), string status = default(string), bool applyClearDown = default(bool), DateTimeOffset? holdingsAsAtOverride = default(DateTimeOffset?), DateTimeOffset? valuationsAsAtOverride = default(DateTimeOffset?), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion varVersion = default(ModelVersion), string href = default(string), string leaderNavTypeCode = default(string), FundCalendarEntriesTypeEnum fundCalendarEntriesType = default(FundCalendarEntriesTypeEnum)) : base(fundCalendarEntriesType)
         {
             // to ensure "code" is required (not null)
             if (code == null)
             {
-                throw new ArgumentNullException("code is a required property for FundCalendarEntry and cannot be null");
+                throw new ArgumentNullException("code is a required property for FundBookmark and cannot be null");
             }
             this.Code = code;
             // to ensure "displayName" is required (not null)
             if (displayName == null)
             {
-                throw new ArgumentNullException("displayName is a required property for FundCalendarEntry and cannot be null");
+                throw new ArgumentNullException("displayName is a required property for FundBookmark and cannot be null");
             }
             this.DisplayName = displayName;
             // to ensure "navTypeCode" is required (not null)
             if (navTypeCode == null)
             {
-                throw new ArgumentNullException("navTypeCode is a required property for FundCalendarEntry and cannot be null");
+                throw new ArgumentNullException("navTypeCode is a required property for FundBookmark and cannot be null");
             }
             this.NavTypeCode = navTypeCode;
             this.AsAt = asAt;
             this.EntryType = entryType;
-            this.ApplyClearDown = applyClearDown;
             // to ensure "varVersion" is required (not null)
             if (varVersion == null)
             {
-                throw new ArgumentNullException("varVersion is a required property for FundCalendarEntry and cannot be null");
+                throw new ArgumentNullException("varVersion is a required property for FundBookmark and cannot be null");
             }
             this.VarVersion = varVersion;
-            this.Variant = variant;
             this.Description = description;
             this.TimelineId = timelineId;
             this.PreviousEntry = previousEntry;
             this.EffectiveAt = effectiveAt;
             this.Status = status;
+            this.ApplyClearDown = applyClearDown;
             this.HoldingsAsAtOverride = holdingsAsAtOverride;
             this.ValuationsAsAtOverride = valuationsAsAtOverride;
             this.Properties = properties;
@@ -129,13 +130,6 @@ namespace Lusid.Sdk.Model
         /// <value>The unique Code of the Calendar Entry. The Calendar Entry, together with the Fund Scope and Code, uniquely identifies a Fund Calendar Entry.</value>
         [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = true)]
         public string Code { get; set; }
-
-        /// <summary>
-        /// The Variant of the Calendar Entry. Together with the valuation point code marks the unique branch for the NavType.
-        /// </summary>
-        /// <value>The Variant of the Calendar Entry. Together with the valuation point code marks the unique branch for the NavType.</value>
-        [DataMember(Name = "variant", EmitDefaultValue = true)]
-        public string Variant { get; set; }
 
         /// <summary>
         /// The name of the Fund Calendar entry.
@@ -195,7 +189,7 @@ namespace Lusid.Sdk.Model
         /// Set to true if that closed period should have the clear down applied.
         /// </summary>
         /// <value>Set to true if that closed period should have the clear down applied.</value>
-        [DataMember(Name = "applyClearDown", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "applyClearDown", EmitDefaultValue = true)]
         public bool ApplyClearDown { get; set; }
 
         /// <summary>
@@ -246,9 +240,9 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class FundCalendarEntry {\n");
+            sb.Append("class FundBookmark {\n");
+            sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  Code: ").Append(Code).Append("\n");
-            sb.Append("  Variant: ").Append(Variant).Append("\n");
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  NavTypeCode: ").Append(NavTypeCode).Append("\n");
@@ -273,7 +267,7 @@ namespace Lusid.Sdk.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public override string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
@@ -285,105 +279,100 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as FundCalendarEntry);
+            return this.Equals(input as FundBookmark);
         }
 
         /// <summary>
-        /// Returns true if FundCalendarEntry instances are equal
+        /// Returns true if FundBookmark instances are equal
         /// </summary>
-        /// <param name="input">Instance of FundCalendarEntry to be compared</param>
+        /// <param name="input">Instance of FundBookmark to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(FundCalendarEntry input)
+        public bool Equals(FundBookmark input)
         {
             if (input == null)
             {
                 return false;
             }
-            return 
+            return base.Equals(input) && 
                 (
                     this.Code == input.Code ||
                     (this.Code != null &&
                     this.Code.Equals(input.Code))
-                ) && 
-                (
-                    this.Variant == input.Variant ||
-                    (this.Variant != null &&
-                    this.Variant.Equals(input.Variant))
-                ) && 
+                ) && base.Equals(input) && 
                 (
                     this.DisplayName == input.DisplayName ||
                     (this.DisplayName != null &&
                     this.DisplayName.Equals(input.DisplayName))
-                ) && 
+                ) && base.Equals(input) && 
                 (
                     this.Description == input.Description ||
                     (this.Description != null &&
                     this.Description.Equals(input.Description))
-                ) && 
+                ) && base.Equals(input) && 
                 (
                     this.NavTypeCode == input.NavTypeCode ||
                     (this.NavTypeCode != null &&
                     this.NavTypeCode.Equals(input.NavTypeCode))
-                ) && 
+                ) && base.Equals(input) && 
                 (
                     this.TimelineId == input.TimelineId ||
                     (this.TimelineId != null &&
                     this.TimelineId.Equals(input.TimelineId))
-                ) && 
+                ) && base.Equals(input) && 
                 (
                     this.PreviousEntry == input.PreviousEntry ||
                     (this.PreviousEntry != null &&
                     this.PreviousEntry.Equals(input.PreviousEntry))
-                ) && 
+                ) && base.Equals(input) && 
                 (
                     this.EffectiveAt == input.EffectiveAt ||
                     (this.EffectiveAt != null &&
                     this.EffectiveAt.Equals(input.EffectiveAt))
-                ) && 
+                ) && base.Equals(input) && 
                 (
                     this.AsAt == input.AsAt ||
                     (this.AsAt != null &&
                     this.AsAt.Equals(input.AsAt))
-                ) && 
+                ) && base.Equals(input) && 
                 (
                     this.EntryType == input.EntryType ||
                     this.EntryType.Equals(input.EntryType)
-                ) && 
+                ) && base.Equals(input) && 
                 (
                     this.Status == input.Status ||
                     (this.Status != null &&
                     this.Status.Equals(input.Status))
-                ) && 
+                ) && base.Equals(input) && 
                 (
                     this.ApplyClearDown == input.ApplyClearDown ||
                     this.ApplyClearDown.Equals(input.ApplyClearDown)
-                ) && 
+                ) && base.Equals(input) && 
                 (
                     this.HoldingsAsAtOverride == input.HoldingsAsAtOverride ||
                     (this.HoldingsAsAtOverride != null &&
                     this.HoldingsAsAtOverride.Equals(input.HoldingsAsAtOverride))
-                ) && 
+                ) && base.Equals(input) && 
                 (
                     this.ValuationsAsAtOverride == input.ValuationsAsAtOverride ||
                     (this.ValuationsAsAtOverride != null &&
                     this.ValuationsAsAtOverride.Equals(input.ValuationsAsAtOverride))
-                ) && 
+                ) && base.Equals(input) && 
                 (
                     this.Properties == input.Properties ||
                     this.Properties != null &&
                     input.Properties != null &&
                     this.Properties.SequenceEqual(input.Properties)
-                ) && 
+                ) && base.Equals(input) && 
                 (
                     this.VarVersion == input.VarVersion ||
                     (this.VarVersion != null &&
                     this.VarVersion.Equals(input.VarVersion))
-                ) && 
+                ) && base.Equals(input) && 
                 (
                     this.Href == input.Href ||
                     (this.Href != null &&
                     this.Href.Equals(input.Href))
-                ) && 
+                ) && base.Equals(input) && 
                 (
                     this.LeaderNavTypeCode == input.LeaderNavTypeCode ||
                     (this.LeaderNavTypeCode != null &&
@@ -399,14 +388,10 @@ namespace Lusid.Sdk.Model
         {
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hashCode = base.GetHashCode();
                 if (this.Code != null)
                 {
                     hashCode = (hashCode * 59) + this.Code.GetHashCode();
-                }
-                if (this.Variant != null)
-                {
-                    hashCode = (hashCode * 59) + this.Variant.GetHashCode();
                 }
                 if (this.DisplayName != null)
                 {
@@ -477,6 +462,20 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            return this.BaseValidate(validationContext);
+        }
+
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        protected IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> BaseValidate(ValidationContext validationContext)
+        {
+            foreach (var x in base.BaseValidate(validationContext))
+            {
+                yield return x;
+            }
             // Code (string) minLength
             if (this.Code != null && this.Code.Length < 1)
             {

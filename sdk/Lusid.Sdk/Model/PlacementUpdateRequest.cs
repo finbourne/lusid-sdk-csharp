@@ -39,10 +39,13 @@ namespace Lusid.Sdk.Model
         /// <param name="id">id (required).</param>
         /// <param name="quantity">The quantity of given instrument ordered..</param>
         /// <param name="properties">Client-defined properties associated with this placement..</param>
+        /// <param name="type">The type of this placement (Market, Limit, etc)..</param>
+        /// <param name="limitPrice">The optional price, as currency and amount, associated with this placement..</param>
+        /// <param name="stopPrice">The optional price, as currency and amount, associated with this placement..</param>
         /// <param name="counterparty">Optionally specifies the market entity this placement is placed with..</param>
         /// <param name="executionSystem">Optionally specifies the execution system in use..</param>
         /// <param name="entryType">Optionally specifies the entry type of this placement..</param>
-        public PlacementUpdateRequest(ResourceId id = default(ResourceId), decimal? quantity = default(decimal?), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string counterparty = default(string), string executionSystem = default(string), string entryType = default(string))
+        public PlacementUpdateRequest(ResourceId id = default(ResourceId), decimal? quantity = default(decimal?), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string type = default(string), decimal? limitPrice = default(decimal?), decimal? stopPrice = default(decimal?), string counterparty = default(string), string executionSystem = default(string), string entryType = default(string))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -52,6 +55,9 @@ namespace Lusid.Sdk.Model
             this.Id = id;
             this.Quantity = quantity;
             this.Properties = properties;
+            this.Type = type;
+            this.LimitPrice = limitPrice;
+            this.StopPrice = stopPrice;
             this.Counterparty = counterparty;
             this.ExecutionSystem = executionSystem;
             this.EntryType = entryType;
@@ -76,6 +82,27 @@ namespace Lusid.Sdk.Model
         /// <value>Client-defined properties associated with this placement.</value>
         [DataMember(Name = "properties", EmitDefaultValue = true)]
         public Dictionary<string, PerpetualProperty> Properties { get; set; }
+
+        /// <summary>
+        /// The type of this placement (Market, Limit, etc).
+        /// </summary>
+        /// <value>The type of this placement (Market, Limit, etc).</value>
+        [DataMember(Name = "type", EmitDefaultValue = true)]
+        public string Type { get; set; }
+
+        /// <summary>
+        /// The optional price, as currency and amount, associated with this placement.
+        /// </summary>
+        /// <value>The optional price, as currency and amount, associated with this placement.</value>
+        [DataMember(Name = "limitPrice", EmitDefaultValue = true)]
+        public decimal? LimitPrice { get; set; }
+
+        /// <summary>
+        /// The optional price, as currency and amount, associated with this placement.
+        /// </summary>
+        /// <value>The optional price, as currency and amount, associated with this placement.</value>
+        [DataMember(Name = "stopPrice", EmitDefaultValue = true)]
+        public decimal? StopPrice { get; set; }
 
         /// <summary>
         /// Optionally specifies the market entity this placement is placed with.
@@ -109,6 +136,9 @@ namespace Lusid.Sdk.Model
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Quantity: ").Append(Quantity).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  LimitPrice: ").Append(LimitPrice).Append("\n");
+            sb.Append("  StopPrice: ").Append(StopPrice).Append("\n");
             sb.Append("  Counterparty: ").Append(Counterparty).Append("\n");
             sb.Append("  ExecutionSystem: ").Append(ExecutionSystem).Append("\n");
             sb.Append("  EntryType: ").Append(EntryType).Append("\n");
@@ -164,6 +194,21 @@ namespace Lusid.Sdk.Model
                     this.Properties.SequenceEqual(input.Properties)
                 ) && 
                 (
+                    this.Type == input.Type ||
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
+                ) && 
+                (
+                    this.LimitPrice == input.LimitPrice ||
+                    (this.LimitPrice != null &&
+                    this.LimitPrice.Equals(input.LimitPrice))
+                ) && 
+                (
+                    this.StopPrice == input.StopPrice ||
+                    (this.StopPrice != null &&
+                    this.StopPrice.Equals(input.StopPrice))
+                ) && 
+                (
                     this.Counterparty == input.Counterparty ||
                     (this.Counterparty != null &&
                     this.Counterparty.Equals(input.Counterparty))
@@ -201,6 +246,18 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Properties.GetHashCode();
                 }
+                if (this.Type != null)
+                {
+                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                }
+                if (this.LimitPrice != null)
+                {
+                    hashCode = (hashCode * 59) + this.LimitPrice.GetHashCode();
+                }
+                if (this.StopPrice != null)
+                {
+                    hashCode = (hashCode * 59) + this.StopPrice.GetHashCode();
+                }
                 if (this.Counterparty != null)
                 {
                     hashCode = (hashCode * 59) + this.Counterparty.GetHashCode();
@@ -224,6 +281,18 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Type (string) maxLength
+            if (this.Type != null && this.Type.Length > 256)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Type, length must be less than 256.", new [] { "Type" });
+            }
+
+            // Type (string) minLength
+            if (this.Type != null && this.Type.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Type, length must be greater than 1.", new [] { "Type" });
+            }
+
             // ExecutionSystem (string) maxLength
             if (this.ExecutionSystem != null && this.ExecutionSystem.Length > 256)
             {

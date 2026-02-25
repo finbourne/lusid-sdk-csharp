@@ -8,6 +8,9 @@ Name | Type | Description | Notes
 **Id** | [**ResourceId**](ResourceId.md) |  | 
 **Quantity** | **decimal?** | The quantity of given instrument ordered. | [optional] 
 **Properties** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) | Client-defined properties associated with this placement. | [optional] 
+**Type** | **string** | The type of this placement (Market, Limit, etc). | [optional] 
+**LimitPrice** | **decimal?** | The optional price, as currency and amount, associated with this placement. | [optional] 
+**StopPrice** | **decimal?** | The optional price, as currency and amount, associated with this placement. | [optional] 
 **Counterparty** | **string** | Optionally specifies the market entity this placement is placed with. | [optional] 
 **ExecutionSystem** | **string** | Optionally specifies the execution system in use. | [optional] 
 **EntryType** | **string** | Optionally specifies the entry type of this placement. | [optional] 
@@ -18,6 +21,7 @@ using System;
 
 ResourceId id = new ResourceId();
 Dictionary<string, PerpetualProperty> properties = new Dictionary<string, PerpetualProperty>();
+string type = "example type";
 string counterparty = "example counterparty";
 string executionSystem = "example executionSystem";
 string entryType = "example entryType";
@@ -26,6 +30,9 @@ PlacementUpdateRequest placementUpdateRequestInstance = new PlacementUpdateReque
     id: id,
     quantity: quantity,
     properties: properties,
+    type: type,
+    limitPrice: limitPrice,
+    stopPrice: stopPrice,
     counterparty: counterparty,
     executionSystem: executionSystem,
     entryType: entryType);

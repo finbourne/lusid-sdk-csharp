@@ -24,67 +24,60 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// NavActivityAdjustment
+    /// FundCalendarEntries
     /// </summary>
-    [DataContract(Name = "NavActivityAdjustment")]
-    [JsonConverter(typeof(JsonSubtypes), "NavActivityAdjustmentType")]
-    [JsonSubtypes.KnownSubType(typeof(InstrumentActivity), "InstrumentActivity")]
-    [JsonSubtypes.KnownSubType(typeof(PortfolioSettlementInstruction), "PortfolioSettlementInstruction")]
-    [JsonSubtypes.KnownSubType(typeof(PortfolioTransaction), "PortfolioTransaction")]
-    [JsonSubtypes.KnownSubType(typeof(QuoteActivity), "QuoteActivity")]
-    public partial class NavActivityAdjustment : IEquatable<NavActivityAdjustment>, IValidatableObject
+    [DataContract(Name = "FundCalendarEntries")]
+    [JsonConverter(typeof(JsonSubtypes), "FundCalendarEntriesType")]
+    [JsonSubtypes.KnownSubType(typeof(FinalisedValuationPoint), "FinalisedValuationPoint")]
+    [JsonSubtypes.KnownSubType(typeof(FundBookmark), "FundBookmark")]
+    [JsonSubtypes.KnownSubType(typeof(FundEstimateValuationPoint), "FundEstimateValuationPoint")]
+    public partial class FundCalendarEntries : IEquatable<FundCalendarEntries>, IValidatableObject
     {
         /// <summary>
-        /// . The available values are: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity, QuoteActivity
+        /// The type of the Calendar Entry. The available values are: FinalisedValuationPoint, FundEstimateValuationPoint, FundBookmark
         /// </summary>
-        /// <value>. The available values are: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity, QuoteActivity</value>
+        /// <value>The type of the Calendar Entry. The available values are: FinalisedValuationPoint, FundEstimateValuationPoint, FundBookmark</value>
         [JsonConverter(typeof(StringEnumConverter))]
-        public enum NavActivityAdjustmentTypeEnum
+        public enum FundCalendarEntriesTypeEnum
         {
             /// <summary>
-            /// Enum PortfolioTransaction for value: PortfolioTransaction
+            /// Enum FinalisedValuationPoint for value: FinalisedValuationPoint
             /// </summary>
-            [EnumMember(Value = "PortfolioTransaction")]
-            PortfolioTransaction = 1,
+            [EnumMember(Value = "FinalisedValuationPoint")]
+            FinalisedValuationPoint = 1,
 
             /// <summary>
-            /// Enum PortfolioSettlementInstruction for value: PortfolioSettlementInstruction
+            /// Enum FundEstimateValuationPoint for value: FundEstimateValuationPoint
             /// </summary>
-            [EnumMember(Value = "PortfolioSettlementInstruction")]
-            PortfolioSettlementInstruction = 2,
+            [EnumMember(Value = "FundEstimateValuationPoint")]
+            FundEstimateValuationPoint = 2,
 
             /// <summary>
-            /// Enum InstrumentActivity for value: InstrumentActivity
+            /// Enum FundBookmark for value: FundBookmark
             /// </summary>
-            [EnumMember(Value = "InstrumentActivity")]
-            InstrumentActivity = 3,
-
-            /// <summary>
-            /// Enum QuoteActivity for value: QuoteActivity
-            /// </summary>
-            [EnumMember(Value = "QuoteActivity")]
-            QuoteActivity = 4
+            [EnumMember(Value = "FundBookmark")]
+            FundBookmark = 3
         }
 
 
         /// <summary>
-        /// . The available values are: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity, QuoteActivity
+        /// The type of the Calendar Entry. The available values are: FinalisedValuationPoint, FundEstimateValuationPoint, FundBookmark
         /// </summary>
-        /// <value>. The available values are: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity, QuoteActivity</value>
-        [DataMember(Name = "navActivityAdjustmentType", IsRequired = true, EmitDefaultValue = true)]
-        public NavActivityAdjustmentTypeEnum NavActivityAdjustmentType { get; set; }
+        /// <value>The type of the Calendar Entry. The available values are: FinalisedValuationPoint, FundEstimateValuationPoint, FundBookmark</value>
+        [DataMember(Name = "fundCalendarEntriesType", IsRequired = true, EmitDefaultValue = true)]
+        public FundCalendarEntriesTypeEnum FundCalendarEntriesType { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="NavActivityAdjustment" /> class.
+        /// Initializes a new instance of the <see cref="FundCalendarEntries" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected NavActivityAdjustment() { }
+        protected FundCalendarEntries() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="NavActivityAdjustment" /> class.
+        /// Initializes a new instance of the <see cref="FundCalendarEntries" /> class.
         /// </summary>
-        /// <param name="navActivityAdjustmentType">. The available values are: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity, QuoteActivity (required).</param>
-        public NavActivityAdjustment(NavActivityAdjustmentTypeEnum navActivityAdjustmentType = default(NavActivityAdjustmentTypeEnum))
+        /// <param name="fundCalendarEntriesType">The type of the Calendar Entry. The available values are: FinalisedValuationPoint, FundEstimateValuationPoint, FundBookmark (required).</param>
+        public FundCalendarEntries(FundCalendarEntriesTypeEnum fundCalendarEntriesType = default(FundCalendarEntriesTypeEnum))
         {
-            this.NavActivityAdjustmentType = navActivityAdjustmentType;
+            this.FundCalendarEntriesType = fundCalendarEntriesType;
         }
 
         /// <summary>
@@ -94,8 +87,8 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class NavActivityAdjustment {\n");
-            sb.Append("  NavActivityAdjustmentType: ").Append(NavActivityAdjustmentType).Append("\n");
+            sb.Append("class FundCalendarEntries {\n");
+            sb.Append("  FundCalendarEntriesType: ").Append(FundCalendarEntriesType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -116,15 +109,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as NavActivityAdjustment);
+            return this.Equals(input as FundCalendarEntries);
         }
 
         /// <summary>
-        /// Returns true if NavActivityAdjustment instances are equal
+        /// Returns true if FundCalendarEntries instances are equal
         /// </summary>
-        /// <param name="input">Instance of NavActivityAdjustment to be compared</param>
+        /// <param name="input">Instance of FundCalendarEntries to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(NavActivityAdjustment input)
+        public bool Equals(FundCalendarEntries input)
         {
             if (input == null)
             {
@@ -132,8 +125,8 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
-                    this.NavActivityAdjustmentType == input.NavActivityAdjustmentType ||
-                    this.NavActivityAdjustmentType.Equals(input.NavActivityAdjustmentType)
+                    this.FundCalendarEntriesType == input.FundCalendarEntriesType ||
+                    this.FundCalendarEntriesType.Equals(input.FundCalendarEntriesType)
                 );
         }
 
@@ -146,7 +139,7 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.NavActivityAdjustmentType.GetHashCode();
+                hashCode = (hashCode * 59) + this.FundCalendarEntriesType.GetHashCode();
                 return hashCode;
             }
         }
