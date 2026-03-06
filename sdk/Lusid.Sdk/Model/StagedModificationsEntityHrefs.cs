@@ -34,12 +34,14 @@ namespace Lusid.Sdk.Model
         /// <param name="whenStaged">The specific Uniform Resource Identifier (URI) for the staged modification change at the time when the change was requested..</param>
         /// <param name="preview">The specific Uniform Resource Identifier (URI) for the preview of staged modification change once applied..</param>
         /// <param name="latest">The specific Uniform Resource Identifier (URI) for the staged modification at latest time..</param>
+        /// <param name="whenClosed">The specific Uniform Resource Identifier (URI) for the staged modification after it has been applied..</param>
         /// <param name="links">links.</param>
-        public StagedModificationsEntityHrefs(string whenStaged = default(string), string preview = default(string), string latest = default(string), List<Link> links = default(List<Link>))
+        public StagedModificationsEntityHrefs(string whenStaged = default(string), string preview = default(string), string latest = default(string), string whenClosed = default(string), List<Link> links = default(List<Link>))
         {
             this.WhenStaged = whenStaged;
             this.Preview = preview;
             this.Latest = latest;
+            this.WhenClosed = whenClosed;
             this.Links = links;
         }
 
@@ -65,6 +67,13 @@ namespace Lusid.Sdk.Model
         public string Latest { get; set; }
 
         /// <summary>
+        /// The specific Uniform Resource Identifier (URI) for the staged modification after it has been applied.
+        /// </summary>
+        /// <value>The specific Uniform Resource Identifier (URI) for the staged modification after it has been applied.</value>
+        [DataMember(Name = "whenClosed", EmitDefaultValue = true)]
+        public string WhenClosed { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -81,6 +90,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  WhenStaged: ").Append(WhenStaged).Append("\n");
             sb.Append("  Preview: ").Append(Preview).Append("\n");
             sb.Append("  Latest: ").Append(Latest).Append("\n");
+            sb.Append("  WhenClosed: ").Append(WhenClosed).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -133,6 +143,11 @@ namespace Lusid.Sdk.Model
                     this.Latest.Equals(input.Latest))
                 ) && 
                 (
+                    this.WhenClosed == input.WhenClosed ||
+                    (this.WhenClosed != null &&
+                    this.WhenClosed.Equals(input.WhenClosed))
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -160,6 +175,10 @@ namespace Lusid.Sdk.Model
                 if (this.Latest != null)
                 {
                     hashCode = (hashCode * 59) + this.Latest.GetHashCode();
+                }
+                if (this.WhenClosed != null)
+                {
+                    hashCode = (hashCode * 59) + this.WhenClosed.GetHashCode();
                 }
                 if (this.Links != null)
                 {

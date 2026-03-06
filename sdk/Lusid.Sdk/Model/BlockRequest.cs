@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// A request to create or update an Order.
+    /// A request to create or update a Block.
     /// </summary>
     [DataContract(Name = "BlockRequest")]
     public partial class BlockRequest : IEquatable<BlockRequest>, IValidatableObject
@@ -37,7 +37,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="BlockRequest" /> class.
         /// </summary>
         /// <param name="id">id (required).</param>
-        /// <param name="orderIds">The related order ids. (required).</param>
+        /// <param name="orderIds">The related order ids..</param>
         /// <param name="properties">Client-defined properties associated with this block..</param>
         /// <param name="instrumentIdentifiers">The instrument ordered. (required).</param>
         /// <param name="quantity">The total quantity of given instrument ordered. (required).</param>
@@ -56,12 +56,6 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("id is a required property for BlockRequest and cannot be null");
             }
             this.Id = id;
-            // to ensure "orderIds" is required (not null)
-            if (orderIds == null)
-            {
-                throw new ArgumentNullException("orderIds is a required property for BlockRequest and cannot be null");
-            }
-            this.OrderIds = orderIds;
             // to ensure "instrumentIdentifiers" is required (not null)
             if (instrumentIdentifiers == null)
             {
@@ -88,6 +82,7 @@ namespace Lusid.Sdk.Model
             }
             this.TimeInForce = timeInForce;
             this.CreatedDate = createdDate;
+            this.OrderIds = orderIds;
             this.Properties = properties;
             this.LimitPrice = limitPrice;
             this.StopPrice = stopPrice;
@@ -104,7 +99,7 @@ namespace Lusid.Sdk.Model
         /// The related order ids.
         /// </summary>
         /// <value>The related order ids.</value>
-        [DataMember(Name = "orderIds", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "orderIds", EmitDefaultValue = true)]
         public List<ResourceId> OrderIds { get; set; }
 
         /// <summary>

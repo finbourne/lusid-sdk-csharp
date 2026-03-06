@@ -1,12 +1,12 @@
 # Lusid.Sdk.Model.BlockRequest
-A request to create or update an Order.
+A request to create or update a Block.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | [**ResourceId**](ResourceId.md) |  | 
-**OrderIds** | [**List&lt;ResourceId&gt;**](ResourceId.md) | The related order ids. | 
+**OrderIds** | [**List&lt;ResourceId&gt;**](ResourceId.md) | The related order ids. | [optional] 
 **Properties** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) | Client-defined properties associated with this block. | [optional] 
 **InstrumentIdentifiers** | **Dictionary&lt;string, string&gt;** | The instrument ordered. | 
 **Quantity** | **decimal** | The total quantity of given instrument ordered. | 

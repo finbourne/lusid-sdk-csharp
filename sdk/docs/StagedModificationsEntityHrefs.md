@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **WhenStaged** | **string** | The specific Uniform Resource Identifier (URI) for the staged modification change at the time when the change was requested. | [optional] 
 **Preview** | **string** | The specific Uniform Resource Identifier (URI) for the preview of staged modification change once applied. | [optional] 
 **Latest** | **string** | The specific Uniform Resource Identifier (URI) for the staged modification at latest time. | [optional] 
+**WhenClosed** | **string** | The specific Uniform Resource Identifier (URI) for the staged modification after it has been applied. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -16,12 +17,14 @@ using System;
 string whenStaged = "example whenStaged";
 string preview = "example preview";
 string latest = "example latest";
+string whenClosed = "example whenClosed";
 List<Link> links = new List<Link>();
 
 StagedModificationsEntityHrefs stagedModificationsEntityHrefsInstance = new StagedModificationsEntityHrefs(
     whenStaged: whenStaged,
     preview: preview,
     latest: latest,
+    whenClosed: whenClosed,
     links: links);
 ```
 
