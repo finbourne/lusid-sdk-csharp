@@ -63,6 +63,78 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
         Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteInvestmentAccountWithHttpInfo(string identifierType, string identifierValue, string scope, string identifierScope, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EXPERIMENTAL] DeleteInvestmentAccountAccessMetadata: Delete an Investment Account Access Metadata entry.
+        /// </summary>
+        /// <remarks>
+        /// Deletes the Investment Account Access Metadata entry that exactly matches the provided identifier parts.                It is important to always check to verify success (or failure).
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifierType">Code of the investment account identifier type.</param>
+        /// <param name="identifierValue">Code of the investment account under specified identifier type&#39;s scope and code.</param>
+        /// <param name="metadataKey">Key of the metadata entry to delete</param>
+        /// <param name="scope">The scope of the investment account entity.</param>
+        /// <param name="identifierScope">Scope of the investment account identifier type.</param>
+        /// <param name="effectiveAt">The effective date to delete at, if this is not supplied, it will delete all data found (optional)</param>
+        /// <param name="effectiveUntil">The effective date until which the delete is valid. If not supplied this will be valid indefinitely, or until the next &#39;effectiveAt&#39; date of the Access Metadata (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>DeletedEntityResponse</returns>
+        DeletedEntityResponse DeleteInvestmentAccountAccessMetadata(string identifierType, string identifierValue, string metadataKey, string scope, string identifierScope, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? effectiveUntil = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] DeleteInvestmentAccountAccessMetadata: Delete an Investment Account Access Metadata entry.
+        /// </summary>
+        /// <remarks>
+        /// Deletes the Investment Account Access Metadata entry that exactly matches the provided identifier parts.                It is important to always check to verify success (or failure).
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifierType">Code of the investment account identifier type.</param>
+        /// <param name="identifierValue">Code of the investment account under specified identifier type&#39;s scope and code.</param>
+        /// <param name="metadataKey">Key of the metadata entry to delete</param>
+        /// <param name="scope">The scope of the investment account entity.</param>
+        /// <param name="identifierScope">Scope of the investment account identifier type.</param>
+        /// <param name="effectiveAt">The effective date to delete at, if this is not supplied, it will delete all data found (optional)</param>
+        /// <param name="effectiveUntil">The effective date until which the delete is valid. If not supplied this will be valid indefinitely, or until the next &#39;effectiveAt&#39; date of the Access Metadata (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of DeletedEntityResponse</returns>
+        Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteInvestmentAccountAccessMetadataWithHttpInfo(string identifierType, string identifierValue, string metadataKey, string scope, string identifierScope, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? effectiveUntil = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] GetAllInvestmentAccountAccessMetadata: Get Access Metadata rules for an Investment Account.
+        /// </summary>
+        /// <remarks>
+        /// Pass the Scope and Code of the Investment Account identifier along with the identifier value parameter to retrieve the associated Access Metadata.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifierType">Code of the investment account identifier type.</param>
+        /// <param name="identifierValue">Code of the investment account under specified identifier type&#39;s scope and code.</param>
+        /// <param name="scope">The scope of the investment account entity.</param>
+        /// <param name="identifierScope">Scope of the investment account identifier type.</param>
+        /// <param name="effectiveAt">The effectiveAt datetime at which to retrieve the Access Metadata (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Access Metadata (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Dictionary&lt;string, List&lt;AccessMetadataValue&gt;&gt;</returns>
+        Dictionary<string, List<AccessMetadataValue>> GetAllInvestmentAccountAccessMetadata(string identifierType, string identifierValue, string scope, string identifierScope, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetAllInvestmentAccountAccessMetadata: Get Access Metadata rules for an Investment Account.
+        /// </summary>
+        /// <remarks>
+        /// Pass the Scope and Code of the Investment Account identifier along with the identifier value parameter to retrieve the associated Access Metadata.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifierType">Code of the investment account identifier type.</param>
+        /// <param name="identifierValue">Code of the investment account under specified identifier type&#39;s scope and code.</param>
+        /// <param name="scope">The scope of the investment account entity.</param>
+        /// <param name="identifierScope">Scope of the investment account identifier type.</param>
+        /// <param name="effectiveAt">The effectiveAt datetime at which to retrieve the Access Metadata (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Access Metadata (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of Dictionary&lt;string, List&lt;AccessMetadataValue&gt;&gt;</returns>
+        Lusid.Sdk.Client.ApiResponse<Dictionary<string, List<AccessMetadataValue>>> GetAllInvestmentAccountAccessMetadataWithHttpInfo(string identifierType, string identifierValue, string scope, string identifierScope, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EXPERIMENTAL] GetInvestmentAccount: Get Investment Account
         /// </summary>
         /// <remarks>
@@ -180,6 +252,43 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ResourceListOfInvestmentAccount</returns>
         Lusid.Sdk.Client.ApiResponse<ResourceListOfInvestmentAccount> ListAllInvestmentAccountsWithHttpInfo(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EXPERIMENTAL] PatchInvestmentAccountAccessMetadata: Patch Access Metadata rules for an Investment Account.
+        /// </summary>
+        /// <remarks>
+        /// Patch Investment Account Access Metadata Rules in a single scope.  The behaviour is defined by the JSON Patch specification.                Currently only &#39;add&#39; is a supported operation on the patch document                Currently only valid metadata keys are supported paths on the patch document                The response will return any affected Investment Account Access Metadata rules or a failure message if unsuccessful.                It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifierType">Code of the investment account identifier type.</param>
+        /// <param name="identifierValue">Code of the investment account under specified identifier type&#39;s scope and code.</param>
+        /// <param name="scope">The scope of the investment account entity.</param>
+        /// <param name="identifierScope">Scope of the investment account identifier type.</param>
+        /// <param name="accessMetadataOperation">The Json Patch document</param>
+        /// <param name="effectiveAt">The effectiveAt datetime at which to upsert the Access Metadata (optional)</param>
+        /// <param name="effectiveUntil">The effective datetime until which the Access Metadata is valid. If not supplied this will be valid indefinitely, or until the next &#39;effectiveAt&#39; datetime of the Access Metadata (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Dictionary&lt;string, List&lt;AccessMetadataValue&gt;&gt;</returns>
+        Dictionary<string, List<AccessMetadataValue>> PatchInvestmentAccountAccessMetadata(string identifierType, string identifierValue, string scope, string identifierScope, List<AccessMetadataOperation> accessMetadataOperation, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? effectiveUntil = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] PatchInvestmentAccountAccessMetadata: Patch Access Metadata rules for an Investment Account.
+        /// </summary>
+        /// <remarks>
+        /// Patch Investment Account Access Metadata Rules in a single scope.  The behaviour is defined by the JSON Patch specification.                Currently only &#39;add&#39; is a supported operation on the patch document                Currently only valid metadata keys are supported paths on the patch document                The response will return any affected Investment Account Access Metadata rules or a failure message if unsuccessful.                It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifierType">Code of the investment account identifier type.</param>
+        /// <param name="identifierValue">Code of the investment account under specified identifier type&#39;s scope and code.</param>
+        /// <param name="scope">The scope of the investment account entity.</param>
+        /// <param name="identifierScope">Scope of the investment account identifier type.</param>
+        /// <param name="accessMetadataOperation">The Json Patch document</param>
+        /// <param name="effectiveAt">The effectiveAt datetime at which to upsert the Access Metadata (optional)</param>
+        /// <param name="effectiveUntil">The effective datetime until which the Access Metadata is valid. If not supplied this will be valid indefinitely, or until the next &#39;effectiveAt&#39; datetime of the Access Metadata (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of Dictionary&lt;string, List&lt;AccessMetadataValue&gt;&gt;</returns>
+        Lusid.Sdk.Client.ApiResponse<Dictionary<string, List<AccessMetadataValue>>> PatchInvestmentAccountAccessMetadataWithHttpInfo(string identifierType, string identifierValue, string scope, string identifierScope, List<AccessMetadataOperation> accessMetadataOperation, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? effectiveUntil = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EXPERIMENTAL] UpsertInvestmentAccounts: Upsert Investment Accounts
         /// </summary>
         /// <remarks>
@@ -248,6 +357,82 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteInvestmentAccountWithHttpInfoAsync(string identifierType, string identifierValue, string scope, string identifierScope, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] DeleteInvestmentAccountAccessMetadata: Delete an Investment Account Access Metadata entry.
+        /// </summary>
+        /// <remarks>
+        /// Deletes the Investment Account Access Metadata entry that exactly matches the provided identifier parts.                It is important to always check to verify success (or failure).
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifierType">Code of the investment account identifier type.</param>
+        /// <param name="identifierValue">Code of the investment account under specified identifier type&#39;s scope and code.</param>
+        /// <param name="metadataKey">Key of the metadata entry to delete</param>
+        /// <param name="scope">The scope of the investment account entity.</param>
+        /// <param name="identifierScope">Scope of the investment account identifier type.</param>
+        /// <param name="effectiveAt">The effective date to delete at, if this is not supplied, it will delete all data found (optional)</param>
+        /// <param name="effectiveUntil">The effective date until which the delete is valid. If not supplied this will be valid indefinitely, or until the next &#39;effectiveAt&#39; date of the Access Metadata (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of DeletedEntityResponse</returns>
+        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteInvestmentAccountAccessMetadataAsync(string identifierType, string identifierValue, string metadataKey, string scope, string identifierScope, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? effectiveUntil = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] DeleteInvestmentAccountAccessMetadata: Delete an Investment Account Access Metadata entry.
+        /// </summary>
+        /// <remarks>
+        /// Deletes the Investment Account Access Metadata entry that exactly matches the provided identifier parts.                It is important to always check to verify success (or failure).
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifierType">Code of the investment account identifier type.</param>
+        /// <param name="identifierValue">Code of the investment account under specified identifier type&#39;s scope and code.</param>
+        /// <param name="metadataKey">Key of the metadata entry to delete</param>
+        /// <param name="scope">The scope of the investment account entity.</param>
+        /// <param name="identifierScope">Scope of the investment account identifier type.</param>
+        /// <param name="effectiveAt">The effective date to delete at, if this is not supplied, it will delete all data found (optional)</param>
+        /// <param name="effectiveUntil">The effective date until which the delete is valid. If not supplied this will be valid indefinitely, or until the next &#39;effectiveAt&#39; date of the Access Metadata (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteInvestmentAccountAccessMetadataWithHttpInfoAsync(string identifierType, string identifierValue, string metadataKey, string scope, string identifierScope, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? effectiveUntil = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] GetAllInvestmentAccountAccessMetadata: Get Access Metadata rules for an Investment Account.
+        /// </summary>
+        /// <remarks>
+        /// Pass the Scope and Code of the Investment Account identifier along with the identifier value parameter to retrieve the associated Access Metadata.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifierType">Code of the investment account identifier type.</param>
+        /// <param name="identifierValue">Code of the investment account under specified identifier type&#39;s scope and code.</param>
+        /// <param name="scope">The scope of the investment account entity.</param>
+        /// <param name="identifierScope">Scope of the investment account identifier type.</param>
+        /// <param name="effectiveAt">The effectiveAt datetime at which to retrieve the Access Metadata (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Access Metadata (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of Dictionary&lt;string, List&lt;AccessMetadataValue&gt;&gt;</returns>
+        System.Threading.Tasks.Task<Dictionary<string, List<AccessMetadataValue>>> GetAllInvestmentAccountAccessMetadataAsync(string identifierType, string identifierValue, string scope, string identifierScope, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetAllInvestmentAccountAccessMetadata: Get Access Metadata rules for an Investment Account.
+        /// </summary>
+        /// <remarks>
+        /// Pass the Scope and Code of the Investment Account identifier along with the identifier value parameter to retrieve the associated Access Metadata.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifierType">Code of the investment account identifier type.</param>
+        /// <param name="identifierValue">Code of the investment account under specified identifier type&#39;s scope and code.</param>
+        /// <param name="scope">The scope of the investment account entity.</param>
+        /// <param name="identifierScope">Scope of the investment account identifier type.</param>
+        /// <param name="effectiveAt">The effectiveAt datetime at which to retrieve the Access Metadata (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Access Metadata (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (Dictionary&lt;string, List&lt;AccessMetadataValue&gt;&gt;)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Dictionary<string, List<AccessMetadataValue>>>> GetAllInvestmentAccountAccessMetadataWithHttpInfoAsync(string identifierType, string identifierValue, string scope, string identifierScope, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetInvestmentAccount: Get Investment Account
         /// </summary>
@@ -371,6 +556,45 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfInvestmentAccount)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfInvestmentAccount>> ListAllInvestmentAccountsWithHttpInfoAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] PatchInvestmentAccountAccessMetadata: Patch Access Metadata rules for an Investment Account.
+        /// </summary>
+        /// <remarks>
+        /// Patch Investment Account Access Metadata Rules in a single scope.  The behaviour is defined by the JSON Patch specification.                Currently only &#39;add&#39; is a supported operation on the patch document                Currently only valid metadata keys are supported paths on the patch document                The response will return any affected Investment Account Access Metadata rules or a failure message if unsuccessful.                It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifierType">Code of the investment account identifier type.</param>
+        /// <param name="identifierValue">Code of the investment account under specified identifier type&#39;s scope and code.</param>
+        /// <param name="scope">The scope of the investment account entity.</param>
+        /// <param name="identifierScope">Scope of the investment account identifier type.</param>
+        /// <param name="accessMetadataOperation">The Json Patch document</param>
+        /// <param name="effectiveAt">The effectiveAt datetime at which to upsert the Access Metadata (optional)</param>
+        /// <param name="effectiveUntil">The effective datetime until which the Access Metadata is valid. If not supplied this will be valid indefinitely, or until the next &#39;effectiveAt&#39; datetime of the Access Metadata (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of Dictionary&lt;string, List&lt;AccessMetadataValue&gt;&gt;</returns>
+        System.Threading.Tasks.Task<Dictionary<string, List<AccessMetadataValue>>> PatchInvestmentAccountAccessMetadataAsync(string identifierType, string identifierValue, string scope, string identifierScope, List<AccessMetadataOperation> accessMetadataOperation, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? effectiveUntil = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] PatchInvestmentAccountAccessMetadata: Patch Access Metadata rules for an Investment Account.
+        /// </summary>
+        /// <remarks>
+        /// Patch Investment Account Access Metadata Rules in a single scope.  The behaviour is defined by the JSON Patch specification.                Currently only &#39;add&#39; is a supported operation on the patch document                Currently only valid metadata keys are supported paths on the patch document                The response will return any affected Investment Account Access Metadata rules or a failure message if unsuccessful.                It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifierType">Code of the investment account identifier type.</param>
+        /// <param name="identifierValue">Code of the investment account under specified identifier type&#39;s scope and code.</param>
+        /// <param name="scope">The scope of the investment account entity.</param>
+        /// <param name="identifierScope">Scope of the investment account identifier type.</param>
+        /// <param name="accessMetadataOperation">The Json Patch document</param>
+        /// <param name="effectiveAt">The effectiveAt datetime at which to upsert the Access Metadata (optional)</param>
+        /// <param name="effectiveUntil">The effective datetime until which the Access Metadata is valid. If not supplied this will be valid indefinitely, or until the next &#39;effectiveAt&#39; datetime of the Access Metadata (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (Dictionary&lt;string, List&lt;AccessMetadataValue&gt;&gt;)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Dictionary<string, List<AccessMetadataValue>>>> PatchInvestmentAccountAccessMetadataWithHttpInfoAsync(string identifierType, string identifierValue, string scope, string identifierScope, List<AccessMetadataOperation> accessMetadataOperation, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? effectiveUntil = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] UpsertInvestmentAccounts: Upsert Investment Accounts
         /// </summary>
@@ -772,6 +996,592 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteInvestmentAccount", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] DeleteInvestmentAccountAccessMetadata: Delete an Investment Account Access Metadata entry. Deletes the Investment Account Access Metadata entry that exactly matches the provided identifier parts.                It is important to always check to verify success (or failure).
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifierType">Code of the investment account identifier type.</param>
+        /// <param name="identifierValue">Code of the investment account under specified identifier type&#39;s scope and code.</param>
+        /// <param name="metadataKey">Key of the metadata entry to delete</param>
+        /// <param name="scope">The scope of the investment account entity.</param>
+        /// <param name="identifierScope">Scope of the investment account identifier type.</param>
+        /// <param name="effectiveAt">The effective date to delete at, if this is not supplied, it will delete all data found (optional)</param>
+        /// <param name="effectiveUntil">The effective date until which the delete is valid. If not supplied this will be valid indefinitely, or until the next &#39;effectiveAt&#39; date of the Access Metadata (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>DeletedEntityResponse</returns>
+        public DeletedEntityResponse DeleteInvestmentAccountAccessMetadata(string identifierType, string identifierValue, string metadataKey, string scope, string identifierScope, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? effectiveUntil = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteInvestmentAccountAccessMetadataWithHttpInfo(identifierType, identifierValue, metadataKey, scope, identifierScope, effectiveAt, effectiveUntil, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] DeleteInvestmentAccountAccessMetadata: Delete an Investment Account Access Metadata entry. Deletes the Investment Account Access Metadata entry that exactly matches the provided identifier parts.                It is important to always check to verify success (or failure).
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifierType">Code of the investment account identifier type.</param>
+        /// <param name="identifierValue">Code of the investment account under specified identifier type&#39;s scope and code.</param>
+        /// <param name="metadataKey">Key of the metadata entry to delete</param>
+        /// <param name="scope">The scope of the investment account entity.</param>
+        /// <param name="identifierScope">Scope of the investment account identifier type.</param>
+        /// <param name="effectiveAt">The effective date to delete at, if this is not supplied, it will delete all data found (optional)</param>
+        /// <param name="effectiveUntil">The effective date until which the delete is valid. If not supplied this will be valid indefinitely, or until the next &#39;effectiveAt&#39; date of the Access Metadata (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of DeletedEntityResponse</returns>
+        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteInvestmentAccountAccessMetadataWithHttpInfo(string identifierType, string identifierValue, string metadataKey, string scope, string identifierScope, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? effectiveUntil = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'identifierType' is set
+            if (identifierType == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifierType' when calling InvestmentAccountsApi->DeleteInvestmentAccountAccessMetadata");
+            }
+
+            // verify the required parameter 'identifierValue' is set
+            if (identifierValue == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifierValue' when calling InvestmentAccountsApi->DeleteInvestmentAccountAccessMetadata");
+            }
+
+            // verify the required parameter 'metadataKey' is set
+            if (metadataKey == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'metadataKey' when calling InvestmentAccountsApi->DeleteInvestmentAccountAccessMetadata");
+            }
+
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling InvestmentAccountsApi->DeleteInvestmentAccountAccessMetadata");
+            }
+
+            // verify the required parameter 'identifierScope' is set
+            if (identifierScope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifierScope' when calling InvestmentAccountsApi->DeleteInvestmentAccountAccessMetadata");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("identifierType", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifierType)); // path parameter
+            localVarRequestOptions.PathParameters.Add("identifierValue", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifierValue)); // path parameter
+            localVarRequestOptions.PathParameters.Add("metadataKey", Lusid.Sdk.Client.ClientUtils.ParameterToString(metadataKey)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scope", scope));
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "identifierScope", identifierScope));
+            if (effectiveAt != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "effectiveAt", effectiveAt));
+            }
+            if (effectiveUntil != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "effectiveUntil", effectiveUntil));
+            }
+
+            localVarRequestOptions.Operation = "InvestmentAccountsApi.DeleteInvestmentAccountAccessMetadata";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Delete<DeletedEntityResponse>("/api/investmentaccounts/{identifierType}/{identifierValue}/metadata/{metadataKey}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteInvestmentAccountAccessMetadata", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] DeleteInvestmentAccountAccessMetadata: Delete an Investment Account Access Metadata entry. Deletes the Investment Account Access Metadata entry that exactly matches the provided identifier parts.                It is important to always check to verify success (or failure).
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifierType">Code of the investment account identifier type.</param>
+        /// <param name="identifierValue">Code of the investment account under specified identifier type&#39;s scope and code.</param>
+        /// <param name="metadataKey">Key of the metadata entry to delete</param>
+        /// <param name="scope">The scope of the investment account entity.</param>
+        /// <param name="identifierScope">Scope of the investment account identifier type.</param>
+        /// <param name="effectiveAt">The effective date to delete at, if this is not supplied, it will delete all data found (optional)</param>
+        /// <param name="effectiveUntil">The effective date until which the delete is valid. If not supplied this will be valid indefinitely, or until the next &#39;effectiveAt&#39; date of the Access Metadata (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of DeletedEntityResponse</returns>
+        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteInvestmentAccountAccessMetadataAsync(string identifierType, string identifierValue, string metadataKey, string scope, string identifierScope, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? effectiveUntil = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteInvestmentAccountAccessMetadataWithHttpInfoAsync(identifierType, identifierValue, metadataKey, scope, identifierScope, effectiveAt, effectiveUntil, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] DeleteInvestmentAccountAccessMetadata: Delete an Investment Account Access Metadata entry. Deletes the Investment Account Access Metadata entry that exactly matches the provided identifier parts.                It is important to always check to verify success (or failure).
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifierType">Code of the investment account identifier type.</param>
+        /// <param name="identifierValue">Code of the investment account under specified identifier type&#39;s scope and code.</param>
+        /// <param name="metadataKey">Key of the metadata entry to delete</param>
+        /// <param name="scope">The scope of the investment account entity.</param>
+        /// <param name="identifierScope">Scope of the investment account identifier type.</param>
+        /// <param name="effectiveAt">The effective date to delete at, if this is not supplied, it will delete all data found (optional)</param>
+        /// <param name="effectiveUntil">The effective date until which the delete is valid. If not supplied this will be valid indefinitely, or until the next &#39;effectiveAt&#39; date of the Access Metadata (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteInvestmentAccountAccessMetadataWithHttpInfoAsync(string identifierType, string identifierValue, string metadataKey, string scope, string identifierScope, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? effectiveUntil = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'identifierType' is set
+            if (identifierType == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifierType' when calling InvestmentAccountsApi->DeleteInvestmentAccountAccessMetadata");
+            }
+
+            // verify the required parameter 'identifierValue' is set
+            if (identifierValue == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifierValue' when calling InvestmentAccountsApi->DeleteInvestmentAccountAccessMetadata");
+            }
+
+            // verify the required parameter 'metadataKey' is set
+            if (metadataKey == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'metadataKey' when calling InvestmentAccountsApi->DeleteInvestmentAccountAccessMetadata");
+            }
+
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling InvestmentAccountsApi->DeleteInvestmentAccountAccessMetadata");
+            }
+
+            // verify the required parameter 'identifierScope' is set
+            if (identifierScope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifierScope' when calling InvestmentAccountsApi->DeleteInvestmentAccountAccessMetadata");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("identifierType", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifierType)); // path parameter
+            localVarRequestOptions.PathParameters.Add("identifierValue", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifierValue)); // path parameter
+            localVarRequestOptions.PathParameters.Add("metadataKey", Lusid.Sdk.Client.ClientUtils.ParameterToString(metadataKey)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scope", scope));
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "identifierScope", identifierScope));
+            if (effectiveAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "effectiveAt", effectiveAt));
+            }
+            if (effectiveUntil != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "effectiveUntil", effectiveUntil));
+            }
+
+            localVarRequestOptions.Operation = "InvestmentAccountsApi.DeleteInvestmentAccountAccessMetadata";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<DeletedEntityResponse>("/api/investmentaccounts/{identifierType}/{identifierValue}/metadata/{metadataKey}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteInvestmentAccountAccessMetadata", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetAllInvestmentAccountAccessMetadata: Get Access Metadata rules for an Investment Account. Pass the Scope and Code of the Investment Account identifier along with the identifier value parameter to retrieve the associated Access Metadata.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifierType">Code of the investment account identifier type.</param>
+        /// <param name="identifierValue">Code of the investment account under specified identifier type&#39;s scope and code.</param>
+        /// <param name="scope">The scope of the investment account entity.</param>
+        /// <param name="identifierScope">Scope of the investment account identifier type.</param>
+        /// <param name="effectiveAt">The effectiveAt datetime at which to retrieve the Access Metadata (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Access Metadata (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Dictionary&lt;string, List&lt;AccessMetadataValue&gt;&gt;</returns>
+        public Dictionary<string, List<AccessMetadataValue>> GetAllInvestmentAccountAccessMetadata(string identifierType, string identifierValue, string scope, string identifierScope, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<Dictionary<string, List<AccessMetadataValue>>> localVarResponse = GetAllInvestmentAccountAccessMetadataWithHttpInfo(identifierType, identifierValue, scope, identifierScope, effectiveAt, asAt, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetAllInvestmentAccountAccessMetadata: Get Access Metadata rules for an Investment Account. Pass the Scope and Code of the Investment Account identifier along with the identifier value parameter to retrieve the associated Access Metadata.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifierType">Code of the investment account identifier type.</param>
+        /// <param name="identifierValue">Code of the investment account under specified identifier type&#39;s scope and code.</param>
+        /// <param name="scope">The scope of the investment account entity.</param>
+        /// <param name="identifierScope">Scope of the investment account identifier type.</param>
+        /// <param name="effectiveAt">The effectiveAt datetime at which to retrieve the Access Metadata (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Access Metadata (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of Dictionary&lt;string, List&lt;AccessMetadataValue&gt;&gt;</returns>
+        public Lusid.Sdk.Client.ApiResponse<Dictionary<string, List<AccessMetadataValue>>> GetAllInvestmentAccountAccessMetadataWithHttpInfo(string identifierType, string identifierValue, string scope, string identifierScope, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'identifierType' is set
+            if (identifierType == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifierType' when calling InvestmentAccountsApi->GetAllInvestmentAccountAccessMetadata");
+            }
+
+            // verify the required parameter 'identifierValue' is set
+            if (identifierValue == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifierValue' when calling InvestmentAccountsApi->GetAllInvestmentAccountAccessMetadata");
+            }
+
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling InvestmentAccountsApi->GetAllInvestmentAccountAccessMetadata");
+            }
+
+            // verify the required parameter 'identifierScope' is set
+            if (identifierScope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifierScope' when calling InvestmentAccountsApi->GetAllInvestmentAccountAccessMetadata");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("identifierType", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifierType)); // path parameter
+            localVarRequestOptions.PathParameters.Add("identifierValue", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifierValue)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scope", scope));
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "identifierScope", identifierScope));
+            if (effectiveAt != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "effectiveAt", effectiveAt));
+            }
+            if (asAt != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+
+            localVarRequestOptions.Operation = "InvestmentAccountsApi.GetAllInvestmentAccountAccessMetadata";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<Dictionary<string, List<AccessMetadataValue>>>("/api/investmentaccounts/{identifierType}/{identifierValue}/metadata", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetAllInvestmentAccountAccessMetadata", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetAllInvestmentAccountAccessMetadata: Get Access Metadata rules for an Investment Account. Pass the Scope and Code of the Investment Account identifier along with the identifier value parameter to retrieve the associated Access Metadata.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifierType">Code of the investment account identifier type.</param>
+        /// <param name="identifierValue">Code of the investment account under specified identifier type&#39;s scope and code.</param>
+        /// <param name="scope">The scope of the investment account entity.</param>
+        /// <param name="identifierScope">Scope of the investment account identifier type.</param>
+        /// <param name="effectiveAt">The effectiveAt datetime at which to retrieve the Access Metadata (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Access Metadata (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of Dictionary&lt;string, List&lt;AccessMetadataValue&gt;&gt;</returns>
+        public async System.Threading.Tasks.Task<Dictionary<string, List<AccessMetadataValue>>> GetAllInvestmentAccountAccessMetadataAsync(string identifierType, string identifierValue, string scope, string identifierScope, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<Dictionary<string, List<AccessMetadataValue>>> localVarResponse = await GetAllInvestmentAccountAccessMetadataWithHttpInfoAsync(identifierType, identifierValue, scope, identifierScope, effectiveAt, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetAllInvestmentAccountAccessMetadata: Get Access Metadata rules for an Investment Account. Pass the Scope and Code of the Investment Account identifier along with the identifier value parameter to retrieve the associated Access Metadata.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifierType">Code of the investment account identifier type.</param>
+        /// <param name="identifierValue">Code of the investment account under specified identifier type&#39;s scope and code.</param>
+        /// <param name="scope">The scope of the investment account entity.</param>
+        /// <param name="identifierScope">Scope of the investment account identifier type.</param>
+        /// <param name="effectiveAt">The effectiveAt datetime at which to retrieve the Access Metadata (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Access Metadata (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (Dictionary&lt;string, List&lt;AccessMetadataValue&gt;&gt;)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Dictionary<string, List<AccessMetadataValue>>>> GetAllInvestmentAccountAccessMetadataWithHttpInfoAsync(string identifierType, string identifierValue, string scope, string identifierScope, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'identifierType' is set
+            if (identifierType == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifierType' when calling InvestmentAccountsApi->GetAllInvestmentAccountAccessMetadata");
+            }
+
+            // verify the required parameter 'identifierValue' is set
+            if (identifierValue == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifierValue' when calling InvestmentAccountsApi->GetAllInvestmentAccountAccessMetadata");
+            }
+
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling InvestmentAccountsApi->GetAllInvestmentAccountAccessMetadata");
+            }
+
+            // verify the required parameter 'identifierScope' is set
+            if (identifierScope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifierScope' when calling InvestmentAccountsApi->GetAllInvestmentAccountAccessMetadata");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("identifierType", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifierType)); // path parameter
+            localVarRequestOptions.PathParameters.Add("identifierValue", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifierValue)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scope", scope));
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "identifierScope", identifierScope));
+            if (effectiveAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "effectiveAt", effectiveAt));
+            }
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+
+            localVarRequestOptions.Operation = "InvestmentAccountsApi.GetAllInvestmentAccountAccessMetadata";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<Dictionary<string, List<AccessMetadataValue>>>("/api/investmentaccounts/{identifierType}/{identifierValue}/metadata", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetAllInvestmentAccountAccessMetadata", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1682,6 +2492,316 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListAllInvestmentAccounts", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] PatchInvestmentAccountAccessMetadata: Patch Access Metadata rules for an Investment Account. Patch Investment Account Access Metadata Rules in a single scope.  The behaviour is defined by the JSON Patch specification.                Currently only &#39;add&#39; is a supported operation on the patch document                Currently only valid metadata keys are supported paths on the patch document                The response will return any affected Investment Account Access Metadata rules or a failure message if unsuccessful.                It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifierType">Code of the investment account identifier type.</param>
+        /// <param name="identifierValue">Code of the investment account under specified identifier type&#39;s scope and code.</param>
+        /// <param name="scope">The scope of the investment account entity.</param>
+        /// <param name="identifierScope">Scope of the investment account identifier type.</param>
+        /// <param name="accessMetadataOperation">The Json Patch document</param>
+        /// <param name="effectiveAt">The effectiveAt datetime at which to upsert the Access Metadata (optional)</param>
+        /// <param name="effectiveUntil">The effective datetime until which the Access Metadata is valid. If not supplied this will be valid indefinitely, or until the next &#39;effectiveAt&#39; datetime of the Access Metadata (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Dictionary&lt;string, List&lt;AccessMetadataValue&gt;&gt;</returns>
+        public Dictionary<string, List<AccessMetadataValue>> PatchInvestmentAccountAccessMetadata(string identifierType, string identifierValue, string scope, string identifierScope, List<AccessMetadataOperation> accessMetadataOperation, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? effectiveUntil = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<Dictionary<string, List<AccessMetadataValue>>> localVarResponse = PatchInvestmentAccountAccessMetadataWithHttpInfo(identifierType, identifierValue, scope, identifierScope, accessMetadataOperation, effectiveAt, effectiveUntil, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] PatchInvestmentAccountAccessMetadata: Patch Access Metadata rules for an Investment Account. Patch Investment Account Access Metadata Rules in a single scope.  The behaviour is defined by the JSON Patch specification.                Currently only &#39;add&#39; is a supported operation on the patch document                Currently only valid metadata keys are supported paths on the patch document                The response will return any affected Investment Account Access Metadata rules or a failure message if unsuccessful.                It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifierType">Code of the investment account identifier type.</param>
+        /// <param name="identifierValue">Code of the investment account under specified identifier type&#39;s scope and code.</param>
+        /// <param name="scope">The scope of the investment account entity.</param>
+        /// <param name="identifierScope">Scope of the investment account identifier type.</param>
+        /// <param name="accessMetadataOperation">The Json Patch document</param>
+        /// <param name="effectiveAt">The effectiveAt datetime at which to upsert the Access Metadata (optional)</param>
+        /// <param name="effectiveUntil">The effective datetime until which the Access Metadata is valid. If not supplied this will be valid indefinitely, or until the next &#39;effectiveAt&#39; datetime of the Access Metadata (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of Dictionary&lt;string, List&lt;AccessMetadataValue&gt;&gt;</returns>
+        public Lusid.Sdk.Client.ApiResponse<Dictionary<string, List<AccessMetadataValue>>> PatchInvestmentAccountAccessMetadataWithHttpInfo(string identifierType, string identifierValue, string scope, string identifierScope, List<AccessMetadataOperation> accessMetadataOperation, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? effectiveUntil = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'identifierType' is set
+            if (identifierType == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifierType' when calling InvestmentAccountsApi->PatchInvestmentAccountAccessMetadata");
+            }
+
+            // verify the required parameter 'identifierValue' is set
+            if (identifierValue == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifierValue' when calling InvestmentAccountsApi->PatchInvestmentAccountAccessMetadata");
+            }
+
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling InvestmentAccountsApi->PatchInvestmentAccountAccessMetadata");
+            }
+
+            // verify the required parameter 'identifierScope' is set
+            if (identifierScope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifierScope' when calling InvestmentAccountsApi->PatchInvestmentAccountAccessMetadata");
+            }
+
+            // verify the required parameter 'accessMetadataOperation' is set
+            if (accessMetadataOperation == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'accessMetadataOperation' when calling InvestmentAccountsApi->PatchInvestmentAccountAccessMetadata");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("identifierType", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifierType)); // path parameter
+            localVarRequestOptions.PathParameters.Add("identifierValue", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifierValue)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scope", scope));
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "identifierScope", identifierScope));
+            if (effectiveAt != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "effectiveAt", effectiveAt));
+            }
+            if (effectiveUntil != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "effectiveUntil", effectiveUntil));
+            }
+            localVarRequestOptions.Data = accessMetadataOperation;
+
+            localVarRequestOptions.Operation = "InvestmentAccountsApi.PatchInvestmentAccountAccessMetadata";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Patch<Dictionary<string, List<AccessMetadataValue>>>("/api/investmentaccounts/{identifierType}/{identifierValue}/metadata", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PatchInvestmentAccountAccessMetadata", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] PatchInvestmentAccountAccessMetadata: Patch Access Metadata rules for an Investment Account. Patch Investment Account Access Metadata Rules in a single scope.  The behaviour is defined by the JSON Patch specification.                Currently only &#39;add&#39; is a supported operation on the patch document                Currently only valid metadata keys are supported paths on the patch document                The response will return any affected Investment Account Access Metadata rules or a failure message if unsuccessful.                It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifierType">Code of the investment account identifier type.</param>
+        /// <param name="identifierValue">Code of the investment account under specified identifier type&#39;s scope and code.</param>
+        /// <param name="scope">The scope of the investment account entity.</param>
+        /// <param name="identifierScope">Scope of the investment account identifier type.</param>
+        /// <param name="accessMetadataOperation">The Json Patch document</param>
+        /// <param name="effectiveAt">The effectiveAt datetime at which to upsert the Access Metadata (optional)</param>
+        /// <param name="effectiveUntil">The effective datetime until which the Access Metadata is valid. If not supplied this will be valid indefinitely, or until the next &#39;effectiveAt&#39; datetime of the Access Metadata (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of Dictionary&lt;string, List&lt;AccessMetadataValue&gt;&gt;</returns>
+        public async System.Threading.Tasks.Task<Dictionary<string, List<AccessMetadataValue>>> PatchInvestmentAccountAccessMetadataAsync(string identifierType, string identifierValue, string scope, string identifierScope, List<AccessMetadataOperation> accessMetadataOperation, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? effectiveUntil = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<Dictionary<string, List<AccessMetadataValue>>> localVarResponse = await PatchInvestmentAccountAccessMetadataWithHttpInfoAsync(identifierType, identifierValue, scope, identifierScope, accessMetadataOperation, effectiveAt, effectiveUntil, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] PatchInvestmentAccountAccessMetadata: Patch Access Metadata rules for an Investment Account. Patch Investment Account Access Metadata Rules in a single scope.  The behaviour is defined by the JSON Patch specification.                Currently only &#39;add&#39; is a supported operation on the patch document                Currently only valid metadata keys are supported paths on the patch document                The response will return any affected Investment Account Access Metadata rules or a failure message if unsuccessful.                It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifierType">Code of the investment account identifier type.</param>
+        /// <param name="identifierValue">Code of the investment account under specified identifier type&#39;s scope and code.</param>
+        /// <param name="scope">The scope of the investment account entity.</param>
+        /// <param name="identifierScope">Scope of the investment account identifier type.</param>
+        /// <param name="accessMetadataOperation">The Json Patch document</param>
+        /// <param name="effectiveAt">The effectiveAt datetime at which to upsert the Access Metadata (optional)</param>
+        /// <param name="effectiveUntil">The effective datetime until which the Access Metadata is valid. If not supplied this will be valid indefinitely, or until the next &#39;effectiveAt&#39; datetime of the Access Metadata (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (Dictionary&lt;string, List&lt;AccessMetadataValue&gt;&gt;)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Dictionary<string, List<AccessMetadataValue>>>> PatchInvestmentAccountAccessMetadataWithHttpInfoAsync(string identifierType, string identifierValue, string scope, string identifierScope, List<AccessMetadataOperation> accessMetadataOperation, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? effectiveUntil = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'identifierType' is set
+            if (identifierType == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifierType' when calling InvestmentAccountsApi->PatchInvestmentAccountAccessMetadata");
+            }
+
+            // verify the required parameter 'identifierValue' is set
+            if (identifierValue == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifierValue' when calling InvestmentAccountsApi->PatchInvestmentAccountAccessMetadata");
+            }
+
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling InvestmentAccountsApi->PatchInvestmentAccountAccessMetadata");
+            }
+
+            // verify the required parameter 'identifierScope' is set
+            if (identifierScope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifierScope' when calling InvestmentAccountsApi->PatchInvestmentAccountAccessMetadata");
+            }
+
+            // verify the required parameter 'accessMetadataOperation' is set
+            if (accessMetadataOperation == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'accessMetadataOperation' when calling InvestmentAccountsApi->PatchInvestmentAccountAccessMetadata");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("identifierType", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifierType)); // path parameter
+            localVarRequestOptions.PathParameters.Add("identifierValue", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifierValue)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scope", scope));
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "identifierScope", identifierScope));
+            if (effectiveAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "effectiveAt", effectiveAt));
+            }
+            if (effectiveUntil != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "effectiveUntil", effectiveUntil));
+            }
+            localVarRequestOptions.Data = accessMetadataOperation;
+
+            localVarRequestOptions.Operation = "InvestmentAccountsApi.PatchInvestmentAccountAccessMetadata";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PatchAsync<Dictionary<string, List<AccessMetadataValue>>>("/api/investmentaccounts/{identifierType}/{identifierValue}/metadata", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PatchInvestmentAccountAccessMetadata", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

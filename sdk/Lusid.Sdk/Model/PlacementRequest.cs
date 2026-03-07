@@ -42,7 +42,7 @@ namespace Lusid.Sdk.Model
         /// <param name="properties">Client-defined properties associated with this order..</param>
         /// <param name="instrumentIdentifiers">The instrument ordered. (required).</param>
         /// <param name="quantity">The quantity of given instrument ordered. (required).</param>
-        /// <param name="state">The state of this placement (typically a FIX state; Open, Filled, etc). (required).</param>
+        /// <param name="state">The state of this placement (typically a FIX state; Open, Filled, etc)..</param>
         /// <param name="side">The side (Buy, Sell, ...) of this placement. (required).</param>
         /// <param name="timeInForce">The time in force applicable to this placement (GTC, FOK, Day, etc) (required).</param>
         /// <param name="type">The type of this placement (Market, Limit, etc). (required).</param>
@@ -73,12 +73,6 @@ namespace Lusid.Sdk.Model
             }
             this.InstrumentIdentifiers = instrumentIdentifiers;
             this.Quantity = quantity;
-            // to ensure "state" is required (not null)
-            if (state == null)
-            {
-                throw new ArgumentNullException("state is a required property for PlacementRequest and cannot be null");
-            }
-            this.State = state;
             // to ensure "side" is required (not null)
             if (side == null)
             {
@@ -100,6 +94,7 @@ namespace Lusid.Sdk.Model
             this.CreatedDate = createdDate;
             this.ParentPlacementId = parentPlacementId;
             this.Properties = properties;
+            this.State = state;
             this.LimitPrice = limitPrice;
             this.StopPrice = stopPrice;
             this.Counterparty = counterparty;
@@ -151,7 +146,7 @@ namespace Lusid.Sdk.Model
         /// The state of this placement (typically a FIX state; Open, Filled, etc).
         /// </summary>
         /// <value>The state of this placement (typically a FIX state; Open, Filled, etc).</value>
-        [DataMember(Name = "state", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "state", EmitDefaultValue = true)]
         public string State { get; set; }
 
         /// <summary>
@@ -439,12 +434,6 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // State (string) minLength
-            if (this.State != null && this.State.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for State, length must be greater than 1.", new [] { "State" });
-            }
-
             // Side (string) minLength
             if (this.Side != null && this.Side.Length < 1)
             {

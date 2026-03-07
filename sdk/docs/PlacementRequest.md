@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **Properties** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) | Client-defined properties associated with this order. | [optional] 
 **InstrumentIdentifiers** | **Dictionary&lt;string, string&gt;** | The instrument ordered. | 
 **Quantity** | **decimal** | The quantity of given instrument ordered. | 
-**State** | **string** | The state of this placement (typically a FIX state; Open, Filled, etc). | 
+**State** | **string** | The state of this placement (typically a FIX state; Open, Filled, etc). | [optional] 
 **Side** | **string** | The side (Buy, Sell, ...) of this placement. | 
 **TimeInForce** | **string** | The time in force applicable to this placement (GTC, FOK, Day, etc) | 
 **Type** | **string** | The type of this placement (Market, Limit, etc). | 
@@ -33,7 +33,7 @@ List<ResourceId> blockIds = new List<ResourceId>();
 Dictionary<string, PerpetualProperty> properties = new Dictionary<string, PerpetualProperty>();
 Dictionary<string, string> instrumentIdentifiers = new Dictionary<string, string>();decimal quantity = "quantity";
 
-string state = "state";
+string state = "example state";
 string side = "side";
 string timeInForce = "timeInForce";
 string type = "type";

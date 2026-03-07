@@ -19,8 +19,8 @@ Name | Type | Description | Notes
 **InceptionDate** | **DateTimeOffset** | Inception date of the Fund | 
 **DecimalPlaces** | **int?** | Number of decimal places for reporting | [optional] 
 **YearEndDate** | [**DayMonth**](DayMonth.md) |  | [optional] 
-**PrimaryNavType** | [**NavTypeDefinition**](NavTypeDefinition.md) |  | [optional] 
-**AdditionalNavTypes** | [**List&lt;NavTypeDefinition&gt;**](NavTypeDefinition.md) | The definitions for any additional NAVs on the Fund. | [optional] 
+**PrimaryNavType** | [**NavType**](NavType.md) |  | [optional] 
+**AdditionalNavTypes** | [**List&lt;NavType&gt;**](NavType.md) | The definitions for any additional NAVs on the Fund. | [optional] 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | A set of properties for the Fund. | [optional] 
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
@@ -44,9 +44,9 @@ List<InstrumentResolutionDetail> shareClassInstruments = new List<InstrumentReso
 string type = "example type";
 DayMonth? yearEndDate = new DayMonth();
 
-NavTypeDefinition? primaryNavType = new NavTypeDefinition();
+NavType? primaryNavType = new NavType();
 
-List<NavTypeDefinition> additionalNavTypes = new List<NavTypeDefinition>();
+List<NavType> additionalNavTypes = new List<NavType>();
 Dictionary<string, Property> properties = new Dictionary<string, Property>();
 ModelVersion? varVersion = new ModelVersion();
 
