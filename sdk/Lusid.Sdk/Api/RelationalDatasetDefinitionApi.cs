@@ -32,7 +32,7 @@ namespace Lusid.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// [EARLY ACCESS] CreateRelationalDatasetDefinition: Create a Relational Dataset Definition
+        /// CreateRelationalDatasetDefinition: Create a Relational Dataset Definition
         /// </summary>
         /// <remarks>
         /// Create a new relational dataset definition.
@@ -45,7 +45,7 @@ namespace Lusid.Sdk.Api
         RelationalDatasetDefinition CreateRelationalDatasetDefinition(CreateRelationalDatasetDefinitionRequest createRelationalDatasetDefinitionRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] CreateRelationalDatasetDefinition: Create a Relational Dataset Definition
+        /// CreateRelationalDatasetDefinition: Create a Relational Dataset Definition
         /// </summary>
         /// <remarks>
         /// Create a new relational dataset definition.
@@ -57,7 +57,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of RelationalDatasetDefinition</returns>
         Lusid.Sdk.Client.ApiResponse<RelationalDatasetDefinition> CreateRelationalDatasetDefinitionWithHttpInfo(CreateRelationalDatasetDefinitionRequest createRelationalDatasetDefinitionRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] DeleteRelationalDatasetDefinition: Delete a Relational Dataset Definition
+        /// DeleteRelationalDatasetDefinition: Delete a Relational Dataset Definition
         /// </summary>
         /// <remarks>
         /// Delete a relational dataset definition.  WARNING! This operation is irreversible. Deleting a relational dataset definition will also delete all associated data points.
@@ -71,7 +71,7 @@ namespace Lusid.Sdk.Api
         DeletedEntityResponse DeleteRelationalDatasetDefinition(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteRelationalDatasetDefinition: Delete a Relational Dataset Definition
+        /// DeleteRelationalDatasetDefinition: Delete a Relational Dataset Definition
         /// </summary>
         /// <remarks>
         /// Delete a relational dataset definition.  WARNING! This operation is irreversible. Deleting a relational dataset definition will also delete all associated data points.
@@ -84,7 +84,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
         Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteRelationalDatasetDefinitionWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] GetRelationalDatasetDefinition: Get a Relational Dataset Definition
+        /// GetRelationalDatasetDefinition: Get a Relational Dataset Definition
         /// </summary>
         /// <remarks>
         /// Retrieve a relational dataset definition by its identifier.
@@ -99,7 +99,7 @@ namespace Lusid.Sdk.Api
         RelationalDatasetDefinition GetRelationalDatasetDefinition(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] GetRelationalDatasetDefinition: Get a Relational Dataset Definition
+        /// GetRelationalDatasetDefinition: Get a Relational Dataset Definition
         /// </summary>
         /// <remarks>
         /// Retrieve a relational dataset definition by its identifier.
@@ -113,7 +113,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of RelationalDatasetDefinition</returns>
         Lusid.Sdk.Client.ApiResponse<RelationalDatasetDefinition> GetRelationalDatasetDefinitionWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] ListRelationalDatasetDefinitions: List Relational Dataset Definitions
+        /// ListRelationalDatasetDefinitions: List Relational Dataset Definitions
         /// </summary>
         /// <remarks>
         /// List all relational dataset definitions matching particular criteria.
@@ -130,7 +130,7 @@ namespace Lusid.Sdk.Api
         PagedResourceListOfRelationalDatasetDefinition ListRelationalDatasetDefinitions(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] ListRelationalDatasetDefinitions: List Relational Dataset Definitions
+        /// ListRelationalDatasetDefinitions: List Relational Dataset Definitions
         /// </summary>
         /// <remarks>
         /// List all relational dataset definitions matching particular criteria.
@@ -146,7 +146,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of PagedResourceListOfRelationalDatasetDefinition</returns>
         Lusid.Sdk.Client.ApiResponse<PagedResourceListOfRelationalDatasetDefinition> ListRelationalDatasetDefinitionsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] UpdateRelationalDatasetDefinition: Update a Relational Dataset Definition
+        /// UpdateRelationalDatasetDefinition: Update a Relational Dataset Definition
         /// </summary>
         /// <remarks>
         /// Update an existing relational dataset definition.  Applicable only to the definitions that are not yet in use i.e. there are no DataPoints associated with this definition.
@@ -161,7 +161,7 @@ namespace Lusid.Sdk.Api
         RelationalDatasetDefinition UpdateRelationalDatasetDefinition(string scope, string code, UpdateRelationalDatasetDefinitionRequest? updateRelationalDatasetDefinitionRequest = default(UpdateRelationalDatasetDefinitionRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] UpdateRelationalDatasetDefinition: Update a Relational Dataset Definition
+        /// UpdateRelationalDatasetDefinition: Update a Relational Dataset Definition
         /// </summary>
         /// <remarks>
         /// Update an existing relational dataset definition.  Applicable only to the definitions that are not yet in use i.e. there are no DataPoints associated with this definition.
@@ -175,7 +175,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of RelationalDatasetDefinition</returns>
         Lusid.Sdk.Client.ApiResponse<RelationalDatasetDefinition> UpdateRelationalDatasetDefinitionWithHttpInfo(string scope, string code, UpdateRelationalDatasetDefinitionRequest? updateRelationalDatasetDefinitionRequest = default(UpdateRelationalDatasetDefinitionRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] UpdateRelationalDatasetDetails: Update Relational Dataset Details: DisplayName, Description and ApplicableEntityTypes
+        /// UpdateRelationalDatasetDetails: Update Relational Dataset Details: DisplayName, Description and ApplicableEntityTypes
         /// </summary>
         /// <remarks>
         /// Update an existing relational dataset definition.  Applicable only to the definitions that are already in use i.e. contain DataPoints associated with this definition.
@@ -190,7 +190,7 @@ namespace Lusid.Sdk.Api
         RelationalDatasetDefinition UpdateRelationalDatasetDetails(string scope, string code, UpdateRelationalDatasetDetails? updateRelationalDatasetDetails = default(UpdateRelationalDatasetDetails?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] UpdateRelationalDatasetDetails: Update Relational Dataset Details: DisplayName, Description and ApplicableEntityTypes
+        /// UpdateRelationalDatasetDetails: Update Relational Dataset Details: DisplayName, Description and ApplicableEntityTypes
         /// </summary>
         /// <remarks>
         /// Update an existing relational dataset definition.  Applicable only to the definitions that are already in use i.e. contain DataPoints associated with this definition.
@@ -204,7 +204,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of RelationalDatasetDefinition</returns>
         Lusid.Sdk.Client.ApiResponse<RelationalDatasetDefinition> UpdateRelationalDatasetDetailsWithHttpInfo(string scope, string code, UpdateRelationalDatasetDetails? updateRelationalDatasetDetails = default(UpdateRelationalDatasetDetails?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] UpdateRelationalDatasetFieldSchema: Update Relational Dataset Field Schema
+        /// UpdateRelationalDatasetFieldSchema: Update Relational Dataset Field Schema
         /// </summary>
         /// <remarks>
         /// Update an existing relational dataset definition with the new field schema.  Applicable only to the definitions that are already in use i.e. contain DataPoints associated with this definition.
@@ -219,7 +219,7 @@ namespace Lusid.Sdk.Api
         RelationalDatasetDefinition UpdateRelationalDatasetFieldSchema(string scope, string code, UpdateRelationalDatasetFieldSchema? updateRelationalDatasetFieldSchema = default(UpdateRelationalDatasetFieldSchema?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] UpdateRelationalDatasetFieldSchema: Update Relational Dataset Field Schema
+        /// UpdateRelationalDatasetFieldSchema: Update Relational Dataset Field Schema
         /// </summary>
         /// <remarks>
         /// Update an existing relational dataset definition with the new field schema.  Applicable only to the definitions that are already in use i.e. contain DataPoints associated with this definition.
@@ -242,7 +242,7 @@ namespace Lusid.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// [EARLY ACCESS] CreateRelationalDatasetDefinition: Create a Relational Dataset Definition
+        /// CreateRelationalDatasetDefinition: Create a Relational Dataset Definition
         /// </summary>
         /// <remarks>
         /// Create a new relational dataset definition.
@@ -256,7 +256,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<RelationalDatasetDefinition> CreateRelationalDatasetDefinitionAsync(CreateRelationalDatasetDefinitionRequest createRelationalDatasetDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] CreateRelationalDatasetDefinition: Create a Relational Dataset Definition
+        /// CreateRelationalDatasetDefinition: Create a Relational Dataset Definition
         /// </summary>
         /// <remarks>
         /// Create a new relational dataset definition.
@@ -269,7 +269,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (RelationalDatasetDefinition)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<RelationalDatasetDefinition>> CreateRelationalDatasetDefinitionWithHttpInfoAsync(CreateRelationalDatasetDefinitionRequest createRelationalDatasetDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] DeleteRelationalDatasetDefinition: Delete a Relational Dataset Definition
+        /// DeleteRelationalDatasetDefinition: Delete a Relational Dataset Definition
         /// </summary>
         /// <remarks>
         /// Delete a relational dataset definition.  WARNING! This operation is irreversible. Deleting a relational dataset definition will also delete all associated data points.
@@ -284,7 +284,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<DeletedEntityResponse> DeleteRelationalDatasetDefinitionAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteRelationalDatasetDefinition: Delete a Relational Dataset Definition
+        /// DeleteRelationalDatasetDefinition: Delete a Relational Dataset Definition
         /// </summary>
         /// <remarks>
         /// Delete a relational dataset definition.  WARNING! This operation is irreversible. Deleting a relational dataset definition will also delete all associated data points.
@@ -298,7 +298,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteRelationalDatasetDefinitionWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] GetRelationalDatasetDefinition: Get a Relational Dataset Definition
+        /// GetRelationalDatasetDefinition: Get a Relational Dataset Definition
         /// </summary>
         /// <remarks>
         /// Retrieve a relational dataset definition by its identifier.
@@ -314,7 +314,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<RelationalDatasetDefinition> GetRelationalDatasetDefinitionAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] GetRelationalDatasetDefinition: Get a Relational Dataset Definition
+        /// GetRelationalDatasetDefinition: Get a Relational Dataset Definition
         /// </summary>
         /// <remarks>
         /// Retrieve a relational dataset definition by its identifier.
@@ -329,7 +329,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (RelationalDatasetDefinition)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<RelationalDatasetDefinition>> GetRelationalDatasetDefinitionWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] ListRelationalDatasetDefinitions: List Relational Dataset Definitions
+        /// ListRelationalDatasetDefinitions: List Relational Dataset Definitions
         /// </summary>
         /// <remarks>
         /// List all relational dataset definitions matching particular criteria.
@@ -347,7 +347,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<PagedResourceListOfRelationalDatasetDefinition> ListRelationalDatasetDefinitionsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] ListRelationalDatasetDefinitions: List Relational Dataset Definitions
+        /// ListRelationalDatasetDefinitions: List Relational Dataset Definitions
         /// </summary>
         /// <remarks>
         /// List all relational dataset definitions matching particular criteria.
@@ -364,7 +364,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (PagedResourceListOfRelationalDatasetDefinition)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfRelationalDatasetDefinition>> ListRelationalDatasetDefinitionsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] UpdateRelationalDatasetDefinition: Update a Relational Dataset Definition
+        /// UpdateRelationalDatasetDefinition: Update a Relational Dataset Definition
         /// </summary>
         /// <remarks>
         /// Update an existing relational dataset definition.  Applicable only to the definitions that are not yet in use i.e. there are no DataPoints associated with this definition.
@@ -380,7 +380,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<RelationalDatasetDefinition> UpdateRelationalDatasetDefinitionAsync(string scope, string code, UpdateRelationalDatasetDefinitionRequest? updateRelationalDatasetDefinitionRequest = default(UpdateRelationalDatasetDefinitionRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] UpdateRelationalDatasetDefinition: Update a Relational Dataset Definition
+        /// UpdateRelationalDatasetDefinition: Update a Relational Dataset Definition
         /// </summary>
         /// <remarks>
         /// Update an existing relational dataset definition.  Applicable only to the definitions that are not yet in use i.e. there are no DataPoints associated with this definition.
@@ -395,7 +395,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (RelationalDatasetDefinition)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<RelationalDatasetDefinition>> UpdateRelationalDatasetDefinitionWithHttpInfoAsync(string scope, string code, UpdateRelationalDatasetDefinitionRequest? updateRelationalDatasetDefinitionRequest = default(UpdateRelationalDatasetDefinitionRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] UpdateRelationalDatasetDetails: Update Relational Dataset Details: DisplayName, Description and ApplicableEntityTypes
+        /// UpdateRelationalDatasetDetails: Update Relational Dataset Details: DisplayName, Description and ApplicableEntityTypes
         /// </summary>
         /// <remarks>
         /// Update an existing relational dataset definition.  Applicable only to the definitions that are already in use i.e. contain DataPoints associated with this definition.
@@ -411,7 +411,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<RelationalDatasetDefinition> UpdateRelationalDatasetDetailsAsync(string scope, string code, UpdateRelationalDatasetDetails? updateRelationalDatasetDetails = default(UpdateRelationalDatasetDetails?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] UpdateRelationalDatasetDetails: Update Relational Dataset Details: DisplayName, Description and ApplicableEntityTypes
+        /// UpdateRelationalDatasetDetails: Update Relational Dataset Details: DisplayName, Description and ApplicableEntityTypes
         /// </summary>
         /// <remarks>
         /// Update an existing relational dataset definition.  Applicable only to the definitions that are already in use i.e. contain DataPoints associated with this definition.
@@ -426,7 +426,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (RelationalDatasetDefinition)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<RelationalDatasetDefinition>> UpdateRelationalDatasetDetailsWithHttpInfoAsync(string scope, string code, UpdateRelationalDatasetDetails? updateRelationalDatasetDetails = default(UpdateRelationalDatasetDetails?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] UpdateRelationalDatasetFieldSchema: Update Relational Dataset Field Schema
+        /// UpdateRelationalDatasetFieldSchema: Update Relational Dataset Field Schema
         /// </summary>
         /// <remarks>
         /// Update an existing relational dataset definition with the new field schema.  Applicable only to the definitions that are already in use i.e. contain DataPoints associated with this definition.
@@ -442,7 +442,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<RelationalDatasetDefinition> UpdateRelationalDatasetFieldSchemaAsync(string scope, string code, UpdateRelationalDatasetFieldSchema? updateRelationalDatasetFieldSchema = default(UpdateRelationalDatasetFieldSchema?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] UpdateRelationalDatasetFieldSchema: Update Relational Dataset Field Schema
+        /// UpdateRelationalDatasetFieldSchema: Update Relational Dataset Field Schema
         /// </summary>
         /// <remarks>
         /// Update an existing relational dataset definition with the new field schema.  Applicable only to the definitions that are already in use i.e. contain DataPoints associated with this definition.
@@ -580,7 +580,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] CreateRelationalDatasetDefinition: Create a Relational Dataset Definition Create a new relational dataset definition.
+        /// CreateRelationalDatasetDefinition: Create a Relational Dataset Definition Create a new relational dataset definition.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createRelationalDatasetDefinitionRequest">The relational dataset definition to create.</param>
@@ -594,7 +594,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] CreateRelationalDatasetDefinition: Create a Relational Dataset Definition Create a new relational dataset definition.
+        /// CreateRelationalDatasetDefinition: Create a Relational Dataset Definition Create a new relational dataset definition.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createRelationalDatasetDefinitionRequest">The relational dataset definition to create.</param>
@@ -684,7 +684,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] CreateRelationalDatasetDefinition: Create a Relational Dataset Definition Create a new relational dataset definition.
+        /// CreateRelationalDatasetDefinition: Create a Relational Dataset Definition Create a new relational dataset definition.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createRelationalDatasetDefinitionRequest">The relational dataset definition to create.</param>
@@ -699,7 +699,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] CreateRelationalDatasetDefinition: Create a Relational Dataset Definition Create a new relational dataset definition.
+        /// CreateRelationalDatasetDefinition: Create a Relational Dataset Definition Create a new relational dataset definition.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createRelationalDatasetDefinitionRequest">The relational dataset definition to create.</param>
@@ -792,7 +792,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteRelationalDatasetDefinition: Delete a Relational Dataset Definition Delete a relational dataset definition.  WARNING! This operation is irreversible. Deleting a relational dataset definition will also delete all associated data points.
+        /// DeleteRelationalDatasetDefinition: Delete a Relational Dataset Definition Delete a relational dataset definition.  WARNING! This operation is irreversible. Deleting a relational dataset definition will also delete all associated data points.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relational dataset definition.</param>
@@ -807,7 +807,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteRelationalDatasetDefinition: Delete a Relational Dataset Definition Delete a relational dataset definition.  WARNING! This operation is irreversible. Deleting a relational dataset definition will also delete all associated data points.
+        /// DeleteRelationalDatasetDefinition: Delete a Relational Dataset Definition Delete a relational dataset definition.  WARNING! This operation is irreversible. Deleting a relational dataset definition will also delete all associated data points.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relational dataset definition.</param>
@@ -901,7 +901,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteRelationalDatasetDefinition: Delete a Relational Dataset Definition Delete a relational dataset definition.  WARNING! This operation is irreversible. Deleting a relational dataset definition will also delete all associated data points.
+        /// DeleteRelationalDatasetDefinition: Delete a Relational Dataset Definition Delete a relational dataset definition.  WARNING! This operation is irreversible. Deleting a relational dataset definition will also delete all associated data points.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relational dataset definition.</param>
@@ -917,7 +917,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteRelationalDatasetDefinition: Delete a Relational Dataset Definition Delete a relational dataset definition.  WARNING! This operation is irreversible. Deleting a relational dataset definition will also delete all associated data points.
+        /// DeleteRelationalDatasetDefinition: Delete a Relational Dataset Definition Delete a relational dataset definition.  WARNING! This operation is irreversible. Deleting a relational dataset definition will also delete all associated data points.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relational dataset definition.</param>
@@ -1014,7 +1014,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetRelationalDatasetDefinition: Get a Relational Dataset Definition Retrieve a relational dataset definition by its identifier.
+        /// GetRelationalDatasetDefinition: Get a Relational Dataset Definition Retrieve a relational dataset definition by its identifier.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relational dataset definition.</param>
@@ -1030,7 +1030,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetRelationalDatasetDefinition: Get a Relational Dataset Definition Retrieve a relational dataset definition by its identifier.
+        /// GetRelationalDatasetDefinition: Get a Relational Dataset Definition Retrieve a relational dataset definition by its identifier.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relational dataset definition.</param>
@@ -1130,7 +1130,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetRelationalDatasetDefinition: Get a Relational Dataset Definition Retrieve a relational dataset definition by its identifier.
+        /// GetRelationalDatasetDefinition: Get a Relational Dataset Definition Retrieve a relational dataset definition by its identifier.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relational dataset definition.</param>
@@ -1147,7 +1147,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetRelationalDatasetDefinition: Get a Relational Dataset Definition Retrieve a relational dataset definition by its identifier.
+        /// GetRelationalDatasetDefinition: Get a Relational Dataset Definition Retrieve a relational dataset definition by its identifier.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relational dataset definition.</param>
@@ -1249,7 +1249,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListRelationalDatasetDefinitions: List Relational Dataset Definitions List all relational dataset definitions matching particular criteria.
+        /// ListRelationalDatasetDefinitions: List Relational Dataset Definitions List all relational dataset definitions matching particular criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the relational dataset definitions. Defaults to return the latest version if not specified. (optional)</param>
@@ -1267,7 +1267,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListRelationalDatasetDefinitions: List Relational Dataset Definitions List all relational dataset definitions matching particular criteria.
+        /// ListRelationalDatasetDefinitions: List Relational Dataset Definitions List all relational dataset definitions matching particular criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the relational dataset definitions. Defaults to return the latest version if not specified. (optional)</param>
@@ -1375,7 +1375,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListRelationalDatasetDefinitions: List Relational Dataset Definitions List all relational dataset definitions matching particular criteria.
+        /// ListRelationalDatasetDefinitions: List Relational Dataset Definitions List all relational dataset definitions matching particular criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the relational dataset definitions. Defaults to return the latest version if not specified. (optional)</param>
@@ -1394,7 +1394,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListRelationalDatasetDefinitions: List Relational Dataset Definitions List all relational dataset definitions matching particular criteria.
+        /// ListRelationalDatasetDefinitions: List Relational Dataset Definitions List all relational dataset definitions matching particular criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the relational dataset definitions. Defaults to return the latest version if not specified. (optional)</param>
@@ -1500,7 +1500,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpdateRelationalDatasetDefinition: Update a Relational Dataset Definition Update an existing relational dataset definition.  Applicable only to the definitions that are not yet in use i.e. there are no DataPoints associated with this definition.
+        /// UpdateRelationalDatasetDefinition: Update a Relational Dataset Definition Update an existing relational dataset definition.  Applicable only to the definitions that are not yet in use i.e. there are no DataPoints associated with this definition.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relational dataset definition.</param>
@@ -1516,7 +1516,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpdateRelationalDatasetDefinition: Update a Relational Dataset Definition Update an existing relational dataset definition.  Applicable only to the definitions that are not yet in use i.e. there are no DataPoints associated with this definition.
+        /// UpdateRelationalDatasetDefinition: Update a Relational Dataset Definition Update an existing relational dataset definition.  Applicable only to the definitions that are not yet in use i.e. there are no DataPoints associated with this definition.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relational dataset definition.</param>
@@ -1616,7 +1616,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpdateRelationalDatasetDefinition: Update a Relational Dataset Definition Update an existing relational dataset definition.  Applicable only to the definitions that are not yet in use i.e. there are no DataPoints associated with this definition.
+        /// UpdateRelationalDatasetDefinition: Update a Relational Dataset Definition Update an existing relational dataset definition.  Applicable only to the definitions that are not yet in use i.e. there are no DataPoints associated with this definition.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relational dataset definition.</param>
@@ -1633,7 +1633,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpdateRelationalDatasetDefinition: Update a Relational Dataset Definition Update an existing relational dataset definition.  Applicable only to the definitions that are not yet in use i.e. there are no DataPoints associated with this definition.
+        /// UpdateRelationalDatasetDefinition: Update a Relational Dataset Definition Update an existing relational dataset definition.  Applicable only to the definitions that are not yet in use i.e. there are no DataPoints associated with this definition.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relational dataset definition.</param>
@@ -1736,7 +1736,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpdateRelationalDatasetDetails: Update Relational Dataset Details: DisplayName, Description and ApplicableEntityTypes Update an existing relational dataset definition.  Applicable only to the definitions that are already in use i.e. contain DataPoints associated with this definition.
+        /// UpdateRelationalDatasetDetails: Update Relational Dataset Details: DisplayName, Description and ApplicableEntityTypes Update an existing relational dataset definition.  Applicable only to the definitions that are already in use i.e. contain DataPoints associated with this definition.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relational dataset definition.</param>
@@ -1752,7 +1752,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpdateRelationalDatasetDetails: Update Relational Dataset Details: DisplayName, Description and ApplicableEntityTypes Update an existing relational dataset definition.  Applicable only to the definitions that are already in use i.e. contain DataPoints associated with this definition.
+        /// UpdateRelationalDatasetDetails: Update Relational Dataset Details: DisplayName, Description and ApplicableEntityTypes Update an existing relational dataset definition.  Applicable only to the definitions that are already in use i.e. contain DataPoints associated with this definition.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relational dataset definition.</param>
@@ -1852,7 +1852,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpdateRelationalDatasetDetails: Update Relational Dataset Details: DisplayName, Description and ApplicableEntityTypes Update an existing relational dataset definition.  Applicable only to the definitions that are already in use i.e. contain DataPoints associated with this definition.
+        /// UpdateRelationalDatasetDetails: Update Relational Dataset Details: DisplayName, Description and ApplicableEntityTypes Update an existing relational dataset definition.  Applicable only to the definitions that are already in use i.e. contain DataPoints associated with this definition.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relational dataset definition.</param>
@@ -1869,7 +1869,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpdateRelationalDatasetDetails: Update Relational Dataset Details: DisplayName, Description and ApplicableEntityTypes Update an existing relational dataset definition.  Applicable only to the definitions that are already in use i.e. contain DataPoints associated with this definition.
+        /// UpdateRelationalDatasetDetails: Update Relational Dataset Details: DisplayName, Description and ApplicableEntityTypes Update an existing relational dataset definition.  Applicable only to the definitions that are already in use i.e. contain DataPoints associated with this definition.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relational dataset definition.</param>
@@ -1972,7 +1972,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpdateRelationalDatasetFieldSchema: Update Relational Dataset Field Schema Update an existing relational dataset definition with the new field schema.  Applicable only to the definitions that are already in use i.e. contain DataPoints associated with this definition.
+        /// UpdateRelationalDatasetFieldSchema: Update Relational Dataset Field Schema Update an existing relational dataset definition with the new field schema.  Applicable only to the definitions that are already in use i.e. contain DataPoints associated with this definition.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relational dataset definition.</param>
@@ -1988,7 +1988,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpdateRelationalDatasetFieldSchema: Update Relational Dataset Field Schema Update an existing relational dataset definition with the new field schema.  Applicable only to the definitions that are already in use i.e. contain DataPoints associated with this definition.
+        /// UpdateRelationalDatasetFieldSchema: Update Relational Dataset Field Schema Update an existing relational dataset definition with the new field schema.  Applicable only to the definitions that are already in use i.e. contain DataPoints associated with this definition.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relational dataset definition.</param>
@@ -2088,7 +2088,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpdateRelationalDatasetFieldSchema: Update Relational Dataset Field Schema Update an existing relational dataset definition with the new field schema.  Applicable only to the definitions that are already in use i.e. contain DataPoints associated with this definition.
+        /// UpdateRelationalDatasetFieldSchema: Update Relational Dataset Field Schema Update an existing relational dataset definition with the new field schema.  Applicable only to the definitions that are already in use i.e. contain DataPoints associated with this definition.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relational dataset definition.</param>
@@ -2105,7 +2105,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpdateRelationalDatasetFieldSchema: Update Relational Dataset Field Schema Update an existing relational dataset definition with the new field schema.  Applicable only to the definitions that are already in use i.e. contain DataPoints associated with this definition.
+        /// UpdateRelationalDatasetFieldSchema: Update Relational Dataset Field Schema Update an existing relational dataset definition with the new field schema.  Applicable only to the definitions that are already in use i.e. contain DataPoints associated with this definition.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relational dataset definition.</param>

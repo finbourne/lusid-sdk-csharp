@@ -68,7 +68,13 @@ namespace Lusid.Sdk.Model
         /// Enum In for value: In
         /// </summary>
         [EnumMember(Value = "In")]
-        In = 7
+        In = 7,
+
+        /// <summary>
+        /// Enum StartsWith for value: StartsWith
+        /// </summary>
+        [EnumMember(Value = "StartsWith")]
+        StartsWith = 8
     }
 
 }

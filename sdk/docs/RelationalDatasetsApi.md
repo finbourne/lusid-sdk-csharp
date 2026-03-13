@@ -4,15 +4,15 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**BatchDeleteRelationalData**](RelationalDatasetsApi.md#batchdeleterelationaldata) | **POST** /api/relationaldatasets/{relationalDatasetDefinitionScope}/{relationalDatasetDefinitionCode}/$batchDelete | [EXPERIMENTAL] BatchDeleteRelationalData: Batch Delete Relational Data Points for a given Relational Dataset Definition. |
-| [**BatchUpsertRelationalData**](RelationalDatasetsApi.md#batchupsertrelationaldata) | **POST** /api/relationaldatasets/{relationalDatasetDefinitionScope}/{relationalDatasetDefinitionCode}/$batchUpsert | [EXPERIMENTAL] BatchUpsertRelationalData: Batch Upsert Relational Data Points for a given Relational Dataset Definition. |
-| [**QueryRelationalData**](RelationalDatasetsApi.md#queryrelationaldata) | **POST** /api/relationaldatasets/{relationalDatasetDefinitionScope}/{relationalDatasetDefinitionCode}/$query | [EXPERIMENTAL] QueryRelationalData: Query Relational Data Points for a given Relational Dataset Definition. |
+| [**BatchDeleteRelationalData**](RelationalDatasetsApi.md#batchdeleterelationaldata) | **POST** /api/relationaldatasets/{relationalDatasetDefinitionScope}/{relationalDatasetDefinitionCode}/$batchDelete | BatchDeleteRelationalData: Batch Delete Relational Data Points for a given Relational Dataset Definition. |
+| [**BatchUpsertRelationalData**](RelationalDatasetsApi.md#batchupsertrelationaldata) | **POST** /api/relationaldatasets/{relationalDatasetDefinitionScope}/{relationalDatasetDefinitionCode}/$batchUpsert | BatchUpsertRelationalData: Batch Upsert Relational Data Points for a given Relational Dataset Definition. |
+| [**QueryRelationalData**](RelationalDatasetsApi.md#queryrelationaldata) | **POST** /api/relationaldatasets/{relationalDatasetDefinitionScope}/{relationalDatasetDefinitionCode}/$query | QueryRelationalData: Query Relational Data Points for a given Relational Dataset Definition. |
 
 <a id="batchdeleterelationaldata"></a>
 # **BatchDeleteRelationalData**
 > BatchDeleteRelationalDataResponse BatchDeleteRelationalData (string relationalDatasetDefinitionScope, string relationalDatasetDefinitionCode, Dictionary<string, DeleteRelationalDataPointRequest> requestBody, string? successMode = null)
 
-[EXPERIMENTAL] BatchDeleteRelationalData: Batch Delete Relational Data Points for a given Relational Dataset Definition.
+BatchDeleteRelationalData: Batch Delete Relational Data Points for a given Relational Dataset Definition.
 
 Batch Delete Relational Data Points for a given Relational Dataset Definition.
 
@@ -65,7 +65,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // BatchDeleteRelationalDataResponse result = apiInstance.BatchDeleteRelationalData(relationalDatasetDefinitionScope, relationalDatasetDefinitionCode, requestBody, successMode, opts: opts);
 
-                // [EXPERIMENTAL] BatchDeleteRelationalData: Batch Delete Relational Data Points for a given Relational Dataset Definition.
+                // BatchDeleteRelationalData: Batch Delete Relational Data Points for a given Relational Dataset Definition.
                 BatchDeleteRelationalDataResponse result = apiInstance.BatchDeleteRelationalData(relationalDatasetDefinitionScope, relationalDatasetDefinitionCode, requestBody, successMode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -86,7 +86,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] BatchDeleteRelationalData: Batch Delete Relational Data Points for a given Relational Dataset Definition.
+    // BatchDeleteRelationalData: Batch Delete Relational Data Points for a given Relational Dataset Definition.
     ApiResponse<BatchDeleteRelationalDataResponse> response = apiInstance.BatchDeleteRelationalDataWithHttpInfo(relationalDatasetDefinitionScope, relationalDatasetDefinitionCode, requestBody, successMode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -132,7 +132,7 @@ catch (ApiException e)
 # **BatchUpsertRelationalData**
 > BatchUpsertRelationalDatasetsResponse BatchUpsertRelationalData (string relationalDatasetDefinitionScope, string relationalDatasetDefinitionCode, Dictionary<string, UpsertRelationalDataPointRequest> requestBody, string? successMode = null)
 
-[EXPERIMENTAL] BatchUpsertRelationalData: Batch Upsert Relational Data Points for a given Relational Dataset Definition.
+BatchUpsertRelationalData: Batch Upsert Relational Data Points for a given Relational Dataset Definition.
 
 Batch Upsert Relational Data Points for a given Relational Dataset Definition.
 
@@ -185,7 +185,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // BatchUpsertRelationalDatasetsResponse result = apiInstance.BatchUpsertRelationalData(relationalDatasetDefinitionScope, relationalDatasetDefinitionCode, requestBody, successMode, opts: opts);
 
-                // [EXPERIMENTAL] BatchUpsertRelationalData: Batch Upsert Relational Data Points for a given Relational Dataset Definition.
+                // BatchUpsertRelationalData: Batch Upsert Relational Data Points for a given Relational Dataset Definition.
                 BatchUpsertRelationalDatasetsResponse result = apiInstance.BatchUpsertRelationalData(relationalDatasetDefinitionScope, relationalDatasetDefinitionCode, requestBody, successMode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -206,7 +206,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] BatchUpsertRelationalData: Batch Upsert Relational Data Points for a given Relational Dataset Definition.
+    // BatchUpsertRelationalData: Batch Upsert Relational Data Points for a given Relational Dataset Definition.
     ApiResponse<BatchUpsertRelationalDatasetsResponse> response = apiInstance.BatchUpsertRelationalDataWithHttpInfo(relationalDatasetDefinitionScope, relationalDatasetDefinitionCode, requestBody, successMode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -252,7 +252,7 @@ catch (ApiException e)
 # **QueryRelationalData**
 > PagedResourceListOfRelationalDataPointResponse QueryRelationalData (string relationalDatasetDefinitionScope, string relationalDatasetDefinitionCode, DateTimeOffset? asAt = null, DateTimeOrCutLabel? effectiveAt = null, string? page = null, int? limit = null, QueryRelationalDatasetRequest? queryRelationalDatasetRequest = null)
 
-[EXPERIMENTAL] QueryRelationalData: Query Relational Data Points for a given Relational Dataset Definition.
+QueryRelationalData: Query Relational Data Points for a given Relational Dataset Definition.
 
 Query Relational Data Points for a given Relational Dataset Definition.
 
@@ -308,7 +308,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // PagedResourceListOfRelationalDataPointResponse result = apiInstance.QueryRelationalData(relationalDatasetDefinitionScope, relationalDatasetDefinitionCode, asAt, effectiveAt, page, limit, queryRelationalDatasetRequest, opts: opts);
 
-                // [EXPERIMENTAL] QueryRelationalData: Query Relational Data Points for a given Relational Dataset Definition.
+                // QueryRelationalData: Query Relational Data Points for a given Relational Dataset Definition.
                 PagedResourceListOfRelationalDataPointResponse result = apiInstance.QueryRelationalData(relationalDatasetDefinitionScope, relationalDatasetDefinitionCode, asAt, effectiveAt, page, limit, queryRelationalDatasetRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -329,7 +329,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] QueryRelationalData: Query Relational Data Points for a given Relational Dataset Definition.
+    // QueryRelationalData: Query Relational Data Points for a given Relational Dataset Definition.
     ApiResponse<PagedResourceListOfRelationalDataPointResponse> response = apiInstance.QueryRelationalDataWithHttpInfo(relationalDatasetDefinitionScope, relationalDatasetDefinitionCode, asAt, effectiveAt, page, limit, queryRelationalDatasetRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));

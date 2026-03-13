@@ -33,16 +33,16 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="description">A description of the transaction fee..</param>
         /// <param name="calculation">calculation.</param>
-        /// <param name="conditions">The conditions that the transaction must meet in order for the fee to be applied..</param>
+        /// <param name="condition">The condition that the transaction must meet in order for the fee to be applied..</param>
         /// <param name="capitalisationCondition">If the fee Capitalisation is Conditional, this condition determines whether the fee is capitalised, when applied to the transaction..</param>
         /// <param name="txnPropertyKey">The property key to which the fee value will be applied and decorated onto the transaction. Must be in the &#39;Transaction&#39; property domain..</param>
         /// <param name="properties">A set of properties for the transaction fee..</param>
         /// <param name="isActive">Indicates whether the transaction fee is currently active and should be applied to transactions. Optional when creating a transaction fee, defaults to true, if a value is not provided..</param>
-        public UpdateTransactionFeeRequest(string description = default(string), FeeCalculationRequest calculation = default(FeeCalculationRequest), List<string> conditions = default(List<string>), string capitalisationCondition = default(string), string txnPropertyKey = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), bool? isActive = default(bool?))
+        public UpdateTransactionFeeRequest(string description = default(string), FeeCalculationRequest calculation = default(FeeCalculationRequest), string condition = default(string), string capitalisationCondition = default(string), string txnPropertyKey = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), bool? isActive = default(bool?))
         {
             this.Description = description;
             this.Calculation = calculation;
-            this.Conditions = conditions;
+            this.Condition = condition;
             this.CapitalisationCondition = capitalisationCondition;
             this.TxnPropertyKey = txnPropertyKey;
             this.Properties = properties;
@@ -63,11 +63,11 @@ namespace Lusid.Sdk.Model
         public FeeCalculationRequest Calculation { get; set; }
 
         /// <summary>
-        /// The conditions that the transaction must meet in order for the fee to be applied.
+        /// The condition that the transaction must meet in order for the fee to be applied.
         /// </summary>
-        /// <value>The conditions that the transaction must meet in order for the fee to be applied.</value>
-        [DataMember(Name = "conditions", EmitDefaultValue = true)]
-        public List<string> Conditions { get; set; }
+        /// <value>The condition that the transaction must meet in order for the fee to be applied.</value>
+        [DataMember(Name = "condition", EmitDefaultValue = true)]
+        public string Condition { get; set; }
 
         /// <summary>
         /// If the fee Capitalisation is Conditional, this condition determines whether the fee is capitalised, when applied to the transaction.
@@ -107,7 +107,7 @@ namespace Lusid.Sdk.Model
             sb.Append("class UpdateTransactionFeeRequest {\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Calculation: ").Append(Calculation).Append("\n");
-            sb.Append("  Conditions: ").Append(Conditions).Append("\n");
+            sb.Append("  Condition: ").Append(Condition).Append("\n");
             sb.Append("  CapitalisationCondition: ").Append(CapitalisationCondition).Append("\n");
             sb.Append("  TxnPropertyKey: ").Append(TxnPropertyKey).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
@@ -158,10 +158,9 @@ namespace Lusid.Sdk.Model
                     this.Calculation.Equals(input.Calculation))
                 ) && 
                 (
-                    this.Conditions == input.Conditions ||
-                    this.Conditions != null &&
-                    input.Conditions != null &&
-                    this.Conditions.SequenceEqual(input.Conditions)
+                    this.Condition == input.Condition ||
+                    (this.Condition != null &&
+                    this.Condition.Equals(input.Condition))
                 ) && 
                 (
                     this.CapitalisationCondition == input.CapitalisationCondition ||
@@ -203,9 +202,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Calculation.GetHashCode();
                 }
-                if (this.Conditions != null)
+                if (this.Condition != null)
                 {
-                    hashCode = (hashCode * 59) + this.Conditions.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Condition.GetHashCode();
                 }
                 if (this.CapitalisationCondition != null)
                 {
@@ -251,6 +250,18 @@ namespace Lusid.Sdk.Model
             if (false == regexDescription.Match(this.Description).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, must match a pattern of " + regexDescription, new [] { "Description" });
+            }
+
+            // Condition (string) maxLength
+            if (this.Condition != null && this.Condition.Length > 16384)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Condition, length must be less than 16384.", new [] { "Condition" });
+            }
+
+            // Condition (string) minLength
+            if (this.Condition != null && this.Condition.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Condition, length must be greater than 0.", new [] { "Condition" });
             }
 
             // CapitalisationCondition (string) maxLength

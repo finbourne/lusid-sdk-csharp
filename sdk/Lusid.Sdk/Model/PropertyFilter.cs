@@ -29,9 +29,9 @@ namespace Lusid.Sdk.Model
     public partial class PropertyFilter : IEquatable<PropertyFilter>, IValidatableObject
     {
         /// <summary>
-        /// The available values are: Equals, NotEquals, GreaterThan, GreaterThanOrEqualTo, LessThan, LessThanOrEqualTo, In
+        /// The available values are: Equals, NotEquals, GreaterThan, GreaterThanOrEqualTo, LessThan, LessThanOrEqualTo, In, StartsWith
         /// </summary>
-        /// <value>The available values are: Equals, NotEquals, GreaterThan, GreaterThanOrEqualTo, LessThan, LessThanOrEqualTo, In</value>
+        /// <value>The available values are: Equals, NotEquals, GreaterThan, GreaterThanOrEqualTo, LessThan, LessThanOrEqualTo, In, StartsWith</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum OperatorEnum
         {
@@ -75,14 +75,20 @@ namespace Lusid.Sdk.Model
             /// Enum In for value: In
             /// </summary>
             [EnumMember(Value = "In")]
-            In = 7
+            In = 7,
+
+            /// <summary>
+            /// Enum StartsWith for value: StartsWith
+            /// </summary>
+            [EnumMember(Value = "StartsWith")]
+            StartsWith = 8
         }
 
 
         /// <summary>
-        /// The available values are: Equals, NotEquals, GreaterThan, GreaterThanOrEqualTo, LessThan, LessThanOrEqualTo, In
+        /// The available values are: Equals, NotEquals, GreaterThan, GreaterThanOrEqualTo, LessThan, LessThanOrEqualTo, In, StartsWith
         /// </summary>
-        /// <value>The available values are: Equals, NotEquals, GreaterThan, GreaterThanOrEqualTo, LessThan, LessThanOrEqualTo, In</value>
+        /// <value>The available values are: Equals, NotEquals, GreaterThan, GreaterThanOrEqualTo, LessThan, LessThanOrEqualTo, In, StartsWith</value>
         [DataMember(Name = "operator", EmitDefaultValue = false)]
         public OperatorEnum? Operator { get; set; }
         /// <summary>
@@ -116,7 +122,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="PropertyFilter" /> class.
         /// </summary>
         /// <param name="left">The key that uniquely identifies a queryable address in Lusid..</param>
-        /// <param name="varOperator">The available values are: Equals, NotEquals, GreaterThan, GreaterThanOrEqualTo, LessThan, LessThanOrEqualTo, In.</param>
+        /// <param name="varOperator">The available values are: Equals, NotEquals, GreaterThan, GreaterThanOrEqualTo, LessThan, LessThanOrEqualTo, In, StartsWith.</param>
         /// <param name="right">right.</param>
         /// <param name="rightOperandType">The available values are: Absolute, Property.</param>
         public PropertyFilter(string left = default(string), OperatorEnum ?varOperator = default(OperatorEnum?), Object right = default(Object), RightOperandTypeEnum ?rightOperandType = default(RightOperandTypeEnum?))

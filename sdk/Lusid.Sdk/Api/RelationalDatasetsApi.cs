@@ -32,7 +32,7 @@ namespace Lusid.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] BatchDeleteRelationalData: Batch Delete Relational Data Points for a given Relational Dataset Definition.
+        /// BatchDeleteRelationalData: Batch Delete Relational Data Points for a given Relational Dataset Definition.
         /// </summary>
         /// <remarks>
         /// Batch Delete Relational Data Points for a given Relational Dataset Definition.
@@ -48,7 +48,7 @@ namespace Lusid.Sdk.Api
         BatchDeleteRelationalDataResponse BatchDeleteRelationalData(string relationalDatasetDefinitionScope, string relationalDatasetDefinitionCode, Dictionary<string, DeleteRelationalDataPointRequest> requestBody, string? successMode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] BatchDeleteRelationalData: Batch Delete Relational Data Points for a given Relational Dataset Definition.
+        /// BatchDeleteRelationalData: Batch Delete Relational Data Points for a given Relational Dataset Definition.
         /// </summary>
         /// <remarks>
         /// Batch Delete Relational Data Points for a given Relational Dataset Definition.
@@ -63,7 +63,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of BatchDeleteRelationalDataResponse</returns>
         Lusid.Sdk.Client.ApiResponse<BatchDeleteRelationalDataResponse> BatchDeleteRelationalDataWithHttpInfo(string relationalDatasetDefinitionScope, string relationalDatasetDefinitionCode, Dictionary<string, DeleteRelationalDataPointRequest> requestBody, string? successMode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] BatchUpsertRelationalData: Batch Upsert Relational Data Points for a given Relational Dataset Definition.
+        /// BatchUpsertRelationalData: Batch Upsert Relational Data Points for a given Relational Dataset Definition.
         /// </summary>
         /// <remarks>
         /// Batch Upsert Relational Data Points for a given Relational Dataset Definition.
@@ -79,7 +79,7 @@ namespace Lusid.Sdk.Api
         BatchUpsertRelationalDatasetsResponse BatchUpsertRelationalData(string relationalDatasetDefinitionScope, string relationalDatasetDefinitionCode, Dictionary<string, UpsertRelationalDataPointRequest> requestBody, string? successMode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] BatchUpsertRelationalData: Batch Upsert Relational Data Points for a given Relational Dataset Definition.
+        /// BatchUpsertRelationalData: Batch Upsert Relational Data Points for a given Relational Dataset Definition.
         /// </summary>
         /// <remarks>
         /// Batch Upsert Relational Data Points for a given Relational Dataset Definition.
@@ -94,7 +94,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of BatchUpsertRelationalDatasetsResponse</returns>
         Lusid.Sdk.Client.ApiResponse<BatchUpsertRelationalDatasetsResponse> BatchUpsertRelationalDataWithHttpInfo(string relationalDatasetDefinitionScope, string relationalDatasetDefinitionCode, Dictionary<string, UpsertRelationalDataPointRequest> requestBody, string? successMode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] QueryRelationalData: Query Relational Data Points for a given Relational Dataset Definition.
+        /// QueryRelationalData: Query Relational Data Points for a given Relational Dataset Definition.
         /// </summary>
         /// <remarks>
         /// Query Relational Data Points for a given Relational Dataset Definition.
@@ -113,7 +113,7 @@ namespace Lusid.Sdk.Api
         PagedResourceListOfRelationalDataPointResponse QueryRelationalData(string relationalDatasetDefinitionScope, string relationalDatasetDefinitionCode, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), QueryRelationalDatasetRequest? queryRelationalDatasetRequest = default(QueryRelationalDatasetRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] QueryRelationalData: Query Relational Data Points for a given Relational Dataset Definition.
+        /// QueryRelationalData: Query Relational Data Points for a given Relational Dataset Definition.
         /// </summary>
         /// <remarks>
         /// Query Relational Data Points for a given Relational Dataset Definition.
@@ -140,7 +140,7 @@ namespace Lusid.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] BatchDeleteRelationalData: Batch Delete Relational Data Points for a given Relational Dataset Definition.
+        /// BatchDeleteRelationalData: Batch Delete Relational Data Points for a given Relational Dataset Definition.
         /// </summary>
         /// <remarks>
         /// Batch Delete Relational Data Points for a given Relational Dataset Definition.
@@ -157,7 +157,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<BatchDeleteRelationalDataResponse> BatchDeleteRelationalDataAsync(string relationalDatasetDefinitionScope, string relationalDatasetDefinitionCode, Dictionary<string, DeleteRelationalDataPointRequest> requestBody, string? successMode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] BatchDeleteRelationalData: Batch Delete Relational Data Points for a given Relational Dataset Definition.
+        /// BatchDeleteRelationalData: Batch Delete Relational Data Points for a given Relational Dataset Definition.
         /// </summary>
         /// <remarks>
         /// Batch Delete Relational Data Points for a given Relational Dataset Definition.
@@ -173,7 +173,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (BatchDeleteRelationalDataResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<BatchDeleteRelationalDataResponse>> BatchDeleteRelationalDataWithHttpInfoAsync(string relationalDatasetDefinitionScope, string relationalDatasetDefinitionCode, Dictionary<string, DeleteRelationalDataPointRequest> requestBody, string? successMode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] BatchUpsertRelationalData: Batch Upsert Relational Data Points for a given Relational Dataset Definition.
+        /// BatchUpsertRelationalData: Batch Upsert Relational Data Points for a given Relational Dataset Definition.
         /// </summary>
         /// <remarks>
         /// Batch Upsert Relational Data Points for a given Relational Dataset Definition.
@@ -190,7 +190,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<BatchUpsertRelationalDatasetsResponse> BatchUpsertRelationalDataAsync(string relationalDatasetDefinitionScope, string relationalDatasetDefinitionCode, Dictionary<string, UpsertRelationalDataPointRequest> requestBody, string? successMode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] BatchUpsertRelationalData: Batch Upsert Relational Data Points for a given Relational Dataset Definition.
+        /// BatchUpsertRelationalData: Batch Upsert Relational Data Points for a given Relational Dataset Definition.
         /// </summary>
         /// <remarks>
         /// Batch Upsert Relational Data Points for a given Relational Dataset Definition.
@@ -206,7 +206,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (BatchUpsertRelationalDatasetsResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<BatchUpsertRelationalDatasetsResponse>> BatchUpsertRelationalDataWithHttpInfoAsync(string relationalDatasetDefinitionScope, string relationalDatasetDefinitionCode, Dictionary<string, UpsertRelationalDataPointRequest> requestBody, string? successMode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] QueryRelationalData: Query Relational Data Points for a given Relational Dataset Definition.
+        /// QueryRelationalData: Query Relational Data Points for a given Relational Dataset Definition.
         /// </summary>
         /// <remarks>
         /// Query Relational Data Points for a given Relational Dataset Definition.
@@ -226,7 +226,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<PagedResourceListOfRelationalDataPointResponse> QueryRelationalDataAsync(string relationalDatasetDefinitionScope, string relationalDatasetDefinitionCode, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), QueryRelationalDatasetRequest? queryRelationalDatasetRequest = default(QueryRelationalDatasetRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] QueryRelationalData: Query Relational Data Points for a given Relational Dataset Definition.
+        /// QueryRelationalData: Query Relational Data Points for a given Relational Dataset Definition.
         /// </summary>
         /// <remarks>
         /// Query Relational Data Points for a given Relational Dataset Definition.
@@ -368,7 +368,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] BatchDeleteRelationalData: Batch Delete Relational Data Points for a given Relational Dataset Definition. Batch Delete Relational Data Points for a given Relational Dataset Definition.
+        /// BatchDeleteRelationalData: Batch Delete Relational Data Points for a given Relational Dataset Definition. Batch Delete Relational Data Points for a given Relational Dataset Definition.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="relationalDatasetDefinitionScope">The Scope of the relational dataset definition.</param>
@@ -385,7 +385,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] BatchDeleteRelationalData: Batch Delete Relational Data Points for a given Relational Dataset Definition. Batch Delete Relational Data Points for a given Relational Dataset Definition.
+        /// BatchDeleteRelationalData: Batch Delete Relational Data Points for a given Relational Dataset Definition. Batch Delete Relational Data Points for a given Relational Dataset Definition.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="relationalDatasetDefinitionScope">The Scope of the relational dataset definition.</param>
@@ -497,7 +497,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] BatchDeleteRelationalData: Batch Delete Relational Data Points for a given Relational Dataset Definition. Batch Delete Relational Data Points for a given Relational Dataset Definition.
+        /// BatchDeleteRelationalData: Batch Delete Relational Data Points for a given Relational Dataset Definition. Batch Delete Relational Data Points for a given Relational Dataset Definition.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="relationalDatasetDefinitionScope">The Scope of the relational dataset definition.</param>
@@ -515,7 +515,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] BatchDeleteRelationalData: Batch Delete Relational Data Points for a given Relational Dataset Definition. Batch Delete Relational Data Points for a given Relational Dataset Definition.
+        /// BatchDeleteRelationalData: Batch Delete Relational Data Points for a given Relational Dataset Definition. Batch Delete Relational Data Points for a given Relational Dataset Definition.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="relationalDatasetDefinitionScope">The Scope of the relational dataset definition.</param>
@@ -629,7 +629,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] BatchUpsertRelationalData: Batch Upsert Relational Data Points for a given Relational Dataset Definition. Batch Upsert Relational Data Points for a given Relational Dataset Definition.
+        /// BatchUpsertRelationalData: Batch Upsert Relational Data Points for a given Relational Dataset Definition. Batch Upsert Relational Data Points for a given Relational Dataset Definition.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="relationalDatasetDefinitionScope">The Scope of the relational dataset definition.</param>
@@ -646,7 +646,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] BatchUpsertRelationalData: Batch Upsert Relational Data Points for a given Relational Dataset Definition. Batch Upsert Relational Data Points for a given Relational Dataset Definition.
+        /// BatchUpsertRelationalData: Batch Upsert Relational Data Points for a given Relational Dataset Definition. Batch Upsert Relational Data Points for a given Relational Dataset Definition.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="relationalDatasetDefinitionScope">The Scope of the relational dataset definition.</param>
@@ -758,7 +758,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] BatchUpsertRelationalData: Batch Upsert Relational Data Points for a given Relational Dataset Definition. Batch Upsert Relational Data Points for a given Relational Dataset Definition.
+        /// BatchUpsertRelationalData: Batch Upsert Relational Data Points for a given Relational Dataset Definition. Batch Upsert Relational Data Points for a given Relational Dataset Definition.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="relationalDatasetDefinitionScope">The Scope of the relational dataset definition.</param>
@@ -776,7 +776,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] BatchUpsertRelationalData: Batch Upsert Relational Data Points for a given Relational Dataset Definition. Batch Upsert Relational Data Points for a given Relational Dataset Definition.
+        /// BatchUpsertRelationalData: Batch Upsert Relational Data Points for a given Relational Dataset Definition. Batch Upsert Relational Data Points for a given Relational Dataset Definition.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="relationalDatasetDefinitionScope">The Scope of the relational dataset definition.</param>
@@ -890,7 +890,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] QueryRelationalData: Query Relational Data Points for a given Relational Dataset Definition. Query Relational Data Points for a given Relational Dataset Definition.
+        /// QueryRelationalData: Query Relational Data Points for a given Relational Dataset Definition. Query Relational Data Points for a given Relational Dataset Definition.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="relationalDatasetDefinitionScope">The Scope of the relational dataset definition.</param>
@@ -910,7 +910,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] QueryRelationalData: Query Relational Data Points for a given Relational Dataset Definition. Query Relational Data Points for a given Relational Dataset Definition.
+        /// QueryRelationalData: Query Relational Data Points for a given Relational Dataset Definition. Query Relational Data Points for a given Relational Dataset Definition.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="relationalDatasetDefinitionScope">The Scope of the relational dataset definition.</param>
@@ -1034,7 +1034,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] QueryRelationalData: Query Relational Data Points for a given Relational Dataset Definition. Query Relational Data Points for a given Relational Dataset Definition.
+        /// QueryRelationalData: Query Relational Data Points for a given Relational Dataset Definition. Query Relational Data Points for a given Relational Dataset Definition.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="relationalDatasetDefinitionScope">The Scope of the relational dataset definition.</param>
@@ -1055,7 +1055,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] QueryRelationalData: Query Relational Data Points for a given Relational Dataset Definition. Query Relational Data Points for a given Relational Dataset Definition.
+        /// QueryRelationalData: Query Relational Data Points for a given Relational Dataset Definition. Query Relational Data Points for a given Relational Dataset Definition.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="relationalDatasetDefinitionScope">The Scope of the relational dataset definition.</param>

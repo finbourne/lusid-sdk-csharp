@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Name** | **string** | The display name of the transaction fee. | 
 **Description** | **string** | A description of the transaction fee. | 
 **Calculation** | [**FeeCalculationRequest**](FeeCalculationRequest.md) |  | 
-**Conditions** | **List&lt;string&gt;** | The conditions that the transaction must meet in order for the fee to be applied. | 
+**Condition** | **string** | The condition that the transaction must meet in order for the fee to be applied. | 
 **Capitalised** | **string** | Specifies whether the fee should be capitalised, not capitalised or conditionally capitalised. | 
 **CapitalisationCondition** | **string** | If the fee Capitalisation is Conditional, this condition determines whether the fee is capitalised, when applied to the transaction. | [optional] 
 **TxnPropertyKey** | **string** | The property key to which the fee value will be applied and decorated onto the transaction. Must be in the &#39;Transaction&#39; property domain. | 
@@ -21,7 +21,7 @@ using System;
 string name = "name";
 string description = "description";
 FeeCalculationRequest calculation = new FeeCalculationRequest();
-List<string> conditions = new List<string>();
+string condition = "condition";
 string capitalised = "capitalised";
 string capitalisationCondition = "example capitalisationCondition";
 string txnPropertyKey = "txnPropertyKey";
@@ -32,7 +32,7 @@ CreateTransactionFeeRequest createTransactionFeeRequestInstance = new CreateTran
     name: name,
     description: description,
     calculation: calculation,
-    conditions: conditions,
+    condition: condition,
     capitalised: capitalised,
     capitalisationCondition: capitalisationCondition,
     txnPropertyKey: txnPropertyKey,

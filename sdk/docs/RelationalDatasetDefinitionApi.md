@@ -4,19 +4,19 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**CreateRelationalDatasetDefinition**](RelationalDatasetDefinitionApi.md#createrelationaldatasetdefinition) | **POST** /api/relationaldatasetdefinitions | [EARLY ACCESS] CreateRelationalDatasetDefinition: Create a Relational Dataset Definition |
-| [**DeleteRelationalDatasetDefinition**](RelationalDatasetDefinitionApi.md#deleterelationaldatasetdefinition) | **DELETE** /api/relationaldatasetdefinitions/{scope}/{code} | [EARLY ACCESS] DeleteRelationalDatasetDefinition: Delete a Relational Dataset Definition |
-| [**GetRelationalDatasetDefinition**](RelationalDatasetDefinitionApi.md#getrelationaldatasetdefinition) | **GET** /api/relationaldatasetdefinitions/{scope}/{code} | [EARLY ACCESS] GetRelationalDatasetDefinition: Get a Relational Dataset Definition |
-| [**ListRelationalDatasetDefinitions**](RelationalDatasetDefinitionApi.md#listrelationaldatasetdefinitions) | **GET** /api/relationaldatasetdefinitions | [EARLY ACCESS] ListRelationalDatasetDefinitions: List Relational Dataset Definitions |
-| [**UpdateRelationalDatasetDefinition**](RelationalDatasetDefinitionApi.md#updaterelationaldatasetdefinition) | **PUT** /api/relationaldatasetdefinitions/{scope}/{code} | [EARLY ACCESS] UpdateRelationalDatasetDefinition: Update a Relational Dataset Definition |
-| [**UpdateRelationalDatasetDetails**](RelationalDatasetDefinitionApi.md#updaterelationaldatasetdetails) | **POST** /api/relationaldatasetdefinitions/{scope}/{code}/details/$update | [EARLY ACCESS] UpdateRelationalDatasetDetails: Update Relational Dataset Details: DisplayName, Description and ApplicableEntityTypes |
-| [**UpdateRelationalDatasetFieldSchema**](RelationalDatasetDefinitionApi.md#updaterelationaldatasetfieldschema) | **POST** /api/relationaldatasetdefinitions/{scope}/{code}/fieldschema/$update | [EARLY ACCESS] UpdateRelationalDatasetFieldSchema: Update Relational Dataset Field Schema |
+| [**CreateRelationalDatasetDefinition**](RelationalDatasetDefinitionApi.md#createrelationaldatasetdefinition) | **POST** /api/relationaldatasetdefinitions | CreateRelationalDatasetDefinition: Create a Relational Dataset Definition |
+| [**DeleteRelationalDatasetDefinition**](RelationalDatasetDefinitionApi.md#deleterelationaldatasetdefinition) | **DELETE** /api/relationaldatasetdefinitions/{scope}/{code} | DeleteRelationalDatasetDefinition: Delete a Relational Dataset Definition |
+| [**GetRelationalDatasetDefinition**](RelationalDatasetDefinitionApi.md#getrelationaldatasetdefinition) | **GET** /api/relationaldatasetdefinitions/{scope}/{code} | GetRelationalDatasetDefinition: Get a Relational Dataset Definition |
+| [**ListRelationalDatasetDefinitions**](RelationalDatasetDefinitionApi.md#listrelationaldatasetdefinitions) | **GET** /api/relationaldatasetdefinitions | ListRelationalDatasetDefinitions: List Relational Dataset Definitions |
+| [**UpdateRelationalDatasetDefinition**](RelationalDatasetDefinitionApi.md#updaterelationaldatasetdefinition) | **PUT** /api/relationaldatasetdefinitions/{scope}/{code} | UpdateRelationalDatasetDefinition: Update a Relational Dataset Definition |
+| [**UpdateRelationalDatasetDetails**](RelationalDatasetDefinitionApi.md#updaterelationaldatasetdetails) | **POST** /api/relationaldatasetdefinitions/{scope}/{code}/details/$update | UpdateRelationalDatasetDetails: Update Relational Dataset Details: DisplayName, Description and ApplicableEntityTypes |
+| [**UpdateRelationalDatasetFieldSchema**](RelationalDatasetDefinitionApi.md#updaterelationaldatasetfieldschema) | **POST** /api/relationaldatasetdefinitions/{scope}/{code}/fieldschema/$update | UpdateRelationalDatasetFieldSchema: Update Relational Dataset Field Schema |
 
 <a id="createrelationaldatasetdefinition"></a>
 # **CreateRelationalDatasetDefinition**
 > RelationalDatasetDefinition CreateRelationalDatasetDefinition (CreateRelationalDatasetDefinitionRequest createRelationalDatasetDefinitionRequest)
 
-[EARLY ACCESS] CreateRelationalDatasetDefinition: Create a Relational Dataset Definition
+CreateRelationalDatasetDefinition: Create a Relational Dataset Definition
 
 Create a new relational dataset definition.
 
@@ -66,7 +66,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // RelationalDatasetDefinition result = apiInstance.CreateRelationalDatasetDefinition(createRelationalDatasetDefinitionRequest, opts: opts);
 
-                // [EARLY ACCESS] CreateRelationalDatasetDefinition: Create a Relational Dataset Definition
+                // CreateRelationalDatasetDefinition: Create a Relational Dataset Definition
                 RelationalDatasetDefinition result = apiInstance.CreateRelationalDatasetDefinition(createRelationalDatasetDefinitionRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -87,7 +87,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] CreateRelationalDatasetDefinition: Create a Relational Dataset Definition
+    // CreateRelationalDatasetDefinition: Create a Relational Dataset Definition
     ApiResponse<RelationalDatasetDefinition> response = apiInstance.CreateRelationalDatasetDefinitionWithHttpInfo(createRelationalDatasetDefinitionRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -130,7 +130,7 @@ catch (ApiException e)
 # **DeleteRelationalDatasetDefinition**
 > DeletedEntityResponse DeleteRelationalDatasetDefinition (string scope, string code)
 
-[EARLY ACCESS] DeleteRelationalDatasetDefinition: Delete a Relational Dataset Definition
+DeleteRelationalDatasetDefinition: Delete a Relational Dataset Definition
 
 Delete a relational dataset definition.  WARNING! This operation is irreversible. Deleting a relational dataset definition will also delete all associated data points.
 
@@ -181,7 +181,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // DeletedEntityResponse result = apiInstance.DeleteRelationalDatasetDefinition(scope, code, opts: opts);
 
-                // [EARLY ACCESS] DeleteRelationalDatasetDefinition: Delete a Relational Dataset Definition
+                // DeleteRelationalDatasetDefinition: Delete a Relational Dataset Definition
                 DeletedEntityResponse result = apiInstance.DeleteRelationalDatasetDefinition(scope, code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -202,7 +202,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] DeleteRelationalDatasetDefinition: Delete a Relational Dataset Definition
+    // DeleteRelationalDatasetDefinition: Delete a Relational Dataset Definition
     ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteRelationalDatasetDefinitionWithHttpInfo(scope, code);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -246,7 +246,7 @@ catch (ApiException e)
 # **GetRelationalDatasetDefinition**
 > RelationalDatasetDefinition GetRelationalDatasetDefinition (string scope, string code, DateTimeOffset? asAt = null)
 
-[EARLY ACCESS] GetRelationalDatasetDefinition: Get a Relational Dataset Definition
+GetRelationalDatasetDefinition: Get a Relational Dataset Definition
 
 Retrieve a relational dataset definition by its identifier.
 
@@ -298,7 +298,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // RelationalDatasetDefinition result = apiInstance.GetRelationalDatasetDefinition(scope, code, asAt, opts: opts);
 
-                // [EARLY ACCESS] GetRelationalDatasetDefinition: Get a Relational Dataset Definition
+                // GetRelationalDatasetDefinition: Get a Relational Dataset Definition
                 RelationalDatasetDefinition result = apiInstance.GetRelationalDatasetDefinition(scope, code, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -319,7 +319,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] GetRelationalDatasetDefinition: Get a Relational Dataset Definition
+    // GetRelationalDatasetDefinition: Get a Relational Dataset Definition
     ApiResponse<RelationalDatasetDefinition> response = apiInstance.GetRelationalDatasetDefinitionWithHttpInfo(scope, code, asAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -364,7 +364,7 @@ catch (ApiException e)
 # **ListRelationalDatasetDefinitions**
 > PagedResourceListOfRelationalDatasetDefinition ListRelationalDatasetDefinitions (DateTimeOffset? asAt = null, string? page = null, List<string>? sortBy = null, int? limit = null, string? filter = null)
 
-[EARLY ACCESS] ListRelationalDatasetDefinitions: List Relational Dataset Definitions
+ListRelationalDatasetDefinitions: List Relational Dataset Definitions
 
 List all relational dataset definitions matching particular criteria.
 
@@ -418,7 +418,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // PagedResourceListOfRelationalDatasetDefinition result = apiInstance.ListRelationalDatasetDefinitions(asAt, page, sortBy, limit, filter, opts: opts);
 
-                // [EARLY ACCESS] ListRelationalDatasetDefinitions: List Relational Dataset Definitions
+                // ListRelationalDatasetDefinitions: List Relational Dataset Definitions
                 PagedResourceListOfRelationalDatasetDefinition result = apiInstance.ListRelationalDatasetDefinitions(asAt, page, sortBy, limit, filter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -439,7 +439,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] ListRelationalDatasetDefinitions: List Relational Dataset Definitions
+    // ListRelationalDatasetDefinitions: List Relational Dataset Definitions
     ApiResponse<PagedResourceListOfRelationalDatasetDefinition> response = apiInstance.ListRelationalDatasetDefinitionsWithHttpInfo(asAt, page, sortBy, limit, filter);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -486,7 +486,7 @@ catch (ApiException e)
 # **UpdateRelationalDatasetDefinition**
 > RelationalDatasetDefinition UpdateRelationalDatasetDefinition (string scope, string code, UpdateRelationalDatasetDefinitionRequest? updateRelationalDatasetDefinitionRequest = null)
 
-[EARLY ACCESS] UpdateRelationalDatasetDefinition: Update a Relational Dataset Definition
+UpdateRelationalDatasetDefinition: Update a Relational Dataset Definition
 
 Update an existing relational dataset definition.  Applicable only to the definitions that are not yet in use i.e. there are no DataPoints associated with this definition.
 
@@ -538,7 +538,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // RelationalDatasetDefinition result = apiInstance.UpdateRelationalDatasetDefinition(scope, code, updateRelationalDatasetDefinitionRequest, opts: opts);
 
-                // [EARLY ACCESS] UpdateRelationalDatasetDefinition: Update a Relational Dataset Definition
+                // UpdateRelationalDatasetDefinition: Update a Relational Dataset Definition
                 RelationalDatasetDefinition result = apiInstance.UpdateRelationalDatasetDefinition(scope, code, updateRelationalDatasetDefinitionRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -559,7 +559,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] UpdateRelationalDatasetDefinition: Update a Relational Dataset Definition
+    // UpdateRelationalDatasetDefinition: Update a Relational Dataset Definition
     ApiResponse<RelationalDatasetDefinition> response = apiInstance.UpdateRelationalDatasetDefinitionWithHttpInfo(scope, code, updateRelationalDatasetDefinitionRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -604,7 +604,7 @@ catch (ApiException e)
 # **UpdateRelationalDatasetDetails**
 > RelationalDatasetDefinition UpdateRelationalDatasetDetails (string scope, string code, UpdateRelationalDatasetDetails? updateRelationalDatasetDetails = null)
 
-[EARLY ACCESS] UpdateRelationalDatasetDetails: Update Relational Dataset Details: DisplayName, Description and ApplicableEntityTypes
+UpdateRelationalDatasetDetails: Update Relational Dataset Details: DisplayName, Description and ApplicableEntityTypes
 
 Update an existing relational dataset definition.  Applicable only to the definitions that are already in use i.e. contain DataPoints associated with this definition.
 
@@ -656,7 +656,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // RelationalDatasetDefinition result = apiInstance.UpdateRelationalDatasetDetails(scope, code, updateRelationalDatasetDetails, opts: opts);
 
-                // [EARLY ACCESS] UpdateRelationalDatasetDetails: Update Relational Dataset Details: DisplayName, Description and ApplicableEntityTypes
+                // UpdateRelationalDatasetDetails: Update Relational Dataset Details: DisplayName, Description and ApplicableEntityTypes
                 RelationalDatasetDefinition result = apiInstance.UpdateRelationalDatasetDetails(scope, code, updateRelationalDatasetDetails);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -677,7 +677,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] UpdateRelationalDatasetDetails: Update Relational Dataset Details: DisplayName, Description and ApplicableEntityTypes
+    // UpdateRelationalDatasetDetails: Update Relational Dataset Details: DisplayName, Description and ApplicableEntityTypes
     ApiResponse<RelationalDatasetDefinition> response = apiInstance.UpdateRelationalDatasetDetailsWithHttpInfo(scope, code, updateRelationalDatasetDetails);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -722,7 +722,7 @@ catch (ApiException e)
 # **UpdateRelationalDatasetFieldSchema**
 > RelationalDatasetDefinition UpdateRelationalDatasetFieldSchema (string scope, string code, UpdateRelationalDatasetFieldSchema? updateRelationalDatasetFieldSchema = null)
 
-[EARLY ACCESS] UpdateRelationalDatasetFieldSchema: Update Relational Dataset Field Schema
+UpdateRelationalDatasetFieldSchema: Update Relational Dataset Field Schema
 
 Update an existing relational dataset definition with the new field schema.  Applicable only to the definitions that are already in use i.e. contain DataPoints associated with this definition.
 
@@ -774,7 +774,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // RelationalDatasetDefinition result = apiInstance.UpdateRelationalDatasetFieldSchema(scope, code, updateRelationalDatasetFieldSchema, opts: opts);
 
-                // [EARLY ACCESS] UpdateRelationalDatasetFieldSchema: Update Relational Dataset Field Schema
+                // UpdateRelationalDatasetFieldSchema: Update Relational Dataset Field Schema
                 RelationalDatasetDefinition result = apiInstance.UpdateRelationalDatasetFieldSchema(scope, code, updateRelationalDatasetFieldSchema);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -795,7 +795,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] UpdateRelationalDatasetFieldSchema: Update Relational Dataset Field Schema
+    // UpdateRelationalDatasetFieldSchema: Update Relational Dataset Field Schema
     ApiResponse<RelationalDatasetDefinition> response = apiInstance.UpdateRelationalDatasetFieldSchemaWithHttpInfo(scope, code, updateRelationalDatasetFieldSchema);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));

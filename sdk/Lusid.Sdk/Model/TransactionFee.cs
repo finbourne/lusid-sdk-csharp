@@ -35,7 +35,7 @@ namespace Lusid.Sdk.Model
         /// <param name="name">The display name of the transaction fee..</param>
         /// <param name="description">A description of the transaction fee..</param>
         /// <param name="calculation">calculation.</param>
-        /// <param name="conditions">The conditions that the transaction must meet in order for the fee to be applied..</param>
+        /// <param name="condition">The condition that the transaction must meet in order for the fee to be applied..</param>
         /// <param name="capitalised">Specifies whether the fee should be capitalised, not capitalised or conditionally capitalised..</param>
         /// <param name="capitalisationCondition">If the fee Capitalisation is Conditional, this condition determines whether the fee is capitalised, when applied to the transaction..</param>
         /// <param name="txnPropertyKey">The property key to which the fee value will be applied and decorated onto the transaction. Must be in the &#39;Transaction&#39; property domain..</param>
@@ -44,13 +44,13 @@ namespace Lusid.Sdk.Model
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
         /// <param name="isActive">Indicates whether the transaction fee is currently active and should be applied to transactions. Optional when creating a transaction fee, defaults to true, if a value is not provided..</param>
         /// <param name="links">links.</param>
-        public TransactionFee(ResourceId id = default(ResourceId), string name = default(string), string description = default(string), FeeCalculationRequest calculation = default(FeeCalculationRequest), List<string> conditions = default(List<string>), string capitalised = default(string), string capitalisationCondition = default(string), string txnPropertyKey = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion varVersion = default(ModelVersion), string href = default(string), bool isActive = default(bool), List<Link> links = default(List<Link>))
+        public TransactionFee(ResourceId id = default(ResourceId), string name = default(string), string description = default(string), FeeCalculationRequest calculation = default(FeeCalculationRequest), string condition = default(string), string capitalised = default(string), string capitalisationCondition = default(string), string txnPropertyKey = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion varVersion = default(ModelVersion), string href = default(string), bool isActive = default(bool), List<Link> links = default(List<Link>))
         {
             this.Id = id;
             this.Name = name;
             this.Description = description;
             this.Calculation = calculation;
-            this.Conditions = conditions;
+            this.Condition = condition;
             this.Capitalised = capitalised;
             this.CapitalisationCondition = capitalisationCondition;
             this.TxnPropertyKey = txnPropertyKey;
@@ -88,11 +88,11 @@ namespace Lusid.Sdk.Model
         public FeeCalculationRequest Calculation { get; set; }
 
         /// <summary>
-        /// The conditions that the transaction must meet in order for the fee to be applied.
+        /// The condition that the transaction must meet in order for the fee to be applied.
         /// </summary>
-        /// <value>The conditions that the transaction must meet in order for the fee to be applied.</value>
-        [DataMember(Name = "conditions", EmitDefaultValue = true)]
-        public List<string> Conditions { get; set; }
+        /// <value>The condition that the transaction must meet in order for the fee to be applied.</value>
+        [DataMember(Name = "condition", EmitDefaultValue = true)]
+        public string Condition { get; set; }
 
         /// <summary>
         /// Specifies whether the fee should be capitalised, not capitalised or conditionally capitalised.
@@ -160,7 +160,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Calculation: ").Append(Calculation).Append("\n");
-            sb.Append("  Conditions: ").Append(Conditions).Append("\n");
+            sb.Append("  Condition: ").Append(Condition).Append("\n");
             sb.Append("  Capitalised: ").Append(Capitalised).Append("\n");
             sb.Append("  CapitalisationCondition: ").Append(CapitalisationCondition).Append("\n");
             sb.Append("  TxnPropertyKey: ").Append(TxnPropertyKey).Append("\n");
@@ -225,10 +225,9 @@ namespace Lusid.Sdk.Model
                     this.Calculation.Equals(input.Calculation))
                 ) && 
                 (
-                    this.Conditions == input.Conditions ||
-                    this.Conditions != null &&
-                    input.Conditions != null &&
-                    this.Conditions.SequenceEqual(input.Conditions)
+                    this.Condition == input.Condition ||
+                    (this.Condition != null &&
+                    this.Condition.Equals(input.Condition))
                 ) && 
                 (
                     this.Capitalised == input.Capitalised ||
@@ -298,9 +297,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Calculation.GetHashCode();
                 }
-                if (this.Conditions != null)
+                if (this.Condition != null)
                 {
-                    hashCode = (hashCode * 59) + this.Conditions.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Condition.GetHashCode();
                 }
                 if (this.Capitalised != null)
                 {
