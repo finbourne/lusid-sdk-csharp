@@ -34,16 +34,14 @@ namespace Lusid.Sdk.Model
         /// <param name="description">A description of the transaction fee..</param>
         /// <param name="calculation">calculation.</param>
         /// <param name="condition">The condition that the transaction must meet in order for the fee to be applied..</param>
-        /// <param name="capitalisationCondition">If the fee Capitalisation is Conditional, this condition determines whether the fee is capitalised, when applied to the transaction..</param>
         /// <param name="txnPropertyKey">The property key to which the fee value will be applied and decorated onto the transaction. Must be in the &#39;Transaction&#39; property domain..</param>
         /// <param name="properties">A set of properties for the transaction fee..</param>
         /// <param name="isActive">Indicates whether the transaction fee is currently active and should be applied to transactions. Optional when creating a transaction fee, defaults to true, if a value is not provided..</param>
-        public UpdateTransactionFeeRequest(string description = default(string), FeeCalculationRequest calculation = default(FeeCalculationRequest), string condition = default(string), string capitalisationCondition = default(string), string txnPropertyKey = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), bool? isActive = default(bool?))
+        public UpdateTransactionFeeRequest(string description = default(string), FeeCalculationRequest calculation = default(FeeCalculationRequest), string condition = default(string), string txnPropertyKey = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), bool? isActive = default(bool?))
         {
             this.Description = description;
             this.Calculation = calculation;
             this.Condition = condition;
-            this.CapitalisationCondition = capitalisationCondition;
             this.TxnPropertyKey = txnPropertyKey;
             this.Properties = properties;
             this.IsActive = isActive;
@@ -68,13 +66,6 @@ namespace Lusid.Sdk.Model
         /// <value>The condition that the transaction must meet in order for the fee to be applied.</value>
         [DataMember(Name = "condition", EmitDefaultValue = true)]
         public string Condition { get; set; }
-
-        /// <summary>
-        /// If the fee Capitalisation is Conditional, this condition determines whether the fee is capitalised, when applied to the transaction.
-        /// </summary>
-        /// <value>If the fee Capitalisation is Conditional, this condition determines whether the fee is capitalised, when applied to the transaction.</value>
-        [DataMember(Name = "capitalisationCondition", EmitDefaultValue = true)]
-        public string CapitalisationCondition { get; set; }
 
         /// <summary>
         /// The property key to which the fee value will be applied and decorated onto the transaction. Must be in the &#39;Transaction&#39; property domain.
@@ -108,7 +99,6 @@ namespace Lusid.Sdk.Model
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Calculation: ").Append(Calculation).Append("\n");
             sb.Append("  Condition: ").Append(Condition).Append("\n");
-            sb.Append("  CapitalisationCondition: ").Append(CapitalisationCondition).Append("\n");
             sb.Append("  TxnPropertyKey: ").Append(TxnPropertyKey).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  IsActive: ").Append(IsActive).Append("\n");
@@ -163,11 +153,6 @@ namespace Lusid.Sdk.Model
                     this.Condition.Equals(input.Condition))
                 ) && 
                 (
-                    this.CapitalisationCondition == input.CapitalisationCondition ||
-                    (this.CapitalisationCondition != null &&
-                    this.CapitalisationCondition.Equals(input.CapitalisationCondition))
-                ) && 
-                (
                     this.TxnPropertyKey == input.TxnPropertyKey ||
                     (this.TxnPropertyKey != null &&
                     this.TxnPropertyKey.Equals(input.TxnPropertyKey))
@@ -205,10 +190,6 @@ namespace Lusid.Sdk.Model
                 if (this.Condition != null)
                 {
                     hashCode = (hashCode * 59) + this.Condition.GetHashCode();
-                }
-                if (this.CapitalisationCondition != null)
-                {
-                    hashCode = (hashCode * 59) + this.CapitalisationCondition.GetHashCode();
                 }
                 if (this.TxnPropertyKey != null)
                 {
@@ -262,18 +243,6 @@ namespace Lusid.Sdk.Model
             if (this.Condition != null && this.Condition.Length < 0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Condition, length must be greater than 0.", new [] { "Condition" });
-            }
-
-            // CapitalisationCondition (string) maxLength
-            if (this.CapitalisationCondition != null && this.CapitalisationCondition.Length > 256)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CapitalisationCondition, length must be less than 256.", new [] { "CapitalisationCondition" });
-            }
-
-            // CapitalisationCondition (string) minLength
-            if (this.CapitalisationCondition != null && this.CapitalisationCondition.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CapitalisationCondition, length must be greater than 1.", new [] { "CapitalisationCondition" });
             }
 
             // TxnPropertyKey (string) maxLength

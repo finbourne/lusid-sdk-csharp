@@ -192,10 +192,12 @@ Class | Method | HTTP request | Description
 *CustomEntitiesApi* | [**UpsertCustomEntity**](docs/CustomEntitiesApi.md#upsertcustomentity) | **POST** /api/customentities/{entityType} | UpsertCustomEntity: Upsert a Custom Entity instance
 *CustomEntitiesApi* | [**UpsertCustomEntityAccessMetadata**](docs/CustomEntitiesApi.md#upsertcustomentityaccessmetadata) | **PUT** /api/customentities/{entityType}/{identifierType}/{identifierValue}/metadata/{metadataKey} | [EARLY ACCESS] UpsertCustomEntityAccessMetadata: Upsert a Custom Entity Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.
 *CustomEntityDefinitionsApi* | [**CreateCustomEntityDefinition**](docs/CustomEntityDefinitionsApi.md#createcustomentitydefinition) | **POST** /api/customentities/entitytypes | [EARLY ACCESS] CreateCustomEntityDefinition: Define a new Custom Entity type.
+*CustomEntityDefinitionsApi* | [**DeleteDefinition**](docs/CustomEntityDefinitionsApi.md#deletedefinition) | **DELETE** /api/customentities/entitytypes/{entityType} | [EARLY ACCESS] DeleteDefinition: Delete a Custom Entity type definition.
 *CustomEntityDefinitionsApi* | [**GetDefinition**](docs/CustomEntityDefinitionsApi.md#getdefinition) | **GET** /api/customentities/entitytypes/{entityType} | [EARLY ACCESS] GetDefinition: Get a Custom Entity type definition.
 *CustomEntityDefinitionsApi* | [**ListCustomEntityDefinitions**](docs/CustomEntityDefinitionsApi.md#listcustomentitydefinitions) | **GET** /api/customentities/entitytypes | [EARLY ACCESS] ListCustomEntityDefinitions: List the Custom Entity type definitions
 *CustomEntityDefinitionsApi* | [**UpdateCustomEntityDefinition**](docs/CustomEntityDefinitionsApi.md#updatecustomentitydefinition) | **PUT** /api/customentities/entitytypes/{entityType} | [EARLY ACCESS] UpdateCustomEntityDefinition: Modify an existing Custom Entity type.
 *CustomEntityTypesApi* | [**CreateCustomEntityType**](docs/CustomEntityTypesApi.md#createcustomentitytype) | **POST** /api/customentitytypes | [EARLY ACCESS] CreateCustomEntityType: Define a new Custom Entity Type.
+*CustomEntityTypesApi* | [**DeleteCustomEntityType**](docs/CustomEntityTypesApi.md#deletecustomentitytype) | **DELETE** /api/customentitytypes/{entityType} | [EARLY ACCESS] DeleteCustomEntityType: Delete a Custom Entity type.
 *CustomEntityTypesApi* | [**GetCustomEntityType**](docs/CustomEntityTypesApi.md#getcustomentitytype) | **GET** /api/customentitytypes/{entityType} | [EARLY ACCESS] GetCustomEntityType: Get a Custom Entity Type.
 *CustomEntityTypesApi* | [**ListCustomEntityTypes**](docs/CustomEntityTypesApi.md#listcustomentitytypes) | **GET** /api/customentitytypes | [EARLY ACCESS] ListCustomEntityTypes: List Custom Entity Types.
 *CustomEntityTypesApi* | [**UpdateCustomEntityType**](docs/CustomEntityTypesApi.md#updatecustomentitytype) | **PUT** /api/customentitytypes/{entityType} | [EARLY ACCESS] UpdateCustomEntityType: Modify an existing Custom Entity Type.
@@ -1234,6 +1236,7 @@ Class | Method | HTTP request | Description
  - [GroupReconciliationDefinitionCurrencies](docs/GroupReconciliationDefinitionCurrencies.md)
  - [GroupReconciliationDefinitionPortfolioEntityIds](docs/GroupReconciliationDefinitionPortfolioEntityIds.md)
  - [GroupReconciliationDefinitionRecipeIds](docs/GroupReconciliationDefinitionRecipeIds.md)
+ - [GroupReconciliationFilters](docs/GroupReconciliationFilters.md)
  - [GroupReconciliationInstanceId](docs/GroupReconciliationInstanceId.md)
  - [GroupReconciliationResultStatuses](docs/GroupReconciliationResultStatuses.md)
  - [GroupReconciliationResultTypes](docs/GroupReconciliationResultTypes.md)

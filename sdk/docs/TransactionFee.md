@@ -9,8 +9,6 @@ Name | Type | Description | Notes
 **Description** | **string** | A description of the transaction fee. | [optional] 
 **Calculation** | [**FeeCalculationRequest**](FeeCalculationRequest.md) |  | [optional] 
 **Condition** | **string** | The condition that the transaction must meet in order for the fee to be applied. | [optional] 
-**Capitalised** | **string** | Specifies whether the fee should be capitalised, not capitalised or conditionally capitalised. | [optional] 
-**CapitalisationCondition** | **string** | If the fee Capitalisation is Conditional, this condition determines whether the fee is capitalised, when applied to the transaction. | [optional] 
 **TxnPropertyKey** | **string** | The property key to which the fee value will be applied and decorated onto the transaction. Must be in the &#39;Transaction&#39; property domain. | [optional] 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | A set of properties for the transaction fee. | [optional] 
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
@@ -29,8 +27,6 @@ string description = "example description";
 FeeCalculationRequest? calculation = new FeeCalculationRequest();
 
 string condition = "example condition";
-string capitalised = "example capitalised";
-string capitalisationCondition = "example capitalisationCondition";
 string txnPropertyKey = "example txnPropertyKey";
 Dictionary<string, Property> properties = new Dictionary<string, Property>();
 ModelVersion? varVersion = new ModelVersion();
@@ -45,8 +41,6 @@ TransactionFee transactionFeeInstance = new TransactionFee(
     description: description,
     calculation: calculation,
     condition: condition,
-    capitalised: capitalised,
-    capitalisationCondition: capitalisationCondition,
     txnPropertyKey: txnPropertyKey,
     properties: properties,
     varVersion: varVersion,

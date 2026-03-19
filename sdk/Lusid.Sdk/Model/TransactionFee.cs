@@ -36,23 +36,19 @@ namespace Lusid.Sdk.Model
         /// <param name="description">A description of the transaction fee..</param>
         /// <param name="calculation">calculation.</param>
         /// <param name="condition">The condition that the transaction must meet in order for the fee to be applied..</param>
-        /// <param name="capitalised">Specifies whether the fee should be capitalised, not capitalised or conditionally capitalised..</param>
-        /// <param name="capitalisationCondition">If the fee Capitalisation is Conditional, this condition determines whether the fee is capitalised, when applied to the transaction..</param>
         /// <param name="txnPropertyKey">The property key to which the fee value will be applied and decorated onto the transaction. Must be in the &#39;Transaction&#39; property domain..</param>
         /// <param name="properties">A set of properties for the transaction fee..</param>
         /// <param name="varVersion">varVersion.</param>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
         /// <param name="isActive">Indicates whether the transaction fee is currently active and should be applied to transactions. Optional when creating a transaction fee, defaults to true, if a value is not provided..</param>
         /// <param name="links">links.</param>
-        public TransactionFee(ResourceId id = default(ResourceId), string name = default(string), string description = default(string), FeeCalculationRequest calculation = default(FeeCalculationRequest), string condition = default(string), string capitalised = default(string), string capitalisationCondition = default(string), string txnPropertyKey = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion varVersion = default(ModelVersion), string href = default(string), bool isActive = default(bool), List<Link> links = default(List<Link>))
+        public TransactionFee(ResourceId id = default(ResourceId), string name = default(string), string description = default(string), FeeCalculationRequest calculation = default(FeeCalculationRequest), string condition = default(string), string txnPropertyKey = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion varVersion = default(ModelVersion), string href = default(string), bool isActive = default(bool), List<Link> links = default(List<Link>))
         {
             this.Id = id;
             this.Name = name;
             this.Description = description;
             this.Calculation = calculation;
             this.Condition = condition;
-            this.Capitalised = capitalised;
-            this.CapitalisationCondition = capitalisationCondition;
             this.TxnPropertyKey = txnPropertyKey;
             this.Properties = properties;
             this.VarVersion = varVersion;
@@ -93,20 +89,6 @@ namespace Lusid.Sdk.Model
         /// <value>The condition that the transaction must meet in order for the fee to be applied.</value>
         [DataMember(Name = "condition", EmitDefaultValue = true)]
         public string Condition { get; set; }
-
-        /// <summary>
-        /// Specifies whether the fee should be capitalised, not capitalised or conditionally capitalised.
-        /// </summary>
-        /// <value>Specifies whether the fee should be capitalised, not capitalised or conditionally capitalised.</value>
-        [DataMember(Name = "capitalised", EmitDefaultValue = true)]
-        public string Capitalised { get; set; }
-
-        /// <summary>
-        /// If the fee Capitalisation is Conditional, this condition determines whether the fee is capitalised, when applied to the transaction.
-        /// </summary>
-        /// <value>If the fee Capitalisation is Conditional, this condition determines whether the fee is capitalised, when applied to the transaction.</value>
-        [DataMember(Name = "capitalisationCondition", EmitDefaultValue = true)]
-        public string CapitalisationCondition { get; set; }
 
         /// <summary>
         /// The property key to which the fee value will be applied and decorated onto the transaction. Must be in the &#39;Transaction&#39; property domain.
@@ -161,8 +143,6 @@ namespace Lusid.Sdk.Model
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Calculation: ").Append(Calculation).Append("\n");
             sb.Append("  Condition: ").Append(Condition).Append("\n");
-            sb.Append("  Capitalised: ").Append(Capitalised).Append("\n");
-            sb.Append("  CapitalisationCondition: ").Append(CapitalisationCondition).Append("\n");
             sb.Append("  TxnPropertyKey: ").Append(TxnPropertyKey).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
@@ -230,16 +210,6 @@ namespace Lusid.Sdk.Model
                     this.Condition.Equals(input.Condition))
                 ) && 
                 (
-                    this.Capitalised == input.Capitalised ||
-                    (this.Capitalised != null &&
-                    this.Capitalised.Equals(input.Capitalised))
-                ) && 
-                (
-                    this.CapitalisationCondition == input.CapitalisationCondition ||
-                    (this.CapitalisationCondition != null &&
-                    this.CapitalisationCondition.Equals(input.CapitalisationCondition))
-                ) && 
-                (
                     this.TxnPropertyKey == input.TxnPropertyKey ||
                     (this.TxnPropertyKey != null &&
                     this.TxnPropertyKey.Equals(input.TxnPropertyKey))
@@ -300,14 +270,6 @@ namespace Lusid.Sdk.Model
                 if (this.Condition != null)
                 {
                     hashCode = (hashCode * 59) + this.Condition.GetHashCode();
-                }
-                if (this.Capitalised != null)
-                {
-                    hashCode = (hashCode * 59) + this.Capitalised.GetHashCode();
-                }
-                if (this.CapitalisationCondition != null)
-                {
-                    hashCode = (hashCode * 59) + this.CapitalisationCondition.GetHashCode();
                 }
                 if (this.TxnPropertyKey != null)
                 {

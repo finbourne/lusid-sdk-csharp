@@ -39,12 +39,13 @@ namespace Lusid.Sdk.Model
         /// <param name="id">id (required).</param>
         /// <param name="displayName">The name of the ruleset (required).</param>
         /// <param name="reconciliationType">The type of reconciliation to perform. \&quot;Holding\&quot; | \&quot;Transaction\&quot; | \&quot;Valuation\&quot; (required).</param>
+        /// <param name="filters">filters.</param>
         /// <param name="coreAttributeRules">The core comparison rules (required).</param>
         /// <param name="aggregateAttributeRules">The aggregate comparison rules (required).</param>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
         /// <param name="varVersion">varVersion.</param>
         /// <param name="links">links.</param>
-        public GroupReconciliationComparisonRuleset(ResourceId id = default(ResourceId), string displayName = default(string), string reconciliationType = default(string), List<GroupReconciliationCoreAttributeRule> coreAttributeRules = default(List<GroupReconciliationCoreAttributeRule>), List<GroupReconciliationAggregateAttributeRule> aggregateAttributeRules = default(List<GroupReconciliationAggregateAttributeRule>), string href = default(string), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
+        public GroupReconciliationComparisonRuleset(ResourceId id = default(ResourceId), string displayName = default(string), string reconciliationType = default(string), GroupReconciliationFilters filters = default(GroupReconciliationFilters), List<GroupReconciliationCoreAttributeRule> coreAttributeRules = default(List<GroupReconciliationCoreAttributeRule>), List<GroupReconciliationAggregateAttributeRule> aggregateAttributeRules = default(List<GroupReconciliationAggregateAttributeRule>), string href = default(string), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -76,6 +77,7 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("aggregateAttributeRules is a required property for GroupReconciliationComparisonRuleset and cannot be null");
             }
             this.AggregateAttributeRules = aggregateAttributeRules;
+            this.Filters = filters;
             this.Href = href;
             this.VarVersion = varVersion;
             this.Links = links;
@@ -100,6 +102,12 @@ namespace Lusid.Sdk.Model
         /// <value>The type of reconciliation to perform. \&quot;Holding\&quot; | \&quot;Transaction\&quot; | \&quot;Valuation\&quot;</value>
         [DataMember(Name = "reconciliationType", IsRequired = true, EmitDefaultValue = true)]
         public string ReconciliationType { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Filters
+        /// </summary>
+        [DataMember(Name = "filters", EmitDefaultValue = false)]
+        public GroupReconciliationFilters Filters { get; set; }
 
         /// <summary>
         /// The core comparison rules
@@ -145,6 +153,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  ReconciliationType: ").Append(ReconciliationType).Append("\n");
+            sb.Append("  Filters: ").Append(Filters).Append("\n");
             sb.Append("  CoreAttributeRules: ").Append(CoreAttributeRules).Append("\n");
             sb.Append("  AggregateAttributeRules: ").Append(AggregateAttributeRules).Append("\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
@@ -201,6 +210,11 @@ namespace Lusid.Sdk.Model
                     this.ReconciliationType.Equals(input.ReconciliationType))
                 ) && 
                 (
+                    this.Filters == input.Filters ||
+                    (this.Filters != null &&
+                    this.Filters.Equals(input.Filters))
+                ) && 
+                (
                     this.CoreAttributeRules == input.CoreAttributeRules ||
                     this.CoreAttributeRules != null &&
                     input.CoreAttributeRules != null &&
@@ -250,6 +264,10 @@ namespace Lusid.Sdk.Model
                 if (this.ReconciliationType != null)
                 {
                     hashCode = (hashCode * 59) + this.ReconciliationType.GetHashCode();
+                }
+                if (this.Filters != null)
+                {
+                    hashCode = (hashCode * 59) + this.Filters.GetHashCode();
                 }
                 if (this.CoreAttributeRules != null)
                 {
