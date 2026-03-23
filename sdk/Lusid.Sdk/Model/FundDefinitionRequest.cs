@@ -44,14 +44,17 @@ namespace Lusid.Sdk.Model
         /// <param name="portfolioIds">A list of the Portfolio IDs associated with the fund, which are part of the Fund. Note: These must all have the same base currency, which must also much the Fund Base Currency. (required).</param>
         /// <param name="fundConfigurationId">fundConfigurationId (required).</param>
         /// <param name="shareClassInstrumentScopes">The scopes in which the instruments lie, currently limited to one..</param>
-        /// <param name="shareClassInstruments">Details the user-provided instrument identifiers and the instrument resolved from them..</param>
+        /// <param name="shareClassInstruments">Details the user-provided instrument identifiers and the instrument resolved from them. These would be decommissioned in favour of the new AllocationGroups and ShareClasses structures..</param>
         /// <param name="type">The type of fund; &#39;Standalone&#39;, &#39;Master&#39; or &#39;Feeder&#39;.</param>
         /// <param name="inceptionDate">Inception date of the Fund (required).</param>
         /// <param name="decimalPlaces">Number of decimal places for reporting.</param>
         /// <param name="primaryNavType">primaryNavType (required).</param>
         /// <param name="additionalNavTypes">The definitions for any additional NAVs on the Fund..</param>
         /// <param name="properties">A set of properties for the Fund..</param>
-        public FundDefinitionRequest(string code = default(string), string displayName = default(string), string description = default(string), string baseCurrency = default(string), string investorStructure = default(string), List<PortfolioEntityId> portfolioIds = default(List<PortfolioEntityId>), ResourceId fundConfigurationId = default(ResourceId), List<string> shareClassInstrumentScopes = default(List<string>), List<InstrumentResolutionDetail> shareClassInstruments = default(List<InstrumentResolutionDetail>), string type = default(string), DateTimeOffset inceptionDate = default(DateTimeOffset), int? decimalPlaces = default(int?), NavTypeDefinition primaryNavType = default(NavTypeDefinition), List<NavTypeDefinition> additionalNavTypes = default(List<NavTypeDefinition>), Dictionary<string, Property> properties = default(Dictionary<string, Property>))
+        /// <param name="createInstrument">Whether to create an instrument for the Fund upon creation. Defaults to false..</param>
+        /// <param name="apportionmentMethodProperty">apportionmentMethodProperty.</param>
+        /// <param name="shareClasses">An optional list of Share Class definitions for the Fund..</param>
+        public FundDefinitionRequest(string code = default(string), string displayName = default(string), string description = default(string), string baseCurrency = default(string), string investorStructure = default(string), List<PortfolioEntityId> portfolioIds = default(List<PortfolioEntityId>), ResourceId fundConfigurationId = default(ResourceId), List<string> shareClassInstrumentScopes = default(List<string>), List<InstrumentResolutionDetail> shareClassInstruments = default(List<InstrumentResolutionDetail>), string type = default(string), DateTimeOffset inceptionDate = default(DateTimeOffset), int? decimalPlaces = default(int?), NavTypeDefinition primaryNavType = default(NavTypeDefinition), List<NavTypeDefinition> additionalNavTypes = default(List<NavTypeDefinition>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), bool createInstrument = default(bool), AllocationMethodProperty apportionmentMethodProperty = default(AllocationMethodProperty), List<ShareClassDefinition> shareClasses = default(List<ShareClassDefinition>))
         {
             // to ensure "code" is required (not null)
             if (code == null)
@@ -98,6 +101,9 @@ namespace Lusid.Sdk.Model
             this.DecimalPlaces = decimalPlaces;
             this.AdditionalNavTypes = additionalNavTypes;
             this.Properties = properties;
+            this.CreateInstrument = createInstrument;
+            this.ApportionmentMethodProperty = apportionmentMethodProperty;
+            this.ShareClasses = shareClasses;
         }
 
         /// <summary>
@@ -156,9 +162,9 @@ namespace Lusid.Sdk.Model
         public List<string> ShareClassInstrumentScopes { get; set; }
 
         /// <summary>
-        /// Details the user-provided instrument identifiers and the instrument resolved from them.
+        /// Details the user-provided instrument identifiers and the instrument resolved from them. These would be decommissioned in favour of the new AllocationGroups and ShareClasses structures.
         /// </summary>
-        /// <value>Details the user-provided instrument identifiers and the instrument resolved from them.</value>
+        /// <value>Details the user-provided instrument identifiers and the instrument resolved from them. These would be decommissioned in favour of the new AllocationGroups and ShareClasses structures.</value>
         [DataMember(Name = "shareClassInstruments", EmitDefaultValue = true)]
         public List<InstrumentResolutionDetail> ShareClassInstruments { get; set; }
 
@@ -204,6 +210,26 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, Property> Properties { get; set; }
 
         /// <summary>
+        /// Whether to create an instrument for the Fund upon creation. Defaults to false.
+        /// </summary>
+        /// <value>Whether to create an instrument for the Fund upon creation. Defaults to false.</value>
+        [DataMember(Name = "createInstrument", EmitDefaultValue = true)]
+        public bool CreateInstrument { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ApportionmentMethodProperty
+        /// </summary>
+        [DataMember(Name = "apportionmentMethodProperty", EmitDefaultValue = false)]
+        public AllocationMethodProperty ApportionmentMethodProperty { get; set; }
+
+        /// <summary>
+        /// An optional list of Share Class definitions for the Fund.
+        /// </summary>
+        /// <value>An optional list of Share Class definitions for the Fund.</value>
+        [DataMember(Name = "shareClasses", EmitDefaultValue = true)]
+        public List<ShareClassDefinition> ShareClasses { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -226,6 +252,9 @@ namespace Lusid.Sdk.Model
             sb.Append("  PrimaryNavType: ").Append(PrimaryNavType).Append("\n");
             sb.Append("  AdditionalNavTypes: ").Append(AdditionalNavTypes).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
+            sb.Append("  CreateInstrument: ").Append(CreateInstrument).Append("\n");
+            sb.Append("  ApportionmentMethodProperty: ").Append(ApportionmentMethodProperty).Append("\n");
+            sb.Append("  ShareClasses: ").Append(ShareClasses).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -340,6 +369,21 @@ namespace Lusid.Sdk.Model
                     this.Properties != null &&
                     input.Properties != null &&
                     this.Properties.SequenceEqual(input.Properties)
+                ) && 
+                (
+                    this.CreateInstrument == input.CreateInstrument ||
+                    this.CreateInstrument.Equals(input.CreateInstrument)
+                ) && 
+                (
+                    this.ApportionmentMethodProperty == input.ApportionmentMethodProperty ||
+                    (this.ApportionmentMethodProperty != null &&
+                    this.ApportionmentMethodProperty.Equals(input.ApportionmentMethodProperty))
+                ) && 
+                (
+                    this.ShareClasses == input.ShareClasses ||
+                    this.ShareClasses != null &&
+                    input.ShareClasses != null &&
+                    this.ShareClasses.SequenceEqual(input.ShareClasses)
                 );
         }
 
@@ -411,6 +455,15 @@ namespace Lusid.Sdk.Model
                 if (this.Properties != null)
                 {
                     hashCode = (hashCode * 59) + this.Properties.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.CreateInstrument.GetHashCode();
+                if (this.ApportionmentMethodProperty != null)
+                {
+                    hashCode = (hashCode * 59) + this.ApportionmentMethodProperty.GetHashCode();
+                }
+                if (this.ShareClasses != null)
+                {
+                    hashCode = (hashCode * 59) + this.ShareClasses.GetHashCode();
                 }
                 return hashCode;
             }

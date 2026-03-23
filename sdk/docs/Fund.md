@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **PortfolioIds** | [**List&lt;PortfolioEntityIdWithDetails&gt;**](PortfolioEntityIdWithDetails.md) | A list of the portfolios on the fund, which are part of the Fund. Note: These must all have the same base currency, which must also much the Fund Base Currency. | [optional] 
 **FundConfigurationId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **AborId** | [**ResourceId**](ResourceId.md) |  | [optional] 
-**ShareClassInstruments** | [**List&lt;InstrumentResolutionDetail&gt;**](InstrumentResolutionDetail.md) | Details the user-provided instrument identifiers and the instrument resolved from them. | [optional] 
+**ShareClassInstruments** | [**List&lt;InstrumentResolutionDetail&gt;**](InstrumentResolutionDetail.md) | Details the user-provided instrument identifiers and the instrument resolved from them. These would be decommissioned in favour of the new AllocationGroups and ShareClasses structures. | [optional] 
 **Type** | **string** | The type of fund; &#39;Standalone&#39;, &#39;Master&#39; or &#39;Feeder&#39; | [optional] 
 **InceptionDate** | **DateTimeOffset** | Inception date of the Fund | 
 **DecimalPlaces** | **int?** | Number of decimal places for reporting | [optional] 
@@ -22,6 +22,10 @@ Name | Type | Description | Notes
 **PrimaryNavType** | [**NavType**](NavType.md) |  | [optional] 
 **AdditionalNavTypes** | [**List&lt;NavType&gt;**](NavType.md) | The definitions for any additional NAVs on the Fund. | [optional] 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | A set of properties for the Fund. | [optional] 
+**CreateInstrument** | **bool** | Whether to create an instrument for the Fund upon creation. Defaults to false. | [optional] 
+**ApportionmentMethodProperty** | [**AllocationMethodProperty**](AllocationMethodProperty.md) |  | [optional] 
+**AllocationGroups** | [**List&lt;AllocationGroup&gt;**](AllocationGroup.md) | An optional list of Allocation Group definitions for the Fund. | [optional] 
+**ShareClasses** | [**List&lt;ShareClass&gt;**](ShareClass.md) | An optional list of Share Class definitions for the Fund. | [optional] 
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
@@ -48,6 +52,11 @@ NavType? primaryNavType = new NavType();
 
 List<NavType> additionalNavTypes = new List<NavType>();
 Dictionary<string, Property> properties = new Dictionary<string, Property>();
+bool createInstrument = //"True";
+AllocationMethodProperty? apportionmentMethodProperty = new AllocationMethodProperty();
+
+List<AllocationGroup> allocationGroups = new List<AllocationGroup>();
+List<ShareClass> shareClasses = new List<ShareClass>();
 ModelVersion? varVersion = new ModelVersion();
 
 List<Link> links = new List<Link>();
@@ -70,6 +79,10 @@ Fund fundInstance = new Fund(
     primaryNavType: primaryNavType,
     additionalNavTypes: additionalNavTypes,
     properties: properties,
+    createInstrument: createInstrument,
+    apportionmentMethodProperty: apportionmentMethodProperty,
+    allocationGroups: allocationGroups,
+    shareClasses: shareClasses,
     varVersion: varVersion,
     links: links);
 ```

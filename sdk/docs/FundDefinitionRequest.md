@@ -13,13 +13,16 @@ Name | Type | Description | Notes
 **PortfolioIds** | [**List&lt;PortfolioEntityId&gt;**](PortfolioEntityId.md) | A list of the Portfolio IDs associated with the fund, which are part of the Fund. Note: These must all have the same base currency, which must also much the Fund Base Currency. | 
 **FundConfigurationId** | [**ResourceId**](ResourceId.md) |  | 
 **ShareClassInstrumentScopes** | **List&lt;string&gt;** | The scopes in which the instruments lie, currently limited to one. | [optional] 
-**ShareClassInstruments** | [**List&lt;InstrumentResolutionDetail&gt;**](InstrumentResolutionDetail.md) | Details the user-provided instrument identifiers and the instrument resolved from them. | [optional] 
+**ShareClassInstruments** | [**List&lt;InstrumentResolutionDetail&gt;**](InstrumentResolutionDetail.md) | Details the user-provided instrument identifiers and the instrument resolved from them. These would be decommissioned in favour of the new AllocationGroups and ShareClasses structures. | [optional] 
 **Type** | **string** | The type of fund; &#39;Standalone&#39;, &#39;Master&#39; or &#39;Feeder&#39; | [optional] 
 **InceptionDate** | **DateTimeOffset** | Inception date of the Fund | 
 **DecimalPlaces** | **int?** | Number of decimal places for reporting | [optional] 
 **PrimaryNavType** | [**NavTypeDefinition**](NavTypeDefinition.md) |  | 
 **AdditionalNavTypes** | [**List&lt;NavTypeDefinition&gt;**](NavTypeDefinition.md) | The definitions for any additional NAVs on the Fund. | [optional] 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | A set of properties for the Fund. | [optional] 
+**CreateInstrument** | **bool** | Whether to create an instrument for the Fund upon creation. Defaults to false. | [optional] 
+**ApportionmentMethodProperty** | [**AllocationMethodProperty**](AllocationMethodProperty.md) |  | [optional] 
+**ShareClasses** | [**List&lt;ShareClassDefinition&gt;**](ShareClassDefinition.md) | An optional list of Share Class definitions for the Fund. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -38,6 +41,10 @@ string type = "example type";
 NavTypeDefinition primaryNavType = new NavTypeDefinition();
 List<NavTypeDefinition> additionalNavTypes = new List<NavTypeDefinition>();
 Dictionary<string, Property> properties = new Dictionary<string, Property>();
+bool createInstrument = //"True";
+AllocationMethodProperty? apportionmentMethodProperty = new AllocationMethodProperty();
+
+List<ShareClassDefinition> shareClasses = new List<ShareClassDefinition>();
 
 FundDefinitionRequest fundDefinitionRequestInstance = new FundDefinitionRequest(
     code: code,
@@ -54,7 +61,10 @@ FundDefinitionRequest fundDefinitionRequestInstance = new FundDefinitionRequest(
     decimalPlaces: decimalPlaces,
     primaryNavType: primaryNavType,
     additionalNavTypes: additionalNavTypes,
-    properties: properties);
+    properties: properties,
+    createInstrument: createInstrument,
+    apportionmentMethodProperty: apportionmentMethodProperty,
+    shareClasses: shareClasses);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

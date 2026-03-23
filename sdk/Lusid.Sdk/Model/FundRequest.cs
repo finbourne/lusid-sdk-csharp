@@ -42,7 +42,7 @@ namespace Lusid.Sdk.Model
         /// <param name="fundConfigurationId">fundConfigurationId (required).</param>
         /// <param name="aborId">aborId (required).</param>
         /// <param name="shareClassInstrumentScopes">The scopes in which the instruments lie, currently limited to one..</param>
-        /// <param name="shareClassInstruments">Details the user-provided instrument identifiers and the instrument resolved from them..</param>
+        /// <param name="shareClassInstruments">Details the user-provided instrument identifiers and the instrument resolved from them. These would be decommissioned in favour of the new AllocationGroups and ShareClasses structures..</param>
         /// <param name="type">The type of fund; &#39;Standalone&#39;, &#39;Master&#39; or &#39;Feeder&#39; (required).</param>
         /// <param name="inceptionDate">Inception date of the Fund (required).</param>
         /// <param name="decimalPlaces">Number of decimal places for reporting.</param>
@@ -130,9 +130,9 @@ namespace Lusid.Sdk.Model
         public List<string> ShareClassInstrumentScopes { get; set; }
 
         /// <summary>
-        /// Details the user-provided instrument identifiers and the instrument resolved from them.
+        /// Details the user-provided instrument identifiers and the instrument resolved from them. These would be decommissioned in favour of the new AllocationGroups and ShareClasses structures.
         /// </summary>
-        /// <value>Details the user-provided instrument identifiers and the instrument resolved from them.</value>
+        /// <value>Details the user-provided instrument identifiers and the instrument resolved from them. These would be decommissioned in favour of the new AllocationGroups and ShareClasses structures.</value>
         [DataMember(Name = "shareClassInstruments", EmitDefaultValue = true)]
         public List<InstrumentResolutionDetail> ShareClassInstruments { get; set; }
 

@@ -36,22 +36,22 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NavTypeDefinition" /> class.
         /// </summary>
-        /// <param name="code">code.</param>
-        /// <param name="displayName">displayName.</param>
-        /// <param name="description">description.</param>
+        /// <param name="code">The Code for the Nav Type. Must be unique within the Fund..</param>
+        /// <param name="displayName">The Display Name for the Nav Type. Must be unique within the Fund..</param>
+        /// <param name="description">The Description for the Nav Type..</param>
         /// <param name="chartOfAccountsId">chartOfAccountsId (required).</param>
-        /// <param name="postingModuleCodes">postingModuleCodes.</param>
-        /// <param name="cleardownModuleCodes">cleardownModuleCodes.</param>
+        /// <param name="postingModuleCodes">The Posting Module Codes from which the rules to be applied are retrieved..</param>
+        /// <param name="cleardownModuleCodes">The Cleardown Module Codes from which the rules to be applied are retrieved..</param>
         /// <param name="valuationRecipeId">valuationRecipeId (required).</param>
         /// <param name="holdingRecipeId">holdingRecipeId (required).</param>
-        /// <param name="accountingMethod">accountingMethod (required).</param>
-        /// <param name="subHoldingKeys">Set of unique holding identifiers, e.g. trader, desk, strategy..</param>
-        /// <param name="amortisationMethod">amortisationMethod (required).</param>
-        /// <param name="transactionTypeScope">transactionTypeScope (required).</param>
-        /// <param name="cashGainLossCalculationDate">cashGainLossCalculationDate (required).</param>
+        /// <param name="accountingMethod">Determines the accounting treatment given to the simple position portfolio&#39;s tax lots. A non-default value is required. (required).</param>
+        /// <param name="subHoldingKeys">A set of unique transaction properties to group the derived transaction portfolio&#39;s holdings by, perhaps for strategy tagging. Each property must be from the &#39;Transaction&#39; domain and identified by a key in the format {domain}/{scope}/{code}, for example &#39;Transaction/strategies/quantsignal&#39;. See https://support.lusid.com/knowledgebase/article/KA-01879/en-us for more information..</param>
+        /// <param name="amortisationMethod">The amortisation method used by the portfolio for the calculation. The available values are: NoAmortisation, StraightLine, EffectiveYield, StraightLineSettlementDate, EffectiveYieldSettlementDate (required).</param>
+        /// <param name="transactionTypeScope">The scope of the transaction types. (required).</param>
+        /// <param name="cashGainLossCalculationDate">The option when the Cash Gain Loss to be calulated, TransactionDate/SettlementDate. A non-default value is required. (required).</param>
         /// <param name="amortisationRuleSetId">amortisationRuleSetId.</param>
-        /// <param name="leaderNavTypeCode">leaderNavTypeCode.</param>
-        /// <param name="transactionTemplateScope">transactionTemplateScope.</param>
+        /// <param name="leaderNavTypeCode">The code of the Nav Type that this Nav Type will follow when set..</param>
+        /// <param name="transactionTemplateScope">The Transaction Template Scope used by the NavType. Will default to the scope set on the parent portfolio. If the fund has multiple parent portfolios, then the Transaction Template Scope must be provided..</param>
         public NavTypeDefinition(string code = default(string), string displayName = default(string), string description = default(string), ResourceId chartOfAccountsId = default(ResourceId), List<string> postingModuleCodes = default(List<string>), List<string> cleardownModuleCodes = default(List<string>), ResourceId valuationRecipeId = default(ResourceId), ResourceId holdingRecipeId = default(ResourceId), string accountingMethod = default(string), List<string> subHoldingKeys = default(List<string>), string amortisationMethod = default(string), string transactionTypeScope = default(string), string cashGainLossCalculationDate = default(string), ResourceId amortisationRuleSetId = default(ResourceId), string leaderNavTypeCode = default(string), string transactionTemplateScope = default(string))
         {
             // to ensure "chartOfAccountsId" is required (not null)
@@ -108,20 +108,23 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// Gets or Sets Code
+        /// The Code for the Nav Type. Must be unique within the Fund.
         /// </summary>
+        /// <value>The Code for the Nav Type. Must be unique within the Fund.</value>
         [DataMember(Name = "code", EmitDefaultValue = true)]
         public string Code { get; set; }
 
         /// <summary>
-        /// Gets or Sets DisplayName
+        /// The Display Name for the Nav Type. Must be unique within the Fund.
         /// </summary>
+        /// <value>The Display Name for the Nav Type. Must be unique within the Fund.</value>
         [DataMember(Name = "displayName", EmitDefaultValue = true)]
         public string DisplayName { get; set; }
 
         /// <summary>
-        /// Gets or Sets Description
+        /// The Description for the Nav Type.
         /// </summary>
+        /// <value>The Description for the Nav Type.</value>
         [DataMember(Name = "description", EmitDefaultValue = true)]
         public string Description { get; set; }
 
@@ -132,14 +135,16 @@ namespace Lusid.Sdk.Model
         public ResourceId ChartOfAccountsId { get; set; }
 
         /// <summary>
-        /// Gets or Sets PostingModuleCodes
+        /// The Posting Module Codes from which the rules to be applied are retrieved.
         /// </summary>
+        /// <value>The Posting Module Codes from which the rules to be applied are retrieved.</value>
         [DataMember(Name = "postingModuleCodes", EmitDefaultValue = true)]
         public List<string> PostingModuleCodes { get; set; }
 
         /// <summary>
-        /// Gets or Sets CleardownModuleCodes
+        /// The Cleardown Module Codes from which the rules to be applied are retrieved.
         /// </summary>
+        /// <value>The Cleardown Module Codes from which the rules to be applied are retrieved.</value>
         [DataMember(Name = "cleardownModuleCodes", EmitDefaultValue = true)]
         public List<string> CleardownModuleCodes { get; set; }
 
@@ -156,33 +161,37 @@ namespace Lusid.Sdk.Model
         public ResourceId HoldingRecipeId { get; set; }
 
         /// <summary>
-        /// Gets or Sets AccountingMethod
+        /// Determines the accounting treatment given to the simple position portfolio&#39;s tax lots. A non-default value is required.
         /// </summary>
+        /// <value>Determines the accounting treatment given to the simple position portfolio&#39;s tax lots. A non-default value is required.</value>
         [DataMember(Name = "accountingMethod", IsRequired = true, EmitDefaultValue = true)]
         public string AccountingMethod { get; set; }
 
         /// <summary>
-        /// Set of unique holding identifiers, e.g. trader, desk, strategy.
+        /// A set of unique transaction properties to group the derived transaction portfolio&#39;s holdings by, perhaps for strategy tagging. Each property must be from the &#39;Transaction&#39; domain and identified by a key in the format {domain}/{scope}/{code}, for example &#39;Transaction/strategies/quantsignal&#39;. See https://support.lusid.com/knowledgebase/article/KA-01879/en-us for more information.
         /// </summary>
-        /// <value>Set of unique holding identifiers, e.g. trader, desk, strategy.</value>
+        /// <value>A set of unique transaction properties to group the derived transaction portfolio&#39;s holdings by, perhaps for strategy tagging. Each property must be from the &#39;Transaction&#39; domain and identified by a key in the format {domain}/{scope}/{code}, for example &#39;Transaction/strategies/quantsignal&#39;. See https://support.lusid.com/knowledgebase/article/KA-01879/en-us for more information.</value>
         [DataMember(Name = "subHoldingKeys", EmitDefaultValue = true)]
         public List<string> SubHoldingKeys { get; set; }
 
         /// <summary>
-        /// Gets or Sets AmortisationMethod
+        /// The amortisation method used by the portfolio for the calculation. The available values are: NoAmortisation, StraightLine, EffectiveYield, StraightLineSettlementDate, EffectiveYieldSettlementDate
         /// </summary>
+        /// <value>The amortisation method used by the portfolio for the calculation. The available values are: NoAmortisation, StraightLine, EffectiveYield, StraightLineSettlementDate, EffectiveYieldSettlementDate</value>
         [DataMember(Name = "amortisationMethod", IsRequired = true, EmitDefaultValue = true)]
         public string AmortisationMethod { get; set; }
 
         /// <summary>
-        /// Gets or Sets TransactionTypeScope
+        /// The scope of the transaction types.
         /// </summary>
+        /// <value>The scope of the transaction types.</value>
         [DataMember(Name = "transactionTypeScope", IsRequired = true, EmitDefaultValue = true)]
         public string TransactionTypeScope { get; set; }
 
         /// <summary>
-        /// Gets or Sets CashGainLossCalculationDate
+        /// The option when the Cash Gain Loss to be calulated, TransactionDate/SettlementDate. A non-default value is required.
         /// </summary>
+        /// <value>The option when the Cash Gain Loss to be calulated, TransactionDate/SettlementDate. A non-default value is required.</value>
         [DataMember(Name = "cashGainLossCalculationDate", IsRequired = true, EmitDefaultValue = true)]
         public string CashGainLossCalculationDate { get; set; }
 
@@ -193,14 +202,16 @@ namespace Lusid.Sdk.Model
         public ResourceId AmortisationRuleSetId { get; set; }
 
         /// <summary>
-        /// Gets or Sets LeaderNavTypeCode
+        /// The code of the Nav Type that this Nav Type will follow when set.
         /// </summary>
+        /// <value>The code of the Nav Type that this Nav Type will follow when set.</value>
         [DataMember(Name = "leaderNavTypeCode", EmitDefaultValue = true)]
         public string LeaderNavTypeCode { get; set; }
 
         /// <summary>
-        /// Gets or Sets TransactionTemplateScope
+        /// The Transaction Template Scope used by the NavType. Will default to the scope set on the parent portfolio. If the fund has multiple parent portfolios, then the Transaction Template Scope must be provided.
         /// </summary>
+        /// <value>The Transaction Template Scope used by the NavType. Will default to the scope set on the parent portfolio. If the fund has multiple parent portfolios, then the Transaction Template Scope must be provided.</value>
         [DataMember(Name = "transactionTemplateScope", EmitDefaultValue = true)]
         public string TransactionTemplateScope { get; set; }
 

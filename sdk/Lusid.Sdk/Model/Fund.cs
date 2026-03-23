@@ -45,7 +45,7 @@ namespace Lusid.Sdk.Model
         /// <param name="portfolioIds">A list of the portfolios on the fund, which are part of the Fund. Note: These must all have the same base currency, which must also much the Fund Base Currency..</param>
         /// <param name="fundConfigurationId">fundConfigurationId.</param>
         /// <param name="aborId">aborId.</param>
-        /// <param name="shareClassInstruments">Details the user-provided instrument identifiers and the instrument resolved from them..</param>
+        /// <param name="shareClassInstruments">Details the user-provided instrument identifiers and the instrument resolved from them. These would be decommissioned in favour of the new AllocationGroups and ShareClasses structures..</param>
         /// <param name="type">The type of fund; &#39;Standalone&#39;, &#39;Master&#39; or &#39;Feeder&#39;.</param>
         /// <param name="inceptionDate">Inception date of the Fund (required).</param>
         /// <param name="decimalPlaces">Number of decimal places for reporting.</param>
@@ -53,9 +53,13 @@ namespace Lusid.Sdk.Model
         /// <param name="primaryNavType">primaryNavType.</param>
         /// <param name="additionalNavTypes">The definitions for any additional NAVs on the Fund..</param>
         /// <param name="properties">A set of properties for the Fund..</param>
+        /// <param name="createInstrument">Whether to create an instrument for the Fund upon creation. Defaults to false..</param>
+        /// <param name="apportionmentMethodProperty">apportionmentMethodProperty.</param>
+        /// <param name="allocationGroups">An optional list of Allocation Group definitions for the Fund..</param>
+        /// <param name="shareClasses">An optional list of Share Class definitions for the Fund..</param>
         /// <param name="varVersion">varVersion.</param>
         /// <param name="links">links.</param>
-        public Fund(string href = default(string), ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), string baseCurrency = default(string), string investorStructure = default(string), List<PortfolioEntityIdWithDetails> portfolioIds = default(List<PortfolioEntityIdWithDetails>), ResourceId fundConfigurationId = default(ResourceId), ResourceId aborId = default(ResourceId), List<InstrumentResolutionDetail> shareClassInstruments = default(List<InstrumentResolutionDetail>), string type = default(string), DateTimeOffset inceptionDate = default(DateTimeOffset), int? decimalPlaces = default(int?), DayMonth yearEndDate = default(DayMonth), NavType primaryNavType = default(NavType), List<NavType> additionalNavTypes = default(List<NavType>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
+        public Fund(string href = default(string), ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), string baseCurrency = default(string), string investorStructure = default(string), List<PortfolioEntityIdWithDetails> portfolioIds = default(List<PortfolioEntityIdWithDetails>), ResourceId fundConfigurationId = default(ResourceId), ResourceId aborId = default(ResourceId), List<InstrumentResolutionDetail> shareClassInstruments = default(List<InstrumentResolutionDetail>), string type = default(string), DateTimeOffset inceptionDate = default(DateTimeOffset), int? decimalPlaces = default(int?), DayMonth yearEndDate = default(DayMonth), NavType primaryNavType = default(NavType), List<NavType> additionalNavTypes = default(List<NavType>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), bool createInstrument = default(bool), AllocationMethodProperty apportionmentMethodProperty = default(AllocationMethodProperty), List<AllocationGroup> allocationGroups = default(List<AllocationGroup>), List<ShareClass> shareClasses = default(List<ShareClass>), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -84,6 +88,10 @@ namespace Lusid.Sdk.Model
             this.PrimaryNavType = primaryNavType;
             this.AdditionalNavTypes = additionalNavTypes;
             this.Properties = properties;
+            this.CreateInstrument = createInstrument;
+            this.ApportionmentMethodProperty = apportionmentMethodProperty;
+            this.AllocationGroups = allocationGroups;
+            this.ShareClasses = shareClasses;
             this.VarVersion = varVersion;
             this.Links = links;
         }
@@ -149,9 +157,9 @@ namespace Lusid.Sdk.Model
         public ResourceId AborId { get; set; }
 
         /// <summary>
-        /// Details the user-provided instrument identifiers and the instrument resolved from them.
+        /// Details the user-provided instrument identifiers and the instrument resolved from them. These would be decommissioned in favour of the new AllocationGroups and ShareClasses structures.
         /// </summary>
-        /// <value>Details the user-provided instrument identifiers and the instrument resolved from them.</value>
+        /// <value>Details the user-provided instrument identifiers and the instrument resolved from them. These would be decommissioned in favour of the new AllocationGroups and ShareClasses structures.</value>
         [DataMember(Name = "shareClassInstruments", EmitDefaultValue = true)]
         public List<InstrumentResolutionDetail> ShareClassInstruments { get; set; }
 
@@ -203,6 +211,33 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, Property> Properties { get; set; }
 
         /// <summary>
+        /// Whether to create an instrument for the Fund upon creation. Defaults to false.
+        /// </summary>
+        /// <value>Whether to create an instrument for the Fund upon creation. Defaults to false.</value>
+        [DataMember(Name = "createInstrument", EmitDefaultValue = true)]
+        public bool CreateInstrument { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ApportionmentMethodProperty
+        /// </summary>
+        [DataMember(Name = "apportionmentMethodProperty", EmitDefaultValue = false)]
+        public AllocationMethodProperty ApportionmentMethodProperty { get; set; }
+
+        /// <summary>
+        /// An optional list of Allocation Group definitions for the Fund.
+        /// </summary>
+        /// <value>An optional list of Allocation Group definitions for the Fund.</value>
+        [DataMember(Name = "allocationGroups", EmitDefaultValue = true)]
+        public List<AllocationGroup> AllocationGroups { get; set; }
+
+        /// <summary>
+        /// An optional list of Share Class definitions for the Fund.
+        /// </summary>
+        /// <value>An optional list of Share Class definitions for the Fund.</value>
+        [DataMember(Name = "shareClasses", EmitDefaultValue = true)]
+        public List<ShareClass> ShareClasses { get; set; }
+
+        /// <summary>
         /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", EmitDefaultValue = false)]
@@ -239,6 +274,10 @@ namespace Lusid.Sdk.Model
             sb.Append("  PrimaryNavType: ").Append(PrimaryNavType).Append("\n");
             sb.Append("  AdditionalNavTypes: ").Append(AdditionalNavTypes).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
+            sb.Append("  CreateInstrument: ").Append(CreateInstrument).Append("\n");
+            sb.Append("  ApportionmentMethodProperty: ").Append(ApportionmentMethodProperty).Append("\n");
+            sb.Append("  AllocationGroups: ").Append(AllocationGroups).Append("\n");
+            sb.Append("  ShareClasses: ").Append(ShareClasses).Append("\n");
             sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
@@ -366,6 +405,27 @@ namespace Lusid.Sdk.Model
                     this.Properties.SequenceEqual(input.Properties)
                 ) && 
                 (
+                    this.CreateInstrument == input.CreateInstrument ||
+                    this.CreateInstrument.Equals(input.CreateInstrument)
+                ) && 
+                (
+                    this.ApportionmentMethodProperty == input.ApportionmentMethodProperty ||
+                    (this.ApportionmentMethodProperty != null &&
+                    this.ApportionmentMethodProperty.Equals(input.ApportionmentMethodProperty))
+                ) && 
+                (
+                    this.AllocationGroups == input.AllocationGroups ||
+                    this.AllocationGroups != null &&
+                    input.AllocationGroups != null &&
+                    this.AllocationGroups.SequenceEqual(input.AllocationGroups)
+                ) && 
+                (
+                    this.ShareClasses == input.ShareClasses ||
+                    this.ShareClasses != null &&
+                    input.ShareClasses != null &&
+                    this.ShareClasses.SequenceEqual(input.ShareClasses)
+                ) && 
+                (
                     this.VarVersion == input.VarVersion ||
                     (this.VarVersion != null &&
                     this.VarVersion.Equals(input.VarVersion))
@@ -454,6 +514,19 @@ namespace Lusid.Sdk.Model
                 if (this.Properties != null)
                 {
                     hashCode = (hashCode * 59) + this.Properties.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.CreateInstrument.GetHashCode();
+                if (this.ApportionmentMethodProperty != null)
+                {
+                    hashCode = (hashCode * 59) + this.ApportionmentMethodProperty.GetHashCode();
+                }
+                if (this.AllocationGroups != null)
+                {
+                    hashCode = (hashCode * 59) + this.AllocationGroups.GetHashCode();
+                }
+                if (this.ShareClasses != null)
+                {
+                    hashCode = (hashCode * 59) + this.ShareClasses.GetHashCode();
                 }
                 if (this.VarVersion != null)
                 {

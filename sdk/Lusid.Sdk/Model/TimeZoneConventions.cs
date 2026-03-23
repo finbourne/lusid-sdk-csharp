@@ -179,11 +179,35 @@ namespace Lusid.Sdk.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PrimaryTimeZone, length must be greater than 0.", new [] { "PrimaryTimeZone" });
             }
 
+            // StartOfDay (string) maxLength
+            if (this.StartOfDay != null && this.StartOfDay.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StartOfDay, length must be less than 64.", new [] { "StartOfDay" });
+            }
+
+            // StartOfDay (string) minLength
+            if (this.StartOfDay != null && this.StartOfDay.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StartOfDay, length must be greater than 1.", new [] { "StartOfDay" });
+            }
+
             // StartOfDay (string) pattern
             Regex regexStartOfDay = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
             if (false == regexStartOfDay.Match(this.StartOfDay).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StartOfDay, must match a pattern of " + regexStartOfDay, new [] { "StartOfDay" });
+            }
+
+            // PrimaryMarketOpen (string) maxLength
+            if (this.PrimaryMarketOpen != null && this.PrimaryMarketOpen.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PrimaryMarketOpen, length must be less than 64.", new [] { "PrimaryMarketOpen" });
+            }
+
+            // PrimaryMarketOpen (string) minLength
+            if (this.PrimaryMarketOpen != null && this.PrimaryMarketOpen.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PrimaryMarketOpen, length must be greater than 1.", new [] { "PrimaryMarketOpen" });
             }
 
             // PrimaryMarketOpen (string) pattern
