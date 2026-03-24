@@ -12,7 +12,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 <a id="createtransactionfee"></a>
 # **CreateTransactionFee**
-> TransactionFee CreateTransactionFee (string scope, string code, CreateTransactionFeeRequest createTransactionFeeRequest, DateTimeOrCutLabel? effectiveAt = null)
+> TransactionFee CreateTransactionFee (string scope, string code, CreateTransactionFeeRequest createTransactionFeeRequest)
 
 [EXPERIMENTAL] CreateTransactionFee: Create a TransactionFee
 
@@ -60,15 +60,14 @@ namespace Examples
             var scope = "scope_example";  // string | The scope of the TransactionFee.
             var code = "code_example";  // string | The code of the TransactionFee.              Together with the scope this uniquely identifies the TransactionFee.
             var createTransactionFeeRequest = new CreateTransactionFeeRequest(); // CreateTransactionFeeRequest | The contents of the TransactionFee.
-            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The date and time at which the TransactionFee should be effective. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // TransactionFee result = apiInstance.CreateTransactionFee(scope, code, createTransactionFeeRequest, effectiveAt, opts: opts);
+                // TransactionFee result = apiInstance.CreateTransactionFee(scope, code, createTransactionFeeRequest, opts: opts);
 
                 // [EXPERIMENTAL] CreateTransactionFee: Create a TransactionFee
-                TransactionFee result = apiInstance.CreateTransactionFee(scope, code, createTransactionFeeRequest, effectiveAt);
+                TransactionFee result = apiInstance.CreateTransactionFee(scope, code, createTransactionFeeRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -89,7 +88,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] CreateTransactionFee: Create a TransactionFee
-    ApiResponse<TransactionFee> response = apiInstance.CreateTransactionFeeWithHttpInfo(scope, code, createTransactionFeeRequest, effectiveAt);
+    ApiResponse<TransactionFee> response = apiInstance.CreateTransactionFeeWithHttpInfo(scope, code, createTransactionFeeRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -109,7 +108,6 @@ catch (ApiException e)
 | **scope** | **string** | The scope of the TransactionFee. |  |
 | **code** | **string** | The code of the TransactionFee.              Together with the scope this uniquely identifies the TransactionFee. |  |
 | **createTransactionFeeRequest** | [**CreateTransactionFeeRequest**](CreateTransactionFeeRequest.md) | The contents of the TransactionFee. |  |
-| **effectiveAt** | **DateTimeOrCutLabel?** | The date and time at which the TransactionFee should be effective. | [optional]  |
 
 ### Return type
 
@@ -295,7 +293,7 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionTransactionFeesApi>();
             var scope = "scope_example";  // string | The scope of the TransactionFee.
             var code = "code_example";  // string | The code of the TransactionFee.              Together with the scope this uniquely identifies the TransactionFee.
-            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The date and time at which the query is effective. (optional) 
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime at which to retrieve the TransactionFee properties.              Defaults to the current LUSID system datetime if not specified. (optional) 
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the TransactionFees.              Defaults to latest if not specified. (optional) 
             var propertyKeys = new List<string>?(); // List<string>? | The collection of `PropertyKey`s that we want to decorate on identifies the TransactionFee. (optional) 
 
@@ -345,7 +343,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **scope** | **string** | The scope of the TransactionFee. |  |
 | **code** | **string** | The code of the TransactionFee.              Together with the scope this uniquely identifies the TransactionFee. |  |
-| **effectiveAt** | **DateTimeOrCutLabel?** | The date and time at which the query is effective. | [optional]  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime at which to retrieve the TransactionFee properties.              Defaults to the current LUSID system datetime if not specified. | [optional]  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the TransactionFees.              Defaults to latest if not specified. | [optional]  |
 | **propertyKeys** | [**List&lt;string&gt;?**](string.md) | The collection of &#x60;PropertyKey&#x60;s that we want to decorate on identifies the TransactionFee. | [optional]  |
 
@@ -415,9 +413,9 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TransactionTransactionFeesApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionTransactionFeesApi>();
-            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The date and time at which the query is effective. (optional) 
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime at which to retrieve TransactionFee properties.              Defaults to the current LUSID system datetime if not specified. (optional) 
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the TransactionFees.              Defaults to latest if not specified. (optional) 
-            var page = "page_example";  // string? | The pagination token to use to continue listing TransactionFees from a previous call to list TransactionFees.  This value is returned from the previous call. If a pagination token is provided the filter,  sortBy and asAt field must not have changed since the original request. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing TransactionFees from a previous call to list TransactionFees.  This value is returned from the previous call. If a pagination token is provided the filter,  sortBy, effectiveAt and asAt field must not have changed since the original request. (optional) 
             var limit = 56;  // int? | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional) 
             var filter = "filter_example";  // string? | Expression to filter the result set.              For example, to filter on the Scope, use \"scope eq 'ExampleScope'\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
             var sortBy = new List<string>?(); // List<string>? | A list of field names to sort by, each suffixed by \" ASC\" or \" DESC\" (optional) 
@@ -467,9 +465,9 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **effectiveAt** | **DateTimeOrCutLabel?** | The date and time at which the query is effective. | [optional]  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime at which to retrieve TransactionFee properties.              Defaults to the current LUSID system datetime if not specified. | [optional]  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the TransactionFees.              Defaults to latest if not specified. | [optional]  |
-| **page** | **string?** | The pagination token to use to continue listing TransactionFees from a previous call to list TransactionFees.  This value is returned from the previous call. If a pagination token is provided the filter,  sortBy and asAt field must not have changed since the original request. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing TransactionFees from a previous call to list TransactionFees.  This value is returned from the previous call. If a pagination token is provided the filter,  sortBy, effectiveAt and asAt field must not have changed since the original request. | [optional]  |
 | **limit** | **int?** | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. | [optional]  |
 | **filter** | **string?** | Expression to filter the result set.              For example, to filter on the Scope, use \&quot;scope eq &#39;ExampleScope&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
 | **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; | [optional]  |
@@ -496,7 +494,7 @@ catch (ApiException e)
 
 <a id="updatetransactionfee"></a>
 # **UpdateTransactionFee**
-> TransactionFee UpdateTransactionFee (string scope, string code, UpdateTransactionFeeRequest updateTransactionFeeRequest, DateTimeOrCutLabel? effectiveAt = null)
+> TransactionFee UpdateTransactionFee (string scope, string code, UpdateTransactionFeeRequest updateTransactionFeeRequest)
 
 [EXPERIMENTAL] UpdateTransactionFee: Update a TransactionFee
 
@@ -543,16 +541,15 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionTransactionFeesApi>();
             var scope = "scope_example";  // string | The scope of the TransactionFee.
             var code = "code_example";  // string | The code of the specified TransactionFee.              Together with the scope this uniquely identifies the TransactionFee.
-            var updateTransactionFeeRequest = new UpdateTransactionFeeRequest(); // UpdateTransactionFeeRequest | The contents of the TransactionFee.
-            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The date and time at which the update should take effect.             The updated contents of the TransactionFee. (optional) 
+            var updateTransactionFeeRequest = new UpdateTransactionFeeRequest(); // UpdateTransactionFeeRequest | The updated contents of the TransactionFee.
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // TransactionFee result = apiInstance.UpdateTransactionFee(scope, code, updateTransactionFeeRequest, effectiveAt, opts: opts);
+                // TransactionFee result = apiInstance.UpdateTransactionFee(scope, code, updateTransactionFeeRequest, opts: opts);
 
                 // [EXPERIMENTAL] UpdateTransactionFee: Update a TransactionFee
-                TransactionFee result = apiInstance.UpdateTransactionFee(scope, code, updateTransactionFeeRequest, effectiveAt);
+                TransactionFee result = apiInstance.UpdateTransactionFee(scope, code, updateTransactionFeeRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -573,7 +570,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] UpdateTransactionFee: Update a TransactionFee
-    ApiResponse<TransactionFee> response = apiInstance.UpdateTransactionFeeWithHttpInfo(scope, code, updateTransactionFeeRequest, effectiveAt);
+    ApiResponse<TransactionFee> response = apiInstance.UpdateTransactionFeeWithHttpInfo(scope, code, updateTransactionFeeRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -592,8 +589,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **scope** | **string** | The scope of the TransactionFee. |  |
 | **code** | **string** | The code of the specified TransactionFee.              Together with the scope this uniquely identifies the TransactionFee. |  |
-| **updateTransactionFeeRequest** | [**UpdateTransactionFeeRequest**](UpdateTransactionFeeRequest.md) | The contents of the TransactionFee. |  |
-| **effectiveAt** | **DateTimeOrCutLabel?** | The date and time at which the update should take effect.             The updated contents of the TransactionFee. | [optional]  |
+| **updateTransactionFeeRequest** | [**UpdateTransactionFeeRequest**](UpdateTransactionFeeRequest.md) | The updated contents of the TransactionFee. |  |
 
 ### Return type
 
