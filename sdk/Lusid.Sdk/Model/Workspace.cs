@@ -39,8 +39,9 @@ namespace Lusid.Sdk.Model
         /// <param name="name">A workspace&#39;s name. (required).</param>
         /// <param name="description">A friendly description for the workspace. (required).</param>
         /// <param name="varVersion">varVersion.</param>
+        /// <param name="permittedItemActions">permittedItemActions.</param>
         /// <param name="links">links.</param>
-        public Workspace(string name = default(string), string description = default(string), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
+        public Workspace(string name = default(string), string description = default(string), ModelVersion varVersion = default(ModelVersion), WorkspacePermittedItemActions permittedItemActions = default(WorkspacePermittedItemActions), List<Link> links = default(List<Link>))
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -55,6 +56,7 @@ namespace Lusid.Sdk.Model
             }
             this.Description = description;
             this.VarVersion = varVersion;
+            this.PermittedItemActions = permittedItemActions;
             this.Links = links;
         }
 
@@ -79,6 +81,12 @@ namespace Lusid.Sdk.Model
         public ModelVersion VarVersion { get; set; }
 
         /// <summary>
+        /// Gets or Sets PermittedItemActions
+        /// </summary>
+        [DataMember(Name = "permittedItemActions", EmitDefaultValue = false)]
+        public WorkspacePermittedItemActions PermittedItemActions { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -95,6 +103,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
+            sb.Append("  PermittedItemActions: ").Append(PermittedItemActions).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -147,6 +156,11 @@ namespace Lusid.Sdk.Model
                     this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
+                    this.PermittedItemActions == input.PermittedItemActions ||
+                    (this.PermittedItemActions != null &&
+                    this.PermittedItemActions.Equals(input.PermittedItemActions))
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -174,6 +188,10 @@ namespace Lusid.Sdk.Model
                 if (this.VarVersion != null)
                 {
                     hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
+                }
+                if (this.PermittedItemActions != null)
+                {
+                    hashCode = (hashCode * 59) + this.PermittedItemActions.GetHashCode();
                 }
                 if (this.Links != null)
                 {

@@ -51,10 +51,10 @@ namespace Lusid.Sdk.Model
         /// <param name="primaryNavType">primaryNavType (required).</param>
         /// <param name="additionalNavTypes">The definitions for any additional NAVs on the Fund..</param>
         /// <param name="properties">A set of properties for the Fund..</param>
-        /// <param name="createInstrument">Whether to create an instrument for the Fund upon creation. Defaults to false..</param>
+        /// <param name="createInstrument">Whether to create instruments for the Fund&#39;s share classes, series, or partner classes upon creation. Defaults to false..</param>
         /// <param name="apportionmentMethodProperty">apportionmentMethodProperty.</param>
         /// <param name="shareClasses">An optional list of Share Class definitions for the Fund..</param>
-        public FundDefinitionRequest(string code = default(string), string displayName = default(string), string description = default(string), string baseCurrency = default(string), string investorStructure = default(string), List<PortfolioEntityId> portfolioIds = default(List<PortfolioEntityId>), ResourceId fundConfigurationId = default(ResourceId), List<string> shareClassInstrumentScopes = default(List<string>), List<InstrumentResolutionDetail> shareClassInstruments = default(List<InstrumentResolutionDetail>), string type = default(string), DateTimeOffset inceptionDate = default(DateTimeOffset), int? decimalPlaces = default(int?), NavTypeDefinition primaryNavType = default(NavTypeDefinition), List<NavTypeDefinition> additionalNavTypes = default(List<NavTypeDefinition>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), bool createInstrument = default(bool), AllocationMethodProperty apportionmentMethodProperty = default(AllocationMethodProperty), List<ShareClassDefinition> shareClasses = default(List<ShareClassDefinition>))
+        public FundDefinitionRequest(string code = default(string), string displayName = default(string), string description = default(string), string baseCurrency = default(string), string investorStructure = default(string), List<PortfolioEntityId> portfolioIds = default(List<PortfolioEntityId>), ResourceId fundConfigurationId = default(ResourceId), List<string> shareClassInstrumentScopes = default(List<string>), List<InstrumentResolutionDetail> shareClassInstruments = default(List<InstrumentResolutionDetail>), string type = default(string), DateTimeOffset inceptionDate = default(DateTimeOffset), int? decimalPlaces = default(int?), NavTypeDefinition primaryNavType = default(NavTypeDefinition), List<NavTypeDefinition> additionalNavTypes = default(List<NavTypeDefinition>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), bool createInstrument = default(bool), ApportionmentMethodProperty apportionmentMethodProperty = default(ApportionmentMethodProperty), List<ShareClassDefinition> shareClasses = default(List<ShareClassDefinition>))
         {
             // to ensure "code" is required (not null)
             if (code == null)
@@ -210,9 +210,9 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, Property> Properties { get; set; }
 
         /// <summary>
-        /// Whether to create an instrument for the Fund upon creation. Defaults to false.
+        /// Whether to create instruments for the Fund&#39;s share classes, series, or partner classes upon creation. Defaults to false.
         /// </summary>
-        /// <value>Whether to create an instrument for the Fund upon creation. Defaults to false.</value>
+        /// <value>Whether to create instruments for the Fund&#39;s share classes, series, or partner classes upon creation. Defaults to false.</value>
         [DataMember(Name = "createInstrument", EmitDefaultValue = true)]
         public bool CreateInstrument { get; set; }
 
@@ -220,7 +220,7 @@ namespace Lusid.Sdk.Model
         /// Gets or Sets ApportionmentMethodProperty
         /// </summary>
         [DataMember(Name = "apportionmentMethodProperty", EmitDefaultValue = false)]
-        public AllocationMethodProperty ApportionmentMethodProperty { get; set; }
+        public ApportionmentMethodProperty ApportionmentMethodProperty { get; set; }
 
         /// <summary>
         /// An optional list of Share Class definitions for the Fund.

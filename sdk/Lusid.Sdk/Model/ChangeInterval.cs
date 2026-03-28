@@ -42,7 +42,8 @@ namespace Lusid.Sdk.Model
         /// <param name="previousValue">previousValue.</param>
         /// <param name="newValue">newValue.</param>
         /// <param name="effectiveRange">effectiveRange.</param>
-        public ChangeInterval(DateTimeOffset asAtModified = default(DateTimeOffset), string userIdModified = default(string), string requestIdModified = default(string), string reasonModified = default(string), int asAtVersionNumber = default(int), string stagedModificationIdModified = default(string), string action = default(string), string attributeName = default(string), PropertyValue previousValue = default(PropertyValue), PropertyValue newValue = default(PropertyValue), EffectiveRange effectiveRange = default(EffectiveRange))
+        /// <param name="isInherited">Indicates whether this change interval is a result of a change to an ancestor or the entity itself..</param>
+        public ChangeInterval(DateTimeOffset asAtModified = default(DateTimeOffset), string userIdModified = default(string), string requestIdModified = default(string), string reasonModified = default(string), int asAtVersionNumber = default(int), string stagedModificationIdModified = default(string), string action = default(string), string attributeName = default(string), PropertyValue previousValue = default(PropertyValue), PropertyValue newValue = default(PropertyValue), EffectiveRange effectiveRange = default(EffectiveRange), bool isInherited = default(bool))
         {
             this.AsAtModified = asAtModified;
             this.UserIdModified = userIdModified;
@@ -55,6 +56,7 @@ namespace Lusid.Sdk.Model
             this.PreviousValue = previousValue;
             this.NewValue = newValue;
             this.EffectiveRange = effectiveRange;
+            this.IsInherited = isInherited;
         }
 
         /// <summary>
@@ -132,6 +134,13 @@ namespace Lusid.Sdk.Model
         public EffectiveRange EffectiveRange { get; set; }
 
         /// <summary>
+        /// Indicates whether this change interval is a result of a change to an ancestor or the entity itself.
+        /// </summary>
+        /// <value>Indicates whether this change interval is a result of a change to an ancestor or the entity itself.</value>
+        [DataMember(Name = "isInherited", EmitDefaultValue = true)]
+        public bool IsInherited { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -150,6 +159,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  PreviousValue: ").Append(PreviousValue).Append("\n");
             sb.Append("  NewValue: ").Append(NewValue).Append("\n");
             sb.Append("  EffectiveRange: ").Append(EffectiveRange).Append("\n");
+            sb.Append("  IsInherited: ").Append(IsInherited).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -238,6 +248,10 @@ namespace Lusid.Sdk.Model
                     this.EffectiveRange == input.EffectiveRange ||
                     (this.EffectiveRange != null &&
                     this.EffectiveRange.Equals(input.EffectiveRange))
+                ) && 
+                (
+                    this.IsInherited == input.IsInherited ||
+                    this.IsInherited.Equals(input.IsInherited)
                 );
         }
 
@@ -291,6 +305,7 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.EffectiveRange.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.IsInherited.GetHashCode();
                 return hashCode;
             }
         }

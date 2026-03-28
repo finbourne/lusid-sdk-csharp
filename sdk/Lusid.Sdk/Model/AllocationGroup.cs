@@ -43,7 +43,7 @@ namespace Lusid.Sdk.Model
         /// <param name="shareClassShortCode">The short code that identifies the Allocation Group. (required).</param>
         /// <param name="apportionmentMethodProperty">apportionmentMethodProperty.</param>
         /// <param name="formula">An optional filter expression used to define which classes belong to this group, based on fund grouping criteria. You can provide this or the Classes, but not both..</param>
-        public AllocationGroup(List<AllocationGroupClass> classes = default(List<AllocationGroupClass>), string code = default(string), string name = default(string), string description = default(string), string shareClassShortCode = default(string), AllocationMethodProperty apportionmentMethodProperty = default(AllocationMethodProperty), string formula = default(string))
+        public AllocationGroup(List<AllocationGroupClass> classes = default(List<AllocationGroupClass>), string code = default(string), string name = default(string), string description = default(string), string shareClassShortCode = default(string), ApportionmentMethodProperty apportionmentMethodProperty = default(ApportionmentMethodProperty), string formula = default(string))
         {
             // to ensure "code" is required (not null)
             if (code == null)
@@ -108,7 +108,7 @@ namespace Lusid.Sdk.Model
         /// Gets or Sets ApportionmentMethodProperty
         /// </summary>
         [DataMember(Name = "apportionmentMethodProperty", EmitDefaultValue = false)]
-        public AllocationMethodProperty ApportionmentMethodProperty { get; set; }
+        public ApportionmentMethodProperty ApportionmentMethodProperty { get; set; }
 
         /// <summary>
         /// An optional filter expression used to define which classes belong to this group, based on fund grouping criteria. You can provide this or the Classes, but not both.

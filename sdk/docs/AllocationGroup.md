@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Name** | **string** | The display name of the Allocation Group. | 
 **Description** | **string** | An optional description for the Allocation Group. | [optional] 
 **ShareClassShortCode** | **string** | The short code that identifies the Allocation Group. | 
-**ApportionmentMethodProperty** | [**AllocationMethodProperty**](AllocationMethodProperty.md) |  | [optional] 
+**ApportionmentMethodProperty** | [**ApportionmentMethodProperty**](ApportionmentMethodProperty.md) |  | [optional] 
 **Formula** | **string** | An optional filter expression used to define which classes belong to this group, based on fund grouping criteria. You can provide this or the Classes, but not both. | [optional] 
 
 ```csharp
@@ -21,7 +21,7 @@ string code = "code";
 string name = "name";
 string description = "example description";
 string shareClassShortCode = "shareClassShortCode";
-AllocationMethodProperty? apportionmentMethodProperty = new AllocationMethodProperty();
+ApportionmentMethodProperty? apportionmentMethodProperty = new ApportionmentMethodProperty();
 
 string formula = "example formula";
 

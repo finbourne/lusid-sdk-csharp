@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Name** | **string** | A workspace&#39;s name. | 
 **Description** | **string** | A friendly description for the workspace. | 
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
+**PermittedItemActions** | [**WorkspacePermittedItemActions**](WorkspacePermittedItemActions.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -18,12 +19,15 @@ string name = "name";
 string description = "description";
 ModelVersion? varVersion = new ModelVersion();
 
+WorkspacePermittedItemActions? permittedItemActions = new WorkspacePermittedItemActions();
+
 List<Link> links = new List<Link>();
 
 Workspace workspaceInstance = new Workspace(
     name: name,
     description: description,
     varVersion: varVersion,
+    permittedItemActions: permittedItemActions,
     links: links);
 ```
 

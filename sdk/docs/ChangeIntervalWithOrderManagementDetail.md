@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **PreviousValue** | [**PropertyValue**](PropertyValue.md) |  | [optional] 
 **NewValue** | [**PropertyValue**](PropertyValue.md) |  | [optional] 
 **EffectiveRange** | [**EffectiveRange**](EffectiveRange.md) |  | [optional] 
+**IsInherited** | **bool** | Indicates whether this change interval is a result of a change to an ancestor or the entity itself. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -37,6 +38,7 @@ PropertyValue? newValue = new PropertyValue();
 
 EffectiveRange? effectiveRange = new EffectiveRange();
 
+bool isInherited = //"True";
 
 ChangeIntervalWithOrderManagementDetail changeIntervalWithOrderManagementDetailInstance = new ChangeIntervalWithOrderManagementDetail(
     detail: detail,
@@ -51,7 +53,8 @@ ChangeIntervalWithOrderManagementDetail changeIntervalWithOrderManagementDetailI
     attributeName: attributeName,
     previousValue: previousValue,
     newValue: newValue,
-    effectiveRange: effectiveRange);
+    effectiveRange: effectiveRange,
+    isInherited: isInherited);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

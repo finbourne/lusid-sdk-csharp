@@ -31,6 +31,7 @@ Name | Type | Description | Notes
 **StrategyTag** | [**List&lt;Strategy&gt;**](Strategy.md) | A list of strategies representing the allocation of units across multiple sub-holding keys | [optional] 
 **ResolvedTransactionTypeDetails** | [**TransactionTypeDetails**](TransactionTypeDetails.md) |  | [optional] 
 **DataModelMembership** | [**DataModelMembership**](DataModelMembership.md) |  | [optional] 
+**VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -64,6 +65,8 @@ TransactionTypeDetails? resolvedTransactionTypeDetails = new TransactionTypeDeta
 
 DataModelMembership? dataModelMembership = new DataModelMembership();
 
+ModelVersion? varVersion = new ModelVersion();
+
 
 Transaction transactionInstance = new Transaction(
     transactionId: transactionId,
@@ -91,7 +94,8 @@ Transaction transactionInstance = new Transaction(
     transactionGroupId: transactionGroupId,
     strategyTag: strategyTag,
     resolvedTransactionTypeDetails: resolvedTransactionTypeDetails,
-    dataModelMembership: dataModelMembership);
+    dataModelMembership: dataModelMembership,
+    varVersion: varVersion);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

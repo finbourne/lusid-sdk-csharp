@@ -20,8 +20,8 @@ Name | Type | Description | Notes
 **PrimaryNavType** | [**NavTypeDefinition**](NavTypeDefinition.md) |  | 
 **AdditionalNavTypes** | [**List&lt;NavTypeDefinition&gt;**](NavTypeDefinition.md) | The definitions for any additional NAVs on the Fund. | [optional] 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | A set of properties for the Fund. | [optional] 
-**CreateInstrument** | **bool** | Whether to create an instrument for the Fund upon creation. Defaults to false. | [optional] 
-**ApportionmentMethodProperty** | [**AllocationMethodProperty**](AllocationMethodProperty.md) |  | [optional] 
+**CreateInstrument** | **bool** | Whether to create instruments for the Fund&#39;s share classes, series, or partner classes upon creation. Defaults to false. | [optional] 
+**ApportionmentMethodProperty** | [**ApportionmentMethodProperty**](ApportionmentMethodProperty.md) |  | [optional] 
 **ShareClasses** | [**List&lt;ShareClassDefinition&gt;**](ShareClassDefinition.md) | An optional list of Share Class definitions for the Fund. | [optional] 
 
 ```csharp
@@ -42,7 +42,7 @@ NavTypeDefinition primaryNavType = new NavTypeDefinition();
 List<NavTypeDefinition> additionalNavTypes = new List<NavTypeDefinition>();
 Dictionary<string, Property> properties = new Dictionary<string, Property>();
 bool createInstrument = //"True";
-AllocationMethodProperty? apportionmentMethodProperty = new AllocationMethodProperty();
+ApportionmentMethodProperty? apportionmentMethodProperty = new ApportionmentMethodProperty();
 
 List<ShareClassDefinition> shareClasses = new List<ShareClassDefinition>();
 

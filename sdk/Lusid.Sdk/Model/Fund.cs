@@ -53,13 +53,13 @@ namespace Lusid.Sdk.Model
         /// <param name="primaryNavType">primaryNavType.</param>
         /// <param name="additionalNavTypes">The definitions for any additional NAVs on the Fund..</param>
         /// <param name="properties">A set of properties for the Fund..</param>
-        /// <param name="createInstrument">Whether to create an instrument for the Fund upon creation. Defaults to false..</param>
+        /// <param name="createInstrument">Whether to create instruments for the Fund&#39;s share classes, series, or partner classes upon creation. Defaults to false..</param>
         /// <param name="apportionmentMethodProperty">apportionmentMethodProperty.</param>
         /// <param name="allocationGroups">An optional list of Allocation Group definitions for the Fund..</param>
         /// <param name="shareClasses">An optional list of Share Class definitions for the Fund..</param>
         /// <param name="varVersion">varVersion.</param>
         /// <param name="links">links.</param>
-        public Fund(string href = default(string), ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), string baseCurrency = default(string), string investorStructure = default(string), List<PortfolioEntityIdWithDetails> portfolioIds = default(List<PortfolioEntityIdWithDetails>), ResourceId fundConfigurationId = default(ResourceId), ResourceId aborId = default(ResourceId), List<InstrumentResolutionDetail> shareClassInstruments = default(List<InstrumentResolutionDetail>), string type = default(string), DateTimeOffset inceptionDate = default(DateTimeOffset), int? decimalPlaces = default(int?), DayMonth yearEndDate = default(DayMonth), NavType primaryNavType = default(NavType), List<NavType> additionalNavTypes = default(List<NavType>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), bool createInstrument = default(bool), AllocationMethodProperty apportionmentMethodProperty = default(AllocationMethodProperty), List<AllocationGroup> allocationGroups = default(List<AllocationGroup>), List<ShareClass> shareClasses = default(List<ShareClass>), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
+        public Fund(string href = default(string), ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), string baseCurrency = default(string), string investorStructure = default(string), List<PortfolioEntityIdWithDetails> portfolioIds = default(List<PortfolioEntityIdWithDetails>), ResourceId fundConfigurationId = default(ResourceId), ResourceId aborId = default(ResourceId), List<InstrumentResolutionDetail> shareClassInstruments = default(List<InstrumentResolutionDetail>), string type = default(string), DateTimeOffset inceptionDate = default(DateTimeOffset), int? decimalPlaces = default(int?), DayMonth yearEndDate = default(DayMonth), NavType primaryNavType = default(NavType), List<NavType> additionalNavTypes = default(List<NavType>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), bool createInstrument = default(bool), ApportionmentMethodProperty apportionmentMethodProperty = default(ApportionmentMethodProperty), List<AllocationGroup> allocationGroups = default(List<AllocationGroup>), List<ShareClass> shareClasses = default(List<ShareClass>), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -211,9 +211,9 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, Property> Properties { get; set; }
 
         /// <summary>
-        /// Whether to create an instrument for the Fund upon creation. Defaults to false.
+        /// Whether to create instruments for the Fund&#39;s share classes, series, or partner classes upon creation. Defaults to false.
         /// </summary>
-        /// <value>Whether to create an instrument for the Fund upon creation. Defaults to false.</value>
+        /// <value>Whether to create instruments for the Fund&#39;s share classes, series, or partner classes upon creation. Defaults to false.</value>
         [DataMember(Name = "createInstrument", EmitDefaultValue = true)]
         public bool CreateInstrument { get; set; }
 
@@ -221,7 +221,7 @@ namespace Lusid.Sdk.Model
         /// Gets or Sets ApportionmentMethodProperty
         /// </summary>
         [DataMember(Name = "apportionmentMethodProperty", EmitDefaultValue = false)]
-        public AllocationMethodProperty ApportionmentMethodProperty { get; set; }
+        public ApportionmentMethodProperty ApportionmentMethodProperty { get; set; }
 
         /// <summary>
         /// An optional list of Allocation Group definitions for the Fund.

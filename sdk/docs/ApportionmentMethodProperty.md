@@ -1,4 +1,4 @@
-# Lusid.Sdk.Model.AllocationMethodProperty
+# Lusid.Sdk.Model.ApportionmentMethodProperty
 
 ## Properties
 
@@ -14,7 +14,7 @@ using System;
 string code = "code";
 string scope = "scope";
 
-AllocationMethodProperty allocationMethodPropertyInstance = new AllocationMethodProperty(
+ApportionmentMethodProperty apportionmentMethodPropertyInstance = new ApportionmentMethodProperty(
     code: code,
     scope: scope);
 ```

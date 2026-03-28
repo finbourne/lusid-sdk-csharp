@@ -136,7 +136,7 @@ catch (ApiException e)
 
 <a id="createworkspace"></a>
 # **CreateWorkspace**
-> Workspace CreateWorkspace (string visibility, WorkspaceCreationRequest? workspaceCreationRequest = null)
+> Workspace CreateWorkspace (string visibility, WorkspaceCreationRequest workspaceCreationRequest, bool? includeItemAccess = null)
 
 [EXPERIMENTAL] CreateWorkspace: Create a new workspace.
 
@@ -182,15 +182,16 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<WorkspaceApi>();
             var visibility = "shared";  // string | The visibility for the workspace being created. Must be `shared` or `personal`; case is important.
-            var workspaceCreationRequest = new WorkspaceCreationRequest?(); // WorkspaceCreationRequest? | The workspace to be created. (optional) 
+            var workspaceCreationRequest = new WorkspaceCreationRequest(); // WorkspaceCreationRequest | The workspace to be created.
+            var includeItemAccess = false;  // bool? | If true, includes the workspace item actions the user is permitted to perform in the response. Defaults to false. (optional)  (default to false)
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // Workspace result = apiInstance.CreateWorkspace(visibility, workspaceCreationRequest, opts: opts);
+                // Workspace result = apiInstance.CreateWorkspace(visibility, workspaceCreationRequest, includeItemAccess, opts: opts);
 
                 // [EXPERIMENTAL] CreateWorkspace: Create a new workspace.
-                Workspace result = apiInstance.CreateWorkspace(visibility, workspaceCreationRequest);
+                Workspace result = apiInstance.CreateWorkspace(visibility, workspaceCreationRequest, includeItemAccess);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -211,7 +212,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] CreateWorkspace: Create a new workspace.
-    ApiResponse<Workspace> response = apiInstance.CreateWorkspaceWithHttpInfo(visibility, workspaceCreationRequest);
+    ApiResponse<Workspace> response = apiInstance.CreateWorkspaceWithHttpInfo(visibility, workspaceCreationRequest, includeItemAccess);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -229,7 +230,8 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **visibility** | **string** | The visibility for the workspace being created. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important. |  |
-| **workspaceCreationRequest** | [**WorkspaceCreationRequest?**](WorkspaceCreationRequest?.md) | The workspace to be created. | [optional]  |
+| **workspaceCreationRequest** | [**WorkspaceCreationRequest**](WorkspaceCreationRequest.md) | The workspace to be created. |  |
+| **includeItemAccess** | **bool?** | If true, includes the workspace item actions the user is permitted to perform in the response. Defaults to false. | [optional] [default to false] |
 
 ### Return type
 
@@ -612,7 +614,7 @@ catch (ApiException e)
 
 <a id="getworkspace"></a>
 # **GetWorkspace**
-> Workspace GetWorkspace (string visibility, string workspaceName, DateTimeOffset? asAt = null)
+> Workspace GetWorkspace (string visibility, string workspaceName, DateTimeOffset? asAt = null, bool? includeItemAccess = null)
 
 [EXPERIMENTAL] GetWorkspace: Get a workspace.
 
@@ -660,14 +662,15 @@ namespace Examples
             var visibility = "shared";  // string | The visibility for the workspace. Must be `shared` or `personal`; case is important.
             var workspaceName = "workspaceName_example";  // string | The workspace name.
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve workspaces. Defaults to 'latest' if not specified. (optional) 
+            var includeItemAccess = false;  // bool? | If true, includes the workspace item actions the user is permitted to perform in the response. Defaults to false. (optional)  (default to false)
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // Workspace result = apiInstance.GetWorkspace(visibility, workspaceName, asAt, opts: opts);
+                // Workspace result = apiInstance.GetWorkspace(visibility, workspaceName, asAt, includeItemAccess, opts: opts);
 
                 // [EXPERIMENTAL] GetWorkspace: Get a workspace.
-                Workspace result = apiInstance.GetWorkspace(visibility, workspaceName, asAt);
+                Workspace result = apiInstance.GetWorkspace(visibility, workspaceName, asAt, includeItemAccess);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -688,7 +691,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] GetWorkspace: Get a workspace.
-    ApiResponse<Workspace> response = apiInstance.GetWorkspaceWithHttpInfo(visibility, workspaceName, asAt);
+    ApiResponse<Workspace> response = apiInstance.GetWorkspaceWithHttpInfo(visibility, workspaceName, asAt, includeItemAccess);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -708,6 +711,7 @@ catch (ApiException e)
 | **visibility** | **string** | The visibility for the workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important. |  |
 | **workspaceName** | **string** | The workspace name. |  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve workspaces. Defaults to &#39;latest&#39; if not specified. | [optional]  |
+| **includeItemAccess** | **bool?** | If true, includes the workspace item actions the user is permitted to perform in the response. Defaults to false. | [optional] [default to false] |
 
 ### Return type
 
@@ -856,7 +860,7 @@ catch (ApiException e)
 
 <a id="listworkspaces"></a>
 # **ListWorkspaces**
-> PagedResourceListOfWorkspace ListWorkspaces (string visibility, DateTimeOffset? asAt = null, string? page = null, List<string>? sortBy = null, int? limit = null, string? filter = null)
+> PagedResourceListOfWorkspace ListWorkspaces (string visibility, DateTimeOffset? asAt = null, string? page = null, List<string>? sortBy = null, int? limit = null, string? filter = null, bool? includeItemAccess = null)
 
 [EXPERIMENTAL] ListWorkspaces: List workspaces.
 
@@ -907,14 +911,15 @@ namespace Examples
             var sortBy = new List<string>?(); // List<string>? | A list of field names to sort by, each suffixed by \" ASC\" or \" DESC\". (optional) 
             var limit = 56;  // int? | When paginating, limit the number of returned results to this many. (optional) 
             var filter = "filter_example";  // string? | Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional) 
+            var includeItemAccess = false;  // bool? | If true, includes the workspace item actions the user is permitted to perform in the response. Defaults to false. (optional)  (default to false)
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // PagedResourceListOfWorkspace result = apiInstance.ListWorkspaces(visibility, asAt, page, sortBy, limit, filter, opts: opts);
+                // PagedResourceListOfWorkspace result = apiInstance.ListWorkspaces(visibility, asAt, page, sortBy, limit, filter, includeItemAccess, opts: opts);
 
                 // [EXPERIMENTAL] ListWorkspaces: List workspaces.
-                PagedResourceListOfWorkspace result = apiInstance.ListWorkspaces(visibility, asAt, page, sortBy, limit, filter);
+                PagedResourceListOfWorkspace result = apiInstance.ListWorkspaces(visibility, asAt, page, sortBy, limit, filter, includeItemAccess);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -935,7 +940,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] ListWorkspaces: List workspaces.
-    ApiResponse<PagedResourceListOfWorkspace> response = apiInstance.ListWorkspacesWithHttpInfo(visibility, asAt, page, sortBy, limit, filter);
+    ApiResponse<PagedResourceListOfWorkspace> response = apiInstance.ListWorkspacesWithHttpInfo(visibility, asAt, page, sortBy, limit, filter, includeItemAccess);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -958,6 +963,7 @@ catch (ApiException e)
 | **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. | [optional]  |
 | **limit** | **int?** | When paginating, limit the number of returned results to this many. | [optional]  |
 | **filter** | **string?** | Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
+| **includeItemAccess** | **bool?** | If true, includes the workspace item actions the user is permitted to perform in the response. Defaults to false. | [optional] [default to false] |
 
 ### Return type
 
@@ -1226,7 +1232,7 @@ catch (ApiException e)
 
 <a id="updateworkspace"></a>
 # **UpdateWorkspace**
-> Workspace UpdateWorkspace (string visibility, string workspaceName, WorkspaceUpdateRequest? workspaceUpdateRequest = null)
+> Workspace UpdateWorkspace (string visibility, string workspaceName, WorkspaceUpdateRequest workspaceUpdateRequest, bool? includeItemAccess = null)
 
 [EXPERIMENTAL] UpdateWorkspace: Update a workspace.
 
@@ -1273,15 +1279,16 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<WorkspaceApi>();
             var visibility = "shared";  // string | The visibility for the workspace. Must be `shared` or `personal`; case is important.
             var workspaceName = "workspaceName_example";  // string | The workspace name.
-            var workspaceUpdateRequest = new WorkspaceUpdateRequest?(); // WorkspaceUpdateRequest? | The new workspace details. (optional) 
+            var workspaceUpdateRequest = new WorkspaceUpdateRequest(); // WorkspaceUpdateRequest | The new workspace details.
+            var includeItemAccess = false;  // bool? | If true, includes the workspace item actions the user is permitted to perform in the response. Defaults to false. (optional)  (default to false)
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // Workspace result = apiInstance.UpdateWorkspace(visibility, workspaceName, workspaceUpdateRequest, opts: opts);
+                // Workspace result = apiInstance.UpdateWorkspace(visibility, workspaceName, workspaceUpdateRequest, includeItemAccess, opts: opts);
 
                 // [EXPERIMENTAL] UpdateWorkspace: Update a workspace.
-                Workspace result = apiInstance.UpdateWorkspace(visibility, workspaceName, workspaceUpdateRequest);
+                Workspace result = apiInstance.UpdateWorkspace(visibility, workspaceName, workspaceUpdateRequest, includeItemAccess);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -1302,7 +1309,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] UpdateWorkspace: Update a workspace.
-    ApiResponse<Workspace> response = apiInstance.UpdateWorkspaceWithHttpInfo(visibility, workspaceName, workspaceUpdateRequest);
+    ApiResponse<Workspace> response = apiInstance.UpdateWorkspaceWithHttpInfo(visibility, workspaceName, workspaceUpdateRequest, includeItemAccess);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -1321,7 +1328,8 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **visibility** | **string** | The visibility for the workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important. |  |
 | **workspaceName** | **string** | The workspace name. |  |
-| **workspaceUpdateRequest** | [**WorkspaceUpdateRequest?**](WorkspaceUpdateRequest?.md) | The new workspace details. | [optional]  |
+| **workspaceUpdateRequest** | [**WorkspaceUpdateRequest**](WorkspaceUpdateRequest.md) | The new workspace details. |  |
+| **includeItemAccess** | **bool?** | If true, includes the workspace item actions the user is permitted to perform in the response. Defaults to false. | [optional] [default to false] |
 
 ### Return type
 

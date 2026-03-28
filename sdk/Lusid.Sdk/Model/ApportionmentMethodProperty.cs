@@ -23,33 +23,33 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// AllocationMethodProperty
+    /// ApportionmentMethodProperty
     /// </summary>
-    [DataContract(Name = "AllocationMethodProperty")]
-    public partial class AllocationMethodProperty : IEquatable<AllocationMethodProperty>, IValidatableObject
+    [DataContract(Name = "ApportionmentMethodProperty")]
+    public partial class ApportionmentMethodProperty : IEquatable<ApportionmentMethodProperty>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="AllocationMethodProperty" /> class.
+        /// Initializes a new instance of the <see cref="ApportionmentMethodProperty" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected AllocationMethodProperty() { }
+        protected ApportionmentMethodProperty() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="AllocationMethodProperty" /> class.
+        /// Initializes a new instance of the <see cref="ApportionmentMethodProperty" /> class.
         /// </summary>
         /// <param name="code">The code identifying the allocation method property. (required).</param>
         /// <param name="scope">The scope of the allocation method property. (required).</param>
-        public AllocationMethodProperty(string code = default(string), string scope = default(string))
+        public ApportionmentMethodProperty(string code = default(string), string scope = default(string))
         {
             // to ensure "code" is required (not null)
             if (code == null)
             {
-                throw new ArgumentNullException("code is a required property for AllocationMethodProperty and cannot be null");
+                throw new ArgumentNullException("code is a required property for ApportionmentMethodProperty and cannot be null");
             }
             this.Code = code;
             // to ensure "scope" is required (not null)
             if (scope == null)
             {
-                throw new ArgumentNullException("scope is a required property for AllocationMethodProperty and cannot be null");
+                throw new ArgumentNullException("scope is a required property for ApportionmentMethodProperty and cannot be null");
             }
             this.Scope = scope;
         }
@@ -75,7 +75,7 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class AllocationMethodProperty {\n");
+            sb.Append("class ApportionmentMethodProperty {\n");
             sb.Append("  Code: ").Append(Code).Append("\n");
             sb.Append("  Scope: ").Append(Scope).Append("\n");
             sb.Append("}\n");
@@ -98,15 +98,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as AllocationMethodProperty);
+            return this.Equals(input as ApportionmentMethodProperty);
         }
 
         /// <summary>
-        /// Returns true if AllocationMethodProperty instances are equal
+        /// Returns true if ApportionmentMethodProperty instances are equal
         /// </summary>
-        /// <param name="input">Instance of AllocationMethodProperty to be compared</param>
+        /// <param name="input">Instance of ApportionmentMethodProperty to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(AllocationMethodProperty input)
+        public bool Equals(ApportionmentMethodProperty input)
         {
             if (input == null)
             {

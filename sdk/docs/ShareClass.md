@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**InstrumentIdentifiers** | **Dictionary&lt;string, string&gt;** | Unique instrument identifiers | 
 **Code** | **string** | The unique code for the Share Class. Must be unique within the Fund. | 
 **Name** | **string** | The display name of the Share Class. | 
 **Description** | **string** | An optional description for the Share Class. | [optional] 
@@ -28,6 +29,7 @@ Name | Type | Description | Notes
 using Lusid.Sdk.Model;
 using System;
 
+Dictionary<string, string> instrumentIdentifiers = new Dictionary<string, string>();
 string code = "code";
 string name = "name";
 string description = "example description";
@@ -46,6 +48,7 @@ string distributionPaymentType = "example distributionPaymentType";
 string hedging = "hedging";
 
 ShareClass shareClassInstance = new ShareClass(
+    instrumentIdentifiers: instrumentIdentifiers,
     code: code,
     name: name,
     description: description,
