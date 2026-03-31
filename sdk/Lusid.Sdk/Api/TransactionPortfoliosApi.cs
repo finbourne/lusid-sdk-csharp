@@ -1386,10 +1386,13 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">The expression to filter out settlement instructions (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the settlement instructions. Defaults to return the latest if not specified. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;SettlementInstruction&#39;, &#39;Instrument&#39; or &#39;Portfolio&#39; domains to decorate onto              settlement instructions. These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39; or &#39;SettlementInstruction/strategy/quantsignal&#39;. (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline. This can optionally include a colon followed by the Closed Period ID to use at the head of the timeline, for a timeline with unconfirmed periods. (optional)</param>
+        /// <param name="closedPeriodId">The closed period ID. If this is specified, both timelineScope and timelineCode must be specified. Either closedPeriodId or effectiveAt can be used with a Timeline. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>VersionedResourceListOfTransactionSettlementInstruction</returns>
-        VersionedResourceListOfTransactionSettlementInstruction ListSettlementInstructions(string scope, string code, DateTimeOrCutLabel? fromDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toDate = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        VersionedResourceListOfTransactionSettlementInstruction ListSettlementInstructions(string scope, string code, DateTimeOrCutLabel? fromDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toDate = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] ListSettlementInstructions: List Settlement Instructions.
@@ -1407,10 +1410,13 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">The expression to filter out settlement instructions (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the settlement instructions. Defaults to return the latest if not specified. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;SettlementInstruction&#39;, &#39;Instrument&#39; or &#39;Portfolio&#39; domains to decorate onto              settlement instructions. These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39; or &#39;SettlementInstruction/strategy/quantsignal&#39;. (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline. This can optionally include a colon followed by the Closed Period ID to use at the head of the timeline, for a timeline with unconfirmed periods. (optional)</param>
+        /// <param name="closedPeriodId">The closed period ID. If this is specified, both timelineScope and timelineCode must be specified. Either closedPeriodId or effectiveAt can be used with a Timeline. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of VersionedResourceListOfTransactionSettlementInstruction</returns>
-        Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfTransactionSettlementInstruction> ListSettlementInstructionsWithHttpInfo(string scope, string code, DateTimeOrCutLabel? fromDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toDate = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfTransactionSettlementInstruction> ListSettlementInstructionsWithHttpInfo(string scope, string code, DateTimeOrCutLabel? fromDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toDate = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// PatchPortfolioDetails: Patch portfolio details
         /// </summary>
@@ -3181,11 +3187,14 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">The expression to filter out settlement instructions (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the settlement instructions. Defaults to return the latest if not specified. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;SettlementInstruction&#39;, &#39;Instrument&#39; or &#39;Portfolio&#39; domains to decorate onto              settlement instructions. These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39; or &#39;SettlementInstruction/strategy/quantsignal&#39;. (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline. This can optionally include a colon followed by the Closed Period ID to use at the head of the timeline, for a timeline with unconfirmed periods. (optional)</param>
+        /// <param name="closedPeriodId">The closed period ID. If this is specified, both timelineScope and timelineCode must be specified. Either closedPeriodId or effectiveAt can be used with a Timeline. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of VersionedResourceListOfTransactionSettlementInstruction</returns>
-        System.Threading.Tasks.Task<VersionedResourceListOfTransactionSettlementInstruction> ListSettlementInstructionsAsync(string scope, string code, DateTimeOrCutLabel? fromDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toDate = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<VersionedResourceListOfTransactionSettlementInstruction> ListSettlementInstructionsAsync(string scope, string code, DateTimeOrCutLabel? fromDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toDate = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] ListSettlementInstructions: List Settlement Instructions.
@@ -3203,11 +3212,14 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">The expression to filter out settlement instructions (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the settlement instructions. Defaults to return the latest if not specified. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;SettlementInstruction&#39;, &#39;Instrument&#39; or &#39;Portfolio&#39; domains to decorate onto              settlement instructions. These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39; or &#39;SettlementInstruction/strategy/quantsignal&#39;. (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline. This can optionally include a colon followed by the Closed Period ID to use at the head of the timeline, for a timeline with unconfirmed periods. (optional)</param>
+        /// <param name="closedPeriodId">The closed period ID. If this is specified, both timelineScope and timelineCode must be specified. Either closedPeriodId or effectiveAt can be used with a Timeline. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (VersionedResourceListOfTransactionSettlementInstruction)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfTransactionSettlementInstruction>> ListSettlementInstructionsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? fromDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toDate = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfTransactionSettlementInstruction>> ListSettlementInstructionsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? fromDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toDate = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// PatchPortfolioDetails: Patch portfolio details
         /// </summary>
@@ -14409,12 +14421,15 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">The expression to filter out settlement instructions (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the settlement instructions. Defaults to return the latest if not specified. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;SettlementInstruction&#39;, &#39;Instrument&#39; or &#39;Portfolio&#39; domains to decorate onto              settlement instructions. These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39; or &#39;SettlementInstruction/strategy/quantsignal&#39;. (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline. This can optionally include a colon followed by the Closed Period ID to use at the head of the timeline, for a timeline with unconfirmed periods. (optional)</param>
+        /// <param name="closedPeriodId">The closed period ID. If this is specified, both timelineScope and timelineCode must be specified. Either closedPeriodId or effectiveAt can be used with a Timeline. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>VersionedResourceListOfTransactionSettlementInstruction</returns>
-        public VersionedResourceListOfTransactionSettlementInstruction ListSettlementInstructions(string scope, string code, DateTimeOrCutLabel? fromDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toDate = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public VersionedResourceListOfTransactionSettlementInstruction ListSettlementInstructions(string scope, string code, DateTimeOrCutLabel? fromDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toDate = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfTransactionSettlementInstruction> localVarResponse = ListSettlementInstructionsWithHttpInfo(scope, code, fromDate, toDate, page, limit, filter, asAt, propertyKeys, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfTransactionSettlementInstruction> localVarResponse = ListSettlementInstructionsWithHttpInfo(scope, code, fromDate, toDate, page, limit, filter, asAt, propertyKeys, timelineScope, timelineCode, closedPeriodId, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -14431,10 +14446,13 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">The expression to filter out settlement instructions (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the settlement instructions. Defaults to return the latest if not specified. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;SettlementInstruction&#39;, &#39;Instrument&#39; or &#39;Portfolio&#39; domains to decorate onto              settlement instructions. These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39; or &#39;SettlementInstruction/strategy/quantsignal&#39;. (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline. This can optionally include a colon followed by the Closed Period ID to use at the head of the timeline, for a timeline with unconfirmed periods. (optional)</param>
+        /// <param name="closedPeriodId">The closed period ID. If this is specified, both timelineScope and timelineCode must be specified. Either closedPeriodId or effectiveAt can be used with a Timeline. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of VersionedResourceListOfTransactionSettlementInstruction</returns>
-        public Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfTransactionSettlementInstruction> ListSettlementInstructionsWithHttpInfo(string scope, string code, DateTimeOrCutLabel? fromDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toDate = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfTransactionSettlementInstruction> ListSettlementInstructionsWithHttpInfo(string scope, string code, DateTimeOrCutLabel? fromDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toDate = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -14518,6 +14536,21 @@ namespace Lusid.Sdk.Api
             {
 
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "propertyKeys", propertyKeys));
+            }
+            if (timelineScope != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineScope", timelineScope));
+            }
+            if (timelineCode != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineCode", timelineCode));
+            }
+            if (closedPeriodId != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "closedPeriodId", closedPeriodId));
             }
 
             localVarRequestOptions.Operation = "TransactionPortfoliosApi.ListSettlementInstructions";
@@ -14567,13 +14600,16 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">The expression to filter out settlement instructions (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the settlement instructions. Defaults to return the latest if not specified. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;SettlementInstruction&#39;, &#39;Instrument&#39; or &#39;Portfolio&#39; domains to decorate onto              settlement instructions. These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39; or &#39;SettlementInstruction/strategy/quantsignal&#39;. (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline. This can optionally include a colon followed by the Closed Period ID to use at the head of the timeline, for a timeline with unconfirmed periods. (optional)</param>
+        /// <param name="closedPeriodId">The closed period ID. If this is specified, both timelineScope and timelineCode must be specified. Either closedPeriodId or effectiveAt can be used with a Timeline. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of VersionedResourceListOfTransactionSettlementInstruction</returns>
-        public async System.Threading.Tasks.Task<VersionedResourceListOfTransactionSettlementInstruction> ListSettlementInstructionsAsync(string scope, string code, DateTimeOrCutLabel? fromDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toDate = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<VersionedResourceListOfTransactionSettlementInstruction> ListSettlementInstructionsAsync(string scope, string code, DateTimeOrCutLabel? fromDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toDate = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfTransactionSettlementInstruction> localVarResponse = await ListSettlementInstructionsWithHttpInfoAsync(scope, code, fromDate, toDate, page, limit, filter, asAt, propertyKeys, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfTransactionSettlementInstruction> localVarResponse = await ListSettlementInstructionsWithHttpInfoAsync(scope, code, fromDate, toDate, page, limit, filter, asAt, propertyKeys, timelineScope, timelineCode, closedPeriodId, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -14590,11 +14626,14 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">The expression to filter out settlement instructions (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the settlement instructions. Defaults to return the latest if not specified. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;SettlementInstruction&#39;, &#39;Instrument&#39; or &#39;Portfolio&#39; domains to decorate onto              settlement instructions. These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39; or &#39;SettlementInstruction/strategy/quantsignal&#39;. (optional)</param>
+        /// <param name="timelineScope">The scope of the Timeline. (optional)</param>
+        /// <param name="timelineCode">The code of the Timeline. This can optionally include a colon followed by the Closed Period ID to use at the head of the timeline, for a timeline with unconfirmed periods. (optional)</param>
+        /// <param name="closedPeriodId">The closed period ID. If this is specified, both timelineScope and timelineCode must be specified. Either closedPeriodId or effectiveAt can be used with a Timeline. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (VersionedResourceListOfTransactionSettlementInstruction)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfTransactionSettlementInstruction>> ListSettlementInstructionsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? fromDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toDate = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfTransactionSettlementInstruction>> ListSettlementInstructionsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? fromDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toDate = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -14672,6 +14711,18 @@ namespace Lusid.Sdk.Api
             if (propertyKeys != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "propertyKeys", propertyKeys));
+            }
+            if (timelineScope != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineScope", timelineScope));
+            }
+            if (timelineCode != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineCode", timelineCode));
+            }
+            if (closedPeriodId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "closedPeriodId", closedPeriodId));
             }
 
             localVarRequestOptions.Operation = "TransactionPortfoliosApi.ListSettlementInstructions";

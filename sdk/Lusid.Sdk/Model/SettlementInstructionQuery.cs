@@ -39,7 +39,10 @@ namespace Lusid.Sdk.Model
         /// <param name="filter">filter.</param>
         /// <param name="settlementInstructionPropertyKeys">settlementInstructionPropertyKeys.</param>
         /// <param name="transactionPropertyKeys">transactionPropertyKeys.</param>
-        public SettlementInstructionQuery(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel startDate = default(DateTimeOrCutLabel), DateTimeOrCutLabel endDate = default(DateTimeOrCutLabel), int? limit = default(int?), string page = default(string), string filter = default(string), List<string> settlementInstructionPropertyKeys = default(List<string>), List<string> transactionPropertyKeys = default(List<string>))
+        /// <param name="timelineScope">timelineScope.</param>
+        /// <param name="timelineCode">timelineCode.</param>
+        /// <param name="closedPeriodId">closedPeriodId.</param>
+        public SettlementInstructionQuery(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel startDate = default(DateTimeOrCutLabel), DateTimeOrCutLabel endDate = default(DateTimeOrCutLabel), int? limit = default(int?), string page = default(string), string filter = default(string), List<string> settlementInstructionPropertyKeys = default(List<string>), List<string> transactionPropertyKeys = default(List<string>), string timelineScope = default(string), string timelineCode = default(string), string closedPeriodId = default(string))
         {
             this.AsAt = asAt;
             this.StartDate = startDate;
@@ -49,6 +52,9 @@ namespace Lusid.Sdk.Model
             this.Filter = filter;
             this.SettlementInstructionPropertyKeys = settlementInstructionPropertyKeys;
             this.TransactionPropertyKeys = transactionPropertyKeys;
+            this.TimelineScope = timelineScope;
+            this.TimelineCode = timelineCode;
+            this.ClosedPeriodId = closedPeriodId;
         }
 
         /// <summary>
@@ -100,6 +106,24 @@ namespace Lusid.Sdk.Model
         public List<string> TransactionPropertyKeys { get; set; }
 
         /// <summary>
+        /// Gets or Sets TimelineScope
+        /// </summary>
+        [DataMember(Name = "timelineScope", EmitDefaultValue = true)]
+        public string TimelineScope { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TimelineCode
+        /// </summary>
+        [DataMember(Name = "timelineCode", EmitDefaultValue = true)]
+        public string TimelineCode { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ClosedPeriodId
+        /// </summary>
+        [DataMember(Name = "closedPeriodId", EmitDefaultValue = true)]
+        public string ClosedPeriodId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -115,6 +139,9 @@ namespace Lusid.Sdk.Model
             sb.Append("  Filter: ").Append(Filter).Append("\n");
             sb.Append("  SettlementInstructionPropertyKeys: ").Append(SettlementInstructionPropertyKeys).Append("\n");
             sb.Append("  TransactionPropertyKeys: ").Append(TransactionPropertyKeys).Append("\n");
+            sb.Append("  TimelineScope: ").Append(TimelineScope).Append("\n");
+            sb.Append("  TimelineCode: ").Append(TimelineCode).Append("\n");
+            sb.Append("  ClosedPeriodId: ").Append(ClosedPeriodId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -191,6 +218,21 @@ namespace Lusid.Sdk.Model
                     this.TransactionPropertyKeys != null &&
                     input.TransactionPropertyKeys != null &&
                     this.TransactionPropertyKeys.SequenceEqual(input.TransactionPropertyKeys)
+                ) && 
+                (
+                    this.TimelineScope == input.TimelineScope ||
+                    (this.TimelineScope != null &&
+                    this.TimelineScope.Equals(input.TimelineScope))
+                ) && 
+                (
+                    this.TimelineCode == input.TimelineCode ||
+                    (this.TimelineCode != null &&
+                    this.TimelineCode.Equals(input.TimelineCode))
+                ) && 
+                (
+                    this.ClosedPeriodId == input.ClosedPeriodId ||
+                    (this.ClosedPeriodId != null &&
+                    this.ClosedPeriodId.Equals(input.ClosedPeriodId))
                 );
         }
 
@@ -234,6 +276,18 @@ namespace Lusid.Sdk.Model
                 if (this.TransactionPropertyKeys != null)
                 {
                     hashCode = (hashCode * 59) + this.TransactionPropertyKeys.GetHashCode();
+                }
+                if (this.TimelineScope != null)
+                {
+                    hashCode = (hashCode * 59) + this.TimelineScope.GetHashCode();
+                }
+                if (this.TimelineCode != null)
+                {
+                    hashCode = (hashCode * 59) + this.TimelineCode.GetHashCode();
+                }
+                if (this.ClosedPeriodId != null)
+                {
+                    hashCode = (hashCode * 59) + this.ClosedPeriodId.GetHashCode();
                 }
                 return hashCode;
             }
@@ -282,6 +336,63 @@ namespace Lusid.Sdk.Model
             if (false == regexFilter.Match(this.Filter).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Filter, must match a pattern of " + regexFilter, new [] { "Filter" });
+            }
+
+            // TimelineScope (string) maxLength
+            if (this.TimelineScope != null && this.TimelineScope.Length > 512)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TimelineScope, length must be less than 512.", new [] { "TimelineScope" });
+            }
+
+            // TimelineScope (string) minLength
+            if (this.TimelineScope != null && this.TimelineScope.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TimelineScope, length must be greater than 1.", new [] { "TimelineScope" });
+            }
+
+            // TimelineScope (string) pattern
+            Regex regexTimelineScope = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
+            if (false == regexTimelineScope.Match(this.TimelineScope).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TimelineScope, must match a pattern of " + regexTimelineScope, new [] { "TimelineScope" });
+            }
+
+            // TimelineCode (string) maxLength
+            if (this.TimelineCode != null && this.TimelineCode.Length > 1025)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TimelineCode, length must be less than 1025.", new [] { "TimelineCode" });
+            }
+
+            // TimelineCode (string) minLength
+            if (this.TimelineCode != null && this.TimelineCode.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TimelineCode, length must be greater than 1.", new [] { "TimelineCode" });
+            }
+
+            // TimelineCode (string) pattern
+            Regex regexTimelineCode = new Regex(@"^[a-zA-Z0-9\-_]+(:[a-zA-Z0-9\-_]+)?$", RegexOptions.CultureInvariant);
+            if (false == regexTimelineCode.Match(this.TimelineCode).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TimelineCode, must match a pattern of " + regexTimelineCode, new [] { "TimelineCode" });
+            }
+
+            // ClosedPeriodId (string) maxLength
+            if (this.ClosedPeriodId != null && this.ClosedPeriodId.Length > 512)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ClosedPeriodId, length must be less than 512.", new [] { "ClosedPeriodId" });
+            }
+
+            // ClosedPeriodId (string) minLength
+            if (this.ClosedPeriodId != null && this.ClosedPeriodId.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ClosedPeriodId, length must be greater than 1.", new [] { "ClosedPeriodId" });
+            }
+
+            // ClosedPeriodId (string) pattern
+            Regex regexClosedPeriodId = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
+            if (false == regexClosedPeriodId.Match(this.ClosedPeriodId).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ClosedPeriodId, must match a pattern of " + regexClosedPeriodId, new [] { "ClosedPeriodId" });
             }
 
             yield break;

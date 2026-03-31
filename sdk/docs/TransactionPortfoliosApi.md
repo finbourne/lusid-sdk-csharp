@@ -4687,7 +4687,7 @@ catch (ApiException e)
 
 <a id="listsettlementinstructions"></a>
 # **ListSettlementInstructions**
-> VersionedResourceListOfTransactionSettlementInstruction ListSettlementInstructions (string scope, string code, DateTimeOrCutLabel? fromDate = null, DateTimeOrCutLabel? toDate = null, string? page = null, int? limit = null, string? filter = null, DateTimeOffset? asAt = null, List<string>? propertyKeys = null)
+> VersionedResourceListOfTransactionSettlementInstruction ListSettlementInstructions (string scope, string code, DateTimeOrCutLabel? fromDate = null, DateTimeOrCutLabel? toDate = null, string? page = null, int? limit = null, string? filter = null, DateTimeOffset? asAt = null, List<string>? propertyKeys = null, string? timelineScope = null, string? timelineCode = null, string? closedPeriodId = null)
 
 [EARLY ACCESS] ListSettlementInstructions: List Settlement Instructions.
 
@@ -4741,14 +4741,17 @@ namespace Examples
             var filter = "filter_example";  // string? | The expression to filter out settlement instructions (optional) 
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the settlement instructions. Defaults to return the latest if not specified. (optional) 
             var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'SettlementInstruction', 'Instrument' or 'Portfolio' domains to decorate onto              settlement instructions. These must have the format {domain}/{scope}/{code}, for example 'Instrument/system/Name' or 'SettlementInstruction/strategy/quantsignal'. (optional) 
+            var timelineScope = "timelineScope_example";  // string? | The scope of the Timeline. (optional) 
+            var timelineCode = "timelineCode_example";  // string? | The code of the Timeline. This can optionally include a colon followed by the Closed Period ID to use at the head of the timeline, for a timeline with unconfirmed periods. (optional) 
+            var closedPeriodId = "closedPeriodId_example";  // string? | The closed period ID. If this is specified, both timelineScope and timelineCode must be specified. Either closedPeriodId or effectiveAt can be used with a Timeline. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // VersionedResourceListOfTransactionSettlementInstruction result = apiInstance.ListSettlementInstructions(scope, code, fromDate, toDate, page, limit, filter, asAt, propertyKeys, opts: opts);
+                // VersionedResourceListOfTransactionSettlementInstruction result = apiInstance.ListSettlementInstructions(scope, code, fromDate, toDate, page, limit, filter, asAt, propertyKeys, timelineScope, timelineCode, closedPeriodId, opts: opts);
 
                 // [EARLY ACCESS] ListSettlementInstructions: List Settlement Instructions.
-                VersionedResourceListOfTransactionSettlementInstruction result = apiInstance.ListSettlementInstructions(scope, code, fromDate, toDate, page, limit, filter, asAt, propertyKeys);
+                VersionedResourceListOfTransactionSettlementInstruction result = apiInstance.ListSettlementInstructions(scope, code, fromDate, toDate, page, limit, filter, asAt, propertyKeys, timelineScope, timelineCode, closedPeriodId);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -4769,7 +4772,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EARLY ACCESS] ListSettlementInstructions: List Settlement Instructions.
-    ApiResponse<VersionedResourceListOfTransactionSettlementInstruction> response = apiInstance.ListSettlementInstructionsWithHttpInfo(scope, code, fromDate, toDate, page, limit, filter, asAt, propertyKeys);
+    ApiResponse<VersionedResourceListOfTransactionSettlementInstruction> response = apiInstance.ListSettlementInstructionsWithHttpInfo(scope, code, fromDate, toDate, page, limit, filter, asAt, propertyKeys, timelineScope, timelineCode, closedPeriodId);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -4795,6 +4798,9 @@ catch (ApiException e)
 | **filter** | **string?** | The expression to filter out settlement instructions | [optional]  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the settlement instructions. Defaults to return the latest if not specified. | [optional]  |
 | **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;SettlementInstruction&#39;, &#39;Instrument&#39; or &#39;Portfolio&#39; domains to decorate onto              settlement instructions. These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39; or &#39;SettlementInstruction/strategy/quantsignal&#39;. | [optional]  |
+| **timelineScope** | **string?** | The scope of the Timeline. | [optional]  |
+| **timelineCode** | **string?** | The code of the Timeline. This can optionally include a colon followed by the Closed Period ID to use at the head of the timeline, for a timeline with unconfirmed periods. | [optional]  |
+| **closedPeriodId** | **string?** | The closed period ID. If this is specified, both timelineScope and timelineCode must be specified. Either closedPeriodId or effectiveAt can be used with a Timeline. | [optional]  |
 
 ### Return type
 
