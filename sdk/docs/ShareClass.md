@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **InstrumentIdentifiers** | **Dictionary&lt;string, string&gt;** | Unique instrument identifiers | 
+**Series** | [**List&lt;Series&gt;**](Series.md) | The series that belong to this Share Class. | [optional] 
 **Code** | **string** | The unique code for the Share Class. Must be unique within the Fund. | 
 **Name** | **string** | The display name of the Share Class. | 
 **Description** | **string** | An optional description for the Share Class. | [optional] 
@@ -30,6 +31,7 @@ using Lusid.Sdk.Model;
 using System;
 
 Dictionary<string, string> instrumentIdentifiers = new Dictionary<string, string>();
+List<Series> series = new List<Series>();
 string code = "code";
 string name = "name";
 string description = "example description";
@@ -49,6 +51,7 @@ string hedging = "hedging";
 
 ShareClass shareClassInstance = new ShareClass(
     instrumentIdentifiers: instrumentIdentifiers,
+    series: series,
     code: code,
     name: name,
     description: description,

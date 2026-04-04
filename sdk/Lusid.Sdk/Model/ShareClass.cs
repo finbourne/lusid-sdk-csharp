@@ -37,6 +37,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="ShareClass" /> class.
         /// </summary>
         /// <param name="instrumentIdentifiers">Unique instrument identifiers (required).</param>
+        /// <param name="series">The series that belong to this Share Class..</param>
         /// <param name="code">The unique code for the Share Class. Must be unique within the Fund. (required).</param>
         /// <param name="name">The display name of the Share Class. (required).</param>
         /// <param name="description">An optional description for the Share Class..</param>
@@ -56,7 +57,7 @@ namespace Lusid.Sdk.Model
         /// <param name="timeZoneConventions">timeZoneConventions.</param>
         /// <param name="distributionPaymentType">The tax treatment applied to distributions. Supported values are: Gross, Net..</param>
         /// <param name="hedging">Indicates whether the ShareClass applies currency hedging. Supported values are: Invalid, None, ApplyHedging. (required).</param>
-        public ShareClass(Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string code = default(string), string name = default(string), string description = default(string), string shareClassShortCode = default(string), decimal? launchPrice = default(decimal?), DateTimeOffset? launchDate = default(DateTimeOffset?), decimal? apportionmentFactor = default(decimal?), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string fundShareClassType = default(string), string distributionType = default(string), string domCcy = default(string), TradingConventions tradingConventions = default(TradingConventions), int? unitsPrecision = default(int?), int? pricePrecision = default(int?), List<SimpleRoundingConvention> roundingConventions = default(List<SimpleRoundingConvention>), List<SimpleRoundingConvention> roundingConventionsUnits = default(List<SimpleRoundingConvention>), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), string distributionPaymentType = default(string), string hedging = default(string))
+        public ShareClass(Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), List<Series> series = default(List<Series>), string code = default(string), string name = default(string), string description = default(string), string shareClassShortCode = default(string), decimal? launchPrice = default(decimal?), DateTimeOffset? launchDate = default(DateTimeOffset?), decimal? apportionmentFactor = default(decimal?), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string fundShareClassType = default(string), string distributionType = default(string), string domCcy = default(string), TradingConventions tradingConventions = default(TradingConventions), int? unitsPrecision = default(int?), int? pricePrecision = default(int?), List<SimpleRoundingConvention> roundingConventions = default(List<SimpleRoundingConvention>), List<SimpleRoundingConvention> roundingConventionsUnits = default(List<SimpleRoundingConvention>), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), string distributionPaymentType = default(string), string hedging = default(string))
         {
             // to ensure "instrumentIdentifiers" is required (not null)
             if (instrumentIdentifiers == null)
@@ -106,6 +107,7 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("hedging is a required property for ShareClass and cannot be null");
             }
             this.Hedging = hedging;
+            this.Series = series;
             this.Description = description;
             this.LaunchPrice = launchPrice;
             this.LaunchDate = launchDate;
@@ -126,6 +128,13 @@ namespace Lusid.Sdk.Model
         /// <value>Unique instrument identifiers</value>
         [DataMember(Name = "instrumentIdentifiers", IsRequired = true, EmitDefaultValue = true)]
         public Dictionary<string, string> InstrumentIdentifiers { get; set; }
+
+        /// <summary>
+        /// The series that belong to this Share Class.
+        /// </summary>
+        /// <value>The series that belong to this Share Class.</value>
+        [DataMember(Name = "series", EmitDefaultValue = true)]
+        public List<Series> Series { get; set; }
 
         /// <summary>
         /// The unique code for the Share Class. Must be unique within the Fund.
@@ -267,6 +276,7 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class ShareClass {\n");
             sb.Append("  InstrumentIdentifiers: ").Append(InstrumentIdentifiers).Append("\n");
+            sb.Append("  Series: ").Append(Series).Append("\n");
             sb.Append("  Code: ").Append(Code).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
@@ -326,6 +336,12 @@ namespace Lusid.Sdk.Model
                     this.InstrumentIdentifiers != null &&
                     input.InstrumentIdentifiers != null &&
                     this.InstrumentIdentifiers.SequenceEqual(input.InstrumentIdentifiers)
+                ) && 
+                (
+                    this.Series == input.Series ||
+                    this.Series != null &&
+                    input.Series != null &&
+                    this.Series.SequenceEqual(input.Series)
                 ) && 
                 (
                     this.Code == input.Code ||
@@ -439,6 +455,10 @@ namespace Lusid.Sdk.Model
                 if (this.InstrumentIdentifiers != null)
                 {
                     hashCode = (hashCode * 59) + this.InstrumentIdentifiers.GetHashCode();
+                }
+                if (this.Series != null)
+                {
+                    hashCode = (hashCode * 59) + this.Series.GetHashCode();
                 }
                 if (this.Code != null)
                 {

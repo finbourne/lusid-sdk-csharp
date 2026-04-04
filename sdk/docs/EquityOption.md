@@ -24,6 +24,7 @@ Name | Type | Description | Notes
 **BusinessDayConvention** | **string** | Business day convention for option exercise date to settlement date calculation.  Supported string (enumeration) values are: [NoAdjustment, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, HalfMonthModifiedFollowing, Nearest].  Defaults to \&quot;F\&quot; if not set. | [optional] 
 **SettlementCalendars** | **List&lt;string&gt;** | Holiday calendars for option exercise date to settlement date calculation. | [optional] 
 **TimeZoneConventions** | [**TimeZoneConventions**](TimeZoneConventions.md) |  | [optional] 
+**TradingConventions** | [**TradingConventions**](TradingConventions.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -45,6 +46,8 @@ string businessDayConvention = "example businessDayConvention";
 List<string> settlementCalendars = new List<string>();
 TimeZoneConventions? timeZoneConventions = new TimeZoneConventions();
 
+TradingConventions? tradingConventions = new TradingConventions();
+
 
 EquityOption equityOptionInstance = new EquityOption(
     startDate: startDate,
@@ -64,7 +67,8 @@ EquityOption equityOptionInstance = new EquityOption(
     deliveryDays: deliveryDays,
     businessDayConvention: businessDayConvention,
     settlementCalendars: settlementCalendars,
-    timeZoneConventions: timeZoneConventions);
+    timeZoneConventions: timeZoneConventions,
+    tradingConventions: tradingConventions);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
