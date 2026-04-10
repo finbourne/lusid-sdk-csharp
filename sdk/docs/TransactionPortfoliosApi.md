@@ -3134,7 +3134,7 @@ catch (ApiException e)
 
 <a id="getholdingsadjustment"></a>
 # **GetHoldingsAdjustment**
-> HoldingsAdjustment GetHoldingsAdjustment (string scope, string code, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = null, List<string>? propertyKeys = null)
+> HoldingsAdjustment GetHoldingsAdjustment (string scope, string code, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = null, List<string>? propertyKeys = null, string? filter = null)
 
 GetHoldingsAdjustment: Get holdings adjustment
 
@@ -3183,15 +3183,16 @@ namespace Examples
             var code = "code_example";  // string | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
             var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel | The effective datetime or cut label of the holdings adjustment.
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the holdings adjustment. Defaults to the return the latest              version of the holdings adjustment if not specified. (optional) 
-            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the ‘Instrument' domain to decorate onto holdings adjustments.              These must have the format {domain}/{scope}/{code}, for example 'Instrument/system/Name'.              Note that properties from the 'Holding’ domain are automatically returned. (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'Instrument' domain to decorate onto holdings adjustments.              These must have the format {domain}/{scope}/{code}, for example 'Instrument/system/Name'.              Note that properties from the 'Holding' domain are automatically returned. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the holding adjustments result set.              Supported fields: InstrumentUid, InstrumentScope, Currency, Properties[Holding/{scope}/{code}], SubHoldingKeys[Transaction/{scope}/{code}].              For example, to filter on a specific instrument, specify \"InstrumentUid eq 'LUID_00003D4X'\".              For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // HoldingsAdjustment result = apiInstance.GetHoldingsAdjustment(scope, code, effectiveAt, asAt, propertyKeys, opts: opts);
+                // HoldingsAdjustment result = apiInstance.GetHoldingsAdjustment(scope, code, effectiveAt, asAt, propertyKeys, filter, opts: opts);
 
                 // GetHoldingsAdjustment: Get holdings adjustment
-                HoldingsAdjustment result = apiInstance.GetHoldingsAdjustment(scope, code, effectiveAt, asAt, propertyKeys);
+                HoldingsAdjustment result = apiInstance.GetHoldingsAdjustment(scope, code, effectiveAt, asAt, propertyKeys, filter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -3212,7 +3213,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // GetHoldingsAdjustment: Get holdings adjustment
-    ApiResponse<HoldingsAdjustment> response = apiInstance.GetHoldingsAdjustmentWithHttpInfo(scope, code, effectiveAt, asAt, propertyKeys);
+    ApiResponse<HoldingsAdjustment> response = apiInstance.GetHoldingsAdjustmentWithHttpInfo(scope, code, effectiveAt, asAt, propertyKeys, filter);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -3233,7 +3234,8 @@ catch (ApiException e)
 | **code** | **string** | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. |  |
 | **effectiveAt** | **DateTimeOrCutLabel** | The effective datetime or cut label of the holdings adjustment. |  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the holdings adjustment. Defaults to the return the latest              version of the holdings adjustment if not specified. | [optional]  |
-| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the ‘Instrument&#39; domain to decorate onto holdings adjustments.              These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;.              Note that properties from the &#39;Holding’ domain are automatically returned. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;Instrument&#39; domain to decorate onto holdings adjustments.              These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;.              Note that properties from the &#39;Holding&#39; domain are automatically returned. | [optional]  |
+| **filter** | **string?** | Expression to filter the holding adjustments result set.              Supported fields: InstrumentUid, InstrumentScope, Currency, Properties[Holding/{scope}/{code}], SubHoldingKeys[Transaction/{scope}/{code}].              For example, to filter on a specific instrument, specify \&quot;InstrumentUid eq &#39;LUID_00003D4X&#39;\&quot;.              For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional]  |
 
 ### Return type
 
@@ -4566,7 +4568,7 @@ catch (ApiException e)
 
 <a id="listholdingsadjustments"></a>
 # **ListHoldingsAdjustments**
-> ResourceListOfHoldingsAdjustmentHeader ListHoldingsAdjustments (string scope, string code, DateTimeOrCutLabel? fromEffectiveAt = null, DateTimeOrCutLabel? toEffectiveAt = null, DateTimeOffset? asAt = null)
+> ResourceListOfHoldingsAdjustmentHeader ListHoldingsAdjustments (string scope, string code, DateTimeOrCutLabel? fromEffectiveAt = null, DateTimeOrCutLabel? toEffectiveAt = null, DateTimeOffset? asAt = null, string? filter = null)
 
 ListHoldingsAdjustments: List holdings adjustments
 
@@ -4616,14 +4618,15 @@ namespace Examples
             var fromEffectiveAt = "fromEffectiveAt_example";  // DateTimeOrCutLabel? | The lower bound effective datetime or cut label (inclusive) from which to retrieve the holdings              adjustments. There is no lower bound if this is not specified. (optional) 
             var toEffectiveAt = "toEffectiveAt_example";  // DateTimeOrCutLabel? | The upper bound effective datetime or cut label (inclusive) from which to retrieve the holdings              adjustments. There is no upper bound if this is not specified. (optional) 
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the holdings adjustments. Defaults to return the              latest version of each holding adjustment if not specified. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the holding adjustments result set.              Supported fields: InstrumentUid, InstrumentScope, Currency, Properties[Holding/{scope}/{code}], SubHoldingKeys[Transaction/{scope}/{code}].              For example, to filter on a specific instrument, specify \"InstrumentUid eq 'LUID_00003D4X'\".              For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // ResourceListOfHoldingsAdjustmentHeader result = apiInstance.ListHoldingsAdjustments(scope, code, fromEffectiveAt, toEffectiveAt, asAt, opts: opts);
+                // ResourceListOfHoldingsAdjustmentHeader result = apiInstance.ListHoldingsAdjustments(scope, code, fromEffectiveAt, toEffectiveAt, asAt, filter, opts: opts);
 
                 // ListHoldingsAdjustments: List holdings adjustments
-                ResourceListOfHoldingsAdjustmentHeader result = apiInstance.ListHoldingsAdjustments(scope, code, fromEffectiveAt, toEffectiveAt, asAt);
+                ResourceListOfHoldingsAdjustmentHeader result = apiInstance.ListHoldingsAdjustments(scope, code, fromEffectiveAt, toEffectiveAt, asAt, filter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -4644,7 +4647,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // ListHoldingsAdjustments: List holdings adjustments
-    ApiResponse<ResourceListOfHoldingsAdjustmentHeader> response = apiInstance.ListHoldingsAdjustmentsWithHttpInfo(scope, code, fromEffectiveAt, toEffectiveAt, asAt);
+    ApiResponse<ResourceListOfHoldingsAdjustmentHeader> response = apiInstance.ListHoldingsAdjustmentsWithHttpInfo(scope, code, fromEffectiveAt, toEffectiveAt, asAt, filter);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -4666,6 +4669,7 @@ catch (ApiException e)
 | **fromEffectiveAt** | **DateTimeOrCutLabel?** | The lower bound effective datetime or cut label (inclusive) from which to retrieve the holdings              adjustments. There is no lower bound if this is not specified. | [optional]  |
 | **toEffectiveAt** | **DateTimeOrCutLabel?** | The upper bound effective datetime or cut label (inclusive) from which to retrieve the holdings              adjustments. There is no upper bound if this is not specified. | [optional]  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the holdings adjustments. Defaults to return the              latest version of each holding adjustment if not specified. | [optional]  |
+| **filter** | **string?** | Expression to filter the holding adjustments result set.              Supported fields: InstrumentUid, InstrumentScope, Currency, Properties[Holding/{scope}/{code}], SubHoldingKeys[Transaction/{scope}/{code}].              For example, to filter on a specific instrument, specify \&quot;InstrumentUid eq &#39;LUID_00003D4X&#39;\&quot;.              For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional]  |
 
 ### Return type
 
