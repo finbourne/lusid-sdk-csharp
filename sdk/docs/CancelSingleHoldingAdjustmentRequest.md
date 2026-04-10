@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **InstrumentIdentifiers** | **Dictionary&lt;string, string&gt;** | A set of instrument identifiers that can resolve the holding adjustment to a unique instrument. | 
 **SubHoldingKeys** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) | The sub-holding properties which identify the holding. Each property must be from the &#39;Transaction&#39; domain. | [optional] 
-**Currency** | **string** | The Holding currency. | [optional] 
+**Currency** | **string** | The Holding currency. | 
 **CustodianAccountId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 
 ```csharp
@@ -16,7 +16,7 @@ using System;
 
 Dictionary<string, string> instrumentIdentifiers = new Dictionary<string, string>();
 Dictionary<string, PerpetualProperty> subHoldingKeys = new Dictionary<string, PerpetualProperty>();
-string currency = "example currency";
+string currency = "currency";
 ResourceId? custodianAccountId = new ResourceId();
 
 

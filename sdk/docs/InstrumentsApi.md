@@ -1000,7 +1000,7 @@ catch (ApiException e)
 
 <a id="getinstrument"></a>
 # **GetInstrument**
-> Instrument GetInstrument (string identifierType, string identifier, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, List<string>? propertyKeys = null, string? scope = null, List<string>? relationshipDefinitionIds = null, string? dataModelScope = null, string? dataModelCode = null)
+> Instrument GetInstrument (string identifierType, string identifier, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, List<string>? propertyKeys = null, string? scope = null, List<string>? relationshipDefinitionIds = null, string? dataModelScope = null, string? dataModelCode = null, string? timelineScope = null, string? timelineCode = null, string? closedPeriodId = null)
 
 GetInstrument: Get instrument
 
@@ -1054,14 +1054,17 @@ namespace Examples
             var relationshipDefinitionIds = new List<string>?(); // List<string>? | A list of relationship definitions that are used to decorate related entities              onto the instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional) 
             var dataModelScope = "dataModelScope_example";  // string? | The optional scope of a Custom Data Model to use. (optional) 
             var dataModelCode = "dataModelCode_example";  // string? | The optional code of a Custom Data Model to use. (optional) 
+            var timelineScope = "timelineScope_example";  // string? | The optional scope of a timeline to use for post-close activity. (optional) 
+            var timelineCode = "timelineCode_example";  // string? | The optional code of a timeline to use for post-close activity. (optional) 
+            var closedPeriodId = "closedPeriodId_example";  // string? | The optional id of a closed period within the timeline to view. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // Instrument result = apiInstance.GetInstrument(identifierType, identifier, effectiveAt, asAt, propertyKeys, scope, relationshipDefinitionIds, dataModelScope, dataModelCode, opts: opts);
+                // Instrument result = apiInstance.GetInstrument(identifierType, identifier, effectiveAt, asAt, propertyKeys, scope, relationshipDefinitionIds, dataModelScope, dataModelCode, timelineScope, timelineCode, closedPeriodId, opts: opts);
 
                 // GetInstrument: Get instrument
-                Instrument result = apiInstance.GetInstrument(identifierType, identifier, effectiveAt, asAt, propertyKeys, scope, relationshipDefinitionIds, dataModelScope, dataModelCode);
+                Instrument result = apiInstance.GetInstrument(identifierType, identifier, effectiveAt, asAt, propertyKeys, scope, relationshipDefinitionIds, dataModelScope, dataModelCode, timelineScope, timelineCode, closedPeriodId);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -1082,7 +1085,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // GetInstrument: Get instrument
-    ApiResponse<Instrument> response = apiInstance.GetInstrumentWithHttpInfo(identifierType, identifier, effectiveAt, asAt, propertyKeys, scope, relationshipDefinitionIds, dataModelScope, dataModelCode);
+    ApiResponse<Instrument> response = apiInstance.GetInstrumentWithHttpInfo(identifierType, identifier, effectiveAt, asAt, propertyKeys, scope, relationshipDefinitionIds, dataModelScope, dataModelCode, timelineScope, timelineCode, closedPeriodId);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -1108,6 +1111,9 @@ catch (ApiException e)
 | **relationshipDefinitionIds** | [**List&lt;string&gt;?**](string.md) | A list of relationship definitions that are used to decorate related entities              onto the instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. | [optional]  |
 | **dataModelScope** | **string?** | The optional scope of a Custom Data Model to use. | [optional]  |
 | **dataModelCode** | **string?** | The optional code of a Custom Data Model to use. | [optional]  |
+| **timelineScope** | **string?** | The optional scope of a timeline to use for post-close activity. | [optional]  |
+| **timelineCode** | **string?** | The optional code of a timeline to use for post-close activity. | [optional]  |
+| **closedPeriodId** | **string?** | The optional id of a closed period within the timeline to view. | [optional]  |
 
 ### Return type
 
@@ -1998,7 +2004,7 @@ catch (ApiException e)
 
 <a id="listinstruments"></a>
 # **ListInstruments**
-> PagedResourceListOfInstrument ListInstruments (DateTimeOffset? asAt = null, DateTimeOrCutLabel? effectiveAt = null, string? page = null, List<string>? sortBy = null, int? limit = null, string? filter = null, List<string>? instrumentPropertyKeys = null, string? scope = null, List<string>? relationshipDefinitionIds = null, string? dataModelScope = null, string? dataModelCode = null, string? membershipType = null)
+> PagedResourceListOfInstrument ListInstruments (DateTimeOffset? asAt = null, DateTimeOrCutLabel? effectiveAt = null, string? page = null, List<string>? sortBy = null, int? limit = null, string? filter = null, List<string>? instrumentPropertyKeys = null, string? scope = null, List<string>? relationshipDefinitionIds = null, string? dataModelScope = null, string? dataModelCode = null, string? membershipType = null, string? timelineScope = null, string? timelineCode = null, string? closedPeriodId = null)
 
 ListInstruments: List instruments
 
@@ -2055,14 +2061,17 @@ namespace Examples
             var dataModelScope = "dataModelScope_example";  // string? | The optional scope of a Custom Data Model to use. (optional) 
             var dataModelCode = "dataModelCode_example";  // string? | The optional code of a Custom Data Model to use. (optional) 
             var membershipType = "membershipType_example";  // string? | The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional) 
+            var timelineScope = "timelineScope_example";  // string? | The scope of the timeline to use for PCA (Post Close Activity) support. (optional) 
+            var timelineCode = "timelineCode_example";  // string? | The code of the timeline to use for PCA (Post Close Activity) support. (optional) 
+            var closedPeriodId = "closedPeriodId_example";  // string? | The id of the closed period on the timeline to use for PCA (Post Close Activity) support. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // PagedResourceListOfInstrument result = apiInstance.ListInstruments(asAt, effectiveAt, page, sortBy, limit, filter, instrumentPropertyKeys, scope, relationshipDefinitionIds, dataModelScope, dataModelCode, membershipType, opts: opts);
+                // PagedResourceListOfInstrument result = apiInstance.ListInstruments(asAt, effectiveAt, page, sortBy, limit, filter, instrumentPropertyKeys, scope, relationshipDefinitionIds, dataModelScope, dataModelCode, membershipType, timelineScope, timelineCode, closedPeriodId, opts: opts);
 
                 // ListInstruments: List instruments
-                PagedResourceListOfInstrument result = apiInstance.ListInstruments(asAt, effectiveAt, page, sortBy, limit, filter, instrumentPropertyKeys, scope, relationshipDefinitionIds, dataModelScope, dataModelCode, membershipType);
+                PagedResourceListOfInstrument result = apiInstance.ListInstruments(asAt, effectiveAt, page, sortBy, limit, filter, instrumentPropertyKeys, scope, relationshipDefinitionIds, dataModelScope, dataModelCode, membershipType, timelineScope, timelineCode, closedPeriodId);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -2083,7 +2092,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // ListInstruments: List instruments
-    ApiResponse<PagedResourceListOfInstrument> response = apiInstance.ListInstrumentsWithHttpInfo(asAt, effectiveAt, page, sortBy, limit, filter, instrumentPropertyKeys, scope, relationshipDefinitionIds, dataModelScope, dataModelCode, membershipType);
+    ApiResponse<PagedResourceListOfInstrument> response = apiInstance.ListInstrumentsWithHttpInfo(asAt, effectiveAt, page, sortBy, limit, filter, instrumentPropertyKeys, scope, relationshipDefinitionIds, dataModelScope, dataModelCode, membershipType, timelineScope, timelineCode, closedPeriodId);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -2112,6 +2121,9 @@ catch (ApiException e)
 | **dataModelScope** | **string?** | The optional scope of a Custom Data Model to use. | [optional]  |
 | **dataModelCode** | **string?** | The optional code of a Custom Data Model to use. | [optional]  |
 | **membershipType** | **string?** | The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. | [optional]  |
+| **timelineScope** | **string?** | The scope of the timeline to use for PCA (Post Close Activity) support. | [optional]  |
+| **timelineCode** | **string?** | The code of the timeline to use for PCA (Post Close Activity) support. | [optional]  |
+| **closedPeriodId** | **string?** | The id of the closed period on the timeline to use for PCA (Post Close Activity) support. | [optional]  |
 
 ### Return type
 

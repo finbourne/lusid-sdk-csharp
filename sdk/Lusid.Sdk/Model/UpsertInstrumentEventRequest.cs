@@ -44,7 +44,7 @@ namespace Lusid.Sdk.Model
         /// <param name="sequenceNumber">The order of the instrument event relative others on the same date (0 being processed first). Must be non negative..</param>
         /// <param name="participationType">Is participation in this event Mandatory, MandatoryWithChoices, or Voluntary. (default to &quot;Mandatory&quot;).</param>
         /// <param name="eventDateStamps">The date stamps corresponding to the relevant date-time fields for the instrument event. The key for each provided date stamp must match the field name of a valid datetime field from the InstrumentEvent DTO..</param>
-        public UpsertInstrumentEventRequest(string instrumentEventId = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string description = default(string), InstrumentEvent instrumentEvent = default(InstrumentEvent), List<PerpetualProperty> properties = default(List<PerpetualProperty>), int sequenceNumber = default(int), string participationType = @"Mandatory", Dictionary<string, YearMonthDay> eventDateStamps = default(Dictionary<string, YearMonthDay>))
+        public UpsertInstrumentEventRequest(string instrumentEventId = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string description = default(string), InstrumentEvent instrumentEvent = default(InstrumentEvent), List<PerpetualProperty> properties = default(List<PerpetualProperty>), int? sequenceNumber = default(int?), string participationType = @"Mandatory", Dictionary<string, YearMonthDay> eventDateStamps = default(Dictionary<string, YearMonthDay>))
         {
             // to ensure "instrumentEventId" is required (not null)
             if (instrumentEventId == null)
@@ -111,7 +111,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <value>The order of the instrument event relative others on the same date (0 being processed first). Must be non negative.</value>
         [DataMember(Name = "sequenceNumber", EmitDefaultValue = true)]
-        public int SequenceNumber { get; set; }
+        public int? SequenceNumber { get; set; }
 
         /// <summary>
         /// Is participation in this event Mandatory, MandatoryWithChoices, or Voluntary.
@@ -207,7 +207,8 @@ namespace Lusid.Sdk.Model
                 ) && 
                 (
                     this.SequenceNumber == input.SequenceNumber ||
-                    this.SequenceNumber.Equals(input.SequenceNumber)
+                    (this.SequenceNumber != null &&
+                    this.SequenceNumber.Equals(input.SequenceNumber))
                 ) && 
                 (
                     this.ParticipationType == input.ParticipationType ||
@@ -251,7 +252,10 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Properties.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.SequenceNumber.GetHashCode();
+                if (this.SequenceNumber != null)
+                {
+                    hashCode = (hashCode * 59) + this.SequenceNumber.GetHashCode();
+                }
                 if (this.ParticipationType != null)
                 {
                     hashCode = (hashCode * 59) + this.ParticipationType.GetHashCode();

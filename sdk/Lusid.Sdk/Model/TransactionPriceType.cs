@@ -62,7 +62,13 @@ namespace Lusid.Sdk.Model
         /// Enum DirtyPrice for value: DirtyPrice
         /// </summary>
         [EnumMember(Value = "DirtyPrice")]
-        DirtyPrice = 6
+        DirtyPrice = 6,
+
+        /// <summary>
+        /// Enum CdsPrice for value: CdsPrice
+        /// </summary>
+        [EnumMember(Value = "CdsPrice")]
+        CdsPrice = 7
     }
 
 }

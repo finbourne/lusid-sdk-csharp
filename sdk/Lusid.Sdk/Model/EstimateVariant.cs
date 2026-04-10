@@ -40,8 +40,8 @@ namespace Lusid.Sdk.Model
         /// <param name="displayName">The name of the Fund Calendar entry. (required).</param>
         /// <param name="description">A description for the Fund Calendar entry..</param>
         /// <param name="asAt">The asAt datetime for the Calendar Entry. (required).</param>
-        /// <param name="holdingsAsAtOverride">The optional AsAt Override to use for building holdings in the Valuation Point. Defaults to Latest..</param>
-        /// <param name="valuationsAsAtOverride">The optional AsAt Override to use for performing valuations in the Valuation Point. Defaults to Latest..</param>
+        /// <param name="holdingsAsAtOverride">The optional AsAt Override to use for building holdings in the Valuation Point. Defaults to QueryAsAt..</param>
+        /// <param name="valuationsAsAtOverride">The optional AsAt Override to use for performing valuations in the Valuation Point. Defaults to QueryAsAt..</param>
         /// <param name="properties">The properties for the Calendar Entry. These will be from the &#39;ClosedPeriod&#39; domain..</param>
         /// <param name="varVersion">varVersion (required).</param>
         public EstimateVariant(string variant = default(string), string displayName = default(string), string description = default(string), DateTimeOffset asAt = default(DateTimeOffset), DateTimeOffset? holdingsAsAtOverride = default(DateTimeOffset?), DateTimeOffset? valuationsAsAtOverride = default(DateTimeOffset?), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion varVersion = default(ModelVersion))
@@ -95,16 +95,16 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset AsAt { get; set; }
 
         /// <summary>
-        /// The optional AsAt Override to use for building holdings in the Valuation Point. Defaults to Latest.
+        /// The optional AsAt Override to use for building holdings in the Valuation Point. Defaults to QueryAsAt.
         /// </summary>
-        /// <value>The optional AsAt Override to use for building holdings in the Valuation Point. Defaults to Latest.</value>
+        /// <value>The optional AsAt Override to use for building holdings in the Valuation Point. Defaults to QueryAsAt.</value>
         [DataMember(Name = "holdingsAsAtOverride", EmitDefaultValue = true)]
         public DateTimeOffset? HoldingsAsAtOverride { get; set; }
 
         /// <summary>
-        /// The optional AsAt Override to use for performing valuations in the Valuation Point. Defaults to Latest.
+        /// The optional AsAt Override to use for performing valuations in the Valuation Point. Defaults to QueryAsAt.
         /// </summary>
-        /// <value>The optional AsAt Override to use for performing valuations in the Valuation Point. Defaults to Latest.</value>
+        /// <value>The optional AsAt Override to use for performing valuations in the Valuation Point. Defaults to QueryAsAt.</value>
         [DataMember(Name = "valuationsAsAtOverride", EmitDefaultValue = true)]
         public DateTimeOffset? ValuationsAsAtOverride { get; set; }
 

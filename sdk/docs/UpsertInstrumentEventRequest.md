@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Description** | **string** | The description of the instrument event. | [optional] 
 **InstrumentEvent** | [**InstrumentEvent**](InstrumentEvent.md) |  | 
 **Properties** | [**List&lt;PerpetualProperty&gt;**](PerpetualProperty.md) | The properties attached to this instrument event. | [optional] 
-**SequenceNumber** | **int** | The order of the instrument event relative others on the same date (0 being processed first). Must be non negative. | [optional] 
+**SequenceNumber** | **int?** | The order of the instrument event relative others on the same date (0 being processed first). Must be non negative. | [optional] 
 **ParticipationType** | **string** | Is participation in this event Mandatory, MandatoryWithChoices, or Voluntary. | [optional] [default to "Mandatory"]
 **EventDateStamps** | [**Dictionary&lt;string, YearMonthDay&gt;**](YearMonthDay.md) | The date stamps corresponding to the relevant date-time fields for the instrument event. The key for each provided date stamp must match the field name of a valid datetime field from the InstrumentEvent DTO. | [optional] 
 

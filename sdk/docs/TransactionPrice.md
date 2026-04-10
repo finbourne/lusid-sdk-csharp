@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Price** | **decimal** |  | [optional] 
-**Type** | **string** | The available values are: Price, Yield, Spread, CashFlowPerUnit, CleanPrice, DirtyPrice | [optional] 
+**Type** | **string** | The available values are: Price, Yield, Spread, CashFlowPerUnit, CleanPrice, DirtyPrice, CdsPrice | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;

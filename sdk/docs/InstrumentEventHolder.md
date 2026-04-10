@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **SequenceNumber** | **int** | The order of the instrument event relative others on the same date (0 being processed first). Must be non negative. | [optional] 
 **ParticipationType** | **string** | Is participation in this event Mandatory, MandatoryWithChoices, or Voluntary. | [optional] [default to "Mandatory"]
 **AsAt** | **DateTimeOffset?** | The AsAt time of the instrument event, if available. This is a readonly field and should not be provided on upsert. | [optional] [readonly] 
+**GroupCode** | **string** | The group code that determines the processing order of instrument events with the same effective datetime. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -35,6 +36,7 @@ string completeness = "example completeness";
 InstrumentEvent instrumentEvent = new InstrumentEvent();
 List<PerpetualProperty> properties = new List<PerpetualProperty>();
 string participationType = "example participationType";
+string groupCode = "example groupCode";
 
 InstrumentEventHolder instrumentEventHolderInstance = new InstrumentEventHolder(
     instrumentEventId: instrumentEventId,
@@ -49,7 +51,8 @@ InstrumentEventHolder instrumentEventHolderInstance = new InstrumentEventHolder(
     properties: properties,
     sequenceNumber: sequenceNumber,
     participationType: participationType,
-    asAt: asAt);
+    asAt: asAt,
+    groupCode: groupCode);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
