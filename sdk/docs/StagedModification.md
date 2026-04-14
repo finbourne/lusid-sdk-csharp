@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **RequestedChanges** | [**RequestedChanges**](RequestedChanges.md) |  | [optional] 
 **EntityHrefs** | [**StagedModificationsEntityHrefs**](StagedModificationsEntityHrefs.md) |  | [optional] 
 **DisplayName** | **string** | The display name of the entity the staged modification applies to. | [optional] 
+**SourceEntity** | [**StagedModificationSourceEntity**](StagedModificationSourceEntity.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -44,6 +45,8 @@ RequestedChanges? requestedChanges = new RequestedChanges();
 StagedModificationsEntityHrefs? entityHrefs = new StagedModificationsEntityHrefs();
 
 string displayName = "example displayName";
+StagedModificationSourceEntity? sourceEntity = new StagedModificationSourceEntity();
+
 List<Link> links = new List<Link>();
 
 StagedModification stagedModificationInstance = new StagedModification(
@@ -64,6 +67,7 @@ StagedModification stagedModificationInstance = new StagedModification(
     requestedChanges: requestedChanges,
     entityHrefs: entityHrefs,
     displayName: displayName,
+    sourceEntity: sourceEntity,
     links: links);
 ```
 

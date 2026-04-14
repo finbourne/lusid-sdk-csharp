@@ -600,7 +600,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The datetime that the Cleardown Module was deleted. |  -  |
+| **200** | The datetime that the Diary Entry was deleted. |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
