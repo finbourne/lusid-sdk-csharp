@@ -378,7 +378,7 @@ namespace Lusid.Sdk.Client
                 {
                     AddContentTypeHeaderIfMissing(options, request, "application/octet-stream");
                     request.RequestFormat = DataFormat.Binary;
-                    request.Body = ClientUtils.ReadAsBytes(stream);
+                    request.Body = stream;
                 }
                 else if (options.Data is byte[])
                 {

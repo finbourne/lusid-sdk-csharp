@@ -49,6 +49,9 @@ internal static class RestSharpExtensions
                 case DataFormat.Json:
                     restRequest.AddJsonBody(request.Body);
                     break;
+                case DataFormat.Binary when request.Body is Stream stream:
+                    restRequest.AddStreamBody(stream, request.Headers["Content-Type"][0]);
+                    break;
                 case DataFormat.Binary:
                     restRequest.AddBody(request.Body, request.Headers["Content-Type"][0]);
                     break;
@@ -84,10 +87,9 @@ internal static class RestSharpExtensions
         {
             foreach (var file in param.Value)
             {
-                var bytes = ClientUtils.ReadAsBytes(file);
                 var fileStream = file as FileStream;
-                restRequest.AddFile(param.Key, bytes,
-                    fileStream != null ? Path.GetFileName(fileStream.Name) : "no_file_name_provided");
+                var fileName = fileStream != null ? Path.GetFileName(fileStream.Name) : "no_file_name_provided";
+                restRequest.AddFile(param.Key, () => file, fileName);
             }
         }
         return restRequest;

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **Active** | **bool** |  | 
 **TemplateId** | [**ResourceId**](ResourceId.md) |  | 
 **Variation** | **string** |  | 
-**PortfolioGroupId** | [**ResourceId**](ResourceId.md) |  | 
+**PortfolioGroupId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **Parameters** | [**Dictionary&lt;string, ComplianceParameter&gt;**](ComplianceParameter.md) |  | 
 **Properties** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) |  | 
 
@@ -24,7 +24,8 @@ string description = "example description";
 bool active = //"True";
 ResourceId templateId = new ResourceId();
 string variation = "variation";
-ResourceId portfolioGroupId = new ResourceId();
+ResourceId? portfolioGroupId = new ResourceId();
+
 Dictionary<string, ComplianceParameter> parameters = new Dictionary<string, ComplianceParameter>();
 Dictionary<string, PerpetualProperty> properties = new Dictionary<string, PerpetualProperty>();
 
