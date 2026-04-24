@@ -1,19 +1,22 @@
-# Lusid.Sdk.Model.PortfolioGroupIdList
+# Lusid.Sdk.Model.FilteredFundIdList
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ReferenceListType** | **string** | The reference list values. The available values are: PortfolioGroupIdList, PortfolioIdList, AddressKeyList, StringList, InstrumentList, DecimalList, PropertyList, FundIdList, FilteredFundIdList | 
-**Values** | [**List&lt;ResourceId&gt;**](ResourceId.md) |  | 
+**Filter** | **string** |  | 
+**Values** | [**List&lt;ResourceId&gt;**](ResourceId.md) |  | [optional] [readonly] 
 
 ```csharp
 using Lusid.Sdk.Model;
 using System;
 
+string filter = "filter";
 List<ResourceId> values = new List<ResourceId>();
 
-PortfolioGroupIdList portfolioGroupIdListInstance = new PortfolioGroupIdList(
+FilteredFundIdList filteredFundIdListInstance = new FilteredFundIdList(
+    filter: filter,
     values: values);
 ```
 

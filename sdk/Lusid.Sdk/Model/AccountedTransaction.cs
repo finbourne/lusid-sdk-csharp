@@ -37,7 +37,8 @@ namespace Lusid.Sdk.Model
         /// <param name="portfolioId">portfolioId.</param>
         /// <param name="valuationPointOrigin">Designates if the transaction was originally part of the Valuation Point or if it was added as part of a Complex Close action..</param>
         /// <param name="addedOriginValuationPointCode">The Valuation Point, only for transaction added as part of a Complex Close action..</param>
-        public AccountedTransaction(DateTimeOffset accountingDate = default(DateTimeOffset), string journalEntryAction = default(string), OutputTransaction transaction = default(OutputTransaction), PortfolioId portfolioId = default(PortfolioId), string valuationPointOrigin = default(string), string addedOriginValuationPointCode = default(string))
+        /// <param name="addedOriginValuationPointVariantCode">The Valuation Point variant, only for transactions added as part of a Complex Close action..</param>
+        public AccountedTransaction(DateTimeOffset accountingDate = default(DateTimeOffset), string journalEntryAction = default(string), OutputTransaction transaction = default(OutputTransaction), PortfolioId portfolioId = default(PortfolioId), string valuationPointOrigin = default(string), string addedOriginValuationPointCode = default(string), string addedOriginValuationPointVariantCode = default(string))
         {
             this.AccountingDate = accountingDate;
             this.JournalEntryAction = journalEntryAction;
@@ -45,6 +46,7 @@ namespace Lusid.Sdk.Model
             this.PortfolioId = portfolioId;
             this.ValuationPointOrigin = valuationPointOrigin;
             this.AddedOriginValuationPointCode = addedOriginValuationPointCode;
+            this.AddedOriginValuationPointVariantCode = addedOriginValuationPointVariantCode;
         }
 
         /// <summary>
@@ -88,6 +90,13 @@ namespace Lusid.Sdk.Model
         public string AddedOriginValuationPointCode { get; set; }
 
         /// <summary>
+        /// The Valuation Point variant, only for transactions added as part of a Complex Close action.
+        /// </summary>
+        /// <value>The Valuation Point variant, only for transactions added as part of a Complex Close action.</value>
+        [DataMember(Name = "addedOriginValuationPointVariantCode", EmitDefaultValue = true)]
+        public string AddedOriginValuationPointVariantCode { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -101,6 +110,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  PortfolioId: ").Append(PortfolioId).Append("\n");
             sb.Append("  ValuationPointOrigin: ").Append(ValuationPointOrigin).Append("\n");
             sb.Append("  AddedOriginValuationPointCode: ").Append(AddedOriginValuationPointCode).Append("\n");
+            sb.Append("  AddedOriginValuationPointVariantCode: ").Append(AddedOriginValuationPointVariantCode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -165,6 +175,11 @@ namespace Lusid.Sdk.Model
                     this.AddedOriginValuationPointCode == input.AddedOriginValuationPointCode ||
                     (this.AddedOriginValuationPointCode != null &&
                     this.AddedOriginValuationPointCode.Equals(input.AddedOriginValuationPointCode))
+                ) && 
+                (
+                    this.AddedOriginValuationPointVariantCode == input.AddedOriginValuationPointVariantCode ||
+                    (this.AddedOriginValuationPointVariantCode != null &&
+                    this.AddedOriginValuationPointVariantCode.Equals(input.AddedOriginValuationPointVariantCode))
                 );
         }
 
@@ -200,6 +215,10 @@ namespace Lusid.Sdk.Model
                 if (this.AddedOriginValuationPointCode != null)
                 {
                     hashCode = (hashCode * 59) + this.AddedOriginValuationPointCode.GetHashCode();
+                }
+                if (this.AddedOriginValuationPointVariantCode != null)
+                {
+                    hashCode = (hashCode * 59) + this.AddedOriginValuationPointVariantCode.GetHashCode();
                 }
                 return hashCode;
             }

@@ -24,38 +24,52 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// PortfolioGroupIdList
+    /// FilteredFundIdList
     /// </summary>
-    [DataContract(Name = "PortfolioGroupIdList")]
+    [DataContract(Name = "FilteredFundIdList")]
     [JsonConverter(typeof(JsonSubtypes), "ReferenceListType")]
-    public partial class PortfolioGroupIdList : ReferenceList, IEquatable<PortfolioGroupIdList>, IValidatableObject
+    public partial class FilteredFundIdList : ReferenceList, IEquatable<FilteredFundIdList>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PortfolioGroupIdList" /> class.
+        /// Initializes a new instance of the <see cref="FilteredFundIdList" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PortfolioGroupIdList() { }
+        protected FilteredFundIdList() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PortfolioGroupIdList" /> class.
+        /// Initializes a new instance of the <see cref="FilteredFundIdList" /> class.
         /// </summary>
-        /// <param name="values">values (required).</param>
-        /// <param name="referenceListType">The reference list values. The available values are: PortfolioGroupIdList, PortfolioIdList, AddressKeyList, StringList, InstrumentList, DecimalList, PropertyList, FundIdList, FilteredFundIdList (required) (default to &quot;PortfolioGroupIdList&quot;).</param>
-        public PortfolioGroupIdList(List<ResourceId> values = default(List<ResourceId>), ReferenceListTypeEnum referenceListType = default(ReferenceListTypeEnum)) : base(referenceListType)
+        /// <param name="filter">filter (required).</param>
+        /// <param name="referenceListType">The reference list values. The available values are: PortfolioGroupIdList, PortfolioIdList, AddressKeyList, StringList, InstrumentList, DecimalList, PropertyList, FundIdList, FilteredFundIdList (required) (default to &quot;FilteredFundIdList&quot;).</param>
+        public FilteredFundIdList(string filter = default(string), ReferenceListTypeEnum referenceListType = default(ReferenceListTypeEnum)) : base(referenceListType)
         {
-            // to ensure "values" is required (not null)
-            if (values == null)
+            // to ensure "filter" is required (not null)
+            if (filter == null)
             {
-                throw new ArgumentNullException("values is a required property for PortfolioGroupIdList and cannot be null");
+                throw new ArgumentNullException("filter is a required property for FilteredFundIdList and cannot be null");
             }
-            this.Values = values;
+            this.Filter = filter;
         }
+
+        /// <summary>
+        /// Gets or Sets Filter
+        /// </summary>
+        [DataMember(Name = "filter", IsRequired = true, EmitDefaultValue = true)]
+        public string Filter { get; set; }
 
         /// <summary>
         /// Gets or Sets Values
         /// </summary>
-        [DataMember(Name = "values", IsRequired = true, EmitDefaultValue = true)]
-        public List<ResourceId> Values { get; set; }
+        [DataMember(Name = "values", EmitDefaultValue = true)]
+        public List<ResourceId> Values { get; private set; }
 
+        /// <summary>
+        /// Returns false as Values should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeValues()
+        {
+            return false;
+        }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -63,8 +77,9 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class PortfolioGroupIdList {\n");
+            sb.Append("class FilteredFundIdList {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
+            sb.Append("  Filter: ").Append(Filter).Append("\n");
             sb.Append("  Values: ").Append(Values).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -86,21 +101,26 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PortfolioGroupIdList);
+            return this.Equals(input as FilteredFundIdList);
         }
 
         /// <summary>
-        /// Returns true if PortfolioGroupIdList instances are equal
+        /// Returns true if FilteredFundIdList instances are equal
         /// </summary>
-        /// <param name="input">Instance of PortfolioGroupIdList to be compared</param>
+        /// <param name="input">Instance of FilteredFundIdList to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PortfolioGroupIdList input)
+        public bool Equals(FilteredFundIdList input)
         {
             if (input == null)
             {
                 return false;
             }
             return base.Equals(input) && 
+                (
+                    this.Filter == input.Filter ||
+                    (this.Filter != null &&
+                    this.Filter.Equals(input.Filter))
+                ) && base.Equals(input) && 
                 (
                     this.Values == input.Values ||
                     this.Values != null &&
@@ -118,6 +138,10 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = base.GetHashCode();
+                if (this.Filter != null)
+                {
+                    hashCode = (hashCode * 59) + this.Filter.GetHashCode();
+                }
                 if (this.Values != null)
                 {
                     hashCode = (hashCode * 59) + this.Values.GetHashCode();
@@ -147,6 +171,25 @@ namespace Lusid.Sdk.Model
             {
                 yield return x;
             }
+            // Filter (string) maxLength
+            if (this.Filter != null && this.Filter.Length > 16384)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Filter, length must be less than 16384.", new [] { "Filter" });
+            }
+
+            // Filter (string) minLength
+            if (this.Filter != null && this.Filter.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Filter, length must be greater than 0.", new [] { "Filter" });
+            }
+
+            // Filter (string) pattern
+            Regex regexFilter = new Regex(@"^[\s\S]*$", RegexOptions.CultureInvariant);
+            if (false == regexFilter.Match(this.Filter).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Filter, must match a pattern of " + regexFilter, new [] { "Filter" });
+            }
+
             yield break;
         }
     }
