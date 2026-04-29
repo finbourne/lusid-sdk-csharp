@@ -36,8 +36,8 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ShareClassDealingBreakdown" /> class.
         /// </summary>
-        /// <param name="classDealing">Bucket of detail for any &#39;Dealing&#39; specific to the share class that has occured inside the queried period. (required).</param>
-        /// <param name="classDealingUnits">Bucket of detail for any &#39;Dealing&#39; units specific to the share class that has occured inside the queried period. (required).</param>
+        /// <param name="classDealing">Bucket of detail for any &#39;Dealing&#39; specific to the share class that has occurred inside the queried period. (required).</param>
+        /// <param name="classDealingUnits">Bucket of detail for any &#39;Dealing&#39; units specific to the share class that has occurred inside the queried period. (required).</param>
         public ShareClassDealingBreakdown(Dictionary<string, ShareClassAmount> classDealing = default(Dictionary<string, ShareClassAmount>), Dictionary<string, Amount> classDealingUnits = default(Dictionary<string, Amount>))
         {
             // to ensure "classDealing" is required (not null)
@@ -55,16 +55,16 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// Bucket of detail for any &#39;Dealing&#39; specific to the share class that has occured inside the queried period.
+        /// Bucket of detail for any &#39;Dealing&#39; specific to the share class that has occurred inside the queried period.
         /// </summary>
-        /// <value>Bucket of detail for any &#39;Dealing&#39; specific to the share class that has occured inside the queried period.</value>
+        /// <value>Bucket of detail for any &#39;Dealing&#39; specific to the share class that has occurred inside the queried period.</value>
         [DataMember(Name = "classDealing", IsRequired = true, EmitDefaultValue = true)]
         public Dictionary<string, ShareClassAmount> ClassDealing { get; set; }
 
         /// <summary>
-        /// Bucket of detail for any &#39;Dealing&#39; units specific to the share class that has occured inside the queried period.
+        /// Bucket of detail for any &#39;Dealing&#39; units specific to the share class that has occurred inside the queried period.
         /// </summary>
-        /// <value>Bucket of detail for any &#39;Dealing&#39; units specific to the share class that has occured inside the queried period.</value>
+        /// <value>Bucket of detail for any &#39;Dealing&#39; units specific to the share class that has occurred inside the queried period.</value>
         [DataMember(Name = "classDealingUnits", IsRequired = true, EmitDefaultValue = true)]
         public Dictionary<string, Amount> ClassDealingUnits { get; set; }
 

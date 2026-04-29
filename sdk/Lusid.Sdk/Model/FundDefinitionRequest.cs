@@ -41,7 +41,7 @@ namespace Lusid.Sdk.Model
         /// <param name="description">A description for the Fund..</param>
         /// <param name="baseCurrency">The base currency of the Fund in ISO 4217 currency code format. All portfolios must be of a matching base currency. (required).</param>
         /// <param name="investorStructure">The Investor structure to be used by the Fund. Supported values are &#39;NonUnitised&#39; and &#39;Classes&#39;..</param>
-        /// <param name="portfolioIds">A list of the Portfolio IDs associated with the fund, which are part of the Fund. Note: These must all have the same base currency, which must also much the Fund Base Currency. (required).</param>
+        /// <param name="portfolioIds">A list of the Portfolio IDs associated with the fund, which are part of the Fund. Note: These must all have the same base currency, which must also match the Fund Base Currency. (required).</param>
         /// <param name="fundConfigurationId">fundConfigurationId (required).</param>
         /// <param name="shareClassInstrumentScopes">The scopes in which the instruments lie, currently limited to one..</param>
         /// <param name="shareClassInstruments">Details the user-provided instrument identifiers and the instrument resolved from them. These would be decommissioned in favour of the new AllocationGroups and ShareClasses structures..</param>
@@ -142,9 +142,9 @@ namespace Lusid.Sdk.Model
         public string InvestorStructure { get; set; }
 
         /// <summary>
-        /// A list of the Portfolio IDs associated with the fund, which are part of the Fund. Note: These must all have the same base currency, which must also much the Fund Base Currency.
+        /// A list of the Portfolio IDs associated with the fund, which are part of the Fund. Note: These must all have the same base currency, which must also match the Fund Base Currency.
         /// </summary>
-        /// <value>A list of the Portfolio IDs associated with the fund, which are part of the Fund. Note: These must all have the same base currency, which must also much the Fund Base Currency.</value>
+        /// <value>A list of the Portfolio IDs associated with the fund, which are part of the Fund. Note: These must all have the same base currency, which must also match the Fund Base Currency.</value>
         [DataMember(Name = "portfolioIds", IsRequired = true, EmitDefaultValue = true)]
         public List<PortfolioEntityId> PortfolioIds { get; set; }
 

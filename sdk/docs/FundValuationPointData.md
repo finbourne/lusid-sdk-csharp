@@ -6,7 +6,7 @@ The Valuation Point Data for a Fund on a specified date.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **BackOut** | [**Dictionary&lt;string, FundAmount&gt;**](FundAmount.md) | Bucket of detail for the Valuation Point where data points have been &#39;backed out&#39;. | 
-**Dealing** | [**Dictionary&lt;string, FundAmount&gt;**](FundAmount.md) | Bucket of detail for any &#39;Dealing&#39; that has occured inside the queried period. | 
+**Dealing** | [**Dictionary&lt;string, FundAmount&gt;**](FundAmount.md) | Bucket of detail for any &#39;Dealing&#39; that has occurred inside the queried period. | 
 **PnL** | [**FundPnlBreakdown**](FundPnlBreakdown.md) |  | 
 **Gav** | **decimal** | The Gross Asset Value of the Fund or Share Class at the Valuation Point. This is effectively a summation of all Trial balance entries linked to accounts of types &#39;Asset&#39; and &#39;Liabilities&#39;. | 
 **Fees** | [**Dictionary&lt;string, FeeAccrual&gt;**](FeeAccrual.md) | Bucket of detail for any &#39;Fees&#39; that have been charged in the selected period. | 

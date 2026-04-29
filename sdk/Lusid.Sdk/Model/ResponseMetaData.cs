@@ -32,7 +32,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="ResponseMetaData" /> class.
         /// </summary>
         /// <param name="type">The type of meta data information being provided.</param>
-        /// <param name="description">The description of what occured for this specific piece of meta data.</param>
+        /// <param name="description">The description of what occurred for this specific piece of meta data.</param>
         /// <param name="identifierType">The type of the listed identifiers.</param>
         /// <param name="identifiers">The related identifiers that were impacted by this event.</param>
         public ResponseMetaData(string type = default(string), string description = default(string), string identifierType = default(string), List<string> identifiers = default(List<string>))
@@ -51,9 +51,9 @@ namespace Lusid.Sdk.Model
         public string Type { get; set; }
 
         /// <summary>
-        /// The description of what occured for this specific piece of meta data
+        /// The description of what occurred for this specific piece of meta data
         /// </summary>
-        /// <value>The description of what occured for this specific piece of meta data</value>
+        /// <value>The description of what occurred for this specific piece of meta data</value>
         [DataMember(Name = "description", EmitDefaultValue = true)]
         public string Description { get; set; }
 
