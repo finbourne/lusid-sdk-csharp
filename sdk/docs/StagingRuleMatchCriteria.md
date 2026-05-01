@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ActionIn** | **List&lt;string&gt;** |  | [optional] 
+**ActionIn** | **List&lt;string&gt;** | Available values: Create, Update, Delete. | [optional] 
 **RequestingUser** | **string** |  | [optional] 
 **EntityAttributes** | **string** |  | [optional] 
 **ChangedAttributeNameIn** | **List&lt;string&gt;** |  | [optional] 

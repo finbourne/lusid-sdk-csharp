@@ -7,11 +7,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | [**ResourceId**](ResourceId.md) |  | 
 **RecipeId** | [**ResourceId**](ResourceId.md) |  | [optional] 
-**RecipeEntity** | **string** | Entity a recipe is retrieved from for use in the aggregated returns calculation. Either RecipeId or RecipeEntity must be specified. | [optional] 
-**FeeHandling** | **string** | Configures how fees are handled in the aggregated returns calculation. | [optional] 
-**FlowHandling** | **string** | Configures how flows are handled in the aggregated returns calculation. | [optional] 
+**RecipeEntity** | **string** | Entity a recipe is retrieved from for use in the aggregated returns calculation. Either RecipeId or RecipeEntity must be specified. Available values: Portfolio, PortfolioGroup, ABOR. | [optional] 
+**FeeHandling** | **string** | Configures how fees are handled in the aggregated returns calculation. Available values: Net, Gross. | [optional] 
+**FlowHandling** | **string** | Configures how flows are handled in the aggregated returns calculation. Available values: BeginningOfDay, EndOfDay. | [optional] 
 **BusinessCalendar** | **string** | Calendar used in the aggregated returns calculation. | [optional] 
-**HandleFlowDiscrepancy** | **string** | Configures handling for the case where net flows do not match the sum of tagged flows. | [optional] 
+**HandleFlowDiscrepancy** | **string** | Configures handling for the case where net flows do not match the sum of tagged flows. Available values: TreatAsFlow, TreatAsGainloss, Error. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;

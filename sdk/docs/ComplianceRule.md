@@ -7,13 +7,13 @@ Name | Type | Description | Notes
 **Scope** | **string** |  | 
 **Code** | **string** |  | 
 **DisplayName** | **string** |  | 
-**Type** | **string** |  | 
+**Type** | **string** | Available values: RangeNumberSecurities, RangePercentSecurityType, RangePercentCash, RangePercentPropertyKey. | 
 **PropertyKey** | **string** |  | [optional] 
 **Value** | **string** |  | [optional] 
 **AddressKey** | **string** |  | [optional] 
 **LowerBound** | **decimal** |  | 
 **UpperBound** | **decimal** |  | 
-**Schedule** | **string** |  | 
+**Schedule** | **string** | Available values: PreTrade, PostTrade, PreAndPostTrade. | 
 **HardRequirement** | **bool** |  | 
 **TargetPortfolioIds** | [**List&lt;ResourceId&gt;**](ResourceId.md) |  | 
 **Description** | **string** |  | [optional] 

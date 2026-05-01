@@ -300,7 +300,7 @@ namespace Examples
             var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the \"Orders\" domain to decorate onto each order.                  These take the format {domain}/{scope}/{code} e.g. \"Orders/system/Name\".                  All properties, except derived properties, are returned by default, without specifying here. (optional) 
             var dataModelScope = "dataModelScope_example";  // string? | The optional scope of a Custom Data Model to use (optional) 
             var dataModelCode = "dataModelCode_example";  // string? | The optional code of a Custom Data Model to use (optional) 
-            var membershipType = "membershipType_example";  // string? | The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional) 
+            var membershipType = "membershipType_example";  // string? | The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional) 
 
             try
             {
@@ -354,7 +354,7 @@ catch (ApiException e)
 | **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the \&quot;Orders\&quot; domain to decorate onto each order.                  These take the format {domain}/{scope}/{code} e.g. \&quot;Orders/system/Name\&quot;.                  All properties, except derived properties, are returned by default, without specifying here. | [optional]  |
 | **dataModelScope** | **string?** | The optional scope of a Custom Data Model to use | [optional]  |
 | **dataModelCode** | **string?** | The optional code of a Custom Data Model to use | [optional]  |
-| **membershipType** | **string?** | The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. | [optional]  |
+| **membershipType** | **string?** | The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. | [optional]  |
 
 ### Return type
 

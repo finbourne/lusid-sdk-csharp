@@ -47,7 +47,7 @@ namespace Lusid.Sdk.Model
         /// <param name="mandatoryConversion">Set this to true if a conversion is mandatory if the trigger occurs. Defaults to false..</param>
         /// <param name="notificationPeriodEnd">The last day in the notification period for the conversion of the bond.</param>
         /// <param name="notificationPeriodStart">The first day in the notification period for the conversion of the bond.</param>
-        /// <param name="scheduleType">The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, BondConversionSchedule, Invalid (required) (default to &quot;BondConversionSchedule&quot;).</param>
+        /// <param name="scheduleType">Available values: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, BondConversionSchedule, Invalid. (required) (default to &quot;BondConversionSchedule&quot;).</param>
         public BondConversionSchedule(Dictionary<string, string> identifiers = default(Dictionary<string, string>), List<BondConversionEntry> bondConversionEntries = default(List<BondConversionEntry>), string conversionTrigger = default(string), string deliveryType = default(string), string exerciseType = default(string), bool includesAccrued = default(bool), bool mandatoryConversion = default(bool), DateTimeOffset notificationPeriodEnd = default(DateTimeOffset), DateTimeOffset notificationPeriodStart = default(DateTimeOffset), ScheduleTypeEnum scheduleType = default(ScheduleTypeEnum)) : base(scheduleType)
         {
             // to ensure "conversionTrigger" is required (not null)

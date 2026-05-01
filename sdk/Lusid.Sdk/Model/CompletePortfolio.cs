@@ -29,9 +29,9 @@ namespace Lusid.Sdk.Model
     public partial class CompletePortfolio : IEquatable<CompletePortfolio>, IValidatableObject
     {
         /// <summary>
-        /// The type of the portfolio. The available values are: Transaction, Reference, DerivedTransaction, SimplePosition
+        /// The type of the portfolio. Available values: Transaction, Reference, DerivedTransaction, SimplePosition.
         /// </summary>
-        /// <value>The type of the portfolio. The available values are: Transaction, Reference, DerivedTransaction, SimplePosition</value>
+        /// <value>The type of the portfolio. Available values: Transaction, Reference, DerivedTransaction, SimplePosition.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TypeEnum
         {
@@ -62,9 +62,9 @@ namespace Lusid.Sdk.Model
 
 
         /// <summary>
-        /// The type of the portfolio. The available values are: Transaction, Reference, DerivedTransaction, SimplePosition
+        /// The type of the portfolio. Available values: Transaction, Reference, DerivedTransaction, SimplePosition.
         /// </summary>
-        /// <value>The type of the portfolio. The available values are: Transaction, Reference, DerivedTransaction, SimplePosition</value>
+        /// <value>The type of the portfolio. Available values: Transaction, Reference, DerivedTransaction, SimplePosition.</value>
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public TypeEnum? Type { get; set; }
         /// <summary>
@@ -81,7 +81,7 @@ namespace Lusid.Sdk.Model
         /// <param name="displayName">The name of the portfolio..</param>
         /// <param name="created">The effective datetime at which the portfolio was created. No transactions or constituents can be added to the portfolio before this date..</param>
         /// <param name="parentPortfolioId">parentPortfolioId.</param>
-        /// <param name="type">The type of the portfolio. The available values are: Transaction, Reference, DerivedTransaction, SimplePosition.</param>
+        /// <param name="type">The type of the portfolio. Available values: Transaction, Reference, DerivedTransaction, SimplePosition..</param>
         /// <param name="varVersion">varVersion (required).</param>
         /// <param name="properties">The requested portfolio properties. These will be from the &#39;Portfolio&#39; domain..</param>
         /// <param name="baseCurrency">If the portfolio is a transaction portfolio or derived transaction portfolio, this is the base currency of the portfolio..</param>

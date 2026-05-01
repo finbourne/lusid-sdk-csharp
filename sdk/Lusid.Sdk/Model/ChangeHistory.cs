@@ -29,9 +29,9 @@ namespace Lusid.Sdk.Model
     public partial class ChangeHistory : IEquatable<ChangeHistory>, IValidatableObject
     {
         /// <summary>
-        /// The action performed on the transaction, either created, updated, or deleted. The available values are: Create, Update, Delete
+        /// The action performed on the transaction. Available values: Create, Update, Delete.
         /// </summary>
-        /// <value>The action performed on the transaction, either created, updated, or deleted. The available values are: Create, Update, Delete</value>
+        /// <value>The action performed on the transaction. Available values: Create, Update, Delete.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ActionEnum
         {
@@ -56,9 +56,9 @@ namespace Lusid.Sdk.Model
 
 
         /// <summary>
-        /// The action performed on the transaction, either created, updated, or deleted. The available values are: Create, Update, Delete
+        /// The action performed on the transaction. Available values: Create, Update, Delete.
         /// </summary>
-        /// <value>The action performed on the transaction, either created, updated, or deleted. The available values are: Create, Update, Delete</value>
+        /// <value>The action performed on the transaction. Available values: Create, Update, Delete.</value>
         [DataMember(Name = "action", IsRequired = true, EmitDefaultValue = true)]
         public ActionEnum Action { get; set; }
         /// <summary>
@@ -72,7 +72,7 @@ namespace Lusid.Sdk.Model
         /// <param name="userId">The unique identifier of the user that made the change. (required).</param>
         /// <param name="modifiedAsAt">The date/time of the change. (required).</param>
         /// <param name="requestId">The unique identifier of the request that the changes were part of. (required).</param>
-        /// <param name="action">The action performed on the transaction, either created, updated, or deleted. The available values are: Create, Update, Delete (required).</param>
+        /// <param name="action">The action performed on the transaction. Available values: Create, Update, Delete. (required).</param>
         /// <param name="changes">The collection of changes that were made. (required).</param>
         /// <param name="links">links.</param>
         public ChangeHistory(string userId = default(string), DateTimeOffset modifiedAsAt = default(DateTimeOffset), string requestId = default(string), ActionEnum action = default(ActionEnum), List<ChangeItem> changes = default(List<ChangeItem>), List<Link> links = default(List<Link>))

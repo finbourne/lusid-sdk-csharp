@@ -5,7 +5,7 @@ Schedule for floating rate coupon payments.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ScheduleType** | **string** | The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, BondConversionSchedule, Invalid | 
+**ScheduleType** | **string** | Available values: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, BondConversionSchedule, Invalid. | 
 **StartDate** | **DateTimeOffset** | Date from which LUSID starts generating the payment schedule. | [optional] 
 **MaturityDate** | **DateTimeOffset** | Last date of the payment generation schedule. May not necessarily be the maturity date  of the underlying instrument (e.g. in case the instrument has multiple payment schedules). | [optional] 
 **FlowConventions** | [**FlowConventions**](FlowConventions.md) |  | [optional] 
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **StubType** | **string** | When a payment schedule doesn&#39;t have regular payment intervals just because of the  first and/or last coupons of the schedule, we call those irregular coupons stubs.  This configuration specifies what type of stub is used when building the schedule  Supported values are:  None &#x3D; this is a regular payment schedule with no stubs. DO NOT use it with irregular schedules or you will get incorrect and unexpected behaviour.  ShortFront &#x3D; this is an irregular payment schedule where only the first coupon is irregular, and covers a payment period that is shorter than the regular payment period.  ShortBack &#x3D; this is an irregular payment schedule where only the last coupon is irregular, and covers a payment period that is shorter than the regular payment period.  LongFront &#x3D; this is an irregular payment schedule where only the first coupon is irregular, and covers a payment period that is longer than the regular payment period.  LongBack &#x3D; this is an irregular payment schedule where only the last coupon is irregular, and covers a payment period that is longer than the regular payment period.  Both &#x3D; this is an irregular payment schedule where both the first and the last coupons are irregular, and the length of these periods is calculated based on the first coupon payment date that should have been explicitly set. | [optional] 
 **ExDividendConfiguration** | [**ExDividendConfiguration**](ExDividendConfiguration.md) |  | [optional] 
 **Compounding** | [**Compounding**](Compounding.md) |  | [optional] 
-**ResetConvention** | **string** | Control how resets are generated relative to payment convention(s).    Supported string (enumeration) values are: [InAdvance, InArrears].  Defaults to \&quot;InAdvance\&quot; if not set. | [optional] 
+**ResetConvention** | **string** | Control how resets are generated relative to payment convention(s).    Default value: InAdvance. Available values: InAdvance, InArrears. | [optional] 
 **UseAnnualisedDirectRates** | **bool** | Flag indicating whether to use daily updated annualised interest  rates for calculating the accrued interest. Defaults to false. | [optional] 
 **CapRate** | **decimal?** | The maximum floating rate which a cashflow can accrue. | [optional] 
 **FloorRate** | **decimal?** | The minimum floating rate which a cashflow can accrue. | [optional] 

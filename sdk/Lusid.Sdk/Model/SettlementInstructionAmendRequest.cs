@@ -37,7 +37,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="SettlementInstructionAmendRequest" /> class.
         /// </summary>
         /// <param name="settlementInstructionId">settlementInstructionId (required).</param>
-        /// <param name="operation">operation.</param>
+        /// <param name="operation">Available values: Activate, Deactivate..</param>
         /// <param name="properties">properties.</param>
         public SettlementInstructionAmendRequest(string settlementInstructionId = default(string), string operation = default(string), List<PerpetualProperty> properties = default(List<PerpetualProperty>))
         {
@@ -58,8 +58,9 @@ namespace Lusid.Sdk.Model
         public string SettlementInstructionId { get; set; }
 
         /// <summary>
-        /// Gets or Sets Operation
+        /// Available values: Activate, Deactivate.
         /// </summary>
+        /// <value>Available values: Activate, Deactivate.</value>
         [DataMember(Name = "operation", EmitDefaultValue = true)]
         public string Operation { get; set; }
 

@@ -37,17 +37,17 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="TransactionSettlementInstruction" /> class.
         /// </summary>
         /// <param name="settlementInstructionId">The instruction identifier. Unique within the portfolio. (required).</param>
-        /// <param name="instructionType">The type of instruction which can be Complete or CancelAutomatic. Complete means that the instruction is intended to completely settle a settlement bucket. CancelAutomatic means that it is intended to cancel Automatic settlement. (required).</param>
+        /// <param name="instructionType">The type of instruction which can be Complete or CancelAutomatic. Complete means that the instruction is intended to completely settle a settlement bucket. CancelAutomatic means that it is intended to cancel Automatic settlement. Available values: Complete, CancelAutomatic, Partial. (required).</param>
         /// <param name="actualSettlementDate">The date that settlement takes place. (required).</param>
         /// <param name="units">The number of units for the instruction. (required).</param>
         /// <param name="transactionId">The ID for the transaction being instructed. (required).</param>
-        /// <param name="settlementCategory">A category representing the set of movement types that this instruction applies to. (required).</param>
+        /// <param name="settlementCategory">A category representing the set of movement types that this instruction applies to. Available values: StockSettlement, CashSettlement, DeferredCashReceipt, NotApplicable. (required).</param>
         /// <param name="lusidInstrumentId">The LusidInstrumentId of the instrument being settled. (required).</param>
         /// <param name="contractualSettlementDate">The contractual settlement date. Used to match the instruction to the correct settlement bucket..</param>
         /// <param name="subHoldingKeyOverrides">Allows one or more sub-holding keys to be overridden for any movement being settled by an instruction. Providing a key and value will set the sub-holding key to the specified value; Providing a key only will nullify the sub-holding key. Not referenced sub-holding keys will not be impacted. .</param>
         /// <param name="custodianAccountOverride">custodianAccountOverride.</param>
         /// <param name="instrumentIdentifiers">A set of instrument identifiers that can resolve the settlement instruction to a unique instrument. (required).</param>
-        /// <param name="status">The status of the settlement instruction - &#39;Invalid&#39;, &#39;Rejected&#39; &#39;Applied&#39; or &#39;Orphan&#39;..</param>
+        /// <param name="status">The status of the settlement instruction. Available values: Applied, Inactive, Invalid, Orphan, Rejected. Available values: Invalid, Rejected, Applied, Orphan..</param>
         /// <param name="instructionToPortfolioRate">The exchange rate between the Settlement Instruction and Portfolio..</param>
         /// <param name="settlementInLieu">settlementInLieu.</param>
         /// <param name="isActive">Indicates whether the settlement instruction is active. When false, the instruction has no impact on settlement positions, but remains visible. Defaults to true..</param>
@@ -112,9 +112,9 @@ namespace Lusid.Sdk.Model
         public string SettlementInstructionId { get; set; }
 
         /// <summary>
-        /// The type of instruction which can be Complete or CancelAutomatic. Complete means that the instruction is intended to completely settle a settlement bucket. CancelAutomatic means that it is intended to cancel Automatic settlement.
+        /// The type of instruction which can be Complete or CancelAutomatic. Complete means that the instruction is intended to completely settle a settlement bucket. CancelAutomatic means that it is intended to cancel Automatic settlement. Available values: Complete, CancelAutomatic, Partial.
         /// </summary>
-        /// <value>The type of instruction which can be Complete or CancelAutomatic. Complete means that the instruction is intended to completely settle a settlement bucket. CancelAutomatic means that it is intended to cancel Automatic settlement.</value>
+        /// <value>The type of instruction which can be Complete or CancelAutomatic. Complete means that the instruction is intended to completely settle a settlement bucket. CancelAutomatic means that it is intended to cancel Automatic settlement. Available values: Complete, CancelAutomatic, Partial.</value>
         [DataMember(Name = "instructionType", IsRequired = true, EmitDefaultValue = true)]
         public string InstructionType { get; set; }
 
@@ -140,9 +140,9 @@ namespace Lusid.Sdk.Model
         public string TransactionId { get; set; }
 
         /// <summary>
-        /// A category representing the set of movement types that this instruction applies to.
+        /// A category representing the set of movement types that this instruction applies to. Available values: StockSettlement, CashSettlement, DeferredCashReceipt, NotApplicable.
         /// </summary>
-        /// <value>A category representing the set of movement types that this instruction applies to.</value>
+        /// <value>A category representing the set of movement types that this instruction applies to. Available values: StockSettlement, CashSettlement, DeferredCashReceipt, NotApplicable.</value>
         [DataMember(Name = "settlementCategory", IsRequired = true, EmitDefaultValue = true)]
         public string SettlementCategory { get; set; }
 
@@ -181,9 +181,9 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, string> InstrumentIdentifiers { get; set; }
 
         /// <summary>
-        /// The status of the settlement instruction - &#39;Invalid&#39;, &#39;Rejected&#39; &#39;Applied&#39; or &#39;Orphan&#39;.
+        /// The status of the settlement instruction. Available values: Applied, Inactive, Invalid, Orphan, Rejected. Available values: Invalid, Rejected, Applied, Orphan.
         /// </summary>
-        /// <value>The status of the settlement instruction - &#39;Invalid&#39;, &#39;Rejected&#39; &#39;Applied&#39; or &#39;Orphan&#39;.</value>
+        /// <value>The status of the settlement instruction. Available values: Applied, Inactive, Invalid, Orphan, Rejected. Available values: Invalid, Rejected, Applied, Orphan.</value>
         [DataMember(Name = "status", EmitDefaultValue = true)]
         public string Status { get; set; }
 

@@ -35,7 +35,7 @@ namespace Lusid.Sdk.Model
         /// <param name="journalEntryAction">The journal entry line action associated with this transaction..</param>
         /// <param name="transaction">transaction.</param>
         /// <param name="portfolioId">portfolioId.</param>
-        /// <param name="valuationPointOrigin">Designates if the transaction was originally part of the Valuation Point or if it was added as part of a Complex Close action..</param>
+        /// <param name="valuationPointOrigin">Designates if the transaction was originally part of the Valuation Point or if it was added as part of a Complex Close action. Available values: None, Original, Added..</param>
         /// <param name="addedOriginValuationPointCode">The Valuation Point, only for transaction added as part of a Complex Close action..</param>
         /// <param name="addedOriginValuationPointVariantCode">The Valuation Point variant, only for transactions added as part of a Complex Close action..</param>
         public AccountedTransaction(DateTimeOffset accountingDate = default(DateTimeOffset), string journalEntryAction = default(string), OutputTransaction transaction = default(OutputTransaction), PortfolioId portfolioId = default(PortfolioId), string valuationPointOrigin = default(string), string addedOriginValuationPointCode = default(string), string addedOriginValuationPointVariantCode = default(string))
@@ -76,9 +76,9 @@ namespace Lusid.Sdk.Model
         public PortfolioId PortfolioId { get; set; }
 
         /// <summary>
-        /// Designates if the transaction was originally part of the Valuation Point or if it was added as part of a Complex Close action.
+        /// Designates if the transaction was originally part of the Valuation Point or if it was added as part of a Complex Close action. Available values: None, Original, Added.
         /// </summary>
-        /// <value>Designates if the transaction was originally part of the Valuation Point or if it was added as part of a Complex Close action.</value>
+        /// <value>Designates if the transaction was originally part of the Valuation Point or if it was added as part of a Complex Close action. Available values: None, Original, Added.</value>
         [DataMember(Name = "valuationPointOrigin", EmitDefaultValue = true)]
         public string ValuationPointOrigin { get; set; }
 

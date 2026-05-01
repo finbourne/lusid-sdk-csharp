@@ -33,8 +33,8 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="returnIds">The Scope and code of the returns..</param>
         /// <param name="recipeId">recipeId.</param>
-        /// <param name="compositeMethod">The method used to calculate the Portfolio performance: Equal/Asset..</param>
-        /// <param name="period">The type of the returns used to calculate the aggregation result: Daily/Monthly..</param>
+        /// <param name="compositeMethod">The method used to calculate the Portfolio performance. Available values: Equal, Asset..</param>
+        /// <param name="period">The type of the returns used to calculate the aggregation result. Available values: Daily, Monthly..</param>
         /// <param name="holidayCalendars">The holiday calendar(s) that should be used in determining the date schedule. Holiday calendar(s) are supplied by their codes, for example, &#39;CoppClark&#39;. Note that when the calendars are not available (e.g. when the user has insufficient permissions), a recipe setting will be used to determine whether the whole batch should then fail or whether the calendar not being available should simply be ignored..</param>
         /// <param name="currency">Optional - either a string or a property. If provided, the results will be converted to the specified currency.</param>
         public CompositeBreakdownRequest(List<ResourceId> returnIds = default(List<ResourceId>), ResourceId recipeId = default(ResourceId), string compositeMethod = default(string), string period = default(string), List<string> holidayCalendars = default(List<string>), string currency = default(string))
@@ -61,16 +61,16 @@ namespace Lusid.Sdk.Model
         public ResourceId RecipeId { get; set; }
 
         /// <summary>
-        /// The method used to calculate the Portfolio performance: Equal/Asset.
+        /// The method used to calculate the Portfolio performance. Available values: Equal, Asset.
         /// </summary>
-        /// <value>The method used to calculate the Portfolio performance: Equal/Asset.</value>
+        /// <value>The method used to calculate the Portfolio performance. Available values: Equal, Asset.</value>
         [DataMember(Name = "compositeMethod", EmitDefaultValue = true)]
         public string CompositeMethod { get; set; }
 
         /// <summary>
-        /// The type of the returns used to calculate the aggregation result: Daily/Monthly.
+        /// The type of the returns used to calculate the aggregation result. Available values: Daily, Monthly.
         /// </summary>
-        /// <value>The type of the returns used to calculate the aggregation result: Daily/Monthly.</value>
+        /// <value>The type of the returns used to calculate the aggregation result. Available values: Daily, Monthly.</value>
         [DataMember(Name = "period", EmitDefaultValue = true)]
         public string Period { get; set; }
 

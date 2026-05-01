@@ -172,7 +172,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies               the transaction portfolio.</param>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial</param>
         /// <param name="requestBody">The selected set of holdings to adjust to the provided targets for the               transaction portfolio.</param>
-        /// <param name="reconciliationMethods">Optional parameter for specifying a reconciliation method: e.g. FxForward. (optional)</param>
+        /// <param name="reconciliationMethods">Optional parameter for specifying a reconciliation method: e.g. FxForward. Available values: FxForward. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>BatchAdjustHoldingsResponse</returns>
@@ -189,7 +189,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies               the transaction portfolio.</param>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial</param>
         /// <param name="requestBody">The selected set of holdings to adjust to the provided targets for the               transaction portfolio.</param>
-        /// <param name="reconciliationMethods">Optional parameter for specifying a reconciliation method: e.g. FxForward. (optional)</param>
+        /// <param name="reconciliationMethods">Optional parameter for specifying a reconciliation method: e.g. FxForward. Available values: FxForward. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of BatchAdjustHoldingsResponse</returns>
@@ -304,7 +304,7 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to BuildTransactions. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
-        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>VersionedResourceListOfOutputTransaction</returns>
@@ -327,7 +327,7 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to BuildTransactions. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
-        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of VersionedResourceListOfOutputTransaction</returns>
@@ -487,7 +487,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Transaction Portfolios.</param>
         /// <param name="code">The code of the Transaction Portfolios. Together with the scope this uniquely identifies              the Transaction Portfolios.</param>
         /// <param name="resourceId">The scope and codes of the custodian accounts to delete.</param>
-        /// <param name="deleteMode">The delete mode to use (defaults to &#39;Soft&#39;). (optional)</param>
+        /// <param name="deleteMode">The delete mode to use. Default value: Soft. Available values: Soft, Hard. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>DeleteCustodianAccountsResponse</returns>
@@ -503,7 +503,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Transaction Portfolios.</param>
         /// <param name="code">The code of the Transaction Portfolios. Together with the scope this uniquely identifies              the Transaction Portfolios.</param>
         /// <param name="resourceId">The scope and codes of the custodian accounts to delete.</param>
-        /// <param name="deleteMode">The delete mode to use (defaults to &#39;Soft&#39;). (optional)</param>
+        /// <param name="deleteMode">The delete mode to use. Default value: Soft. Available values: Soft, Hard. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeleteCustodianAccountsResponse</returns>
@@ -1226,7 +1226,7 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
-        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>VersionedResourceListOfTransaction</returns>
@@ -1252,7 +1252,7 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
-        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of VersionedResourceListOfTransaction</returns>
@@ -1950,7 +1950,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies               the transaction portfolio.</param>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial</param>
         /// <param name="requestBody">The selected set of holdings to adjust to the provided targets for the               transaction portfolio.</param>
-        /// <param name="reconciliationMethods">Optional parameter for specifying a reconciliation method: e.g. FxForward. (optional)</param>
+        /// <param name="reconciliationMethods">Optional parameter for specifying a reconciliation method: e.g. FxForward. Available values: FxForward. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1968,7 +1968,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies               the transaction portfolio.</param>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial</param>
         /// <param name="requestBody">The selected set of holdings to adjust to the provided targets for the               transaction portfolio.</param>
-        /// <param name="reconciliationMethods">Optional parameter for specifying a reconciliation method: e.g. FxForward. (optional)</param>
+        /// <param name="reconciliationMethods">Optional parameter for specifying a reconciliation method: e.g. FxForward. Available values: FxForward. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2090,7 +2090,7 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to BuildTransactions. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
-        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2114,7 +2114,7 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to BuildTransactions. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
-        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2285,7 +2285,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Transaction Portfolios.</param>
         /// <param name="code">The code of the Transaction Portfolios. Together with the scope this uniquely identifies              the Transaction Portfolios.</param>
         /// <param name="resourceId">The scope and codes of the custodian accounts to delete.</param>
-        /// <param name="deleteMode">The delete mode to use (defaults to &#39;Soft&#39;). (optional)</param>
+        /// <param name="deleteMode">The delete mode to use. Default value: Soft. Available values: Soft, Hard. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2302,7 +2302,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Transaction Portfolios.</param>
         /// <param name="code">The code of the Transaction Portfolios. Together with the scope this uniquely identifies              the Transaction Portfolios.</param>
         /// <param name="resourceId">The scope and codes of the custodian accounts to delete.</param>
-        /// <param name="deleteMode">The delete mode to use (defaults to &#39;Soft&#39;). (optional)</param>
+        /// <param name="deleteMode">The delete mode to use. Default value: Soft. Available values: Soft, Hard. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -3062,7 +3062,7 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
-        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -3089,7 +3089,7 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
-        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -4884,7 +4884,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies               the transaction portfolio.</param>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial</param>
         /// <param name="requestBody">The selected set of holdings to adjust to the provided targets for the               transaction portfolio.</param>
-        /// <param name="reconciliationMethods">Optional parameter for specifying a reconciliation method: e.g. FxForward. (optional)</param>
+        /// <param name="reconciliationMethods">Optional parameter for specifying a reconciliation method: e.g. FxForward. Available values: FxForward. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>BatchAdjustHoldingsResponse</returns>
@@ -4902,7 +4902,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies               the transaction portfolio.</param>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial</param>
         /// <param name="requestBody">The selected set of holdings to adjust to the provided targets for the               transaction portfolio.</param>
-        /// <param name="reconciliationMethods">Optional parameter for specifying a reconciliation method: e.g. FxForward. (optional)</param>
+        /// <param name="reconciliationMethods">Optional parameter for specifying a reconciliation method: e.g. FxForward. Available values: FxForward. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of BatchAdjustHoldingsResponse</returns>
@@ -5022,7 +5022,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies               the transaction portfolio.</param>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial</param>
         /// <param name="requestBody">The selected set of holdings to adjust to the provided targets for the               transaction portfolio.</param>
-        /// <param name="reconciliationMethods">Optional parameter for specifying a reconciliation method: e.g. FxForward. (optional)</param>
+        /// <param name="reconciliationMethods">Optional parameter for specifying a reconciliation method: e.g. FxForward. Available values: FxForward. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -5041,7 +5041,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies               the transaction portfolio.</param>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial</param>
         /// <param name="requestBody">The selected set of holdings to adjust to the provided targets for the               transaction portfolio.</param>
-        /// <param name="reconciliationMethods">Optional parameter for specifying a reconciliation method: e.g. FxForward. (optional)</param>
+        /// <param name="reconciliationMethods">Optional parameter for specifying a reconciliation method: e.g. FxForward. Available values: FxForward. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -5957,7 +5957,7 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to BuildTransactions. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
-        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>VersionedResourceListOfOutputTransaction</returns>
@@ -5981,7 +5981,7 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to BuildTransactions. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
-        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of VersionedResourceListOfOutputTransaction</returns>
@@ -6135,7 +6135,7 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to BuildTransactions. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
-        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -6160,7 +6160,7 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to BuildTransactions. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
-        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -7514,7 +7514,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Transaction Portfolios.</param>
         /// <param name="code">The code of the Transaction Portfolios. Together with the scope this uniquely identifies              the Transaction Portfolios.</param>
         /// <param name="resourceId">The scope and codes of the custodian accounts to delete.</param>
-        /// <param name="deleteMode">The delete mode to use (defaults to &#39;Soft&#39;). (optional)</param>
+        /// <param name="deleteMode">The delete mode to use. Default value: Soft. Available values: Soft, Hard. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>DeleteCustodianAccountsResponse</returns>
@@ -7531,7 +7531,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Transaction Portfolios.</param>
         /// <param name="code">The code of the Transaction Portfolios. Together with the scope this uniquely identifies              the Transaction Portfolios.</param>
         /// <param name="resourceId">The scope and codes of the custodian accounts to delete.</param>
-        /// <param name="deleteMode">The delete mode to use (defaults to &#39;Soft&#39;). (optional)</param>
+        /// <param name="deleteMode">The delete mode to use. Default value: Soft. Available values: Soft, Hard. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeleteCustodianAccountsResponse</returns>
@@ -7643,7 +7643,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Transaction Portfolios.</param>
         /// <param name="code">The code of the Transaction Portfolios. Together with the scope this uniquely identifies              the Transaction Portfolios.</param>
         /// <param name="resourceId">The scope and codes of the custodian accounts to delete.</param>
-        /// <param name="deleteMode">The delete mode to use (defaults to &#39;Soft&#39;). (optional)</param>
+        /// <param name="deleteMode">The delete mode to use. Default value: Soft. Available values: Soft, Hard. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -7661,7 +7661,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Transaction Portfolios.</param>
         /// <param name="code">The code of the Transaction Portfolios. Together with the scope this uniquely identifies              the Transaction Portfolios.</param>
         /// <param name="resourceId">The scope and codes of the custodian accounts to delete.</param>
-        /// <param name="deleteMode">The delete mode to use (defaults to &#39;Soft&#39;). (optional)</param>
+        /// <param name="deleteMode">The delete mode to use. Default value: Soft. Available values: Soft, Hard. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -13261,7 +13261,7 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
-        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>VersionedResourceListOfTransaction</returns>
@@ -13288,7 +13288,7 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
-        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of VersionedResourceListOfTransaction</returns>
@@ -13454,7 +13454,7 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
-        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -13482,7 +13482,7 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
-        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>

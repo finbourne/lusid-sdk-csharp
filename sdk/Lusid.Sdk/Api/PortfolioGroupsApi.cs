@@ -110,7 +110,7 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to BuildTransactions. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
-        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>VersionedResourceListOfOutputTransaction</returns>
@@ -133,7 +133,7 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to BuildTransactions. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
-        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of VersionedResourceListOfOutputTransaction</returns>
@@ -727,7 +727,7 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
-        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>VersionedResourceListOfTransaction</returns>
@@ -753,7 +753,7 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
-        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of VersionedResourceListOfTransaction</returns>
@@ -1019,7 +1019,7 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to BuildTransactions. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
-        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1043,7 +1043,7 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to BuildTransactions. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
-        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1672,7 +1672,7 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
-        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1699,7 +1699,7 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
-        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2519,7 +2519,7 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to BuildTransactions. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
-        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>VersionedResourceListOfOutputTransaction</returns>
@@ -2543,7 +2543,7 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to BuildTransactions. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
-        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of VersionedResourceListOfOutputTransaction</returns>
@@ -2697,7 +2697,7 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to BuildTransactions. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
-        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2722,7 +2722,7 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to BuildTransactions. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
-        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -7417,7 +7417,7 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
-        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>VersionedResourceListOfTransaction</returns>
@@ -7444,7 +7444,7 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
-        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of VersionedResourceListOfTransaction</returns>
@@ -7610,7 +7610,7 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
-        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -7638,7 +7638,7 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
-        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>

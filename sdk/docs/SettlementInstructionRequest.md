@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **SettlementInstructionId** | **string** |  | 
 **TransactionId** | **string** |  | 
-**SettlementCategory** | **string** |  | 
-**InstructionType** | **string** |  | [optional] 
+**SettlementCategory** | **string** | Available values: StockSettlement, CashSettlement, DeferredCashReceipt. | 
+**InstructionType** | **string** | Available values: Complete, CancelAutomatic, Partial. | [optional] 
 **InstrumentIdentifiers** | **Dictionary&lt;string, string&gt;** |  | 
 **ContractualSettlementDate** | **DateTimeOffset?** |  | [optional] 
 **ActualSettlementDate** | **DateTimeOffset** |  | 

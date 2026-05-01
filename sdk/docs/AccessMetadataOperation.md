@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Value** | [**List&lt;AccessMetadataValue&gt;**](AccessMetadataValue.md) |  | 
 **Path** | **string** |  | 
-**Op** | **string** | The available values are: add, remove | 
+**Op** | **string** | Available values: add, remove. | 
 **From** | **string** |  | [optional] 
 
 ```csharp

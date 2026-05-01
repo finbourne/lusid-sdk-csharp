@@ -328,7 +328,7 @@ namespace Examples
             var page = "page_example";  // string? | The pagination token to use to continue listing transactions from a previous call to BuildTransactions. (optional) 
             var dataModelScope = "dataModelScope_example";  // string? | The optional scope of a Custom Data Model to use (optional) 
             var dataModelCode = "dataModelCode_example";  // string? | The optional code of a Custom Data Model to use (optional) 
-            var membershipType = "membershipType_example";  // string? | The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional) 
+            var membershipType = "membershipType_example";  // string? | The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional) 
 
             try
             {
@@ -384,7 +384,7 @@ catch (ApiException e)
 | **page** | **string?** | The pagination token to use to continue listing transactions from a previous call to BuildTransactions. | [optional]  |
 | **dataModelScope** | **string?** | The optional scope of a Custom Data Model to use | [optional]  |
 | **dataModelCode** | **string?** | The optional code of a Custom Data Model to use | [optional]  |
-| **membershipType** | **string?** | The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. | [optional]  |
+| **membershipType** | **string?** | The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. | [optional]  |
 
 ### Return type
 
@@ -2547,7 +2547,7 @@ namespace Examples
             var sortBy = new List<string>?(); // List<string>? | A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\". (optional) 
             var dataModelScope = "dataModelScope_example";  // string? | The optional scope of a Custom Data Model to use (optional) 
             var dataModelCode = "dataModelCode_example";  // string? | The optional code of a Custom Data Model to use (optional) 
-            var membershipType = "membershipType_example";  // string? | The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional) 
+            var membershipType = "membershipType_example";  // string? | The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional) 
 
             try
             {
@@ -2606,7 +2606,7 @@ catch (ApiException e)
 | **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. | [optional]  |
 | **dataModelScope** | **string?** | The optional scope of a Custom Data Model to use | [optional]  |
 | **dataModelCode** | **string?** | The optional code of a Custom Data Model to use | [optional]  |
-| **membershipType** | **string?** | The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. | [optional]  |
+| **membershipType** | **string?** | The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. | [optional]  |
 
 ### Return type
 

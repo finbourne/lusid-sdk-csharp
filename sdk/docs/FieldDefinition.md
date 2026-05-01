@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Key** | **string** |  | 
 **IsRequired** | **bool** |  | 
 **IsUnique** | **bool** |  | 
-**ValueType** | **string** |  | [optional] 
+**ValueType** | **string** | Available values: String, Decimal. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;

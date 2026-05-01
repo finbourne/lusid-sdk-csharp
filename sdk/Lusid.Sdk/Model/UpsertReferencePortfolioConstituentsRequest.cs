@@ -29,9 +29,9 @@ namespace Lusid.Sdk.Model
     public partial class UpsertReferencePortfolioConstituentsRequest : IEquatable<UpsertReferencePortfolioConstituentsRequest>, IValidatableObject
     {
         /// <summary>
-        /// The available values are: Static, Floating, Periodical
+        /// Available values: Static, Floating, Periodical.
         /// </summary>
-        /// <value>The available values are: Static, Floating, Periodical</value>
+        /// <value>Available values: Static, Floating, Periodical.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum WeightTypeEnum
         {
@@ -56,15 +56,15 @@ namespace Lusid.Sdk.Model
 
 
         /// <summary>
-        /// The available values are: Static, Floating, Periodical
+        /// Available values: Static, Floating, Periodical.
         /// </summary>
-        /// <value>The available values are: Static, Floating, Periodical</value>
+        /// <value>Available values: Static, Floating, Periodical.</value>
         [DataMember(Name = "weightType", IsRequired = true, EmitDefaultValue = true)]
         public WeightTypeEnum WeightType { get; set; }
         /// <summary>
-        /// The available values are: Daily, Weekly, Monthly, Quarterly, Annually
+        /// Available values: Daily, Weekly, Monthly, Quarterly, Annually.
         /// </summary>
-        /// <value>The available values are: Daily, Weekly, Monthly, Quarterly, Annually</value>
+        /// <value>Available values: Daily, Weekly, Monthly, Quarterly, Annually.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum PeriodTypeEnum
         {
@@ -101,9 +101,9 @@ namespace Lusid.Sdk.Model
 
 
         /// <summary>
-        /// The available values are: Daily, Weekly, Monthly, Quarterly, Annually
+        /// Available values: Daily, Weekly, Monthly, Quarterly, Annually.
         /// </summary>
-        /// <value>The available values are: Daily, Weekly, Monthly, Quarterly, Annually</value>
+        /// <value>Available values: Daily, Weekly, Monthly, Quarterly, Annually.</value>
         [DataMember(Name = "periodType", EmitDefaultValue = true)]
         public PeriodTypeEnum? PeriodType { get; set; }
         /// <summary>
@@ -115,8 +115,8 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="UpsertReferencePortfolioConstituentsRequest" /> class.
         /// </summary>
         /// <param name="effectiveFrom">The first date from which the weights will apply (required).</param>
-        /// <param name="weightType">The available values are: Static, Floating, Periodical (required).</param>
-        /// <param name="periodType">The available values are: Daily, Weekly, Monthly, Quarterly, Annually.</param>
+        /// <param name="weightType">Available values: Static, Floating, Periodical. (required).</param>
+        /// <param name="periodType">Available values: Daily, Weekly, Monthly, Quarterly, Annually..</param>
         /// <param name="periodCount">periodCount.</param>
         /// <param name="constituents">Set of constituents (instrument/weight pairings) (required).</param>
         public UpsertReferencePortfolioConstituentsRequest(DateTimeOrCutLabel effectiveFrom = default(DateTimeOrCutLabel), WeightTypeEnum weightType = default(WeightTypeEnum), PeriodTypeEnum ?periodType = default(PeriodTypeEnum?), int? periodCount = default(int?), List<ReferencePortfolioConstituentRequest> constituents = default(List<ReferencePortfolioConstituentRequest>))

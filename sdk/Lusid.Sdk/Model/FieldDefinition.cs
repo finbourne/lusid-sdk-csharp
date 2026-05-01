@@ -39,7 +39,7 @@ namespace Lusid.Sdk.Model
         /// <param name="key">key (required).</param>
         /// <param name="isRequired">isRequired (required).</param>
         /// <param name="isUnique">isUnique (required).</param>
-        /// <param name="valueType">valueType.</param>
+        /// <param name="valueType">Available values: String, Decimal..</param>
         public FieldDefinition(string key = default(string), bool isRequired = default(bool), bool isUnique = default(bool), string valueType = default(string))
         {
             // to ensure "key" is required (not null)
@@ -72,8 +72,9 @@ namespace Lusid.Sdk.Model
         public bool IsUnique { get; set; }
 
         /// <summary>
-        /// Gets or Sets ValueType
+        /// Available values: String, Decimal.
         /// </summary>
+        /// <value>Available values: String, Decimal.</value>
         [DataMember(Name = "valueType", EmitDefaultValue = true)]
         public string ValueType { get; set; }
 

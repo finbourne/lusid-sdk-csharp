@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CalculationMethod** | **string** | Method of calculating the fees or commission among: BasisPoints, Percentage, Rate, Flat etc. | 
-**Multiplier** | **string** | Field by which to multiply the numerical amount. Eg: Quantity, Value | 
+**CalculationMethod** | **string** | Method of calculating the fees or commission among: BasisPoints, Percentage, Rate, Flat etc. Available values: Rate, BasisPoints, Percentage, Flat. | 
+**Multiplier** | **string** | Field by which to multiply the numerical amount. Available values: None, Quantity, Value. | 
 **CalculationAmount** | **decimal** | Numerical fee amount | 
 
 ```csharp

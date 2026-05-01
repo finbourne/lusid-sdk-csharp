@@ -10,12 +10,12 @@ Name | Type | Description | Notes
 **DisplayName** | **string** | The name of the Fund. | [optional] 
 **Description** | **string** | A description for the Fund. | [optional] 
 **BaseCurrency** | **string** | The base currency of the Fund in ISO 4217 currency code format. All portfolios must be of a matching base currency. | [optional] 
-**InvestorStructure** | **string** | The Investor structure to be used by the Fund. Supported values are &#39;NonUnitised&#39; and &#39;Classes&#39;. | 
+**InvestorStructure** | **string** | The Investor structure to be used by the Fund. Available values: NonUnitised, Classes. | 
 **PortfolioIds** | [**List&lt;PortfolioEntityIdWithDetails&gt;**](PortfolioEntityIdWithDetails.md) | A list of the portfolios on the fund, which are part of the Fund. Note: These must all have the same base currency, which must also match the Fund Base Currency. | [optional] 
 **FundConfigurationId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **AborId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **ShareClassInstruments** | [**List&lt;InstrumentResolutionDetail&gt;**](InstrumentResolutionDetail.md) | Details the user-provided instrument identifiers and the instrument resolved from them. These would be decommissioned in favour of the new AllocationGroups and ShareClasses structures. | [optional] 
-**Type** | **string** | The type of fund; &#39;Standalone&#39;, &#39;Master&#39; or &#39;Feeder&#39; | [optional] 
+**Type** | **string** | The type of fund. Available values: Standalone, Master, Feeder. | [optional] 
 **InceptionDate** | **DateTimeOffset** | Inception date of the Fund | 
 **DecimalPlaces** | **int?** | Number of decimal places for reporting | [optional] 
 **YearEndDate** | [**DayMonth**](DayMonth.md) |  | [optional] 

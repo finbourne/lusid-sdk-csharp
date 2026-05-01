@@ -36,7 +36,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TransactionSettlementBucket" /> class.
         /// </summary>
-        /// <param name="settlementCategory">A category representing the set of movement types that this instruction applies to. (required).</param>
+        /// <param name="settlementCategory">A category representing the set of movement types that this instruction applies to. Available values: StockSettlement, CashSettlement, DeferredCashReceipt. (required).</param>
         /// <param name="lusidInstrumentId">The LusidInstrumentId of the instrument being settled. (required).</param>
         /// <param name="instrumentScope">The Scope of the instrument being settled. (required).</param>
         /// <param name="contractualSettlementDate">The contractual settlement date. Used to match the instruction to the correct settlement bucket..</param>
@@ -44,8 +44,8 @@ namespace Lusid.Sdk.Model
         /// <param name="settledUnits">The settled units..</param>
         /// <param name="unsettledUnits">The unsettled units..</param>
         /// <param name="overdueUnits">The overdue units..</param>
-        /// <param name="configuredSettlement">The method of settlement for the settlement bucket, as defined in the portfolio&#39;s SettlementConfiguration.</param>
-        /// <param name="status">The Status of the settlement bucket - &#39;Settled&#39;, &#39;Part Settled&#39; or &#39;Unsettled&#39;. (required).</param>
+        /// <param name="configuredSettlement">The effective method of settlement for the settlement bucket. This reflects any transaction-level settlement method overrides, falling back to the portfolio&#39;s SettlementConfiguration if no override applies. Available values: Automatic, Instructed, NotApplicable..</param>
+        /// <param name="status">The Status of the settlement bucket - &#39;Settled&#39;, &#39;Part Settled&#39; or &#39;Unsettled&#39;. Available values: Unsettled, PartSettled, Settled, None. (required).</param>
         /// <param name="settlementInstructions">The settlement instructions received for this settlement bucket..</param>
         /// <param name="movements">The movements for the settlement bucket..</param>
         public TransactionSettlementBucket(string settlementCategory = default(string), string lusidInstrumentId = default(string), string instrumentScope = default(string), DateTimeOffset? contractualSettlementDate = default(DateTimeOffset?), decimal contractedUnits = default(decimal), decimal settledUnits = default(decimal), decimal unsettledUnits = default(decimal), decimal overdueUnits = default(decimal), string configuredSettlement = default(string), string status = default(string), List<TransactionSettlementInstruction> settlementInstructions = default(List<TransactionSettlementInstruction>), List<TransactionSettlementMovement> movements = default(List<TransactionSettlementMovement>))
@@ -85,9 +85,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// A category representing the set of movement types that this instruction applies to.
+        /// A category representing the set of movement types that this instruction applies to. Available values: StockSettlement, CashSettlement, DeferredCashReceipt.
         /// </summary>
-        /// <value>A category representing the set of movement types that this instruction applies to.</value>
+        /// <value>A category representing the set of movement types that this instruction applies to. Available values: StockSettlement, CashSettlement, DeferredCashReceipt.</value>
         [DataMember(Name = "settlementCategory", IsRequired = true, EmitDefaultValue = true)]
         public string SettlementCategory { get; set; }
 
@@ -141,16 +141,16 @@ namespace Lusid.Sdk.Model
         public decimal OverdueUnits { get; set; }
 
         /// <summary>
-        /// The method of settlement for the settlement bucket, as defined in the portfolio&#39;s SettlementConfiguration
+        /// The effective method of settlement for the settlement bucket. This reflects any transaction-level settlement method overrides, falling back to the portfolio&#39;s SettlementConfiguration if no override applies. Available values: Automatic, Instructed, NotApplicable.
         /// </summary>
-        /// <value>The method of settlement for the settlement bucket, as defined in the portfolio&#39;s SettlementConfiguration</value>
+        /// <value>The effective method of settlement for the settlement bucket. This reflects any transaction-level settlement method overrides, falling back to the portfolio&#39;s SettlementConfiguration if no override applies. Available values: Automatic, Instructed, NotApplicable.</value>
         [DataMember(Name = "configuredSettlement", EmitDefaultValue = true)]
         public string ConfiguredSettlement { get; set; }
 
         /// <summary>
-        /// The Status of the settlement bucket - &#39;Settled&#39;, &#39;Part Settled&#39; or &#39;Unsettled&#39;.
+        /// The Status of the settlement bucket - &#39;Settled&#39;, &#39;Part Settled&#39; or &#39;Unsettled&#39;. Available values: Unsettled, PartSettled, Settled, None.
         /// </summary>
-        /// <value>The Status of the settlement bucket - &#39;Settled&#39;, &#39;Part Settled&#39; or &#39;Unsettled&#39;.</value>
+        /// <value>The Status of the settlement bucket - &#39;Settled&#39;, &#39;Part Settled&#39; or &#39;Unsettled&#39;. Available values: Unsettled, PartSettled, Settled, None.</value>
         [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
         public string Status { get; set; }
 

@@ -38,7 +38,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="displayName">The name of the Cleardown Module. (required).</param>
         /// <param name="description">A description for the Cleardown Module..</param>
-        /// <param name="status">The Cleardown Module status. Can be Active or Inactive. Defaults to Active. (required).</param>
+        /// <param name="status">The Cleardown Module status. Default value: Active. Available values: Active, Inactive. (required).</param>
         public CleardownModuleDetails(string displayName = default(string), string description = default(string), string status = default(string))
         {
             // to ensure "displayName" is required (not null)
@@ -71,9 +71,9 @@ namespace Lusid.Sdk.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// The Cleardown Module status. Can be Active or Inactive. Defaults to Active.
+        /// The Cleardown Module status. Default value: Active. Available values: Active, Inactive.
         /// </summary>
-        /// <value>The Cleardown Module status. Can be Active or Inactive. Defaults to Active.</value>
+        /// <value>The Cleardown Module status. Default value: Active. Available values: Active, Inactive.</value>
         [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
         public string Status { get; set; }
 

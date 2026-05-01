@@ -29,9 +29,9 @@ namespace Lusid.Sdk.Model
     public partial class CreatePropertyDefinitionRequest : IEquatable<CreatePropertyDefinitionRequest>, IValidatableObject
     {
         /// <summary>
-        /// The domain that the property exists in. The available values are: NotDefined, Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, CutLabelDefinition, Analytic, PortfolioGroup, Person, AccessMetadata, Order, UnitResult, MarketData, ConfigurationRecipe, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, NextBestAction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, AddressKeyDefinition, AmortisationRuleSet, AnalyticsSetInventory, AtomUnitResult, CleardownModule, ComplexMarketData, ComplianceRunSummary, ComplianceRule, ComplianceRunInfo, CorporateActionSource, CounterpartyAgreement, CustomEntityDefinition, DataType, Dialect, EventHandler, GeneralLedgerProfile, PostingModule, Quote, RecipeComposer, ReconciliationRunBreak, ReferenceList, RelationDefinition, ReturnBlockIndex, SRSDocument, SRSIndex, TransactionTemplate, TransactionTemplateScope, TransactionType, TransactionTypeConfig, TranslationScript, TaskDefinition, TaskInstance, Worker, StagingRuleSet, IdentifierDefinition, SettlementInstruction, TransactionFee
+        /// The domain that the property exists in. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, IdentifierDefinition, SettlementInstruction, TransactionFee.
         /// </summary>
-        /// <value>The domain that the property exists in. The available values are: NotDefined, Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, CutLabelDefinition, Analytic, PortfolioGroup, Person, AccessMetadata, Order, UnitResult, MarketData, ConfigurationRecipe, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, NextBestAction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, AddressKeyDefinition, AmortisationRuleSet, AnalyticsSetInventory, AtomUnitResult, CleardownModule, ComplexMarketData, ComplianceRunSummary, ComplianceRule, ComplianceRunInfo, CorporateActionSource, CounterpartyAgreement, CustomEntityDefinition, DataType, Dialect, EventHandler, GeneralLedgerProfile, PostingModule, Quote, RecipeComposer, ReconciliationRunBreak, ReferenceList, RelationDefinition, ReturnBlockIndex, SRSDocument, SRSIndex, TransactionTemplate, TransactionTemplateScope, TransactionType, TransactionTypeConfig, TranslationScript, TaskDefinition, TaskInstance, Worker, StagingRuleSet, IdentifierDefinition, SettlementInstruction, TransactionFee</value>
+        /// <value>The domain that the property exists in. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, IdentifierDefinition, SettlementInstruction, TransactionFee.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum DomainEnum
         {
@@ -542,15 +542,15 @@ namespace Lusid.Sdk.Model
 
 
         /// <summary>
-        /// The domain that the property exists in. The available values are: NotDefined, Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, CutLabelDefinition, Analytic, PortfolioGroup, Person, AccessMetadata, Order, UnitResult, MarketData, ConfigurationRecipe, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, NextBestAction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, AddressKeyDefinition, AmortisationRuleSet, AnalyticsSetInventory, AtomUnitResult, CleardownModule, ComplexMarketData, ComplianceRunSummary, ComplianceRule, ComplianceRunInfo, CorporateActionSource, CounterpartyAgreement, CustomEntityDefinition, DataType, Dialect, EventHandler, GeneralLedgerProfile, PostingModule, Quote, RecipeComposer, ReconciliationRunBreak, ReferenceList, RelationDefinition, ReturnBlockIndex, SRSDocument, SRSIndex, TransactionTemplate, TransactionTemplateScope, TransactionType, TransactionTypeConfig, TranslationScript, TaskDefinition, TaskInstance, Worker, StagingRuleSet, IdentifierDefinition, SettlementInstruction, TransactionFee
+        /// The domain that the property exists in. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, IdentifierDefinition, SettlementInstruction, TransactionFee.
         /// </summary>
-        /// <value>The domain that the property exists in. The available values are: NotDefined, Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, CutLabelDefinition, Analytic, PortfolioGroup, Person, AccessMetadata, Order, UnitResult, MarketData, ConfigurationRecipe, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, NextBestAction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, AddressKeyDefinition, AmortisationRuleSet, AnalyticsSetInventory, AtomUnitResult, CleardownModule, ComplexMarketData, ComplianceRunSummary, ComplianceRule, ComplianceRunInfo, CorporateActionSource, CounterpartyAgreement, CustomEntityDefinition, DataType, Dialect, EventHandler, GeneralLedgerProfile, PostingModule, Quote, RecipeComposer, ReconciliationRunBreak, ReferenceList, RelationDefinition, ReturnBlockIndex, SRSDocument, SRSIndex, TransactionTemplate, TransactionTemplateScope, TransactionType, TransactionTypeConfig, TranslationScript, TaskDefinition, TaskInstance, Worker, StagingRuleSet, IdentifierDefinition, SettlementInstruction, TransactionFee</value>
+        /// <value>The domain that the property exists in. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, IdentifierDefinition, SettlementInstruction, TransactionFee.</value>
         [DataMember(Name = "domain", IsRequired = true, EmitDefaultValue = true)]
         public DomainEnum Domain { get; set; }
         /// <summary>
-        /// Describes how the property&#39;s values can change over time. The available values are: Perpetual, TimeVariant
+        /// Describes how the property&#39;s values can change over time. Available values: Perpetual, TimeVariant.
         /// </summary>
-        /// <value>Describes how the property&#39;s values can change over time. The available values are: Perpetual, TimeVariant</value>
+        /// <value>Describes how the property&#39;s values can change over time. Available values: Perpetual, TimeVariant.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum LifeTimeEnum
         {
@@ -569,9 +569,9 @@ namespace Lusid.Sdk.Model
 
 
         /// <summary>
-        /// Describes how the property&#39;s values can change over time. The available values are: Perpetual, TimeVariant
+        /// Describes how the property&#39;s values can change over time. Available values: Perpetual, TimeVariant.
         /// </summary>
-        /// <value>Describes how the property&#39;s values can change over time. The available values are: Perpetual, TimeVariant</value>
+        /// <value>Describes how the property&#39;s values can change over time. Available values: Perpetual, TimeVariant.</value>
         [DataMember(Name = "lifeTime", EmitDefaultValue = false)]
         public LifeTimeEnum? LifeTime { get; set; }
         /// <summary>
@@ -582,18 +582,18 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CreatePropertyDefinitionRequest" /> class.
         /// </summary>
-        /// <param name="domain">The domain that the property exists in. The available values are: NotDefined, Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, CutLabelDefinition, Analytic, PortfolioGroup, Person, AccessMetadata, Order, UnitResult, MarketData, ConfigurationRecipe, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, NextBestAction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, AddressKeyDefinition, AmortisationRuleSet, AnalyticsSetInventory, AtomUnitResult, CleardownModule, ComplexMarketData, ComplianceRunSummary, ComplianceRule, ComplianceRunInfo, CorporateActionSource, CounterpartyAgreement, CustomEntityDefinition, DataType, Dialect, EventHandler, GeneralLedgerProfile, PostingModule, Quote, RecipeComposer, ReconciliationRunBreak, ReferenceList, RelationDefinition, ReturnBlockIndex, SRSDocument, SRSIndex, TransactionTemplate, TransactionTemplateScope, TransactionType, TransactionTypeConfig, TranslationScript, TaskDefinition, TaskInstance, Worker, StagingRuleSet, IdentifierDefinition, SettlementInstruction, TransactionFee (required).</param>
+        /// <param name="domain">The domain that the property exists in. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, IdentifierDefinition, SettlementInstruction, TransactionFee. (required).</param>
         /// <param name="scope">The scope that the property exists in. (required).</param>
         /// <param name="code">The code of the property. Together with the domain and scope this uniquely identifies the property. (required).</param>
         /// <param name="valueRequired">This field is not implemented and should be disregarded..</param>
         /// <param name="displayName">The display name of the property. (required).</param>
         /// <param name="dataTypeId">dataTypeId (required).</param>
-        /// <param name="lifeTime">Describes how the property&#39;s values can change over time. The available values are: Perpetual, TimeVariant.</param>
+        /// <param name="lifeTime">Describes how the property&#39;s values can change over time. Available values: Perpetual, TimeVariant..</param>
         /// <param name="constraintStyle">Describes the uniqueness and cardinality of the property for entity objects under the property domain specified in Key. Defaults to \&quot;Property\&quot; if not specified. Valid values for this field are: Property, Collection or Identifier..</param>
         /// <param name="propertyDescription">Describes the property.</param>
-        /// <param name="collectionType">Describes whether a collection property should behave as a set or as an array..</param>
+        /// <param name="collectionType">Describes whether a collection property should behave as a Set or as an Array. Available values: Set, Array..</param>
         /// <param name="customEntityTypes">The custom entity types that properties relating to this property definition can be applied to..</param>
-        /// <param name="valueFormat">The format in which values for this property definition should be represented..</param>
+        /// <param name="valueFormat">The format in which values for this property definition should be represented. Available values: Text, Html..</param>
         public CreatePropertyDefinitionRequest(DomainEnum domain = default(DomainEnum), string scope = default(string), string code = default(string), bool valueRequired = default(bool), string displayName = default(string), ResourceId dataTypeId = default(ResourceId), LifeTimeEnum ?lifeTime = default(LifeTimeEnum?), string constraintStyle = default(string), string propertyDescription = default(string), string collectionType = default(string), List<string> customEntityTypes = default(List<string>), string valueFormat = default(string))
         {
             this.Domain = domain;
@@ -679,9 +679,9 @@ namespace Lusid.Sdk.Model
         public string PropertyDescription { get; set; }
 
         /// <summary>
-        /// Describes whether a collection property should behave as a set or as an array.
+        /// Describes whether a collection property should behave as a Set or as an Array. Available values: Set, Array.
         /// </summary>
-        /// <value>Describes whether a collection property should behave as a set or as an array.</value>
+        /// <value>Describes whether a collection property should behave as a Set or as an Array. Available values: Set, Array.</value>
         [DataMember(Name = "collectionType", EmitDefaultValue = true)]
         public string CollectionType { get; set; }
 
@@ -693,9 +693,9 @@ namespace Lusid.Sdk.Model
         public List<string> CustomEntityTypes { get; set; }
 
         /// <summary>
-        /// The format in which values for this property definition should be represented.
+        /// The format in which values for this property definition should be represented. Available values: Text, Html.
         /// </summary>
-        /// <value>The format in which values for this property definition should be represented.</value>
+        /// <value>The format in which values for this property definition should be represented. Available values: Text, Html.</value>
         [DataMember(Name = "valueFormat", EmitDefaultValue = true)]
         public string ValueFormat { get; set; }
 

@@ -44,11 +44,11 @@ namespace Lusid.Sdk.Model
         /// <param name="origin">The origin or source of the Fee accrual..</param>
         /// <param name="calculationBase">The calculation base for a Fee that is calculated using a percentage (TotalAnnualAccrualAmount and CalculationBase cannot both be present). When the Fee is a ShareClass Fee (i.e: when ShareClasses contains at least one value), each of the following would be a valid CalculationBase: \&quot;10000.00\&quot;, \&quot;ShareClass.GAV\&quot;, \&quot;ShareClass.GAV - ShareClass.Fees[ShareClassFeeCode1].Amount\&quot;, \&quot;ShareClass.Fees[ShareClassFeeCode1].CalculationBase\&quot;. When the Fee is a NonShareClassSpecific Fee (i.e: when ShareClasses contains no values), each of the following would be a valid CalculationBase: \&quot;10000.00\&quot;, \&quot;GAV\&quot;, \&quot;GAV - Fees[NonClassSpecificFeeCode1].Amount\&quot;, \&quot;Fees[NonClassSpecificFeeCode1].CalculationBase\&quot;. .</param>
         /// <param name="accrualCurrency">The accrual currency. (required).</param>
-        /// <param name="treatment">The accrual period of the Fee; &#39;Monthly&#39; or &#39;Daily&#39;. (required).</param>
+        /// <param name="treatment">The accrual period of the Fee. Available values: Daily, Monthly. (required).</param>
         /// <param name="totalAnnualAccrualAmount">The total annual accrued amount for the Fee. (TotalAnnualAccrualAmount and CalculationBase cannot both be present).</param>
         /// <param name="feeRatePercentage">The fee rate percentage. (Required when CalculationBase is present and not compatible with TotalAnnualAccrualAmount).</param>
-        /// <param name="payableFrequency">The payable frequency for the Fee; &#39;Annually&#39;, &#39;Quarterly&#39; or &#39;Monthly&#39;. (required).</param>
-        /// <param name="businessDayConvention">The business day convention to use for Fee calculations on weekends or holidays. Supported string values are: [Previous, P, Following, F, None]. (required).</param>
+        /// <param name="payableFrequency">The payable frequency for the Fee. Available values: Annually, Quarterly, Monthly. (required).</param>
+        /// <param name="businessDayConvention">The business day convention to use for Fee calculations on weekends or holidays. Available values: None, P, Previous, F, Following. (required).</param>
         /// <param name="startDate">The start date of the Fee. (required).</param>
         /// <param name="endDate">The end date of the Fee..</param>
         /// <param name="anchorDate">anchorDate.</param>
@@ -170,9 +170,9 @@ namespace Lusid.Sdk.Model
         public string AccrualCurrency { get; set; }
 
         /// <summary>
-        /// The accrual period of the Fee; &#39;Monthly&#39; or &#39;Daily&#39;.
+        /// The accrual period of the Fee. Available values: Daily, Monthly.
         /// </summary>
-        /// <value>The accrual period of the Fee; &#39;Monthly&#39; or &#39;Daily&#39;.</value>
+        /// <value>The accrual period of the Fee. Available values: Daily, Monthly.</value>
         [DataMember(Name = "treatment", IsRequired = true, EmitDefaultValue = true)]
         public string Treatment { get; set; }
 
@@ -191,16 +191,16 @@ namespace Lusid.Sdk.Model
         public decimal? FeeRatePercentage { get; set; }
 
         /// <summary>
-        /// The payable frequency for the Fee; &#39;Annually&#39;, &#39;Quarterly&#39; or &#39;Monthly&#39;.
+        /// The payable frequency for the Fee. Available values: Annually, Quarterly, Monthly.
         /// </summary>
-        /// <value>The payable frequency for the Fee; &#39;Annually&#39;, &#39;Quarterly&#39; or &#39;Monthly&#39;.</value>
+        /// <value>The payable frequency for the Fee. Available values: Annually, Quarterly, Monthly.</value>
         [DataMember(Name = "payableFrequency", IsRequired = true, EmitDefaultValue = true)]
         public string PayableFrequency { get; set; }
 
         /// <summary>
-        /// The business day convention to use for Fee calculations on weekends or holidays. Supported string values are: [Previous, P, Following, F, None].
+        /// The business day convention to use for Fee calculations on weekends or holidays. Available values: None, P, Previous, F, Following.
         /// </summary>
-        /// <value>The business day convention to use for Fee calculations on weekends or holidays. Supported string values are: [Previous, P, Following, F, None].</value>
+        /// <value>The business day convention to use for Fee calculations on weekends or holidays. Available values: None, P, Previous, F, Following.</value>
         [DataMember(Name = "businessDayConvention", IsRequired = true, EmitDefaultValue = true)]
         public string BusinessDayConvention { get; set; }
 

@@ -685,7 +685,7 @@ namespace Examples
             var returnCode = "returnCode_example";  // string | The code of the Returns.
             var fromEffectiveAt = "fromEffectiveAt_example";  // DateTimeOrCutLabel | The start date from which to delete the Returns.
             var toEffectiveAt = "toEffectiveAt_example";  // DateTimeOrCutLabel | The end date from which to delete the Returns.
-            var period = "period_example";  // string? | The Period (Daily or Monthly) of the Returns to be deleted. Defaults to Daily. (optional) 
+            var period = "period_example";  // string? | The period of the Returns to be deleted. Default value: Daily. Available values: Daily, Monthly. (optional) 
 
             try
             {
@@ -737,7 +737,7 @@ catch (ApiException e)
 | **returnCode** | **string** | The code of the Returns. |  |
 | **fromEffectiveAt** | **DateTimeOrCutLabel** | The start date from which to delete the Returns. |  |
 | **toEffectiveAt** | **DateTimeOrCutLabel** | The end date from which to delete the Returns. |  |
-| **period** | **string?** | The Period (Daily or Monthly) of the Returns to be deleted. Defaults to Daily. | [optional]  |
+| **period** | **string?** | The period of the Returns to be deleted. Default value: Daily. Available values: Daily, Monthly. | [optional]  |
 
 ### Return type
 
@@ -1309,9 +1309,9 @@ namespace Examples
             var recipeIdCode = "recipeIdCode_example";  // string? | The Recipe Code for getting the fx rates (optional) 
             var fromEffectiveAt = "fromEffectiveAt_example";  // DateTimeOrCutLabel? | The start date from which to calculate the Returns. (optional) 
             var toEffectiveAt = "toEffectiveAt_example";  // DateTimeOrCutLabel? | The end date for which to calculate the Returns. (optional) 
-            var compositeMethod = "compositeMethod_example";  // string? | The method used to calculate the Portfolio performance:              Equal/Asset. (optional) 
-            var period = "period_example";  // string? | The type of the returns used to calculate the aggregation result: Daily/Monthly. (optional) 
-            var outputFrequency = "outputFrequency_example";  // string? | The type of calculated output: Daily/Weekly/Monthly/Quarterly/Half-Yearly/Yearly. (optional) 
+            var compositeMethod = "compositeMethod_example";  // string? | The method used to calculate the Portfolio performance. Available values: Equal, Asset. (optional) 
+            var period = "period_example";  // string? | The type of the returns used to calculate the aggregation result. Available values: Daily, Monthly. (optional) 
+            var outputFrequency = "outputFrequency_example";  // string? | The type of calculated output. Available values: Daily, Weekly, Monthly, Quarterly, HalfYearly, Yearly. (optional) 
             var metrics = new List<string>?(); // List<string>? | Determines what type of returns should be calculated, see https://support.lusid.com/knowledgebase/article/KA-01675/en-us for a list of available metrics. (optional) 
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the Returns. Defaults to the latest. (optional) 
             var alternativeIncDate = "alternativeIncDate_example";  // DateTimeOrCutLabel? | The date from which to consider the Returns on the Portfolio, if this is different from the date when Returns begin. Can be a date string or Portfolio property. (optional) 
@@ -1368,9 +1368,9 @@ catch (ApiException e)
 | **recipeIdCode** | **string?** | The Recipe Code for getting the fx rates | [optional]  |
 | **fromEffectiveAt** | **DateTimeOrCutLabel?** | The start date from which to calculate the Returns. | [optional]  |
 | **toEffectiveAt** | **DateTimeOrCutLabel?** | The end date for which to calculate the Returns. | [optional]  |
-| **compositeMethod** | **string?** | The method used to calculate the Portfolio performance:              Equal/Asset. | [optional]  |
-| **period** | **string?** | The type of the returns used to calculate the aggregation result: Daily/Monthly. | [optional]  |
-| **outputFrequency** | **string?** | The type of calculated output: Daily/Weekly/Monthly/Quarterly/Half-Yearly/Yearly. | [optional]  |
+| **compositeMethod** | **string?** | The method used to calculate the Portfolio performance. Available values: Equal, Asset. | [optional]  |
+| **period** | **string?** | The type of the returns used to calculate the aggregation result. Available values: Daily, Monthly. | [optional]  |
+| **outputFrequency** | **string?** | The type of calculated output. Available values: Daily, Weekly, Monthly, Quarterly, HalfYearly, Yearly. | [optional]  |
 | **metrics** | [**List&lt;string&gt;?**](string.md) | Determines what type of returns should be calculated, see https://support.lusid.com/knowledgebase/article/KA-01675/en-us for a list of available metrics. | [optional]  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the Returns. Defaults to the latest. | [optional]  |
 | **alternativeIncDate** | **DateTimeOrCutLabel?** | The date from which to consider the Returns on the Portfolio, if this is different from the date when Returns begin. Can be a date string or Portfolio property. | [optional]  |
@@ -2313,7 +2313,7 @@ namespace Examples
             var returnCode = "returnCode_example";  // string | The code of the Returns.
             var fromEffectiveAt = "fromEffectiveAt_example";  // DateTimeOrCutLabel? | The start date from which to get the Returns. (optional) 
             var toEffectiveAt = "toEffectiveAt_example";  // DateTimeOrCutLabel? | The end date from which to get the Returns. (optional) 
-            var period = "period_example";  // string? | Show the Returns on a Daily or Monthly period. Defaults to Daily. (optional) 
+            var period = "period_example";  // string? | The period for which to show the Returns. Default value: Daily. Available values: Daily, Monthly. (optional) 
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the Returns. Defaults to the latest. (optional) 
 
             try
@@ -2366,7 +2366,7 @@ catch (ApiException e)
 | **returnCode** | **string** | The code of the Returns. |  |
 | **fromEffectiveAt** | **DateTimeOrCutLabel?** | The start date from which to get the Returns. | [optional]  |
 | **toEffectiveAt** | **DateTimeOrCutLabel?** | The end date from which to get the Returns. | [optional]  |
-| **period** | **string?** | Show the Returns on a Daily or Monthly period. Defaults to Daily. | [optional]  |
+| **period** | **string?** | The period for which to show the Returns. Default value: Daily. Available values: Daily, Monthly. | [optional]  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the Returns. Defaults to the latest. | [optional]  |
 
 ### Return type

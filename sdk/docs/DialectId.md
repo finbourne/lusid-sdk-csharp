@@ -9,8 +9,8 @@ Name | Type | Description | Notes
 **Vendor** | **string** | The vendor of the dialect, the entity that created it. e.g. ISDA, FINBOURNE. | 
 **SourceSystem** | **string** | The source system of the dialect, the system that understands it. e.g. LUSID, QuantLib. | 
 **VarVersion** | **string** | The semantic version of the dialect: MAJOR.MINOR.PATCH. | 
-**SerialisationFormat** | **string** | The serialisation format of a document in this dialect. e.g. JSON, XML. | 
-**EntityType** | **string** | The type of entity this dialect describes e.g. Instrument. | 
+**SerialisationFormat** | **string** | The serialisation format of a document in this dialect. Available values: Json, Xml. | 
+**EntityType** | **string** | The type of entity this dialect describes e.g. Instrument. Available values: Instrument. | 
 
 ```csharp
 using Lusid.Sdk.Model;

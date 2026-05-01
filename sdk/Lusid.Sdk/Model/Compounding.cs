@@ -36,8 +36,8 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Compounding" /> class.
         /// </summary>
-        /// <param name="averagingMethod">Defines whether a weighted or unweighted average is used when calculating the average rate.  It applies only when CompoundingMethod &#x3D; ‘Averaging‘.    Supported string (enumeration) values are: [Unweighted, UnweightedIncludingWeekends, Weighted].  Defaults to \&quot;None\&quot; if not set..</param>
-        /// <param name="calculationShiftMethod">Defines which resets and day counts are used for the rate calculation    Supported string (enumeration) values are: [Lookback, NoShift, ObservationPeriodShift, Lockout].  Defaults to \&quot;NoShift\&quot; if not set..</param>
+        /// <param name="averagingMethod">Defines whether a weighted or unweighted average is used when calculating the average rate.  It applies only when CompoundingMethod &#x3D; ‘Averaging‘.    Default value: None. Available values: None, Unweighted, Weighted, UnweightedIncludingWeekends..</param>
+        /// <param name="calculationShiftMethod">Defines which resets and day counts are used for the rate calculation    Default value: NoShift. Available values: Lookback, NoShift, ObservationPeriodShift, Lockout..</param>
         /// <param name="compoundingMethod">If the interest rate is simple, compounded or using a pre-computed compounded index.    Supported string (enumeration) values are: [Averaging, Compounding, CompoundedIndex, NonCumulativeCompounding]. (required).</param>
         /// <param name="resetFrequency">The interest payment frequency.    For more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097) (required).</param>
         /// <param name="shift">Defines the number of days to lockout or shift observation period by - should be a non-negative integer.  Defaults to 0 if not set..</param>
@@ -65,16 +65,16 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// Defines whether a weighted or unweighted average is used when calculating the average rate.  It applies only when CompoundingMethod &#x3D; ‘Averaging‘.    Supported string (enumeration) values are: [Unweighted, UnweightedIncludingWeekends, Weighted].  Defaults to \&quot;None\&quot; if not set.
+        /// Defines whether a weighted or unweighted average is used when calculating the average rate.  It applies only when CompoundingMethod &#x3D; ‘Averaging‘.    Default value: None. Available values: None, Unweighted, Weighted, UnweightedIncludingWeekends.
         /// </summary>
-        /// <value>Defines whether a weighted or unweighted average is used when calculating the average rate.  It applies only when CompoundingMethod &#x3D; ‘Averaging‘.    Supported string (enumeration) values are: [Unweighted, UnweightedIncludingWeekends, Weighted].  Defaults to \&quot;None\&quot; if not set.</value>
+        /// <value>Defines whether a weighted or unweighted average is used when calculating the average rate.  It applies only when CompoundingMethod &#x3D; ‘Averaging‘.    Default value: None. Available values: None, Unweighted, Weighted, UnweightedIncludingWeekends.</value>
         [DataMember(Name = "averagingMethod", EmitDefaultValue = true)]
         public string AveragingMethod { get; set; }
 
         /// <summary>
-        /// Defines which resets and day counts are used for the rate calculation    Supported string (enumeration) values are: [Lookback, NoShift, ObservationPeriodShift, Lockout].  Defaults to \&quot;NoShift\&quot; if not set.
+        /// Defines which resets and day counts are used for the rate calculation    Default value: NoShift. Available values: Lookback, NoShift, ObservationPeriodShift, Lockout.
         /// </summary>
-        /// <value>Defines which resets and day counts are used for the rate calculation    Supported string (enumeration) values are: [Lookback, NoShift, ObservationPeriodShift, Lockout].  Defaults to \&quot;NoShift\&quot; if not set.</value>
+        /// <value>Defines which resets and day counts are used for the rate calculation    Default value: NoShift. Available values: Lookback, NoShift, ObservationPeriodShift, Lockout.</value>
         [DataMember(Name = "calculationShiftMethod", EmitDefaultValue = true)]
         public string CalculationShiftMethod { get; set; }
 

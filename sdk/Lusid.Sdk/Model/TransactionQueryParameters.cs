@@ -29,9 +29,9 @@ namespace Lusid.Sdk.Model
     public partial class TransactionQueryParameters : IEquatable<TransactionQueryParameters>, IValidatableObject
     {
         /// <summary>
-        /// The date to compare against the upper and lower bounds for the effective datetime or cut label. Defaults to &#39;TradeDate&#39; if not specified. The available values are: TradeDate, SettleDate
+        /// The date to compare against the upper and lower bounds for the effective datetime or cut label. Default value: TradeDate. Available values: TradeDate, SettleDate.
         /// </summary>
-        /// <value>The date to compare against the upper and lower bounds for the effective datetime or cut label. Defaults to &#39;TradeDate&#39; if not specified. The available values are: TradeDate, SettleDate</value>
+        /// <value>The date to compare against the upper and lower bounds for the effective datetime or cut label. Default value: TradeDate. Available values: TradeDate, SettleDate.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum QueryModeEnum
         {
@@ -50,9 +50,9 @@ namespace Lusid.Sdk.Model
 
 
         /// <summary>
-        /// The date to compare against the upper and lower bounds for the effective datetime or cut label. Defaults to &#39;TradeDate&#39; if not specified. The available values are: TradeDate, SettleDate
+        /// The date to compare against the upper and lower bounds for the effective datetime or cut label. Default value: TradeDate. Available values: TradeDate, SettleDate.
         /// </summary>
-        /// <value>The date to compare against the upper and lower bounds for the effective datetime or cut label. Defaults to &#39;TradeDate&#39; if not specified. The available values are: TradeDate, SettleDate</value>
+        /// <value>The date to compare against the upper and lower bounds for the effective datetime or cut label. Default value: TradeDate. Available values: TradeDate, SettleDate.</value>
         [DataMember(Name = "queryMode", EmitDefaultValue = false)]
         public QueryModeEnum? QueryMode { get; set; }
         /// <summary>
@@ -65,7 +65,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="startDate">The lower bound effective datetime or cut label (inclusive) from which to build the transactions. (required).</param>
         /// <param name="endDate">The upper bound effective datetime or cut label (inclusive) from which to retrieve transactions. (required).</param>
-        /// <param name="queryMode">The date to compare against the upper and lower bounds for the effective datetime or cut label. Defaults to &#39;TradeDate&#39; if not specified. The available values are: TradeDate, SettleDate.</param>
+        /// <param name="queryMode">The date to compare against the upper and lower bounds for the effective datetime or cut label. Default value: TradeDate. Available values: TradeDate, SettleDate..</param>
         /// <param name="showCancelledTransactions">Option to specify whether or not to include cancelled transactions in the output. Defaults to False if not specified..</param>
         /// <param name="timelineScope">Scope of the Timeline for the Portfolio. The Timeline to be used while building transactions.</param>
         /// <param name="timelineCode">Code of the Timeline for the Portfolio. The Timeline to be used while building transactions. This can optionally include a colon, followed by the Closed Period Id to use at the head of the timeline, for a timeline with unconfirmed periods..</param>

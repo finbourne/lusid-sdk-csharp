@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Description** | **string** | A detailed description of the field and its purpose. | [optional] 
 **DataTypeId** | [**ResourceId**](ResourceId.md) |  | 
 **Required** | **bool** | Whether this field is mandatory in the dataset. | [optional] 
-**Category** | **string** | The intended category of the field (SeriesIdentifier, Value, or Metadata). | 
+**Category** | **string** | The intended category of the field (SeriesIdentifier, Value, or Metadata). Available values: SeriesIdentifier, Value, Metadata. | 
 
 ```csharp
 using Lusid.Sdk.Model;

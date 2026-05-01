@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **DisplayName** | **string** | The display name of the property. | 
 **PropertyDescription** | **string** | Describes the property | [optional] 
 **CustomEntityTypes** | **List&lt;string&gt;** | The custom entity types that properties relating to this property definition can be applied to. | [optional] 
-**ValueFormat** | **string** | The format in which values for this property definition should be represented. | [optional] 
+**ValueFormat** | **string** | The format in which values for this property definition should be represented. Available values: Text, Html. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;

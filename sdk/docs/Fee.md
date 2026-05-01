@@ -12,11 +12,11 @@ Name | Type | Description | Notes
 **Origin** | **string** | The origin or source of the Fee accrual. | [optional] 
 **CalculationBase** | **string** | The calculation base for a Fee that is calculated using a percentage (TotalAnnualAccrualAmount and CalculationBase cannot both be present). When the Fee is a ShareClass Fee (i.e: when ShareClasses contains at least one value), each of the following would be a valid CalculationBase: \&quot;10000.00\&quot;, \&quot;ShareClass.GAV\&quot;, \&quot;ShareClass.GAV - ShareClass.Fees[ShareClassFeeCode1].Amount\&quot;, \&quot;ShareClass.Fees[ShareClassFeeCode1].CalculationBase\&quot;. When the Fee is a NonShareClassSpecific Fee (i.e: when ShareClasses contains no values), each of the following would be a valid CalculationBase: \&quot;10000.00\&quot;, \&quot;GAV\&quot;, \&quot;GAV - Fees[NonClassSpecificFeeCode1].Amount\&quot;, \&quot;Fees[NonClassSpecificFeeCode1].CalculationBase\&quot;.  | [optional] 
 **AccrualCurrency** | **string** | The accrual currency. | 
-**Treatment** | **string** | The accrual period of the Fee; &#39;Monthly&#39; or &#39;Daily&#39;. | 
+**Treatment** | **string** | The accrual period of the Fee. Available values: Daily, Monthly. | 
 **TotalAnnualAccrualAmount** | **decimal?** | The total annual accrued amount for the Fee. (TotalAnnualAccrualAmount and CalculationBase cannot both be present) | [optional] 
 **FeeRatePercentage** | **decimal?** | The fee rate percentage. (Required when CalculationBase is present and not compatible with TotalAnnualAccrualAmount) | [optional] 
-**PayableFrequency** | **string** | The payable frequency for the Fee; &#39;Annually&#39;, &#39;Quarterly&#39; or &#39;Monthly&#39;. | 
-**BusinessDayConvention** | **string** | The business day convention to use for Fee calculations on weekends or holidays. Supported string values are: [Previous, P, Following, F, None]. | 
+**PayableFrequency** | **string** | The payable frequency for the Fee. Available values: Annually, Quarterly, Monthly. | 
+**BusinessDayConvention** | **string** | The business day convention to use for Fee calculations on weekends or holidays. Available values: None, P, Previous, F, Following. | 
 **StartDate** | **DateTimeOffset** | The start date of the Fee. | 
 **EndDate** | **DateTimeOffset** | The end date of the Fee. | [optional] 
 **AnchorDate** | [**DayMonth**](DayMonth.md) |  | [optional] 

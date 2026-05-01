@@ -39,7 +39,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="IntermediateComplianceStepRequest" /> class.
         /// </summary>
         /// <param name="label">The label of the compliance step (required).</param>
-        /// <param name="complianceStepTypeRequest">. The available values are: FilterStepRequest, GroupByStepRequest, GroupFilterStepRequest, BranchStepRequest, CheckStepRequest, PercentCheckStepRequest (required) (default to &quot;IntermediateComplianceStepRequest&quot;).</param>
+        /// <param name="complianceStepTypeRequest">The type of the compliance step. Available values: FilterStepRequest, GroupByStepRequest, GroupFilterStepRequest, BranchStepRequest, CheckStepRequest, PercentCheckStepRequest. (required) (default to &quot;IntermediateComplianceStepRequest&quot;).</param>
         public IntermediateComplianceStepRequest(string label = default(string), ComplianceStepTypeRequestEnum complianceStepTypeRequest = default(ComplianceStepTypeRequestEnum)) : base(complianceStepTypeRequest)
         {
             // to ensure "label" is required (not null)

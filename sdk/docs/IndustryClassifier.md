@@ -5,7 +5,7 @@ Object describing a particular industry classifier,  which comprises a classific
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassificationSystemName** | **string** | The name of the classification system to which the classification code belongs (e.g. GICS). | 
+**ClassificationSystemName** | **string** | The name of the classification system to which the classification code belongs (e.g. GICS). Available values: GICS2018. | 
 **ClassificationCode** | **string** | The specific industry classification code assigned to the legal entity. | 
 
 ```csharp

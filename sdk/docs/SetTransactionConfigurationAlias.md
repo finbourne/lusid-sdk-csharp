@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Type** | **string** |  | 
 **Description** | **string** |  | 
 **TransactionClass** | **string** |  | 
-**TransactionRole** | **string** |  | 
+**TransactionRole** | **string** | Available values: None, LongLonger, LongShorter, ShortShorter, Shorter, ShortLonger, Longer, AllRoles. | 
 **IsDefault** | **bool** |  | [optional] 
 
 ```csharp

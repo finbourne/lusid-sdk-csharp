@@ -5,7 +5,7 @@ For indicating a dependency upon calendar codes
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DependencyType** | **string** | The available values are: OpaqueDependency, CashDependency, DiscountingDependency, EquityCurveDependency, EquityVolDependency, FxDependency, FxForwardsDependency, FxVolDependency, IndexProjectionDependency, IrVolDependency, QuoteDependency, Vendor, CalendarDependency, InflationFixingDependency | 
+**DependencyType** | **string** | Available values: OpaqueDependency, CashDependency, DiscountingDependency, EquityCurveDependency, EquityVolDependency, FxDependency, FxForwardsDependency, FxVolDependency, IndexProjectionDependency, IrVolDependency, QuoteDependency, Vendor, CalendarDependency, InflationFixingDependency. | 
 **Calendars** | **List&lt;string&gt;** | The Codes of the calendars that are depended upon. | 
 
 ```csharp

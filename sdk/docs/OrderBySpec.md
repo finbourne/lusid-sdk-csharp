@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Key** | **string** | The key that uniquely identifies a queryable address in Lusid. | 
-**SortOrder** | **string** | The available values are: Ascending, Descending | 
+**SortOrder** | **string** | Available values: Ascending, Descending. | 
 
 ```csharp
 using Lusid.Sdk.Model;

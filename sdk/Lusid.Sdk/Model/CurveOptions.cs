@@ -38,10 +38,10 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CurveOptions" /> class.
         /// </summary>
-        /// <param name="dayCountConvention">Day count convention of the curve. Defaults to \&quot;Act360\&quot;..</param>
-        /// <param name="frontExtrapolationType">What type of extrapolation is used to build the curve  Imagine that the curve is facing the observer(you), then the \&quot;front\&quot; direction is the closest point on the curve onward.    example: 0D tenor to past  Defaults to \&quot;Flat\&quot;. Supported string (enumeration) values are: [None, Flat, Linear]..</param>
-        /// <param name="backExtrapolationType">What type of extrapolation is used to build the curve.    Imagine that the curve is facing the observer(you), then the \&quot;back\&quot; direction is the furthest point on the curve onward.  example: 30Y tenor to infinity    Defaults to \&quot;Flat\&quot;. Supported string (enumeration) values are: [None, Flat, Linear]..</param>
-        /// <param name="marketDataOptionsType">The available values are: CurveOptions (required) (default to &quot;CurveOptions&quot;).</param>
+        /// <param name="dayCountConvention">Day count convention of the curve. Default value: Act360. Available values: Actual360, Act360, MoneyMarket, Actual365, Act365, Thirty360, ThirtyU360, Bond, ThirtyE360, EuroBond, ActualActual, ActAct, ActActIsda, ActActIsma, ActActIcma, OneOne, Act364, Act365F, Act365L, Act365_25, Act252, Bus252, NL360, NL365, ActActAFB, Act365Cad, ThirtyActIsda, Thirty365Isda, ThirtyEActIsda, ThirtyE360Isda, ThirtyE365Isda, ThirtyU360EOM, Invalid..</param>
+        /// <param name="frontExtrapolationType">What type of extrapolation is used to build the curve  Imagine that the curve is facing the observer(you), then the \&quot;front\&quot; direction is the closest point on the curve onward.    example: 0D tenor to past  Default value: Flat. Available values: None, Flat, Linear..</param>
+        /// <param name="backExtrapolationType">What type of extrapolation is used to build the curve.    Imagine that the curve is facing the observer(you), then the \&quot;back\&quot; direction is the furthest point on the curve onward.  example: 30Y tenor to infinity    Default value: Flat. Available values: None, Flat, Linear..</param>
+        /// <param name="marketDataOptionsType">Available values: CurveOptions. Available values: CurveOptions. (required) (default to &quot;CurveOptions&quot;).</param>
         public CurveOptions(string dayCountConvention = default(string), string frontExtrapolationType = default(string), string backExtrapolationType = default(string), MarketDataOptionsTypeEnum marketDataOptionsType = default(MarketDataOptionsTypeEnum)) : base(marketDataOptionsType)
         {
             this.DayCountConvention = dayCountConvention;
@@ -50,23 +50,23 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// Day count convention of the curve. Defaults to \&quot;Act360\&quot;.
+        /// Day count convention of the curve. Default value: Act360. Available values: Actual360, Act360, MoneyMarket, Actual365, Act365, Thirty360, ThirtyU360, Bond, ThirtyE360, EuroBond, ActualActual, ActAct, ActActIsda, ActActIsma, ActActIcma, OneOne, Act364, Act365F, Act365L, Act365_25, Act252, Bus252, NL360, NL365, ActActAFB, Act365Cad, ThirtyActIsda, Thirty365Isda, ThirtyEActIsda, ThirtyE360Isda, ThirtyE365Isda, ThirtyU360EOM, Invalid.
         /// </summary>
-        /// <value>Day count convention of the curve. Defaults to \&quot;Act360\&quot;.</value>
+        /// <value>Day count convention of the curve. Default value: Act360. Available values: Actual360, Act360, MoneyMarket, Actual365, Act365, Thirty360, ThirtyU360, Bond, ThirtyE360, EuroBond, ActualActual, ActAct, ActActIsda, ActActIsma, ActActIcma, OneOne, Act364, Act365F, Act365L, Act365_25, Act252, Bus252, NL360, NL365, ActActAFB, Act365Cad, ThirtyActIsda, Thirty365Isda, ThirtyEActIsda, ThirtyE360Isda, ThirtyE365Isda, ThirtyU360EOM, Invalid.</value>
         [DataMember(Name = "dayCountConvention", EmitDefaultValue = true)]
         public string DayCountConvention { get; set; }
 
         /// <summary>
-        /// What type of extrapolation is used to build the curve  Imagine that the curve is facing the observer(you), then the \&quot;front\&quot; direction is the closest point on the curve onward.    example: 0D tenor to past  Defaults to \&quot;Flat\&quot;. Supported string (enumeration) values are: [None, Flat, Linear].
+        /// What type of extrapolation is used to build the curve  Imagine that the curve is facing the observer(you), then the \&quot;front\&quot; direction is the closest point on the curve onward.    example: 0D tenor to past  Default value: Flat. Available values: None, Flat, Linear.
         /// </summary>
-        /// <value>What type of extrapolation is used to build the curve  Imagine that the curve is facing the observer(you), then the \&quot;front\&quot; direction is the closest point on the curve onward.    example: 0D tenor to past  Defaults to \&quot;Flat\&quot;. Supported string (enumeration) values are: [None, Flat, Linear].</value>
+        /// <value>What type of extrapolation is used to build the curve  Imagine that the curve is facing the observer(you), then the \&quot;front\&quot; direction is the closest point on the curve onward.    example: 0D tenor to past  Default value: Flat. Available values: None, Flat, Linear.</value>
         [DataMember(Name = "frontExtrapolationType", EmitDefaultValue = true)]
         public string FrontExtrapolationType { get; set; }
 
         /// <summary>
-        /// What type of extrapolation is used to build the curve.    Imagine that the curve is facing the observer(you), then the \&quot;back\&quot; direction is the furthest point on the curve onward.  example: 30Y tenor to infinity    Defaults to \&quot;Flat\&quot;. Supported string (enumeration) values are: [None, Flat, Linear].
+        /// What type of extrapolation is used to build the curve.    Imagine that the curve is facing the observer(you), then the \&quot;back\&quot; direction is the furthest point on the curve onward.  example: 30Y tenor to infinity    Default value: Flat. Available values: None, Flat, Linear.
         /// </summary>
-        /// <value>What type of extrapolation is used to build the curve.    Imagine that the curve is facing the observer(you), then the \&quot;back\&quot; direction is the furthest point on the curve onward.  example: 30Y tenor to infinity    Defaults to \&quot;Flat\&quot;. Supported string (enumeration) values are: [None, Flat, Linear].</value>
+        /// <value>What type of extrapolation is used to build the curve.    Imagine that the curve is facing the observer(you), then the \&quot;back\&quot; direction is the furthest point on the curve onward.  example: 30Y tenor to infinity    Default value: Flat. Available values: None, Flat, Linear.</value>
         [DataMember(Name = "backExtrapolationType", EmitDefaultValue = true)]
         public string BackExtrapolationType { get; set; }
 

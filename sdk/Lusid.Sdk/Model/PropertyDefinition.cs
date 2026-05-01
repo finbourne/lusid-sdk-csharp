@@ -29,9 +29,9 @@ namespace Lusid.Sdk.Model
     public partial class PropertyDefinition : IEquatable<PropertyDefinition>, IValidatableObject
     {
         /// <summary>
-        /// The type of values that can be associated with this property. This is defined by the property&#39;s data type. The available values are: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, Code, Id, Uri, CurrencyAndAmount, TradePrice, Currency, MetricValue, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, UnindexedText
+        /// The type of values that can be associated with this property. This is defined by the property&#39;s data type. Available values: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, Code, Id, Uri, CurrencyAndAmount, TradePrice, Currency, MetricValue, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, UnindexedText.
         /// </summary>
-        /// <value>The type of values that can be associated with this property. This is defined by the property&#39;s data type. The available values are: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, Code, Id, Uri, CurrencyAndAmount, TradePrice, Currency, MetricValue, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, UnindexedText</value>
+        /// <value>The type of values that can be associated with this property. This is defined by the property&#39;s data type. Available values: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, Code, Id, Uri, CurrencyAndAmount, TradePrice, Currency, MetricValue, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, UnindexedText.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ValueTypeEnum
         {
@@ -164,15 +164,15 @@ namespace Lusid.Sdk.Model
 
 
         /// <summary>
-        /// The type of values that can be associated with this property. This is defined by the property&#39;s data type. The available values are: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, Code, Id, Uri, CurrencyAndAmount, TradePrice, Currency, MetricValue, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, UnindexedText
+        /// The type of values that can be associated with this property. This is defined by the property&#39;s data type. Available values: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, Code, Id, Uri, CurrencyAndAmount, TradePrice, Currency, MetricValue, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, UnindexedText.
         /// </summary>
-        /// <value>The type of values that can be associated with this property. This is defined by the property&#39;s data type. The available values are: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, Code, Id, Uri, CurrencyAndAmount, TradePrice, Currency, MetricValue, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, UnindexedText</value>
+        /// <value>The type of values that can be associated with this property. This is defined by the property&#39;s data type. Available values: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, Code, Id, Uri, CurrencyAndAmount, TradePrice, Currency, MetricValue, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, UnindexedText.</value>
         [DataMember(Name = "valueType", EmitDefaultValue = false)]
         public ValueTypeEnum? ValueType { get; set; }
         /// <summary>
-        /// The type of the property. The available values are: Label, Metric, Information
+        /// The type of the property. Available values: Label, Metric, Information.
         /// </summary>
-        /// <value>The type of the property. The available values are: Label, Metric, Information</value>
+        /// <value>The type of the property. Available values: Label, Metric, Information.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TypeEnum
         {
@@ -197,15 +197,15 @@ namespace Lusid.Sdk.Model
 
 
         /// <summary>
-        /// The type of the property. The available values are: Label, Metric, Information
+        /// The type of the property. Available values: Label, Metric, Information.
         /// </summary>
-        /// <value>The type of the property. The available values are: Label, Metric, Information</value>
+        /// <value>The type of the property. Available values: Label, Metric, Information.</value>
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public TypeEnum? Type { get; set; }
         /// <summary>
-        /// The units that can be associated with the property&#39;s values. This is defined by the property&#39;s data type. The available values are: NoUnits, Basic, Iso4217Currency
+        /// The units that can be associated with the property&#39;s values. This is defined by the property&#39;s data type. Available values: NoUnits, Basic, Iso4217Currency.
         /// </summary>
-        /// <value>The units that can be associated with the property&#39;s values. This is defined by the property&#39;s data type. The available values are: NoUnits, Basic, Iso4217Currency</value>
+        /// <value>The units that can be associated with the property&#39;s values. This is defined by the property&#39;s data type. Available values: NoUnits, Basic, Iso4217Currency.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum UnitSchemaEnum
         {
@@ -230,15 +230,15 @@ namespace Lusid.Sdk.Model
 
 
         /// <summary>
-        /// The units that can be associated with the property&#39;s values. This is defined by the property&#39;s data type. The available values are: NoUnits, Basic, Iso4217Currency
+        /// The units that can be associated with the property&#39;s values. This is defined by the property&#39;s data type. Available values: NoUnits, Basic, Iso4217Currency.
         /// </summary>
-        /// <value>The units that can be associated with the property&#39;s values. This is defined by the property&#39;s data type. The available values are: NoUnits, Basic, Iso4217Currency</value>
+        /// <value>The units that can be associated with the property&#39;s values. This is defined by the property&#39;s data type. Available values: NoUnits, Basic, Iso4217Currency.</value>
         [DataMember(Name = "unitSchema", EmitDefaultValue = false)]
         public UnitSchemaEnum? UnitSchema { get; set; }
         /// <summary>
-        /// The domain that the property exists in. The available values are: NotDefined, Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, CutLabelDefinition, Analytic, PortfolioGroup, Person, AccessMetadata, Order, UnitResult, MarketData, ConfigurationRecipe, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, NextBestAction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, AddressKeyDefinition, AmortisationRuleSet, AnalyticsSetInventory, AtomUnitResult, CleardownModule, ComplexMarketData, ComplianceRunSummary, ComplianceRule, ComplianceRunInfo, CorporateActionSource, CounterpartyAgreement, CustomEntityDefinition, DataType, Dialect, EventHandler, GeneralLedgerProfile, PostingModule, Quote, RecipeComposer, ReconciliationRunBreak, ReferenceList, RelationDefinition, ReturnBlockIndex, SRSDocument, SRSIndex, TransactionTemplate, TransactionTemplateScope, TransactionType, TransactionTypeConfig, TranslationScript, TaskDefinition, TaskInstance, Worker, StagingRuleSet, IdentifierDefinition, SettlementInstruction, TransactionFee
+        /// The domain that the property exists in. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, IdentifierDefinition, SettlementInstruction, TransactionFee.
         /// </summary>
-        /// <value>The domain that the property exists in. The available values are: NotDefined, Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, CutLabelDefinition, Analytic, PortfolioGroup, Person, AccessMetadata, Order, UnitResult, MarketData, ConfigurationRecipe, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, NextBestAction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, AddressKeyDefinition, AmortisationRuleSet, AnalyticsSetInventory, AtomUnitResult, CleardownModule, ComplexMarketData, ComplianceRunSummary, ComplianceRule, ComplianceRunInfo, CorporateActionSource, CounterpartyAgreement, CustomEntityDefinition, DataType, Dialect, EventHandler, GeneralLedgerProfile, PostingModule, Quote, RecipeComposer, ReconciliationRunBreak, ReferenceList, RelationDefinition, ReturnBlockIndex, SRSDocument, SRSIndex, TransactionTemplate, TransactionTemplateScope, TransactionType, TransactionTypeConfig, TranslationScript, TaskDefinition, TaskInstance, Worker, StagingRuleSet, IdentifierDefinition, SettlementInstruction, TransactionFee</value>
+        /// <value>The domain that the property exists in. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, IdentifierDefinition, SettlementInstruction, TransactionFee.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum DomainEnum
         {
@@ -749,15 +749,15 @@ namespace Lusid.Sdk.Model
 
 
         /// <summary>
-        /// The domain that the property exists in. The available values are: NotDefined, Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, CutLabelDefinition, Analytic, PortfolioGroup, Person, AccessMetadata, Order, UnitResult, MarketData, ConfigurationRecipe, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, NextBestAction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, AddressKeyDefinition, AmortisationRuleSet, AnalyticsSetInventory, AtomUnitResult, CleardownModule, ComplexMarketData, ComplianceRunSummary, ComplianceRule, ComplianceRunInfo, CorporateActionSource, CounterpartyAgreement, CustomEntityDefinition, DataType, Dialect, EventHandler, GeneralLedgerProfile, PostingModule, Quote, RecipeComposer, ReconciliationRunBreak, ReferenceList, RelationDefinition, ReturnBlockIndex, SRSDocument, SRSIndex, TransactionTemplate, TransactionTemplateScope, TransactionType, TransactionTypeConfig, TranslationScript, TaskDefinition, TaskInstance, Worker, StagingRuleSet, IdentifierDefinition, SettlementInstruction, TransactionFee
+        /// The domain that the property exists in. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, IdentifierDefinition, SettlementInstruction, TransactionFee.
         /// </summary>
-        /// <value>The domain that the property exists in. The available values are: NotDefined, Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, CutLabelDefinition, Analytic, PortfolioGroup, Person, AccessMetadata, Order, UnitResult, MarketData, ConfigurationRecipe, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, NextBestAction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, AddressKeyDefinition, AmortisationRuleSet, AnalyticsSetInventory, AtomUnitResult, CleardownModule, ComplexMarketData, ComplianceRunSummary, ComplianceRule, ComplianceRunInfo, CorporateActionSource, CounterpartyAgreement, CustomEntityDefinition, DataType, Dialect, EventHandler, GeneralLedgerProfile, PostingModule, Quote, RecipeComposer, ReconciliationRunBreak, ReferenceList, RelationDefinition, ReturnBlockIndex, SRSDocument, SRSIndex, TransactionTemplate, TransactionTemplateScope, TransactionType, TransactionTypeConfig, TranslationScript, TaskDefinition, TaskInstance, Worker, StagingRuleSet, IdentifierDefinition, SettlementInstruction, TransactionFee</value>
+        /// <value>The domain that the property exists in. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, IdentifierDefinition, SettlementInstruction, TransactionFee.</value>
         [DataMember(Name = "domain", EmitDefaultValue = false)]
         public DomainEnum? Domain { get; set; }
         /// <summary>
-        /// Describes how the property&#39;s values can change over time. The available values are: Perpetual, TimeVariant
+        /// Describes how the property&#39;s values can change over time. Available values: Perpetual, TimeVariant.
         /// </summary>
-        /// <value>Describes how the property&#39;s values can change over time. The available values are: Perpetual, TimeVariant</value>
+        /// <value>Describes how the property&#39;s values can change over time. Available values: Perpetual, TimeVariant.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum LifeTimeEnum
         {
@@ -776,15 +776,15 @@ namespace Lusid.Sdk.Model
 
 
         /// <summary>
-        /// Describes how the property&#39;s values can change over time. The available values are: Perpetual, TimeVariant
+        /// Describes how the property&#39;s values can change over time. Available values: Perpetual, TimeVariant.
         /// </summary>
-        /// <value>Describes how the property&#39;s values can change over time. The available values are: Perpetual, TimeVariant</value>
+        /// <value>Describes how the property&#39;s values can change over time. Available values: Perpetual, TimeVariant.</value>
         [DataMember(Name = "lifeTime", EmitDefaultValue = false)]
         public LifeTimeEnum? LifeTime { get; set; }
         /// <summary>
-        /// The definition type (DerivedDefinition or Definition). The available values are: ValueProperty, DerivedDefinition
+        /// The definition type. Available values: ValueProperty, DerivedDefinition.
         /// </summary>
-        /// <value>The definition type (DerivedDefinition or Definition). The available values are: ValueProperty, DerivedDefinition</value>
+        /// <value>The definition type. Available values: ValueProperty, DerivedDefinition.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum PropertyDefinitionTypeEnum
         {
@@ -803,9 +803,9 @@ namespace Lusid.Sdk.Model
 
 
         /// <summary>
-        /// The definition type (DerivedDefinition or Definition). The available values are: ValueProperty, DerivedDefinition
+        /// The definition type. Available values: ValueProperty, DerivedDefinition.
         /// </summary>
-        /// <value>The definition type (DerivedDefinition or Definition). The available values are: ValueProperty, DerivedDefinition</value>
+        /// <value>The definition type. Available values: ValueProperty, DerivedDefinition.</value>
         [DataMember(Name = "propertyDefinitionType", EmitDefaultValue = false)]
         public PropertyDefinitionTypeEnum? PropertyDefinitionType { get; set; }
         /// <summary>
@@ -813,19 +813,19 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
         /// <param name="key">The property key which uniquely identifies the property. The format for the property key is {domain}/{scope}/{code}, e.g. &#39;Portfolio/Manager/Id&#39;..</param>
-        /// <param name="valueType">The type of values that can be associated with this property. This is defined by the property&#39;s data type. The available values are: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, Code, Id, Uri, CurrencyAndAmount, TradePrice, Currency, MetricValue, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, UnindexedText.</param>
+        /// <param name="valueType">The type of values that can be associated with this property. This is defined by the property&#39;s data type. Available values: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, Code, Id, Uri, CurrencyAndAmount, TradePrice, Currency, MetricValue, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, UnindexedText..</param>
         /// <param name="displayName">The display name of the property..</param>
         /// <param name="dataTypeId">dataTypeId.</param>
-        /// <param name="type">The type of the property. The available values are: Label, Metric, Information.</param>
-        /// <param name="unitSchema">The units that can be associated with the property&#39;s values. This is defined by the property&#39;s data type. The available values are: NoUnits, Basic, Iso4217Currency.</param>
-        /// <param name="domain">The domain that the property exists in. The available values are: NotDefined, Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, CutLabelDefinition, Analytic, PortfolioGroup, Person, AccessMetadata, Order, UnitResult, MarketData, ConfigurationRecipe, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, NextBestAction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, AddressKeyDefinition, AmortisationRuleSet, AnalyticsSetInventory, AtomUnitResult, CleardownModule, ComplexMarketData, ComplianceRunSummary, ComplianceRule, ComplianceRunInfo, CorporateActionSource, CounterpartyAgreement, CustomEntityDefinition, DataType, Dialect, EventHandler, GeneralLedgerProfile, PostingModule, Quote, RecipeComposer, ReconciliationRunBreak, ReferenceList, RelationDefinition, ReturnBlockIndex, SRSDocument, SRSIndex, TransactionTemplate, TransactionTemplateScope, TransactionType, TransactionTypeConfig, TranslationScript, TaskDefinition, TaskInstance, Worker, StagingRuleSet, IdentifierDefinition, SettlementInstruction, TransactionFee.</param>
+        /// <param name="type">The type of the property. Available values: Label, Metric, Information..</param>
+        /// <param name="unitSchema">The units that can be associated with the property&#39;s values. This is defined by the property&#39;s data type. Available values: NoUnits, Basic, Iso4217Currency..</param>
+        /// <param name="domain">The domain that the property exists in. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, IdentifierDefinition, SettlementInstruction, TransactionFee..</param>
         /// <param name="valueRequired">This field is not implemented and should be disregarded..</param>
-        /// <param name="lifeTime">Describes how the property&#39;s values can change over time. The available values are: Perpetual, TimeVariant.</param>
+        /// <param name="lifeTime">Describes how the property&#39;s values can change over time. Available values: Perpetual, TimeVariant..</param>
         /// <param name="constraintStyle">Describes the uniqueness and cardinality of the property for entity objects under the property domain specified in Key..</param>
-        /// <param name="propertyDefinitionType">The definition type (DerivedDefinition or Definition). The available values are: ValueProperty, DerivedDefinition.</param>
+        /// <param name="propertyDefinitionType">The definition type. Available values: ValueProperty, DerivedDefinition..</param>
         /// <param name="propertyDescription">A brief description of what a property of this property definition contains..</param>
         /// <param name="derivationFormula">The rule that defines how data is composed for a derived property..</param>
-        /// <param name="collectionType">Describes whether a collection property should behave as a set or as an array..</param>
+        /// <param name="collectionType">Describes whether a collection property should behave as a Set or as an Array..</param>
         /// <param name="properties">Set of unique property definition properties and associated values to store with the property definition. Each property must be from the &#39;PropertyDefinition&#39; domain..</param>
         /// <param name="varVersion">varVersion.</param>
         /// <param name="stagedModifications">stagedModifications.</param>
@@ -945,9 +945,9 @@ namespace Lusid.Sdk.Model
         public string DerivationFormula { get; set; }
 
         /// <summary>
-        /// Describes whether a collection property should behave as a set or as an array.
+        /// Describes whether a collection property should behave as a Set or as an Array.
         /// </summary>
-        /// <value>Describes whether a collection property should behave as a set or as an array.</value>
+        /// <value>Describes whether a collection property should behave as a Set or as an Array.</value>
         [DataMember(Name = "collectionType", EmitDefaultValue = true)]
         public string CollectionType { get; set; }
 

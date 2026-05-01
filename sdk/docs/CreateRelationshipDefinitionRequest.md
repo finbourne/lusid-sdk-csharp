@@ -11,8 +11,8 @@ Name | Type | Description | Notes
 **DisplayName** | **string** | The display name of the relationship definition. | 
 **OutwardDescription** | **string** | The description to relate source entity object and target entity object. | 
 **InwardDescription** | **string** | The description to relate target entity object and source entity object. | 
-**LifeTime** | **string** | Describes how the relationships can change over time. Allowed values are &#39;Perpetual&#39; and &#39;TimeVariant&#39;, defaults to &#39;Perpetual&#39; if not specified. | [optional] 
-**RelationshipCardinality** | **string** | Describes the cardinality of the relationship with a specific source entity object and relationships under this definition. Allowed values are &#39;ManyToMany&#39; and &#39;ManyToOne&#39;, defaults to &#39;ManyToMany&#39; if not specified. | [optional] 
+**LifeTime** | **string** | Describes how the relationships can change over time. Default value: Perpetual. Available values: Perpetual, TimeVariant. | [optional] 
+**RelationshipCardinality** | **string** | Describes the cardinality of the relationship with a specific source entity object and relationships under this definition. Default value: ManyToMany. Available values: ManyToOne, ManyToMany. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;

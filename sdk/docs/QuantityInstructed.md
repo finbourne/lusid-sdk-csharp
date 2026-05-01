@@ -5,7 +5,7 @@ The quantity of the event that was instructed, represented either as a percentag
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **string** | The type of quantity instructed, either Percentage or Units. | 
+**Type** | **string** | The type of quantity instructed. Available values: Percentage, Units, Invalid. | 
 **Amount** | **decimal** | The actual amount instructed. For Type Percentage, this is between 0 and 100. | 
 
 ```csharp

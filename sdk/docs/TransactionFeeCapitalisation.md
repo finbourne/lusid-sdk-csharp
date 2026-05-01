@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Capitalisation** | **string** | Whether the transaction fee should be capitalised, not capitalised, or conditionally capitalised. The allowed values are Capitalised, NonCapitalised, Conditional. | [optional] 
+**Capitalisation** | **string** | Whether the transaction fee should be capitalised, not capitalised, or conditionally capitalised. Available values: Capitalised, NonCapitalised, Conditional. | [optional] 
 **CapitalisedCondition** | **string** | The condition that determines whether the fee is capitalised when applied to the transaction. Required only when Capitalisation is &#39;Conditional&#39;. | [optional] 
 
 ```csharp

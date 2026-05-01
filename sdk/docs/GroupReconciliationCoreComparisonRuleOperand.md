@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Key** | **string** | The key of the value to compare | 
-**Operation** | **string** | What to do with the value pointed to by the key, e.g. Sum. Only \&quot;Value is allowed for core rules\&quot; | 
+**Operation** | **string** | What to do with the value pointed to by the key, e.g. Sum. Only \&quot;Value is allowed for core rules\&quot;. Available values: Value. | 
 
 ```csharp
 using Lusid.Sdk.Model;

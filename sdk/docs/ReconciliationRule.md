@@ -5,7 +5,7 @@ Base class for representing reconciliation rules in LUSID.  Reconciliation rules
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RuleType** | **string** | The available values are: ReconcileNumericRule, ReconcileDateTimeRule, ReconcileStringRule, ReconcileExact | 
+**RuleType** | **string** | Available values: ReconcileNumericRule, ReconcileDateTimeRule, ReconcileStringRule, ReconcileExact. | 
 
 ```csharp
 using Lusid.Sdk.Model;

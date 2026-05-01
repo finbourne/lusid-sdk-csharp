@@ -32,10 +32,10 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="TransactionSettlementMovement" /> class.
         /// </summary>
         /// <param name="name">The movement name (optional).</param>
-        /// <param name="type">Movement types determine the impact of the movement on the holdings. The available values are: Settlement, Traded, StockMovement, FutureCash,  Commitment, Receivable, CashSettlement, CashForward, CashCommitment, CashReceivable, Accrual, CashAccrual, ForwardFx, CashFxForward, Carry, CarryAsPnl, VariationMargin, Capital, Fee, Deferred, CashDeferred..</param>
+        /// <param name="type">Movement types determine the impact of the movement on the holdings..</param>
         /// <param name="units">The number of units for the movement..</param>
         /// <param name="direction"> A multiplier to apply to Transaction amounts; the values are -1 to indicate to reverse the signs and 1 to indicate to use the signed values from the Transaction directly. For a typical Transaction with unsigned values, 1 means increase, -1 means decrease.</param>
-        /// <param name="settlementMode">The mode of settlement for the movement which can either be Internal or External. An Internal movement will settle automatically on the contractual settlement date using TransactionConfiguration. An External movement will be determined by portfolio configuration and settlement instruction..</param>
+        /// <param name="settlementMode">The mode of settlement for the movement which can either be Internal or External. An Internal movement will settle automatically on the contractual settlement date using TransactionConfiguration. An External movement will be determined by portfolio configuration and settlement instruction. Available values: Internal, External..</param>
         public TransactionSettlementMovement(string name = default(string), string type = default(string), decimal units = default(decimal), int direction = default(int), string settlementMode = default(string))
         {
             this.Name = name;
@@ -53,9 +53,9 @@ namespace Lusid.Sdk.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// Movement types determine the impact of the movement on the holdings. The available values are: Settlement, Traded, StockMovement, FutureCash,  Commitment, Receivable, CashSettlement, CashForward, CashCommitment, CashReceivable, Accrual, CashAccrual, ForwardFx, CashFxForward, Carry, CarryAsPnl, VariationMargin, Capital, Fee, Deferred, CashDeferred.
+        /// Movement types determine the impact of the movement on the holdings.
         /// </summary>
-        /// <value>Movement types determine the impact of the movement on the holdings. The available values are: Settlement, Traded, StockMovement, FutureCash,  Commitment, Receivable, CashSettlement, CashForward, CashCommitment, CashReceivable, Accrual, CashAccrual, ForwardFx, CashFxForward, Carry, CarryAsPnl, VariationMargin, Capital, Fee, Deferred, CashDeferred.</value>
+        /// <value>Movement types determine the impact of the movement on the holdings.</value>
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public string Type { get; set; }
 
@@ -74,9 +74,9 @@ namespace Lusid.Sdk.Model
         public int Direction { get; set; }
 
         /// <summary>
-        /// The mode of settlement for the movement which can either be Internal or External. An Internal movement will settle automatically on the contractual settlement date using TransactionConfiguration. An External movement will be determined by portfolio configuration and settlement instruction.
+        /// The mode of settlement for the movement which can either be Internal or External. An Internal movement will settle automatically on the contractual settlement date using TransactionConfiguration. An External movement will be determined by portfolio configuration and settlement instruction. Available values: Internal, External.
         /// </summary>
-        /// <value>The mode of settlement for the movement which can either be Internal or External. An Internal movement will settle automatically on the contractual settlement date using TransactionConfiguration. An External movement will be determined by portfolio configuration and settlement instruction.</value>
+        /// <value>The mode of settlement for the movement which can either be Internal or External. An Internal movement will settle automatically on the contractual settlement date using TransactionConfiguration. An External movement will be determined by portfolio configuration and settlement instruction. Available values: Internal, External.</value>
         [DataMember(Name = "settlementMode", EmitDefaultValue = true)]
         public string SettlementMode { get; set; }
 

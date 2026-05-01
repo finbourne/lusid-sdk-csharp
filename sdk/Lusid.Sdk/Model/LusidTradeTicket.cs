@@ -29,9 +29,9 @@ namespace Lusid.Sdk.Model
     public partial class LusidTradeTicket : IEquatable<LusidTradeTicket>, IValidatableObject
     {
         /// <summary>
-        /// The available values are: LusidTradeTicket, ExternalTradeTicket
+        /// Available values: LusidTradeTicket, ExternalTradeTicket.
         /// </summary>
-        /// <value>The available values are: LusidTradeTicket, ExternalTradeTicket</value>
+        /// <value>Available values: LusidTradeTicket, ExternalTradeTicket.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TradeTicketTypeEnum
         {
@@ -50,9 +50,9 @@ namespace Lusid.Sdk.Model
 
 
         /// <summary>
-        /// The available values are: LusidTradeTicket, ExternalTradeTicket
+        /// Available values: LusidTradeTicket, ExternalTradeTicket.
         /// </summary>
-        /// <value>The available values are: LusidTradeTicket, ExternalTradeTicket</value>
+        /// <value>Available values: LusidTradeTicket, ExternalTradeTicket.</value>
         [DataMember(Name = "tradeTicketType", IsRequired = true, EmitDefaultValue = true)]
         public TradeTicketTypeEnum TradeTicketType { get; set; }
         /// <summary>
@@ -78,7 +78,7 @@ namespace Lusid.Sdk.Model
         /// <param name="counterparty">Counterparty.</param>
         /// <param name="instrumentProperties">Set of instrument properties (as defined by client/user)..</param>
         /// <param name="transactionProperties">Set of transaction properties (as defined by client/user)..</param>
-        /// <param name="tradeTicketType">The available values are: LusidTradeTicket, ExternalTradeTicket (required).</param>
+        /// <param name="tradeTicketType">Available values: LusidTradeTicket, ExternalTradeTicket. (required).</param>
         public LusidTradeTicket(string transactionId = default(string), string transactionType = default(string), string source = default(string), string transactionDate = default(string), string settlementDate = default(string), CurrencyAndAmount totalConsideration = default(CurrencyAndAmount), decimal units = default(decimal), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string instrumentScope = default(string), string instrumentName = default(string), LusidInstrument instrumentDefinition = default(LusidInstrument), ResourceId counterpartyAgreementId = default(ResourceId), string counterparty = default(string), List<Property> instrumentProperties = default(List<Property>), List<Property> transactionProperties = default(List<Property>), TradeTicketTypeEnum tradeTicketType = default(TradeTicketTypeEnum))
         {
             // to ensure "transactionId" is required (not null)

@@ -31,7 +31,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PerformanceReturnsMetric" /> class.
         /// </summary>
-        /// <param name="type">The type of the metric. Default to Return.</param>
+        /// <param name="type">The type of the metric. Default value: Return. Available values: Return, Volatility, IndicativeAmount, Dispersion..</param>
         /// <param name="window">The given metric for the calculation i.e. 1Y, 1D..</param>
         /// <param name="allowPartial">Bool if the metric is allowed partial results. Default to false..</param>
         /// <param name="annualised">Bool if the metric is annualized. Default to false..</param>
@@ -50,9 +50,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The type of the metric. Default to Return
+        /// The type of the metric. Default value: Return. Available values: Return, Volatility, IndicativeAmount, Dispersion.
         /// </summary>
-        /// <value>The type of the metric. Default to Return</value>
+        /// <value>The type of the metric. Default value: Return. Available values: Return, Volatility, IndicativeAmount, Dispersion.</value>
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public string Type { get; set; }
 

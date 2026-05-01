@@ -31,7 +31,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TransactionFeeCapitalisation" /> class.
         /// </summary>
-        /// <param name="capitalisation">Whether the transaction fee should be capitalised, not capitalised, or conditionally capitalised. The allowed values are Capitalised, NonCapitalised, Conditional..</param>
+        /// <param name="capitalisation">Whether the transaction fee should be capitalised, not capitalised, or conditionally capitalised. Available values: Capitalised, NonCapitalised, Conditional..</param>
         /// <param name="capitalisedCondition">The condition that determines whether the fee is capitalised when applied to the transaction. Required only when Capitalisation is &#39;Conditional&#39;..</param>
         public TransactionFeeCapitalisation(string capitalisation = default(string), string capitalisedCondition = default(string))
         {
@@ -40,9 +40,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// Whether the transaction fee should be capitalised, not capitalised, or conditionally capitalised. The allowed values are Capitalised, NonCapitalised, Conditional.
+        /// Whether the transaction fee should be capitalised, not capitalised, or conditionally capitalised. Available values: Capitalised, NonCapitalised, Conditional.
         /// </summary>
-        /// <value>Whether the transaction fee should be capitalised, not capitalised, or conditionally capitalised. The allowed values are Capitalised, NonCapitalised, Conditional.</value>
+        /// <value>Whether the transaction fee should be capitalised, not capitalised, or conditionally capitalised. Available values: Capitalised, NonCapitalised, Conditional.</value>
         [DataMember(Name = "capitalisation", EmitDefaultValue = true)]
         public string Capitalisation { get; set; }
 

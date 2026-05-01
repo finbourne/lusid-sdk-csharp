@@ -35,7 +35,7 @@ namespace Lusid.Sdk.Model
         /// <param name="yearsCount">For how many years to calculate the dispersion. Default to 10..</param>
         /// <param name="returnIds">The Scope and code of the returns..</param>
         /// <param name="recipeId">recipeId.</param>
-        /// <param name="compositeMethod">The method used to calculate the Portfolio performance: Equal/Asset..</param>
+        /// <param name="compositeMethod">The method used to calculate the Portfolio performance. Available values: Equal, Asset..</param>
         /// <param name="alternativeInceptionDate">Optional - either a date, or the key for a portfolio property containing a date. If provided, the given date will override the inception date for this request..</param>
         public AggregatedReturnsDispersionRequest(DateTimeOrCutLabel toEffectiveAt = default(DateTimeOrCutLabel), int yearsCount = default(int), List<ResourceId> returnIds = default(List<ResourceId>), ResourceId recipeId = default(ResourceId), string compositeMethod = default(string), string alternativeInceptionDate = default(string))
         {
@@ -75,9 +75,9 @@ namespace Lusid.Sdk.Model
         public ResourceId RecipeId { get; set; }
 
         /// <summary>
-        /// The method used to calculate the Portfolio performance: Equal/Asset.
+        /// The method used to calculate the Portfolio performance. Available values: Equal, Asset.
         /// </summary>
-        /// <value>The method used to calculate the Portfolio performance: Equal/Asset.</value>
+        /// <value>The method used to calculate the Portfolio performance. Available values: Equal, Asset.</value>
         [DataMember(Name = "compositeMethod", EmitDefaultValue = true)]
         public string CompositeMethod { get; set; }
 

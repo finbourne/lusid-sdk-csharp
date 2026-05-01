@@ -6,7 +6,7 @@ A list of portfolios.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | [**ResourceId**](ResourceId.md) |  | 
-**Type** | **string** | The type of the portfolio. The available values are: Transaction, Reference, DerivedTransaction, SimplePosition | 
+**Type** | **string** | The type of the portfolio. Available values: Transaction, Reference, DerivedTransaction, SimplePosition. | 
 **DisplayName** | **string** | The name of the portfolio. | 
 **Description** | **string** | The long form description of the portfolio. | [optional] 
 **Created** | **DateTimeOffset** | The effective datetime at which the portfolio was created. No transactions or constituents can be added to the portfolio before this date. | 
@@ -18,8 +18,8 @@ Name | Type | Description | Notes
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | The requested portfolio properties. These will be from the &#39;Portfolio&#39; domain. | [optional] 
 **Relationships** | [**List&lt;Relationship&gt;**](Relationship.md) | A set of relationships associated to the portfolio. | [optional] 
 **InstrumentScopes** | **List&lt;string&gt;** | The instrument scope resolution strategy of this portfolio. | [optional] 
-**AccountingMethod** | **string** | . The available values are: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency, IntraDayThenFirstInFirstOut, LongTermHighestCostFirst, LongTermHighestCostFirstPortfolioCurrency, HighestCostFirstPortfolioCurrency, LowestCostFirstPortfolioCurrency, MaximumLossMinimumGain, MaximumLossMinimumGainPortfolioCurrency | [optional] 
-**AmortisationMethod** | **string** | The amortisation method used by the portfolio for the calculation. The available values are: NoAmortisation, StraightLine, EffectiveYield, StraightLineSettlementDate, EffectiveYieldSettlementDate | [optional] 
+**AccountingMethod** | **string** | The AccountingMethod used for the portfolio. Available values: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency, IntraDayThenFirstInFirstOut, LongTermHighestCostFirst, LongTermHighestCostFirstPortfolioCurrency, HighestCostFirstPortfolioCurrency, LowestCostFirstPortfolioCurrency, MaximumLossMinimumGain, MaximumLossMinimumGainPortfolioCurrency. | [optional] 
+**AmortisationMethod** | **string** | The amortisation method used by the portfolio for the calculation. Available values: NoAmortisation, StraightLine, EffectiveYield, StraightLineSettlementDate, EffectiveYieldSettlementDate. | [optional] 
 **TransactionTypeScope** | **string** | The scope of the transaction types. | [optional] 
 **CashGainLossCalculationDate** | **string** | The scope of the transaction types. | [optional] 
 **InstrumentEventConfiguration** | [**InstrumentEventConfiguration**](InstrumentEventConfiguration.md) |  | [optional] 

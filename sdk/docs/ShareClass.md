@@ -14,8 +14,8 @@ Name | Type | Description | Notes
 **LaunchDate** | **DateTimeOffset?** | The launch date set when a shareclass is added to the fund. Defaults to Fund Inception Date. | [optional] 
 **ApportionmentFactor** | **decimal?** | The weighting factor used for apportionment across this share class. | [optional] 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | An optional set of properties to attach to the auto-created Instrument. Only applied when createInstrument is true. | [optional] 
-**FundShareClassType** | **string** | The Type of Share Class. Supported values are: Unitised / Non-Unitised / Series / Private Equity / Partnership. | 
-**DistributionType** | **string** | The type of distribution the ShareClass will calculate. Supported values are: Income, Accumulation. | 
+**FundShareClassType** | **string** | The Type of Share Class. Available values: Unitised, Inactive, Series, PrivateEquity, Partnership. | 
+**DistributionType** | **string** | The type of distribution the ShareClass will calculate. Available values: Income, Accumulation. | 
 **DomCcy** | **string** | The domestic currency of the ShareClass instrument. | 
 **TradingConventions** | [**TradingConventions**](TradingConventions.md) |  | [optional] 
 **UnitsPrecision** | **int?** | Decimal places for the share class units. | [optional] 
@@ -23,8 +23,8 @@ Name | Type | Description | Notes
 **RoundingConventions** | [**List&lt;SimpleRoundingConvention&gt;**](SimpleRoundingConvention.md) | Rounding conventions used for the ShareClass quotes. | [optional] 
 **RoundingConventionsUnits** | [**List&lt;SimpleRoundingConvention&gt;**](SimpleRoundingConvention.md) | Rounding conventions used for the ShareClass units. | [optional] 
 **TimeZoneConventions** | [**TimeZoneConventions**](TimeZoneConventions.md) |  | [optional] 
-**DistributionPaymentType** | **string** | The tax treatment applied to distributions. Supported values are: Gross, Net. | [optional] 
-**Hedging** | **string** | Indicates whether the ShareClass applies currency hedging. Supported values are: Invalid, None, ApplyHedging. | 
+**DistributionPaymentType** | **string** | The tax treatment applied to distributions. Available values: Invalid, Gross, Net. | [optional] 
+**Hedging** | **string** | Indicates whether the ShareClass applies currency hedging. Available values: Invalid, None, ApplyHedging. | 
 
 ```csharp
 using Lusid.Sdk.Model;

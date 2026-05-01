@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DisplayName** | **string** | The name of the Posting Module. | 
 **Description** | **string** | A description for the Posting Module. | [optional] 
-**Status** | **string** | The Posting Module status. Can be Active or Inactive. Defaults to Active. | 
+**Status** | **string** | The Posting Module status. Default value: Active. Available values: Active, Inactive. | 
 
 ```csharp
 using Lusid.Sdk.Model;

@@ -39,7 +39,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="CashFlowValueSet" /> class.
         /// </summary>
         /// <param name="cashflows">The set of cash flows in the result.</param>
-        /// <param name="resultValueType">The available values are: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, ResultValueBool, ResultValueCurrency, CashFlowValue, CashFlowValueSet, ResultValueLifeCycleEventValue, ResultValueDateTimeOffset (required) (default to &quot;CashFlowValueSet&quot;).</param>
+        /// <param name="resultValueType">Available values: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, ResultValueBool, ResultValueCurrency, CashFlowValue, CashFlowValueSet, ResultValueLifeCycleEventValue, ResultValueDateTimeOffset. (required) (default to &quot;CashFlowValueSet&quot;).</param>
         public CashFlowValueSet(List<CashFlowValue> cashflows = default(List<CashFlowValue>), ResultValueTypeEnum resultValueType = default(ResultValueTypeEnum)) : base(resultValueType)
         {
             this.Cashflows = cashflows;

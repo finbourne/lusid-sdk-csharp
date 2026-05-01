@@ -39,10 +39,10 @@ namespace Lusid.Sdk.Model
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
         /// <param name="aborId">aborId.</param>
         /// <param name="diaryEntryCode">The code of the diary entry..</param>
-        /// <param name="type">The type of the diary entry. (required).</param>
+        /// <param name="type">The type of the diary entry. Available values: PeriodBoundary, ValuationPoint, Other. (required).</param>
         /// <param name="name">The name of the diary entry..</param>
-        /// <param name="status">The status of the diary entry. Statuses are constrained and defaulted by &#39;Type&#39; specified.   Type &#39;Other&#39; defaults to &#39;Undefined&#39; and supports &#39;Undefined&#39;, &#39;Estimate&#39;, &#39;Candidate&#39;, and &#39;Final&#39;.  Type &#39;PeriodBoundary&#39; defaults to &#39;Estimate&#39; when closing a period, and supports &#39;Estimate&#39; and &#39;Final&#39; for closing periods and &#39;Final&#39; for locking periods.  Type &#39;ValuationPoint&#39; defaults to &#39;Estimate&#39; when upserting a diary entry, moves to &#39;Candidate&#39; or &#39;Final&#39; when a ValuationPoint is accepted, and &#39;Final&#39; when it is finalised. (required).</param>
-        /// <param name="applyClearDown">Defaults to false. Set to true if you want that the closed period to have the clear down applied..</param>
+        /// <param name="status">The status of the diary entry. Statuses are constrained and defaulted by &#39;Type&#39; specified.   Type &#39;Other&#39; defaults to &#39;Undefined&#39; and supports &#39;Undefined&#39;, &#39;Estimate&#39;, &#39;Candidate&#39;, and &#39;Final&#39;.  Type &#39;PeriodBoundary&#39; defaults to &#39;Estimate&#39; when closing a period, and supports &#39;Estimate&#39; and &#39;Final&#39; for closing periods and &#39;Final&#39; for locking periods.  Type &#39;ValuationPoint&#39; defaults to &#39;Estimate&#39; when upserting a diary entry, moves to &#39;Candidate&#39; or &#39;Final&#39; when a ValuationPoint is accepted, and &#39;Final&#39; when it is finalised. Available values: Undefined, Estimate, Final, Candidate, Unofficial. (required).</param>
+        /// <param name="applyClearDown">Defaults to false. Set to true if you want that the closed period to have the clear down applied. Available values: Undefined, Estimate, Final, Candidate, Unofficial..</param>
         /// <param name="effectiveAt">The effective time of the diary entry. (required).</param>
         /// <param name="queryAsAt">The query time of the diary entry. Defaults to latest..</param>
         /// <param name="previousEntryTime">The entry time of the previous diary entry..</param>
@@ -97,9 +97,9 @@ namespace Lusid.Sdk.Model
         public string DiaryEntryCode { get; set; }
 
         /// <summary>
-        /// The type of the diary entry.
+        /// The type of the diary entry. Available values: PeriodBoundary, ValuationPoint, Other.
         /// </summary>
-        /// <value>The type of the diary entry.</value>
+        /// <value>The type of the diary entry. Available values: PeriodBoundary, ValuationPoint, Other.</value>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
 
@@ -111,16 +111,16 @@ namespace Lusid.Sdk.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// The status of the diary entry. Statuses are constrained and defaulted by &#39;Type&#39; specified.   Type &#39;Other&#39; defaults to &#39;Undefined&#39; and supports &#39;Undefined&#39;, &#39;Estimate&#39;, &#39;Candidate&#39;, and &#39;Final&#39;.  Type &#39;PeriodBoundary&#39; defaults to &#39;Estimate&#39; when closing a period, and supports &#39;Estimate&#39; and &#39;Final&#39; for closing periods and &#39;Final&#39; for locking periods.  Type &#39;ValuationPoint&#39; defaults to &#39;Estimate&#39; when upserting a diary entry, moves to &#39;Candidate&#39; or &#39;Final&#39; when a ValuationPoint is accepted, and &#39;Final&#39; when it is finalised.
+        /// The status of the diary entry. Statuses are constrained and defaulted by &#39;Type&#39; specified.   Type &#39;Other&#39; defaults to &#39;Undefined&#39; and supports &#39;Undefined&#39;, &#39;Estimate&#39;, &#39;Candidate&#39;, and &#39;Final&#39;.  Type &#39;PeriodBoundary&#39; defaults to &#39;Estimate&#39; when closing a period, and supports &#39;Estimate&#39; and &#39;Final&#39; for closing periods and &#39;Final&#39; for locking periods.  Type &#39;ValuationPoint&#39; defaults to &#39;Estimate&#39; when upserting a diary entry, moves to &#39;Candidate&#39; or &#39;Final&#39; when a ValuationPoint is accepted, and &#39;Final&#39; when it is finalised. Available values: Undefined, Estimate, Final, Candidate, Unofficial.
         /// </summary>
-        /// <value>The status of the diary entry. Statuses are constrained and defaulted by &#39;Type&#39; specified.   Type &#39;Other&#39; defaults to &#39;Undefined&#39; and supports &#39;Undefined&#39;, &#39;Estimate&#39;, &#39;Candidate&#39;, and &#39;Final&#39;.  Type &#39;PeriodBoundary&#39; defaults to &#39;Estimate&#39; when closing a period, and supports &#39;Estimate&#39; and &#39;Final&#39; for closing periods and &#39;Final&#39; for locking periods.  Type &#39;ValuationPoint&#39; defaults to &#39;Estimate&#39; when upserting a diary entry, moves to &#39;Candidate&#39; or &#39;Final&#39; when a ValuationPoint is accepted, and &#39;Final&#39; when it is finalised.</value>
+        /// <value>The status of the diary entry. Statuses are constrained and defaulted by &#39;Type&#39; specified.   Type &#39;Other&#39; defaults to &#39;Undefined&#39; and supports &#39;Undefined&#39;, &#39;Estimate&#39;, &#39;Candidate&#39;, and &#39;Final&#39;.  Type &#39;PeriodBoundary&#39; defaults to &#39;Estimate&#39; when closing a period, and supports &#39;Estimate&#39; and &#39;Final&#39; for closing periods and &#39;Final&#39; for locking periods.  Type &#39;ValuationPoint&#39; defaults to &#39;Estimate&#39; when upserting a diary entry, moves to &#39;Candidate&#39; or &#39;Final&#39; when a ValuationPoint is accepted, and &#39;Final&#39; when it is finalised. Available values: Undefined, Estimate, Final, Candidate, Unofficial.</value>
         [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
         public string Status { get; set; }
 
         /// <summary>
-        /// Defaults to false. Set to true if you want that the closed period to have the clear down applied.
+        /// Defaults to false. Set to true if you want that the closed period to have the clear down applied. Available values: Undefined, Estimate, Final, Candidate, Unofficial.
         /// </summary>
-        /// <value>Defaults to false. Set to true if you want that the closed period to have the clear down applied.</value>
+        /// <value>Defaults to false. Set to true if you want that the closed period to have the clear down applied. Available values: Undefined, Estimate, Final, Candidate, Unofficial.</value>
         [DataMember(Name = "applyClearDown", EmitDefaultValue = true)]
         public bool ApplyClearDown { get; set; }
 

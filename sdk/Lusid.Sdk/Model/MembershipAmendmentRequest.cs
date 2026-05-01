@@ -39,7 +39,7 @@ namespace Lusid.Sdk.Model
         /// <param name="customDataModelId">customDataModelId (required).</param>
         /// <param name="entityType">The type of the entity that is being added or removed from the Custom Data Model. (required).</param>
         /// <param name="entityUniqueId">The entity unique identifier of the entity that is being added or removed from the Custom Data Model. (required).</param>
-        /// <param name="operation">The operation to be performed on the entity&#39;s membership in the Custom Data Model. Either &#39;Add&#39; or &#39;Remove&#39;. (required).</param>
+        /// <param name="operation">The operation to be performed on the entity&#39;s membership in the Custom Data Model. Available values: Add, Remove. (required).</param>
         public MembershipAmendmentRequest(ResourceId customDataModelId = default(ResourceId), string entityType = default(string), string entityUniqueId = default(string), string operation = default(string))
         {
             // to ensure "customDataModelId" is required (not null)
@@ -89,9 +89,9 @@ namespace Lusid.Sdk.Model
         public string EntityUniqueId { get; set; }
 
         /// <summary>
-        /// The operation to be performed on the entity&#39;s membership in the Custom Data Model. Either &#39;Add&#39; or &#39;Remove&#39;.
+        /// The operation to be performed on the entity&#39;s membership in the Custom Data Model. Available values: Add, Remove.
         /// </summary>
-        /// <value>The operation to be performed on the entity&#39;s membership in the Custom Data Model. Either &#39;Add&#39; or &#39;Remove&#39;.</value>
+        /// <value>The operation to be performed on the entity&#39;s membership in the Custom Data Model. Available values: Add, Remove.</value>
         [DataMember(Name = "operation", IsRequired = true, EmitDefaultValue = true)]
         public string Operation { get; set; }
 

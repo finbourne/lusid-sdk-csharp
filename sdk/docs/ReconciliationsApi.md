@@ -653,7 +653,7 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ReconciliationsApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ReconciliationsApi>();
-            var reconciliationType = "reconciliationType_example";  // string? | Optional parameter to specify which type of mappings should be returned.  Defaults to Transaction if not provided. (optional) 
+            var reconciliationType = "reconciliationType_example";  // string? | Optional parameter to specify which type of mappings should be returned.  Default value: Transaction. Available values: Transaction, Holding, Valuation, Cash, CashHolding. (optional) 
 
             try
             {
@@ -699,7 +699,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **reconciliationType** | **string?** | Optional parameter to specify which type of mappings should be returned.  Defaults to Transaction if not provided. | [optional]  |
+| **reconciliationType** | **string?** | Optional parameter to specify which type of mappings should be returned.  Default value: Transaction. Available values: Transaction, Holding, Valuation, Cash, CashHolding. | [optional]  |
 
 ### Return type
 

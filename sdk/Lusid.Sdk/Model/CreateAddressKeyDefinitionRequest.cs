@@ -37,7 +37,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="CreateAddressKeyDefinitionRequest" /> class.
         /// </summary>
         /// <param name="addressKey">The address key of the address key definition. (required).</param>
-        /// <param name="type">The type of the address key definition (required).</param>
+        /// <param name="type">The type of the address key definition. Available values: Text, Integer, Decimal, Boolean, DateTime, Result0D. (required).</param>
         public CreateAddressKeyDefinitionRequest(string addressKey = default(string), string type = default(string))
         {
             // to ensure "addressKey" is required (not null)
@@ -62,9 +62,9 @@ namespace Lusid.Sdk.Model
         public string AddressKey { get; set; }
 
         /// <summary>
-        /// The type of the address key definition
+        /// The type of the address key definition. Available values: Text, Integer, Decimal, Boolean, DateTime, Result0D.
         /// </summary>
-        /// <value>The type of the address key definition</value>
+        /// <value>The type of the address key definition. Available values: Text, Integer, Decimal, Boolean, DateTime, Result0D.</value>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
 

@@ -37,7 +37,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="AddressKeyOptionDefinition" /> class.
         /// </summary>
         /// <param name="name">The name of the option (required).</param>
-        /// <param name="type">The type of the option (required).</param>
+        /// <param name="type">The type of the option. Available values: Bool, Int, Decimal, DateTimeOffset, String, Enum, TimeZoneId, Invalid. (required).</param>
         /// <param name="description">The description of the option (required).</param>
         /// <param name="optional">Is this option required or optional? (required).</param>
         /// <param name="allowedValueSet">If the option is a string or enum, the allowed set of values it can take..</param>
@@ -75,9 +75,9 @@ namespace Lusid.Sdk.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// The type of the option
+        /// The type of the option. Available values: Bool, Int, Decimal, DateTimeOffset, String, Enum, TimeZoneId, Invalid.
         /// </summary>
-        /// <value>The type of the option</value>
+        /// <value>The type of the option. Available values: Bool, Int, Decimal, DateTimeOffset, String, Enum, TimeZoneId, Invalid.</value>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
 

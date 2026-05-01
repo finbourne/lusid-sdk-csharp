@@ -37,7 +37,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="EligibilityCalculation" /> class.
         /// </summary>
         /// <param name="entitlementDate">entitlementDate (required).</param>
-        /// <param name="eligibleUnits">eligibleUnits (required).</param>
+        /// <param name="eligibleUnits">Available values: TotalUnits, SettledUnits, NotApplicable. (required).</param>
         /// <param name="dateModifiableByInstruction">dateModifiableByInstruction.</param>
         public EligibilityCalculation(string entitlementDate = default(string), string eligibleUnits = default(string), bool dateModifiableByInstruction = default(bool))
         {
@@ -63,8 +63,9 @@ namespace Lusid.Sdk.Model
         public string EntitlementDate { get; set; }
 
         /// <summary>
-        /// Gets or Sets EligibleUnits
+        /// Available values: TotalUnits, SettledUnits, NotApplicable.
         /// </summary>
+        /// <value>Available values: TotalUnits, SettledUnits, NotApplicable.</value>
         [DataMember(Name = "eligibleUnits", IsRequired = true, EmitDefaultValue = true)]
         public string EligibleUnits { get; set; }
 

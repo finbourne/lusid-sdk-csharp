@@ -32,7 +32,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="LockPeriodDiaryEntryRequest" /> class.
         /// </summary>
         /// <param name="diaryEntryCode">Unique code assigned to a period. When left blank last closed period will be located..</param>
-        /// <param name="closingOptions">The options which will be executed once a period is closed or locked..</param>
+        /// <param name="closingOptions">The options which will be executed once a period is closed or locked. Available values: ApplyClearDown..</param>
         public LockPeriodDiaryEntryRequest(string diaryEntryCode = default(string), List<string> closingOptions = default(List<string>))
         {
             this.DiaryEntryCode = diaryEntryCode;
@@ -47,9 +47,9 @@ namespace Lusid.Sdk.Model
         public string DiaryEntryCode { get; set; }
 
         /// <summary>
-        /// The options which will be executed once a period is closed or locked.
+        /// The options which will be executed once a period is closed or locked. Available values: ApplyClearDown.
         /// </summary>
-        /// <value>The options which will be executed once a period is closed or locked.</value>
+        /// <value>The options which will be executed once a period is closed or locked. Available values: ApplyClearDown.</value>
         [DataMember(Name = "closingOptions", EmitDefaultValue = true)]
         public List<string> ClosingOptions { get; set; }
 

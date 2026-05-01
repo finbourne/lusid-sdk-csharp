@@ -40,7 +40,7 @@ namespace Lusid.Sdk.Model
         /// <param name="identifiers">Unique client-defined identifiers of the Investment Account. (required).</param>
         /// <param name="displayName">The display name of the Investment Account (required).</param>
         /// <param name="description">The description of the Investment Account.</param>
-        /// <param name="accountType">The type of the of the Investment Account. (required).</param>
+        /// <param name="accountType">The type of the of the Investment Account. Available values: Individual, Corporate, Joint, Nominee. (required).</param>
         /// <param name="accountHolders">The identification of the account holders associated with this investment account.</param>
         /// <param name="investmentPortfolios">The identification of the investment portfolios associated with this investment account.</param>
         /// <param name="properties">A set of properties associated to the Investment Account..</param>
@@ -105,9 +105,9 @@ namespace Lusid.Sdk.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// The type of the of the Investment Account.
+        /// The type of the of the Investment Account. Available values: Individual, Corporate, Joint, Nominee.
         /// </summary>
-        /// <value>The type of the of the Investment Account.</value>
+        /// <value>The type of the of the Investment Account. Available values: Individual, Corporate, Joint, Nominee.</value>
         [DataMember(Name = "accountType", IsRequired = true, EmitDefaultValue = true)]
         public string AccountType { get; set; }
 

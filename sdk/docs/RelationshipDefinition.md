@@ -6,13 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **RelationshipDefinitionId** | [**ResourceId**](ResourceId.md) |  | 
-**SourceEntityType** | **string** | The entity type of the source entity object. | 
-**TargetEntityType** | **string** | The entity type of the target entity object. | 
+**SourceEntityType** | **string** | The entity type of the source entity object. Available values: Portfolio, PortfolioGroup, Person, LegalEntity, NextBestAction. | 
+**TargetEntityType** | **string** | The entity type of the target entity object. Available values: Portfolio, PortfolioGroup, Person, LegalEntity, NextBestAction. | 
 **DisplayName** | **string** | The display name of the relationship. | 
 **OutwardDescription** | **string** | The description to relate source entity object and target entity object | 
 **InwardDescription** | **string** | The description to relate target entity object and source entity object | 
-**LifeTime** | **string** | Describes how the relationships can change over time. | 
-**RelationshipCardinality** | **string** | Describes the cardinality of the relationship between source entity and target entity. | 
+**LifeTime** | **string** | Describes how the relationships can change over time. Available values: Perpetual, TimeVariant. | 
+**RelationshipCardinality** | **string** | Describes the cardinality of the relationship between source entity and target entity. Available values: ManyToOne, ManyToMany. | 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp

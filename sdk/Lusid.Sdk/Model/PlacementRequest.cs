@@ -51,7 +51,7 @@ namespace Lusid.Sdk.Model
         /// <param name="stopPrice">stopPrice.</param>
         /// <param name="counterparty">Optionally specifies the market entity this placement is placed with..</param>
         /// <param name="executionSystem">Optionally specifies the execution system in use..</param>
-        /// <param name="entryType">Optionally specifies the entry type of this placement..</param>
+        /// <param name="entryType">Optionally specifies the entry type of this placement. Available values: Undecided, Manual, Direct, Ems, External..</param>
         public PlacementRequest(ResourceId id = default(ResourceId), ResourceId parentPlacementId = default(ResourceId), List<ResourceId> blockIds = default(List<ResourceId>), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), decimal quantity = default(decimal), string state = default(string), string side = default(string), string timeInForce = default(string), string type = default(string), DateTimeOffset createdDate = default(DateTimeOffset), CurrencyAndAmount limitPrice = default(CurrencyAndAmount), CurrencyAndAmount stopPrice = default(CurrencyAndAmount), string counterparty = default(string), string executionSystem = default(string), string entryType = default(string))
         {
             // to ensure "id" is required (not null)
@@ -204,9 +204,9 @@ namespace Lusid.Sdk.Model
         public string ExecutionSystem { get; set; }
 
         /// <summary>
-        /// Optionally specifies the entry type of this placement.
+        /// Optionally specifies the entry type of this placement. Available values: Undecided, Manual, Direct, Ems, External.
         /// </summary>
-        /// <value>Optionally specifies the entry type of this placement.</value>
+        /// <value>Optionally specifies the entry type of this placement. Available values: Undecided, Manual, Direct, Ems, External.</value>
         [DataMember(Name = "entryType", EmitDefaultValue = true)]
         public string EntryType { get; set; }
 

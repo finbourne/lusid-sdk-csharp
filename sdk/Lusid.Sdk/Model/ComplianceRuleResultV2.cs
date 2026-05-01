@@ -39,7 +39,7 @@ namespace Lusid.Sdk.Model
         /// <param name="runId">runId (required).</param>
         /// <param name="instigatedAt">instigatedAt (required).</param>
         /// <param name="completedAt">completedAt (required).</param>
-        /// <param name="schedule">schedule (required).</param>
+        /// <param name="schedule">Available values: PreTrade, PostTrade, PreAndPostTrade. (required).</param>
         /// <param name="ruleResult">ruleResult (required).</param>
         public ComplianceRuleResultV2(ResourceId runId = default(ResourceId), DateTimeOffset instigatedAt = default(DateTimeOffset), DateTimeOffset completedAt = default(DateTimeOffset), string schedule = default(string), ComplianceSummaryRuleResult ruleResult = default(ComplianceSummaryRuleResult))
         {
@@ -84,8 +84,9 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset CompletedAt { get; set; }
 
         /// <summary>
-        /// Gets or Sets Schedule
+        /// Available values: PreTrade, PostTrade, PreAndPostTrade.
         /// </summary>
+        /// <value>Available values: PreTrade, PostTrade, PreAndPostTrade.</value>
         [DataMember(Name = "schedule", IsRequired = true, EmitDefaultValue = true)]
         public string Schedule { get; set; }
 

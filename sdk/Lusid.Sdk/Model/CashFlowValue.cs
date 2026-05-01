@@ -43,7 +43,7 @@ namespace Lusid.Sdk.Model
         /// <param name="cashFlowLineage">cashFlowLineage.</param>
         /// <param name="paymentAmount">The amount paid or received (required).</param>
         /// <param name="paymentCcy">The currency of the transaction (required).</param>
-        /// <param name="resultValueType">The available values are: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, ResultValueBool, ResultValueCurrency, CashFlowValue, CashFlowValueSet, ResultValueLifeCycleEventValue, ResultValueDateTimeOffset (required) (default to &quot;CashFlowValue&quot;).</param>
+        /// <param name="resultValueType">Available values: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, ResultValueBool, ResultValueCurrency, CashFlowValue, CashFlowValueSet, ResultValueLifeCycleEventValue, ResultValueDateTimeOffset. (required) (default to &quot;CashFlowValue&quot;).</param>
         public CashFlowValue(DateTimeOffset paymentDate = default(DateTimeOffset), ResultValueDictionary diagnostics = default(ResultValueDictionary), CashFlowLineage cashFlowLineage = default(CashFlowLineage), decimal paymentAmount = default(decimal), string paymentCcy = default(string), ResultValueTypeEnum resultValueType = default(ResultValueTypeEnum)) : base(resultValueType)
         {
             this.PaymentDate = paymentDate;

@@ -6,7 +6,7 @@ A single constituent of a partial closure event for a Flexible Repo. Contains de
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Amount** | **decimal** | If AmountType is set to Units, this field represents the number of units of the instrument being exchanged.  If AmountType is set to Percentage, this field represents the percentage of the total repoed units of the instrument being exchanged.  When defining a FlexibleRepoPartialClosureEvent the AmountType can be set to either Units or Percentage,  where Units represents the number of units of the instrument being exchanged, and Percentage represents the  percentage of the total repoed units of the instrument being exchanged in the context of the FlexibleRepo. | 
-**AmountType** | **string** | The type of amount represented by the Amount field.  I.e., does it represent a number of units or a percentage of the total repoed units of the instrument?  When defining a FlexibleRepoPartialClosureEvent AmountType can be set to either Units or Percentage.    Supported string (enumeration) values are: [Percentage, Units]. | 
+**AmountType** | **string** | The type of amount represented by the Amount field.  I.e., does it represent a number of units or a percentage of the total repoed units of the instrument?  When defining a FlexibleRepoPartialClosureEvent AmountType can be set to either Units or Percentage. Available values: Percentage, Units. | 
 **Instrument** | [**NewInstrument**](NewInstrument.md) |  | 
 
 ```csharp

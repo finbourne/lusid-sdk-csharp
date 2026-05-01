@@ -63,7 +63,7 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<WorkspaceApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<WorkspaceApi>();
-            var visibility = "shared";  // string | The visibility for the containing workspace. Must be `shared` or `personal`; case is important.
+            var visibility = "shared";  // string | The visibility for the containing workspace; case is important. Available values: shared, personal.
             var workspaceName = "workspaceName_example";  // string | The item's workspace name.
             var workspaceItemCreationRequest = new WorkspaceItemCreationRequest?(); // WorkspaceItemCreationRequest? | The item to be created. (optional) 
 
@@ -111,7 +111,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **visibility** | **string** | The visibility for the containing workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important. |  |
+| **visibility** | **string** | The visibility for the containing workspace; case is important. Available values: shared, personal. |  |
 | **workspaceName** | **string** | The item&#39;s workspace name. |  |
 | **workspaceItemCreationRequest** | [**WorkspaceItemCreationRequest?**](WorkspaceItemCreationRequest?.md) | The item to be created. | [optional]  |
 
@@ -181,7 +181,7 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<WorkspaceApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<WorkspaceApi>();
-            var visibility = "shared";  // string | The visibility for the workspace being created. Must be `shared` or `personal`; case is important.
+            var visibility = "shared";  // string | The visibility for the workspace being created; case is important. Available values: shared, personal.
             var workspaceCreationRequest = new WorkspaceCreationRequest(); // WorkspaceCreationRequest | The workspace to be created.
             var includeItemAccess = false;  // bool? | If true, includes the workspace item actions the user is permitted to perform in the response. Defaults to false. (optional)  (default to false)
 
@@ -229,7 +229,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **visibility** | **string** | The visibility for the workspace being created. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important. |  |
+| **visibility** | **string** | The visibility for the workspace being created; case is important. Available values: shared, personal. |  |
 | **workspaceCreationRequest** | [**WorkspaceCreationRequest**](WorkspaceCreationRequest.md) | The workspace to be created. |  |
 | **includeItemAccess** | **bool?** | If true, includes the workspace item actions the user is permitted to perform in the response. Defaults to false. | [optional] [default to false] |
 
@@ -299,7 +299,7 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<WorkspaceApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<WorkspaceApi>();
-            var visibility = "shared";  // string | The visibility for the containing workspace. Must be `shared` or `personal`; case is important.
+            var visibility = "shared";  // string | The visibility for the containing workspace; case is important. Available values: shared, personal.
             var workspaceName = "workspaceName_example";  // string | The name of the workspace.
             var groupName = "groupName_example";  // string | The group containing the item.
             var itemName = "itemName_example";  // string | The name of the item.
@@ -348,7 +348,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **visibility** | **string** | The visibility for the containing workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important. |  |
+| **visibility** | **string** | The visibility for the containing workspace; case is important. Available values: shared, personal. |  |
 | **workspaceName** | **string** | The name of the workspace. |  |
 | **groupName** | **string** | The group containing the item. |  |
 | **itemName** | **string** | The name of the item. |  |
@@ -419,7 +419,7 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<WorkspaceApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<WorkspaceApi>();
-            var visibility = "shared";  // string | The visibility for the workspace. Must be `shared` or `personal`; case is important.
+            var visibility = "shared";  // string | The visibility for the workspace; case is important. Available values: shared, personal.
             var workspaceName = "workspaceName_example";  // string | The name of the workspace.
             var recurse = false;  // bool? | If true, recursively delete items in the workspace. (optional)  (default to false)
 
@@ -467,7 +467,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **visibility** | **string** | The visibility for the workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important. |  |
+| **visibility** | **string** | The visibility for the workspace; case is important. Available values: shared, personal. |  |
 | **workspaceName** | **string** | The name of the workspace. |  |
 | **recurse** | **bool?** | If true, recursively delete items in the workspace. | [optional] [default to false] |
 
@@ -537,7 +537,7 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<WorkspaceApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<WorkspaceApi>();
-            var visibility = "shared";  // string | The visibility for the containing workspace. Must be `shared` or `personal`; case is important.
+            var visibility = "shared";  // string | The visibility for the containing workspace; case is important. Available values: shared, personal.
             var workspaceName = "workspaceName_example";  // string | The name of the workspace.
             var groupName = "groupName_example";  // string | The group containing the item.
             var itemName = "itemName_example";  // string | The name of the item.
@@ -587,7 +587,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **visibility** | **string** | The visibility for the containing workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important. |  |
+| **visibility** | **string** | The visibility for the containing workspace; case is important. Available values: shared, personal. |  |
 | **workspaceName** | **string** | The name of the workspace. |  |
 | **groupName** | **string** | The group containing the item. |  |
 | **itemName** | **string** | The name of the item. |  |
@@ -659,7 +659,7 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<WorkspaceApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<WorkspaceApi>();
-            var visibility = "shared";  // string | The visibility for the workspace. Must be `shared` or `personal`; case is important.
+            var visibility = "shared";  // string | The visibility for the workspace; case is important. Available values: shared, personal.
             var workspaceName = "workspaceName_example";  // string | The workspace name.
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve workspaces. Defaults to 'latest' if not specified. (optional) 
             var includeItemAccess = false;  // bool? | If true, includes the workspace item actions the user is permitted to perform in the response. Defaults to false. (optional)  (default to false)
@@ -708,7 +708,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **visibility** | **string** | The visibility for the workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important. |  |
+| **visibility** | **string** | The visibility for the workspace; case is important. Available values: shared, personal. |  |
 | **workspaceName** | **string** | The workspace name. |  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve workspaces. Defaults to &#39;latest&#39; if not specified. | [optional]  |
 | **includeItemAccess** | **bool?** | If true, includes the workspace item actions the user is permitted to perform in the response. Defaults to false. | [optional] [default to false] |
@@ -779,7 +779,7 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<WorkspaceApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<WorkspaceApi>();
-            var visibility = "shared";  // string | The visibility for the containing workspace. Must be `shared` or `personal`; case is important.
+            var visibility = "shared";  // string | The visibility for the containing workspace; case is important. Available values: shared, personal.
             var workspaceName = "workspaceName_example";  // string | The item's workspace name.
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve workspace items. Defaults to 'latest' if not specified. (optional) 
             var page = "page_example";  // string? | The pagination token to use to continue listing workspaces items from a previous call to list workspaces items.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional) 
@@ -831,7 +831,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **visibility** | **string** | The visibility for the containing workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important. |  |
+| **visibility** | **string** | The visibility for the containing workspace; case is important. Available values: shared, personal. |  |
 | **workspaceName** | **string** | The item&#39;s workspace name. |  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve workspace items. Defaults to &#39;latest&#39; if not specified. | [optional]  |
 | **page** | **string?** | The pagination token to use to continue listing workspaces items from a previous call to list workspaces items.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. | [optional]  |
@@ -905,7 +905,7 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<WorkspaceApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<WorkspaceApi>();
-            var visibility = "shared";  // string | The visibility for the workspaces. Must be `shared` or `personal`; case is important.
+            var visibility = "shared";  // string | The visibility for the workspaces; case is important. Available values: shared, personal.
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve workspaces. Defaults to 'latest' if not specified. (optional) 
             var page = "page_example";  // string? | The pagination token to use to continue listing workspaces from a previous call to list workspaces.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional) 
             var sortBy = new List<string>?(); // List<string>? | A list of field names to sort by, each suffixed by \" ASC\" or \" DESC\". (optional) 
@@ -957,7 +957,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **visibility** | **string** | The visibility for the workspaces. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important. |  |
+| **visibility** | **string** | The visibility for the workspaces; case is important. Available values: shared, personal. |  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve workspaces. Defaults to &#39;latest&#39; if not specified. | [optional]  |
 | **page** | **string?** | The pagination token to use to continue listing workspaces from a previous call to list workspaces.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. | [optional]  |
 | **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. | [optional]  |
@@ -1031,7 +1031,7 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<WorkspaceApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<WorkspaceApi>();
-            var visibility = "shared";  // string | The visibility for the containing workspace. Must be `shared` or `personal`; case is important.
+            var visibility = "shared";  // string | The visibility for the containing workspace; case is important. Available values: shared, personal.
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve workspace items. Defaults to 'latest' if not specified. (optional) 
             var page = "page_example";  // string? | The pagination token to use to continue listing workspaces items from a previous call to list workspaces items.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional) 
             var sortBy = new List<string>?(); // List<string>? | A list of field names to sort by, each suffixed by \" ASC\" or \" DESC\". (optional) 
@@ -1082,7 +1082,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **visibility** | **string** | The visibility for the containing workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important. |  |
+| **visibility** | **string** | The visibility for the containing workspace; case is important. Available values: shared, personal. |  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve workspace items. Defaults to &#39;latest&#39; if not specified. | [optional]  |
 | **page** | **string?** | The pagination token to use to continue listing workspaces items from a previous call to list workspaces items.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. | [optional]  |
 | **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. | [optional]  |
@@ -1155,7 +1155,7 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<WorkspaceApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<WorkspaceApi>();
-            var visibility = "shared";  // string | The visibility for the containing workspace. Must be `shared` or `personal`; case is important.
+            var visibility = "shared";  // string | The visibility for the containing workspace; case is important. Available values: shared, personal.
             var workspaceName = "workspaceName_example";  // string | The workspace name.
             var groupName = "groupName_example";  // string | The group containing the item.
             var itemName = "itemName_example";  // string | The item name.
@@ -1205,7 +1205,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **visibility** | **string** | The visibility for the containing workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important. |  |
+| **visibility** | **string** | The visibility for the containing workspace; case is important. Available values: shared, personal. |  |
 | **workspaceName** | **string** | The workspace name. |  |
 | **groupName** | **string** | The group containing the item. |  |
 | **itemName** | **string** | The item name. |  |
@@ -1277,7 +1277,7 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<WorkspaceApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<WorkspaceApi>();
-            var visibility = "shared";  // string | The visibility for the workspace. Must be `shared` or `personal`; case is important.
+            var visibility = "shared";  // string | The visibility for the workspace; case is important. Available values: shared, personal.
             var workspaceName = "workspaceName_example";  // string | The workspace name.
             var workspaceUpdateRequest = new WorkspaceUpdateRequest(); // WorkspaceUpdateRequest | The new workspace details.
             var includeItemAccess = false;  // bool? | If true, includes the workspace item actions the user is permitted to perform in the response. Defaults to false. (optional)  (default to false)
@@ -1326,7 +1326,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **visibility** | **string** | The visibility for the workspace. Must be &#x60;shared&#x60; or &#x60;personal&#x60;; case is important. |  |
+| **visibility** | **string** | The visibility for the workspace; case is important. Available values: shared, personal. |  |
 | **workspaceName** | **string** | The workspace name. |  |
 | **workspaceUpdateRequest** | [**WorkspaceUpdateRequest**](WorkspaceUpdateRequest.md) | The new workspace details. |  |
 | **includeItemAccess** | **bool?** | If true, includes the workspace item actions the user is permitted to perform in the response. Defaults to false. | [optional] [default to false] |

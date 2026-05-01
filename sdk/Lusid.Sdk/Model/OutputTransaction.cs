@@ -29,9 +29,9 @@ namespace Lusid.Sdk.Model
     public partial class OutputTransaction : IEquatable<OutputTransaction>, IValidatableObject
     {
         /// <summary>
-        /// The status of the transaction. The available values are: Active, Amended, Cancelled, ActiveReversal, ActiveTrueUp, CancelledTrueUp
+        /// The status of the transaction. Available values: Active, Amended, Cancelled, ActiveReversal, ActiveTrueUp, CancelledTrueUp.
         /// </summary>
-        /// <value>The status of the transaction. The available values are: Active, Amended, Cancelled, ActiveReversal, ActiveTrueUp, CancelledTrueUp</value>
+        /// <value>The status of the transaction. Available values: Active, Amended, Cancelled, ActiveReversal, ActiveTrueUp, CancelledTrueUp.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TransactionStatusEnum
         {
@@ -74,9 +74,9 @@ namespace Lusid.Sdk.Model
 
 
         /// <summary>
-        /// The status of the transaction. The available values are: Active, Amended, Cancelled, ActiveReversal, ActiveTrueUp, CancelledTrueUp
+        /// The status of the transaction. Available values: Active, Amended, Cancelled, ActiveReversal, ActiveTrueUp, CancelledTrueUp.
         /// </summary>
-        /// <value>The status of the transaction. The available values are: Active, Amended, Cancelled, ActiveReversal, ActiveTrueUp, CancelledTrueUp</value>
+        /// <value>The status of the transaction. Available values: Active, Amended, Cancelled, ActiveReversal, ActiveTrueUp, CancelledTrueUp.</value>
         [DataMember(Name = "transactionStatus", EmitDefaultValue = false)]
         public TransactionStatusEnum? TransactionStatus { get; set; }
         /// <summary>
@@ -105,12 +105,12 @@ namespace Lusid.Sdk.Model
         /// <param name="properties">Set of unique transaction properties and associated values to stored with the transaction. Each property will be from the &#39;Transaction&#39; domain..</param>
         /// <param name="counterpartyId">The identifier for the counterparty of the transaction..</param>
         /// <param name="source">The source of the transaction. This is used to look up the appropriate transaction group set in the transaction type configuration..</param>
-        /// <param name="transactionStatus">The status of the transaction. The available values are: Active, Amended, Cancelled, ActiveReversal, ActiveTrueUp, CancelledTrueUp.</param>
+        /// <param name="transactionStatus">The status of the transaction. Available values: Active, Amended, Cancelled, ActiveReversal, ActiveTrueUp, CancelledTrueUp..</param>
         /// <param name="entryDateTime">The asAt datetime that the transaction was added to LUSID..</param>
         /// <param name="cancelDateTime">If the transaction has been cancelled, the asAt datetime that the transaction was cancelled..</param>
         /// <param name="realisedGainLoss">The collection of realised gains or losses resulting from relevant transactions e.g. a sale transaction. The cost used in calculating the realised gain or loss is determined by the accounting method defined when the transaction portfolio is created..</param>
         /// <param name="holdingIds">The collection of single identifiers for the holding within the portfolio. The holdingId is constructed from the LusidInstrumentId, sub-holding keys and currrency and is unique within the portfolio..</param>
-        /// <param name="sourceType">The type of source that the transaction originated from, eg: InputTransaction, InstrumentEvent, HoldingAdjustment, OverriddenVirtualTransaction.</param>
+        /// <param name="sourceType">The type of source that the transaction originated from. Available values: Unknown, InputTransaction, InstrumentEvent, HoldingAdjustment, OverriddenVirtualTransaction..</param>
         /// <param name="sourceInstrumentEventId">The unique ID of the instrument event that the transaction is related to..</param>
         /// <param name="custodianAccount">custodianAccount.</param>
         /// <param name="transactionGroupId">The identifier for grouping economic events across multiple transactions.</param>
@@ -337,9 +337,9 @@ namespace Lusid.Sdk.Model
         public List<long> HoldingIds { get; set; }
 
         /// <summary>
-        /// The type of source that the transaction originated from, eg: InputTransaction, InstrumentEvent, HoldingAdjustment, OverriddenVirtualTransaction
+        /// The type of source that the transaction originated from. Available values: Unknown, InputTransaction, InstrumentEvent, HoldingAdjustment, OverriddenVirtualTransaction.
         /// </summary>
-        /// <value>The type of source that the transaction originated from, eg: InputTransaction, InstrumentEvent, HoldingAdjustment, OverriddenVirtualTransaction</value>
+        /// <value>The type of source that the transaction originated from. Available values: Unknown, InputTransaction, InstrumentEvent, HoldingAdjustment, OverriddenVirtualTransaction.</value>
         [DataMember(Name = "sourceType", EmitDefaultValue = true)]
         public string SourceType { get; set; }
 

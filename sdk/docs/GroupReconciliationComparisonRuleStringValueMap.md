@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **LeftValue** | **string** | The left string to map | 
 **RightValue** | **string** | The right string to map | 
-**Direction** | **string** | The direction to map. \&quot;UniDirectional\&quot; | \&quot;BiDirectional\&quot; | 
+**Direction** | **string** | The direction to map. Available values: BiDirectional, UniDirectional. | 
 
 ```csharp
 using Lusid.Sdk.Model;

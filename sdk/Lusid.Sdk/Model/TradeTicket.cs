@@ -29,9 +29,9 @@ namespace Lusid.Sdk.Model
     public partial class TradeTicket : IEquatable<TradeTicket>, IValidatableObject
     {
         /// <summary>
-        /// The available values are: LusidTradeTicket, ExternalTradeTicket
+        /// Available values: LusidTradeTicket, ExternalTradeTicket.
         /// </summary>
-        /// <value>The available values are: LusidTradeTicket, ExternalTradeTicket</value>
+        /// <value>Available values: LusidTradeTicket, ExternalTradeTicket.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TradeTicketTypeEnum
         {
@@ -50,9 +50,9 @@ namespace Lusid.Sdk.Model
 
 
         /// <summary>
-        /// The available values are: LusidTradeTicket, ExternalTradeTicket
+        /// Available values: LusidTradeTicket, ExternalTradeTicket.
         /// </summary>
-        /// <value>The available values are: LusidTradeTicket, ExternalTradeTicket</value>
+        /// <value>Available values: LusidTradeTicket, ExternalTradeTicket.</value>
         [DataMember(Name = "tradeTicketType", IsRequired = true, EmitDefaultValue = true)]
         public TradeTicketTypeEnum TradeTicketType { get; set; }
         /// <summary>
@@ -63,7 +63,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TradeTicket" /> class.
         /// </summary>
-        /// <param name="tradeTicketType">The available values are: LusidTradeTicket, ExternalTradeTicket (required).</param>
+        /// <param name="tradeTicketType">Available values: LusidTradeTicket, ExternalTradeTicket. (required).</param>
         public TradeTicket(TradeTicketTypeEnum tradeTicketType = default(TradeTicketTypeEnum))
         {
             this.TradeTicketType = tradeTicketType;

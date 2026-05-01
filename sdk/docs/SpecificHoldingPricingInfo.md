@@ -6,7 +6,7 @@ Allows a user to specify fallbacks/overrides using Holding fields for sources th
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DependencySourceFilter** | [**DependencySourceFilter**](DependencySourceFilter.md) |  | 
-**Field** | **string** | The Holding field which the fallback/override should use to create a price quote. | 
+**Field** | **string** | The Holding field which the fallback/override should use to create a price quote. Available values: None, UnitCost, LastTradedPrice, UnitAmortisedCost, UnitCostClean, UnitCostDirty, UnitAmortisedCostClean, UnitAmortisedCostDirty. | 
 
 ```csharp
 using Lusid.Sdk.Model;

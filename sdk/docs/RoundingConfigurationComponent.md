@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RoundingType** | **string** | The type of rounding that should be used, eg: Up, Down, NearestRoundHalfAwayFromZero | 
+**RoundingType** | **string** | The type of rounding that should be used. Available values: Up, Down, NearestRoundHalfAwayFromZero. | 
 
 ```csharp
 using Lusid.Sdk.Model;

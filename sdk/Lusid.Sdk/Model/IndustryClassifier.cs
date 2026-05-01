@@ -36,7 +36,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="IndustryClassifier" /> class.
         /// </summary>
-        /// <param name="classificationSystemName">The name of the classification system to which the classification code belongs (e.g. GICS). (required).</param>
+        /// <param name="classificationSystemName">The name of the classification system to which the classification code belongs (e.g. GICS). Available values: GICS2018. (required).</param>
         /// <param name="classificationCode">The specific industry classification code assigned to the legal entity. (required).</param>
         public IndustryClassifier(string classificationSystemName = default(string), string classificationCode = default(string))
         {
@@ -55,9 +55,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The name of the classification system to which the classification code belongs (e.g. GICS).
+        /// The name of the classification system to which the classification code belongs (e.g. GICS). Available values: GICS2018.
         /// </summary>
-        /// <value>The name of the classification system to which the classification code belongs (e.g. GICS).</value>
+        /// <value>The name of the classification system to which the classification code belongs (e.g. GICS). Available values: GICS2018.</value>
         [DataMember(Name = "classificationSystemName", IsRequired = true, EmitDefaultValue = true)]
         public string ClassificationSystemName { get; set; }
 

@@ -41,7 +41,7 @@ namespace Lusid.Sdk.Model
         /// <param name="effectiveDate">The effective date of the event.</param>
         /// <param name="eventValues">eventValues.</param>
         /// <param name="eventLineage">eventLineage.</param>
-        /// <param name="resultValueType">The available values are: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, ResultValueBool, ResultValueCurrency, CashFlowValue, CashFlowValueSet, ResultValueLifeCycleEventValue, ResultValueDateTimeOffset (required) (default to &quot;LifeCycleEventValue&quot;).</param>
+        /// <param name="resultValueType">Available values: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, ResultValueBool, ResultValueCurrency, CashFlowValue, CashFlowValueSet, ResultValueLifeCycleEventValue, ResultValueDateTimeOffset. (required) (default to &quot;LifeCycleEventValue&quot;).</param>
         public LifeCycleEventValue(DateTimeOffset effectiveDate = default(DateTimeOffset), ResultValueDictionary eventValues = default(ResultValueDictionary), LifeCycleEventLineage eventLineage = default(LifeCycleEventLineage), ResultValueTypeEnum resultValueType = default(ResultValueTypeEnum)) : base(resultValueType)
         {
             this.EffectiveDate = effectiveDate;

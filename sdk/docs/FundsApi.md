@@ -37,6 +37,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**ListValuationPointOverview**](FundsApi.md#listvaluationpointoverview) | **GET** /api/funds/{scope}/{code}/valuationPointOverview | [EXPERIMENTAL] ListValuationPointOverview: List Valuation Points Overview for a given Fund. |
 | [**PatchFee**](FundsApi.md#patchfee) | **PATCH** /api/funds/{scope}/{code}/fees/{feeCode} | [EXPERIMENTAL] PatchFee: Patch Fee. |
 | [**PatchFund**](FundsApi.md#patchfund) | **PATCH** /api/funds/{scope}/{code} | [EXPERIMENTAL] PatchFund: Patch a Fund. |
+| [**QueryCashStatement**](FundsApi.md#querycashstatement) | **POST** /api/funds/{scope}/{code}/valuationpoints/cashstatement/$query | [EXPERIMENTAL] QueryCashStatement: [EXPERIMENTAL] QueryCashStatement: Query cash statement for a Fund valuation point. |
 | [**RevertValuationPointToEstimate**](FundsApi.md#revertvaluationpointtoestimate) | **POST** /api/funds/{scope}/{code}/valuationpoints/$reverttoestimate | [EXPERIMENTAL] RevertValuationPointToEstimate: Reverts a Final Valuation Point to Estimate. |
 | [**SetShareClassInstruments**](FundsApi.md#setshareclassinstruments) | **PUT** /api/funds/{scope}/{code}/shareclasses | [EXPERIMENTAL] SetShareClassInstruments: Set the ShareClass Instruments on a Fund. |
 | [**UpsertBookmark**](FundsApi.md#upsertbookmark) | **POST** /api/funds/{scope}/{code}/bookmarks | [EXPERIMENTAL] UpsertBookmark: Upsert a bookmark. |
@@ -803,7 +804,7 @@ namespace Examples
             var scope = "scope_example";  // string | The scope of the Fund.
             var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
             var requestBody = new List<string>(); // List<string> | The codes of the nav types to be deactivated.
-            var deleteMode = "Soft";  // string? | The delete mode to use (defaults to 'Soft'). (optional) 
+            var deleteMode = "Soft";  // string? | The delete mode to use. Default value: Soft. Available values: Soft, Hard. (optional) 
 
             try
             {
@@ -852,7 +853,7 @@ catch (ApiException e)
 | **scope** | **string** | The scope of the Fund. |  |
 | **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
 | **requestBody** | [**List&lt;string&gt;**](string.md) | The codes of the nav types to be deactivated. |  |
-| **deleteMode** | **string?** | The delete mode to use (defaults to &#39;Soft&#39;). | [optional]  |
+| **deleteMode** | **string?** | The delete mode to use. Default value: Soft. Available values: Soft, Hard. | [optional]  |
 
 ### Return type
 
@@ -2908,7 +2909,7 @@ namespace Examples
             var dataModelScope = "dataModelScope_example";  // string? | The optional scope of a Custom Data Model to use (optional) 
             var dataModelCode = "dataModelCode_example";  // string? | The optional code of a Custom Data Model to use (optional) 
             var showCancelledTransactions = true;  // bool? | Option to specify whether or not to include cancelled transactions,              including previous versions of transactions which have since been amended.              Defaults to False if not specified. (optional) 
-            var membershipType = "membershipType_example";  // string? | The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional) 
+            var membershipType = "membershipType_example";  // string? | The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional) 
 
             try
             {
@@ -2966,7 +2967,7 @@ catch (ApiException e)
 | **dataModelScope** | **string?** | The optional scope of a Custom Data Model to use | [optional]  |
 | **dataModelCode** | **string?** | The optional code of a Custom Data Model to use | [optional]  |
 | **showCancelledTransactions** | **bool?** | Option to specify whether or not to include cancelled transactions,              including previous versions of transactions which have since been amended.              Defaults to False if not specified. | [optional]  |
-| **membershipType** | **string?** | The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. | [optional]  |
+| **membershipType** | **string?** | The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. | [optional]  |
 
 ### Return type
 
@@ -4126,6 +4127,136 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The updated Fund. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="querycashstatement"></a>
+# **QueryCashStatement**
+> ValuationPointResourceListOfFundCashStatementRow QueryCashStatement (string scope, string code, QueryFundCashStatementParameters queryFundCashStatementParameters, DateTimeOffset? asAt = null, string? filter = null, int? limit = null, string? page = null, List<string>? propertyKeys = null, string? navTypeCode = null)
+
+[EXPERIMENTAL] QueryCashStatement: [EXPERIMENTAL] QueryCashStatement: Query cash statement for a Fund valuation point.
+
+Returns settled cash movements with running balance, cost basis, average FX rate, and realised FX PnL  for the specified Fund valuation point period. The cash statement is derived from Journal Entry Lines  filtered to settled cash (HoldType='B', SourceType=LusidTransaction). Use the DisplayMode parameter  on the request body to choose between ShowReversal (full reversal/TrueUp detail) and Consolidated  (collapses reversals into AvgRateCorrection rows).
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
+            var scope = "scope_example";  // string | The scope of the Fund.
+            var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
+            var queryFundCashStatementParameters = new QueryFundCashStatementParameters(); // QueryFundCashStatementParameters | The query parameters specifying the diary entry period and display mode.
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the cash statement. Defaults to the latest version if not specified. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the result set. (optional) 
+            var limit = 56;  // int? | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to get the next page of results. (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys to decorate onto the cash statement rows. (optional) 
+            var navTypeCode = "navTypeCode_example";  // string? | The code of the NAV type to use. Defaults to the primary NAV type if not specified. (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // ValuationPointResourceListOfFundCashStatementRow result = apiInstance.QueryCashStatement(scope, code, queryFundCashStatementParameters, asAt, filter, limit, page, propertyKeys, navTypeCode, opts: opts);
+
+                // [EXPERIMENTAL] QueryCashStatement: [EXPERIMENTAL] QueryCashStatement: Query cash statement for a Fund valuation point.
+                ValuationPointResourceListOfFundCashStatementRow result = apiInstance.QueryCashStatement(scope, code, queryFundCashStatementParameters, asAt, filter, limit, page, propertyKeys, navTypeCode);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling FundsApi.QueryCashStatement: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the QueryCashStatementWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] QueryCashStatement: [EXPERIMENTAL] QueryCashStatement: Query cash statement for a Fund valuation point.
+    ApiResponse<ValuationPointResourceListOfFundCashStatementRow> response = apiInstance.QueryCashStatementWithHttpInfo(scope, code, queryFundCashStatementParameters, asAt, filter, limit, page, propertyKeys, navTypeCode);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling FundsApi.QueryCashStatementWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Fund. |  |
+| **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
+| **queryFundCashStatementParameters** | [**QueryFundCashStatementParameters**](QueryFundCashStatementParameters.md) | The query parameters specifying the diary entry period and display mode. |  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the cash statement. Defaults to the latest version if not specified. | [optional]  |
+| **filter** | **string?** | Expression to filter the result set. | [optional]  |
+| **limit** | **int?** | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. | [optional]  |
+| **page** | **string?** | The pagination token to use to get the next page of results. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys to decorate onto the cash statement rows. | [optional]  |
+| **navTypeCode** | **string?** | The code of the NAV type to use. Defaults to the primary NAV type if not specified. | [optional]  |
+
+### Return type
+
+[**ValuationPointResourceListOfFundCashStatementRow**](ValuationPointResourceListOfFundCashStatementRow.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The cash statement for the specified Fund valuation point. |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 

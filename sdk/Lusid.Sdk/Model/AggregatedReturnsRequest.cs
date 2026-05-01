@@ -39,13 +39,13 @@ namespace Lusid.Sdk.Model
         /// <param name="metrics">A list of metrics to calculate in the AggregatedReturns. (required).</param>
         /// <param name="returnIds">The Scope and code of the returns..</param>
         /// <param name="recipeId">recipeId.</param>
-        /// <param name="compositeMethod">The method used to calculate the Portfolio performance: Equal/Asset..</param>
-        /// <param name="period">The type of the returns used to calculate the aggregation result: Daily/Monthly..</param>
-        /// <param name="outputFrequency">The type of calculated output: Daily/Weekly/Monthly/Quarterly/Half-Yearly/Yearly..</param>
+        /// <param name="compositeMethod">The method used to calculate the Portfolio performance. Available values: Equal, Asset..</param>
+        /// <param name="period">The type of the returns used to calculate the aggregation result. Available values: Daily, Monthly..</param>
+        /// <param name="outputFrequency">The type of calculated output. Available values: Daily, Weekly, Monthly, Quarterly, HalfYearly, Yearly..</param>
         /// <param name="alternativeInceptionDate">Optional - either a date, or the key for a portfolio property containing a date. If provided, the given date will override the inception date for this request..</param>
         /// <param name="holidayCalendars">The holiday calendar(s) that should be used in determining the date schedule. Holiday calendar(s) are supplied by their codes, for example, &#39;CoppClark&#39;. Note that when the calendars are not available (e.g. when the user has insufficient permissions), a recipe setting will be used to determine whether the whole batch should then fail or whether the calendar not being available should simply be ignored..</param>
         /// <param name="currency">Optional - either a string or a property. If provided, the results will be converted to the specified currency.</param>
-        /// <param name="runMode">The dates the AggregatedReturns output will be calculated: ReturnData/WeekDays/AllDays/MonthEnd. Defaults to ReturnData..</param>
+        /// <param name="runMode">The dates the AggregatedReturns output will be calculated. Default value: ReturnData. Available values: ReturnData, WeekDays, AllDays, MonthEnd..</param>
         public AggregatedReturnsRequest(List<PerformanceReturnsMetric> metrics = default(List<PerformanceReturnsMetric>), List<ResourceId> returnIds = default(List<ResourceId>), ResourceId recipeId = default(ResourceId), string compositeMethod = default(string), string period = default(string), string outputFrequency = default(string), string alternativeInceptionDate = default(string), List<string> holidayCalendars = default(List<string>), string currency = default(string), string runMode = default(string))
         {
             // to ensure "metrics" is required (not null)
@@ -86,23 +86,23 @@ namespace Lusid.Sdk.Model
         public ResourceId RecipeId { get; set; }
 
         /// <summary>
-        /// The method used to calculate the Portfolio performance: Equal/Asset.
+        /// The method used to calculate the Portfolio performance. Available values: Equal, Asset.
         /// </summary>
-        /// <value>The method used to calculate the Portfolio performance: Equal/Asset.</value>
+        /// <value>The method used to calculate the Portfolio performance. Available values: Equal, Asset.</value>
         [DataMember(Name = "compositeMethod", EmitDefaultValue = true)]
         public string CompositeMethod { get; set; }
 
         /// <summary>
-        /// The type of the returns used to calculate the aggregation result: Daily/Monthly.
+        /// The type of the returns used to calculate the aggregation result. Available values: Daily, Monthly.
         /// </summary>
-        /// <value>The type of the returns used to calculate the aggregation result: Daily/Monthly.</value>
+        /// <value>The type of the returns used to calculate the aggregation result. Available values: Daily, Monthly.</value>
         [DataMember(Name = "period", EmitDefaultValue = true)]
         public string Period { get; set; }
 
         /// <summary>
-        /// The type of calculated output: Daily/Weekly/Monthly/Quarterly/Half-Yearly/Yearly.
+        /// The type of calculated output. Available values: Daily, Weekly, Monthly, Quarterly, HalfYearly, Yearly.
         /// </summary>
-        /// <value>The type of calculated output: Daily/Weekly/Monthly/Quarterly/Half-Yearly/Yearly.</value>
+        /// <value>The type of calculated output. Available values: Daily, Weekly, Monthly, Quarterly, HalfYearly, Yearly.</value>
         [DataMember(Name = "outputFrequency", EmitDefaultValue = true)]
         public string OutputFrequency { get; set; }
 
@@ -128,9 +128,9 @@ namespace Lusid.Sdk.Model
         public string Currency { get; set; }
 
         /// <summary>
-        /// The dates the AggregatedReturns output will be calculated: ReturnData/WeekDays/AllDays/MonthEnd. Defaults to ReturnData.
+        /// The dates the AggregatedReturns output will be calculated. Default value: ReturnData. Available values: ReturnData, WeekDays, AllDays, MonthEnd.
         /// </summary>
-        /// <value>The dates the AggregatedReturns output will be calculated: ReturnData/WeekDays/AllDays/MonthEnd. Defaults to ReturnData.</value>
+        /// <value>The dates the AggregatedReturns output will be calculated. Default value: ReturnData. Available values: ReturnData, WeekDays, AllDays, MonthEnd.</value>
         [DataMember(Name = "runMode", EmitDefaultValue = true)]
         public string RunMode { get; set; }
 

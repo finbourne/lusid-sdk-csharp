@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | **string** | The Status of the settlement category - &#39;Settled&#39;, &#39;Part Settled&#39; or &#39;Unsettled&#39;. | 
+**Status** | **string** | The Status of the settlement category. Available values: Unsettled, PartSettled, Settled, None. | 
 **IsOverdue** | **bool** | Whether the category has any overdue movements | 
 **Problems** | [**List&lt;SettlementProblem&gt;**](SettlementProblem.md) | Instruction level detail of rejected or invalid settlement instructions | 
 

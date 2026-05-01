@@ -38,7 +38,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="ruleId">The ID of the staging rule. (required).</param>
         /// <param name="description">A description for the staging rule..</param>
-        /// <param name="status">Whether the rule is &#39;Active&#39; or &#39;Inactive&#39;. (required).</param>
+        /// <param name="status">Status of the rule. Available values: Active, Inactive. (required).</param>
         /// <param name="matchCriteria">matchCriteria (required).</param>
         /// <param name="approvalCriteria">approvalCriteria (required).</param>
         public StagingRule(string ruleId = default(string), string description = default(string), string status = default(string), StagingRuleMatchCriteria matchCriteria = default(StagingRuleMatchCriteria), StagingRuleApprovalCriteria approvalCriteria = default(StagingRuleApprovalCriteria))
@@ -85,9 +85,9 @@ namespace Lusid.Sdk.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// Whether the rule is &#39;Active&#39; or &#39;Inactive&#39;.
+        /// Status of the rule. Available values: Active, Inactive.
         /// </summary>
-        /// <value>Whether the rule is &#39;Active&#39; or &#39;Inactive&#39;.</value>
+        /// <value>Status of the rule. Available values: Active, Inactive.</value>
         [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
         public string Status { get; set; }
 

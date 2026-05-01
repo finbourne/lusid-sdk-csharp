@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **StopPrice** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
 **Counterparty** | **string** | Optionally specifies the market entity this placement is placed with. | [optional] 
 **ExecutionSystem** | **string** | Optionally specifies the execution system in use. | [optional] 
-**EntryType** | **string** | Optionally specifies the entry type of this placement. | [optional] 
+**EntryType** | **string** | Optionally specifies the entry type of this placement. Available values: Undecided, Manual, Direct, Ems, External. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;

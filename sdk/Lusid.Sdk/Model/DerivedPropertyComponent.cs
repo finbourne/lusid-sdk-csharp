@@ -33,7 +33,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="component">The component of the formula which is being evaluated..</param>
         /// <param name="displayName">The display name of the component being evaluated..</param>
-        /// <param name="type">The type of the formula component. This can be a Literal, Variable, DerivedProperty, or PartialFormula..</param>
+        /// <param name="type">The type of the formula component. Available values: Variable, DerivedProperty, Literal, PartialFormula..</param>
         /// <param name="value">value.</param>
         /// <param name="derivationFormula">The derivation formula of the component. This field will only be populated if the component is a derived property..</param>
         /// <param name="subComponents">Any sub-components of this formula. If this formula cannot be further decomposed, this collection will be null..</param>
@@ -64,9 +64,9 @@ namespace Lusid.Sdk.Model
         public string DisplayName { get; set; }
 
         /// <summary>
-        /// The type of the formula component. This can be a Literal, Variable, DerivedProperty, or PartialFormula.
+        /// The type of the formula component. Available values: Variable, DerivedProperty, Literal, PartialFormula.
         /// </summary>
-        /// <value>The type of the formula component. This can be a Literal, Variable, DerivedProperty, or PartialFormula.</value>
+        /// <value>The type of the formula component. Available values: Variable, DerivedProperty, Literal, PartialFormula.</value>
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public string Type { get; set; }
 

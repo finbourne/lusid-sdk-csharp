@@ -37,7 +37,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="OrderRuleBreach" /> class.
         /// </summary>
         /// <param name="breachTaskId">Uniquely identifies this historical order breach workflow task. (required).</param>
-        /// <param name="complianceState">The compliance state of this order breach. Possible values are &#39;Pending&#39;, &#39;Failed&#39;, &#39;Manually approved&#39;, &#39;Passed&#39; and &#39;Warning&#39;. (required).</param>
+        /// <param name="complianceState">The compliance state of this order breach. Available values: Pending, Failed, Passed, ManuallyApproved, PartiallyOverridden, Warning. (required).</param>
         public OrderRuleBreach(string breachTaskId = default(string), string complianceState = default(string))
         {
             // to ensure "breachTaskId" is required (not null)
@@ -62,9 +62,9 @@ namespace Lusid.Sdk.Model
         public string BreachTaskId { get; set; }
 
         /// <summary>
-        /// The compliance state of this order breach. Possible values are &#39;Pending&#39;, &#39;Failed&#39;, &#39;Manually approved&#39;, &#39;Passed&#39; and &#39;Warning&#39;.
+        /// The compliance state of this order breach. Available values: Pending, Failed, Passed, ManuallyApproved, PartiallyOverridden, Warning.
         /// </summary>
-        /// <value>The compliance state of this order breach. Possible values are &#39;Pending&#39;, &#39;Failed&#39;, &#39;Manually approved&#39;, &#39;Passed&#39; and &#39;Warning&#39;.</value>
+        /// <value>The compliance state of this order breach. Available values: Pending, Failed, Passed, ManuallyApproved, PartiallyOverridden, Warning.</value>
         [DataMember(Name = "complianceState", IsRequired = true, EmitDefaultValue = true)]
         public string ComplianceState { get; set; }
 

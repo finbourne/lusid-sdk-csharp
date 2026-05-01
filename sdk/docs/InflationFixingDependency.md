@@ -5,7 +5,7 @@ For indicating a dependency upon an inflation fixing
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DependencyType** | **string** | The available values are: OpaqueDependency, CashDependency, DiscountingDependency, EquityCurveDependency, EquityVolDependency, FxDependency, FxForwardsDependency, FxVolDependency, IndexProjectionDependency, IrVolDependency, QuoteDependency, Vendor, CalendarDependency, InflationFixingDependency | 
+**DependencyType** | **string** | Available values: OpaqueDependency, CashDependency, DiscountingDependency, EquityCurveDependency, EquityVolDependency, FxDependency, FxForwardsDependency, FxVolDependency, IndexProjectionDependency, IrVolDependency, QuoteDependency, Vendor, CalendarDependency, InflationFixingDependency. | 
 **Type** | **string** | The Type of fixing (index, ratio or assumption) | 
 **Code** | **string** | The Code of the fixing, typically the index name | 
 **Date** | **DateTimeOffset** | The effectiveAt of the inflation fixing | 

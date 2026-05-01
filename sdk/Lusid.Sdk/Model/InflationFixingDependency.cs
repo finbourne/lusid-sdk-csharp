@@ -41,7 +41,7 @@ namespace Lusid.Sdk.Model
         /// <param name="type">The Type of fixing (index, ratio or assumption) (required).</param>
         /// <param name="code">The Code of the fixing, typically the index name (required).</param>
         /// <param name="date">The effectiveAt of the inflation fixing (required).</param>
-        /// <param name="dependencyType">The available values are: OpaqueDependency, CashDependency, DiscountingDependency, EquityCurveDependency, EquityVolDependency, FxDependency, FxForwardsDependency, FxVolDependency, IndexProjectionDependency, IrVolDependency, QuoteDependency, Vendor, CalendarDependency, InflationFixingDependency (required) (default to &quot;InflationFixingDependency&quot;).</param>
+        /// <param name="dependencyType">Available values: OpaqueDependency, CashDependency, DiscountingDependency, EquityCurveDependency, EquityVolDependency, FxDependency, FxForwardsDependency, FxVolDependency, IndexProjectionDependency, IrVolDependency, QuoteDependency, Vendor, CalendarDependency, InflationFixingDependency. (required) (default to &quot;InflationFixingDependency&quot;).</param>
         public InflationFixingDependency(string type = default(string), string code = default(string), DateTimeOffset date = default(DateTimeOffset), DependencyTypeEnum dependencyType = default(DependencyTypeEnum)) : base(dependencyType)
         {
             // to ensure "type" is required (not null)

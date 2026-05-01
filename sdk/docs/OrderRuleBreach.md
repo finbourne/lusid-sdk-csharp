@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **BreachTaskId** | **string** | Uniquely identifies this historical order breach workflow task. | 
-**ComplianceState** | **string** | The compliance state of this order breach. Possible values are &#39;Pending&#39;, &#39;Failed&#39;, &#39;Manually approved&#39;, &#39;Passed&#39; and &#39;Warning&#39;. | 
+**ComplianceState** | **string** | The compliance state of this order breach. Available values: Pending, Failed, Passed, ManuallyApproved, PartiallyOverridden, Warning. | 
 
 ```csharp
 using Lusid.Sdk.Model;

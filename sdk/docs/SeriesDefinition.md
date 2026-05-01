@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **SeriesIdentifier** | **string** | The identifier that uniquely identifies this Series within the Share Class. | 
-**SeriesType** | **string** | The type of the Series. Valid values are: Lead, Standard. | 
+**SeriesType** | **string** | The type of the Series. Available values: Lead, Standard. | 
 **LaunchDate** | **DateTimeOffset** | The date on which the Series was launched. | 
-**LaunchPriceType** | **string** | The type of launch price for the Series. Valid values are: Manual, Calculated. | 
+**LaunchPriceType** | **string** | The type of launch price for the Series. Available values: Manual, Calculated. | 
 **DomCcy** | **string** | The denomination currency of the Series. | 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | An optional set of properties to associate with the Series. Only applied if createInstrument is set to true on the parent Fund. | [optional] 
 

@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **CustomDataModelId** | [**ResourceId**](ResourceId.md) |  | 
 **EntityType** | **string** | The type of the entity that is being added or removed from the Custom Data Model. | 
 **EntityUniqueId** | **string** | The entity unique identifier of the entity that is being added or removed from the Custom Data Model. | 
-**Operation** | **string** | The operation to be performed on the entity&#39;s membership in the Custom Data Model. Either &#39;Add&#39; or &#39;Remove&#39;. | 
+**Operation** | **string** | The operation to be performed on the entity&#39;s membership in the Custom Data Model. Available values: Add, Remove. | 
 
 ```csharp
 using Lusid.Sdk.Model;

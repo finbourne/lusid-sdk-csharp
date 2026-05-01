@@ -37,14 +37,14 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="GroupReconciliationComparisonResult" /> class.
         /// </summary>
         /// <param name="id">id (required).</param>
-        /// <param name="reconciliationType">The type of reconciliation to perform. \&quot;Holding\&quot; | \&quot;Transaction\&quot; | \&quot;Valuation\&quot; (required).</param>
+        /// <param name="reconciliationType">The type of reconciliation to perform. Available values: Holding, Transaction, Valuation, CashHolding. (required).</param>
         /// <param name="groupReconciliationDefinitionId">groupReconciliationDefinitionId (required).</param>
         /// <param name="instanceId">instanceId (required).</param>
         /// <param name="comparisonResultId">Comparison result identifier, encoded value for core attribute results, aggregate attribute results, reconciliation type and run instanceId. (required).</param>
         /// <param name="reconciliationRunAsAt">The timestamp when the run occurred. (required).</param>
-        /// <param name="resultType">Reconciliation run general result. \&quot;Break\&quot; | \&quot;Match\&quot; | \&quot;PartialMatch\&quot; | \&quot;NotFound (required).</param>
-        /// <param name="resultStatus">Indicates how a particular result evolves from one run to the next. \&quot;New\&quot; | \&quot;Confirmed\&quot; | \&quot;Changed\&quot; (required).</param>
-        /// <param name="reviewStatus">Status of whether user has provided any input (comments, manual matches, break codes). \&quot;Pending\&quot; | \&quot;Reviewed\&quot; | \&quot;Matched\&quot; | \&quot;Invalid\&quot; (required).</param>
+        /// <param name="resultType">Reconciliation run general result. Available values: Match, PartialMatch, Break, NotFound, Resolved. (required).</param>
+        /// <param name="resultStatus">Indicates how a particular result evolves from one run to the next. Available values: New, Confirmed, Changed. (required).</param>
+        /// <param name="reviewStatus">Status of whether user has provided any input (comments, manual matches, break codes). Available values: Pending, Reviewed, Matched, Invalid. (required).</param>
         /// <param name="datesReconciled">datesReconciled (required).</param>
         /// <param name="coreAttributes">coreAttributes (required).</param>
         /// <param name="aggregateAttributes">aggregateAttributes (required).</param>
@@ -134,9 +134,9 @@ namespace Lusid.Sdk.Model
         public ResourceId Id { get; set; }
 
         /// <summary>
-        /// The type of reconciliation to perform. \&quot;Holding\&quot; | \&quot;Transaction\&quot; | \&quot;Valuation\&quot;
+        /// The type of reconciliation to perform. Available values: Holding, Transaction, Valuation, CashHolding.
         /// </summary>
-        /// <value>The type of reconciliation to perform. \&quot;Holding\&quot; | \&quot;Transaction\&quot; | \&quot;Valuation\&quot;</value>
+        /// <value>The type of reconciliation to perform. Available values: Holding, Transaction, Valuation, CashHolding.</value>
         [DataMember(Name = "reconciliationType", IsRequired = true, EmitDefaultValue = true)]
         public string ReconciliationType { get; set; }
 
@@ -167,23 +167,23 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset ReconciliationRunAsAt { get; set; }
 
         /// <summary>
-        /// Reconciliation run general result. \&quot;Break\&quot; | \&quot;Match\&quot; | \&quot;PartialMatch\&quot; | \&quot;NotFound
+        /// Reconciliation run general result. Available values: Match, PartialMatch, Break, NotFound, Resolved.
         /// </summary>
-        /// <value>Reconciliation run general result. \&quot;Break\&quot; | \&quot;Match\&quot; | \&quot;PartialMatch\&quot; | \&quot;NotFound</value>
+        /// <value>Reconciliation run general result. Available values: Match, PartialMatch, Break, NotFound, Resolved.</value>
         [DataMember(Name = "resultType", IsRequired = true, EmitDefaultValue = true)]
         public string ResultType { get; set; }
 
         /// <summary>
-        /// Indicates how a particular result evolves from one run to the next. \&quot;New\&quot; | \&quot;Confirmed\&quot; | \&quot;Changed\&quot;
+        /// Indicates how a particular result evolves from one run to the next. Available values: New, Confirmed, Changed.
         /// </summary>
-        /// <value>Indicates how a particular result evolves from one run to the next. \&quot;New\&quot; | \&quot;Confirmed\&quot; | \&quot;Changed\&quot;</value>
+        /// <value>Indicates how a particular result evolves from one run to the next. Available values: New, Confirmed, Changed.</value>
         [DataMember(Name = "resultStatus", IsRequired = true, EmitDefaultValue = true)]
         public string ResultStatus { get; set; }
 
         /// <summary>
-        /// Status of whether user has provided any input (comments, manual matches, break codes). \&quot;Pending\&quot; | \&quot;Reviewed\&quot; | \&quot;Matched\&quot; | \&quot;Invalid\&quot;
+        /// Status of whether user has provided any input (comments, manual matches, break codes). Available values: Pending, Reviewed, Matched, Invalid.
         /// </summary>
-        /// <value>Status of whether user has provided any input (comments, manual matches, break codes). \&quot;Pending\&quot; | \&quot;Reviewed\&quot; | \&quot;Matched\&quot; | \&quot;Invalid\&quot;</value>
+        /// <value>Status of whether user has provided any input (comments, manual matches, break codes). Available values: Pending, Reviewed, Matched, Invalid.</value>
         [DataMember(Name = "reviewStatus", IsRequired = true, EmitDefaultValue = true)]
         public string ReviewStatus { get; set; }
 

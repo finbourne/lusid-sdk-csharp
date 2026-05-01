@@ -564,7 +564,7 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<InstrumentsApi>();
             var requestBody = new List<string>(); // List<string> | The list of lusidInstrumentId's to delete.
-            var deleteMode = "Soft";  // string? | The delete mode to use (defaults to 'Soft'). (optional) 
+            var deleteMode = "Soft";  // string? | The delete mode to use. Default value: Soft. Available values: Soft, Hard. (optional) 
             var scope = "\"default\"";  // string? | The scope in which the instruments lie. When not supplied the scope is 'default'. (optional)  (default to "default")
 
             try
@@ -612,7 +612,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **requestBody** | [**List&lt;string&gt;**](string.md) | The list of lusidInstrumentId&#39;s to delete. |  |
-| **deleteMode** | **string?** | The delete mode to use (defaults to &#39;Soft&#39;). | [optional]  |
+| **deleteMode** | **string?** | The delete mode to use. Default value: Soft. Available values: Soft, Hard. | [optional]  |
 | **scope** | **string?** | The scope in which the instruments lie. When not supplied the scope is &#39;default&#39;. | [optional] [default to &quot;default&quot;] |
 
 ### Return type
@@ -2060,7 +2060,7 @@ namespace Examples
             var relationshipDefinitionIds = new List<string>?(); // List<string>? | A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional) 
             var dataModelScope = "dataModelScope_example";  // string? | The optional scope of a Custom Data Model to use. (optional) 
             var dataModelCode = "dataModelCode_example";  // string? | The optional code of a Custom Data Model to use. (optional) 
-            var membershipType = "membershipType_example";  // string? | The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional) 
+            var membershipType = "membershipType_example";  // string? | The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional) 
             var timelineScope = "timelineScope_example";  // string? | The scope of the Timeline. (optional) 
             var timelineCode = "timelineCode_example";  // string? | The code of the Timeline. This can optionally include a colon followed by the Closed Period ID to use at the head of the timeline, for a timeline with unconfirmed periods. (optional) 
             var closedPeriodId = "closedPeriodId_example";  // string? | The closed period ID. If this is specified, both timelineScope and timelineCode must be specified. (optional) 
@@ -2120,7 +2120,7 @@ catch (ApiException e)
 | **relationshipDefinitionIds** | [**List&lt;string&gt;?**](string.md) | A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. | [optional]  |
 | **dataModelScope** | **string?** | The optional scope of a Custom Data Model to use. | [optional]  |
 | **dataModelCode** | **string?** | The optional code of a Custom Data Model to use. | [optional]  |
-| **membershipType** | **string?** | The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. | [optional]  |
+| **membershipType** | **string?** | The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. | [optional]  |
 | **timelineScope** | **string?** | The scope of the Timeline. | [optional]  |
 | **timelineCode** | **string?** | The code of the Timeline. This can optionally include a colon followed by the Closed Period ID to use at the head of the timeline, for a timeline with unconfirmed periods. | [optional]  |
 | **closedPeriodId** | **string?** | The closed period ID. If this is specified, both timelineScope and timelineCode must be specified. | [optional]  |

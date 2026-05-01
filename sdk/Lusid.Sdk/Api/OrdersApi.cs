@@ -104,7 +104,7 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the \&quot;Orders\&quot; domain to decorate onto each order.                  These take the format {domain}/{scope}/{code} e.g. \&quot;Orders/system/Name\&quot;.                  All properties, except derived properties, are returned by default, without specifying here. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
-        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfOrder</returns>
@@ -125,7 +125,7 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the \&quot;Orders\&quot; domain to decorate onto each order.                  These take the format {domain}/{scope}/{code} e.g. \&quot;Orders/system/Name\&quot;.                  All properties, except derived properties, are returned by default, without specifying here. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
-        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfOrder</returns>
@@ -245,7 +245,7 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the \&quot;Orders\&quot; domain to decorate onto each order.                  These take the format {domain}/{scope}/{code} e.g. \&quot;Orders/system/Name\&quot;.                  All properties, except derived properties, are returned by default, without specifying here. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
-        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -267,7 +267,7 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the \&quot;Orders\&quot; domain to decorate onto each order.                  These take the format {domain}/{scope}/{code} e.g. \&quot;Orders/system/Name\&quot;.                  All properties, except derived properties, are returned by default, without specifying here. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
-        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -909,7 +909,7 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the \&quot;Orders\&quot; domain to decorate onto each order.                  These take the format {domain}/{scope}/{code} e.g. \&quot;Orders/system/Name\&quot;.                  All properties, except derived properties, are returned by default, without specifying here. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
-        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfOrder</returns>
@@ -931,7 +931,7 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the \&quot;Orders\&quot; domain to decorate onto each order.                  These take the format {domain}/{scope}/{code} e.g. \&quot;Orders/system/Name\&quot;.                  All properties, except derived properties, are returned by default, without specifying here. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
-        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfOrder</returns>
@@ -1063,7 +1063,7 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the \&quot;Orders\&quot; domain to decorate onto each order.                  These take the format {domain}/{scope}/{code} e.g. \&quot;Orders/system/Name\&quot;.                  All properties, except derived properties, are returned by default, without specifying here. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
-        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1086,7 +1086,7 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the \&quot;Orders\&quot; domain to decorate onto each order.                  These take the format {domain}/{scope}/{code} e.g. \&quot;Orders/system/Name\&quot;.                  All properties, except derived properties, are returned by default, without specifying here. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
-        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>

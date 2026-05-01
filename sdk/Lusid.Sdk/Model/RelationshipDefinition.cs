@@ -38,13 +38,13 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="varVersion">varVersion.</param>
         /// <param name="relationshipDefinitionId">relationshipDefinitionId (required).</param>
-        /// <param name="sourceEntityType">The entity type of the source entity object. (required).</param>
-        /// <param name="targetEntityType">The entity type of the target entity object. (required).</param>
+        /// <param name="sourceEntityType">The entity type of the source entity object. Available values: Portfolio, PortfolioGroup, Person, LegalEntity, NextBestAction. (required).</param>
+        /// <param name="targetEntityType">The entity type of the target entity object. Available values: Portfolio, PortfolioGroup, Person, LegalEntity, NextBestAction. (required).</param>
         /// <param name="displayName">The display name of the relationship. (required).</param>
         /// <param name="outwardDescription">The description to relate source entity object and target entity object (required).</param>
         /// <param name="inwardDescription">The description to relate target entity object and source entity object (required).</param>
-        /// <param name="lifeTime">Describes how the relationships can change over time. (required).</param>
-        /// <param name="relationshipCardinality">Describes the cardinality of the relationship between source entity and target entity. (required).</param>
+        /// <param name="lifeTime">Describes how the relationships can change over time. Available values: Perpetual, TimeVariant. (required).</param>
+        /// <param name="relationshipCardinality">Describes the cardinality of the relationship between source entity and target entity. Available values: ManyToOne, ManyToMany. (required).</param>
         /// <param name="links">links.</param>
         public RelationshipDefinition(ModelVersion varVersion = default(ModelVersion), ResourceId relationshipDefinitionId = default(ResourceId), string sourceEntityType = default(string), string targetEntityType = default(string), string displayName = default(string), string outwardDescription = default(string), string inwardDescription = default(string), string lifeTime = default(string), string relationshipCardinality = default(string), List<Link> links = default(List<Link>))
         {
@@ -113,16 +113,16 @@ namespace Lusid.Sdk.Model
         public ResourceId RelationshipDefinitionId { get; set; }
 
         /// <summary>
-        /// The entity type of the source entity object.
+        /// The entity type of the source entity object. Available values: Portfolio, PortfolioGroup, Person, LegalEntity, NextBestAction.
         /// </summary>
-        /// <value>The entity type of the source entity object.</value>
+        /// <value>The entity type of the source entity object. Available values: Portfolio, PortfolioGroup, Person, LegalEntity, NextBestAction.</value>
         [DataMember(Name = "sourceEntityType", IsRequired = true, EmitDefaultValue = true)]
         public string SourceEntityType { get; set; }
 
         /// <summary>
-        /// The entity type of the target entity object.
+        /// The entity type of the target entity object. Available values: Portfolio, PortfolioGroup, Person, LegalEntity, NextBestAction.
         /// </summary>
-        /// <value>The entity type of the target entity object.</value>
+        /// <value>The entity type of the target entity object. Available values: Portfolio, PortfolioGroup, Person, LegalEntity, NextBestAction.</value>
         [DataMember(Name = "targetEntityType", IsRequired = true, EmitDefaultValue = true)]
         public string TargetEntityType { get; set; }
 
@@ -148,16 +148,16 @@ namespace Lusid.Sdk.Model
         public string InwardDescription { get; set; }
 
         /// <summary>
-        /// Describes how the relationships can change over time.
+        /// Describes how the relationships can change over time. Available values: Perpetual, TimeVariant.
         /// </summary>
-        /// <value>Describes how the relationships can change over time.</value>
+        /// <value>Describes how the relationships can change over time. Available values: Perpetual, TimeVariant.</value>
         [DataMember(Name = "lifeTime", IsRequired = true, EmitDefaultValue = true)]
         public string LifeTime { get; set; }
 
         /// <summary>
-        /// Describes the cardinality of the relationship between source entity and target entity.
+        /// Describes the cardinality of the relationship between source entity and target entity. Available values: ManyToOne, ManyToMany.
         /// </summary>
-        /// <value>Describes the cardinality of the relationship between source entity and target entity.</value>
+        /// <value>Describes the cardinality of the relationship between source entity and target entity. Available values: ManyToOne, ManyToMany.</value>
         [DataMember(Name = "relationshipCardinality", IsRequired = true, EmitDefaultValue = true)]
         public string RelationshipCardinality { get; set; }
 

@@ -6,7 +6,7 @@ A definition for the period you wish to lock
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DiaryEntryCode** | **string** | Unique code assigned to a period. When left blank last closed period will be located. | [optional] 
-**ClosingOptions** | **List&lt;string&gt;** | The options which will be executed once a period is closed or locked. | [optional] 
+**ClosingOptions** | **List&lt;string&gt;** | The options which will be executed once a period is closed or locked. Available values: ApplyClearDown. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;

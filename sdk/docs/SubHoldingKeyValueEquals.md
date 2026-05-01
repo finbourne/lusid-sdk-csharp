@@ -5,7 +5,7 @@ A criterion that checks whether a SubHoldingKey Value is equal to the given stri
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CriterionType** | **string** | The available values are: PropertyValueEquals, PropertyValueIn, SubHoldingKeyValueEquals | 
+**CriterionType** | **string** | Available values: PropertyValueEquals, PropertyValueIn, SubHoldingKeyValueEquals. | 
 **SubHoldingKey** | **string** | The sub holding key whose value will form the left-hand side of the operation | 
 **Value** | **string** | The value to be compared against | 
 

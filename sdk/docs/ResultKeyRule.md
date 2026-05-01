@@ -5,7 +5,7 @@ Base class for representing result key rules in LUSID, which describe how to res
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ResultKeyRuleType** | **string** | The available values are: Invalid, ResultDataKeyRule, PortfolioResultDataKeyRule | 
+**ResultKeyRuleType** | **string** | Available values: Invalid, ResultDataKeyRule, PortfolioResultDataKeyRule. | 
 
 ```csharp
 using Lusid.Sdk.Model;

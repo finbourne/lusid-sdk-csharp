@@ -5,7 +5,7 @@ Represents a dependency that could not be understood as an externally exposed de
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DependencyType** | **string** | The available values are: OpaqueDependency, CashDependency, DiscountingDependency, EquityCurveDependency, EquityVolDependency, FxDependency, FxForwardsDependency, FxVolDependency, IndexProjectionDependency, IrVolDependency, QuoteDependency, Vendor, CalendarDependency, InflationFixingDependency | 
+**DependencyType** | **string** | Available values: OpaqueDependency, CashDependency, DiscountingDependency, EquityCurveDependency, EquityVolDependency, FxDependency, FxForwardsDependency, FxVolDependency, IndexProjectionDependency, IrVolDependency, QuoteDependency, Vendor, CalendarDependency, InflationFixingDependency. | 
 
 ```csharp
 using Lusid.Sdk.Model;

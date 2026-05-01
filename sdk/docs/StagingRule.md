@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **RuleId** | **string** | The ID of the staging rule. | 
 **Description** | **string** | A description for the staging rule. | [optional] 
-**Status** | **string** | Whether the rule is &#39;Active&#39; or &#39;Inactive&#39;. | 
+**Status** | **string** | Status of the rule. Available values: Active, Inactive. | 
 **MatchCriteria** | [**StagingRuleMatchCriteria**](StagingRuleMatchCriteria.md) |  | 
 **ApprovalCriteria** | [**StagingRuleApprovalCriteria**](StagingRuleApprovalCriteria.md) |  | 
 

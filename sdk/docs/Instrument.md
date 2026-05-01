@@ -15,8 +15,8 @@ Name | Type | Description | Notes
 **Properties** | [**List&lt;Property&gt;**](Property.md) | The requested instrument properties. These will be from the &#39;Instrument&#39; domain. | [optional] 
 **LookthroughPortfolio** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **InstrumentDefinition** | [**LusidInstrument**](LusidInstrument.md) |  | [optional] 
-**State** | **string** | The state of of the instrument at the asAt datetime of this version of the instrument definition. The available values are: Active, Inactive, Deleted | 
-**AssetClass** | **string** | The nominal asset class of the instrument, e.g. InterestRates, FX, Inflation, Equities, Credit, Commodities, etc. The available values are: InterestRates, FX, Inflation, Equities, Credit, Commodities, Money, Unknown | [optional] 
+**State** | **string** | The state of of the instrument at the asAt datetime of this version of the instrument definition. Available values: Active, Inactive, Deleted. | 
+**AssetClass** | **string** | The nominal asset class of the instrument. Available values: InterestRates, FX, Inflation, Equities, Credit, Commodities, Money, Unknown. | [optional] 
 **DomCcy** | **string** | The domestic currency, meaning the currency in which the instrument would typically be expected to pay cashflows, e.g. a share in AAPL being USD. | [optional] 
 **Relationships** | [**List&lt;Relationship&gt;**](Relationship.md) | A set of relationships associated to the instrument. | [optional] 
 **SettlementCycle** | [**SettlementCycle**](SettlementCycle.md) |  | [optional] 

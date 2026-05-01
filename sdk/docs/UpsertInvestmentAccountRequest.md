@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Identifiers** | [**Dictionary&lt;string, Property&gt;**](Property.md) | Unique client-defined identifiers of the Investment Account. | 
 **DisplayName** | **string** | The display name of the Investment Account | 
 **Description** | **string** | The description of the Investment Account | [optional] 
-**AccountType** | **string** | The type of the of the Investment Account. | 
+**AccountType** | **string** | The type of the of the Investment Account. Available values: Individual, Corporate, Joint, Nominee. | 
 **AccountHolders** | [**List&lt;AccountHolderIdentifier&gt;**](AccountHolderIdentifier.md) | The identification of the account holders associated with this investment account | [optional] 
 **InvestmentPortfolios** | [**List&lt;InvestmentPortfolioIdentifier&gt;**](InvestmentPortfolioIdentifier.md) | The identification of the investment portfolios associated with this investment account | [optional] 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | A set of properties associated to the Investment Account. | [optional] 

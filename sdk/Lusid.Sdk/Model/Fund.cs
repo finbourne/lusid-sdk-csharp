@@ -41,12 +41,12 @@ namespace Lusid.Sdk.Model
         /// <param name="displayName">The name of the Fund..</param>
         /// <param name="description">A description for the Fund..</param>
         /// <param name="baseCurrency">The base currency of the Fund in ISO 4217 currency code format. All portfolios must be of a matching base currency..</param>
-        /// <param name="investorStructure">The Investor structure to be used by the Fund. Supported values are &#39;NonUnitised&#39; and &#39;Classes&#39;. (required).</param>
+        /// <param name="investorStructure">The Investor structure to be used by the Fund. Available values: NonUnitised, Classes. (required).</param>
         /// <param name="portfolioIds">A list of the portfolios on the fund, which are part of the Fund. Note: These must all have the same base currency, which must also match the Fund Base Currency..</param>
         /// <param name="fundConfigurationId">fundConfigurationId.</param>
         /// <param name="aborId">aborId.</param>
         /// <param name="shareClassInstruments">Details the user-provided instrument identifiers and the instrument resolved from them. These would be decommissioned in favour of the new AllocationGroups and ShareClasses structures..</param>
-        /// <param name="type">The type of fund; &#39;Standalone&#39;, &#39;Master&#39; or &#39;Feeder&#39;.</param>
+        /// <param name="type">The type of fund. Available values: Standalone, Master, Feeder..</param>
         /// <param name="inceptionDate">Inception date of the Fund (required).</param>
         /// <param name="decimalPlaces">Number of decimal places for reporting.</param>
         /// <param name="yearEndDate">yearEndDate.</param>
@@ -131,9 +131,9 @@ namespace Lusid.Sdk.Model
         public string BaseCurrency { get; set; }
 
         /// <summary>
-        /// The Investor structure to be used by the Fund. Supported values are &#39;NonUnitised&#39; and &#39;Classes&#39;.
+        /// The Investor structure to be used by the Fund. Available values: NonUnitised, Classes.
         /// </summary>
-        /// <value>The Investor structure to be used by the Fund. Supported values are &#39;NonUnitised&#39; and &#39;Classes&#39;.</value>
+        /// <value>The Investor structure to be used by the Fund. Available values: NonUnitised, Classes.</value>
         [DataMember(Name = "investorStructure", IsRequired = true, EmitDefaultValue = true)]
         public string InvestorStructure { get; set; }
 
@@ -164,9 +164,9 @@ namespace Lusid.Sdk.Model
         public List<InstrumentResolutionDetail> ShareClassInstruments { get; set; }
 
         /// <summary>
-        /// The type of fund; &#39;Standalone&#39;, &#39;Master&#39; or &#39;Feeder&#39;
+        /// The type of fund. Available values: Standalone, Master, Feeder.
         /// </summary>
-        /// <value>The type of fund; &#39;Standalone&#39;, &#39;Master&#39; or &#39;Feeder&#39;</value>
+        /// <value>The type of fund. Available values: Standalone, Master, Feeder.</value>
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public string Type { get; set; }
 

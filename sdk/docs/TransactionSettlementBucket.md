@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SettlementCategory** | **string** | A category representing the set of movement types that this instruction applies to. | 
+**SettlementCategory** | **string** | A category representing the set of movement types that this instruction applies to. Available values: StockSettlement, CashSettlement, DeferredCashReceipt. | 
 **LusidInstrumentId** | **string** | The LusidInstrumentId of the instrument being settled. | 
 **InstrumentScope** | **string** | The Scope of the instrument being settled. | 
 **ContractualSettlementDate** | **DateTimeOffset?** | The contractual settlement date. Used to match the instruction to the correct settlement bucket. | [optional] 
@@ -12,8 +12,8 @@ Name | Type | Description | Notes
 **SettledUnits** | **decimal** | The settled units. | [optional] 
 **UnsettledUnits** | **decimal** | The unsettled units. | [optional] 
 **OverdueUnits** | **decimal** | The overdue units. | [optional] 
-**ConfiguredSettlement** | **string** | The method of settlement for the settlement bucket, as defined in the portfolio&#39;s SettlementConfiguration | [optional] 
-**Status** | **string** | The Status of the settlement bucket - &#39;Settled&#39;, &#39;Part Settled&#39; or &#39;Unsettled&#39;. | 
+**ConfiguredSettlement** | **string** | The effective method of settlement for the settlement bucket. This reflects any transaction-level settlement method overrides, falling back to the portfolio&#39;s SettlementConfiguration if no override applies. Available values: Automatic, Instructed, NotApplicable. | [optional] 
+**Status** | **string** | The Status of the settlement bucket - &#39;Settled&#39;, &#39;Part Settled&#39; or &#39;Unsettled&#39;. Available values: Unsettled, PartSettled, Settled, None. | 
 **SettlementInstructions** | [**List&lt;TransactionSettlementInstruction&gt;**](TransactionSettlementInstruction.md) | The settlement instructions received for this settlement bucket. | [optional] 
 **Movements** | [**List&lt;TransactionSettlementMovement&gt;**](TransactionSettlementMovement.md) | The movements for the settlement bucket. | [optional] 
 

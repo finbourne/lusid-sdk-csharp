@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **Counterparty** | **string** | Counterparty | [optional] 
 **InstrumentProperties** | [**List&lt;Property&gt;**](Property.md) | Set of instrument properties (as defined by client/user). | [optional] 
 **TransactionProperties** | [**List&lt;Property&gt;**](Property.md) | Set of transaction properties (as defined by client/user). | [optional] 
-**TradeTicketType** | **string** | The available values are: LusidTradeTicket, ExternalTradeTicket | 
+**TradeTicketType** | **string** | Available values: LusidTradeTicket, ExternalTradeTicket. | 
 
 ```csharp
 using Lusid.Sdk.Model;

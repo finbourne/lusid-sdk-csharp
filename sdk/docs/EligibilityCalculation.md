@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **EntitlementDate** | **string** |  | 
-**EligibleUnits** | **string** |  | 
+**EligibleUnits** | **string** | Available values: TotalUnits, SettledUnits, NotApplicable. | 
 **DateModifiableByInstruction** | **bool** |  | [optional] 
 
 ```csharp

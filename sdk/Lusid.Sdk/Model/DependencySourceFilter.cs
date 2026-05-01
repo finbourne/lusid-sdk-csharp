@@ -31,10 +31,10 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DependencySourceFilter" /> class.
         /// </summary>
-        /// <param name="instrumentType">Specify that a rule should only apply if the market data is requested by an instrument of a given instrument type.  If null, then no filtering on instrument type is applied..</param>
-        /// <param name="assetClass">Specify that a rule should only apply if the market data is requested by an instrument of a given asset class.  If null, then no filtering on asset class is applied..</param>
+        /// <param name="instrumentType">Specify that a rule should only apply if the market data is requested by an instrument of a given instrument type.  If null, then no filtering on instrument type is applied. Available values: Bond, CashPerpetual, CapFloor, CashSettled, CreditDefaultSwap, ForwardRateAgreement, Future, FxForward, FxOption, Index, InterestRateSwap, QuotedSecurity, Repo, ExoticInstrument, Equity, InterestRateSwaption, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, StructuredInstrument, TermDeposit, ContractForDifference, EquitySwap, CdsIndex, Basket, FundingLeg, FxSwap, SimpleInstrument, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, Cash, UnsettledCash, MasteredInstrument, LoanFacility, FlexibleDeposit, FlexibleRepo, Unknown..</param>
+        /// <param name="assetClass">Specify that a rule should only apply if the market data is requested by an instrument of a given asset class.  If null, then no filtering on asset class is applied. Available values: InterestRates, FX, Inflation, Equities, Credit, Commodities, Money, Unknown..</param>
         /// <param name="domCcy">Specify that a rule should only apply if the market data is requested by an instrument with a given domestic currency.  If null, then no filtering on currency is applied..</param>
-        /// <param name="longOrShortIndicator">Specify that a rule should apply if the market data is requested by a model with a given long or short indicator.  If none, then no filtering on LongOrShortIndicator is applied..</param>
+        /// <param name="longOrShortIndicator">Specify that a rule should apply if the market data is requested by a model with a given Long or Short indicator.  If none, then no filtering on LongOrShortIndicator is applied. Available values: NA, Long, Short..</param>
         /// <param name="addressKeyFilters">Specify that a rule should apply if the market data is requested by an instrument with features or properties  satisfying all the given address key filters. If an empty list is given, no additional filtering is done..</param>
         public DependencySourceFilter(string instrumentType = default(string), string assetClass = default(string), string domCcy = default(string), string longOrShortIndicator = default(string), List<AddressKeyFilter> addressKeyFilters = default(List<AddressKeyFilter>))
         {
@@ -46,16 +46,16 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// Specify that a rule should only apply if the market data is requested by an instrument of a given instrument type.  If null, then no filtering on instrument type is applied.
+        /// Specify that a rule should only apply if the market data is requested by an instrument of a given instrument type.  If null, then no filtering on instrument type is applied. Available values: Bond, CashPerpetual, CapFloor, CashSettled, CreditDefaultSwap, ForwardRateAgreement, Future, FxForward, FxOption, Index, InterestRateSwap, QuotedSecurity, Repo, ExoticInstrument, Equity, InterestRateSwaption, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, StructuredInstrument, TermDeposit, ContractForDifference, EquitySwap, CdsIndex, Basket, FundingLeg, FxSwap, SimpleInstrument, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, Cash, UnsettledCash, MasteredInstrument, LoanFacility, FlexibleDeposit, FlexibleRepo, Unknown.
         /// </summary>
-        /// <value>Specify that a rule should only apply if the market data is requested by an instrument of a given instrument type.  If null, then no filtering on instrument type is applied.</value>
+        /// <value>Specify that a rule should only apply if the market data is requested by an instrument of a given instrument type.  If null, then no filtering on instrument type is applied. Available values: Bond, CashPerpetual, CapFloor, CashSettled, CreditDefaultSwap, ForwardRateAgreement, Future, FxForward, FxOption, Index, InterestRateSwap, QuotedSecurity, Repo, ExoticInstrument, Equity, InterestRateSwaption, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, StructuredInstrument, TermDeposit, ContractForDifference, EquitySwap, CdsIndex, Basket, FundingLeg, FxSwap, SimpleInstrument, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, Cash, UnsettledCash, MasteredInstrument, LoanFacility, FlexibleDeposit, FlexibleRepo, Unknown.</value>
         [DataMember(Name = "instrumentType", EmitDefaultValue = true)]
         public string InstrumentType { get; set; }
 
         /// <summary>
-        /// Specify that a rule should only apply if the market data is requested by an instrument of a given asset class.  If null, then no filtering on asset class is applied.
+        /// Specify that a rule should only apply if the market data is requested by an instrument of a given asset class.  If null, then no filtering on asset class is applied. Available values: InterestRates, FX, Inflation, Equities, Credit, Commodities, Money, Unknown.
         /// </summary>
-        /// <value>Specify that a rule should only apply if the market data is requested by an instrument of a given asset class.  If null, then no filtering on asset class is applied.</value>
+        /// <value>Specify that a rule should only apply if the market data is requested by an instrument of a given asset class.  If null, then no filtering on asset class is applied. Available values: InterestRates, FX, Inflation, Equities, Credit, Commodities, Money, Unknown.</value>
         [DataMember(Name = "assetClass", EmitDefaultValue = true)]
         public string AssetClass { get; set; }
 
@@ -67,9 +67,9 @@ namespace Lusid.Sdk.Model
         public string DomCcy { get; set; }
 
         /// <summary>
-        /// Specify that a rule should apply if the market data is requested by a model with a given long or short indicator.  If none, then no filtering on LongOrShortIndicator is applied.
+        /// Specify that a rule should apply if the market data is requested by a model with a given Long or Short indicator.  If none, then no filtering on LongOrShortIndicator is applied. Available values: NA, Long, Short.
         /// </summary>
-        /// <value>Specify that a rule should apply if the market data is requested by a model with a given long or short indicator.  If none, then no filtering on LongOrShortIndicator is applied.</value>
+        /// <value>Specify that a rule should apply if the market data is requested by a model with a given Long or Short indicator.  If none, then no filtering on LongOrShortIndicator is applied. Available values: NA, Long, Short.</value>
         [DataMember(Name = "longOrShortIndicator", EmitDefaultValue = true)]
         public string LongOrShortIndicator { get; set; }
 

@@ -38,7 +38,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="scope">The scope within which the portfolio or portfolio group lives. (required).</param>
         /// <param name="code">Portfolio name or code. (required).</param>
-        /// <param name="portfolioEntityType">String identifier for portfolio e.g. \&quot;SinglePortfolio\&quot; and \&quot;GroupPortfolio\&quot;. If not specified, it is assumed to be a single portfolio..</param>
+        /// <param name="portfolioEntityType">String identifier for portfolio e.g. \&quot;SinglePortfolio\&quot; and \&quot;GroupPortfolio\&quot;. If not specified, it is assumed to be a single portfolio. Available values: SinglePortfolio, GroupPortfolio..</param>
         public PortfolioEntityId(string scope = default(string), string code = default(string), string portfolioEntityType = default(string))
         {
             // to ensure "scope" is required (not null)
@@ -71,9 +71,9 @@ namespace Lusid.Sdk.Model
         public string Code { get; set; }
 
         /// <summary>
-        /// String identifier for portfolio e.g. \&quot;SinglePortfolio\&quot; and \&quot;GroupPortfolio\&quot;. If not specified, it is assumed to be a single portfolio.
+        /// String identifier for portfolio e.g. \&quot;SinglePortfolio\&quot; and \&quot;GroupPortfolio\&quot;. If not specified, it is assumed to be a single portfolio. Available values: SinglePortfolio, GroupPortfolio.
         /// </summary>
-        /// <value>String identifier for portfolio e.g. \&quot;SinglePortfolio\&quot; and \&quot;GroupPortfolio\&quot;. If not specified, it is assumed to be a single portfolio.</value>
+        /// <value>String identifier for portfolio e.g. \&quot;SinglePortfolio\&quot; and \&quot;GroupPortfolio\&quot;. If not specified, it is assumed to be a single portfolio. Available values: SinglePortfolio, GroupPortfolio.</value>
         [DataMember(Name = "portfolioEntityType", EmitDefaultValue = true)]
         public string PortfolioEntityType { get; set; }
 

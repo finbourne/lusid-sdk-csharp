@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **RuleId** | [**ResourceId**](ResourceId.md) |  | 
 **TemplateId** | [**ResourceId**](ResourceId.md) |  | 
 **Variation** | **string** |  | 
-**RuleStatus** | **string** |  | 
+**RuleStatus** | **string** | Available values: Passed, Failed, MissingData, Warning. | 
 **AffectedPortfolios** | [**List&lt;ResourceId&gt;**](ResourceId.md) |  | 
 **AffectedOrders** | [**List&lt;ResourceId&gt;**](ResourceId.md) |  | 
 **ParametersUsed** | **Dictionary&lt;string, string&gt;** |  | 

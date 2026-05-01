@@ -42,7 +42,7 @@ namespace Lusid.Sdk.Model
         /// <param name="displayName">The name of the Cleardown Module. (required).</param>
         /// <param name="description">A description for the Cleardown Module..</param>
         /// <param name="rules">The Cleardown Rules that apply for the Cleardown Module. Rules are evaluated in the order they occur in this collection..</param>
-        /// <param name="status">The Cleardown Module status. Can be Active, Inactive or Deleted. Defaults to Active. (required).</param>
+        /// <param name="status">The Cleardown Module status. Default value: Active. Available values: Active, Inactive, Deleted. (required).</param>
         /// <param name="varVersion">varVersion.</param>
         /// <param name="links">links.</param>
         public CleardownModuleResponse(string href = default(string), string cleardownModuleCode = default(string), ResourceId chartOfAccountsId = default(ResourceId), string displayName = default(string), string description = default(string), List<CleardownModuleRule> rules = default(List<CleardownModuleRule>), string status = default(string), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
@@ -120,9 +120,9 @@ namespace Lusid.Sdk.Model
         public List<CleardownModuleRule> Rules { get; set; }
 
         /// <summary>
-        /// The Cleardown Module status. Can be Active, Inactive or Deleted. Defaults to Active.
+        /// The Cleardown Module status. Default value: Active. Available values: Active, Inactive, Deleted.
         /// </summary>
-        /// <value>The Cleardown Module status. Can be Active, Inactive or Deleted. Defaults to Active.</value>
+        /// <value>The Cleardown Module status. Default value: Active. Available values: Active, Inactive, Deleted.</value>
         [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
         public string Status { get; set; }
 

@@ -39,14 +39,14 @@ namespace Lusid.Sdk.Model
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime. (required).</param>
         /// <param name="entityUniqueId">The unique id of the entity. (required).</param>
         /// <param name="asAtVersionNumber">The integer version number for the entity (the entity was created at version 1).</param>
-        /// <param name="status">The status of the entity at the current time. (required).</param>
+        /// <param name="status">The status of the entity at the current time. Available values: Prevailing, Deleted, DoesNotExist. (required).</param>
         /// <param name="asAtDeleted">The asAt datetime at which the entity was deleted..</param>
         /// <param name="userIdDeleted">The unique id of the user who deleted the entity..</param>
         /// <param name="requestIdDeleted">The unique request id of the command that deleted the entity..</param>
         /// <param name="effectiveAtCreated">The EffectiveAt this Entity is created, if entity does not currently exist in EffectiveAt..</param>
         /// <param name="prevailingCustomEntity">prevailingCustomEntity.</param>
         /// <param name="deletedCustomEntity">deletedCustomEntity.</param>
-        /// <param name="previewedStatus">The status of the previewed entity..</param>
+        /// <param name="previewedStatus">The status of the previewed entity. Available values: Prevailing, Deleted, DoesNotExist..</param>
         /// <param name="previewedCustomEntity">previewedCustomEntity.</param>
         /// <param name="links">links.</param>
         public CustomEntityEntity(string href = default(string), string entityUniqueId = default(string), int? asAtVersionNumber = default(int?), string status = default(string), DateTimeOffset? asAtDeleted = default(DateTimeOffset?), string userIdDeleted = default(string), string requestIdDeleted = default(string), DateTimeOffset? effectiveAtCreated = default(DateTimeOffset?), CustomEntityResponse prevailingCustomEntity = default(CustomEntityResponse), CustomEntityResponse deletedCustomEntity = default(CustomEntityResponse), string previewedStatus = default(string), CustomEntityResponse previewedCustomEntity = default(CustomEntityResponse), List<Link> links = default(List<Link>))
@@ -103,9 +103,9 @@ namespace Lusid.Sdk.Model
         public int? AsAtVersionNumber { get; set; }
 
         /// <summary>
-        /// The status of the entity at the current time.
+        /// The status of the entity at the current time. Available values: Prevailing, Deleted, DoesNotExist.
         /// </summary>
-        /// <value>The status of the entity at the current time.</value>
+        /// <value>The status of the entity at the current time. Available values: Prevailing, Deleted, DoesNotExist.</value>
         [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
         public string Status { get; set; }
 
@@ -150,9 +150,9 @@ namespace Lusid.Sdk.Model
         public CustomEntityResponse DeletedCustomEntity { get; set; }
 
         /// <summary>
-        /// The status of the previewed entity.
+        /// The status of the previewed entity. Available values: Prevailing, Deleted, DoesNotExist.
         /// </summary>
-        /// <value>The status of the previewed entity.</value>
+        /// <value>The status of the previewed entity. Available values: Prevailing, Deleted, DoesNotExist.</value>
         [DataMember(Name = "previewedStatus", EmitDefaultValue = true)]
         public string PreviewedStatus { get; set; }
 

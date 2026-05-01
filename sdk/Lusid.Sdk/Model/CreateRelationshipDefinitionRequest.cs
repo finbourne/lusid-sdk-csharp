@@ -43,8 +43,8 @@ namespace Lusid.Sdk.Model
         /// <param name="displayName">The display name of the relationship definition. (required).</param>
         /// <param name="outwardDescription">The description to relate source entity object and target entity object. (required).</param>
         /// <param name="inwardDescription">The description to relate target entity object and source entity object. (required).</param>
-        /// <param name="lifeTime">Describes how the relationships can change over time. Allowed values are &#39;Perpetual&#39; and &#39;TimeVariant&#39;, defaults to &#39;Perpetual&#39; if not specified..</param>
-        /// <param name="relationshipCardinality">Describes the cardinality of the relationship with a specific source entity object and relationships under this definition. Allowed values are &#39;ManyToMany&#39; and &#39;ManyToOne&#39;, defaults to &#39;ManyToMany&#39; if not specified..</param>
+        /// <param name="lifeTime">Describes how the relationships can change over time. Default value: Perpetual. Available values: Perpetual, TimeVariant..</param>
+        /// <param name="relationshipCardinality">Describes the cardinality of the relationship with a specific source entity object and relationships under this definition. Default value: ManyToMany. Available values: ManyToOne, ManyToMany..</param>
         public CreateRelationshipDefinitionRequest(string scope = default(string), string code = default(string), string sourceEntityType = default(string), string targetEntityType = default(string), string displayName = default(string), string outwardDescription = default(string), string inwardDescription = default(string), string lifeTime = default(string), string relationshipCardinality = default(string))
         {
             // to ensure "scope" is required (not null)
@@ -143,16 +143,16 @@ namespace Lusid.Sdk.Model
         public string InwardDescription { get; set; }
 
         /// <summary>
-        /// Describes how the relationships can change over time. Allowed values are &#39;Perpetual&#39; and &#39;TimeVariant&#39;, defaults to &#39;Perpetual&#39; if not specified.
+        /// Describes how the relationships can change over time. Default value: Perpetual. Available values: Perpetual, TimeVariant.
         /// </summary>
-        /// <value>Describes how the relationships can change over time. Allowed values are &#39;Perpetual&#39; and &#39;TimeVariant&#39;, defaults to &#39;Perpetual&#39; if not specified.</value>
+        /// <value>Describes how the relationships can change over time. Default value: Perpetual. Available values: Perpetual, TimeVariant.</value>
         [DataMember(Name = "lifeTime", EmitDefaultValue = true)]
         public string LifeTime { get; set; }
 
         /// <summary>
-        /// Describes the cardinality of the relationship with a specific source entity object and relationships under this definition. Allowed values are &#39;ManyToMany&#39; and &#39;ManyToOne&#39;, defaults to &#39;ManyToMany&#39; if not specified.
+        /// Describes the cardinality of the relationship with a specific source entity object and relationships under this definition. Default value: ManyToMany. Available values: ManyToOne, ManyToMany.
         /// </summary>
-        /// <value>Describes the cardinality of the relationship with a specific source entity object and relationships under this definition. Allowed values are &#39;ManyToMany&#39; and &#39;ManyToOne&#39;, defaults to &#39;ManyToMany&#39; if not specified.</value>
+        /// <value>Describes the cardinality of the relationship with a specific source entity object and relationships under this definition. Default value: ManyToMany. Available values: ManyToOne, ManyToMany.</value>
         [DataMember(Name = "relationshipCardinality", EmitDefaultValue = true)]
         public string RelationshipCardinality { get; set; }
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Decision** | **string** | The decision on the requested staged modification, can be &#39;Approve&#39; or &#39;Reject&#39;. | 
+**Decision** | **string** | The decision on the requested staged modification, can be &#39;Approve&#39; or &#39;Reject&#39;. Available values: Approve, Reject. | 
 **Comment** | **string** | Comment on decision. | 
 
 ```csharp

@@ -29,9 +29,9 @@ namespace Lusid.Sdk.Model
     public partial class HoldingsAdjustmentHeader : IEquatable<HoldingsAdjustmentHeader>, IValidatableObject
     {
         /// <summary>
-        /// Describes how the holdings were adjusted. If &#39;PositionToZero&#39; the entire transaction portfolio&#39;s holdings were set via a call to &#39;Set holdings&#39;. If &#39;KeepTheSame&#39; only the specified holdings were adjusted via a call to &#39;Adjust holdings&#39;. The available values are: PositionToZero, KeepTheSame
+        /// Describes how the holdings were adjusted. If &#39;PositionToZero&#39; the entire transaction portfolio&#39;s holdings were set via a call to &#39;Set holdings&#39;. If &#39;KeepTheSame&#39; only the specified holdings were adjusted via a call to &#39;Adjust holdings&#39;. Available values: PositionToZero, KeepTheSame.
         /// </summary>
-        /// <value>Describes how the holdings were adjusted. If &#39;PositionToZero&#39; the entire transaction portfolio&#39;s holdings were set via a call to &#39;Set holdings&#39;. If &#39;KeepTheSame&#39; only the specified holdings were adjusted via a call to &#39;Adjust holdings&#39;. The available values are: PositionToZero, KeepTheSame</value>
+        /// <value>Describes how the holdings were adjusted. If &#39;PositionToZero&#39; the entire transaction portfolio&#39;s holdings were set via a call to &#39;Set holdings&#39;. If &#39;KeepTheSame&#39; only the specified holdings were adjusted via a call to &#39;Adjust holdings&#39;. Available values: PositionToZero, KeepTheSame.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum UnmatchedHoldingMethodEnum
         {
@@ -50,9 +50,9 @@ namespace Lusid.Sdk.Model
 
 
         /// <summary>
-        /// Describes how the holdings were adjusted. If &#39;PositionToZero&#39; the entire transaction portfolio&#39;s holdings were set via a call to &#39;Set holdings&#39;. If &#39;KeepTheSame&#39; only the specified holdings were adjusted via a call to &#39;Adjust holdings&#39;. The available values are: PositionToZero, KeepTheSame
+        /// Describes how the holdings were adjusted. If &#39;PositionToZero&#39; the entire transaction portfolio&#39;s holdings were set via a call to &#39;Set holdings&#39;. If &#39;KeepTheSame&#39; only the specified holdings were adjusted via a call to &#39;Adjust holdings&#39;. Available values: PositionToZero, KeepTheSame.
         /// </summary>
-        /// <value>Describes how the holdings were adjusted. If &#39;PositionToZero&#39; the entire transaction portfolio&#39;s holdings were set via a call to &#39;Set holdings&#39;. If &#39;KeepTheSame&#39; only the specified holdings were adjusted via a call to &#39;Adjust holdings&#39;. The available values are: PositionToZero, KeepTheSame</value>
+        /// <value>Describes how the holdings were adjusted. If &#39;PositionToZero&#39; the entire transaction portfolio&#39;s holdings were set via a call to &#39;Set holdings&#39;. If &#39;KeepTheSame&#39; only the specified holdings were adjusted via a call to &#39;Adjust holdings&#39;. Available values: PositionToZero, KeepTheSame.</value>
         [DataMember(Name = "unmatchedHoldingMethod", IsRequired = true, EmitDefaultValue = true)]
         public UnmatchedHoldingMethodEnum UnmatchedHoldingMethod { get; set; }
         /// <summary>
@@ -65,7 +65,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="effectiveAt">The effective datetime from which the adjustment is valid. There can only be one holdings adjustment for a transaction portfolio at a specific effective datetime, so this uniquely identifies the adjustment. (required).</param>
         /// <param name="varVersion">varVersion (required).</param>
-        /// <param name="unmatchedHoldingMethod">Describes how the holdings were adjusted. If &#39;PositionToZero&#39; the entire transaction portfolio&#39;s holdings were set via a call to &#39;Set holdings&#39;. If &#39;KeepTheSame&#39; only the specified holdings were adjusted via a call to &#39;Adjust holdings&#39;. The available values are: PositionToZero, KeepTheSame (required).</param>
+        /// <param name="unmatchedHoldingMethod">Describes how the holdings were adjusted. If &#39;PositionToZero&#39; the entire transaction portfolio&#39;s holdings were set via a call to &#39;Set holdings&#39;. If &#39;KeepTheSame&#39; only the specified holdings were adjusted via a call to &#39;Adjust holdings&#39;. Available values: PositionToZero, KeepTheSame. (required).</param>
         /// <param name="links">links.</param>
         public HoldingsAdjustmentHeader(DateTimeOffset effectiveAt = default(DateTimeOffset), ModelVersion varVersion = default(ModelVersion), UnmatchedHoldingMethodEnum unmatchedHoldingMethod = default(UnmatchedHoldingMethodEnum), List<Link> links = default(List<Link>))
         {

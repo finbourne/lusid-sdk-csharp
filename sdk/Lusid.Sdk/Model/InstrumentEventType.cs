@@ -453,7 +453,13 @@ namespace Lusid.Sdk.Model
         /// Enum DepositRollEvent for value: DepositRollEvent
         /// </summary>
         [EnumMember(Value = "DepositRollEvent")]
-        DepositRollEvent = 71
+        DepositRollEvent = 71,
+
+        /// <summary>
+        /// Enum ConsentEvent for value: ConsentEvent
+        /// </summary>
+        [EnumMember(Value = "ConsentEvent")]
+        ConsentEvent = 72
     }
 
 }

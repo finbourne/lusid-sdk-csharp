@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ResultKeyRuleType** | **string** | The available values are: Invalid, ResultDataKeyRule, PortfolioResultDataKeyRule | 
+**ResultKeyRuleType** | **string** | Available values: Invalid, ResultDataKeyRule, PortfolioResultDataKeyRule. | 
 **Supplier** | **string** | the result resource supplier (where the data comes from) | 
 **DataScope** | **string** | which is the scope in which the data should be found | 
 **DocumentCode** | **string** | document code that defines which document is desired | 

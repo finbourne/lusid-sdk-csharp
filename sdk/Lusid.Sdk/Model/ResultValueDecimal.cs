@@ -40,7 +40,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="value">The value itself.</param>
         /// <param name="dimension">The dimension of the result. Can be null if there is no sensible way of defining the dimension. This field should not be  populate by the user on upsertion..</param>
-        /// <param name="resultValueType">The available values are: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, ResultValueBool, ResultValueCurrency, CashFlowValue, CashFlowValueSet, ResultValueLifeCycleEventValue, ResultValueDateTimeOffset (required) (default to &quot;ResultValueDecimal&quot;).</param>
+        /// <param name="resultValueType">Available values: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, ResultValueBool, ResultValueCurrency, CashFlowValue, CashFlowValueSet, ResultValueLifeCycleEventValue, ResultValueDateTimeOffset. (required) (default to &quot;ResultValueDecimal&quot;).</param>
         public ResultValueDecimal(decimal value = default(decimal), int? dimension = default(int?), ResultValueTypeEnum resultValueType = default(ResultValueTypeEnum)) : base(resultValueType)
         {
             this.Value = value;

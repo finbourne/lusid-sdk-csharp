@@ -5,7 +5,7 @@ A condition to be evaluated.  Each supported CriterionType has a corresponding s
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CriterionType** | **string** | The available values are: PropertyValueEquals, PropertyValueIn, SubHoldingKeyValueEquals | 
+**CriterionType** | **string** | Available values: PropertyValueEquals, PropertyValueIn, SubHoldingKeyValueEquals. | 
 
 ```csharp
 using Lusid.Sdk.Model;

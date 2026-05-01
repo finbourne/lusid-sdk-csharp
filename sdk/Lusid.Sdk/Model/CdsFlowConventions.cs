@@ -45,7 +45,7 @@ namespace Lusid.Sdk.Model
         /// <param name="resetCalendars">An array of strings denoting holiday calendars that apply to generation of reset schedules. (required).</param>
         /// <param name="settleDays">Number of Good Business Days between the trade date and the effective or settlement date of the instrument. Defaults to 0 if not set..</param>
         /// <param name="resetDays">The number of Good Business Days between determination and payment of reset. Defaults to 0 if not set..</param>
-        /// <param name="businessDayConvention">When generating a set of dates, what convention should be used for adjusting dates that coincide with a non-business day.    Supported string (enumeration) values are: [NoAdjustment, None, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, HalfMonthModifiedFollowing, Nearest]..</param>
+        /// <param name="businessDayConvention">When generating a set of dates, what convention should be used for adjusting dates that coincide with a non-business day. Available values: NoAdjustment, None, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, HalfMonthModifiedFollowing, Nearest, Invalid..</param>
         /// <param name="scope">The scope used when updating or inserting the convention..</param>
         /// <param name="code">The code of the convention..</param>
         public CdsFlowConventions(string rollFrequency = default(string), string currency = default(string), string paymentFrequency = default(string), string dayCountConvention = default(string), string rollConvention = default(string), List<string> paymentCalendars = default(List<string>), List<string> resetCalendars = default(List<string>), int settleDays = default(int), int resetDays = default(int), string businessDayConvention = default(string), string scope = default(string), string code = default(string))
@@ -158,9 +158,9 @@ namespace Lusid.Sdk.Model
         public int ResetDays { get; set; }
 
         /// <summary>
-        /// When generating a set of dates, what convention should be used for adjusting dates that coincide with a non-business day.    Supported string (enumeration) values are: [NoAdjustment, None, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, HalfMonthModifiedFollowing, Nearest].
+        /// When generating a set of dates, what convention should be used for adjusting dates that coincide with a non-business day. Available values: NoAdjustment, None, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, HalfMonthModifiedFollowing, Nearest, Invalid.
         /// </summary>
-        /// <value>When generating a set of dates, what convention should be used for adjusting dates that coincide with a non-business day.    Supported string (enumeration) values are: [NoAdjustment, None, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, HalfMonthModifiedFollowing, Nearest].</value>
+        /// <value>When generating a set of dates, what convention should be used for adjusting dates that coincide with a non-business day. Available values: NoAdjustment, None, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, HalfMonthModifiedFollowing, Nearest, Invalid.</value>
         [DataMember(Name = "businessDayConvention", EmitDefaultValue = true)]
         public string BusinessDayConvention { get; set; }
 

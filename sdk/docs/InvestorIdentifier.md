@@ -5,7 +5,7 @@ Identification of an Investor on the LUSID API.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**InvestorType** | **string** | The type of the investor of the Investor Record. Can be either a Person, LegalEntity or Nominee. | 
+**InvestorType** | **string** | The type of the investor of the Investor Record. Available values: Person, LegalEntity, Nominee. | 
 **Identifiers** | **Dictionary&lt;string, string&gt;** | Single identifier that should target the desired person or legal entity | [optional] 
 
 ```csharp

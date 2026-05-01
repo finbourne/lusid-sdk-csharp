@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **SettlementInstructionId** | **string** |  | 
-**Operation** | **string** |  | [optional] 
+**Operation** | **string** | Available values: Activate, Deactivate. | [optional] 
 **Properties** | [**List&lt;PerpetualProperty&gt;**](PerpetualProperty.md) |  | [optional] 
 
 ```csharp

@@ -29,9 +29,9 @@ namespace Lusid.Sdk.Model
     public partial class Portfolio : IEquatable<Portfolio>, IValidatableObject
     {
         /// <summary>
-        /// The type of the portfolio. The available values are: Transaction, Reference, DerivedTransaction, SimplePosition
+        /// The type of the portfolio. Available values: Transaction, Reference, DerivedTransaction, SimplePosition.
         /// </summary>
-        /// <value>The type of the portfolio. The available values are: Transaction, Reference, DerivedTransaction, SimplePosition</value>
+        /// <value>The type of the portfolio. Available values: Transaction, Reference, DerivedTransaction, SimplePosition.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TypeEnum
         {
@@ -62,15 +62,15 @@ namespace Lusid.Sdk.Model
 
 
         /// <summary>
-        /// The type of the portfolio. The available values are: Transaction, Reference, DerivedTransaction, SimplePosition
+        /// The type of the portfolio. Available values: Transaction, Reference, DerivedTransaction, SimplePosition.
         /// </summary>
-        /// <value>The type of the portfolio. The available values are: Transaction, Reference, DerivedTransaction, SimplePosition</value>
+        /// <value>The type of the portfolio. Available values: Transaction, Reference, DerivedTransaction, SimplePosition.</value>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public TypeEnum Type { get; set; }
         /// <summary>
-        /// . The available values are: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency, IntraDayThenFirstInFirstOut, LongTermHighestCostFirst, LongTermHighestCostFirstPortfolioCurrency, HighestCostFirstPortfolioCurrency, LowestCostFirstPortfolioCurrency, MaximumLossMinimumGain, MaximumLossMinimumGainPortfolioCurrency
+        /// The AccountingMethod used for the portfolio. Available values: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency, IntraDayThenFirstInFirstOut, LongTermHighestCostFirst, LongTermHighestCostFirstPortfolioCurrency, HighestCostFirstPortfolioCurrency, LowestCostFirstPortfolioCurrency, MaximumLossMinimumGain, MaximumLossMinimumGainPortfolioCurrency.
         /// </summary>
-        /// <value>. The available values are: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency, IntraDayThenFirstInFirstOut, LongTermHighestCostFirst, LongTermHighestCostFirstPortfolioCurrency, HighestCostFirstPortfolioCurrency, LowestCostFirstPortfolioCurrency, MaximumLossMinimumGain, MaximumLossMinimumGainPortfolioCurrency</value>
+        /// <value>The AccountingMethod used for the portfolio. Available values: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency, IntraDayThenFirstInFirstOut, LongTermHighestCostFirst, LongTermHighestCostFirstPortfolioCurrency, HighestCostFirstPortfolioCurrency, LowestCostFirstPortfolioCurrency, MaximumLossMinimumGain, MaximumLossMinimumGainPortfolioCurrency.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum AccountingMethodEnum
         {
@@ -173,9 +173,9 @@ namespace Lusid.Sdk.Model
 
 
         /// <summary>
-        /// . The available values are: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency, IntraDayThenFirstInFirstOut, LongTermHighestCostFirst, LongTermHighestCostFirstPortfolioCurrency, HighestCostFirstPortfolioCurrency, LowestCostFirstPortfolioCurrency, MaximumLossMinimumGain, MaximumLossMinimumGainPortfolioCurrency
+        /// The AccountingMethod used for the portfolio. Available values: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency, IntraDayThenFirstInFirstOut, LongTermHighestCostFirst, LongTermHighestCostFirstPortfolioCurrency, HighestCostFirstPortfolioCurrency, LowestCostFirstPortfolioCurrency, MaximumLossMinimumGain, MaximumLossMinimumGainPortfolioCurrency.
         /// </summary>
-        /// <value>. The available values are: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency, IntraDayThenFirstInFirstOut, LongTermHighestCostFirst, LongTermHighestCostFirstPortfolioCurrency, HighestCostFirstPortfolioCurrency, LowestCostFirstPortfolioCurrency, MaximumLossMinimumGain, MaximumLossMinimumGainPortfolioCurrency</value>
+        /// <value>The AccountingMethod used for the portfolio. Available values: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency, IntraDayThenFirstInFirstOut, LongTermHighestCostFirst, LongTermHighestCostFirstPortfolioCurrency, HighestCostFirstPortfolioCurrency, LowestCostFirstPortfolioCurrency, MaximumLossMinimumGain, MaximumLossMinimumGainPortfolioCurrency.</value>
         [DataMember(Name = "accountingMethod", EmitDefaultValue = false)]
         public AccountingMethodEnum? AccountingMethod { get; set; }
         /// <summary>
@@ -188,7 +188,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
         /// <param name="id">id (required).</param>
-        /// <param name="type">The type of the portfolio. The available values are: Transaction, Reference, DerivedTransaction, SimplePosition (required).</param>
+        /// <param name="type">The type of the portfolio. Available values: Transaction, Reference, DerivedTransaction, SimplePosition. (required).</param>
         /// <param name="displayName">The name of the portfolio. (required).</param>
         /// <param name="description">The long form description of the portfolio..</param>
         /// <param name="created">The effective datetime at which the portfolio was created. No transactions or constituents can be added to the portfolio before this date. (required).</param>
@@ -200,8 +200,8 @@ namespace Lusid.Sdk.Model
         /// <param name="properties">The requested portfolio properties. These will be from the &#39;Portfolio&#39; domain..</param>
         /// <param name="relationships">A set of relationships associated to the portfolio..</param>
         /// <param name="instrumentScopes">The instrument scope resolution strategy of this portfolio..</param>
-        /// <param name="accountingMethod">. The available values are: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency, IntraDayThenFirstInFirstOut, LongTermHighestCostFirst, LongTermHighestCostFirstPortfolioCurrency, HighestCostFirstPortfolioCurrency, LowestCostFirstPortfolioCurrency, MaximumLossMinimumGain, MaximumLossMinimumGainPortfolioCurrency.</param>
-        /// <param name="amortisationMethod">The amortisation method used by the portfolio for the calculation. The available values are: NoAmortisation, StraightLine, EffectiveYield, StraightLineSettlementDate, EffectiveYieldSettlementDate.</param>
+        /// <param name="accountingMethod">The AccountingMethod used for the portfolio. Available values: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency, IntraDayThenFirstInFirstOut, LongTermHighestCostFirst, LongTermHighestCostFirstPortfolioCurrency, HighestCostFirstPortfolioCurrency, LowestCostFirstPortfolioCurrency, MaximumLossMinimumGain, MaximumLossMinimumGainPortfolioCurrency..</param>
+        /// <param name="amortisationMethod">The amortisation method used by the portfolio for the calculation. Available values: NoAmortisation, StraightLine, EffectiveYield, StraightLineSettlementDate, EffectiveYieldSettlementDate..</param>
         /// <param name="transactionTypeScope">The scope of the transaction types..</param>
         /// <param name="cashGainLossCalculationDate">The scope of the transaction types..</param>
         /// <param name="instrumentEventConfiguration">instrumentEventConfiguration.</param>
@@ -334,9 +334,9 @@ namespace Lusid.Sdk.Model
         public List<string> InstrumentScopes { get; set; }
 
         /// <summary>
-        /// The amortisation method used by the portfolio for the calculation. The available values are: NoAmortisation, StraightLine, EffectiveYield, StraightLineSettlementDate, EffectiveYieldSettlementDate
+        /// The amortisation method used by the portfolio for the calculation. Available values: NoAmortisation, StraightLine, EffectiveYield, StraightLineSettlementDate, EffectiveYieldSettlementDate.
         /// </summary>
-        /// <value>The amortisation method used by the portfolio for the calculation. The available values are: NoAmortisation, StraightLine, EffectiveYield, StraightLineSettlementDate, EffectiveYieldSettlementDate</value>
+        /// <value>The amortisation method used by the portfolio for the calculation. Available values: NoAmortisation, StraightLine, EffectiveYield, StraightLineSettlementDate, EffectiveYieldSettlementDate.</value>
         [DataMember(Name = "amortisationMethod", EmitDefaultValue = true)]
         public string AmortisationMethod { get; set; }
 

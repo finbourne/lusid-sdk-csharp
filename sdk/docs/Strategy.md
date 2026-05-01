@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Keys** | [**List&lt;PerpetualProperty&gt;**](PerpetualProperty.md) |  | 
-**ValueType** | **string** |  | 
+**ValueType** | **string** | Available values: Units, Weight. | 
 **Value** | **decimal** |  | 
 
 ```csharp

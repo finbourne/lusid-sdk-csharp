@@ -591,7 +591,7 @@ namespace Examples
             var code = "code_example";  // string | The code of the transaction portfolio. Together with the scope this uniquely identifies               the transaction portfolio.
             var successMode = "\"Partial\"";  // string | Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial (default to "Partial")
             var requestBody = new Dictionary<string, AdjustHoldingForDateRequest>(); // Dictionary<string, AdjustHoldingForDateRequest> | The selected set of holdings to adjust to the provided targets for the               transaction portfolio.
-            var reconciliationMethods = new List<string>?(); // List<string>? | Optional parameter for specifying a reconciliation method: e.g. FxForward. (optional) 
+            var reconciliationMethods = new List<string>?(); // List<string>? | Optional parameter for specifying a reconciliation method: e.g. FxForward. Available values: FxForward. (optional) 
 
             try
             {
@@ -641,7 +641,7 @@ catch (ApiException e)
 | **code** | **string** | The code of the transaction portfolio. Together with the scope this uniquely identifies               the transaction portfolio. |  |
 | **successMode** | **string** | Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial | [default to &quot;Partial&quot;] |
 | **requestBody** | [**Dictionary&lt;string, AdjustHoldingForDateRequest&gt;**](AdjustHoldingForDateRequest.md) | The selected set of holdings to adjust to the provided targets for the               transaction portfolio. |  |
-| **reconciliationMethods** | [**List&lt;string&gt;?**](string.md) | Optional parameter for specifying a reconciliation method: e.g. FxForward. | [optional]  |
+| **reconciliationMethods** | [**List&lt;string&gt;?**](string.md) | Optional parameter for specifying a reconciliation method: e.g. FxForward. Available values: FxForward. | [optional]  |
 
 ### Return type
 
@@ -1079,7 +1079,7 @@ namespace Examples
             var page = "page_example";  // string? | The pagination token to use to continue listing transactions from a previous call to BuildTransactions. (optional) 
             var dataModelScope = "dataModelScope_example";  // string? | The optional scope of a Custom Data Model to use (optional) 
             var dataModelCode = "dataModelCode_example";  // string? | The optional code of a Custom Data Model to use (optional) 
-            var membershipType = "membershipType_example";  // string? | The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional) 
+            var membershipType = "membershipType_example";  // string? | The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional) 
 
             try
             {
@@ -1135,7 +1135,7 @@ catch (ApiException e)
 | **page** | **string?** | The pagination token to use to continue listing transactions from a previous call to BuildTransactions. | [optional]  |
 | **dataModelScope** | **string?** | The optional scope of a Custom Data Model to use | [optional]  |
 | **dataModelCode** | **string?** | The optional code of a Custom Data Model to use | [optional]  |
-| **membershipType** | **string?** | The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. | [optional]  |
+| **membershipType** | **string?** | The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. | [optional]  |
 
 ### Return type
 
@@ -1796,7 +1796,7 @@ namespace Examples
             var scope = "scope_example";  // string | The scope of the Transaction Portfolios.
             var code = "code_example";  // string | The code of the Transaction Portfolios. Together with the scope this uniquely identifies              the Transaction Portfolios.
             var resourceId = new List<ResourceId>(); // List<ResourceId> | The scope and codes of the custodian accounts to delete.
-            var deleteMode = "Soft";  // string? | The delete mode to use (defaults to 'Soft'). (optional) 
+            var deleteMode = "Soft";  // string? | The delete mode to use. Default value: Soft. Available values: Soft, Hard. (optional) 
 
             try
             {
@@ -1845,7 +1845,7 @@ catch (ApiException e)
 | **scope** | **string** | The scope of the Transaction Portfolios. |  |
 | **code** | **string** | The code of the Transaction Portfolios. Together with the scope this uniquely identifies              the Transaction Portfolios. |  |
 | **resourceId** | [**List&lt;ResourceId&gt;**](ResourceId.md) | The scope and codes of the custodian accounts to delete. |  |
-| **deleteMode** | **string?** | The delete mode to use (defaults to &#39;Soft&#39;). | [optional]  |
+| **deleteMode** | **string?** | The delete mode to use. Default value: Soft. Available values: Soft, Hard. | [optional]  |
 
 ### Return type
 
@@ -4226,7 +4226,7 @@ namespace Examples
             var sortBy = new List<string>?(); // List<string>? | A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\". (optional) 
             var dataModelScope = "dataModelScope_example";  // string? | The optional scope of a Custom Data Model to use (optional) 
             var dataModelCode = "dataModelCode_example";  // string? | The optional code of a Custom Data Model to use (optional) 
-            var membershipType = "membershipType_example";  // string? | The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional) 
+            var membershipType = "membershipType_example";  // string? | The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional) 
 
             try
             {
@@ -4285,7 +4285,7 @@ catch (ApiException e)
 | **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. | [optional]  |
 | **dataModelScope** | **string?** | The optional scope of a Custom Data Model to use | [optional]  |
 | **dataModelCode** | **string?** | The optional code of a Custom Data Model to use | [optional]  |
-| **membershipType** | **string?** | The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. | [optional]  |
+| **membershipType** | **string?** | The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. | [optional]  |
 
 ### Return type
 

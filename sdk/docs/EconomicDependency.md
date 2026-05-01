@@ -5,7 +5,7 @@ Base class for representing economic dependencies.  Economic dependencies are a 
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DependencyType** | **string** | The available values are: OpaqueDependency, CashDependency, DiscountingDependency, EquityCurveDependency, EquityVolDependency, FxDependency, FxForwardsDependency, FxVolDependency, IndexProjectionDependency, IrVolDependency, QuoteDependency, Vendor, CalendarDependency, InflationFixingDependency | 
+**DependencyType** | **string** | Available values: OpaqueDependency, CashDependency, DiscountingDependency, EquityCurveDependency, EquityVolDependency, FxDependency, FxForwardsDependency, FxVolDependency, IndexProjectionDependency, IrVolDependency, QuoteDependency, Vendor, CalendarDependency, InflationFixingDependency. | 
 
 ```csharp
 using Lusid.Sdk.Model;

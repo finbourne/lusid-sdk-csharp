@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DisplayName** | **string** | The name of the Cleardown Module. | 
 **Description** | **string** | A description for the Cleardown Module. | [optional] 
-**Status** | **string** | The Cleardown Module status. Can be Active or Inactive. Defaults to Active. | 
+**Status** | **string** | The Cleardown Module status. Default value: Active. Available values: Active, Inactive. | 
 
 ```csharp
 using Lusid.Sdk.Model;

@@ -31,9 +31,9 @@ namespace Lusid.Sdk.Model
     public partial class FundBookmark : FundCalendarEntries, IEquatable<FundBookmark>, IValidatableObject
     {
         /// <summary>
-        /// The type of the Fund Calendar Entry. The available values are: ValuationPointFundCalendarEntry, BookmarkFundCalendarEntry
+        /// The type of the Fund Calendar Entry. Available values: ValuationPointFundCalendarEntry, BookmarkFundCalendarEntry.
         /// </summary>
-        /// <value>The type of the Fund Calendar Entry. The available values are: ValuationPointFundCalendarEntry, BookmarkFundCalendarEntry</value>
+        /// <value>The type of the Fund Calendar Entry. Available values: ValuationPointFundCalendarEntry, BookmarkFundCalendarEntry.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum EntryTypeEnum
         {
@@ -52,9 +52,9 @@ namespace Lusid.Sdk.Model
 
 
         /// <summary>
-        /// The type of the Fund Calendar Entry. The available values are: ValuationPointFundCalendarEntry, BookmarkFundCalendarEntry
+        /// The type of the Fund Calendar Entry. Available values: ValuationPointFundCalendarEntry, BookmarkFundCalendarEntry.
         /// </summary>
-        /// <value>The type of the Fund Calendar Entry. The available values are: ValuationPointFundCalendarEntry, BookmarkFundCalendarEntry</value>
+        /// <value>The type of the Fund Calendar Entry. Available values: ValuationPointFundCalendarEntry, BookmarkFundCalendarEntry.</value>
         [DataMember(Name = "entryType", IsRequired = true, EmitDefaultValue = true)]
         public EntryTypeEnum EntryType { get; set; }
         /// <summary>
@@ -73,7 +73,7 @@ namespace Lusid.Sdk.Model
         /// <param name="previousEntry">previousEntry.</param>
         /// <param name="effectiveAt">The effective at of the Calendar Entry..</param>
         /// <param name="asAt">The asAt datetime for the Calendar Entry. (required).</param>
-        /// <param name="entryType">The type of the Fund Calendar Entry. The available values are: ValuationPointFundCalendarEntry, BookmarkFundCalendarEntry (required).</param>
+        /// <param name="entryType">The type of the Fund Calendar Entry. Available values: ValuationPointFundCalendarEntry, BookmarkFundCalendarEntry. (required).</param>
         /// <param name="status">The status of the Fund Calendar Entry. Can be &#39;Estimate&#39;, &#39;Unofficial&#39; or &#39;Final&#39;..</param>
         /// <param name="applyClearDown">Set to true if that closed period should have the clear down applied..</param>
         /// <param name="holdingsAsAtOverride">The optional AsAt Override to use for building holdings in the Valuation Point. Defaults to QueryAsAt..</param>
@@ -82,7 +82,7 @@ namespace Lusid.Sdk.Model
         /// <param name="varVersion">varVersion (required).</param>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested asAt datetime..</param>
         /// <param name="leaderNavTypeCode">The code of the Nav Type that this Nav Type will follow when set..</param>
-        /// <param name="fundCalendarEntriesType">The type of the Calendar Entry. The available values are: FinalisedValuationPoint, FundEstimateValuationPoint, FundBookmark (required) (default to &quot;FundBookmark&quot;).</param>
+        /// <param name="fundCalendarEntriesType">The type of the Calendar Entry. Available values: FinalisedValuationPoint, FundEstimateValuationPoint, FundBookmark. (required) (default to &quot;FundBookmark&quot;).</param>
         public FundBookmark(string code = default(string), string displayName = default(string), string description = default(string), string navTypeCode = default(string), ResourceId timelineId = default(ResourceId), PreviousFundCalendarEntry previousEntry = default(PreviousFundCalendarEntry), DateTimeOffset effectiveAt = default(DateTimeOffset), DateTimeOffset asAt = default(DateTimeOffset), EntryTypeEnum entryType = default(EntryTypeEnum), string status = default(string), bool applyClearDown = default(bool), DateTimeOffset? holdingsAsAtOverride = default(DateTimeOffset?), DateTimeOffset? valuationsAsAtOverride = default(DateTimeOffset?), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion varVersion = default(ModelVersion), string href = default(string), string leaderNavTypeCode = default(string), FundCalendarEntriesTypeEnum fundCalendarEntriesType = default(FundCalendarEntriesTypeEnum)) : base(fundCalendarEntriesType)
         {
             // to ensure "code" is required (not null)

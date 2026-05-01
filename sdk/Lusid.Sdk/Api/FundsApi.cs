@@ -215,7 +215,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="requestBody">The codes of the nav types to be deactivated.</param>
-        /// <param name="deleteMode">The delete mode to use (defaults to &#39;Soft&#39;). (optional)</param>
+        /// <param name="deleteMode">The delete mode to use. Default value: Soft. Available values: Soft, Hard. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Fund</returns>
@@ -231,7 +231,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="requestBody">The codes of the nav types to be deactivated.</param>
-        /// <param name="deleteMode">The delete mode to use (defaults to &#39;Soft&#39;). (optional)</param>
+        /// <param name="deleteMode">The delete mode to use. Default value: Soft. Available values: Soft, Hard. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Fund</returns>
@@ -807,7 +807,7 @@ namespace Lusid.Sdk.Api
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="showCancelledTransactions">Option to specify whether or not to include cancelled transactions,              including previous versions of transactions which have since been amended.              Defaults to False if not specified. (optional)</param>
-        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ValuationPointResourceListOfAccountedTransaction</returns>
@@ -832,7 +832,7 @@ namespace Lusid.Sdk.Api
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="showCancelledTransactions">Option to specify whether or not to include cancelled transactions,              including previous versions of transactions which have since been amended.              Defaults to False if not specified. (optional)</param>
-        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ValuationPointResourceListOfAccountedTransaction</returns>
@@ -1180,6 +1180,47 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Fund</returns>
         Lusid.Sdk.Client.ApiResponse<Fund> PatchFundWithHttpInfo(string scope, string code, List<Operation> operation, int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] QueryCashStatement: [EXPERIMENTAL] QueryCashStatement: Query cash statement for a Fund valuation point.
+        /// </summary>
+        /// <remarks>
+        /// Returns settled cash movements with running balance, cost basis, average FX rate, and realised FX PnL  for the specified Fund valuation point period. The cash statement is derived from Journal Entry Lines  filtered to settled cash (HoldType&#x3D;&#39;B&#39;, SourceType&#x3D;LusidTransaction). Use the DisplayMode parameter  on the request body to choose between ShowReversal (full reversal/TrueUp detail) and Consolidated  (collapses reversals into AvgRateCorrection rows).
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="queryFundCashStatementParameters">The query parameters specifying the diary entry period and display mode.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the cash statement. Defaults to the latest version if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to get the next page of results. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys to decorate onto the cash statement rows. (optional)</param>
+        /// <param name="navTypeCode">The code of the NAV type to use. Defaults to the primary NAV type if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ValuationPointResourceListOfFundCashStatementRow</returns>
+        ValuationPointResourceListOfFundCashStatementRow QueryCashStatement(string scope, string code, QueryFundCashStatementParameters queryFundCashStatementParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] QueryCashStatement: [EXPERIMENTAL] QueryCashStatement: Query cash statement for a Fund valuation point.
+        /// </summary>
+        /// <remarks>
+        /// Returns settled cash movements with running balance, cost basis, average FX rate, and realised FX PnL  for the specified Fund valuation point period. The cash statement is derived from Journal Entry Lines  filtered to settled cash (HoldType&#x3D;&#39;B&#39;, SourceType&#x3D;LusidTransaction). Use the DisplayMode parameter  on the request body to choose between ShowReversal (full reversal/TrueUp detail) and Consolidated  (collapses reversals into AvgRateCorrection rows).
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="queryFundCashStatementParameters">The query parameters specifying the diary entry period and display mode.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the cash statement. Defaults to the latest version if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to get the next page of results. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys to decorate onto the cash statement rows. (optional)</param>
+        /// <param name="navTypeCode">The code of the NAV type to use. Defaults to the primary NAV type if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of ValuationPointResourceListOfFundCashStatementRow</returns>
+        Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfFundCashStatementRow> QueryCashStatementWithHttpInfo(string scope, string code, QueryFundCashStatementParameters queryFundCashStatementParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] RevertValuationPointToEstimate: Reverts a Final Valuation Point to Estimate.
         /// </summary>
@@ -1602,7 +1643,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="requestBody">The codes of the nav types to be deactivated.</param>
-        /// <param name="deleteMode">The delete mode to use (defaults to &#39;Soft&#39;). (optional)</param>
+        /// <param name="deleteMode">The delete mode to use. Default value: Soft. Available values: Soft, Hard. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1619,7 +1660,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="requestBody">The codes of the nav types to be deactivated.</param>
-        /// <param name="deleteMode">The delete mode to use (defaults to &#39;Soft&#39;). (optional)</param>
+        /// <param name="deleteMode">The delete mode to use. Default value: Soft. Available values: Soft, Hard. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2228,7 +2269,7 @@ namespace Lusid.Sdk.Api
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="showCancelledTransactions">Option to specify whether or not to include cancelled transactions,              including previous versions of transactions which have since been amended.              Defaults to False if not specified. (optional)</param>
-        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2254,7 +2295,7 @@ namespace Lusid.Sdk.Api
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="showCancelledTransactions">Option to specify whether or not to include cancelled transactions,              including previous versions of transactions which have since been amended.              Defaults to False if not specified. (optional)</param>
-        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2621,6 +2662,49 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Fund)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Fund>> PatchFundWithHttpInfoAsync(string scope, string code, List<Operation> operation, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] QueryCashStatement: [EXPERIMENTAL] QueryCashStatement: Query cash statement for a Fund valuation point.
+        /// </summary>
+        /// <remarks>
+        /// Returns settled cash movements with running balance, cost basis, average FX rate, and realised FX PnL  for the specified Fund valuation point period. The cash statement is derived from Journal Entry Lines  filtered to settled cash (HoldType&#x3D;&#39;B&#39;, SourceType&#x3D;LusidTransaction). Use the DisplayMode parameter  on the request body to choose between ShowReversal (full reversal/TrueUp detail) and Consolidated  (collapses reversals into AvgRateCorrection rows).
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="queryFundCashStatementParameters">The query parameters specifying the diary entry period and display mode.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the cash statement. Defaults to the latest version if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to get the next page of results. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys to decorate onto the cash statement rows. (optional)</param>
+        /// <param name="navTypeCode">The code of the NAV type to use. Defaults to the primary NAV type if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ValuationPointResourceListOfFundCashStatementRow</returns>
+        System.Threading.Tasks.Task<ValuationPointResourceListOfFundCashStatementRow> QueryCashStatementAsync(string scope, string code, QueryFundCashStatementParameters queryFundCashStatementParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] QueryCashStatement: [EXPERIMENTAL] QueryCashStatement: Query cash statement for a Fund valuation point.
+        /// </summary>
+        /// <remarks>
+        /// Returns settled cash movements with running balance, cost basis, average FX rate, and realised FX PnL  for the specified Fund valuation point period. The cash statement is derived from Journal Entry Lines  filtered to settled cash (HoldType&#x3D;&#39;B&#39;, SourceType&#x3D;LusidTransaction). Use the DisplayMode parameter  on the request body to choose between ShowReversal (full reversal/TrueUp detail) and Consolidated  (collapses reversals into AvgRateCorrection rows).
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="queryFundCashStatementParameters">The query parameters specifying the diary entry period and display mode.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the cash statement. Defaults to the latest version if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to get the next page of results. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys to decorate onto the cash statement rows. (optional)</param>
+        /// <param name="navTypeCode">The code of the NAV type to use. Defaults to the primary NAV type if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (ValuationPointResourceListOfFundCashStatementRow)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfFundCashStatementRow>> QueryCashStatementWithHttpInfoAsync(string scope, string code, QueryFundCashStatementParameters queryFundCashStatementParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] RevertValuationPointToEstimate: Reverts a Final Valuation Point to Estimate.
         /// </summary>
@@ -4460,7 +4544,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="requestBody">The codes of the nav types to be deactivated.</param>
-        /// <param name="deleteMode">The delete mode to use (defaults to &#39;Soft&#39;). (optional)</param>
+        /// <param name="deleteMode">The delete mode to use. Default value: Soft. Available values: Soft, Hard. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Fund</returns>
@@ -4477,7 +4561,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="requestBody">The codes of the nav types to be deactivated.</param>
-        /// <param name="deleteMode">The delete mode to use (defaults to &#39;Soft&#39;). (optional)</param>
+        /// <param name="deleteMode">The delete mode to use. Default value: Soft. Available values: Soft, Hard. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Fund</returns>
@@ -4589,7 +4673,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="requestBody">The codes of the nav types to be deactivated.</param>
-        /// <param name="deleteMode">The delete mode to use (defaults to &#39;Soft&#39;). (optional)</param>
+        /// <param name="deleteMode">The delete mode to use. Default value: Soft. Available values: Soft, Hard. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -4607,7 +4691,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Fund.</param>
         /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
         /// <param name="requestBody">The codes of the nav types to be deactivated.</param>
-        /// <param name="deleteMode">The delete mode to use (defaults to &#39;Soft&#39;). (optional)</param>
+        /// <param name="deleteMode">The delete mode to use. Default value: Soft. Available values: Soft, Hard. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -9177,7 +9261,7 @@ namespace Lusid.Sdk.Api
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="showCancelledTransactions">Option to specify whether or not to include cancelled transactions,              including previous versions of transactions which have since been amended.              Defaults to False if not specified. (optional)</param>
-        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ValuationPointResourceListOfAccountedTransaction</returns>
@@ -9203,7 +9287,7 @@ namespace Lusid.Sdk.Api
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="showCancelledTransactions">Option to specify whether or not to include cancelled transactions,              including previous versions of transactions which have since been amended.              Defaults to False if not specified. (optional)</param>
-        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ValuationPointResourceListOfAccountedTransaction</returns>
@@ -9369,7 +9453,7 @@ namespace Lusid.Sdk.Api
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="showCancelledTransactions">Option to specify whether or not to include cancelled transactions,              including previous versions of transactions which have since been amended.              Defaults to False if not specified. (optional)</param>
-        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -9396,7 +9480,7 @@ namespace Lusid.Sdk.Api
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="showCancelledTransactions">Option to specify whether or not to include cancelled transactions,              including previous versions of transactions which have since been amended.              Defaults to False if not specified. (optional)</param>
-        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -12217,6 +12301,332 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PatchFund", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] QueryCashStatement: [EXPERIMENTAL] QueryCashStatement: Query cash statement for a Fund valuation point. Returns settled cash movements with running balance, cost basis, average FX rate, and realised FX PnL  for the specified Fund valuation point period. The cash statement is derived from Journal Entry Lines  filtered to settled cash (HoldType&#x3D;&#39;B&#39;, SourceType&#x3D;LusidTransaction). Use the DisplayMode parameter  on the request body to choose between ShowReversal (full reversal/TrueUp detail) and Consolidated  (collapses reversals into AvgRateCorrection rows).
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="queryFundCashStatementParameters">The query parameters specifying the diary entry period and display mode.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the cash statement. Defaults to the latest version if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to get the next page of results. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys to decorate onto the cash statement rows. (optional)</param>
+        /// <param name="navTypeCode">The code of the NAV type to use. Defaults to the primary NAV type if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ValuationPointResourceListOfFundCashStatementRow</returns>
+        public ValuationPointResourceListOfFundCashStatementRow QueryCashStatement(string scope, string code, QueryFundCashStatementParameters queryFundCashStatementParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfFundCashStatementRow> localVarResponse = QueryCashStatementWithHttpInfo(scope, code, queryFundCashStatementParameters, asAt, filter, limit, page, propertyKeys, navTypeCode, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] QueryCashStatement: [EXPERIMENTAL] QueryCashStatement: Query cash statement for a Fund valuation point. Returns settled cash movements with running balance, cost basis, average FX rate, and realised FX PnL  for the specified Fund valuation point period. The cash statement is derived from Journal Entry Lines  filtered to settled cash (HoldType&#x3D;&#39;B&#39;, SourceType&#x3D;LusidTransaction). Use the DisplayMode parameter  on the request body to choose between ShowReversal (full reversal/TrueUp detail) and Consolidated  (collapses reversals into AvgRateCorrection rows).
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="queryFundCashStatementParameters">The query parameters specifying the diary entry period and display mode.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the cash statement. Defaults to the latest version if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to get the next page of results. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys to decorate onto the cash statement rows. (optional)</param>
+        /// <param name="navTypeCode">The code of the NAV type to use. Defaults to the primary NAV type if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of ValuationPointResourceListOfFundCashStatementRow</returns>
+        public Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfFundCashStatementRow> QueryCashStatementWithHttpInfo(string scope, string code, QueryFundCashStatementParameters queryFundCashStatementParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling FundsApi->QueryCashStatement");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling FundsApi->QueryCashStatement");
+            }
+
+            // verify the required parameter 'queryFundCashStatementParameters' is set
+            if (queryFundCashStatementParameters == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'queryFundCashStatementParameters' when calling FundsApi->QueryCashStatement");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            if (asAt != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (filter != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+            if (limit != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (page != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (propertyKeys != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "propertyKeys", propertyKeys));
+            }
+            if (navTypeCode != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "navTypeCode", navTypeCode));
+            }
+            localVarRequestOptions.Data = queryFundCashStatementParameters;
+
+            localVarRequestOptions.Operation = "FundsApi.QueryCashStatement";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<ValuationPointResourceListOfFundCashStatementRow>("/api/funds/{scope}/{code}/valuationpoints/cashstatement/$query", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("QueryCashStatement", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] QueryCashStatement: [EXPERIMENTAL] QueryCashStatement: Query cash statement for a Fund valuation point. Returns settled cash movements with running balance, cost basis, average FX rate, and realised FX PnL  for the specified Fund valuation point period. The cash statement is derived from Journal Entry Lines  filtered to settled cash (HoldType&#x3D;&#39;B&#39;, SourceType&#x3D;LusidTransaction). Use the DisplayMode parameter  on the request body to choose between ShowReversal (full reversal/TrueUp detail) and Consolidated  (collapses reversals into AvgRateCorrection rows).
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="queryFundCashStatementParameters">The query parameters specifying the diary entry period and display mode.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the cash statement. Defaults to the latest version if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to get the next page of results. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys to decorate onto the cash statement rows. (optional)</param>
+        /// <param name="navTypeCode">The code of the NAV type to use. Defaults to the primary NAV type if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ValuationPointResourceListOfFundCashStatementRow</returns>
+        public async System.Threading.Tasks.Task<ValuationPointResourceListOfFundCashStatementRow> QueryCashStatementAsync(string scope, string code, QueryFundCashStatementParameters queryFundCashStatementParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfFundCashStatementRow> localVarResponse = await QueryCashStatementWithHttpInfoAsync(scope, code, queryFundCashStatementParameters, asAt, filter, limit, page, propertyKeys, navTypeCode, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] QueryCashStatement: [EXPERIMENTAL] QueryCashStatement: Query cash statement for a Fund valuation point. Returns settled cash movements with running balance, cost basis, average FX rate, and realised FX PnL  for the specified Fund valuation point period. The cash statement is derived from Journal Entry Lines  filtered to settled cash (HoldType&#x3D;&#39;B&#39;, SourceType&#x3D;LusidTransaction). Use the DisplayMode parameter  on the request body to choose between ShowReversal (full reversal/TrueUp detail) and Consolidated  (collapses reversals into AvgRateCorrection rows).
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Fund.</param>
+        /// <param name="code">The code of the Fund. Together with the scope this uniquely identifies the Fund.</param>
+        /// <param name="queryFundCashStatementParameters">The query parameters specifying the diary entry period and display mode.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the cash statement. Defaults to the latest version if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to get the next page of results. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys to decorate onto the cash statement rows. (optional)</param>
+        /// <param name="navTypeCode">The code of the NAV type to use. Defaults to the primary NAV type if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (ValuationPointResourceListOfFundCashStatementRow)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ValuationPointResourceListOfFundCashStatementRow>> QueryCashStatementWithHttpInfoAsync(string scope, string code, QueryFundCashStatementParameters queryFundCashStatementParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), List<string>? propertyKeys = default(List<string>?), string? navTypeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling FundsApi->QueryCashStatement");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling FundsApi->QueryCashStatement");
+            }
+
+            // verify the required parameter 'queryFundCashStatementParameters' is set
+            if (queryFundCashStatementParameters == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'queryFundCashStatementParameters' when calling FundsApi->QueryCashStatement");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (filter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (propertyKeys != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "propertyKeys", propertyKeys));
+            }
+            if (navTypeCode != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "navTypeCode", navTypeCode));
+            }
+            localVarRequestOptions.Data = queryFundCashStatementParameters;
+
+            localVarRequestOptions.Operation = "FundsApi.QueryCashStatement";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<ValuationPointResourceListOfFundCashStatementRow>("/api/funds/{scope}/{code}/valuationpoints/cashstatement/$query", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("QueryCashStatement", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

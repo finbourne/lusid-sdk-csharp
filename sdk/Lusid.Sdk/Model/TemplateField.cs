@@ -37,10 +37,10 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="TemplateField" /> class.
         /// </summary>
         /// <param name="fieldName">fieldName (required).</param>
-        /// <param name="specificity">specificity (required).</param>
+        /// <param name="specificity">Available values: AllEventsAndHoldings, InstrumentEventType, ElectionType. (required).</param>
         /// <param name="description">description (required).</param>
-        /// <param name="type">type (required).</param>
-        /// <param name="availability">availability (required).</param>
+        /// <param name="type">Available values: String, Decimal, InstrumentScope, Currency, DateTime, PriceType, InstrumentId, PropertyKey, Boolean. (required).</param>
+        /// <param name="availability">Available values: Guaranteed, DataDependent, Informational. (required).</param>
         /// <param name="usage">usage (required).</param>
         public TemplateField(string fieldName = default(string), string specificity = default(string), string description = default(string), string type = default(string), string availability = default(string), List<string> usage = default(List<string>))
         {
@@ -89,8 +89,9 @@ namespace Lusid.Sdk.Model
         public string FieldName { get; set; }
 
         /// <summary>
-        /// Gets or Sets Specificity
+        /// Available values: AllEventsAndHoldings, InstrumentEventType, ElectionType.
         /// </summary>
+        /// <value>Available values: AllEventsAndHoldings, InstrumentEventType, ElectionType.</value>
         [DataMember(Name = "specificity", IsRequired = true, EmitDefaultValue = true)]
         public string Specificity { get; set; }
 
@@ -101,14 +102,16 @@ namespace Lusid.Sdk.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// Gets or Sets Type
+        /// Available values: String, Decimal, InstrumentScope, Currency, DateTime, PriceType, InstrumentId, PropertyKey, Boolean.
         /// </summary>
+        /// <value>Available values: String, Decimal, InstrumentScope, Currency, DateTime, PriceType, InstrumentId, PropertyKey, Boolean.</value>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or Sets Availability
+        /// Available values: Guaranteed, DataDependent, Informational.
         /// </summary>
+        /// <value>Available values: Guaranteed, DataDependent, Informational.</value>
         [DataMember(Name = "availability", IsRequired = true, EmitDefaultValue = true)]
         public string Availability { get; set; }
 

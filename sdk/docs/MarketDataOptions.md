@@ -5,7 +5,7 @@ Base class for representing market data options in LUSID.  Abstractly, these are
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**MarketDataOptionsType** | **string** | The available values are: CurveOptions | 
+**MarketDataOptionsType** | **string** | Available values: CurveOptions. Available values: CurveOptions. | 
 
 ```csharp
 using Lusid.Sdk.Model;

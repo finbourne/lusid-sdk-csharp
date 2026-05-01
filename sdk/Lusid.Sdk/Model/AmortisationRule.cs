@@ -39,7 +39,7 @@ namespace Lusid.Sdk.Model
         /// <param name="name">The name of the rule. (required).</param>
         /// <param name="description">A description of the rule..</param>
         /// <param name="filter">The filter for this rule. (required).</param>
-        /// <param name="amortisationMethod">The filter for this rule. (required).</param>
+        /// <param name="amortisationMethod">The filter for this rule. Available values: NoAmortisation, StraightLine, EffectiveYield, StraightLineSettlementDate, EffectiveYieldSettlementDate. (required).</param>
         public AmortisationRule(string name = default(string), string description = default(string), string filter = default(string), string amortisationMethod = default(string))
         {
             // to ensure "name" is required (not null)
@@ -85,9 +85,9 @@ namespace Lusid.Sdk.Model
         public string Filter { get; set; }
 
         /// <summary>
-        /// The filter for this rule.
+        /// The filter for this rule. Available values: NoAmortisation, StraightLine, EffectiveYield, StraightLineSettlementDate, EffectiveYieldSettlementDate.
         /// </summary>
-        /// <value>The filter for this rule.</value>
+        /// <value>The filter for this rule. Available values: NoAmortisation, StraightLine, EffectiveYield, StraightLineSettlementDate, EffectiveYieldSettlementDate.</value>
         [DataMember(Name = "amortisationMethod", IsRequired = true, EmitDefaultValue = true)]
         public string AmortisationMethod { get; set; }
 

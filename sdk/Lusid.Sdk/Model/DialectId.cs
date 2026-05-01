@@ -40,8 +40,8 @@ namespace Lusid.Sdk.Model
         /// <param name="vendor">The vendor of the dialect, the entity that created it. e.g. ISDA, FINBOURNE. (required).</param>
         /// <param name="sourceSystem">The source system of the dialect, the system that understands it. e.g. LUSID, QuantLib. (required).</param>
         /// <param name="varVersion">The semantic version of the dialect: MAJOR.MINOR.PATCH. (required).</param>
-        /// <param name="serialisationFormat">The serialisation format of a document in this dialect. e.g. JSON, XML. (required).</param>
-        /// <param name="entityType">The type of entity this dialect describes e.g. Instrument. (required).</param>
+        /// <param name="serialisationFormat">The serialisation format of a document in this dialect. Available values: Json, Xml. (required).</param>
+        /// <param name="entityType">The type of entity this dialect describes e.g. Instrument. Available values: Instrument. (required).</param>
         public DialectId(string scope = default(string), string vendor = default(string), string sourceSystem = default(string), string varVersion = default(string), string serialisationFormat = default(string), string entityType = default(string))
         {
             // to ensure "scope" is required (not null)
@@ -111,16 +111,16 @@ namespace Lusid.Sdk.Model
         public string VarVersion { get; set; }
 
         /// <summary>
-        /// The serialisation format of a document in this dialect. e.g. JSON, XML.
+        /// The serialisation format of a document in this dialect. Available values: Json, Xml.
         /// </summary>
-        /// <value>The serialisation format of a document in this dialect. e.g. JSON, XML.</value>
+        /// <value>The serialisation format of a document in this dialect. Available values: Json, Xml.</value>
         [DataMember(Name = "serialisationFormat", IsRequired = true, EmitDefaultValue = true)]
         public string SerialisationFormat { get; set; }
 
         /// <summary>
-        /// The type of entity this dialect describes e.g. Instrument.
+        /// The type of entity this dialect describes e.g. Instrument. Available values: Instrument.
         /// </summary>
-        /// <value>The type of entity this dialect describes e.g. Instrument.</value>
+        /// <value>The type of entity this dialect describes e.g. Instrument. Available values: Instrument.</value>
         [DataMember(Name = "entityType", IsRequired = true, EmitDefaultValue = true)]
         public string EntityType { get; set; }
 

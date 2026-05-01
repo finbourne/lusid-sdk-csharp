@@ -5,7 +5,7 @@ The base class for representing a Trade Ticket in LUSID.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TradeTicketType** | **string** | The available values are: LusidTradeTicket, ExternalTradeTicket | 
+**TradeTicketType** | **string** | Available values: LusidTradeTicket, ExternalTradeTicket. | 
 
 ```csharp
 using Lusid.Sdk.Model;

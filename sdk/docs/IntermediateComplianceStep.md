@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ComplianceStepType** | **string** | . The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep, CheckStep, PercentCheckStep | 
+**ComplianceStepType** | **string** | The type of the compliance step. Available values: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep, CheckStep, PercentCheckStep. | 
 **Label** | **string** | The label of the compliance step | 
 **GroupedParameters** | **Dictionary&lt;string, List&lt;ComplianceTemplateParameter&gt;&gt;** | Parameters required for the step | 
 

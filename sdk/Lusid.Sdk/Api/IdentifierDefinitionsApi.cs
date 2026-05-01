@@ -63,7 +63,7 @@ namespace Lusid.Sdk.Api
         /// The deletion will take effect from the Identifier Definition deletion datetime.  i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domain">The type of entity to which the identifier relates</param>
+        /// <param name="domain">The type of entity to which the identifier relates. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, IdentifierDefinition, SettlementInstruction, TransactionFee.</param>
         /// <param name="identifierScope">The scope that the identifier exists in</param>
         /// <param name="identifierType">What the identifier represents. Together with \&quot;domain\&quot; and \&quot;identifierScope\&quot; this uniquely identifies the identifier definition</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -78,7 +78,7 @@ namespace Lusid.Sdk.Api
         /// The deletion will take effect from the Identifier Definition deletion datetime.  i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domain">The type of entity to which the identifier relates</param>
+        /// <param name="domain">The type of entity to which the identifier relates. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, IdentifierDefinition, SettlementInstruction, TransactionFee.</param>
         /// <param name="identifierScope">The scope that the identifier exists in</param>
         /// <param name="identifierType">What the identifier represents. Together with \&quot;domain\&quot; and \&quot;identifierScope\&quot; this uniquely identifies the identifier definition</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -92,7 +92,7 @@ namespace Lusid.Sdk.Api
         /// Get a single Identifier Definition using domain, identifierScope, identifierType, and an optional asAt              - defaulting to latest if not specified
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domain">The type of entity to which the identifier relates.</param>
+        /// <param name="domain">The type of entity to which the identifier relates. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, IdentifierDefinition, SettlementInstruction, TransactionFee.</param>
         /// <param name="identifierScope">The scope that the identifier exists in</param>
         /// <param name="identifierType">What the identifier represents. Together with \&quot;domain\&quot; and \&quot;identifierScope\&quot; this uniquely identifies the identifier definition</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Identifier Definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
@@ -110,7 +110,7 @@ namespace Lusid.Sdk.Api
         /// Get a single Identifier Definition using domain, identifierScope, identifierType, and an optional asAt              - defaulting to latest if not specified
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domain">The type of entity to which the identifier relates.</param>
+        /// <param name="domain">The type of entity to which the identifier relates. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, IdentifierDefinition, SettlementInstruction, TransactionFee.</param>
         /// <param name="identifierScope">The scope that the identifier exists in</param>
         /// <param name="identifierType">What the identifier represents. Together with \&quot;domain\&quot; and \&quot;identifierScope\&quot; this uniquely identifies the identifier definition</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Identifier Definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
@@ -164,7 +164,7 @@ namespace Lusid.Sdk.Api
         /// Overwrites an existing Identifier Definition.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domain">The type of entity to which the identifier relates</param>
+        /// <param name="domain">The type of entity to which the identifier relates. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, IdentifierDefinition, SettlementInstruction, TransactionFee.</param>
         /// <param name="identifierScope">The scope that the identifier exists in</param>
         /// <param name="identifierType">What the identifier represents. Together with \&quot;domain\&quot; and \&quot;identifierScope\&quot; this uniquely identifies the Identifier Definition</param>
         /// <param name="updateIdentifierDefinitionRequest">The request containing the updated details of the Identifier Definition. (optional)</param>
@@ -180,7 +180,7 @@ namespace Lusid.Sdk.Api
         /// Overwrites an existing Identifier Definition.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domain">The type of entity to which the identifier relates</param>
+        /// <param name="domain">The type of entity to which the identifier relates. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, IdentifierDefinition, SettlementInstruction, TransactionFee.</param>
         /// <param name="identifierScope">The scope that the identifier exists in</param>
         /// <param name="identifierType">What the identifier represents. Together with \&quot;domain\&quot; and \&quot;identifierScope\&quot; this uniquely identifies the Identifier Definition</param>
         /// <param name="updateIdentifierDefinitionRequest">The request containing the updated details of the Identifier Definition. (optional)</param>
@@ -231,7 +231,7 @@ namespace Lusid.Sdk.Api
         /// The deletion will take effect from the Identifier Definition deletion datetime.  i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domain">The type of entity to which the identifier relates</param>
+        /// <param name="domain">The type of entity to which the identifier relates. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, IdentifierDefinition, SettlementInstruction, TransactionFee.</param>
         /// <param name="identifierScope">The scope that the identifier exists in</param>
         /// <param name="identifierType">What the identifier represents. Together with \&quot;domain\&quot; and \&quot;identifierScope\&quot; this uniquely identifies the identifier definition</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -247,7 +247,7 @@ namespace Lusid.Sdk.Api
         /// The deletion will take effect from the Identifier Definition deletion datetime.  i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domain">The type of entity to which the identifier relates</param>
+        /// <param name="domain">The type of entity to which the identifier relates. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, IdentifierDefinition, SettlementInstruction, TransactionFee.</param>
         /// <param name="identifierScope">The scope that the identifier exists in</param>
         /// <param name="identifierType">What the identifier represents. Together with \&quot;domain\&quot; and \&quot;identifierScope\&quot; this uniquely identifies the identifier definition</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -262,7 +262,7 @@ namespace Lusid.Sdk.Api
         /// Get a single Identifier Definition using domain, identifierScope, identifierType, and an optional asAt              - defaulting to latest if not specified
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domain">The type of entity to which the identifier relates.</param>
+        /// <param name="domain">The type of entity to which the identifier relates. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, IdentifierDefinition, SettlementInstruction, TransactionFee.</param>
         /// <param name="identifierScope">The scope that the identifier exists in</param>
         /// <param name="identifierType">What the identifier represents. Together with \&quot;domain\&quot; and \&quot;identifierScope\&quot; this uniquely identifies the identifier definition</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Identifier Definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
@@ -281,7 +281,7 @@ namespace Lusid.Sdk.Api
         /// Get a single Identifier Definition using domain, identifierScope, identifierType, and an optional asAt              - defaulting to latest if not specified
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domain">The type of entity to which the identifier relates.</param>
+        /// <param name="domain">The type of entity to which the identifier relates. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, IdentifierDefinition, SettlementInstruction, TransactionFee.</param>
         /// <param name="identifierScope">The scope that the identifier exists in</param>
         /// <param name="identifierType">What the identifier represents. Together with \&quot;domain\&quot; and \&quot;identifierScope\&quot; this uniquely identifies the identifier definition</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Identifier Definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
@@ -338,7 +338,7 @@ namespace Lusid.Sdk.Api
         /// Overwrites an existing Identifier Definition.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domain">The type of entity to which the identifier relates</param>
+        /// <param name="domain">The type of entity to which the identifier relates. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, IdentifierDefinition, SettlementInstruction, TransactionFee.</param>
         /// <param name="identifierScope">The scope that the identifier exists in</param>
         /// <param name="identifierType">What the identifier represents. Together with \&quot;domain\&quot; and \&quot;identifierScope\&quot; this uniquely identifies the Identifier Definition</param>
         /// <param name="updateIdentifierDefinitionRequest">The request containing the updated details of the Identifier Definition. (optional)</param>
@@ -355,7 +355,7 @@ namespace Lusid.Sdk.Api
         /// Overwrites an existing Identifier Definition.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domain">The type of entity to which the identifier relates</param>
+        /// <param name="domain">The type of entity to which the identifier relates. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, IdentifierDefinition, SettlementInstruction, TransactionFee.</param>
         /// <param name="identifierScope">The scope that the identifier exists in</param>
         /// <param name="identifierType">What the identifier represents. Together with \&quot;domain\&quot; and \&quot;identifierScope\&quot; this uniquely identifies the Identifier Definition</param>
         /// <param name="updateIdentifierDefinitionRequest">The request containing the updated details of the Identifier Definition. (optional)</param>
@@ -691,7 +691,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] DeleteIdentifierDefinition: Delete a particular Identifier Definition The deletion will take effect from the Identifier Definition deletion datetime.  i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domain">The type of entity to which the identifier relates</param>
+        /// <param name="domain">The type of entity to which the identifier relates. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, IdentifierDefinition, SettlementInstruction, TransactionFee.</param>
         /// <param name="identifierScope">The scope that the identifier exists in</param>
         /// <param name="identifierType">What the identifier represents. Together with \&quot;domain\&quot; and \&quot;identifierScope\&quot; this uniquely identifies the identifier definition</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -707,7 +707,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] DeleteIdentifierDefinition: Delete a particular Identifier Definition The deletion will take effect from the Identifier Definition deletion datetime.  i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domain">The type of entity to which the identifier relates</param>
+        /// <param name="domain">The type of entity to which the identifier relates. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, IdentifierDefinition, SettlementInstruction, TransactionFee.</param>
         /// <param name="identifierScope">The scope that the identifier exists in</param>
         /// <param name="identifierType">What the identifier represents. Together with \&quot;domain\&quot; and \&quot;identifierScope\&quot; this uniquely identifies the identifier definition</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -809,7 +809,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] DeleteIdentifierDefinition: Delete a particular Identifier Definition The deletion will take effect from the Identifier Definition deletion datetime.  i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domain">The type of entity to which the identifier relates</param>
+        /// <param name="domain">The type of entity to which the identifier relates. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, IdentifierDefinition, SettlementInstruction, TransactionFee.</param>
         /// <param name="identifierScope">The scope that the identifier exists in</param>
         /// <param name="identifierType">What the identifier represents. Together with \&quot;domain\&quot; and \&quot;identifierScope\&quot; this uniquely identifies the identifier definition</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -826,7 +826,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] DeleteIdentifierDefinition: Delete a particular Identifier Definition The deletion will take effect from the Identifier Definition deletion datetime.  i.e. will no longer exist at any asAt datetime after the asAt datetime of deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domain">The type of entity to which the identifier relates</param>
+        /// <param name="domain">The type of entity to which the identifier relates. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, IdentifierDefinition, SettlementInstruction, TransactionFee.</param>
         /// <param name="identifierScope">The scope that the identifier exists in</param>
         /// <param name="identifierType">What the identifier represents. Together with \&quot;domain\&quot; and \&quot;identifierScope\&quot; this uniquely identifies the identifier definition</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -931,7 +931,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetIdentifierDefinition: Get a single Identifier Definition Get a single Identifier Definition using domain, identifierScope, identifierType, and an optional asAt              - defaulting to latest if not specified
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domain">The type of entity to which the identifier relates.</param>
+        /// <param name="domain">The type of entity to which the identifier relates. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, IdentifierDefinition, SettlementInstruction, TransactionFee.</param>
         /// <param name="identifierScope">The scope that the identifier exists in</param>
         /// <param name="identifierType">What the identifier represents. Together with \&quot;domain\&quot; and \&quot;identifierScope\&quot; this uniquely identifies the identifier definition</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Identifier Definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
@@ -950,7 +950,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetIdentifierDefinition: Get a single Identifier Definition Get a single Identifier Definition using domain, identifierScope, identifierType, and an optional asAt              - defaulting to latest if not specified
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domain">The type of entity to which the identifier relates.</param>
+        /// <param name="domain">The type of entity to which the identifier relates. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, IdentifierDefinition, SettlementInstruction, TransactionFee.</param>
         /// <param name="identifierScope">The scope that the identifier exists in</param>
         /// <param name="identifierType">What the identifier represents. Together with \&quot;domain\&quot; and \&quot;identifierScope\&quot; this uniquely identifies the identifier definition</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Identifier Definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
@@ -1070,7 +1070,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetIdentifierDefinition: Get a single Identifier Definition Get a single Identifier Definition using domain, identifierScope, identifierType, and an optional asAt              - defaulting to latest if not specified
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domain">The type of entity to which the identifier relates.</param>
+        /// <param name="domain">The type of entity to which the identifier relates. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, IdentifierDefinition, SettlementInstruction, TransactionFee.</param>
         /// <param name="identifierScope">The scope that the identifier exists in</param>
         /// <param name="identifierType">What the identifier represents. Together with \&quot;domain\&quot; and \&quot;identifierScope\&quot; this uniquely identifies the identifier definition</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Identifier Definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
@@ -1090,7 +1090,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetIdentifierDefinition: Get a single Identifier Definition Get a single Identifier Definition using domain, identifierScope, identifierType, and an optional asAt              - defaulting to latest if not specified
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domain">The type of entity to which the identifier relates.</param>
+        /// <param name="domain">The type of entity to which the identifier relates. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, IdentifierDefinition, SettlementInstruction, TransactionFee.</param>
         /// <param name="identifierScope">The scope that the identifier exists in</param>
         /// <param name="identifierType">What the identifier represents. Together with \&quot;domain\&quot; and \&quot;identifierScope\&quot; this uniquely identifies the identifier definition</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Identifier Definition. Defaults to return              the latest version of the definition if not specified. (optional)</param>
@@ -1487,7 +1487,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] UpdateIdentifierDefinition: Update Identifier Definition defined by domain, identifierScope, and identifierType Overwrites an existing Identifier Definition.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domain">The type of entity to which the identifier relates</param>
+        /// <param name="domain">The type of entity to which the identifier relates. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, IdentifierDefinition, SettlementInstruction, TransactionFee.</param>
         /// <param name="identifierScope">The scope that the identifier exists in</param>
         /// <param name="identifierType">What the identifier represents. Together with \&quot;domain\&quot; and \&quot;identifierScope\&quot; this uniquely identifies the Identifier Definition</param>
         /// <param name="updateIdentifierDefinitionRequest">The request containing the updated details of the Identifier Definition. (optional)</param>
@@ -1504,7 +1504,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] UpdateIdentifierDefinition: Update Identifier Definition defined by domain, identifierScope, and identifierType Overwrites an existing Identifier Definition.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domain">The type of entity to which the identifier relates</param>
+        /// <param name="domain">The type of entity to which the identifier relates. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, IdentifierDefinition, SettlementInstruction, TransactionFee.</param>
         /// <param name="identifierScope">The scope that the identifier exists in</param>
         /// <param name="identifierType">What the identifier represents. Together with \&quot;domain\&quot; and \&quot;identifierScope\&quot; this uniquely identifies the Identifier Definition</param>
         /// <param name="updateIdentifierDefinitionRequest">The request containing the updated details of the Identifier Definition. (optional)</param>
@@ -1612,7 +1612,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] UpdateIdentifierDefinition: Update Identifier Definition defined by domain, identifierScope, and identifierType Overwrites an existing Identifier Definition.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domain">The type of entity to which the identifier relates</param>
+        /// <param name="domain">The type of entity to which the identifier relates. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, IdentifierDefinition, SettlementInstruction, TransactionFee.</param>
         /// <param name="identifierScope">The scope that the identifier exists in</param>
         /// <param name="identifierType">What the identifier represents. Together with \&quot;domain\&quot; and \&quot;identifierScope\&quot; this uniquely identifies the Identifier Definition</param>
         /// <param name="updateIdentifierDefinitionRequest">The request containing the updated details of the Identifier Definition. (optional)</param>
@@ -1630,7 +1630,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] UpdateIdentifierDefinition: Update Identifier Definition defined by domain, identifierScope, and identifierType Overwrites an existing Identifier Definition.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="domain">The type of entity to which the identifier relates</param>
+        /// <param name="domain">The type of entity to which the identifier relates. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, IdentifierDefinition, SettlementInstruction, TransactionFee.</param>
         /// <param name="identifierScope">The scope that the identifier exists in</param>
         /// <param name="identifierType">What the identifier represents. Together with \&quot;domain\&quot; and \&quot;identifierScope\&quot; this uniquely identifies the Identifier Definition</param>
         /// <param name="updateIdentifierDefinitionRequest">The request containing the updated details of the Identifier Definition. (optional)</param>

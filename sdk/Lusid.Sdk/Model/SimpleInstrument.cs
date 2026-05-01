@@ -31,9 +31,9 @@ namespace Lusid.Sdk.Model
     public partial class SimpleInstrument : LusidInstrument, IEquatable<SimpleInstrument>, IValidatableObject
     {
         /// <summary>
-        /// The available values are: InterestRates, FX, Inflation, Equities, Credit, Commodities, Money, Unknown
+        /// Available values: InterestRates, FX, Inflation, Equities, Credit, Commodities, Money, Unknown.
         /// </summary>
-        /// <value>The available values are: InterestRates, FX, Inflation, Equities, Credit, Commodities, Money, Unknown</value>
+        /// <value>Available values: InterestRates, FX, Inflation, Equities, Credit, Commodities, Money, Unknown.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum AssetClassEnum
         {
@@ -88,9 +88,9 @@ namespace Lusid.Sdk.Model
 
 
         /// <summary>
-        /// The available values are: InterestRates, FX, Inflation, Equities, Credit, Commodities, Money, Unknown
+        /// Available values: InterestRates, FX, Inflation, Equities, Credit, Commodities, Money, Unknown.
         /// </summary>
-        /// <value>The available values are: InterestRates, FX, Inflation, Equities, Credit, Commodities, Money, Unknown</value>
+        /// <value>Available values: InterestRates, FX, Inflation, Equities, Credit, Commodities, Money, Unknown.</value>
         [DataMember(Name = "assetClass", IsRequired = true, EmitDefaultValue = true)]
         public AssetClassEnum AssetClass { get; set; }
         /// <summary>
@@ -103,12 +103,12 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="maturityDate">The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.  For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as  Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it..</param>
         /// <param name="domCcy">The domestic currency. (required).</param>
-        /// <param name="assetClass">The available values are: InterestRates, FX, Inflation, Equities, Credit, Commodities, Money, Unknown (required).</param>
+        /// <param name="assetClass">Available values: InterestRates, FX, Inflation, Equities, Credit, Commodities, Money, Unknown. (required).</param>
         /// <param name="fgnCcys">The set of foreign currencies, if any (optional)..</param>
         /// <param name="simpleInstrumentType">The Instrument type of the simple instrument. (required).</param>
         /// <param name="timeZoneConventions">timeZoneConventions.</param>
         /// <param name="tradingConventions">tradingConventions.</param>
-        /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit, FlexibleRepo (required) (default to &quot;SimpleInstrument&quot;).</param>
+        /// <param name="instrumentType">Available values: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit, FlexibleRepo. (required) (default to &quot;SimpleInstrument&quot;).</param>
         public SimpleInstrument(DateTimeOffset maturityDate = default(DateTimeOffset), string domCcy = default(string), AssetClassEnum assetClass = default(AssetClassEnum), List<string> fgnCcys = default(List<string>), string simpleInstrumentType = default(string), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), TradingConventions tradingConventions = default(TradingConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
         {
             // to ensure "domCcy" is required (not null)

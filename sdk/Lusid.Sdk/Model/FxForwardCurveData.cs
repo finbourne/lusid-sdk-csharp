@@ -46,7 +46,7 @@ namespace Lusid.Sdk.Model
         /// <param name="lineage">Description of the complex market data&#39;s lineage e.g. &#39;FundAccountant_GreenQuality&#39;..</param>
         /// <param name="marketDataOptions">marketDataOptions.</param>
         /// <param name="varVersion">varVersion.</param>
-        /// <param name="marketDataType">The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface (required) (default to &quot;FxForwardCurveData&quot;).</param>
+        /// <param name="marketDataType">Available values: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface. (required) (default to &quot;FxForwardCurveData&quot;).</param>
         public FxForwardCurveData(DateTimeOffset baseDate = default(DateTimeOffset), string domCcy = default(string), string fgnCcy = default(string), List<DateTimeOffset> dates = default(List<DateTimeOffset>), List<decimal> rates = default(List<decimal>), string lineage = default(string), MarketDataOptions marketDataOptions = default(MarketDataOptions), ModelVersion varVersion = default(ModelVersion), MarketDataTypeEnum marketDataType = default(MarketDataTypeEnum)) : base(marketDataType)
         {
             this.BaseDate = baseDate;

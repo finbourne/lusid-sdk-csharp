@@ -179,7 +179,7 @@ namespace Lusid.Sdk.Api
         /// Lists all mappings this user is entitled to see
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="reconciliationType">Optional parameter to specify which type of mappings should be returned.  Defaults to Transaction if not provided. (optional)</param>
+        /// <param name="reconciliationType">Optional parameter to specify which type of mappings should be returned.  Default value: Transaction. Available values: Transaction, Holding, Valuation, Cash, CashHolding. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfMapping</returns>
@@ -192,7 +192,7 @@ namespace Lusid.Sdk.Api
         /// Lists all mappings this user is entitled to see
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="reconciliationType">Optional parameter to specify which type of mappings should be returned.  Defaults to Transaction if not provided. (optional)</param>
+        /// <param name="reconciliationType">Optional parameter to specify which type of mappings should be returned.  Default value: Transaction. Available values: Transaction, Holding, Valuation, Cash, CashHolding. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfMapping</returns>
@@ -609,7 +609,7 @@ namespace Lusid.Sdk.Api
         /// Lists all mappings this user is entitled to see
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="reconciliationType">Optional parameter to specify which type of mappings should be returned.  Defaults to Transaction if not provided. (optional)</param>
+        /// <param name="reconciliationType">Optional parameter to specify which type of mappings should be returned.  Default value: Transaction. Available values: Transaction, Holding, Valuation, Cash, CashHolding. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -623,7 +623,7 @@ namespace Lusid.Sdk.Api
         /// Lists all mappings this user is entitled to see
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="reconciliationType">Optional parameter to specify which type of mappings should be returned.  Defaults to Transaction if not provided. (optional)</param>
+        /// <param name="reconciliationType">Optional parameter to specify which type of mappings should be returned.  Default value: Transaction. Available values: Transaction, Holding, Valuation, Cash, CashHolding. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2164,7 +2164,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] ListReconciliationMappings: List the reconciliation mappings Lists all mappings this user is entitled to see
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="reconciliationType">Optional parameter to specify which type of mappings should be returned.  Defaults to Transaction if not provided. (optional)</param>
+        /// <param name="reconciliationType">Optional parameter to specify which type of mappings should be returned.  Default value: Transaction. Available values: Transaction, Holding, Valuation, Cash, CashHolding. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfMapping</returns>
@@ -2178,7 +2178,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] ListReconciliationMappings: List the reconciliation mappings Lists all mappings this user is entitled to see
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="reconciliationType">Optional parameter to specify which type of mappings should be returned.  Defaults to Transaction if not provided. (optional)</param>
+        /// <param name="reconciliationType">Optional parameter to specify which type of mappings should be returned.  Default value: Transaction. Available values: Transaction, Holding, Valuation, Cash, CashHolding. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfMapping</returns>
@@ -2262,7 +2262,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] ListReconciliationMappings: List the reconciliation mappings Lists all mappings this user is entitled to see
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="reconciliationType">Optional parameter to specify which type of mappings should be returned.  Defaults to Transaction if not provided. (optional)</param>
+        /// <param name="reconciliationType">Optional parameter to specify which type of mappings should be returned.  Default value: Transaction. Available values: Transaction, Holding, Valuation, Cash, CashHolding. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2277,7 +2277,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] ListReconciliationMappings: List the reconciliation mappings Lists all mappings this user is entitled to see
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="reconciliationType">Optional parameter to specify which type of mappings should be returned.  Defaults to Transaction if not provided. (optional)</param>
+        /// <param name="reconciliationType">Optional parameter to specify which type of mappings should be returned.  Default value: Transaction. Available values: Transaction, Holding, Valuation, Cash, CashHolding. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>

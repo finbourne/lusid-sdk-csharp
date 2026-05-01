@@ -51,20 +51,20 @@ namespace Lusid.Sdk.Model
         /// <param name="postingRule">The rule generating the Journal Entry Line. (required).</param>
         /// <param name="asAtDate">The corresponding input date and time of the Transaction generating the Journal Entry Line. (required).</param>
         /// <param name="activitiesDescription">This would be the description of the business activities this Journal Entry Line is for..</param>
-        /// <param name="sourceType">So far are 4 types: LusidTxn, LusidValuation, Manual and External. (required).</param>
+        /// <param name="sourceType">The type of source for the Journal Entry Line. Available values: LusidTransaction, LusidValuation, Manual, External. (required).</param>
         /// <param name="sourceId">For the Lusid Source Type this will be the txn Id. For the rest will be what the user populates. (required).</param>
         /// <param name="properties">A set of properties for the Abor..</param>
         /// <param name="movementName">If the JE Line is generated from a transaction, the name of the side in the transaction type&#39;s movement. If from a valuation, this is &#39;MarkToMarket&#39;..</param>
         /// <param name="holdingType">One of the LUSID holding types such as &#39;P&#39; for position or &#39;B&#39; for settled cash balance. (required).</param>
         /// <param name="economicBucket">LUSID automatically categorises a JE Line into a broad economic bucket such as &#39;NA_Cost&#39; or &#39;PL_RealPriceGL&#39;. (required).</param>
-        /// <param name="economicBucketComponent">Sub bucket of the economic bucket..</param>
-        /// <param name="economicBucketVariant">Categorisation of a Mark-to-market journal entry line into LongTerm or ShortTerm based on whether the ActivityDate is more than a year after the purchase trade date or not..</param>
+        /// <param name="economicBucketComponent">Sub bucket of the economic bucket. Available values: Undefined, Premium, OID, MarketDiscount, AcquisitionPremium, CoreMarket, CrossGainLoss, TradedInterest, Income, Expense..</param>
+        /// <param name="economicBucketVariant">Further categorisation of a journal entry line. LongTerm/ShortTerm: based on whether the ActivityDate is more than a year after the purchase trade date. TradeDateToSettlementDate: FX gain/loss between trade date and settlement date. InLieuSubstitution: FX gain/loss from settling in a different currency when the original settlement currency is the portfolio base currency. Available values: Undefined, ShortTerm, LongTerm, Bought, Sold, TradeDateToSettlementDate, Rounding, InLieuSubstitution..</param>
         /// <param name="levels">Resolved data from the general ledger profile where the GeneralLedgerProfileCode is specified in the GetJournalEntryLines request body..</param>
         /// <param name="sourceLevels">Source data from the general ledger profile where the GeneralLedgerProfileCode is specified in the GetJournalEntryLines request body..</param>
-        /// <param name="movementSign">Indicates if the Journal Entry Line corresponds to a Long or Short movement..</param>
-        /// <param name="holdingSign">Indicates if the Journal Entry Line is operating against a Long or Short holding..</param>
-        /// <param name="ledgerColumn">Indicates if the Journal Entry Line is credit or debit..</param>
-        /// <param name="journalEntryLineType">Indicates the Journal Entry Line type.</param>
+        /// <param name="movementSign">Indicates if the Journal Entry Line corresponds to a Long or Short movement. Available values: NA, Long, Short..</param>
+        /// <param name="holdingSign">Indicates if the Journal Entry Line is operating against a Long or Short holding. Available values: NA, Long, Short..</param>
+        /// <param name="ledgerColumn">Indicates if the Journal Entry Line is credit or debit. Available values: Debit, Credit..</param>
+        /// <param name="journalEntryLineType">Indicates the Journal Entry Line type. Available values: Default, Reversal, TrueUp..</param>
         /// <param name="links">links.</param>
         public JournalEntryLine(DateTimeOffset accountingDate = default(DateTimeOffset), DateTimeOffset activityDate = default(DateTimeOffset), ResourceId portfolioId = default(ResourceId), string instrumentId = default(string), string instrumentScope = default(string), Dictionary<string, PerpetualProperty> subHoldingKeys = default(Dictionary<string, PerpetualProperty>), string taxLotId = default(string), string generalLedgerAccountCode = default(string), CurrencyAndAmount local = default(CurrencyAndAmount), CurrencyAndAmount varBase = default(CurrencyAndAmount), decimal units = default(decimal), string postingModuleCode = default(string), string postingRule = default(string), DateTimeOffset asAtDate = default(DateTimeOffset), string activitiesDescription = default(string), string sourceType = default(string), string sourceId = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string movementName = default(string), string holdingType = default(string), string economicBucket = default(string), string economicBucketComponent = default(string), string economicBucketVariant = default(string), List<string> levels = default(List<string>), List<string> sourceLevels = default(List<string>), string movementSign = default(string), string holdingSign = default(string), string ledgerColumn = default(string), string journalEntryLineType = default(string), List<Link> links = default(List<Link>))
         {
@@ -258,9 +258,9 @@ namespace Lusid.Sdk.Model
         public string ActivitiesDescription { get; set; }
 
         /// <summary>
-        /// So far are 4 types: LusidTxn, LusidValuation, Manual and External.
+        /// The type of source for the Journal Entry Line. Available values: LusidTransaction, LusidValuation, Manual, External.
         /// </summary>
-        /// <value>So far are 4 types: LusidTxn, LusidValuation, Manual and External.</value>
+        /// <value>The type of source for the Journal Entry Line. Available values: LusidTransaction, LusidValuation, Manual, External.</value>
         [DataMember(Name = "sourceType", IsRequired = true, EmitDefaultValue = true)]
         public string SourceType { get; set; }
 
@@ -300,16 +300,16 @@ namespace Lusid.Sdk.Model
         public string EconomicBucket { get; set; }
 
         /// <summary>
-        /// Sub bucket of the economic bucket.
+        /// Sub bucket of the economic bucket. Available values: Undefined, Premium, OID, MarketDiscount, AcquisitionPremium, CoreMarket, CrossGainLoss, TradedInterest, Income, Expense.
         /// </summary>
-        /// <value>Sub bucket of the economic bucket.</value>
+        /// <value>Sub bucket of the economic bucket. Available values: Undefined, Premium, OID, MarketDiscount, AcquisitionPremium, CoreMarket, CrossGainLoss, TradedInterest, Income, Expense.</value>
         [DataMember(Name = "economicBucketComponent", EmitDefaultValue = true)]
         public string EconomicBucketComponent { get; set; }
 
         /// <summary>
-        /// Categorisation of a Mark-to-market journal entry line into LongTerm or ShortTerm based on whether the ActivityDate is more than a year after the purchase trade date or not.
+        /// Further categorisation of a journal entry line. LongTerm/ShortTerm: based on whether the ActivityDate is more than a year after the purchase trade date. TradeDateToSettlementDate: FX gain/loss between trade date and settlement date. InLieuSubstitution: FX gain/loss from settling in a different currency when the original settlement currency is the portfolio base currency. Available values: Undefined, ShortTerm, LongTerm, Bought, Sold, TradeDateToSettlementDate, Rounding, InLieuSubstitution.
         /// </summary>
-        /// <value>Categorisation of a Mark-to-market journal entry line into LongTerm or ShortTerm based on whether the ActivityDate is more than a year after the purchase trade date or not.</value>
+        /// <value>Further categorisation of a journal entry line. LongTerm/ShortTerm: based on whether the ActivityDate is more than a year after the purchase trade date. TradeDateToSettlementDate: FX gain/loss between trade date and settlement date. InLieuSubstitution: FX gain/loss from settling in a different currency when the original settlement currency is the portfolio base currency. Available values: Undefined, ShortTerm, LongTerm, Bought, Sold, TradeDateToSettlementDate, Rounding, InLieuSubstitution.</value>
         [DataMember(Name = "economicBucketVariant", EmitDefaultValue = true)]
         public string EconomicBucketVariant { get; set; }
 
@@ -328,30 +328,30 @@ namespace Lusid.Sdk.Model
         public List<string> SourceLevels { get; set; }
 
         /// <summary>
-        /// Indicates if the Journal Entry Line corresponds to a Long or Short movement.
+        /// Indicates if the Journal Entry Line corresponds to a Long or Short movement. Available values: NA, Long, Short.
         /// </summary>
-        /// <value>Indicates if the Journal Entry Line corresponds to a Long or Short movement.</value>
+        /// <value>Indicates if the Journal Entry Line corresponds to a Long or Short movement. Available values: NA, Long, Short.</value>
         [DataMember(Name = "movementSign", EmitDefaultValue = true)]
         public string MovementSign { get; set; }
 
         /// <summary>
-        /// Indicates if the Journal Entry Line is operating against a Long or Short holding.
+        /// Indicates if the Journal Entry Line is operating against a Long or Short holding. Available values: NA, Long, Short.
         /// </summary>
-        /// <value>Indicates if the Journal Entry Line is operating against a Long or Short holding.</value>
+        /// <value>Indicates if the Journal Entry Line is operating against a Long or Short holding. Available values: NA, Long, Short.</value>
         [DataMember(Name = "holdingSign", EmitDefaultValue = true)]
         public string HoldingSign { get; set; }
 
         /// <summary>
-        /// Indicates if the Journal Entry Line is credit or debit.
+        /// Indicates if the Journal Entry Line is credit or debit. Available values: Debit, Credit.
         /// </summary>
-        /// <value>Indicates if the Journal Entry Line is credit or debit.</value>
+        /// <value>Indicates if the Journal Entry Line is credit or debit. Available values: Debit, Credit.</value>
         [DataMember(Name = "ledgerColumn", EmitDefaultValue = true)]
         public string LedgerColumn { get; set; }
 
         /// <summary>
-        /// Indicates the Journal Entry Line type
+        /// Indicates the Journal Entry Line type. Available values: Default, Reversal, TrueUp.
         /// </summary>
-        /// <value>Indicates the Journal Entry Line type</value>
+        /// <value>Indicates the Journal Entry Line type. Available values: Default, Reversal, TrueUp.</value>
         [DataMember(Name = "journalEntryLineType", EmitDefaultValue = true)]
         public string JournalEntryLineType { get; set; }
 

@@ -40,7 +40,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="propertyKey">The property key whose value will form the left-hand side of the operation (required).</param>
         /// <param name="value">The value to be compared against (required).</param>
-        /// <param name="criterionType">The available values are: PropertyValueEquals, PropertyValueIn, SubHoldingKeyValueEquals (required) (default to &quot;PropertyValueIn&quot;).</param>
+        /// <param name="criterionType">Available values: PropertyValueEquals, PropertyValueIn, SubHoldingKeyValueEquals. (required) (default to &quot;PropertyValueIn&quot;).</param>
         public PropertyValueIn(string propertyKey = default(string), List<string> value = default(List<string>), CriterionTypeEnum criterionType = default(CriterionTypeEnum)) : base(criterionType)
         {
             // to ensure "propertyKey" is required (not null)

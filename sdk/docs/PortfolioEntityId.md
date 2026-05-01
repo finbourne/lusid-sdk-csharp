@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Scope** | **string** | The scope within which the portfolio or portfolio group lives. | 
 **Code** | **string** | Portfolio name or code. | 
-**PortfolioEntityType** | **string** | String identifier for portfolio e.g. \&quot;SinglePortfolio\&quot; and \&quot;GroupPortfolio\&quot;. If not specified, it is assumed to be a single portfolio. | [optional] 
+**PortfolioEntityType** | **string** | String identifier for portfolio e.g. \&quot;SinglePortfolio\&quot; and \&quot;GroupPortfolio\&quot;. If not specified, it is assumed to be a single portfolio. Available values: SinglePortfolio, GroupPortfolio. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;

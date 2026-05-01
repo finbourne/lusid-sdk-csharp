@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **InstrumentScope** | **string** |  | [optional] 
 **ReceivedDate** | **DateTimeOffset?** |  | [optional] 
 **PriceDate** | **DateTimeOffset?** |  | [optional] 
-**TransactionCategory** | **string** |  | [optional] 
+**TransactionCategory** | **string** | Available values: Subscription, Redemption, SwitchOut, SwitchIn, TransferOut, TransferIn. | [optional] 
 **LiquidatingShareClassIdentifier** | **string** |  | [optional] 
 **LiquidatingShareClassIdentifierType** | **string** |  | [optional] 
 **LiquidatingShareClassInstrumentScope** | **string** |  | [optional] 

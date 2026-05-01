@@ -34,9 +34,9 @@ namespace Lusid.Sdk.Model
     public partial class FundCalendarEntries : IEquatable<FundCalendarEntries>, IValidatableObject
     {
         /// <summary>
-        /// The type of the Calendar Entry. The available values are: FinalisedValuationPoint, FundEstimateValuationPoint, FundBookmark
+        /// The type of the Calendar Entry. Available values: FinalisedValuationPoint, FundEstimateValuationPoint, FundBookmark.
         /// </summary>
-        /// <value>The type of the Calendar Entry. The available values are: FinalisedValuationPoint, FundEstimateValuationPoint, FundBookmark</value>
+        /// <value>The type of the Calendar Entry. Available values: FinalisedValuationPoint, FundEstimateValuationPoint, FundBookmark.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum FundCalendarEntriesTypeEnum
         {
@@ -61,9 +61,9 @@ namespace Lusid.Sdk.Model
 
 
         /// <summary>
-        /// The type of the Calendar Entry. The available values are: FinalisedValuationPoint, FundEstimateValuationPoint, FundBookmark
+        /// The type of the Calendar Entry. Available values: FinalisedValuationPoint, FundEstimateValuationPoint, FundBookmark.
         /// </summary>
-        /// <value>The type of the Calendar Entry. The available values are: FinalisedValuationPoint, FundEstimateValuationPoint, FundBookmark</value>
+        /// <value>The type of the Calendar Entry. Available values: FinalisedValuationPoint, FundEstimateValuationPoint, FundBookmark.</value>
         [DataMember(Name = "fundCalendarEntriesType", IsRequired = true, EmitDefaultValue = true)]
         public FundCalendarEntriesTypeEnum FundCalendarEntriesType { get; set; }
         /// <summary>
@@ -74,7 +74,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FundCalendarEntries" /> class.
         /// </summary>
-        /// <param name="fundCalendarEntriesType">The type of the Calendar Entry. The available values are: FinalisedValuationPoint, FundEstimateValuationPoint, FundBookmark (required).</param>
+        /// <param name="fundCalendarEntriesType">The type of the Calendar Entry. Available values: FinalisedValuationPoint, FundEstimateValuationPoint, FundBookmark. (required).</param>
         public FundCalendarEntries(FundCalendarEntriesTypeEnum fundCalendarEntriesType = default(FundCalendarEntriesTypeEnum))
         {
             this.FundCalendarEntriesType = fundCalendarEntriesType;

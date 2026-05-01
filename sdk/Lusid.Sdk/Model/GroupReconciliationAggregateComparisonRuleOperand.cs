@@ -37,7 +37,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="GroupReconciliationAggregateComparisonRuleOperand" /> class.
         /// </summary>
         /// <param name="key">The key of the value to compare (required).</param>
-        /// <param name="operation">What to do with the value pointed to by the key, e.g. Sum. Only \&quot;Value is allowed for core rules\&quot; (required).</param>
+        /// <param name="operation">What to do with the value pointed to by the key, e.g. Sum. Only \&quot;Value is allowed for core rules\&quot;. Available values: Sum, Proportion, Average, Count, Min, Max, Value, SumOfPositiveValues, SumOfNegativeValues, SumOfAbsoluteValues, ProportionOfAbsoluteValues, SumCumulativeInAdvance, SumCumulativeInArrears. (required).</param>
         public GroupReconciliationAggregateComparisonRuleOperand(string key = default(string), string operation = default(string))
         {
             // to ensure "key" is required (not null)
@@ -62,9 +62,9 @@ namespace Lusid.Sdk.Model
         public string Key { get; set; }
 
         /// <summary>
-        /// What to do with the value pointed to by the key, e.g. Sum. Only \&quot;Value is allowed for core rules\&quot;
+        /// What to do with the value pointed to by the key, e.g. Sum. Only \&quot;Value is allowed for core rules\&quot;. Available values: Sum, Proportion, Average, Count, Min, Max, Value, SumOfPositiveValues, SumOfNegativeValues, SumOfAbsoluteValues, ProportionOfAbsoluteValues, SumCumulativeInAdvance, SumCumulativeInArrears.
         /// </summary>
-        /// <value>What to do with the value pointed to by the key, e.g. Sum. Only \&quot;Value is allowed for core rules\&quot;</value>
+        /// <value>What to do with the value pointed to by the key, e.g. Sum. Only \&quot;Value is allowed for core rules\&quot;. Available values: Sum, Proportion, Average, Count, Min, Max, Value, SumOfPositiveValues, SumOfNegativeValues, SumOfAbsoluteValues, ProportionOfAbsoluteValues, SumCumulativeInAdvance, SumCumulativeInArrears.</value>
         [DataMember(Name = "operation", IsRequired = true, EmitDefaultValue = true)]
         public string Operation { get; set; }
 

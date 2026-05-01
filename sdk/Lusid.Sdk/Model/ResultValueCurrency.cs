@@ -39,7 +39,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="ResultValueCurrency" /> class.
         /// </summary>
         /// <param name="value">The value itself.</param>
-        /// <param name="resultValueType">The available values are: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, ResultValueBool, ResultValueCurrency, CashFlowValue, CashFlowValueSet, ResultValueLifeCycleEventValue, ResultValueDateTimeOffset (required) (default to &quot;ResultValueCurrency&quot;).</param>
+        /// <param name="resultValueType">Available values: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, ResultValueBool, ResultValueCurrency, CashFlowValue, CashFlowValueSet, ResultValueLifeCycleEventValue, ResultValueDateTimeOffset. (required) (default to &quot;ResultValueCurrency&quot;).</param>
         public ResultValueCurrency(string value = default(string), ResultValueTypeEnum resultValueType = default(ResultValueTypeEnum)) : base(resultValueType)
         {
             this.Value = value;

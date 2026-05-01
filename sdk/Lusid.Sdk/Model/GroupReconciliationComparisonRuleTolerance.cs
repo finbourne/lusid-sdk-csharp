@@ -36,7 +36,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GroupReconciliationComparisonRuleTolerance" /> class.
         /// </summary>
-        /// <param name="type">The type of tolerance to allow. \&quot;Relative\&quot; | \&quot;Absolute\&quot; (required).</param>
+        /// <param name="type">The type of tolerance to allow. Available values: Relative, Absolute. (required).</param>
         /// <param name="value">The decimal value of how much tolerance to allow when comparing in relative (i.e percentage) or absolute terms depending on the ToleranceType specified (required).</param>
         public GroupReconciliationComparisonRuleTolerance(string type = default(string), decimal value = default(decimal))
         {
@@ -50,9 +50,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The type of tolerance to allow. \&quot;Relative\&quot; | \&quot;Absolute\&quot;
+        /// The type of tolerance to allow. Available values: Relative, Absolute.
         /// </summary>
-        /// <value>The type of tolerance to allow. \&quot;Relative\&quot; | \&quot;Absolute\&quot;</value>
+        /// <value>The type of tolerance to allow. Available values: Relative, Absolute.</value>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
 

@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **FilterId** | **string** |  | 
 **Filter** | **string** |  | 
-**AppliesTo** | **string** |  | 
+**AppliesTo** | **string** | Available values: Undefined, PnLBucket, Fees. | 
 
 ```csharp
 using Lusid.Sdk.Model;

@@ -38,7 +38,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="id">id (required).</param>
         /// <param name="displayName">The name of the ruleset (required).</param>
-        /// <param name="reconciliationType">The type of reconciliation to perform. \&quot;Holding\&quot; | \&quot;Transaction\&quot; | \&quot;Valuation\&quot; (required).</param>
+        /// <param name="reconciliationType">The type of reconciliation to perform. Available values: Holding, Transaction, Valuation, CashHolding. (required).</param>
         /// <param name="filters">filters.</param>
         /// <param name="coreAttributeRules">The core comparison rules (required).</param>
         /// <param name="aggregateAttributeRules">The aggregate comparison rules (required).</param>
@@ -91,9 +91,9 @@ namespace Lusid.Sdk.Model
         public string DisplayName { get; set; }
 
         /// <summary>
-        /// The type of reconciliation to perform. \&quot;Holding\&quot; | \&quot;Transaction\&quot; | \&quot;Valuation\&quot;
+        /// The type of reconciliation to perform. Available values: Holding, Transaction, Valuation, CashHolding.
         /// </summary>
-        /// <value>The type of reconciliation to perform. \&quot;Holding\&quot; | \&quot;Transaction\&quot; | \&quot;Valuation\&quot;</value>
+        /// <value>The type of reconciliation to perform. Available values: Holding, Transaction, Valuation, CashHolding.</value>
         [DataMember(Name = "reconciliationType", IsRequired = true, EmitDefaultValue = true)]
         public string ReconciliationType { get; set; }
 

@@ -37,9 +37,9 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="Series" /> class.
         /// </summary>
         /// <param name="seriesIdentifier">The identifier that uniquely identifies this Series within the Share Class. (required).</param>
-        /// <param name="seriesType">The type of the Series. Valid values are: Lead, Standard. (required).</param>
+        /// <param name="seriesType">The type of the Series. Available values: Lead, Standard. (required).</param>
         /// <param name="launchDate">The date on which the Series was launched. (required).</param>
-        /// <param name="launchPriceType">The type of launch price for the Series. Valid values are: Manual, Calculated. (required).</param>
+        /// <param name="launchPriceType">The type of launch price for the Series. Available values: Manual, Calculated. (required).</param>
         /// <param name="domCcy">The denomination currency of the Series. (required).</param>
         /// <param name="properties">An optional set of properties to associate with the Series. Only applied if createInstrument is set to true on the parent Fund..</param>
         public Series(string seriesIdentifier = default(string), string seriesType = default(string), DateTimeOffset launchDate = default(DateTimeOffset), string launchPriceType = default(string), string domCcy = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>))
@@ -80,9 +80,9 @@ namespace Lusid.Sdk.Model
         public string SeriesIdentifier { get; set; }
 
         /// <summary>
-        /// The type of the Series. Valid values are: Lead, Standard.
+        /// The type of the Series. Available values: Lead, Standard.
         /// </summary>
-        /// <value>The type of the Series. Valid values are: Lead, Standard.</value>
+        /// <value>The type of the Series. Available values: Lead, Standard.</value>
         [DataMember(Name = "seriesType", IsRequired = true, EmitDefaultValue = true)]
         public string SeriesType { get; set; }
 
@@ -94,9 +94,9 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset LaunchDate { get; set; }
 
         /// <summary>
-        /// The type of launch price for the Series. Valid values are: Manual, Calculated.
+        /// The type of launch price for the Series. Available values: Manual, Calculated.
         /// </summary>
-        /// <value>The type of launch price for the Series. Valid values are: Manual, Calculated.</value>
+        /// <value>The type of launch price for the Series. Available values: Manual, Calculated.</value>
         [DataMember(Name = "launchPriceType", IsRequired = true, EmitDefaultValue = true)]
         public string LaunchPriceType { get; set; }
 

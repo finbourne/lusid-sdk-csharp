@@ -39,7 +39,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="FilteredFundIdList" /> class.
         /// </summary>
         /// <param name="filter">filter (required).</param>
-        /// <param name="referenceListType">The reference list values. The available values are: PortfolioGroupIdList, PortfolioIdList, AddressKeyList, StringList, InstrumentList, DecimalList, PropertyList, FundIdList, FilteredFundIdList (required) (default to &quot;FilteredFundIdList&quot;).</param>
+        /// <param name="referenceListType">The reference list values. Available values: PortfolioGroupIdList, PortfolioIdList, AddressKeyList, StringList, InstrumentList, DecimalList, PropertyList, FundIdList, FilteredFundIdList. (required) (default to &quot;FilteredFundIdList&quot;).</param>
         public FilteredFundIdList(string filter = default(string), ReferenceListTypeEnum referenceListType = default(ReferenceListTypeEnum)) : base(referenceListType)
         {
             // to ensure "filter" is required (not null)

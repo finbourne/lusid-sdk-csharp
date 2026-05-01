@@ -5,7 +5,7 @@ Used to append a new point to an FX curve defined using `FxForwardCurveData`.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**MarketDataType** | **string** | The available values are: AppendFxForwardCurveByQuoteReference, AppendFxForwardCurveData, AppendFxForwardPipsCurveData, AppendFxForwardTenorCurveData, AppendFxForwardTenorPipsCurveData | 
+**MarketDataType** | **string** | Available values: AppendFxForwardCurveByQuoteReference, AppendFxForwardCurveData, AppendFxForwardPipsCurveData, AppendFxForwardTenorCurveData, AppendFxForwardTenorPipsCurveData. | 
 **Date** | **DateTimeOffset** | Date for which the forward rate applies. | 
 **Rate** | **decimal** | Rate provided for the fx forward (price in FgnCcy per unit of DomCcy). | 
 

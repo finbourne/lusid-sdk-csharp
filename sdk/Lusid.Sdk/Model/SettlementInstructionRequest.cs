@@ -38,8 +38,8 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="settlementInstructionId">settlementInstructionId (required).</param>
         /// <param name="transactionId">transactionId (required).</param>
-        /// <param name="settlementCategory">settlementCategory (required).</param>
-        /// <param name="instructionType">instructionType.</param>
+        /// <param name="settlementCategory">Available values: StockSettlement, CashSettlement, DeferredCashReceipt. (required).</param>
+        /// <param name="instructionType">Available values: Complete, CancelAutomatic, Partial..</param>
         /// <param name="instrumentIdentifiers">instrumentIdentifiers (required).</param>
         /// <param name="contractualSettlementDate">contractualSettlementDate.</param>
         /// <param name="actualSettlementDate">actualSettlementDate (required).</param>
@@ -99,14 +99,16 @@ namespace Lusid.Sdk.Model
         public string TransactionId { get; set; }
 
         /// <summary>
-        /// Gets or Sets SettlementCategory
+        /// Available values: StockSettlement, CashSettlement, DeferredCashReceipt.
         /// </summary>
+        /// <value>Available values: StockSettlement, CashSettlement, DeferredCashReceipt.</value>
         [DataMember(Name = "settlementCategory", IsRequired = true, EmitDefaultValue = true)]
         public string SettlementCategory { get; set; }
 
         /// <summary>
-        /// Gets or Sets InstructionType
+        /// Available values: Complete, CancelAutomatic, Partial.
         /// </summary>
+        /// <value>Available values: Complete, CancelAutomatic, Partial.</value>
         [DataMember(Name = "instructionType", EmitDefaultValue = true)]
         public string InstructionType { get; set; }
 

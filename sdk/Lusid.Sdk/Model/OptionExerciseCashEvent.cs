@@ -41,16 +41,16 @@ namespace Lusid.Sdk.Model
         /// <param name="cashFlowPerUnit">The cashflow per unit.</param>
         /// <param name="exerciseDate">The exercise date of the option..</param>
         /// <param name="deliveryDate">The delivery date of the option..</param>
-        /// <param name="exerciseType">The optionality type of the underlying option e.g. American, European.    Supported string (enumeration) values are: [European, Bermudan, American]. (required).</param>
+        /// <param name="exerciseType">The optionality type of the underlying option. Available values: None, European, Bermudan, American. (required).</param>
         /// <param name="maturityDate">The maturity date of the option..</param>
-        /// <param name="moneyness">The moneyness of the option e.g. InTheMoney, OutOfTheMoney.    Supported string (enumeration) values are: [InTheMoney, OutOfTheMoney, AtTheMoney]..</param>
+        /// <param name="moneyness">The moneyness of the option. Available values: Unknown, InTheMoney, OutOfTheMoney, AtTheMoney..</param>
         /// <param name="optionExerciseElections">Option exercise election for this OptionExercisePhysicalEvent..</param>
-        /// <param name="optionType">Type of optionality that is present e.g. call, put.    Supported string (enumeration) values are: [Call, Put]. (required).</param>
+        /// <param name="optionType">Type of optionality that is present. Available values: None, Call, Put. (required).</param>
         /// <param name="startDate">The start date of the option..</param>
         /// <param name="strikeCurrency">The strike currency of the equity option. (required).</param>
         /// <param name="strikePerUnit">The strike of the equity option times the number of shares to exchange if exercised. (required).</param>
         /// <param name="underlyingValuePerUnit">The underlying price times the number of shares to exchange if exercised..</param>
-        /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent, CapletFloorletCashFlowEvent, EarlyCloseOutEvent, DepositRollEvent (required) (default to &quot;OptionExerciseCashEvent&quot;).</param>
+        /// <param name="instrumentEventType">The Type of Event. Available values: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent, CapletFloorletCashFlowEvent, EarlyCloseOutEvent, DepositRollEvent, ConsentEvent. (required) (default to &quot;OptionExerciseCashEvent&quot;).</param>
         public OptionExerciseCashEvent(decimal? cashFlowPerUnit = default(decimal?), DateTimeOffset? exerciseDate = default(DateTimeOffset?), DateTimeOffset? deliveryDate = default(DateTimeOffset?), string exerciseType = default(string), DateTimeOffset maturityDate = default(DateTimeOffset), string moneyness = default(string), List<OptionExerciseElection> optionExerciseElections = default(List<OptionExerciseElection>), string optionType = default(string), DateTimeOffset startDate = default(DateTimeOffset), string strikeCurrency = default(string), decimal strikePerUnit = default(decimal), decimal? underlyingValuePerUnit = default(decimal?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
             // to ensure "exerciseType" is required (not null)
@@ -104,9 +104,9 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset? DeliveryDate { get; set; }
 
         /// <summary>
-        /// The optionality type of the underlying option e.g. American, European.    Supported string (enumeration) values are: [European, Bermudan, American].
+        /// The optionality type of the underlying option. Available values: None, European, Bermudan, American.
         /// </summary>
-        /// <value>The optionality type of the underlying option e.g. American, European.    Supported string (enumeration) values are: [European, Bermudan, American].</value>
+        /// <value>The optionality type of the underlying option. Available values: None, European, Bermudan, American.</value>
         [DataMember(Name = "exerciseType", IsRequired = true, EmitDefaultValue = true)]
         public string ExerciseType { get; set; }
 
@@ -118,9 +118,9 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset MaturityDate { get; set; }
 
         /// <summary>
-        /// The moneyness of the option e.g. InTheMoney, OutOfTheMoney.    Supported string (enumeration) values are: [InTheMoney, OutOfTheMoney, AtTheMoney].
+        /// The moneyness of the option. Available values: Unknown, InTheMoney, OutOfTheMoney, AtTheMoney.
         /// </summary>
-        /// <value>The moneyness of the option e.g. InTheMoney, OutOfTheMoney.    Supported string (enumeration) values are: [InTheMoney, OutOfTheMoney, AtTheMoney].</value>
+        /// <value>The moneyness of the option. Available values: Unknown, InTheMoney, OutOfTheMoney, AtTheMoney.</value>
         [DataMember(Name = "moneyness", EmitDefaultValue = true)]
         public string Moneyness { get; set; }
 
@@ -132,9 +132,9 @@ namespace Lusid.Sdk.Model
         public List<OptionExerciseElection> OptionExerciseElections { get; set; }
 
         /// <summary>
-        /// Type of optionality that is present e.g. call, put.    Supported string (enumeration) values are: [Call, Put].
+        /// Type of optionality that is present. Available values: None, Call, Put.
         /// </summary>
-        /// <value>Type of optionality that is present e.g. call, put.    Supported string (enumeration) values are: [Call, Put].</value>
+        /// <value>Type of optionality that is present. Available values: None, Call, Put.</value>
         [DataMember(Name = "optionType", IsRequired = true, EmitDefaultValue = true)]
         public string OptionType { get; set; }
 

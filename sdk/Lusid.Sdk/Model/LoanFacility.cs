@@ -42,10 +42,10 @@ namespace Lusid.Sdk.Model
         /// <param name="maturityDate">The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.  For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as  Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it. (required).</param>
         /// <param name="domCcy">The domestic currency of the instrument. (required).</param>
         /// <param name="initialCommitment">The initial commitment for the loan facility. (required).</param>
-        /// <param name="loanType">LoanType for this facility. The facility can either be a revolving or a  term loan.    Supported string (enumeration) values are: [Revolver, TermLoan]. (required).</param>
+        /// <param name="loanType">LoanType for this facility. The facility can either be a revolving or a  term loan. Available values: Revolver, TermLoan. (required).</param>
         /// <param name="schedules">Repayment schedules for the loan. (required).</param>
         /// <param name="timeZoneConventions">timeZoneConventions.</param>
-        /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit, FlexibleRepo (required) (default to &quot;LoanFacility&quot;).</param>
+        /// <param name="instrumentType">Available values: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit, FlexibleRepo. (required) (default to &quot;LoanFacility&quot;).</param>
         public LoanFacility(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), string domCcy = default(string), decimal initialCommitment = default(decimal), string loanType = default(string), List<Schedule> schedules = default(List<Schedule>), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
         {
             this.StartDate = startDate;
@@ -101,9 +101,9 @@ namespace Lusid.Sdk.Model
         public decimal InitialCommitment { get; set; }
 
         /// <summary>
-        /// LoanType for this facility. The facility can either be a revolving or a  term loan.    Supported string (enumeration) values are: [Revolver, TermLoan].
+        /// LoanType for this facility. The facility can either be a revolving or a  term loan. Available values: Revolver, TermLoan.
         /// </summary>
-        /// <value>LoanType for this facility. The facility can either be a revolving or a  term loan.    Supported string (enumeration) values are: [Revolver, TermLoan].</value>
+        /// <value>LoanType for this facility. The facility can either be a revolving or a  term loan. Available values: Revolver, TermLoan.</value>
         [DataMember(Name = "loanType", IsRequired = true, EmitDefaultValue = true)]
         public string LoanType { get; set; }
 

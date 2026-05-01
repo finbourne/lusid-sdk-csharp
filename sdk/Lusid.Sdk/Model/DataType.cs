@@ -29,9 +29,9 @@ namespace Lusid.Sdk.Model
     public partial class DataType : IEquatable<DataType>, IValidatableObject
     {
         /// <summary>
-        /// The available values are: Open, Closed
+        /// Available values: Open, Closed.
         /// </summary>
-        /// <value>The available values are: Open, Closed</value>
+        /// <value>Available values: Open, Closed.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TypeValueRangeEnum
         {
@@ -50,15 +50,15 @@ namespace Lusid.Sdk.Model
 
 
         /// <summary>
-        /// The available values are: Open, Closed
+        /// Available values: Open, Closed.
         /// </summary>
-        /// <value>The available values are: Open, Closed</value>
+        /// <value>Available values: Open, Closed.</value>
         [DataMember(Name = "typeValueRange", IsRequired = true, EmitDefaultValue = true)]
         public TypeValueRangeEnum TypeValueRange { get; set; }
         /// <summary>
-        /// The available values are: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, Code, Id, Uri, CurrencyAndAmount, TradePrice, Currency, MetricValue, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, UnindexedText
+        /// Available values: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, Code, Id, Uri, CurrencyAndAmount, TradePrice, Currency, MetricValue, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, UnindexedText.
         /// </summary>
-        /// <value>The available values are: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, Code, Id, Uri, CurrencyAndAmount, TradePrice, Currency, MetricValue, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, UnindexedText</value>
+        /// <value>Available values: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, Code, Id, Uri, CurrencyAndAmount, TradePrice, Currency, MetricValue, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, UnindexedText.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ValueTypeEnum
         {
@@ -191,15 +191,15 @@ namespace Lusid.Sdk.Model
 
 
         /// <summary>
-        /// The available values are: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, Code, Id, Uri, CurrencyAndAmount, TradePrice, Currency, MetricValue, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, UnindexedText
+        /// Available values: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, Code, Id, Uri, CurrencyAndAmount, TradePrice, Currency, MetricValue, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, UnindexedText.
         /// </summary>
-        /// <value>The available values are: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, Code, Id, Uri, CurrencyAndAmount, TradePrice, Currency, MetricValue, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, UnindexedText</value>
+        /// <value>Available values: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, Code, Id, Uri, CurrencyAndAmount, TradePrice, Currency, MetricValue, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, UnindexedText.</value>
         [DataMember(Name = "valueType", IsRequired = true, EmitDefaultValue = true)]
         public ValueTypeEnum ValueType { get; set; }
         /// <summary>
-        /// The available values are: NoUnits, Basic, Iso4217Currency
+        /// Available values: NoUnits, Basic, Iso4217Currency.
         /// </summary>
-        /// <value>The available values are: NoUnits, Basic, Iso4217Currency</value>
+        /// <value>Available values: NoUnits, Basic, Iso4217Currency.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum UnitSchemaEnum
         {
@@ -224,9 +224,9 @@ namespace Lusid.Sdk.Model
 
 
         /// <summary>
-        /// The available values are: NoUnits, Basic, Iso4217Currency
+        /// Available values: NoUnits, Basic, Iso4217Currency.
         /// </summary>
-        /// <value>The available values are: NoUnits, Basic, Iso4217Currency</value>
+        /// <value>Available values: NoUnits, Basic, Iso4217Currency.</value>
         [DataMember(Name = "unitSchema", EmitDefaultValue = false)]
         public UnitSchemaEnum? UnitSchema { get; set; }
         /// <summary>
@@ -237,13 +237,13 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DataType" /> class.
         /// </summary>
-        /// <param name="typeValueRange">The available values are: Open, Closed (required).</param>
+        /// <param name="typeValueRange">Available values: Open, Closed. (required).</param>
         /// <param name="id">id (required).</param>
         /// <param name="displayName">displayName (required).</param>
         /// <param name="description">description (required).</param>
-        /// <param name="valueType">The available values are: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, Code, Id, Uri, CurrencyAndAmount, TradePrice, Currency, MetricValue, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, UnindexedText (required).</param>
+        /// <param name="valueType">Available values: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, Code, Id, Uri, CurrencyAndAmount, TradePrice, Currency, MetricValue, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, UnindexedText. (required).</param>
         /// <param name="acceptableValues">acceptableValues.</param>
-        /// <param name="unitSchema">The available values are: NoUnits, Basic, Iso4217Currency.</param>
+        /// <param name="unitSchema">Available values: NoUnits, Basic, Iso4217Currency..</param>
         /// <param name="acceptableUnits">acceptableUnits.</param>
         /// <param name="referenceData">referenceData.</param>
         /// <param name="varVersion">varVersion.</param>

@@ -36,7 +36,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CategorySettlementStatus" /> class.
         /// </summary>
-        /// <param name="status">The Status of the settlement category - &#39;Settled&#39;, &#39;Part Settled&#39; or &#39;Unsettled&#39;. (required).</param>
+        /// <param name="status">The Status of the settlement category. Available values: Unsettled, PartSettled, Settled, None. (required).</param>
         /// <param name="isOverdue">Whether the category has any overdue movements (required).</param>
         /// <param name="problems">Instruction level detail of rejected or invalid settlement instructions (required).</param>
         public CategorySettlementStatus(string status = default(string), bool isOverdue = default(bool), List<SettlementProblem> problems = default(List<SettlementProblem>))
@@ -57,9 +57,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The Status of the settlement category - &#39;Settled&#39;, &#39;Part Settled&#39; or &#39;Unsettled&#39;.
+        /// The Status of the settlement category. Available values: Unsettled, PartSettled, Settled, None.
         /// </summary>
-        /// <value>The Status of the settlement category - &#39;Settled&#39;, &#39;Part Settled&#39; or &#39;Unsettled&#39;.</value>
+        /// <value>The Status of the settlement category. Available values: Unsettled, PartSettled, Settled, None.</value>
         [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
         public string Status { get; set; }
 

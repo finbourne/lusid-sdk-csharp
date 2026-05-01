@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Type** | **string** | The transaction type | 
 **Description** | **string** | Brief description of the transaction | 
 **TransactionClass** | **string** | Relates types of a similar class. E.g. Buy/Sell, StockIn/StockOut | 
-**TransactionRoles** | **string** | Transactions role within a class. E.g. Increase a long position | 
+**TransactionRoles** | **string** | Transactions role within a class. E.g. Increase a long position. Available values: None, LongLonger, LongShorter, ShortShorter, Shorter, ShortLonger, Longer, AllRoles. | 
 **IsDefault** | **bool** | IsDefault is a flag that denotes the default alias for a source. There can only be, at most, one per source. | [optional] 
 
 ```csharp

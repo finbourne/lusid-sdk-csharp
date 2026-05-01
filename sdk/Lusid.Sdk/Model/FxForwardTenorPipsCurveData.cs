@@ -46,9 +46,9 @@ namespace Lusid.Sdk.Model
         /// <param name="lineage">Description of the complex market data&#39;s lineage e.g. &#39;FundAccountant_GreenQuality&#39;..</param>
         /// <param name="marketDataOptions">marketDataOptions.</param>
         /// <param name="calendars">The list of conventions that should be used when interpreting tenors as dates..</param>
-        /// <param name="spotDaysCalculationType">Configures how to calculate the spot date from the build date using the Calendars provided.  Supported string (enumeration) values are: [ SingleCalendar, UnionCalendars ].</param>
+        /// <param name="spotDaysCalculationType">Configures how to calculate the spot date from the build date using the Calendars provided. Available values: SingleCalendar, UnionCalendars..</param>
         /// <param name="varVersion">varVersion.</param>
-        /// <param name="marketDataType">The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface (required) (default to &quot;FxForwardTenorPipsCurveData&quot;).</param>
+        /// <param name="marketDataType">Available values: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface. (required) (default to &quot;FxForwardTenorPipsCurveData&quot;).</param>
         public FxForwardTenorPipsCurveData(DateTimeOffset baseDate = default(DateTimeOffset), string domCcy = default(string), string fgnCcy = default(string), List<string> tenors = default(List<string>), List<decimal> pipRates = default(List<decimal>), string lineage = default(string), MarketDataOptions marketDataOptions = default(MarketDataOptions), List<FxTenorConvention> calendars = default(List<FxTenorConvention>), string spotDaysCalculationType = default(string), ModelVersion varVersion = default(ModelVersion), MarketDataTypeEnum marketDataType = default(MarketDataTypeEnum)) : base(marketDataType)
         {
             this.BaseDate = baseDate;
@@ -139,9 +139,9 @@ namespace Lusid.Sdk.Model
         public List<FxTenorConvention> Calendars { get; set; }
 
         /// <summary>
-        /// Configures how to calculate the spot date from the build date using the Calendars provided.  Supported string (enumeration) values are: [ SingleCalendar, UnionCalendars ]
+        /// Configures how to calculate the spot date from the build date using the Calendars provided. Available values: SingleCalendar, UnionCalendars.
         /// </summary>
-        /// <value>Configures how to calculate the spot date from the build date using the Calendars provided.  Supported string (enumeration) values are: [ SingleCalendar, UnionCalendars ]</value>
+        /// <value>Configures how to calculate the spot date from the build date using the Calendars provided. Available values: SingleCalendar, UnionCalendars.</value>
         [DataMember(Name = "spotDaysCalculationType", EmitDefaultValue = true)]
         public string SpotDaysCalculationType { get; set; }
 

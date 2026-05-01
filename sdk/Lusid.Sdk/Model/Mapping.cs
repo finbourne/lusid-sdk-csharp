@@ -39,7 +39,7 @@ namespace Lusid.Sdk.Model
         /// <param name="scope">The scope for this mapping. (required).</param>
         /// <param name="code">The code for this mapping. (required).</param>
         /// <param name="name">The mapping name (required).</param>
-        /// <param name="reconciliationType">What type of reconciliation this mapping is for (required).</param>
+        /// <param name="reconciliationType">What type of reconciliation this mapping is for. Available values: Transaction, Holding, Valuation, Cash, CashHolding. (required).</param>
         /// <param name="rules">The rules in this mapping, keyed by the left field/property name.</param>
         public Mapping(string scope = default(string), string code = default(string), string name = default(string), string reconciliationType = default(string), List<MappingRule> rules = default(List<MappingRule>))
         {
@@ -92,9 +92,9 @@ namespace Lusid.Sdk.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// What type of reconciliation this mapping is for
+        /// What type of reconciliation this mapping is for. Available values: Transaction, Holding, Valuation, Cash, CashHolding.
         /// </summary>
-        /// <value>What type of reconciliation this mapping is for</value>
+        /// <value>What type of reconciliation this mapping is for. Available values: Transaction, Holding, Valuation, Cash, CashHolding.</value>
         [DataMember(Name = "reconciliationType", IsRequired = true, EmitDefaultValue = true)]
         public string ReconciliationType { get; set; }
 

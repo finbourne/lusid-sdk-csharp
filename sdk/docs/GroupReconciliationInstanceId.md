@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**InstanceIdType** | **string** | Type of the reconciliation run, manual or automatic (via the workflow). \&quot;Manual\&quot; | \&quot;WorkflowServiceTaskId\&quot; | 
+**InstanceIdType** | **string** | Type of the reconciliation run, manual or automatic (via the workflow). Available values: WorkflowServiceTaskId, Manual. | 
 **InstanceIdValue** | **string** | Reconciliation run identifier: a manually-provided key or taskId. | 
 
 ```csharp

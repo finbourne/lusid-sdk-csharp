@@ -5,10 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **FieldName** | **string** |  | 
-**Specificity** | **string** |  | 
+**Specificity** | **string** | Available values: AllEventsAndHoldings, InstrumentEventType, ElectionType. | 
 **Description** | **string** |  | 
-**Type** | **string** |  | 
-**Availability** | **string** |  | 
+**Type** | **string** | Available values: String, Decimal, InstrumentScope, Currency, DateTime, PriceType, InstrumentId, PropertyKey, Boolean. | 
+**Availability** | **string** | Available values: Guaranteed, DataDependent, Informational. | 
 **Usage** | **List&lt;string&gt;** |  | 
 
 ```csharp

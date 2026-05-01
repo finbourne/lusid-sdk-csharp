@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **EffectiveFrom** | **DateTimeOffset** |  | 
-**WeightType** | **string** | The available values are: Static, Floating, Periodical | 
-**PeriodType** | **string** | The available values are: Daily, Weekly, Monthly, Quarterly, Annually | [optional] 
+**WeightType** | **string** | Available values: Static, Floating, Periodical. | 
+**PeriodType** | **string** | Available values: Daily, Weekly, Monthly, Quarterly, Annually. | [optional] 
 **PeriodCount** | **int?** |  | [optional] 
 **Constituents** | [**List&lt;ReferencePortfolioConstituent&gt;**](ReferencePortfolioConstituent.md) | Set of constituents (instrument/weight pairings) | 
 **Href** | **string** | The Uri that returns the same result as the original request,  but may include resolved as at time(s). | [optional] 

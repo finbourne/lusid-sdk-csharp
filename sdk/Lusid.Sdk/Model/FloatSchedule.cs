@@ -51,11 +51,11 @@ namespace Lusid.Sdk.Model
         /// <param name="stubType">When a payment schedule doesn&#39;t have regular payment intervals just because of the  first and/or last coupons of the schedule, we call those irregular coupons stubs.  This configuration specifies what type of stub is used when building the schedule  Supported values are:  None &#x3D; this is a regular payment schedule with no stubs. DO NOT use it with irregular schedules or you will get incorrect and unexpected behaviour.  ShortFront &#x3D; this is an irregular payment schedule where only the first coupon is irregular, and covers a payment period that is shorter than the regular payment period.  ShortBack &#x3D; this is an irregular payment schedule where only the last coupon is irregular, and covers a payment period that is shorter than the regular payment period.  LongFront &#x3D; this is an irregular payment schedule where only the first coupon is irregular, and covers a payment period that is longer than the regular payment period.  LongBack &#x3D; this is an irregular payment schedule where only the last coupon is irregular, and covers a payment period that is longer than the regular payment period.  Both &#x3D; this is an irregular payment schedule where both the first and the last coupons are irregular, and the length of these periods is calculated based on the first coupon payment date that should have been explicitly set..</param>
         /// <param name="exDividendConfiguration">exDividendConfiguration.</param>
         /// <param name="compounding">compounding.</param>
-        /// <param name="resetConvention">Control how resets are generated relative to payment convention(s).    Supported string (enumeration) values are: [InAdvance, InArrears].  Defaults to \&quot;InAdvance\&quot; if not set..</param>
+        /// <param name="resetConvention">Control how resets are generated relative to payment convention(s).    Default value: InAdvance. Available values: InAdvance, InArrears..</param>
         /// <param name="useAnnualisedDirectRates">Flag indicating whether to use daily updated annualised interest  rates for calculating the accrued interest. Defaults to false..</param>
         /// <param name="capRate">The maximum floating rate which a cashflow can accrue..</param>
         /// <param name="floorRate">The minimum floating rate which a cashflow can accrue..</param>
-        /// <param name="scheduleType">The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, BondConversionSchedule, Invalid (required) (default to &quot;FloatSchedule&quot;).</param>
+        /// <param name="scheduleType">Available values: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, BondConversionSchedule, Invalid. (required) (default to &quot;FloatSchedule&quot;).</param>
         public FloatSchedule(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), FlowConventions flowConventions = default(FlowConventions), FlowConventionName conventionName = default(FlowConventionName), int? exDividendDays = default(int?), FlowConventionName indexConventionName = default(FlowConventionName), IndexConvention indexConventions = default(IndexConvention), decimal notional = default(decimal), string paymentCurrency = default(string), decimal spread = default(decimal), string stubType = default(string), ExDividendConfiguration exDividendConfiguration = default(ExDividendConfiguration), Compounding compounding = default(Compounding), string resetConvention = default(string), bool useAnnualisedDirectRates = default(bool), decimal? capRate = default(decimal?), decimal? floorRate = default(decimal?), ScheduleTypeEnum scheduleType = default(ScheduleTypeEnum)) : base(scheduleType)
         {
             // to ensure "paymentCurrency" is required (not null)
@@ -168,9 +168,9 @@ namespace Lusid.Sdk.Model
         public Compounding Compounding { get; set; }
 
         /// <summary>
-        /// Control how resets are generated relative to payment convention(s).    Supported string (enumeration) values are: [InAdvance, InArrears].  Defaults to \&quot;InAdvance\&quot; if not set.
+        /// Control how resets are generated relative to payment convention(s).    Default value: InAdvance. Available values: InAdvance, InArrears.
         /// </summary>
-        /// <value>Control how resets are generated relative to payment convention(s).    Supported string (enumeration) values are: [InAdvance, InArrears].  Defaults to \&quot;InAdvance\&quot; if not set.</value>
+        /// <value>Control how resets are generated relative to payment convention(s).    Default value: InAdvance. Available values: InAdvance, InArrears.</value>
         [DataMember(Name = "resetConvention", EmitDefaultValue = true)]
         public string ResetConvention { get; set; }
 

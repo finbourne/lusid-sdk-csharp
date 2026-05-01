@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **string** | The type of tolerance to allow. \&quot;Relative\&quot; | \&quot;Absolute\&quot; | 
+**Type** | **string** | The type of tolerance to allow. Available values: Relative, Absolute. | 
 **Value** | **decimal** | The decimal value of how much tolerance to allow when comparing in relative (i.e percentage) or absolute terms depending on the ToleranceType specified | 
 
 ```csharp

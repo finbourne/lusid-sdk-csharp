@@ -559,7 +559,7 @@ namespace Examples
             var scope = "scope_example";  // string | The scope of the Chart of Accounts.
             var code = "code_example";  // string | The code of the Chart of Accounts. Together with the scope this uniquely identifies              the Chart of Accounts.
             var requestBody = new List<string>(); // List<string> | The codes of the accounts to delete.
-            var deleteMode = "Soft";  // string? | The delete mode to use (defaults to 'Soft'). (optional) 
+            var deleteMode = "Soft";  // string? | The delete mode to use. Default value: Soft. Available values: Soft, Hard. (optional) 
 
             try
             {
@@ -608,7 +608,7 @@ catch (ApiException e)
 | **scope** | **string** | The scope of the Chart of Accounts. |  |
 | **code** | **string** | The code of the Chart of Accounts. Together with the scope this uniquely identifies              the Chart of Accounts. |  |
 | **requestBody** | [**List&lt;string&gt;**](string.md) | The codes of the accounts to delete. |  |
-| **deleteMode** | **string?** | The delete mode to use (defaults to &#39;Soft&#39;). | [optional]  |
+| **deleteMode** | **string?** | The delete mode to use. Default value: Soft. Available values: Soft, Hard. | [optional]  |
 
 ### Return type
 

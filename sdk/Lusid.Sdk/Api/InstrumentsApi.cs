@@ -173,7 +173,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The list of lusidInstrumentId&#39;s to delete.</param>
-        /// <param name="deleteMode">The delete mode to use (defaults to &#39;Soft&#39;). (optional)</param>
+        /// <param name="deleteMode">The delete mode to use. Default value: Soft. Available values: Soft, Hard. (optional)</param>
         /// <param name="scope">The scope in which the instruments lie. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -188,7 +188,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The list of lusidInstrumentId&#39;s to delete.</param>
-        /// <param name="deleteMode">The delete mode to use (defaults to &#39;Soft&#39;). (optional)</param>
+        /// <param name="deleteMode">The delete mode to use. Default value: Soft. Available values: Soft, Hard. (optional)</param>
         /// <param name="scope">The scope in which the instruments lie. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -605,7 +605,7 @@ namespace Lusid.Sdk.Api
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use. (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use. (optional)</param>
-        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
         /// <param name="timelineScope">The scope of the Timeline. (optional)</param>
         /// <param name="timelineCode">The code of the Timeline. This can optionally include a colon followed by the Closed Period ID to use at the head of the timeline, for a timeline with unconfirmed periods. (optional)</param>
         /// <param name="closedPeriodId">The closed period ID. If this is specified, both timelineScope and timelineCode must be specified. (optional)</param>
@@ -632,7 +632,7 @@ namespace Lusid.Sdk.Api
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use. (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use. (optional)</param>
-        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
         /// <param name="timelineScope">The scope of the Timeline. (optional)</param>
         /// <param name="timelineCode">The code of the Timeline. This can optionally include a colon followed by the Closed Period ID to use at the head of the timeline, for a timeline with unconfirmed periods. (optional)</param>
         /// <param name="closedPeriodId">The closed period ID. If this is specified, both timelineScope and timelineCode must be specified. (optional)</param>
@@ -923,7 +923,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The list of lusidInstrumentId&#39;s to delete.</param>
-        /// <param name="deleteMode">The delete mode to use (defaults to &#39;Soft&#39;). (optional)</param>
+        /// <param name="deleteMode">The delete mode to use. Default value: Soft. Available values: Soft, Hard. (optional)</param>
         /// <param name="scope">The scope in which the instruments lie. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -939,7 +939,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The list of lusidInstrumentId&#39;s to delete.</param>
-        /// <param name="deleteMode">The delete mode to use (defaults to &#39;Soft&#39;). (optional)</param>
+        /// <param name="deleteMode">The delete mode to use. Default value: Soft. Available values: Soft, Hard. (optional)</param>
         /// <param name="scope">The scope in which the instruments lie. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1379,7 +1379,7 @@ namespace Lusid.Sdk.Api
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use. (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use. (optional)</param>
-        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
         /// <param name="timelineScope">The scope of the Timeline. (optional)</param>
         /// <param name="timelineCode">The code of the Timeline. This can optionally include a colon followed by the Closed Period ID to use at the head of the timeline, for a timeline with unconfirmed periods. (optional)</param>
         /// <param name="closedPeriodId">The closed period ID. If this is specified, both timelineScope and timelineCode must be specified. (optional)</param>
@@ -1407,7 +1407,7 @@ namespace Lusid.Sdk.Api
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use. (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use. (optional)</param>
-        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
         /// <param name="timelineScope">The scope of the Timeline. (optional)</param>
         /// <param name="timelineCode">The code of the Timeline. This can optionally include a colon followed by the Closed Period ID to use at the head of the timeline, for a timeline with unconfirmed periods. (optional)</param>
         /// <param name="closedPeriodId">The closed period ID. If this is specified, both timelineScope and timelineCode must be specified. (optional)</param>
@@ -2749,7 +2749,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The list of lusidInstrumentId&#39;s to delete.</param>
-        /// <param name="deleteMode">The delete mode to use (defaults to &#39;Soft&#39;). (optional)</param>
+        /// <param name="deleteMode">The delete mode to use. Default value: Soft. Available values: Soft, Hard. (optional)</param>
         /// <param name="scope">The scope in which the instruments lie. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2765,7 +2765,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The list of lusidInstrumentId&#39;s to delete.</param>
-        /// <param name="deleteMode">The delete mode to use (defaults to &#39;Soft&#39;). (optional)</param>
+        /// <param name="deleteMode">The delete mode to use. Default value: Soft. Available values: Soft, Hard. (optional)</param>
         /// <param name="scope">The scope in which the instruments lie. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2867,7 +2867,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The list of lusidInstrumentId&#39;s to delete.</param>
-        /// <param name="deleteMode">The delete mode to use (defaults to &#39;Soft&#39;). (optional)</param>
+        /// <param name="deleteMode">The delete mode to use. Default value: Soft. Available values: Soft, Hard. (optional)</param>
         /// <param name="scope">The scope in which the instruments lie. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2884,7 +2884,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The list of lusidInstrumentId&#39;s to delete.</param>
-        /// <param name="deleteMode">The delete mode to use (defaults to &#39;Soft&#39;). (optional)</param>
+        /// <param name="deleteMode">The delete mode to use. Default value: Soft. Available values: Soft, Hard. (optional)</param>
         /// <param name="scope">The scope in which the instruments lie. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -6061,7 +6061,7 @@ namespace Lusid.Sdk.Api
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use. (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use. (optional)</param>
-        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
         /// <param name="timelineScope">The scope of the Timeline. (optional)</param>
         /// <param name="timelineCode">The code of the Timeline. This can optionally include a colon followed by the Closed Period ID to use at the head of the timeline, for a timeline with unconfirmed periods. (optional)</param>
         /// <param name="closedPeriodId">The closed period ID. If this is specified, both timelineScope and timelineCode must be specified. (optional)</param>
@@ -6089,7 +6089,7 @@ namespace Lusid.Sdk.Api
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use. (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use. (optional)</param>
-        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
         /// <param name="timelineScope">The scope of the Timeline. (optional)</param>
         /// <param name="timelineCode">The code of the Timeline. This can optionally include a colon followed by the Closed Period ID to use at the head of the timeline, for a timeline with unconfirmed periods. (optional)</param>
         /// <param name="closedPeriodId">The closed period ID. If this is specified, both timelineScope and timelineCode must be specified. (optional)</param>
@@ -6257,7 +6257,7 @@ namespace Lusid.Sdk.Api
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use. (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use. (optional)</param>
-        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
         /// <param name="timelineScope">The scope of the Timeline. (optional)</param>
         /// <param name="timelineCode">The code of the Timeline. This can optionally include a colon followed by the Closed Period ID to use at the head of the timeline, for a timeline with unconfirmed periods. (optional)</param>
         /// <param name="closedPeriodId">The closed period ID. If this is specified, both timelineScope and timelineCode must be specified. (optional)</param>
@@ -6286,7 +6286,7 @@ namespace Lusid.Sdk.Api
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use. (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use. (optional)</param>
-        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Allowable values are Member, Candidate and All. Defaults to Member. (optional)</param>
+        /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
         /// <param name="timelineScope">The scope of the Timeline. (optional)</param>
         /// <param name="timelineCode">The code of the Timeline. This can optionally include a colon followed by the Closed Period ID to use at the head of the timeline, for a timeline with unconfirmed periods. (optional)</param>
         /// <param name="closedPeriodId">The closed period ID. If this is specified, both timelineScope and timelineCode must be specified. (optional)</param>

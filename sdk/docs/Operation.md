@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Value** | **Object** |  | [optional] 
 **Path** | **string** |  | 
-**Op** | **string** |  | 
+**Op** | **string** | Available values: add, remove. | 
 **From** | **string** |  | [optional] 
 
 ```csharp

@@ -38,11 +38,11 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="id">id (required).</param>
         /// <param name="recipeId">recipeId.</param>
-        /// <param name="recipeEntity">Entity a recipe is retrieved from for use in the aggregated returns calculation. Either RecipeId or RecipeEntity must be specified..</param>
-        /// <param name="feeHandling">Configures how fees are handled in the aggregated returns calculation..</param>
-        /// <param name="flowHandling">Configures how flows are handled in the aggregated returns calculation..</param>
+        /// <param name="recipeEntity">Entity a recipe is retrieved from for use in the aggregated returns calculation. Either RecipeId or RecipeEntity must be specified. Available values: Portfolio, PortfolioGroup, ABOR..</param>
+        /// <param name="feeHandling">Configures how fees are handled in the aggregated returns calculation. Available values: Net, Gross..</param>
+        /// <param name="flowHandling">Configures how flows are handled in the aggregated returns calculation. Available values: BeginningOfDay, EndOfDay..</param>
         /// <param name="businessCalendar">Calendar used in the aggregated returns calculation..</param>
-        /// <param name="handleFlowDiscrepancy">Configures handling for the case where net flows do not match the sum of tagged flows..</param>
+        /// <param name="handleFlowDiscrepancy">Configures handling for the case where net flows do not match the sum of tagged flows. Available values: TreatAsFlow, TreatAsGainloss, Error..</param>
         public ReturnsEntity(ResourceId id = default(ResourceId), ResourceId recipeId = default(ResourceId), string recipeEntity = default(string), string feeHandling = default(string), string flowHandling = default(string), string businessCalendar = default(string), string handleFlowDiscrepancy = default(string))
         {
             // to ensure "id" is required (not null)
@@ -72,23 +72,23 @@ namespace Lusid.Sdk.Model
         public ResourceId RecipeId { get; set; }
 
         /// <summary>
-        /// Entity a recipe is retrieved from for use in the aggregated returns calculation. Either RecipeId or RecipeEntity must be specified.
+        /// Entity a recipe is retrieved from for use in the aggregated returns calculation. Either RecipeId or RecipeEntity must be specified. Available values: Portfolio, PortfolioGroup, ABOR.
         /// </summary>
-        /// <value>Entity a recipe is retrieved from for use in the aggregated returns calculation. Either RecipeId or RecipeEntity must be specified.</value>
+        /// <value>Entity a recipe is retrieved from for use in the aggregated returns calculation. Either RecipeId or RecipeEntity must be specified. Available values: Portfolio, PortfolioGroup, ABOR.</value>
         [DataMember(Name = "recipeEntity", EmitDefaultValue = true)]
         public string RecipeEntity { get; set; }
 
         /// <summary>
-        /// Configures how fees are handled in the aggregated returns calculation.
+        /// Configures how fees are handled in the aggregated returns calculation. Available values: Net, Gross.
         /// </summary>
-        /// <value>Configures how fees are handled in the aggregated returns calculation.</value>
+        /// <value>Configures how fees are handled in the aggregated returns calculation. Available values: Net, Gross.</value>
         [DataMember(Name = "feeHandling", EmitDefaultValue = true)]
         public string FeeHandling { get; set; }
 
         /// <summary>
-        /// Configures how flows are handled in the aggregated returns calculation.
+        /// Configures how flows are handled in the aggregated returns calculation. Available values: BeginningOfDay, EndOfDay.
         /// </summary>
-        /// <value>Configures how flows are handled in the aggregated returns calculation.</value>
+        /// <value>Configures how flows are handled in the aggregated returns calculation. Available values: BeginningOfDay, EndOfDay.</value>
         [DataMember(Name = "flowHandling", EmitDefaultValue = true)]
         public string FlowHandling { get; set; }
 
@@ -100,9 +100,9 @@ namespace Lusid.Sdk.Model
         public string BusinessCalendar { get; set; }
 
         /// <summary>
-        /// Configures handling for the case where net flows do not match the sum of tagged flows.
+        /// Configures handling for the case where net flows do not match the sum of tagged flows. Available values: TreatAsFlow, TreatAsGainloss, Error.
         /// </summary>
-        /// <value>Configures handling for the case where net flows do not match the sum of tagged flows.</value>
+        /// <value>Configures handling for the case where net flows do not match the sum of tagged flows. Available values: TreatAsFlow, TreatAsGainloss, Error.</value>
         [DataMember(Name = "handleFlowDiscrepancy", EmitDefaultValue = true)]
         public string HandleFlowDiscrepancy { get; set; }
 

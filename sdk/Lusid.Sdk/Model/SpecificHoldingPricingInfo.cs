@@ -37,7 +37,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="SpecificHoldingPricingInfo" /> class.
         /// </summary>
         /// <param name="dependencySourceFilter">dependencySourceFilter (required).</param>
-        /// <param name="field">The Holding field which the fallback/override should use to create a price quote. (required).</param>
+        /// <param name="field">The Holding field which the fallback/override should use to create a price quote. Available values: None, UnitCost, LastTradedPrice, UnitAmortisedCost, UnitCostClean, UnitCostDirty, UnitAmortisedCostClean, UnitAmortisedCostDirty. (required).</param>
         public SpecificHoldingPricingInfo(DependencySourceFilter dependencySourceFilter = default(DependencySourceFilter), string field = default(string))
         {
             // to ensure "dependencySourceFilter" is required (not null)
@@ -61,9 +61,9 @@ namespace Lusid.Sdk.Model
         public DependencySourceFilter DependencySourceFilter { get; set; }
 
         /// <summary>
-        /// The Holding field which the fallback/override should use to create a price quote.
+        /// The Holding field which the fallback/override should use to create a price quote. Available values: None, UnitCost, LastTradedPrice, UnitAmortisedCost, UnitCostClean, UnitCostDirty, UnitAmortisedCostClean, UnitAmortisedCostDirty.
         /// </summary>
-        /// <value>The Holding field which the fallback/override should use to create a price quote.</value>
+        /// <value>The Holding field which the fallback/override should use to create a price quote. Available values: None, UnitCost, LastTradedPrice, UnitAmortisedCost, UnitCostClean, UnitCostDirty, UnitAmortisedCostClean, UnitAmortisedCostDirty.</value>
         [DataMember(Name = "field", IsRequired = true, EmitDefaultValue = true)]
         public string Field { get; set; }
 

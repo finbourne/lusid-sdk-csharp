@@ -29,9 +29,9 @@ namespace Lusid.Sdk.Model
     public partial class TransactionConfigurationTypeAlias : IEquatable<TransactionConfigurationTypeAlias>, IValidatableObject
     {
         /// <summary>
-        /// . The available values are: None, LongLonger, LongShorter, ShortShorter, Shorter, ShortLonger, Longer, AllRoles
+        /// Transactions role within a class. E.g. Increase a long position. Available values: None, LongLonger, LongShorter, ShortShorter, Shorter, ShortLonger, Longer, AllRoles.
         /// </summary>
-        /// <value>. The available values are: None, LongLonger, LongShorter, ShortShorter, Shorter, ShortLonger, Longer, AllRoles</value>
+        /// <value>Transactions role within a class. E.g. Increase a long position. Available values: None, LongLonger, LongShorter, ShortShorter, Shorter, ShortLonger, Longer, AllRoles.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TransactionRolesEnum
         {
@@ -86,9 +86,9 @@ namespace Lusid.Sdk.Model
 
 
         /// <summary>
-        /// . The available values are: None, LongLonger, LongShorter, ShortShorter, Shorter, ShortLonger, Longer, AllRoles
+        /// Transactions role within a class. E.g. Increase a long position. Available values: None, LongLonger, LongShorter, ShortShorter, Shorter, ShortLonger, Longer, AllRoles.
         /// </summary>
-        /// <value>. The available values are: None, LongLonger, LongShorter, ShortShorter, Shorter, ShortLonger, Longer, AllRoles</value>
+        /// <value>Transactions role within a class. E.g. Increase a long position. Available values: None, LongLonger, LongShorter, ShortShorter, Shorter, ShortLonger, Longer, AllRoles.</value>
         [DataMember(Name = "transactionRoles", IsRequired = true, EmitDefaultValue = true)]
         public TransactionRolesEnum TransactionRoles { get; set; }
         /// <summary>
@@ -104,7 +104,7 @@ namespace Lusid.Sdk.Model
         /// <param name="transactionClass">Relates types of a similar class. E.g. Buy/Sell, StockIn/StockOut (required).</param>
         /// <param name="transactionGroup">Group is a set of codes related to a source, or sync. DEPRECATED: This field will be removed, use &#x60;Source&#x60; instead.</param>
         /// <param name="source">Used to group a set of transaction types.</param>
-        /// <param name="transactionRoles">. The available values are: None, LongLonger, LongShorter, ShortShorter, Shorter, ShortLonger, Longer, AllRoles (required).</param>
+        /// <param name="transactionRoles">Transactions role within a class. E.g. Increase a long position. Available values: None, LongLonger, LongShorter, ShortShorter, Shorter, ShortLonger, Longer, AllRoles. (required).</param>
         /// <param name="isDefault">IsDefault is a flag that denotes the default alias for a source. There can only be, at most, one per source..</param>
         public TransactionConfigurationTypeAlias(string type = default(string), string description = default(string), string transactionClass = default(string), string transactionGroup = default(string), string source = default(string), TransactionRolesEnum transactionRoles = default(TransactionRolesEnum), bool isDefault = default(bool))
         {

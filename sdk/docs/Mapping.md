@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Scope** | **string** | The scope for this mapping. | 
 **Code** | **string** | The code for this mapping. | 
 **Name** | **string** | The mapping name | 
-**ReconciliationType** | **string** | What type of reconciliation this mapping is for | 
+**ReconciliationType** | **string** | What type of reconciliation this mapping is for. Available values: Transaction, Holding, Valuation, Cash, CashHolding. | 
 **Rules** | [**List&lt;MappingRule&gt;**](MappingRule.md) | The rules in this mapping, keyed by the left field/property name | [optional] 
 
 ```csharp

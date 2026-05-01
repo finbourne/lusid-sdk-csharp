@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**FundCalendarEntriesType** | **string** | The type of the Calendar Entry. The available values are: FinalisedValuationPoint, FundEstimateValuationPoint, FundBookmark | 
+**FundCalendarEntriesType** | **string** | The type of the Calendar Entry. Available values: FinalisedValuationPoint, FundEstimateValuationPoint, FundBookmark. | 
 **Code** | **string** | The unique Code of the Calendar Entry. The Calendar Entry, together with the Fund Scope and Code, uniquely identifies a Fund Calendar Entry. | 
 **DisplayName** | **string** | The name of the Fund Calendar entry. | 
 **Description** | **string** | A description for the Fund Calendar entry. | [optional] 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **PreviousEntry** | [**PreviousFundCalendarEntry**](PreviousFundCalendarEntry.md) |  | [optional] 
 **EffectiveAt** | **DateTimeOffset** | The effective at of the Calendar Entry. | [optional] 
 **AsAt** | **DateTimeOffset** | The asAt datetime for the Calendar Entry. | 
-**EntryType** | **string** | The type of the Fund Calendar Entry. The available values are: ValuationPointFundCalendarEntry, BookmarkFundCalendarEntry | 
+**EntryType** | **string** | The type of the Fund Calendar Entry. Available values: ValuationPointFundCalendarEntry, BookmarkFundCalendarEntry. | 
 **Status** | **string** | The status of the Fund Calendar Entry. Can be &#39;Estimate&#39;, &#39;Unofficial&#39; or &#39;Final&#39;. | [optional] 
 **ApplyClearDown** | **bool** | Set to true if that closed period should have the clear down applied. | [optional] 
 **HoldingsAsAtOverride** | **DateTimeOffset?** | The optional AsAt Override to use for building holdings in the Valuation Point. Defaults to QueryAsAt. | [optional] 

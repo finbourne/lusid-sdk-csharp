@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **RunId** | [**ResourceId**](ResourceId.md) |  | 
 **InstigatedAt** | **DateTimeOffset** |  | 
 **CompletedAt** | **DateTimeOffset** |  | 
-**Schedule** | **string** |  | 
+**Schedule** | **string** | Available values: PreTrade, PostTrade, PreAndPostTrade. | 
 **InstigatedBy** | **string** |  | 
 
 ```csharp

@@ -29,9 +29,9 @@ namespace Lusid.Sdk.Model
     public partial class PropertyFilter : IEquatable<PropertyFilter>, IValidatableObject
     {
         /// <summary>
-        /// The available values are: Equals, NotEquals, GreaterThan, GreaterThanOrEqualTo, LessThan, LessThanOrEqualTo, In, StartsWith
+        /// Available values: Equals, NotEquals, GreaterThan, GreaterThanOrEqualTo, LessThan, LessThanOrEqualTo, In, StartsWith.
         /// </summary>
-        /// <value>The available values are: Equals, NotEquals, GreaterThan, GreaterThanOrEqualTo, LessThan, LessThanOrEqualTo, In, StartsWith</value>
+        /// <value>Available values: Equals, NotEquals, GreaterThan, GreaterThanOrEqualTo, LessThan, LessThanOrEqualTo, In, StartsWith.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum OperatorEnum
         {
@@ -86,15 +86,15 @@ namespace Lusid.Sdk.Model
 
 
         /// <summary>
-        /// The available values are: Equals, NotEquals, GreaterThan, GreaterThanOrEqualTo, LessThan, LessThanOrEqualTo, In, StartsWith
+        /// Available values: Equals, NotEquals, GreaterThan, GreaterThanOrEqualTo, LessThan, LessThanOrEqualTo, In, StartsWith.
         /// </summary>
-        /// <value>The available values are: Equals, NotEquals, GreaterThan, GreaterThanOrEqualTo, LessThan, LessThanOrEqualTo, In, StartsWith</value>
+        /// <value>Available values: Equals, NotEquals, GreaterThan, GreaterThanOrEqualTo, LessThan, LessThanOrEqualTo, In, StartsWith.</value>
         [DataMember(Name = "operator", EmitDefaultValue = false)]
         public OperatorEnum? Operator { get; set; }
         /// <summary>
-        /// The available values are: Absolute, Property
+        /// Available values: Absolute, Property.
         /// </summary>
-        /// <value>The available values are: Absolute, Property</value>
+        /// <value>Available values: Absolute, Property.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum RightOperandTypeEnum
         {
@@ -113,18 +113,18 @@ namespace Lusid.Sdk.Model
 
 
         /// <summary>
-        /// The available values are: Absolute, Property
+        /// Available values: Absolute, Property.
         /// </summary>
-        /// <value>The available values are: Absolute, Property</value>
+        /// <value>Available values: Absolute, Property.</value>
         [DataMember(Name = "rightOperandType", EmitDefaultValue = false)]
         public RightOperandTypeEnum? RightOperandType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="PropertyFilter" /> class.
         /// </summary>
         /// <param name="left">The key that uniquely identifies a queryable address in Lusid..</param>
-        /// <param name="varOperator">The available values are: Equals, NotEquals, GreaterThan, GreaterThanOrEqualTo, LessThan, LessThanOrEqualTo, In, StartsWith.</param>
+        /// <param name="varOperator">Available values: Equals, NotEquals, GreaterThan, GreaterThanOrEqualTo, LessThan, LessThanOrEqualTo, In, StartsWith..</param>
         /// <param name="right">right.</param>
-        /// <param name="rightOperandType">The available values are: Absolute, Property.</param>
+        /// <param name="rightOperandType">Available values: Absolute, Property..</param>
         public PropertyFilter(string left = default(string), OperatorEnum ?varOperator = default(OperatorEnum?), Object right = default(Object), RightOperandTypeEnum ?rightOperandType = default(RightOperandTypeEnum?))
         {
             this.Left = left;

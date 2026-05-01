@@ -50,7 +50,7 @@ namespace Lusid.Sdk.Model
         /// <param name="tickerStep">Minimal step size change in ticker..</param>
         /// <param name="unitValue">The value in the currency of a 1 unit change in the contract price..</param>
         /// <param name="calendars">Holiday calendars that apply to yield-to-price conversions (i.e. for BRL futures)..</param>
-        /// <param name="deliveryType">Delivery type to be used on settling the contract.  Optional: Defaults to DeliveryType.Physical if not provided.    Supported string (enumeration) values are: [Cash, Physical]..</param>
+        /// <param name="deliveryType">Delivery type to be used on settling the contract.  Default value: Physical. Available values: Cash, Physical..</param>
         public FuturesContractDetails(string domCcy = default(string), string fgnCcy = default(string), string assetClass = default(string), string contractCode = default(string), string contractMonth = default(string), decimal contractSize = default(decimal), string convention = default(string), string country = default(string), string description = default(string), string exchangeCode = default(string), string exchangeName = default(string), decimal tickerStep = default(decimal), decimal unitValue = default(decimal), List<string> calendars = default(List<string>), string deliveryType = default(string))
         {
             // to ensure "domCcy" is required (not null)
@@ -184,9 +184,9 @@ namespace Lusid.Sdk.Model
         public List<string> Calendars { get; set; }
 
         /// <summary>
-        /// Delivery type to be used on settling the contract.  Optional: Defaults to DeliveryType.Physical if not provided.    Supported string (enumeration) values are: [Cash, Physical].
+        /// Delivery type to be used on settling the contract.  Default value: Physical. Available values: Cash, Physical.
         /// </summary>
-        /// <value>Delivery type to be used on settling the contract.  Optional: Defaults to DeliveryType.Physical if not provided.    Supported string (enumeration) values are: [Cash, Physical].</value>
+        /// <value>Delivery type to be used on settling the contract.  Default value: Physical. Available values: Cash, Physical.</value>
         [DataMember(Name = "deliveryType", EmitDefaultValue = true)]
         public string DeliveryType { get; set; }
 

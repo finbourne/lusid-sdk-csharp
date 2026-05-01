@@ -8,13 +8,13 @@ Name | Type | Description | Notes
 **Metrics** | [**List&lt;PerformanceReturnsMetric&gt;**](PerformanceReturnsMetric.md) | A list of metrics to calculate in the AggregatedReturns. | 
 **ReturnIds** | [**List&lt;ResourceId&gt;**](ResourceId.md) | The Scope and code of the returns. | [optional] 
 **RecipeId** | [**ResourceId**](ResourceId.md) |  | [optional] 
-**CompositeMethod** | **string** | The method used to calculate the Portfolio performance: Equal/Asset. | [optional] 
-**Period** | **string** | The type of the returns used to calculate the aggregation result: Daily/Monthly. | [optional] 
-**OutputFrequency** | **string** | The type of calculated output: Daily/Weekly/Monthly/Quarterly/Half-Yearly/Yearly. | [optional] 
+**CompositeMethod** | **string** | The method used to calculate the Portfolio performance. Available values: Equal, Asset. | [optional] 
+**Period** | **string** | The type of the returns used to calculate the aggregation result. Available values: Daily, Monthly. | [optional] 
+**OutputFrequency** | **string** | The type of calculated output. Available values: Daily, Weekly, Monthly, Quarterly, HalfYearly, Yearly. | [optional] 
 **AlternativeInceptionDate** | **string** | Optional - either a date, or the key for a portfolio property containing a date. If provided, the given date will override the inception date for this request. | [optional] 
 **HolidayCalendars** | **List&lt;string&gt;** | The holiday calendar(s) that should be used in determining the date schedule. Holiday calendar(s) are supplied by their codes, for example, &#39;CoppClark&#39;. Note that when the calendars are not available (e.g. when the user has insufficient permissions), a recipe setting will be used to determine whether the whole batch should then fail or whether the calendar not being available should simply be ignored. | [optional] 
 **Currency** | **string** | Optional - either a string or a property. If provided, the results will be converted to the specified currency | [optional] 
-**RunMode** | **string** | The dates the AggregatedReturns output will be calculated: ReturnData/WeekDays/AllDays/MonthEnd. Defaults to ReturnData. | [optional] 
+**RunMode** | **string** | The dates the AggregatedReturns output will be calculated. Default value: ReturnData. Available values: ReturnData, WeekDays, AllDays, MonthEnd. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;

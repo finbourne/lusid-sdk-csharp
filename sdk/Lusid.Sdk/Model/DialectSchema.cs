@@ -36,7 +36,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DialectSchema" /> class.
         /// </summary>
-        /// <param name="type">The type of schema this represents (required).</param>
+        /// <param name="type">The type of schema this represents. Available values: None, JsonSchema. (required).</param>
         /// <param name="body">The body of the schema.</param>
         public DialectSchema(string type = default(string), string body = default(string))
         {
@@ -50,9 +50,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The type of schema this represents
+        /// The type of schema this represents. Available values: None, JsonSchema.
         /// </summary>
-        /// <value>The type of schema this represents</value>
+        /// <value>The type of schema this represents. Available values: None, JsonSchema.</value>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
 

@@ -6,14 +6,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Scope** | **string** | The Scope assigned to the Custodian Account, where left blank the parent Portfolio Scope will be used | [optional] 
 **Code** | **string** | Unique Code representing the Custodian Account | 
-**Status** | **string** | The Account status. Can be Active, Inactive or Deleted. | [optional] 
+**Status** | **string** | The Account status. Available values: Active, Inactive, Deleted. | [optional] 
 **AccountNumber** | **string** | The Custodian Account Number | 
 **AccountName** | **string** | The identifiable name given to the Custodian Account | 
-**AccountingMethod** | **string** | The Accounting method to be used | 
+**AccountingMethod** | **string** | The Accounting method to be used. Available values: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency, IntraDayThenFirstInFirstOut, LongTermHighestCostFirst, LongTermHighestCostFirstPortfolioCurrency, HighestCostFirstPortfolioCurrency, LowestCostFirstPortfolioCurrency, MaximumLossMinimumGain, MaximumLossMinimumGainPortfolioCurrency. | 
 **Currency** | **string** | The Currency for the Account | 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | Set of unique Custodian Account properties and associated values to store with the Custodian Account. Each property must be from the &#39;CustodianAccount&#39; domain. | [optional] 
 **CustodianIdentifier** | [**TypedResourceId**](TypedResourceId.md) |  | 
-**AccountType** | **string** | The Type of the Custodian Account. Can be Margin, Cash or Swap. Defaults to Margin. | [optional] 
+**AccountType** | **string** | The Type of the Custodian Account. Default value: Margin. Available values: Margin, Cash, Swap. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;

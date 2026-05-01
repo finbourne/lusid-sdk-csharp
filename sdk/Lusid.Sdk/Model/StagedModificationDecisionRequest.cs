@@ -36,7 +36,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="StagedModificationDecisionRequest" /> class.
         /// </summary>
-        /// <param name="decision">The decision on the requested staged modification, can be &#39;Approve&#39; or &#39;Reject&#39;. (required).</param>
+        /// <param name="decision">The decision on the requested staged modification, can be &#39;Approve&#39; or &#39;Reject&#39;. Available values: Approve, Reject. (required).</param>
         /// <param name="comment">Comment on decision. (required).</param>
         public StagedModificationDecisionRequest(string decision = default(string), string comment = default(string))
         {
@@ -55,9 +55,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The decision on the requested staged modification, can be &#39;Approve&#39; or &#39;Reject&#39;.
+        /// The decision on the requested staged modification, can be &#39;Approve&#39; or &#39;Reject&#39;. Available values: Approve, Reject.
         /// </summary>
-        /// <value>The decision on the requested staged modification, can be &#39;Approve&#39; or &#39;Reject&#39;.</value>
+        /// <value>The decision on the requested staged modification, can be &#39;Approve&#39; or &#39;Reject&#39;. Available values: Approve, Reject.</value>
         [DataMember(Name = "decision", IsRequired = true, EmitDefaultValue = true)]
         public string Decision { get; set; }
 

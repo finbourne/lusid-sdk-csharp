@@ -38,14 +38,14 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="scope">The Scope assigned to the Custodian Account, where left blank the parent Portfolio Scope will be used.</param>
         /// <param name="code">Unique Code representing the Custodian Account (required).</param>
-        /// <param name="status">The Account status. Can be Active, Inactive or Deleted..</param>
+        /// <param name="status">The Account status. Available values: Active, Inactive, Deleted..</param>
         /// <param name="accountNumber">The Custodian Account Number (required).</param>
         /// <param name="accountName">The identifiable name given to the Custodian Account (required).</param>
-        /// <param name="accountingMethod">The Accounting method to be used (required).</param>
+        /// <param name="accountingMethod">The Accounting method to be used. Available values: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency, IntraDayThenFirstInFirstOut, LongTermHighestCostFirst, LongTermHighestCostFirstPortfolioCurrency, HighestCostFirstPortfolioCurrency, LowestCostFirstPortfolioCurrency, MaximumLossMinimumGain, MaximumLossMinimumGainPortfolioCurrency. (required).</param>
         /// <param name="currency">The Currency for the Account (required).</param>
         /// <param name="properties">Set of unique Custodian Account properties and associated values to store with the Custodian Account. Each property must be from the &#39;CustodianAccount&#39; domain..</param>
         /// <param name="custodianIdentifier">custodianIdentifier (required).</param>
-        /// <param name="accountType">The Type of the Custodian Account. Can be Margin, Cash or Swap. Defaults to Margin..</param>
+        /// <param name="accountType">The Type of the Custodian Account. Default value: Margin. Available values: Margin, Cash, Swap..</param>
         public CustodianAccountRequest(string scope = default(string), string code = default(string), string status = default(string), string accountNumber = default(string), string accountName = default(string), string accountingMethod = default(string), string currency = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), TypedResourceId custodianIdentifier = default(TypedResourceId), string accountType = default(string))
         {
             // to ensure "code" is required (not null)
@@ -105,9 +105,9 @@ namespace Lusid.Sdk.Model
         public string Code { get; set; }
 
         /// <summary>
-        /// The Account status. Can be Active, Inactive or Deleted.
+        /// The Account status. Available values: Active, Inactive, Deleted.
         /// </summary>
-        /// <value>The Account status. Can be Active, Inactive or Deleted.</value>
+        /// <value>The Account status. Available values: Active, Inactive, Deleted.</value>
         [DataMember(Name = "status", EmitDefaultValue = true)]
         public string Status { get; set; }
 
@@ -126,9 +126,9 @@ namespace Lusid.Sdk.Model
         public string AccountName { get; set; }
 
         /// <summary>
-        /// The Accounting method to be used
+        /// The Accounting method to be used. Available values: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency, IntraDayThenFirstInFirstOut, LongTermHighestCostFirst, LongTermHighestCostFirstPortfolioCurrency, HighestCostFirstPortfolioCurrency, LowestCostFirstPortfolioCurrency, MaximumLossMinimumGain, MaximumLossMinimumGainPortfolioCurrency.
         /// </summary>
-        /// <value>The Accounting method to be used</value>
+        /// <value>The Accounting method to be used. Available values: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency, IntraDayThenFirstInFirstOut, LongTermHighestCostFirst, LongTermHighestCostFirstPortfolioCurrency, HighestCostFirstPortfolioCurrency, LowestCostFirstPortfolioCurrency, MaximumLossMinimumGain, MaximumLossMinimumGainPortfolioCurrency.</value>
         [DataMember(Name = "accountingMethod", IsRequired = true, EmitDefaultValue = true)]
         public string AccountingMethod { get; set; }
 
@@ -153,9 +153,9 @@ namespace Lusid.Sdk.Model
         public TypedResourceId CustodianIdentifier { get; set; }
 
         /// <summary>
-        /// The Type of the Custodian Account. Can be Margin, Cash or Swap. Defaults to Margin.
+        /// The Type of the Custodian Account. Default value: Margin. Available values: Margin, Cash, Swap.
         /// </summary>
-        /// <value>The Type of the Custodian Account. Can be Margin, Cash or Swap. Defaults to Margin.</value>
+        /// <value>The Type of the Custodian Account. Default value: Margin. Available values: Margin, Cash, Swap.</value>
         [DataMember(Name = "accountType", EmitDefaultValue = true)]
         public string AccountType { get; set; }
 

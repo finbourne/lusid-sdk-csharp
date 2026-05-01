@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **AborId** | [**ResourceId**](ResourceId.md) |  | 
 **ShareClassInstrumentScopes** | **List&lt;string&gt;** | The scopes in which the instruments lie, currently limited to one. | [optional] 
 **ShareClassInstruments** | [**List&lt;InstrumentResolutionDetail&gt;**](InstrumentResolutionDetail.md) | Details the user-provided instrument identifiers and the instrument resolved from them. These would be decommissioned in favour of the new AllocationGroups and ShareClasses structures. | [optional] 
-**Type** | **string** | The type of fund; &#39;Standalone&#39;, &#39;Master&#39; or &#39;Feeder&#39; | 
+**Type** | **string** | The type of fund. Available values: Standalone, Master, Feeder. | 
 **InceptionDate** | **DateTimeOffset** | Inception date of the Fund | 
 **DecimalPlaces** | **int?** | Number of decimal places for reporting | [optional] 
 **YearEndDate** | [**DayMonth**](DayMonth.md) |  | 

@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **SettlementInstructionId** | **string** | The id of the problematic settlement instruction. Combined with the portfolio id this uniquely identifies a settlement instruction | 
 **Category** | **string** | The category this instruction belongs to | 
-**Status** | **string** | The status of the settlement instruction. Possible values are &#39;Invalid&#39; or &#39;Rejected&#39;. | 
+**Status** | **string** | The status of the settlement instruction. Available values: Invalid, Rejected, Applied, Orphan. | 
 
 ```csharp
 using Lusid.Sdk.Model;

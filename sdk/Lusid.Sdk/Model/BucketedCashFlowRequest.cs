@@ -36,7 +36,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BucketedCashFlowRequest" /> class.
         /// </summary>
-        /// <param name="roundingMethod">When bucketing, there is not a unique way to allocate the bucket points.  RoundingMethod Supported string (enumeration) values are: [RoundDown, RoundUp]. (required).</param>
+        /// <param name="roundingMethod">When bucketing, there is not a unique way to allocate the bucket points. Available values: RoundUp, RoundDown. (required).</param>
         /// <param name="bucketingDates">A list of dates to perform cashflow bucketing upon.  If this is provided, the list of tenors for bucketing should be empty..</param>
         /// <param name="bucketTenors">A list of tenors to perform cashflow bucketing upon.  If this is provided, the list of dates for bucketing should be empty..</param>
         /// <param name="effectiveAt">The valuation (pricing) effective datetime or cut label (inclusive) at which to evaluate the cashflows.  This determines whether cashflows are evaluated in a historic or forward looking context and will, for certain models, affect where data is looked up.  For example, on a swap if the effectiveAt is in the middle of the window, cashflows before it will be historic and resets assumed to exist where if the effectiveAt  is before the start of the range they are forward looking and will be expectations assuming the model supports that.  There is evidently a presumption here about availability of data and that the effectiveAt is realistically on or before the real-world today..</param>
@@ -49,7 +49,7 @@ namespace Lusid.Sdk.Model
         /// <param name="equipWithSubtotals">Flag directing the Valuation call to populate the results with subtotals of aggregates..</param>
         /// <param name="asAt">The time of the system at which to query for bucketed cashflows..</param>
         /// <param name="excludeUnsettledTrades">Flag directing the Valuation call to exclude cashflows from unsettled trades.  If absent or set to false, cashflows will returned based on trade date - more specifically, cashflows from any unsettled trades will be included in the results. If set to true, unsettled trades will be excluded from the result set..</param>
-        /// <param name="cashFlowType">Indicate the requested cash flow representation InstrumentCashFlows or PortfolioCashFlows (GetCashLadder uses this)  Options: [InstrumentCashFlow, PortfolioCashFlow].</param>
+        /// <param name="cashFlowType">Indicate the requested cash flow representation InstrumentCashFlows or PortfolioCashFlows (GetCashLadder uses this). Available values: InstrumentCashFlow, PortfolioCashFlow, TransactionCashFlow..</param>
         /// <param name="bucketingSchedule">bucketingSchedule.</param>
         /// <param name="filter">filter.</param>
         public BucketedCashFlowRequest(string roundingMethod = default(string), List<DateTimeOffset> bucketingDates = default(List<DateTimeOffset>), List<string> bucketTenors = default(List<string>), string effectiveAt = default(string), string windowStart = default(string), string windowEnd = default(string), ResourceId recipeId = default(ResourceId), string reportCurrency = default(string), List<string> groupBy = default(List<string>), List<string> addresses = default(List<string>), bool equipWithSubtotals = default(bool), DateTimeOffset? asAt = default(DateTimeOffset?), bool excludeUnsettledTrades = default(bool), string cashFlowType = default(string), BucketingSchedule bucketingSchedule = default(BucketingSchedule), string filter = default(string))
@@ -78,9 +78,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// When bucketing, there is not a unique way to allocate the bucket points.  RoundingMethod Supported string (enumeration) values are: [RoundDown, RoundUp].
+        /// When bucketing, there is not a unique way to allocate the bucket points. Available values: RoundUp, RoundDown.
         /// </summary>
-        /// <value>When bucketing, there is not a unique way to allocate the bucket points.  RoundingMethod Supported string (enumeration) values are: [RoundDown, RoundUp].</value>
+        /// <value>When bucketing, there is not a unique way to allocate the bucket points. Available values: RoundUp, RoundDown.</value>
         [DataMember(Name = "roundingMethod", IsRequired = true, EmitDefaultValue = true)]
         public string RoundingMethod { get; set; }
 
@@ -168,9 +168,9 @@ namespace Lusid.Sdk.Model
         public bool ExcludeUnsettledTrades { get; set; }
 
         /// <summary>
-        /// Indicate the requested cash flow representation InstrumentCashFlows or PortfolioCashFlows (GetCashLadder uses this)  Options: [InstrumentCashFlow, PortfolioCashFlow]
+        /// Indicate the requested cash flow representation InstrumentCashFlows or PortfolioCashFlows (GetCashLadder uses this). Available values: InstrumentCashFlow, PortfolioCashFlow, TransactionCashFlow.
         /// </summary>
-        /// <value>Indicate the requested cash flow representation InstrumentCashFlows or PortfolioCashFlows (GetCashLadder uses this)  Options: [InstrumentCashFlow, PortfolioCashFlow]</value>
+        /// <value>Indicate the requested cash flow representation InstrumentCashFlows or PortfolioCashFlows (GetCashLadder uses this). Available values: InstrumentCashFlow, PortfolioCashFlow, TransactionCashFlow.</value>
         [DataMember(Name = "cashFlowType", EmitDefaultValue = true)]
         public string CashFlowType { get; set; }
 

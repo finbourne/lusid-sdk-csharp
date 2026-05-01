@@ -31,9 +31,9 @@ namespace Lusid.Sdk.Model
     public partial class FxForwardModelOptions : ModelOptions, IEquatable<FxForwardModelOptions>, IValidatableObject
     {
         /// <summary>
-        /// The available values are: ForwardPoints, ForwardRate, RatesCurve, FxForwardCurve, Invalid
+        /// Available values: ForwardPoints, ForwardRate, RatesCurve, FxForwardCurve, Invalid.
         /// </summary>
-        /// <value>The available values are: ForwardPoints, ForwardRate, RatesCurve, FxForwardCurve, Invalid</value>
+        /// <value>Available values: ForwardPoints, ForwardRate, RatesCurve, FxForwardCurve, Invalid.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ForwardRateObservableTypeEnum
         {
@@ -70,15 +70,15 @@ namespace Lusid.Sdk.Model
 
 
         /// <summary>
-        /// The available values are: ForwardPoints, ForwardRate, RatesCurve, FxForwardCurve, Invalid
+        /// Available values: ForwardPoints, ForwardRate, RatesCurve, FxForwardCurve, Invalid.
         /// </summary>
-        /// <value>The available values are: ForwardPoints, ForwardRate, RatesCurve, FxForwardCurve, Invalid</value>
+        /// <value>Available values: ForwardPoints, ForwardRate, RatesCurve, FxForwardCurve, Invalid.</value>
         [DataMember(Name = "forwardRateObservableType", IsRequired = true, EmitDefaultValue = true)]
         public ForwardRateObservableTypeEnum ForwardRateObservableType { get; set; }
         /// <summary>
-        /// The available values are: Standard, ConstantTimeValueOfMoney, Invalid
+        /// Available values: Standard, ConstantTimeValueOfMoney, Invalid.
         /// </summary>
-        /// <value>The available values are: Standard, ConstantTimeValueOfMoney, Invalid</value>
+        /// <value>Available values: Standard, ConstantTimeValueOfMoney, Invalid.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum DiscountingMethodEnum
         {
@@ -103,9 +103,9 @@ namespace Lusid.Sdk.Model
 
 
         /// <summary>
-        /// The available values are: Standard, ConstantTimeValueOfMoney, Invalid
+        /// Available values: Standard, ConstantTimeValueOfMoney, Invalid.
         /// </summary>
-        /// <value>The available values are: Standard, ConstantTimeValueOfMoney, Invalid</value>
+        /// <value>Available values: Standard, ConstantTimeValueOfMoney, Invalid.</value>
         [DataMember(Name = "discountingMethod", IsRequired = true, EmitDefaultValue = true)]
         public DiscountingMethodEnum DiscountingMethod { get; set; }
         /// <summary>
@@ -116,10 +116,10 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FxForwardModelOptions" /> class.
         /// </summary>
-        /// <param name="forwardRateObservableType">The available values are: ForwardPoints, ForwardRate, RatesCurve, FxForwardCurve, Invalid (required).</param>
-        /// <param name="discountingMethod">The available values are: Standard, ConstantTimeValueOfMoney, Invalid (required).</param>
+        /// <param name="forwardRateObservableType">Available values: ForwardPoints, ForwardRate, RatesCurve, FxForwardCurve, Invalid. (required).</param>
+        /// <param name="discountingMethod">Available values: Standard, ConstantTimeValueOfMoney, Invalid. (required).</param>
         /// <param name="convertToReportCcy">Convert all FX flows to the report currency  By setting this all FX forwards will be priced using Forward Curves that have Report Currency as the base. (required).</param>
-        /// <param name="modelOptionsType">The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions (required) (default to &quot;FxForwardModelOptions&quot;).</param>
+        /// <param name="modelOptionsType">Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions. (required) (default to &quot;FxForwardModelOptions&quot;).</param>
         public FxForwardModelOptions(ForwardRateObservableTypeEnum forwardRateObservableType = default(ForwardRateObservableTypeEnum), DiscountingMethodEnum discountingMethod = default(DiscountingMethodEnum), bool convertToReportCcy = default(bool), ModelOptionsTypeEnum modelOptionsType = default(ModelOptionsTypeEnum)) : base(modelOptionsType)
         {
             this.ForwardRateObservableType = forwardRateObservableType;

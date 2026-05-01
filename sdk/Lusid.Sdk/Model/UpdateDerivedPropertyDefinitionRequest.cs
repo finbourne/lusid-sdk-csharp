@@ -41,7 +41,7 @@ namespace Lusid.Sdk.Model
         /// <param name="propertyDescription">Describes the property.</param>
         /// <param name="derivationFormula">The rule that defines how data is composed for a derived property. (required).</param>
         /// <param name="isFilterable">Bool indicating whether the values of this property are fitlerable, this is true for all non-derived property defintions.  For a derived definition this must be set true to enable filtering. (required).</param>
-        /// <param name="valueFormat">The format in which values for this property definition should be represented..</param>
+        /// <param name="valueFormat">The format in which values for this property definition should be represented. Available values: Text, Html..</param>
         /// <param name="customEntityType">The custom entity type that this derived property definition can be applied to..</param>
         public UpdateDerivedPropertyDefinitionRequest(string displayName = default(string), ResourceId dataTypeId = default(ResourceId), string propertyDescription = default(string), string derivationFormula = default(string), bool isFilterable = default(bool), string valueFormat = default(string), string customEntityType = default(string))
         {
@@ -104,9 +104,9 @@ namespace Lusid.Sdk.Model
         public bool IsFilterable { get; set; }
 
         /// <summary>
-        /// The format in which values for this property definition should be represented.
+        /// The format in which values for this property definition should be represented. Available values: Text, Html.
         /// </summary>
-        /// <value>The format in which values for this property definition should be represented.</value>
+        /// <value>The format in which values for this property definition should be represented. Available values: Text, Html.</value>
         [DataMember(Name = "valueFormat", EmitDefaultValue = true)]
         public string ValueFormat { get; set; }
 

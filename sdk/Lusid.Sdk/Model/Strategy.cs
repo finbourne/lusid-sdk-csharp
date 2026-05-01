@@ -37,7 +37,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="Strategy" /> class.
         /// </summary>
         /// <param name="keys">keys (required).</param>
-        /// <param name="valueType">valueType (required).</param>
+        /// <param name="valueType">Available values: Units, Weight. (required).</param>
         /// <param name="value">value (required).</param>
         public Strategy(List<PerpetualProperty> keys = default(List<PerpetualProperty>), string valueType = default(string), decimal value = default(decimal))
         {
@@ -63,8 +63,9 @@ namespace Lusid.Sdk.Model
         public List<PerpetualProperty> Keys { get; set; }
 
         /// <summary>
-        /// Gets or Sets ValueType
+        /// Available values: Units, Weight.
         /// </summary>
+        /// <value>Available values: Units, Weight.</value>
         [DataMember(Name = "valueType", IsRequired = true, EmitDefaultValue = true)]
         public string ValueType { get; set; }
 

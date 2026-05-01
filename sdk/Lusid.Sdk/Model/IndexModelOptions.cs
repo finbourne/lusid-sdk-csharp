@@ -31,9 +31,9 @@ namespace Lusid.Sdk.Model
     public partial class IndexModelOptions : ModelOptions, IEquatable<IndexModelOptions>, IValidatableObject
     {
         /// <summary>
-        /// The available values are: Sum, AbsoluteSum, Unity
+        /// Available values: Sum, AbsoluteSum, Unity.
         /// </summary>
-        /// <value>The available values are: Sum, AbsoluteSum, Unity</value>
+        /// <value>Available values: Sum, AbsoluteSum, Unity.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum PortfolioScalingEnum
         {
@@ -58,9 +58,9 @@ namespace Lusid.Sdk.Model
 
 
         /// <summary>
-        /// The available values are: Sum, AbsoluteSum, Unity
+        /// Available values: Sum, AbsoluteSum, Unity.
         /// </summary>
-        /// <value>The available values are: Sum, AbsoluteSum, Unity</value>
+        /// <value>Available values: Sum, AbsoluteSum, Unity.</value>
         [DataMember(Name = "portfolioScaling", IsRequired = true, EmitDefaultValue = true)]
         public PortfolioScalingEnum PortfolioScaling { get; set; }
         /// <summary>
@@ -71,9 +71,9 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="IndexModelOptions" /> class.
         /// </summary>
-        /// <param name="portfolioScaling">The available values are: Sum, AbsoluteSum, Unity (required).</param>
+        /// <param name="portfolioScaling">Available values: Sum, AbsoluteSum, Unity. (required).</param>
         /// <param name="lookthroughPortfolioRelationshipId">lookthroughPortfolioRelationshipId.</param>
-        /// <param name="modelOptionsType">The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions (required) (default to &quot;IndexModelOptions&quot;).</param>
+        /// <param name="modelOptionsType">Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions. (required) (default to &quot;IndexModelOptions&quot;).</param>
         public IndexModelOptions(PortfolioScalingEnum portfolioScaling = default(PortfolioScalingEnum), ResourceId lookthroughPortfolioRelationshipId = default(ResourceId), ModelOptionsTypeEnum modelOptionsType = default(ModelOptionsTypeEnum)) : base(modelOptionsType)
         {
             this.PortfolioScaling = portfolioScaling;

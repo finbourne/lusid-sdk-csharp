@@ -39,7 +39,7 @@ namespace Lusid.Sdk.Model
         /// <param name="type">The transaction type (required).</param>
         /// <param name="description">Brief description of the transaction (required).</param>
         /// <param name="transactionClass">Relates types of a similar class. E.g. Buy/Sell, StockIn/StockOut (required).</param>
-        /// <param name="transactionRoles">Transactions role within a class. E.g. Increase a long position (required).</param>
+        /// <param name="transactionRoles">Transactions role within a class. E.g. Increase a long position. Available values: None, LongLonger, LongShorter, ShortShorter, Shorter, ShortLonger, Longer, AllRoles. (required).</param>
         /// <param name="isDefault">IsDefault is a flag that denotes the default alias for a source. There can only be, at most, one per source..</param>
         public TransactionTypeAlias(string type = default(string), string description = default(string), string transactionClass = default(string), string transactionRoles = default(string), bool isDefault = default(bool))
         {
@@ -92,9 +92,9 @@ namespace Lusid.Sdk.Model
         public string TransactionClass { get; set; }
 
         /// <summary>
-        /// Transactions role within a class. E.g. Increase a long position
+        /// Transactions role within a class. E.g. Increase a long position. Available values: None, LongLonger, LongShorter, ShortShorter, Shorter, ShortLonger, Longer, AllRoles.
         /// </summary>
-        /// <value>Transactions role within a class. E.g. Increase a long position</value>
+        /// <value>Transactions role within a class. E.g. Increase a long position. Available values: None, LongLonger, LongShorter, ShortShorter, Shorter, ShortLonger, Longer, AllRoles.</value>
         [DataMember(Name = "transactionRoles", IsRequired = true, EmitDefaultValue = true)]
         public string TransactionRoles { get; set; }
 

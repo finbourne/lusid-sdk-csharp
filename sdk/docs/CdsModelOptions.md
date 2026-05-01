@@ -5,7 +5,7 @@ Model options for credit default instrument.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ModelOptionsType** | **string** | The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions | 
+**ModelOptionsType** | **string** | Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions. | 
 **UseFactorsForCurrentNotional** | **bool** | Determines if calculations that use current notional apply use a constituent weight factor from a quote representing a default. | 
 
 ```csharp

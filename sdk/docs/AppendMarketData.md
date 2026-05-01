@@ -5,7 +5,7 @@ Base class for types containing required data to append to complex market data.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**MarketDataType** | **string** | The available values are: AppendFxForwardCurveByQuoteReference, AppendFxForwardCurveData, AppendFxForwardPipsCurveData, AppendFxForwardTenorCurveData, AppendFxForwardTenorPipsCurveData | 
+**MarketDataType** | **string** | Available values: AppendFxForwardCurveByQuoteReference, AppendFxForwardCurveData, AppendFxForwardPipsCurveData, AppendFxForwardTenorCurveData, AppendFxForwardTenorPipsCurveData. | 
 
 ```csharp
 using Lusid.Sdk.Model;

@@ -45,7 +45,7 @@ namespace Lusid.Sdk.Model
         /// <param name="asAt">The AsAt predicate specification..</param>
         /// <param name="portfolioCode">portfolioCode.</param>
         /// <param name="portfolioScope">portfolioScope.</param>
-        /// <param name="resultKeyRuleType">The available values are: Invalid, ResultDataKeyRule, PortfolioResultDataKeyRule (required) (default to &quot;PortfolioResultDataKeyRule&quot;).</param>
+        /// <param name="resultKeyRuleType">Available values: Invalid, ResultDataKeyRule, PortfolioResultDataKeyRule. (required) (default to &quot;PortfolioResultDataKeyRule&quot;).</param>
         public PortfolioResultDataKeyRule(string supplier = default(string), string dataScope = default(string), string documentCode = default(string), string quoteInterval = default(string), DateTimeOffset? asAt = default(DateTimeOffset?), string portfolioCode = default(string), string portfolioScope = default(string), ResultKeyRuleTypeEnum resultKeyRuleType = default(ResultKeyRuleTypeEnum)) : base(resultKeyRuleType)
         {
             // to ensure "supplier" is required (not null)

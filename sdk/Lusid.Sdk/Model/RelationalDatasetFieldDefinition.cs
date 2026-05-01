@@ -41,7 +41,7 @@ namespace Lusid.Sdk.Model
         /// <param name="description">A detailed description of the field and its purpose..</param>
         /// <param name="dataTypeId">dataTypeId (required).</param>
         /// <param name="required">Whether this field is mandatory in the dataset..</param>
-        /// <param name="category">The intended category of the field (SeriesIdentifier, Value, or Metadata). (required).</param>
+        /// <param name="category">The intended category of the field (SeriesIdentifier, Value, or Metadata). Available values: SeriesIdentifier, Value, Metadata. (required).</param>
         public RelationalDatasetFieldDefinition(string fieldName = default(string), string displayName = default(string), string description = default(string), ResourceId dataTypeId = default(ResourceId), bool required = default(bool), string category = default(string))
         {
             // to ensure "fieldName" is required (not null)
@@ -102,9 +102,9 @@ namespace Lusid.Sdk.Model
         public bool Required { get; set; }
 
         /// <summary>
-        /// The intended category of the field (SeriesIdentifier, Value, or Metadata).
+        /// The intended category of the field (SeriesIdentifier, Value, or Metadata). Available values: SeriesIdentifier, Value, Metadata.
         /// </summary>
-        /// <value>The intended category of the field (SeriesIdentifier, Value, or Metadata).</value>
+        /// <value>The intended category of the field (SeriesIdentifier, Value, or Metadata). Available values: SeriesIdentifier, Value, Metadata.</value>
         [DataMember(Name = "category", IsRequired = true, EmitDefaultValue = true)]
         public string Category { get; set; }
 

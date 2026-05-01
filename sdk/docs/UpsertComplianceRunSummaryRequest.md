@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **RunId** | [**ResourceId**](ResourceId.md) |  | 
 **InstigatedAt** | **DateTimeOffset** |  | 
 **CompletedAt** | **DateTimeOffset** |  | 
-**Schedule** | **string** |  | 
+**Schedule** | **string** | Available values: None, PreTrade, PostTrade, PreAndPostTrade. | 
 **Results** | [**List&lt;ComplianceSummaryRuleResultRequest&gt;**](ComplianceSummaryRuleResultRequest.md) |  | 
 
 ```csharp

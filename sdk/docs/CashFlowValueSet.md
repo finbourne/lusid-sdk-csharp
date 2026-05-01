@@ -5,7 +5,7 @@ Result value for a collection of cash flow values
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ResultValueType** | **string** | The available values are: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, ResultValueBool, ResultValueCurrency, CashFlowValue, CashFlowValueSet, ResultValueLifeCycleEventValue, ResultValueDateTimeOffset | 
+**ResultValueType** | **string** | Available values: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, ResultValueBool, ResultValueCurrency, CashFlowValue, CashFlowValueSet, ResultValueLifeCycleEventValue, ResultValueDateTimeOffset. | 
 **Cashflows** | [**List&lt;CashFlowValue&gt;**](CashFlowValue.md) | The set of cash flows in the result | [optional] 
 
 ```csharp

@@ -34,9 +34,9 @@ namespace Lusid.Sdk.Model
     public partial class MatchCriterion : IEquatable<MatchCriterion>, IValidatableObject
     {
         /// <summary>
-        /// The available values are: PropertyValueEquals, PropertyValueIn, SubHoldingKeyValueEquals
+        /// Available values: PropertyValueEquals, PropertyValueIn, SubHoldingKeyValueEquals.
         /// </summary>
-        /// <value>The available values are: PropertyValueEquals, PropertyValueIn, SubHoldingKeyValueEquals</value>
+        /// <value>Available values: PropertyValueEquals, PropertyValueIn, SubHoldingKeyValueEquals.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum CriterionTypeEnum
         {
@@ -61,9 +61,9 @@ namespace Lusid.Sdk.Model
 
 
         /// <summary>
-        /// The available values are: PropertyValueEquals, PropertyValueIn, SubHoldingKeyValueEquals
+        /// Available values: PropertyValueEquals, PropertyValueIn, SubHoldingKeyValueEquals.
         /// </summary>
-        /// <value>The available values are: PropertyValueEquals, PropertyValueIn, SubHoldingKeyValueEquals</value>
+        /// <value>Available values: PropertyValueEquals, PropertyValueIn, SubHoldingKeyValueEquals.</value>
         [DataMember(Name = "criterionType", IsRequired = true, EmitDefaultValue = true)]
         public CriterionTypeEnum CriterionType { get; set; }
         /// <summary>
@@ -74,7 +74,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MatchCriterion" /> class.
         /// </summary>
-        /// <param name="criterionType">The available values are: PropertyValueEquals, PropertyValueIn, SubHoldingKeyValueEquals (required).</param>
+        /// <param name="criterionType">Available values: PropertyValueEquals, PropertyValueIn, SubHoldingKeyValueEquals. (required).</param>
         public MatchCriterion(CriterionTypeEnum criterionType = default(CriterionTypeEnum))
         {
             this.CriterionType = criterionType;

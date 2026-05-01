@@ -38,7 +38,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="fieldName">The name of the field to sort by. (required).</param>
         /// <param name="priorityValues">An optional list of priority field values to sort by, in the order they should be prioritized..</param>
-        /// <param name="remainderOrder">The sorting direction for the remaining field values. Either ascending (ASC) or descending (DESC). (required).</param>
+        /// <param name="remainderOrder">The sorting direction for the remaining field values. Either ascending (ASC) or descending (DESC). Available values: ASC, DESC. (required).</param>
         public CustomSortBy(string fieldName = default(string), List<string> priorityValues = default(List<string>), string remainderOrder = default(string))
         {
             // to ensure "fieldName" is required (not null)
@@ -71,9 +71,9 @@ namespace Lusid.Sdk.Model
         public List<string> PriorityValues { get; set; }
 
         /// <summary>
-        /// The sorting direction for the remaining field values. Either ascending (ASC) or descending (DESC).
+        /// The sorting direction for the remaining field values. Either ascending (ASC) or descending (DESC). Available values: ASC, DESC.
         /// </summary>
-        /// <value>The sorting direction for the remaining field values. Either ascending (ASC) or descending (DESC).</value>
+        /// <value>The sorting direction for the remaining field values. Either ascending (ASC) or descending (DESC). Available values: ASC, DESC.</value>
         [DataMember(Name = "remainderOrder", IsRequired = true, EmitDefaultValue = true)]
         public string RemainderOrder { get; set; }
 

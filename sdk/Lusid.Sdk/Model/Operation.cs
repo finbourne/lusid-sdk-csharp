@@ -38,7 +38,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="value">value.</param>
         /// <param name="path">path (required).</param>
-        /// <param name="op">op (required).</param>
+        /// <param name="op">Available values: add, remove. (required).</param>
         /// <param name="from">from.</param>
         public Operation(Object value = default(Object), string path = default(string), string op = default(string), string from = default(string))
         {
@@ -71,8 +71,9 @@ namespace Lusid.Sdk.Model
         public string Path { get; set; }
 
         /// <summary>
-        /// Gets or Sets Op
+        /// Available values: add, remove.
         /// </summary>
+        /// <value>Available values: add, remove.</value>
         [DataMember(Name = "op", IsRequired = true, EmitDefaultValue = true)]
         public string Op { get; set; }
 

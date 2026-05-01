@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **FieldName** | **string** | The name of the field to sort by. | 
 **PriorityValues** | **List&lt;string&gt;** | An optional list of priority field values to sort by, in the order they should be prioritized. | [optional] 
-**RemainderOrder** | **string** | The sorting direction for the remaining field values. Either ascending (ASC) or descending (DESC). | 
+**RemainderOrder** | **string** | The sorting direction for the remaining field values. Either ascending (ASC) or descending (DESC). Available values: ASC, DESC. | 
 
 ```csharp
 using Lusid.Sdk.Model;

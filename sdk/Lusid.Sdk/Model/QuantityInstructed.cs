@@ -36,7 +36,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="QuantityInstructed" /> class.
         /// </summary>
-        /// <param name="type">The type of quantity instructed, either Percentage or Units. (required).</param>
+        /// <param name="type">The type of quantity instructed. Available values: Percentage, Units, Invalid. (required).</param>
         /// <param name="amount">The actual amount instructed. For Type Percentage, this is between 0 and 100. (required).</param>
         public QuantityInstructed(string type = default(string), decimal amount = default(decimal))
         {
@@ -50,9 +50,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The type of quantity instructed, either Percentage or Units.
+        /// The type of quantity instructed. Available values: Percentage, Units, Invalid.
         /// </summary>
-        /// <value>The type of quantity instructed, either Percentage or Units.</value>
+        /// <value>The type of quantity instructed. Available values: Percentage, Units, Invalid.</value>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
 

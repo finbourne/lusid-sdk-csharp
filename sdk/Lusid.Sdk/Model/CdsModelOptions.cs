@@ -39,7 +39,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="CdsModelOptions" /> class.
         /// </summary>
         /// <param name="useFactorsForCurrentNotional">Determines if calculations that use current notional apply use a constituent weight factor from a quote representing a default. (required).</param>
-        /// <param name="modelOptionsType">The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions (required) (default to &quot;CdsModelOptions&quot;).</param>
+        /// <param name="modelOptionsType">Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions. (required) (default to &quot;CdsModelOptions&quot;).</param>
         public CdsModelOptions(bool useFactorsForCurrentNotional = default(bool), ModelOptionsTypeEnum modelOptionsType = default(ModelOptionsTypeEnum)) : base(modelOptionsType)
         {
             this.UseFactorsForCurrentNotional = useFactorsForCurrentNotional;

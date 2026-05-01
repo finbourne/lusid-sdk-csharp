@@ -29,9 +29,9 @@ namespace Lusid.Sdk.Model
     public partial class Transaction : IEquatable<Transaction>, IValidatableObject
     {
         /// <summary>
-        /// The status of the transaction. The available values are: Active, Amended, Cancelled, ActiveReversal, ActiveTrueUp, CancelledTrueUp
+        /// The status of the transaction. Available values: Active, Amended, Cancelled, ActiveReversal, ActiveTrueUp, CancelledTrueUp.
         /// </summary>
-        /// <value>The status of the transaction. The available values are: Active, Amended, Cancelled, ActiveReversal, ActiveTrueUp, CancelledTrueUp</value>
+        /// <value>The status of the transaction. Available values: Active, Amended, Cancelled, ActiveReversal, ActiveTrueUp, CancelledTrueUp.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TransactionStatusEnum
         {
@@ -74,9 +74,9 @@ namespace Lusid.Sdk.Model
 
 
         /// <summary>
-        /// The status of the transaction. The available values are: Active, Amended, Cancelled, ActiveReversal, ActiveTrueUp, CancelledTrueUp
+        /// The status of the transaction. Available values: Active, Amended, Cancelled, ActiveReversal, ActiveTrueUp, CancelledTrueUp.
         /// </summary>
-        /// <value>The status of the transaction. The available values are: Active, Amended, Cancelled, ActiveReversal, ActiveTrueUp, CancelledTrueUp</value>
+        /// <value>The status of the transaction. Available values: Active, Amended, Cancelled, ActiveReversal, ActiveTrueUp, CancelledTrueUp.</value>
         [DataMember(Name = "transactionStatus", EmitDefaultValue = false)]
         public TransactionStatusEnum? TransactionStatus { get; set; }
         /// <summary>
@@ -104,7 +104,7 @@ namespace Lusid.Sdk.Model
         /// <param name="source">The source of the transaction. This is used to look up the appropriate transaction group set in the transaction type configuration..</param>
         /// <param name="entryDateTime">The asAt datetime that the transaction was added to LUSID..</param>
         /// <param name="otcConfirmation">otcConfirmation.</param>
-        /// <param name="transactionStatus">The status of the transaction. The available values are: Active, Amended, Cancelled, ActiveReversal, ActiveTrueUp, CancelledTrueUp.</param>
+        /// <param name="transactionStatus">The status of the transaction. Available values: Active, Amended, Cancelled, ActiveReversal, ActiveTrueUp, CancelledTrueUp..</param>
         /// <param name="cancelDateTime">If the transaction has been cancelled, the asAt datetime that the transaction was cancelled..</param>
         /// <param name="orderId">orderId.</param>
         /// <param name="allocationId">allocationId.</param>

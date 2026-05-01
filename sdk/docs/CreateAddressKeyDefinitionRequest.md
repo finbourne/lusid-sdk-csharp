@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AddressKey** | **string** | The address key of the address key definition. | 
-**Type** | **string** | The type of the address key definition | 
+**Type** | **string** | The type of the address key definition. Available values: Text, Integer, Decimal, Boolean, DateTime, Result0D. | 
 
 ```csharp
 using Lusid.Sdk.Model;

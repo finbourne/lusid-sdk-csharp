@@ -36,7 +36,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GroupReconciliationInstanceId" /> class.
         /// </summary>
-        /// <param name="instanceIdType">Type of the reconciliation run, manual or automatic (via the workflow). \&quot;Manual\&quot; | \&quot;WorkflowServiceTaskId\&quot; (required).</param>
+        /// <param name="instanceIdType">Type of the reconciliation run, manual or automatic (via the workflow). Available values: WorkflowServiceTaskId, Manual. (required).</param>
         /// <param name="instanceIdValue">Reconciliation run identifier: a manually-provided key or taskId. (required).</param>
         public GroupReconciliationInstanceId(string instanceIdType = default(string), string instanceIdValue = default(string))
         {
@@ -55,9 +55,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// Type of the reconciliation run, manual or automatic (via the workflow). \&quot;Manual\&quot; | \&quot;WorkflowServiceTaskId\&quot;
+        /// Type of the reconciliation run, manual or automatic (via the workflow). Available values: WorkflowServiceTaskId, Manual.
         /// </summary>
-        /// <value>Type of the reconciliation run, manual or automatic (via the workflow). \&quot;Manual\&quot; | \&quot;WorkflowServiceTaskId\&quot;</value>
+        /// <value>Type of the reconciliation run, manual or automatic (via the workflow). Available values: WorkflowServiceTaskId, Manual.</value>
         [DataMember(Name = "instanceIdType", IsRequired = true, EmitDefaultValue = true)]
         public string InstanceIdType { get; set; }
 

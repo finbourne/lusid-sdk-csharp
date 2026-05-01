@@ -36,7 +36,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NavType" /> class.
         /// </summary>
-        /// <param name="status">The Status of the Nav Type. Can be &#39;Active&#39; or &#39;Inactive&#39;. (required).</param>
+        /// <param name="status">The Status of the Nav Type. Available values: Active, Inactive. (required).</param>
         /// <param name="code">The Code for the Nav Type. Must be unique within the Fund..</param>
         /// <param name="displayName">The Display Name for the Nav Type. Must be unique within the Fund..</param>
         /// <param name="description">The Description for the Nav Type..</param>
@@ -45,11 +45,11 @@ namespace Lusid.Sdk.Model
         /// <param name="cleardownModuleCodes">The Cleardown Module Codes from which the rules to be applied are retrieved..</param>
         /// <param name="valuationRecipeId">valuationRecipeId (required).</param>
         /// <param name="holdingRecipeId">holdingRecipeId (required).</param>
-        /// <param name="accountingMethod">Determines the accounting treatment given to the simple position portfolio&#39;s tax lots. A non-default value is required. (required).</param>
+        /// <param name="accountingMethod">Determines the accounting treatment given to the simple position portfolio&#39;s tax lots. A non-default value is required. Available values: AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency, IntraDayThenFirstInFirstOut, LongTermHighestCostFirst, LongTermHighestCostFirstPortfolioCurrency, HighestCostFirstPortfolioCurrency, LowestCostFirstPortfolioCurrency, MaximumLossMinimumGain, MaximumLossMinimumGainPortfolioCurrency. (required).</param>
         /// <param name="subHoldingKeys">A set of unique transaction properties to group the derived transaction portfolio&#39;s holdings by, perhaps for strategy tagging. Each property must be from the &#39;Transaction&#39; domain and identified by a key in the format {domain}/{scope}/{code}, for example &#39;Transaction/strategies/quantsignal&#39;. See https://support.lusid.com/knowledgebase/article/KA-01879/en-us for more information..</param>
-        /// <param name="amortisationMethod">The amortisation method used by the portfolio for the calculation. The available values are: NoAmortisation, StraightLine, EffectiveYield, StraightLineSettlementDate, EffectiveYieldSettlementDate (required).</param>
+        /// <param name="amortisationMethod">The amortisation method used by the portfolio for the calculation. Available values: NoAmortisation, StraightLine, EffectiveYield, StraightLineSettlementDate, EffectiveYieldSettlementDate. (required).</param>
         /// <param name="transactionTypeScope">The scope of the transaction types. (required).</param>
-        /// <param name="cashGainLossCalculationDate">The option when the Cash Gain Loss to be calulated, TransactionDate/SettlementDate. A non-default value is required. (required).</param>
+        /// <param name="cashGainLossCalculationDate">The option when the Cash Gain Loss to be calulated, TransactionDate/SettlementDate. A non-default value is required. Available values: SettlementDate, TransactionDate. (required).</param>
         /// <param name="amortisationRuleSetId">amortisationRuleSetId.</param>
         /// <param name="leaderNavTypeCode">The code of the Nav Type that this Nav Type will follow when set..</param>
         /// <param name="transactionTemplateScope">The Transaction Template Scope used by the NavType. Will default to the scope set on the parent portfolio. If the fund has multiple parent portfolios, then the Transaction Template Scope must be provided..</param>
@@ -115,9 +115,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The Status of the Nav Type. Can be &#39;Active&#39; or &#39;Inactive&#39;.
+        /// The Status of the Nav Type. Available values: Active, Inactive.
         /// </summary>
-        /// <value>The Status of the Nav Type. Can be &#39;Active&#39; or &#39;Inactive&#39;.</value>
+        /// <value>The Status of the Nav Type. Available values: Active, Inactive.</value>
         [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
         public string Status { get; set; }
 
@@ -175,9 +175,9 @@ namespace Lusid.Sdk.Model
         public ResourceId HoldingRecipeId { get; set; }
 
         /// <summary>
-        /// Determines the accounting treatment given to the simple position portfolio&#39;s tax lots. A non-default value is required.
+        /// Determines the accounting treatment given to the simple position portfolio&#39;s tax lots. A non-default value is required. Available values: AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency, IntraDayThenFirstInFirstOut, LongTermHighestCostFirst, LongTermHighestCostFirstPortfolioCurrency, HighestCostFirstPortfolioCurrency, LowestCostFirstPortfolioCurrency, MaximumLossMinimumGain, MaximumLossMinimumGainPortfolioCurrency.
         /// </summary>
-        /// <value>Determines the accounting treatment given to the simple position portfolio&#39;s tax lots. A non-default value is required.</value>
+        /// <value>Determines the accounting treatment given to the simple position portfolio&#39;s tax lots. A non-default value is required. Available values: AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency, IntraDayThenFirstInFirstOut, LongTermHighestCostFirst, LongTermHighestCostFirstPortfolioCurrency, HighestCostFirstPortfolioCurrency, LowestCostFirstPortfolioCurrency, MaximumLossMinimumGain, MaximumLossMinimumGainPortfolioCurrency.</value>
         [DataMember(Name = "accountingMethod", IsRequired = true, EmitDefaultValue = true)]
         public string AccountingMethod { get; set; }
 
@@ -189,9 +189,9 @@ namespace Lusid.Sdk.Model
         public List<string> SubHoldingKeys { get; set; }
 
         /// <summary>
-        /// The amortisation method used by the portfolio for the calculation. The available values are: NoAmortisation, StraightLine, EffectiveYield, StraightLineSettlementDate, EffectiveYieldSettlementDate
+        /// The amortisation method used by the portfolio for the calculation. Available values: NoAmortisation, StraightLine, EffectiveYield, StraightLineSettlementDate, EffectiveYieldSettlementDate.
         /// </summary>
-        /// <value>The amortisation method used by the portfolio for the calculation. The available values are: NoAmortisation, StraightLine, EffectiveYield, StraightLineSettlementDate, EffectiveYieldSettlementDate</value>
+        /// <value>The amortisation method used by the portfolio for the calculation. Available values: NoAmortisation, StraightLine, EffectiveYield, StraightLineSettlementDate, EffectiveYieldSettlementDate.</value>
         [DataMember(Name = "amortisationMethod", IsRequired = true, EmitDefaultValue = true)]
         public string AmortisationMethod { get; set; }
 
@@ -203,9 +203,9 @@ namespace Lusid.Sdk.Model
         public string TransactionTypeScope { get; set; }
 
         /// <summary>
-        /// The option when the Cash Gain Loss to be calulated, TransactionDate/SettlementDate. A non-default value is required.
+        /// The option when the Cash Gain Loss to be calulated, TransactionDate/SettlementDate. A non-default value is required. Available values: SettlementDate, TransactionDate.
         /// </summary>
-        /// <value>The option when the Cash Gain Loss to be calulated, TransactionDate/SettlementDate. A non-default value is required.</value>
+        /// <value>The option when the Cash Gain Loss to be calulated, TransactionDate/SettlementDate. A non-default value is required. Available values: SettlementDate, TransactionDate.</value>
         [DataMember(Name = "cashGainLossCalculationDate", IsRequired = true, EmitDefaultValue = true)]
         public string CashGainLossCalculationDate { get; set; }
 

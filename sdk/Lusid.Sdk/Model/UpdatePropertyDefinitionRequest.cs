@@ -39,7 +39,7 @@ namespace Lusid.Sdk.Model
         /// <param name="displayName">The display name of the property. (required).</param>
         /// <param name="propertyDescription">Describes the property.</param>
         /// <param name="customEntityTypes">The custom entity types that properties relating to this property definition can be applied to..</param>
-        /// <param name="valueFormat">The format in which values for this property definition should be represented..</param>
+        /// <param name="valueFormat">The format in which values for this property definition should be represented. Available values: Text, Html..</param>
         public UpdatePropertyDefinitionRequest(string displayName = default(string), string propertyDescription = default(string), List<string> customEntityTypes = default(List<string>), string valueFormat = default(string))
         {
             // to ensure "displayName" is required (not null)
@@ -75,9 +75,9 @@ namespace Lusid.Sdk.Model
         public List<string> CustomEntityTypes { get; set; }
 
         /// <summary>
-        /// The format in which values for this property definition should be represented.
+        /// The format in which values for this property definition should be represented. Available values: Text, Html.
         /// </summary>
-        /// <value>The format in which values for this property definition should be represented.</value>
+        /// <value>The format in which values for this property definition should be represented. Available values: Text, Html.</value>
         [DataMember(Name = "valueFormat", EmitDefaultValue = true)]
         public string ValueFormat { get; set; }
 

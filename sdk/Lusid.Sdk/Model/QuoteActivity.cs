@@ -42,7 +42,7 @@ namespace Lusid.Sdk.Model
         /// <param name="effectiveAt">The EffectiveAt time of the quote event that need to be added to the closed period. (required).</param>
         /// <param name="entityUniqueId">The EntityUniqueId from the quote which needs to be added as a post close activity. (required).</param>
         /// <param name="instrumentId">The InstrumentId from the quote which needs to be added as a post close activity. (required).</param>
-        /// <param name="navActivityAdjustmentType">. The available values are: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity, QuoteActivity (required) (default to &quot;QuoteActivity&quot;).</param>
+        /// <param name="navActivityAdjustmentType">The type of the entity being applied, for example a PortfolioTransaction. Available values: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity, QuoteActivity. (required) (default to &quot;QuoteActivity&quot;).</param>
         public QuoteActivity(DateTimeOffset asAt = default(DateTimeOffset), DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), string entityUniqueId = default(string), string instrumentId = default(string), NavActivityAdjustmentTypeEnum navActivityAdjustmentType = default(NavActivityAdjustmentTypeEnum)) : base(navActivityAdjustmentType)
         {
             this.AsAt = asAt;

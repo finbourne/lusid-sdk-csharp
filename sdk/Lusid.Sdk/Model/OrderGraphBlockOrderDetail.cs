@@ -37,8 +37,8 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="OrderGraphBlockOrderDetail" /> class.
         /// </summary>
         /// <param name="id">id (required).</param>
-        /// <param name="complianceState">The compliance state of this order. Possible values are &#39;Pending&#39;, &#39;Failed&#39;, &#39;Manually approved&#39;, &#39;Passed&#39; and &#39;Warning&#39;. (required).</param>
-        /// <param name="approvalState">The approval state of this order. Possible values are &#39;Pending&#39;, &#39;Rejected&#39; and &#39;Approved&#39;. (required).</param>
+        /// <param name="complianceState">The compliance state of this order. Available values: Pending, Failed, Passed, ManuallyApproved, PartiallyOverridden, Warning. (required).</param>
+        /// <param name="approvalState">The approval state of this order. Available values: Pending, Rejected, Approved. (required).</param>
         /// <param name="portfolioId">portfolioId.</param>
         /// <param name="portfolioName">The name of the order&#39;s referenced Portfolio..</param>
         /// <param name="orderApprovalTaskId">The task id associated with the approval state of the order..</param>
@@ -78,16 +78,16 @@ namespace Lusid.Sdk.Model
         public ResourceId Id { get; set; }
 
         /// <summary>
-        /// The compliance state of this order. Possible values are &#39;Pending&#39;, &#39;Failed&#39;, &#39;Manually approved&#39;, &#39;Passed&#39; and &#39;Warning&#39;.
+        /// The compliance state of this order. Available values: Pending, Failed, Passed, ManuallyApproved, PartiallyOverridden, Warning.
         /// </summary>
-        /// <value>The compliance state of this order. Possible values are &#39;Pending&#39;, &#39;Failed&#39;, &#39;Manually approved&#39;, &#39;Passed&#39; and &#39;Warning&#39;.</value>
+        /// <value>The compliance state of this order. Available values: Pending, Failed, Passed, ManuallyApproved, PartiallyOverridden, Warning.</value>
         [DataMember(Name = "complianceState", IsRequired = true, EmitDefaultValue = true)]
         public string ComplianceState { get; set; }
 
         /// <summary>
-        /// The approval state of this order. Possible values are &#39;Pending&#39;, &#39;Rejected&#39; and &#39;Approved&#39;.
+        /// The approval state of this order. Available values: Pending, Rejected, Approved.
         /// </summary>
-        /// <value>The approval state of this order. Possible values are &#39;Pending&#39;, &#39;Rejected&#39; and &#39;Approved&#39;.</value>
+        /// <value>The approval state of this order. Available values: Pending, Rejected, Approved.</value>
         [DataMember(Name = "approvalState", IsRequired = true, EmitDefaultValue = true)]
         public string ApprovalState { get; set; }
 

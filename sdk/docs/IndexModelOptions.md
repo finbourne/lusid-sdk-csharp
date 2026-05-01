@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ModelOptionsType** | **string** | The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions | 
-**PortfolioScaling** | **string** | The available values are: Sum, AbsoluteSum, Unity | 
+**ModelOptionsType** | **string** | Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions. | 
+**PortfolioScaling** | **string** | Available values: Sum, AbsoluteSum, Unity. | 
 **LookthroughPortfolioRelationshipId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 
 ```csharp

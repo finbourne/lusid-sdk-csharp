@@ -29,9 +29,9 @@ namespace Lusid.Sdk.Model
     public partial class AddressDefinition : IEquatable<AddressDefinition>, IValidatableObject
     {
         /// <summary>
-        /// The available values are: String, Int, Decimal, DateTime, Boolean, ResultValue, Result0D, Json
+        /// Available values: String, Int, Decimal, DateTime, Boolean, ResultValue, Result0D, Json.
         /// </summary>
-        /// <value>The available values are: String, Int, Decimal, DateTime, Boolean, ResultValue, Result0D, Json</value>
+        /// <value>Available values: String, Int, Decimal, DateTime, Boolean, ResultValue, Result0D, Json.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TypeEnum
         {
@@ -86,16 +86,16 @@ namespace Lusid.Sdk.Model
 
 
         /// <summary>
-        /// The available values are: String, Int, Decimal, DateTime, Boolean, ResultValue, Result0D, Json
+        /// Available values: String, Int, Decimal, DateTime, Boolean, ResultValue, Result0D, Json.
         /// </summary>
-        /// <value>The available values are: String, Int, Decimal, DateTime, Boolean, ResultValue, Result0D, Json</value>
+        /// <value>Available values: String, Int, Decimal, DateTime, Boolean, ResultValue, Result0D, Json.</value>
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public TypeEnum? Type { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="AddressDefinition" /> class.
         /// </summary>
         /// <param name="displayName">The display name of the address key..</param>
-        /// <param name="type">The available values are: String, Int, Decimal, DateTime, Boolean, ResultValue, Result0D, Json.</param>
+        /// <param name="type">Available values: String, Int, Decimal, DateTime, Boolean, ResultValue, Result0D, Json..</param>
         /// <param name="description">The description for this result..</param>
         /// <param name="lifeCycleStatus">What is the status of the address path. If it is not Production then it might be removed at some point in the future.  See the removal date for the likely timing of that if any..</param>
         /// <param name="removalDate">If the life-cycle status of the address is Deprecated then this is the date at which support of the address will be suspended.  After that date it will be removed at the earliest possible point subject to any specific contractual support and development constraints..</param>

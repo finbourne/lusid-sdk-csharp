@@ -43,8 +43,8 @@ namespace Lusid.Sdk.Model
         /// <param name="allocated">allocated (required).</param>
         /// <param name="booked">booked (required).</param>
         /// <param name="derivedState">A simple description of the overall state of a block. (required).</param>
-        /// <param name="derivedComplianceState">The overall compliance state of a block, derived from the block&#39;s orders. Possible values are &#39;Pending&#39;, &#39;Failed&#39;, &#39;Manually approved&#39; and &#39;Passed&#39;. (required).</param>
-        /// <param name="derivedApprovalState">The overall approval state of a block, derived from approval of the block&#39;s orders. Possible values are &#39;Pending&#39;, &#39;Approved&#39; and &#39;Rejected&#39;. (required).</param>
+        /// <param name="derivedComplianceState">The overall compliance state of a block, derived from the block&#39;s orders. Available values: Pending, Failed, Passed, ManuallyApproved, PartiallyOverridden, Warning. (required).</param>
+        /// <param name="derivedApprovalState">The overall approval state of a block, derived from approval of the block&#39;s orders. Available values: Pending, Rejected, Approved. (required).</param>
         public OrderGraphBlock(Block block = default(Block), OrderGraphBlockOrderSynopsis ordered = default(OrderGraphBlockOrderSynopsis), OrderGraphBlockPlacementSynopsis placed = default(OrderGraphBlockPlacementSynopsis), OrderGraphBlockExecutionSynopsis executed = default(OrderGraphBlockExecutionSynopsis), OrderGraphBlockAllocationSynopsis allocated = default(OrderGraphBlockAllocationSynopsis), OrderGraphBlockTransactionSynopsis booked = default(OrderGraphBlockTransactionSynopsis), string derivedState = default(string), string derivedComplianceState = default(string), string derivedApprovalState = default(string))
         {
             // to ensure "block" is required (not null)
@@ -147,16 +147,16 @@ namespace Lusid.Sdk.Model
         public string DerivedState { get; set; }
 
         /// <summary>
-        /// The overall compliance state of a block, derived from the block&#39;s orders. Possible values are &#39;Pending&#39;, &#39;Failed&#39;, &#39;Manually approved&#39; and &#39;Passed&#39;.
+        /// The overall compliance state of a block, derived from the block&#39;s orders. Available values: Pending, Failed, Passed, ManuallyApproved, PartiallyOverridden, Warning.
         /// </summary>
-        /// <value>The overall compliance state of a block, derived from the block&#39;s orders. Possible values are &#39;Pending&#39;, &#39;Failed&#39;, &#39;Manually approved&#39; and &#39;Passed&#39;.</value>
+        /// <value>The overall compliance state of a block, derived from the block&#39;s orders. Available values: Pending, Failed, Passed, ManuallyApproved, PartiallyOverridden, Warning.</value>
         [DataMember(Name = "derivedComplianceState", IsRequired = true, EmitDefaultValue = true)]
         public string DerivedComplianceState { get; set; }
 
         /// <summary>
-        /// The overall approval state of a block, derived from approval of the block&#39;s orders. Possible values are &#39;Pending&#39;, &#39;Approved&#39; and &#39;Rejected&#39;.
+        /// The overall approval state of a block, derived from approval of the block&#39;s orders. Available values: Pending, Rejected, Approved.
         /// </summary>
-        /// <value>The overall approval state of a block, derived from approval of the block&#39;s orders. Possible values are &#39;Pending&#39;, &#39;Approved&#39; and &#39;Rejected&#39;.</value>
+        /// <value>The overall approval state of a block, derived from approval of the block&#39;s orders. Available values: Pending, Rejected, Approved.</value>
         [DataMember(Name = "derivedApprovalState", IsRequired = true, EmitDefaultValue = true)]
         public string DerivedApprovalState { get; set; }
 

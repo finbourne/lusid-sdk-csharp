@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Name** | **string** | The name of the rule. | 
 **Description** | **string** | A description of the rule. | [optional] 
 **Filter** | **string** | The filter for this rule. | 
-**AmortisationMethod** | **string** | The filter for this rule. | 
+**AmortisationMethod** | **string** | The filter for this rule. Available values: NoAmortisation, StraightLine, EffectiveYield, StraightLineSettlementDate, EffectiveYieldSettlementDate. | 
 
 ```csharp
 using Lusid.Sdk.Model;

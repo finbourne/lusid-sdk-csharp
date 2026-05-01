@@ -36,7 +36,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RoundingConfigurationComponent" /> class.
         /// </summary>
-        /// <param name="roundingType">The type of rounding that should be used, eg: Up, Down, NearestRoundHalfAwayFromZero (required).</param>
+        /// <param name="roundingType">The type of rounding that should be used. Available values: Up, Down, NearestRoundHalfAwayFromZero. (required).</param>
         public RoundingConfigurationComponent(string roundingType = default(string))
         {
             // to ensure "roundingType" is required (not null)
@@ -48,9 +48,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The type of rounding that should be used, eg: Up, Down, NearestRoundHalfAwayFromZero
+        /// The type of rounding that should be used. Available values: Up, Down, NearestRoundHalfAwayFromZero.
         /// </summary>
-        /// <value>The type of rounding that should be used, eg: Up, Down, NearestRoundHalfAwayFromZero</value>
+        /// <value>The type of rounding that should be used. Available values: Up, Down, NearestRoundHalfAwayFromZero.</value>
         [DataMember(Name = "roundingType", IsRequired = true, EmitDefaultValue = true)]
         public string RoundingType { get; set; }
 

@@ -34,9 +34,9 @@ namespace Lusid.Sdk.Model
     public partial class ReconciliationRule : IEquatable<ReconciliationRule>, IValidatableObject
     {
         /// <summary>
-        /// The available values are: ReconcileNumericRule, ReconcileDateTimeRule, ReconcileStringRule, ReconcileExact
+        /// Available values: ReconcileNumericRule, ReconcileDateTimeRule, ReconcileStringRule, ReconcileExact.
         /// </summary>
-        /// <value>The available values are: ReconcileNumericRule, ReconcileDateTimeRule, ReconcileStringRule, ReconcileExact</value>
+        /// <value>Available values: ReconcileNumericRule, ReconcileDateTimeRule, ReconcileStringRule, ReconcileExact.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum RuleTypeEnum
         {
@@ -67,9 +67,9 @@ namespace Lusid.Sdk.Model
 
 
         /// <summary>
-        /// The available values are: ReconcileNumericRule, ReconcileDateTimeRule, ReconcileStringRule, ReconcileExact
+        /// Available values: ReconcileNumericRule, ReconcileDateTimeRule, ReconcileStringRule, ReconcileExact.
         /// </summary>
-        /// <value>The available values are: ReconcileNumericRule, ReconcileDateTimeRule, ReconcileStringRule, ReconcileExact</value>
+        /// <value>Available values: ReconcileNumericRule, ReconcileDateTimeRule, ReconcileStringRule, ReconcileExact.</value>
         [DataMember(Name = "ruleType", IsRequired = true, EmitDefaultValue = true)]
         public RuleTypeEnum RuleType { get; set; }
         /// <summary>
@@ -80,7 +80,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ReconciliationRule" /> class.
         /// </summary>
-        /// <param name="ruleType">The available values are: ReconcileNumericRule, ReconcileDateTimeRule, ReconcileStringRule, ReconcileExact (required).</param>
+        /// <param name="ruleType">Available values: ReconcileNumericRule, ReconcileDateTimeRule, ReconcileStringRule, ReconcileExact. (required).</param>
         public ReconciliationRule(RuleTypeEnum ruleType = default(RuleTypeEnum))
         {
             this.RuleType = ruleType;

@@ -42,7 +42,7 @@ namespace Lusid.Sdk.Model
         /// <param name="instrumentEvent">instrumentEvent (required).</param>
         /// <param name="properties">The properties attached to this instrument event..</param>
         /// <param name="sequenceNumber">The order of the instrument event relative others on the same date (0 being processed first). Must be non negative..</param>
-        /// <param name="participationType">Is participation in this event Mandatory, MandatoryWithChoices, or Voluntary. (default to &quot;Mandatory&quot;).</param>
+        /// <param name="participationType">Indicates the type of participation in this event. Default value: Mandatory. Available values: Mandatory, MandatoryWithChoices, Voluntary. (default to &quot;Mandatory&quot;).</param>
         /// <param name="eventDateStamps">The date stamps corresponding to the relevant date-time fields for the instrument event. The key for each provided date stamp must match the field name of a valid datetime field from the InstrumentEvent DTO..</param>
         public UpsertInstrumentEventRequest(string instrumentEventId = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string description = default(string), InstrumentEvent instrumentEvent = default(InstrumentEvent), List<PerpetualProperty> properties = default(List<PerpetualProperty>), int? sequenceNumber = default(int?), string participationType = @"Mandatory", Dictionary<string, YearMonthDay> eventDateStamps = default(Dictionary<string, YearMonthDay>))
         {
@@ -114,9 +114,9 @@ namespace Lusid.Sdk.Model
         public int? SequenceNumber { get; set; }
 
         /// <summary>
-        /// Is participation in this event Mandatory, MandatoryWithChoices, or Voluntary.
+        /// Indicates the type of participation in this event. Default value: Mandatory. Available values: Mandatory, MandatoryWithChoices, Voluntary.
         /// </summary>
-        /// <value>Is participation in this event Mandatory, MandatoryWithChoices, or Voluntary.</value>
+        /// <value>Indicates the type of participation in this event. Default value: Mandatory. Available values: Mandatory, MandatoryWithChoices, Voluntary.</value>
         [DataMember(Name = "participationType", EmitDefaultValue = true)]
         public string ParticipationType { get; set; }
 
