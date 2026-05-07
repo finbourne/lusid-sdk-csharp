@@ -23,30 +23,30 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// ResourceListOfTransactionFee
+    /// ResourceListOfTransactionFeeType
     /// </summary>
-    [DataContract(Name = "ResourceListOfTransactionFee")]
-    public partial class ResourceListOfTransactionFee : IEquatable<ResourceListOfTransactionFee>, IValidatableObject
+    [DataContract(Name = "ResourceListOfTransactionFeeType")]
+    public partial class ResourceListOfTransactionFeeType : IEquatable<ResourceListOfTransactionFeeType>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ResourceListOfTransactionFee" /> class.
+        /// Initializes a new instance of the <see cref="ResourceListOfTransactionFeeType" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected ResourceListOfTransactionFee() { }
+        protected ResourceListOfTransactionFeeType() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ResourceListOfTransactionFee" /> class.
+        /// Initializes a new instance of the <see cref="ResourceListOfTransactionFeeType" /> class.
         /// </summary>
         /// <param name="values">values (required).</param>
         /// <param name="href">href.</param>
         /// <param name="links">links.</param>
         /// <param name="nextPage">nextPage.</param>
         /// <param name="previousPage">previousPage.</param>
-        public ResourceListOfTransactionFee(List<TransactionFee> values = default(List<TransactionFee>), string href = default(string), List<Link> links = default(List<Link>), string nextPage = default(string), string previousPage = default(string))
+        public ResourceListOfTransactionFeeType(List<TransactionFeeType> values = default(List<TransactionFeeType>), string href = default(string), List<Link> links = default(List<Link>), string nextPage = default(string), string previousPage = default(string))
         {
             // to ensure "values" is required (not null)
             if (values == null)
             {
-                throw new ArgumentNullException("values is a required property for ResourceListOfTransactionFee and cannot be null");
+                throw new ArgumentNullException("values is a required property for ResourceListOfTransactionFeeType and cannot be null");
             }
             this.Values = values;
             this.Href = href;
@@ -59,7 +59,7 @@ namespace Lusid.Sdk.Model
         /// Gets or Sets Values
         /// </summary>
         [DataMember(Name = "values", IsRequired = true, EmitDefaultValue = true)]
-        public List<TransactionFee> Values { get; set; }
+        public List<TransactionFeeType> Values { get; set; }
 
         /// <summary>
         /// Gets or Sets Href
@@ -92,7 +92,7 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ResourceListOfTransactionFee {\n");
+            sb.Append("class ResourceListOfTransactionFeeType {\n");
             sb.Append("  Values: ").Append(Values).Append("\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
@@ -118,15 +118,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ResourceListOfTransactionFee);
+            return this.Equals(input as ResourceListOfTransactionFeeType);
         }
 
         /// <summary>
-        /// Returns true if ResourceListOfTransactionFee instances are equal
+        /// Returns true if ResourceListOfTransactionFeeType instances are equal
         /// </summary>
-        /// <param name="input">Instance of ResourceListOfTransactionFee to be compared</param>
+        /// <param name="input">Instance of ResourceListOfTransactionFeeType to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ResourceListOfTransactionFee input)
+        public bool Equals(ResourceListOfTransactionFeeType input)
         {
             if (input == null)
             {

@@ -28,278 +28,278 @@ namespace Lusid.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface ITransactionTransactionFeesApiSync : IApiAccessor
+    public interface ITransactionFeeTypesApiSync : IApiAccessor
     {
         #region Synchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] CreateTransactionFee: Create a TransactionFee
+        /// [EXPERIMENTAL] CreateTransactionFeeType: Create a transaction fee type
         /// </summary>
         /// <remarks>
-        /// Create a TransactionFee for the specified scope and code.
+        /// Create a transaction fee type for the specified scope and code.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the TransactionFee.</param>
-        /// <param name="code">The code of the TransactionFee.              Together with the scope this uniquely identifies the TransactionFee.</param>
-        /// <param name="createTransactionFeeRequest">The contents of the TransactionFee.</param>
+        /// <param name="scope">The scope of the transaction fee type.</param>
+        /// <param name="code">The code of the transaction fee type.              Together with the scope this uniquely identifies the transaction fee type.</param>
+        /// <param name="createTransactionFeeTypeRequest">The contents of the transaction fee type.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>TransactionFee</returns>
-        TransactionFee CreateTransactionFee(string scope, string code, CreateTransactionFeeRequest createTransactionFeeRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <returns>TransactionFeeType</returns>
+        TransactionFeeType CreateTransactionFeeType(string scope, string code, CreateTransactionFeeTypeRequest createTransactionFeeTypeRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateTransactionFee: Create a TransactionFee
+        /// [EXPERIMENTAL] CreateTransactionFeeType: Create a transaction fee type
         /// </summary>
         /// <remarks>
-        /// Create a TransactionFee for the specified scope and code.
+        /// Create a transaction fee type for the specified scope and code.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the TransactionFee.</param>
-        /// <param name="code">The code of the TransactionFee.              Together with the scope this uniquely identifies the TransactionFee.</param>
-        /// <param name="createTransactionFeeRequest">The contents of the TransactionFee.</param>
+        /// <param name="scope">The scope of the transaction fee type.</param>
+        /// <param name="code">The code of the transaction fee type.              Together with the scope this uniquely identifies the transaction fee type.</param>
+        /// <param name="createTransactionFeeTypeRequest">The contents of the transaction fee type.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of TransactionFee</returns>
-        Lusid.Sdk.Client.ApiResponse<TransactionFee> CreateTransactionFeeWithHttpInfo(string scope, string code, CreateTransactionFeeRequest createTransactionFeeRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <returns>ApiResponse of TransactionFeeType</returns>
+        Lusid.Sdk.Client.ApiResponse<TransactionFeeType> CreateTransactionFeeTypeWithHttpInfo(string scope, string code, CreateTransactionFeeTypeRequest createTransactionFeeTypeRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTransactionFee: Delete a TransactionFee
+        /// [EXPERIMENTAL] DeleteTransactionFeeType: Delete a transaction fee type
         /// </summary>
         /// <remarks>
-        /// Delete a TransactionFee for the specified scope and code. To note, this will be a monotemporal delete, meaning that  the TransactionFee will be deleted for all effective time (including past and future versions of the TransactionFee).
+        /// Delete a transaction fee type for the specified scope and code. To note, this will be a monotemporal delete, meaning that  the transaction fee type will be deleted for all effective time (including past and future versions of the transaction fee type).
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the TransactionFee.</param>
-        /// <param name="code">The code of the specified TransactionFee.              Together with the scope this uniquely identifies the TransactionFee.</param>
+        /// <param name="scope">The scope of the transaction fee type.</param>
+        /// <param name="code">The code of the specified transaction fee type.              Together with the scope this uniquely identifies the transaction fee type.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
-        DeletedEntityResponse DeleteTransactionFee(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
+        DeletedEntityResponse DeleteTransactionFeeType(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTransactionFee: Delete a TransactionFee
+        /// [EXPERIMENTAL] DeleteTransactionFeeType: Delete a transaction fee type
         /// </summary>
         /// <remarks>
-        /// Delete a TransactionFee for the specified scope and code. To note, this will be a monotemporal delete, meaning that  the TransactionFee will be deleted for all effective time (including past and future versions of the TransactionFee).
+        /// Delete a transaction fee type for the specified scope and code. To note, this will be a monotemporal delete, meaning that  the transaction fee type will be deleted for all effective time (including past and future versions of the transaction fee type).
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the TransactionFee.</param>
-        /// <param name="code">The code of the specified TransactionFee.              Together with the scope this uniquely identifies the TransactionFee.</param>
+        /// <param name="scope">The scope of the transaction fee type.</param>
+        /// <param name="code">The code of the specified transaction fee type.              Together with the scope this uniquely identifies the transaction fee type.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteTransactionFeeWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteTransactionFeeTypeWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetTransactionFee: Get a TransactionFee
+        /// [EXPERIMENTAL] GetTransactionFeeType: Get a transaction fee type
         /// </summary>
         /// <remarks>
-        /// Get the TransactionFee for the specified scope and code.
+        /// Get the transaction fee type for the specified scope and code.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the TransactionFee.</param>
-        /// <param name="code">The code of the TransactionFee.              Together with the scope this uniquely identifies the TransactionFee.</param>
-        /// <param name="effectiveAt">The effective datetime at which to retrieve the TransactionFee properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the TransactionFees.              Defaults to latest if not specified. (optional)</param>
-        /// <param name="propertyKeys">The collection of &#x60;PropertyKey&#x60;s that we want to decorate on identifies the TransactionFee. (optional)</param>
+        /// <param name="scope">The scope of the transaction fee type.</param>
+        /// <param name="code">The code of the transaction fee type.              Together with the scope this uniquely identifies the transaction fee type.</param>
+        /// <param name="effectiveAt">The effective datetime at which to retrieve the transaction fee type properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the transaction fee types.              Defaults to latest if not specified. (optional)</param>
+        /// <param name="propertyKeys">The collection of &#x60;PropertyKey&#x60;s that we want to decorate on the transaction fee type. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>TransactionFee</returns>
-        TransactionFee GetTransactionFee(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <returns>TransactionFeeType</returns>
+        TransactionFeeType GetTransactionFeeType(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTransactionFee: Get a TransactionFee
+        /// [EXPERIMENTAL] GetTransactionFeeType: Get a transaction fee type
         /// </summary>
         /// <remarks>
-        /// Get the TransactionFee for the specified scope and code.
+        /// Get the transaction fee type for the specified scope and code.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the TransactionFee.</param>
-        /// <param name="code">The code of the TransactionFee.              Together with the scope this uniquely identifies the TransactionFee.</param>
-        /// <param name="effectiveAt">The effective datetime at which to retrieve the TransactionFee properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the TransactionFees.              Defaults to latest if not specified. (optional)</param>
-        /// <param name="propertyKeys">The collection of &#x60;PropertyKey&#x60;s that we want to decorate on identifies the TransactionFee. (optional)</param>
+        /// <param name="scope">The scope of the transaction fee type.</param>
+        /// <param name="code">The code of the transaction fee type.              Together with the scope this uniquely identifies the transaction fee type.</param>
+        /// <param name="effectiveAt">The effective datetime at which to retrieve the transaction fee type properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the transaction fee types.              Defaults to latest if not specified. (optional)</param>
+        /// <param name="propertyKeys">The collection of &#x60;PropertyKey&#x60;s that we want to decorate on the transaction fee type. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of TransactionFee</returns>
-        Lusid.Sdk.Client.ApiResponse<TransactionFee> GetTransactionFeeWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <returns>ApiResponse of TransactionFeeType</returns>
+        Lusid.Sdk.Client.ApiResponse<TransactionFeeType> GetTransactionFeeTypeWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListTransactionFees: List TransactionFees
+        /// [EXPERIMENTAL] ListTransactionFeeTypes: List transaction fee types
         /// </summary>
         /// <remarks>
-        /// List TransactionFees that match the specified criteria.
+        /// List transaction fee types that match the specified criteria.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime at which to retrieve TransactionFee properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the TransactionFees.              Defaults to latest if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing TransactionFees from a previous call to list TransactionFees.  This value is returned from the previous call. If a pagination token is provided the filter,  sortBy, effectiveAt and asAt field must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime at which to retrieve transaction fee type properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the transaction fee types.              Defaults to latest if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing transaction fee types from a previous call to list transaction fee types.  This value is returned from the previous call. If a pagination token is provided the filter,  sortBy, effectiveAt and asAt field must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set.              For example, to filter on the Scope, use \&quot;scope eq &#39;ExampleScope&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="propertyKeys">The collection of &#x60;PropertyKey&#x60;s to filter on (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>ResourceListOfTransactionFee</returns>
-        ResourceListOfTransactionFee ListTransactionFees(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <returns>ResourceListOfTransactionFeeType</returns>
+        ResourceListOfTransactionFeeType ListTransactionFeeTypes(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListTransactionFees: List TransactionFees
+        /// [EXPERIMENTAL] ListTransactionFeeTypes: List transaction fee types
         /// </summary>
         /// <remarks>
-        /// List TransactionFees that match the specified criteria.
+        /// List transaction fee types that match the specified criteria.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime at which to retrieve TransactionFee properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the TransactionFees.              Defaults to latest if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing TransactionFees from a previous call to list TransactionFees.  This value is returned from the previous call. If a pagination token is provided the filter,  sortBy, effectiveAt and asAt field must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime at which to retrieve transaction fee type properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the transaction fee types.              Defaults to latest if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing transaction fee types from a previous call to list transaction fee types.  This value is returned from the previous call. If a pagination token is provided the filter,  sortBy, effectiveAt and asAt field must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set.              For example, to filter on the Scope, use \&quot;scope eq &#39;ExampleScope&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="propertyKeys">The collection of &#x60;PropertyKey&#x60;s to filter on (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of ResourceListOfTransactionFee</returns>
-        Lusid.Sdk.Client.ApiResponse<ResourceListOfTransactionFee> ListTransactionFeesWithHttpInfo(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <returns>ApiResponse of ResourceListOfTransactionFeeType</returns>
+        Lusid.Sdk.Client.ApiResponse<ResourceListOfTransactionFeeType> ListTransactionFeeTypesWithHttpInfo(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] UpdateTransactionFee: Update a TransactionFee
+        /// [EXPERIMENTAL] UpdateTransactionFeeType: Update a transaction fee type
         /// </summary>
         /// <remarks>
-        /// Update a TransactionFee by providing the new contents of the TransactionFee.  The name field and the capitalisation field can not be updated.
+        /// Update a transaction fee type by providing the new contents of the transaction fee type.  The displayName field cannot be updated.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the TransactionFee.</param>
-        /// <param name="code">The code of the specified TransactionFee.              Together with the scope this uniquely identifies the TransactionFee.</param>
-        /// <param name="updateTransactionFeeRequest">The updated contents of the TransactionFee.</param>
+        /// <param name="scope">The scope of the transaction fee type.</param>
+        /// <param name="code">The code of the specified transaction fee type.              Together with the scope this uniquely identifies the transaction fee type.</param>
+        /// <param name="updateTransactionFeeTypeRequest">The updated contents of the transaction fee type.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>TransactionFee</returns>
-        TransactionFee UpdateTransactionFee(string scope, string code, UpdateTransactionFeeRequest updateTransactionFeeRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <returns>TransactionFeeType</returns>
+        TransactionFeeType UpdateTransactionFeeType(string scope, string code, UpdateTransactionFeeTypeRequest updateTransactionFeeTypeRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateTransactionFee: Update a TransactionFee
+        /// [EXPERIMENTAL] UpdateTransactionFeeType: Update a transaction fee type
         /// </summary>
         /// <remarks>
-        /// Update a TransactionFee by providing the new contents of the TransactionFee.  The name field and the capitalisation field can not be updated.
+        /// Update a transaction fee type by providing the new contents of the transaction fee type.  The displayName field cannot be updated.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the TransactionFee.</param>
-        /// <param name="code">The code of the specified TransactionFee.              Together with the scope this uniquely identifies the TransactionFee.</param>
-        /// <param name="updateTransactionFeeRequest">The updated contents of the TransactionFee.</param>
+        /// <param name="scope">The scope of the transaction fee type.</param>
+        /// <param name="code">The code of the specified transaction fee type.              Together with the scope this uniquely identifies the transaction fee type.</param>
+        /// <param name="updateTransactionFeeTypeRequest">The updated contents of the transaction fee type.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of TransactionFee</returns>
-        Lusid.Sdk.Client.ApiResponse<TransactionFee> UpdateTransactionFeeWithHttpInfo(string scope, string code, UpdateTransactionFeeRequest updateTransactionFeeRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <returns>ApiResponse of TransactionFeeType</returns>
+        Lusid.Sdk.Client.ApiResponse<TransactionFeeType> UpdateTransactionFeeTypeWithHttpInfo(string scope, string code, UpdateTransactionFeeTypeRequest updateTransactionFeeTypeRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface ITransactionTransactionFeesApiAsync : IApiAccessor
+    public interface ITransactionFeeTypesApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] CreateTransactionFee: Create a TransactionFee
+        /// [EXPERIMENTAL] CreateTransactionFeeType: Create a transaction fee type
         /// </summary>
         /// <remarks>
-        /// Create a TransactionFee for the specified scope and code.
+        /// Create a transaction fee type for the specified scope and code.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the TransactionFee.</param>
-        /// <param name="code">The code of the TransactionFee.              Together with the scope this uniquely identifies the TransactionFee.</param>
-        /// <param name="createTransactionFeeRequest">The contents of the TransactionFee.</param>
+        /// <param name="scope">The scope of the transaction fee type.</param>
+        /// <param name="code">The code of the transaction fee type.              Together with the scope this uniquely identifies the transaction fee type.</param>
+        /// <param name="createTransactionFeeTypeRequest">The contents of the transaction fee type.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of TransactionFee</returns>
-        System.Threading.Tasks.Task<TransactionFee> CreateTransactionFeeAsync(string scope, string code, CreateTransactionFeeRequest createTransactionFeeRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <returns>Task of TransactionFeeType</returns>
+        System.Threading.Tasks.Task<TransactionFeeType> CreateTransactionFeeTypeAsync(string scope, string code, CreateTransactionFeeTypeRequest createTransactionFeeTypeRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateTransactionFee: Create a TransactionFee
+        /// [EXPERIMENTAL] CreateTransactionFeeType: Create a transaction fee type
         /// </summary>
         /// <remarks>
-        /// Create a TransactionFee for the specified scope and code.
+        /// Create a transaction fee type for the specified scope and code.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the TransactionFee.</param>
-        /// <param name="code">The code of the TransactionFee.              Together with the scope this uniquely identifies the TransactionFee.</param>
-        /// <param name="createTransactionFeeRequest">The contents of the TransactionFee.</param>
+        /// <param name="scope">The scope of the transaction fee type.</param>
+        /// <param name="code">The code of the transaction fee type.              Together with the scope this uniquely identifies the transaction fee type.</param>
+        /// <param name="createTransactionFeeTypeRequest">The contents of the transaction fee type.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse (TransactionFee)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TransactionFee>> CreateTransactionFeeWithHttpInfoAsync(string scope, string code, CreateTransactionFeeRequest createTransactionFeeRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <returns>Task of ApiResponse (TransactionFeeType)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TransactionFeeType>> CreateTransactionFeeTypeWithHttpInfoAsync(string scope, string code, CreateTransactionFeeTypeRequest createTransactionFeeTypeRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTransactionFee: Delete a TransactionFee
+        /// [EXPERIMENTAL] DeleteTransactionFeeType: Delete a transaction fee type
         /// </summary>
         /// <remarks>
-        /// Delete a TransactionFee for the specified scope and code. To note, this will be a monotemporal delete, meaning that  the TransactionFee will be deleted for all effective time (including past and future versions of the TransactionFee).
+        /// Delete a transaction fee type for the specified scope and code. To note, this will be a monotemporal delete, meaning that  the transaction fee type will be deleted for all effective time (including past and future versions of the transaction fee type).
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the TransactionFee.</param>
-        /// <param name="code">The code of the specified TransactionFee.              Together with the scope this uniquely identifies the TransactionFee.</param>
+        /// <param name="scope">The scope of the transaction fee type.</param>
+        /// <param name="code">The code of the specified transaction fee type.              Together with the scope this uniquely identifies the transaction fee type.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteTransactionFeeAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteTransactionFeeTypeAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTransactionFee: Delete a TransactionFee
+        /// [EXPERIMENTAL] DeleteTransactionFeeType: Delete a transaction fee type
         /// </summary>
         /// <remarks>
-        /// Delete a TransactionFee for the specified scope and code. To note, this will be a monotemporal delete, meaning that  the TransactionFee will be deleted for all effective time (including past and future versions of the TransactionFee).
+        /// Delete a transaction fee type for the specified scope and code. To note, this will be a monotemporal delete, meaning that  the transaction fee type will be deleted for all effective time (including past and future versions of the transaction fee type).
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the TransactionFee.</param>
-        /// <param name="code">The code of the specified TransactionFee.              Together with the scope this uniquely identifies the TransactionFee.</param>
+        /// <param name="scope">The scope of the transaction fee type.</param>
+        /// <param name="code">The code of the specified transaction fee type.              Together with the scope this uniquely identifies the transaction fee type.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteTransactionFeeWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteTransactionFeeTypeWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetTransactionFee: Get a TransactionFee
+        /// [EXPERIMENTAL] GetTransactionFeeType: Get a transaction fee type
         /// </summary>
         /// <remarks>
-        /// Get the TransactionFee for the specified scope and code.
+        /// Get the transaction fee type for the specified scope and code.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the TransactionFee.</param>
-        /// <param name="code">The code of the TransactionFee.              Together with the scope this uniquely identifies the TransactionFee.</param>
-        /// <param name="effectiveAt">The effective datetime at which to retrieve the TransactionFee properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the TransactionFees.              Defaults to latest if not specified. (optional)</param>
-        /// <param name="propertyKeys">The collection of &#x60;PropertyKey&#x60;s that we want to decorate on identifies the TransactionFee. (optional)</param>
+        /// <param name="scope">The scope of the transaction fee type.</param>
+        /// <param name="code">The code of the transaction fee type.              Together with the scope this uniquely identifies the transaction fee type.</param>
+        /// <param name="effectiveAt">The effective datetime at which to retrieve the transaction fee type properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the transaction fee types.              Defaults to latest if not specified. (optional)</param>
+        /// <param name="propertyKeys">The collection of &#x60;PropertyKey&#x60;s that we want to decorate on the transaction fee type. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of TransactionFee</returns>
-        System.Threading.Tasks.Task<TransactionFee> GetTransactionFeeAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <returns>Task of TransactionFeeType</returns>
+        System.Threading.Tasks.Task<TransactionFeeType> GetTransactionFeeTypeAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTransactionFee: Get a TransactionFee
+        /// [EXPERIMENTAL] GetTransactionFeeType: Get a transaction fee type
         /// </summary>
         /// <remarks>
-        /// Get the TransactionFee for the specified scope and code.
+        /// Get the transaction fee type for the specified scope and code.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the TransactionFee.</param>
-        /// <param name="code">The code of the TransactionFee.              Together with the scope this uniquely identifies the TransactionFee.</param>
-        /// <param name="effectiveAt">The effective datetime at which to retrieve the TransactionFee properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the TransactionFees.              Defaults to latest if not specified. (optional)</param>
-        /// <param name="propertyKeys">The collection of &#x60;PropertyKey&#x60;s that we want to decorate on identifies the TransactionFee. (optional)</param>
+        /// <param name="scope">The scope of the transaction fee type.</param>
+        /// <param name="code">The code of the transaction fee type.              Together with the scope this uniquely identifies the transaction fee type.</param>
+        /// <param name="effectiveAt">The effective datetime at which to retrieve the transaction fee type properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the transaction fee types.              Defaults to latest if not specified. (optional)</param>
+        /// <param name="propertyKeys">The collection of &#x60;PropertyKey&#x60;s that we want to decorate on the transaction fee type. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse (TransactionFee)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TransactionFee>> GetTransactionFeeWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <returns>Task of ApiResponse (TransactionFeeType)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TransactionFeeType>> GetTransactionFeeTypeWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListTransactionFees: List TransactionFees
+        /// [EXPERIMENTAL] ListTransactionFeeTypes: List transaction fee types
         /// </summary>
         /// <remarks>
-        /// List TransactionFees that match the specified criteria.
+        /// List transaction fee types that match the specified criteria.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime at which to retrieve TransactionFee properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the TransactionFees.              Defaults to latest if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing TransactionFees from a previous call to list TransactionFees.  This value is returned from the previous call. If a pagination token is provided the filter,  sortBy, effectiveAt and asAt field must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime at which to retrieve transaction fee type properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the transaction fee types.              Defaults to latest if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing transaction fee types from a previous call to list transaction fee types.  This value is returned from the previous call. If a pagination token is provided the filter,  sortBy, effectiveAt and asAt field must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set.              For example, to filter on the Scope, use \&quot;scope eq &#39;ExampleScope&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
@@ -307,19 +307,19 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ResourceListOfTransactionFee</returns>
-        System.Threading.Tasks.Task<ResourceListOfTransactionFee> ListTransactionFeesAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <returns>Task of ResourceListOfTransactionFeeType</returns>
+        System.Threading.Tasks.Task<ResourceListOfTransactionFeeType> ListTransactionFeeTypesAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListTransactionFees: List TransactionFees
+        /// [EXPERIMENTAL] ListTransactionFeeTypes: List transaction fee types
         /// </summary>
         /// <remarks>
-        /// List TransactionFees that match the specified criteria.
+        /// List transaction fee types that match the specified criteria.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime at which to retrieve TransactionFee properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the TransactionFees.              Defaults to latest if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing TransactionFees from a previous call to list TransactionFees.  This value is returned from the previous call. If a pagination token is provided the filter,  sortBy, effectiveAt and asAt field must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime at which to retrieve transaction fee type properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the transaction fee types.              Defaults to latest if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing transaction fee types from a previous call to list transaction fee types.  This value is returned from the previous call. If a pagination token is provided the filter,  sortBy, effectiveAt and asAt field must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set.              For example, to filter on the Scope, use \&quot;scope eq &#39;ExampleScope&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
@@ -327,46 +327,46 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse (ResourceListOfTransactionFee)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfTransactionFee>> ListTransactionFeesWithHttpInfoAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <returns>Task of ApiResponse (ResourceListOfTransactionFeeType)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfTransactionFeeType>> ListTransactionFeeTypesWithHttpInfoAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] UpdateTransactionFee: Update a TransactionFee
+        /// [EXPERIMENTAL] UpdateTransactionFeeType: Update a transaction fee type
         /// </summary>
         /// <remarks>
-        /// Update a TransactionFee by providing the new contents of the TransactionFee.  The name field and the capitalisation field can not be updated.
+        /// Update a transaction fee type by providing the new contents of the transaction fee type.  The displayName field cannot be updated.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the TransactionFee.</param>
-        /// <param name="code">The code of the specified TransactionFee.              Together with the scope this uniquely identifies the TransactionFee.</param>
-        /// <param name="updateTransactionFeeRequest">The updated contents of the TransactionFee.</param>
+        /// <param name="scope">The scope of the transaction fee type.</param>
+        /// <param name="code">The code of the specified transaction fee type.              Together with the scope this uniquely identifies the transaction fee type.</param>
+        /// <param name="updateTransactionFeeTypeRequest">The updated contents of the transaction fee type.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of TransactionFee</returns>
-        System.Threading.Tasks.Task<TransactionFee> UpdateTransactionFeeAsync(string scope, string code, UpdateTransactionFeeRequest updateTransactionFeeRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <returns>Task of TransactionFeeType</returns>
+        System.Threading.Tasks.Task<TransactionFeeType> UpdateTransactionFeeTypeAsync(string scope, string code, UpdateTransactionFeeTypeRequest updateTransactionFeeTypeRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateTransactionFee: Update a TransactionFee
+        /// [EXPERIMENTAL] UpdateTransactionFeeType: Update a transaction fee type
         /// </summary>
         /// <remarks>
-        /// Update a TransactionFee by providing the new contents of the TransactionFee.  The name field and the capitalisation field can not be updated.
+        /// Update a transaction fee type by providing the new contents of the transaction fee type.  The displayName field cannot be updated.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the TransactionFee.</param>
-        /// <param name="code">The code of the specified TransactionFee.              Together with the scope this uniquely identifies the TransactionFee.</param>
-        /// <param name="updateTransactionFeeRequest">The updated contents of the TransactionFee.</param>
+        /// <param name="scope">The scope of the transaction fee type.</param>
+        /// <param name="code">The code of the specified transaction fee type.              Together with the scope this uniquely identifies the transaction fee type.</param>
+        /// <param name="updateTransactionFeeTypeRequest">The updated contents of the transaction fee type.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse (TransactionFee)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TransactionFee>> UpdateTransactionFeeWithHttpInfoAsync(string scope, string code, UpdateTransactionFeeRequest updateTransactionFeeRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <returns>Task of ApiResponse (TransactionFeeType)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TransactionFeeType>> UpdateTransactionFeeTypeWithHttpInfoAsync(string scope, string code, UpdateTransactionFeeTypeRequest updateTransactionFeeTypeRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface ITransactionTransactionFeesApi : ITransactionTransactionFeesApiSync, ITransactionTransactionFeesApiAsync
+    public interface ITransactionFeeTypesApi : ITransactionFeeTypesApiSync, ITransactionFeeTypesApiAsync
     {
 
     }
@@ -374,23 +374,23 @@ namespace Lusid.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class TransactionTransactionFeesApi : ITransactionTransactionFeesApi
+    public partial class TransactionFeeTypesApi : ITransactionFeeTypesApi
     {
         private Lusid.Sdk.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TransactionTransactionFeesApi"/> class.
+        /// Initializes a new instance of the <see cref="TransactionFeeTypesApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public TransactionTransactionFeesApi() : this((string)null)
+        public TransactionFeeTypesApi() : this((string)null)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TransactionTransactionFeesApi"/> class.
+        /// Initializes a new instance of the <see cref="TransactionFeeTypesApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public TransactionTransactionFeesApi(string basePath)
+        public TransactionFeeTypesApi(string basePath)
         {
             var globalConfiguration = Lusid.Sdk.Client.GlobalConfiguration.Instance;
             this.Configuration = Lusid.Sdk.Client.Configuration.MergeConfigurations(
@@ -408,12 +408,12 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TransactionTransactionFeesApi"/> class
+        /// Initializes a new instance of the <see cref="TransactionFeeTypesApi"/> class
         /// using Configuration object
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public TransactionTransactionFeesApi(Lusid.Sdk.Client.Configuration configuration)
+        public TransactionFeeTypesApi(Lusid.Sdk.Client.Configuration configuration)
         {
             if (configuration == null) throw new ArgumentNullException("configuration");
 
@@ -424,13 +424,13 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TransactionTransactionFeesApi"/> class
+        /// Initializes a new instance of the <see cref="TransactionFeeTypesApi"/> class
         /// using a Configuration object and client instance.
         /// </summary>
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public TransactionTransactionFeesApi(Lusid.Sdk.Client.ISynchronousClient client, Lusid.Sdk.Client.IAsynchronousClient asyncClient, Lusid.Sdk.Client.IReadableConfiguration configuration)
+        public TransactionFeeTypesApi(Lusid.Sdk.Client.ISynchronousClient client, Lusid.Sdk.Client.IAsynchronousClient asyncClient, Lusid.Sdk.Client.IReadableConfiguration configuration)
         {
             if (client == null) throw new ArgumentNullException("client");
             if (asyncClient == null) throw new ArgumentNullException("asyncClient");
@@ -484,49 +484,49 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateTransactionFee: Create a TransactionFee Create a TransactionFee for the specified scope and code.
+        /// [EXPERIMENTAL] CreateTransactionFeeType: Create a transaction fee type Create a transaction fee type for the specified scope and code.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the TransactionFee.</param>
-        /// <param name="code">The code of the TransactionFee.              Together with the scope this uniquely identifies the TransactionFee.</param>
-        /// <param name="createTransactionFeeRequest">The contents of the TransactionFee.</param>
+        /// <param name="scope">The scope of the transaction fee type.</param>
+        /// <param name="code">The code of the transaction fee type.              Together with the scope this uniquely identifies the transaction fee type.</param>
+        /// <param name="createTransactionFeeTypeRequest">The contents of the transaction fee type.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>TransactionFee</returns>
-        public TransactionFee CreateTransactionFee(string scope, string code, CreateTransactionFeeRequest createTransactionFeeRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
+        /// <returns>TransactionFeeType</returns>
+        public TransactionFeeType CreateTransactionFeeType(string scope, string code, CreateTransactionFeeTypeRequest createTransactionFeeTypeRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<TransactionFee> localVarResponse = CreateTransactionFeeWithHttpInfo(scope, code, createTransactionFeeRequest, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<TransactionFeeType> localVarResponse = CreateTransactionFeeTypeWithHttpInfo(scope, code, createTransactionFeeTypeRequest, opts: opts);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateTransactionFee: Create a TransactionFee Create a TransactionFee for the specified scope and code.
+        /// [EXPERIMENTAL] CreateTransactionFeeType: Create a transaction fee type Create a transaction fee type for the specified scope and code.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the TransactionFee.</param>
-        /// <param name="code">The code of the TransactionFee.              Together with the scope this uniquely identifies the TransactionFee.</param>
-        /// <param name="createTransactionFeeRequest">The contents of the TransactionFee.</param>
+        /// <param name="scope">The scope of the transaction fee type.</param>
+        /// <param name="code">The code of the transaction fee type.              Together with the scope this uniquely identifies the transaction fee type.</param>
+        /// <param name="createTransactionFeeTypeRequest">The contents of the transaction fee type.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of TransactionFee</returns>
-        public Lusid.Sdk.Client.ApiResponse<TransactionFee> CreateTransactionFeeWithHttpInfo(string scope, string code, CreateTransactionFeeRequest createTransactionFeeRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
+        /// <returns>ApiResponse of TransactionFeeType</returns>
+        public Lusid.Sdk.Client.ApiResponse<TransactionFeeType> CreateTransactionFeeTypeWithHttpInfo(string scope, string code, CreateTransactionFeeTypeRequest createTransactionFeeTypeRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling TransactionTransactionFeesApi->CreateTransactionFee");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling TransactionFeeTypesApi->CreateTransactionFeeType");
             }
 
             // verify the required parameter 'code' is set
             if (code == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling TransactionTransactionFeesApi->CreateTransactionFee");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling TransactionFeeTypesApi->CreateTransactionFeeType");
             }
 
-            // verify the required parameter 'createTransactionFeeRequest' is set
-            if (createTransactionFeeRequest == null)
+            // verify the required parameter 'createTransactionFeeTypeRequest' is set
+            if (createTransactionFeeTypeRequest == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'createTransactionFeeRequest' when calling TransactionTransactionFeesApi->CreateTransactionFee");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'createTransactionFeeTypeRequest' when calling TransactionFeeTypesApi->CreateTransactionFeeType");
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
@@ -569,9 +569,9 @@ namespace Lusid.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
             localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
-            localVarRequestOptions.Data = createTransactionFeeRequest;
+            localVarRequestOptions.Data = createTransactionFeeTypeRequest;
 
-            localVarRequestOptions.Operation = "TransactionTransactionFeesApi.CreateTransactionFee";
+            localVarRequestOptions.Operation = "TransactionFeeTypesApi.CreateTransactionFeeType";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -592,10 +592,10 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<TransactionFee>("/api/transactions/transactionfees/{scope}/{code}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<TransactionFeeType>("/api/transactions/transactionfeetypes/{scope}/{code}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CreateTransactionFee", localVarResponse);
+                Exception _exception = this.ExceptionFactory("CreateTransactionFeeType", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -606,51 +606,51 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateTransactionFee: Create a TransactionFee Create a TransactionFee for the specified scope and code.
+        /// [EXPERIMENTAL] CreateTransactionFeeType: Create a transaction fee type Create a transaction fee type for the specified scope and code.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the TransactionFee.</param>
-        /// <param name="code">The code of the TransactionFee.              Together with the scope this uniquely identifies the TransactionFee.</param>
-        /// <param name="createTransactionFeeRequest">The contents of the TransactionFee.</param>
+        /// <param name="scope">The scope of the transaction fee type.</param>
+        /// <param name="code">The code of the transaction fee type.              Together with the scope this uniquely identifies the transaction fee type.</param>
+        /// <param name="createTransactionFeeTypeRequest">The contents of the transaction fee type.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of TransactionFee</returns>
-        public async System.Threading.Tasks.Task<TransactionFee> CreateTransactionFeeAsync(string scope, string code, CreateTransactionFeeRequest createTransactionFeeRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        /// <returns>Task of TransactionFeeType</returns>
+        public async System.Threading.Tasks.Task<TransactionFeeType> CreateTransactionFeeTypeAsync(string scope, string code, CreateTransactionFeeTypeRequest createTransactionFeeTypeRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<TransactionFee> localVarResponse = await CreateTransactionFeeWithHttpInfoAsync(scope, code, createTransactionFeeRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<TransactionFeeType> localVarResponse = await CreateTransactionFeeTypeWithHttpInfoAsync(scope, code, createTransactionFeeTypeRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateTransactionFee: Create a TransactionFee Create a TransactionFee for the specified scope and code.
+        /// [EXPERIMENTAL] CreateTransactionFeeType: Create a transaction fee type Create a transaction fee type for the specified scope and code.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the TransactionFee.</param>
-        /// <param name="code">The code of the TransactionFee.              Together with the scope this uniquely identifies the TransactionFee.</param>
-        /// <param name="createTransactionFeeRequest">The contents of the TransactionFee.</param>
+        /// <param name="scope">The scope of the transaction fee type.</param>
+        /// <param name="code">The code of the transaction fee type.              Together with the scope this uniquely identifies the transaction fee type.</param>
+        /// <param name="createTransactionFeeTypeRequest">The contents of the transaction fee type.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse (TransactionFee)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TransactionFee>> CreateTransactionFeeWithHttpInfoAsync(string scope, string code, CreateTransactionFeeRequest createTransactionFeeRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        /// <returns>Task of ApiResponse (TransactionFeeType)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TransactionFeeType>> CreateTransactionFeeTypeWithHttpInfoAsync(string scope, string code, CreateTransactionFeeTypeRequest createTransactionFeeTypeRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling TransactionTransactionFeesApi->CreateTransactionFee");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling TransactionFeeTypesApi->CreateTransactionFeeType");
             }
 
             // verify the required parameter 'code' is set
             if (code == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling TransactionTransactionFeesApi->CreateTransactionFee");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling TransactionFeeTypesApi->CreateTransactionFeeType");
             }
 
-            // verify the required parameter 'createTransactionFeeRequest' is set
-            if (createTransactionFeeRequest == null)
+            // verify the required parameter 'createTransactionFeeTypeRequest' is set
+            if (createTransactionFeeTypeRequest == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'createTransactionFeeRequest' when calling TransactionTransactionFeesApi->CreateTransactionFee");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'createTransactionFeeTypeRequest' when calling TransactionFeeTypesApi->CreateTransactionFeeType");
             }
 
 
@@ -694,9 +694,9 @@ namespace Lusid.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
             localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
-            localVarRequestOptions.Data = createTransactionFeeRequest;
+            localVarRequestOptions.Data = createTransactionFeeTypeRequest;
 
-            localVarRequestOptions.Operation = "TransactionTransactionFeesApi.CreateTransactionFee";
+            localVarRequestOptions.Operation = "TransactionFeeTypesApi.CreateTransactionFeeType";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -717,11 +717,11 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionFee>("/api/transactions/transactionfees/{scope}/{code}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionFeeType>("/api/transactions/transactionfeetypes/{scope}/{code}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CreateTransactionFee", localVarResponse);
+                Exception _exception = this.ExceptionFactory("CreateTransactionFeeType", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -732,41 +732,41 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTransactionFee: Delete a TransactionFee Delete a TransactionFee for the specified scope and code. To note, this will be a monotemporal delete, meaning that  the TransactionFee will be deleted for all effective time (including past and future versions of the TransactionFee).
+        /// [EXPERIMENTAL] DeleteTransactionFeeType: Delete a transaction fee type Delete a transaction fee type for the specified scope and code. To note, this will be a monotemporal delete, meaning that  the transaction fee type will be deleted for all effective time (including past and future versions of the transaction fee type).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the TransactionFee.</param>
-        /// <param name="code">The code of the specified TransactionFee.              Together with the scope this uniquely identifies the TransactionFee.</param>
+        /// <param name="scope">The scope of the transaction fee type.</param>
+        /// <param name="code">The code of the specified transaction fee type.              Together with the scope this uniquely identifies the transaction fee type.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
-        public DeletedEntityResponse DeleteTransactionFee(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null)
+        public DeletedEntityResponse DeleteTransactionFeeType(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteTransactionFeeWithHttpInfo(scope, code, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteTransactionFeeTypeWithHttpInfo(scope, code, opts: opts);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTransactionFee: Delete a TransactionFee Delete a TransactionFee for the specified scope and code. To note, this will be a monotemporal delete, meaning that  the TransactionFee will be deleted for all effective time (including past and future versions of the TransactionFee).
+        /// [EXPERIMENTAL] DeleteTransactionFeeType: Delete a transaction fee type Delete a transaction fee type for the specified scope and code. To note, this will be a monotemporal delete, meaning that  the transaction fee type will be deleted for all effective time (including past and future versions of the transaction fee type).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the TransactionFee.</param>
-        /// <param name="code">The code of the specified TransactionFee.              Together with the scope this uniquely identifies the TransactionFee.</param>
+        /// <param name="scope">The scope of the transaction fee type.</param>
+        /// <param name="code">The code of the specified transaction fee type.              Together with the scope this uniquely identifies the transaction fee type.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteTransactionFeeWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteTransactionFeeTypeWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling TransactionTransactionFeesApi->DeleteTransactionFee");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling TransactionFeeTypesApi->DeleteTransactionFeeType");
             }
 
             // verify the required parameter 'code' is set
             if (code == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling TransactionTransactionFeesApi->DeleteTransactionFee");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling TransactionFeeTypesApi->DeleteTransactionFeeType");
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
@@ -806,7 +806,7 @@ namespace Lusid.Sdk.Api
             localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
             localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
 
-            localVarRequestOptions.Operation = "TransactionTransactionFeesApi.DeleteTransactionFee";
+            localVarRequestOptions.Operation = "TransactionFeeTypesApi.DeleteTransactionFeeType";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -827,10 +827,10 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Delete<DeletedEntityResponse>("/api/transactions/transactionfees/{scope}/{code}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Delete<DeletedEntityResponse>("/api/transactions/transactionfeetypes/{scope}/{code}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("DeleteTransactionFee", localVarResponse);
+                Exception _exception = this.ExceptionFactory("DeleteTransactionFeeType", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -841,43 +841,43 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTransactionFee: Delete a TransactionFee Delete a TransactionFee for the specified scope and code. To note, this will be a monotemporal delete, meaning that  the TransactionFee will be deleted for all effective time (including past and future versions of the TransactionFee).
+        /// [EXPERIMENTAL] DeleteTransactionFeeType: Delete a transaction fee type Delete a transaction fee type for the specified scope and code. To note, this will be a monotemporal delete, meaning that  the transaction fee type will be deleted for all effective time (including past and future versions of the transaction fee type).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the TransactionFee.</param>
-        /// <param name="code">The code of the specified TransactionFee.              Together with the scope this uniquely identifies the TransactionFee.</param>
+        /// <param name="scope">The scope of the transaction fee type.</param>
+        /// <param name="code">The code of the specified transaction fee type.              Together with the scope this uniquely identifies the transaction fee type.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteTransactionFeeAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteTransactionFeeTypeAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteTransactionFeeWithHttpInfoAsync(scope, code, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteTransactionFeeTypeWithHttpInfoAsync(scope, code, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTransactionFee: Delete a TransactionFee Delete a TransactionFee for the specified scope and code. To note, this will be a monotemporal delete, meaning that  the TransactionFee will be deleted for all effective time (including past and future versions of the TransactionFee).
+        /// [EXPERIMENTAL] DeleteTransactionFeeType: Delete a transaction fee type Delete a transaction fee type for the specified scope and code. To note, this will be a monotemporal delete, meaning that  the transaction fee type will be deleted for all effective time (including past and future versions of the transaction fee type).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the TransactionFee.</param>
-        /// <param name="code">The code of the specified TransactionFee.              Together with the scope this uniquely identifies the TransactionFee.</param>
+        /// <param name="scope">The scope of the transaction fee type.</param>
+        /// <param name="code">The code of the specified transaction fee type.              Together with the scope this uniquely identifies the transaction fee type.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteTransactionFeeWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteTransactionFeeTypeWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling TransactionTransactionFeesApi->DeleteTransactionFee");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling TransactionFeeTypesApi->DeleteTransactionFeeType");
             }
 
             // verify the required parameter 'code' is set
             if (code == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling TransactionTransactionFeesApi->DeleteTransactionFee");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling TransactionFeeTypesApi->DeleteTransactionFeeType");
             }
 
 
@@ -918,7 +918,7 @@ namespace Lusid.Sdk.Api
             localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
             localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
 
-            localVarRequestOptions.Operation = "TransactionTransactionFeesApi.DeleteTransactionFee";
+            localVarRequestOptions.Operation = "TransactionFeeTypesApi.DeleteTransactionFeeType";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -939,11 +939,11 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<DeletedEntityResponse>("/api/transactions/transactionfees/{scope}/{code}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<DeletedEntityResponse>("/api/transactions/transactionfeetypes/{scope}/{code}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("DeleteTransactionFee", localVarResponse);
+                Exception _exception = this.ExceptionFactory("DeleteTransactionFeeType", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -954,47 +954,47 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTransactionFee: Get a TransactionFee Get the TransactionFee for the specified scope and code.
+        /// [EXPERIMENTAL] GetTransactionFeeType: Get a transaction fee type Get the transaction fee type for the specified scope and code.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the TransactionFee.</param>
-        /// <param name="code">The code of the TransactionFee.              Together with the scope this uniquely identifies the TransactionFee.</param>
-        /// <param name="effectiveAt">The effective datetime at which to retrieve the TransactionFee properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the TransactionFees.              Defaults to latest if not specified. (optional)</param>
-        /// <param name="propertyKeys">The collection of &#x60;PropertyKey&#x60;s that we want to decorate on identifies the TransactionFee. (optional)</param>
+        /// <param name="scope">The scope of the transaction fee type.</param>
+        /// <param name="code">The code of the transaction fee type.              Together with the scope this uniquely identifies the transaction fee type.</param>
+        /// <param name="effectiveAt">The effective datetime at which to retrieve the transaction fee type properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the transaction fee types.              Defaults to latest if not specified. (optional)</param>
+        /// <param name="propertyKeys">The collection of &#x60;PropertyKey&#x60;s that we want to decorate on the transaction fee type. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>TransactionFee</returns>
-        public TransactionFee GetTransactionFee(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        /// <returns>TransactionFeeType</returns>
+        public TransactionFeeType GetTransactionFeeType(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<TransactionFee> localVarResponse = GetTransactionFeeWithHttpInfo(scope, code, effectiveAt, asAt, propertyKeys, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<TransactionFeeType> localVarResponse = GetTransactionFeeTypeWithHttpInfo(scope, code, effectiveAt, asAt, propertyKeys, opts: opts);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTransactionFee: Get a TransactionFee Get the TransactionFee for the specified scope and code.
+        /// [EXPERIMENTAL] GetTransactionFeeType: Get a transaction fee type Get the transaction fee type for the specified scope and code.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the TransactionFee.</param>
-        /// <param name="code">The code of the TransactionFee.              Together with the scope this uniquely identifies the TransactionFee.</param>
-        /// <param name="effectiveAt">The effective datetime at which to retrieve the TransactionFee properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the TransactionFees.              Defaults to latest if not specified. (optional)</param>
-        /// <param name="propertyKeys">The collection of &#x60;PropertyKey&#x60;s that we want to decorate on identifies the TransactionFee. (optional)</param>
+        /// <param name="scope">The scope of the transaction fee type.</param>
+        /// <param name="code">The code of the transaction fee type.              Together with the scope this uniquely identifies the transaction fee type.</param>
+        /// <param name="effectiveAt">The effective datetime at which to retrieve the transaction fee type properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the transaction fee types.              Defaults to latest if not specified. (optional)</param>
+        /// <param name="propertyKeys">The collection of &#x60;PropertyKey&#x60;s that we want to decorate on the transaction fee type. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of TransactionFee</returns>
-        public Lusid.Sdk.Client.ApiResponse<TransactionFee> GetTransactionFeeWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        /// <returns>ApiResponse of TransactionFeeType</returns>
+        public Lusid.Sdk.Client.ApiResponse<TransactionFeeType> GetTransactionFeeTypeWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling TransactionTransactionFeesApi->GetTransactionFee");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling TransactionFeeTypesApi->GetTransactionFeeType");
             }
 
             // verify the required parameter 'code' is set
             if (code == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling TransactionTransactionFeesApi->GetTransactionFee");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling TransactionFeeTypesApi->GetTransactionFeeType");
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
@@ -1049,7 +1049,7 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "propertyKeys", propertyKeys));
             }
 
-            localVarRequestOptions.Operation = "TransactionTransactionFeesApi.GetTransactionFee";
+            localVarRequestOptions.Operation = "TransactionFeeTypesApi.GetTransactionFeeType";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -1070,10 +1070,10 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<TransactionFee>("/api/transactions/transactionfees/{scope}/{code}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<TransactionFeeType>("/api/transactions/transactionfeetypes/{scope}/{code}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetTransactionFee", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetTransactionFeeType", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1084,49 +1084,49 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTransactionFee: Get a TransactionFee Get the TransactionFee for the specified scope and code.
+        /// [EXPERIMENTAL] GetTransactionFeeType: Get a transaction fee type Get the transaction fee type for the specified scope and code.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the TransactionFee.</param>
-        /// <param name="code">The code of the TransactionFee.              Together with the scope this uniquely identifies the TransactionFee.</param>
-        /// <param name="effectiveAt">The effective datetime at which to retrieve the TransactionFee properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the TransactionFees.              Defaults to latest if not specified. (optional)</param>
-        /// <param name="propertyKeys">The collection of &#x60;PropertyKey&#x60;s that we want to decorate on identifies the TransactionFee. (optional)</param>
+        /// <param name="scope">The scope of the transaction fee type.</param>
+        /// <param name="code">The code of the transaction fee type.              Together with the scope this uniquely identifies the transaction fee type.</param>
+        /// <param name="effectiveAt">The effective datetime at which to retrieve the transaction fee type properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the transaction fee types.              Defaults to latest if not specified. (optional)</param>
+        /// <param name="propertyKeys">The collection of &#x60;PropertyKey&#x60;s that we want to decorate on the transaction fee type. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of TransactionFee</returns>
-        public async System.Threading.Tasks.Task<TransactionFee> GetTransactionFeeAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        /// <returns>Task of TransactionFeeType</returns>
+        public async System.Threading.Tasks.Task<TransactionFeeType> GetTransactionFeeTypeAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<TransactionFee> localVarResponse = await GetTransactionFeeWithHttpInfoAsync(scope, code, effectiveAt, asAt, propertyKeys, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<TransactionFeeType> localVarResponse = await GetTransactionFeeTypeWithHttpInfoAsync(scope, code, effectiveAt, asAt, propertyKeys, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTransactionFee: Get a TransactionFee Get the TransactionFee for the specified scope and code.
+        /// [EXPERIMENTAL] GetTransactionFeeType: Get a transaction fee type Get the transaction fee type for the specified scope and code.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the TransactionFee.</param>
-        /// <param name="code">The code of the TransactionFee.              Together with the scope this uniquely identifies the TransactionFee.</param>
-        /// <param name="effectiveAt">The effective datetime at which to retrieve the TransactionFee properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the TransactionFees.              Defaults to latest if not specified. (optional)</param>
-        /// <param name="propertyKeys">The collection of &#x60;PropertyKey&#x60;s that we want to decorate on identifies the TransactionFee. (optional)</param>
+        /// <param name="scope">The scope of the transaction fee type.</param>
+        /// <param name="code">The code of the transaction fee type.              Together with the scope this uniquely identifies the transaction fee type.</param>
+        /// <param name="effectiveAt">The effective datetime at which to retrieve the transaction fee type properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the transaction fee types.              Defaults to latest if not specified. (optional)</param>
+        /// <param name="propertyKeys">The collection of &#x60;PropertyKey&#x60;s that we want to decorate on the transaction fee type. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse (TransactionFee)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TransactionFee>> GetTransactionFeeWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        /// <returns>Task of ApiResponse (TransactionFeeType)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TransactionFeeType>> GetTransactionFeeTypeWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling TransactionTransactionFeesApi->GetTransactionFee");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling TransactionFeeTypesApi->GetTransactionFeeType");
             }
 
             // verify the required parameter 'code' is set
             if (code == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling TransactionTransactionFeesApi->GetTransactionFee");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling TransactionFeeTypesApi->GetTransactionFeeType");
             }
 
 
@@ -1179,7 +1179,7 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "propertyKeys", propertyKeys));
             }
 
-            localVarRequestOptions.Operation = "TransactionTransactionFeesApi.GetTransactionFee";
+            localVarRequestOptions.Operation = "TransactionFeeTypesApi.GetTransactionFeeType";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -1200,11 +1200,11 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<TransactionFee>("/api/transactions/transactionfees/{scope}/{code}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<TransactionFeeType>("/api/transactions/transactionfeetypes/{scope}/{code}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetTransactionFee", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetTransactionFeeType", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1215,40 +1215,40 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListTransactionFees: List TransactionFees List TransactionFees that match the specified criteria.
+        /// [EXPERIMENTAL] ListTransactionFeeTypes: List transaction fee types List transaction fee types that match the specified criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime at which to retrieve TransactionFee properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the TransactionFees.              Defaults to latest if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing TransactionFees from a previous call to list TransactionFees.  This value is returned from the previous call. If a pagination token is provided the filter,  sortBy, effectiveAt and asAt field must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime at which to retrieve transaction fee type properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the transaction fee types.              Defaults to latest if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing transaction fee types from a previous call to list transaction fee types.  This value is returned from the previous call. If a pagination token is provided the filter,  sortBy, effectiveAt and asAt field must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set.              For example, to filter on the Scope, use \&quot;scope eq &#39;ExampleScope&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="propertyKeys">The collection of &#x60;PropertyKey&#x60;s to filter on (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>ResourceListOfTransactionFee</returns>
-        public ResourceListOfTransactionFee ListTransactionFees(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        /// <returns>ResourceListOfTransactionFeeType</returns>
+        public ResourceListOfTransactionFeeType ListTransactionFeeTypes(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfTransactionFee> localVarResponse = ListTransactionFeesWithHttpInfo(effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfTransactionFeeType> localVarResponse = ListTransactionFeeTypesWithHttpInfo(effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys, opts: opts);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListTransactionFees: List TransactionFees List TransactionFees that match the specified criteria.
+        /// [EXPERIMENTAL] ListTransactionFeeTypes: List transaction fee types List transaction fee types that match the specified criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime at which to retrieve TransactionFee properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the TransactionFees.              Defaults to latest if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing TransactionFees from a previous call to list TransactionFees.  This value is returned from the previous call. If a pagination token is provided the filter,  sortBy, effectiveAt and asAt field must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime at which to retrieve transaction fee type properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the transaction fee types.              Defaults to latest if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing transaction fee types from a previous call to list transaction fee types.  This value is returned from the previous call. If a pagination token is provided the filter,  sortBy, effectiveAt and asAt field must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set.              For example, to filter on the Scope, use \&quot;scope eq &#39;ExampleScope&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="propertyKeys">The collection of &#x60;PropertyKey&#x60;s to filter on (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of ResourceListOfTransactionFee</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfTransactionFee> ListTransactionFeesWithHttpInfo(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        /// <returns>ApiResponse of ResourceListOfTransactionFeeType</returns>
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfTransactionFeeType> ListTransactionFeeTypesWithHttpInfo(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
 
@@ -1320,7 +1320,7 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "propertyKeys", propertyKeys));
             }
 
-            localVarRequestOptions.Operation = "TransactionTransactionFeesApi.ListTransactionFees";
+            localVarRequestOptions.Operation = "TransactionFeeTypesApi.ListTransactionFeeTypes";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -1341,10 +1341,10 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<ResourceListOfTransactionFee>("/api/transactions/transactionfees", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<ResourceListOfTransactionFeeType>("/api/transactions/transactionfeetypes", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ListTransactionFees", localVarResponse);
+                Exception _exception = this.ExceptionFactory("ListTransactionFeeTypes", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1355,12 +1355,12 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListTransactionFees: List TransactionFees List TransactionFees that match the specified criteria.
+        /// [EXPERIMENTAL] ListTransactionFeeTypes: List transaction fee types List transaction fee types that match the specified criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime at which to retrieve TransactionFee properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the TransactionFees.              Defaults to latest if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing TransactionFees from a previous call to list TransactionFees.  This value is returned from the previous call. If a pagination token is provided the filter,  sortBy, effectiveAt and asAt field must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime at which to retrieve transaction fee type properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the transaction fee types.              Defaults to latest if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing transaction fee types from a previous call to list transaction fee types.  This value is returned from the previous call. If a pagination token is provided the filter,  sortBy, effectiveAt and asAt field must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set.              For example, to filter on the Scope, use \&quot;scope eq &#39;ExampleScope&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
@@ -1368,20 +1368,20 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ResourceListOfTransactionFee</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfTransactionFee> ListTransactionFeesAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        /// <returns>Task of ResourceListOfTransactionFeeType</returns>
+        public async System.Threading.Tasks.Task<ResourceListOfTransactionFeeType> ListTransactionFeeTypesAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfTransactionFee> localVarResponse = await ListTransactionFeesWithHttpInfoAsync(effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfTransactionFeeType> localVarResponse = await ListTransactionFeeTypesWithHttpInfoAsync(effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListTransactionFees: List TransactionFees List TransactionFees that match the specified criteria.
+        /// [EXPERIMENTAL] ListTransactionFeeTypes: List transaction fee types List transaction fee types that match the specified criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="effectiveAt">The effective datetime at which to retrieve TransactionFee properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the TransactionFees.              Defaults to latest if not specified. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing TransactionFees from a previous call to list TransactionFees.  This value is returned from the previous call. If a pagination token is provided the filter,  sortBy, effectiveAt and asAt field must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime at which to retrieve transaction fee type properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the transaction fee types.              Defaults to latest if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing transaction fee types from a previous call to list transaction fee types.  This value is returned from the previous call. If a pagination token is provided the filter,  sortBy, effectiveAt and asAt field must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set.              For example, to filter on the Scope, use \&quot;scope eq &#39;ExampleScope&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
@@ -1389,8 +1389,8 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse (ResourceListOfTransactionFee)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfTransactionFee>> ListTransactionFeesWithHttpInfoAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        /// <returns>Task of ApiResponse (ResourceListOfTransactionFeeType)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfTransactionFeeType>> ListTransactionFeeTypesWithHttpInfoAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
@@ -1456,7 +1456,7 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "propertyKeys", propertyKeys));
             }
 
-            localVarRequestOptions.Operation = "TransactionTransactionFeesApi.ListTransactionFees";
+            localVarRequestOptions.Operation = "TransactionFeeTypesApi.ListTransactionFeeTypes";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -1477,11 +1477,11 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<ResourceListOfTransactionFee>("/api/transactions/transactionfees", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<ResourceListOfTransactionFeeType>("/api/transactions/transactionfeetypes", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ListTransactionFees", localVarResponse);
+                Exception _exception = this.ExceptionFactory("ListTransactionFeeTypes", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1492,49 +1492,49 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateTransactionFee: Update a TransactionFee Update a TransactionFee by providing the new contents of the TransactionFee.  The name field and the capitalisation field can not be updated.
+        /// [EXPERIMENTAL] UpdateTransactionFeeType: Update a transaction fee type Update a transaction fee type by providing the new contents of the transaction fee type.  The displayName field cannot be updated.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the TransactionFee.</param>
-        /// <param name="code">The code of the specified TransactionFee.              Together with the scope this uniquely identifies the TransactionFee.</param>
-        /// <param name="updateTransactionFeeRequest">The updated contents of the TransactionFee.</param>
+        /// <param name="scope">The scope of the transaction fee type.</param>
+        /// <param name="code">The code of the specified transaction fee type.              Together with the scope this uniquely identifies the transaction fee type.</param>
+        /// <param name="updateTransactionFeeTypeRequest">The updated contents of the transaction fee type.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>TransactionFee</returns>
-        public TransactionFee UpdateTransactionFee(string scope, string code, UpdateTransactionFeeRequest updateTransactionFeeRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
+        /// <returns>TransactionFeeType</returns>
+        public TransactionFeeType UpdateTransactionFeeType(string scope, string code, UpdateTransactionFeeTypeRequest updateTransactionFeeTypeRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<TransactionFee> localVarResponse = UpdateTransactionFeeWithHttpInfo(scope, code, updateTransactionFeeRequest, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<TransactionFeeType> localVarResponse = UpdateTransactionFeeTypeWithHttpInfo(scope, code, updateTransactionFeeTypeRequest, opts: opts);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateTransactionFee: Update a TransactionFee Update a TransactionFee by providing the new contents of the TransactionFee.  The name field and the capitalisation field can not be updated.
+        /// [EXPERIMENTAL] UpdateTransactionFeeType: Update a transaction fee type Update a transaction fee type by providing the new contents of the transaction fee type.  The displayName field cannot be updated.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the TransactionFee.</param>
-        /// <param name="code">The code of the specified TransactionFee.              Together with the scope this uniquely identifies the TransactionFee.</param>
-        /// <param name="updateTransactionFeeRequest">The updated contents of the TransactionFee.</param>
+        /// <param name="scope">The scope of the transaction fee type.</param>
+        /// <param name="code">The code of the specified transaction fee type.              Together with the scope this uniquely identifies the transaction fee type.</param>
+        /// <param name="updateTransactionFeeTypeRequest">The updated contents of the transaction fee type.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of TransactionFee</returns>
-        public Lusid.Sdk.Client.ApiResponse<TransactionFee> UpdateTransactionFeeWithHttpInfo(string scope, string code, UpdateTransactionFeeRequest updateTransactionFeeRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
+        /// <returns>ApiResponse of TransactionFeeType</returns>
+        public Lusid.Sdk.Client.ApiResponse<TransactionFeeType> UpdateTransactionFeeTypeWithHttpInfo(string scope, string code, UpdateTransactionFeeTypeRequest updateTransactionFeeTypeRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling TransactionTransactionFeesApi->UpdateTransactionFee");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling TransactionFeeTypesApi->UpdateTransactionFeeType");
             }
 
             // verify the required parameter 'code' is set
             if (code == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling TransactionTransactionFeesApi->UpdateTransactionFee");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling TransactionFeeTypesApi->UpdateTransactionFeeType");
             }
 
-            // verify the required parameter 'updateTransactionFeeRequest' is set
-            if (updateTransactionFeeRequest == null)
+            // verify the required parameter 'updateTransactionFeeTypeRequest' is set
+            if (updateTransactionFeeTypeRequest == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'updateTransactionFeeRequest' when calling TransactionTransactionFeesApi->UpdateTransactionFee");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'updateTransactionFeeTypeRequest' when calling TransactionFeeTypesApi->UpdateTransactionFeeType");
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
@@ -1577,9 +1577,9 @@ namespace Lusid.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
             localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
-            localVarRequestOptions.Data = updateTransactionFeeRequest;
+            localVarRequestOptions.Data = updateTransactionFeeTypeRequest;
 
-            localVarRequestOptions.Operation = "TransactionTransactionFeesApi.UpdateTransactionFee";
+            localVarRequestOptions.Operation = "TransactionFeeTypesApi.UpdateTransactionFeeType";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -1600,10 +1600,10 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<TransactionFee>("/api/transactions/transactionfees/{scope}/{code}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Put<TransactionFeeType>("/api/transactions/transactionfeetypes/{scope}/{code}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UpdateTransactionFee", localVarResponse);
+                Exception _exception = this.ExceptionFactory("UpdateTransactionFeeType", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1614,51 +1614,51 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateTransactionFee: Update a TransactionFee Update a TransactionFee by providing the new contents of the TransactionFee.  The name field and the capitalisation field can not be updated.
+        /// [EXPERIMENTAL] UpdateTransactionFeeType: Update a transaction fee type Update a transaction fee type by providing the new contents of the transaction fee type.  The displayName field cannot be updated.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the TransactionFee.</param>
-        /// <param name="code">The code of the specified TransactionFee.              Together with the scope this uniquely identifies the TransactionFee.</param>
-        /// <param name="updateTransactionFeeRequest">The updated contents of the TransactionFee.</param>
+        /// <param name="scope">The scope of the transaction fee type.</param>
+        /// <param name="code">The code of the specified transaction fee type.              Together with the scope this uniquely identifies the transaction fee type.</param>
+        /// <param name="updateTransactionFeeTypeRequest">The updated contents of the transaction fee type.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of TransactionFee</returns>
-        public async System.Threading.Tasks.Task<TransactionFee> UpdateTransactionFeeAsync(string scope, string code, UpdateTransactionFeeRequest updateTransactionFeeRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        /// <returns>Task of TransactionFeeType</returns>
+        public async System.Threading.Tasks.Task<TransactionFeeType> UpdateTransactionFeeTypeAsync(string scope, string code, UpdateTransactionFeeTypeRequest updateTransactionFeeTypeRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<TransactionFee> localVarResponse = await UpdateTransactionFeeWithHttpInfoAsync(scope, code, updateTransactionFeeRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<TransactionFeeType> localVarResponse = await UpdateTransactionFeeTypeWithHttpInfoAsync(scope, code, updateTransactionFeeTypeRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateTransactionFee: Update a TransactionFee Update a TransactionFee by providing the new contents of the TransactionFee.  The name field and the capitalisation field can not be updated.
+        /// [EXPERIMENTAL] UpdateTransactionFeeType: Update a transaction fee type Update a transaction fee type by providing the new contents of the transaction fee type.  The displayName field cannot be updated.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the TransactionFee.</param>
-        /// <param name="code">The code of the specified TransactionFee.              Together with the scope this uniquely identifies the TransactionFee.</param>
-        /// <param name="updateTransactionFeeRequest">The updated contents of the TransactionFee.</param>
+        /// <param name="scope">The scope of the transaction fee type.</param>
+        /// <param name="code">The code of the specified transaction fee type.              Together with the scope this uniquely identifies the transaction fee type.</param>
+        /// <param name="updateTransactionFeeTypeRequest">The updated contents of the transaction fee type.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse (TransactionFee)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TransactionFee>> UpdateTransactionFeeWithHttpInfoAsync(string scope, string code, UpdateTransactionFeeRequest updateTransactionFeeRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        /// <returns>Task of ApiResponse (TransactionFeeType)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TransactionFeeType>> UpdateTransactionFeeTypeWithHttpInfoAsync(string scope, string code, UpdateTransactionFeeTypeRequest updateTransactionFeeTypeRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling TransactionTransactionFeesApi->UpdateTransactionFee");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling TransactionFeeTypesApi->UpdateTransactionFeeType");
             }
 
             // verify the required parameter 'code' is set
             if (code == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling TransactionTransactionFeesApi->UpdateTransactionFee");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling TransactionFeeTypesApi->UpdateTransactionFeeType");
             }
 
-            // verify the required parameter 'updateTransactionFeeRequest' is set
-            if (updateTransactionFeeRequest == null)
+            // verify the required parameter 'updateTransactionFeeTypeRequest' is set
+            if (updateTransactionFeeTypeRequest == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'updateTransactionFeeRequest' when calling TransactionTransactionFeesApi->UpdateTransactionFee");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'updateTransactionFeeTypeRequest' when calling TransactionFeeTypesApi->UpdateTransactionFeeType");
             }
 
 
@@ -1702,9 +1702,9 @@ namespace Lusid.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
             localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
-            localVarRequestOptions.Data = updateTransactionFeeRequest;
+            localVarRequestOptions.Data = updateTransactionFeeTypeRequest;
 
-            localVarRequestOptions.Operation = "TransactionTransactionFeesApi.UpdateTransactionFee";
+            localVarRequestOptions.Operation = "TransactionFeeTypesApi.UpdateTransactionFeeType";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -1725,11 +1725,11 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PutAsync<TransactionFee>("/api/transactions/transactionfees/{scope}/{code}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PutAsync<TransactionFeeType>("/api/transactions/transactionfeetypes/{scope}/{code}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UpdateTransactionFee", localVarResponse);
+                Exception _exception = this.ExceptionFactory("UpdateTransactionFeeType", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

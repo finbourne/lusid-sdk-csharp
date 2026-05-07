@@ -23,56 +23,56 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// CreateTransactionFeeRequest
+    /// CreateTransactionFeeTypeRequest
     /// </summary>
-    [DataContract(Name = "CreateTransactionFeeRequest")]
-    public partial class CreateTransactionFeeRequest : IEquatable<CreateTransactionFeeRequest>, IValidatableObject
+    [DataContract(Name = "CreateTransactionFeeTypeRequest")]
+    public partial class CreateTransactionFeeTypeRequest : IEquatable<CreateTransactionFeeTypeRequest>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="CreateTransactionFeeRequest" /> class.
+        /// Initializes a new instance of the <see cref="CreateTransactionFeeTypeRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected CreateTransactionFeeRequest() { }
+        protected CreateTransactionFeeTypeRequest() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="CreateTransactionFeeRequest" /> class.
+        /// Initializes a new instance of the <see cref="CreateTransactionFeeTypeRequest" /> class.
         /// </summary>
-        /// <param name="name">The display name of the transaction fee. (required).</param>
-        /// <param name="description">A description of the transaction fee. (required).</param>
+        /// <param name="displayName">The display name of the transaction fee type. (required).</param>
+        /// <param name="description">A description of the transaction fee type. (required).</param>
         /// <param name="calculation">calculation (required).</param>
         /// <param name="condition">The condition that the transaction must meet in order for the fee to be applied. (required).</param>
         /// <param name="txnPropertyKey">The property key to which the fee value will be applied and decorated onto the transaction. Must be in the &#39;Transaction&#39; property domain. (required).</param>
-        /// <param name="properties">A set of properties for the transaction fee..</param>
-        /// <param name="isActive">Indicates whether the transaction fee is currently active and should be applied to transactions. Optional when creating a transaction fee, defaults to true, if a value is not provided..</param>
-        public CreateTransactionFeeRequest(string name = default(string), string description = default(string), FeeCalculationRequest calculation = default(FeeCalculationRequest), string condition = default(string), string txnPropertyKey = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), bool isActive = default(bool))
+        /// <param name="properties">A set of properties for the transaction fee type..</param>
+        /// <param name="isActive">Indicates whether the transaction fee type is currently active and should be applied to transactions. Optional when creating a transaction fee type, defaults to true, if a value is not provided..</param>
+        public CreateTransactionFeeTypeRequest(string displayName = default(string), string description = default(string), FeeCalculationRequest calculation = default(FeeCalculationRequest), string condition = default(string), string txnPropertyKey = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), bool isActive = default(bool))
         {
-            // to ensure "name" is required (not null)
-            if (name == null)
+            // to ensure "displayName" is required (not null)
+            if (displayName == null)
             {
-                throw new ArgumentNullException("name is a required property for CreateTransactionFeeRequest and cannot be null");
+                throw new ArgumentNullException("displayName is a required property for CreateTransactionFeeTypeRequest and cannot be null");
             }
-            this.Name = name;
+            this.DisplayName = displayName;
             // to ensure "description" is required (not null)
             if (description == null)
             {
-                throw new ArgumentNullException("description is a required property for CreateTransactionFeeRequest and cannot be null");
+                throw new ArgumentNullException("description is a required property for CreateTransactionFeeTypeRequest and cannot be null");
             }
             this.Description = description;
             // to ensure "calculation" is required (not null)
             if (calculation == null)
             {
-                throw new ArgumentNullException("calculation is a required property for CreateTransactionFeeRequest and cannot be null");
+                throw new ArgumentNullException("calculation is a required property for CreateTransactionFeeTypeRequest and cannot be null");
             }
             this.Calculation = calculation;
             // to ensure "condition" is required (not null)
             if (condition == null)
             {
-                throw new ArgumentNullException("condition is a required property for CreateTransactionFeeRequest and cannot be null");
+                throw new ArgumentNullException("condition is a required property for CreateTransactionFeeTypeRequest and cannot be null");
             }
             this.Condition = condition;
             // to ensure "txnPropertyKey" is required (not null)
             if (txnPropertyKey == null)
             {
-                throw new ArgumentNullException("txnPropertyKey is a required property for CreateTransactionFeeRequest and cannot be null");
+                throw new ArgumentNullException("txnPropertyKey is a required property for CreateTransactionFeeTypeRequest and cannot be null");
             }
             this.TxnPropertyKey = txnPropertyKey;
             this.Properties = properties;
@@ -80,16 +80,16 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The display name of the transaction fee.
+        /// The display name of the transaction fee type.
         /// </summary>
-        /// <value>The display name of the transaction fee.</value>
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
-        public string Name { get; set; }
+        /// <value>The display name of the transaction fee type.</value>
+        [DataMember(Name = "displayName", IsRequired = true, EmitDefaultValue = true)]
+        public string DisplayName { get; set; }
 
         /// <summary>
-        /// A description of the transaction fee.
+        /// A description of the transaction fee type.
         /// </summary>
-        /// <value>A description of the transaction fee.</value>
+        /// <value>A description of the transaction fee type.</value>
         [DataMember(Name = "description", IsRequired = true, EmitDefaultValue = true)]
         public string Description { get; set; }
 
@@ -114,16 +114,16 @@ namespace Lusid.Sdk.Model
         public string TxnPropertyKey { get; set; }
 
         /// <summary>
-        /// A set of properties for the transaction fee.
+        /// A set of properties for the transaction fee type.
         /// </summary>
-        /// <value>A set of properties for the transaction fee.</value>
+        /// <value>A set of properties for the transaction fee type.</value>
         [DataMember(Name = "properties", EmitDefaultValue = true)]
         public Dictionary<string, Property> Properties { get; set; }
 
         /// <summary>
-        /// Indicates whether the transaction fee is currently active and should be applied to transactions. Optional when creating a transaction fee, defaults to true, if a value is not provided.
+        /// Indicates whether the transaction fee type is currently active and should be applied to transactions. Optional when creating a transaction fee type, defaults to true, if a value is not provided.
         /// </summary>
-        /// <value>Indicates whether the transaction fee is currently active and should be applied to transactions. Optional when creating a transaction fee, defaults to true, if a value is not provided.</value>
+        /// <value>Indicates whether the transaction fee type is currently active and should be applied to transactions. Optional when creating a transaction fee type, defaults to true, if a value is not provided.</value>
         [DataMember(Name = "isActive", EmitDefaultValue = true)]
         public bool IsActive { get; set; }
 
@@ -134,8 +134,8 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class CreateTransactionFeeRequest {\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("class CreateTransactionFeeTypeRequest {\n");
+            sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Calculation: ").Append(Calculation).Append("\n");
             sb.Append("  Condition: ").Append(Condition).Append("\n");
@@ -162,15 +162,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as CreateTransactionFeeRequest);
+            return this.Equals(input as CreateTransactionFeeTypeRequest);
         }
 
         /// <summary>
-        /// Returns true if CreateTransactionFeeRequest instances are equal
+        /// Returns true if CreateTransactionFeeTypeRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of CreateTransactionFeeRequest to be compared</param>
+        /// <param name="input">Instance of CreateTransactionFeeTypeRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CreateTransactionFeeRequest input)
+        public bool Equals(CreateTransactionFeeTypeRequest input)
         {
             if (input == null)
             {
@@ -178,9 +178,9 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
+                    this.DisplayName == input.DisplayName ||
+                    (this.DisplayName != null &&
+                    this.DisplayName.Equals(input.DisplayName))
                 ) && 
                 (
                     this.Description == input.Description ||
@@ -223,9 +223,9 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Name != null)
+                if (this.DisplayName != null)
                 {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
                 }
                 if (this.Description != null)
                 {
@@ -259,16 +259,16 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Name (string) maxLength
-            if (this.Name != null && this.Name.Length > 256)
+            // DisplayName (string) maxLength
+            if (this.DisplayName != null && this.DisplayName.Length > 256)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be less than 256.", new [] { "Name" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DisplayName, length must be less than 256.", new [] { "DisplayName" });
             }
 
-            // Name (string) minLength
-            if (this.Name != null && this.Name.Length < 1)
+            // DisplayName (string) minLength
+            if (this.DisplayName != null && this.DisplayName.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DisplayName, length must be greater than 1.", new [] { "DisplayName" });
             }
 
             // Description (string) maxLength

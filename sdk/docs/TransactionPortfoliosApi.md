@@ -2366,7 +2366,7 @@ catch (ApiException e)
 
 <a id="geta2bmovementstradingvsholding"></a>
 # **GetA2BMovementsTradingVsHolding**
-> VersionedResourceListOfA2BMovementRecord GetA2BMovementsTradingVsHolding (string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOffset? asAt = null, string? recipeIdScope = null, string? recipeIdCode = null, List<string>? propertyKeys = null, string? filter = null)
+> VersionedResourceListOfA2BMovementRecord GetA2BMovementsTradingVsHolding (string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOffset? asAt = null, string? recipeIdScope = null, string? recipeIdCode = null, List<string>? propertyKeys = null, string? filter = null, string? timelineScope = null, string? timelineCode = null, string? closedPeriodId = null)
 
 [EXPERIMENTAL] GetA2BMovementsTradingVsHolding: Get an A2B report at the movement level for the given portfolio, with P&L split between holding and trading returns.
 
@@ -2420,14 +2420,17 @@ namespace Examples
             var recipeIdCode = "recipeIdCode_example";  // string? | The code of the given recipeId (optional) 
             var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the \"Instrument\" domain to decorate onto              the results. These take the format {domain}/{scope}/{code} e.g. \"Instrument/system/Name\". (optional) 
             var filter = "filter_example";  // string? | Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
+            var timelineScope = "timelineScope_example";  // string? | The scope of the timeline to use for loading data per closed period. (optional) 
+            var timelineCode = "timelineCode_example";  // string? | The code of the timeline to use for loading data per closed period. (optional) 
+            var closedPeriodId = "closedPeriodId_example";  // string? | The closed period ID. If specified, both timelineScope and timelineCode must also be specified.              When provided, the timeline A2B is filtered to only the matching closed period. The fromEffectiveAt and toEffectiveAt              parameters still define the overall query window; the closedPeriodId restricts which closed period's data is returned within that window. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // VersionedResourceListOfA2BMovementRecord result = apiInstance.GetA2BMovementsTradingVsHolding(scope, code, fromEffectiveAt, toEffectiveAt, asAt, recipeIdScope, recipeIdCode, propertyKeys, filter, opts: opts);
+                // VersionedResourceListOfA2BMovementRecord result = apiInstance.GetA2BMovementsTradingVsHolding(scope, code, fromEffectiveAt, toEffectiveAt, asAt, recipeIdScope, recipeIdCode, propertyKeys, filter, timelineScope, timelineCode, closedPeriodId, opts: opts);
 
                 // [EXPERIMENTAL] GetA2BMovementsTradingVsHolding: Get an A2B report at the movement level for the given portfolio, with P&L split between holding and trading returns.
-                VersionedResourceListOfA2BMovementRecord result = apiInstance.GetA2BMovementsTradingVsHolding(scope, code, fromEffectiveAt, toEffectiveAt, asAt, recipeIdScope, recipeIdCode, propertyKeys, filter);
+                VersionedResourceListOfA2BMovementRecord result = apiInstance.GetA2BMovementsTradingVsHolding(scope, code, fromEffectiveAt, toEffectiveAt, asAt, recipeIdScope, recipeIdCode, propertyKeys, filter, timelineScope, timelineCode, closedPeriodId);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -2448,7 +2451,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] GetA2BMovementsTradingVsHolding: Get an A2B report at the movement level for the given portfolio, with P&L split between holding and trading returns.
-    ApiResponse<VersionedResourceListOfA2BMovementRecord> response = apiInstance.GetA2BMovementsTradingVsHoldingWithHttpInfo(scope, code, fromEffectiveAt, toEffectiveAt, asAt, recipeIdScope, recipeIdCode, propertyKeys, filter);
+    ApiResponse<VersionedResourceListOfA2BMovementRecord> response = apiInstance.GetA2BMovementsTradingVsHoldingWithHttpInfo(scope, code, fromEffectiveAt, toEffectiveAt, asAt, recipeIdScope, recipeIdCode, propertyKeys, filter, timelineScope, timelineCode, closedPeriodId);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -2474,6 +2477,9 @@ catch (ApiException e)
 | **recipeIdCode** | **string?** | The code of the given recipeId | [optional]  |
 | **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the \&quot;Instrument\&quot; domain to decorate onto              the results. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot;. | [optional]  |
 | **filter** | **string?** | Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
+| **timelineScope** | **string?** | The scope of the timeline to use for loading data per closed period. | [optional]  |
+| **timelineCode** | **string?** | The code of the timeline to use for loading data per closed period. | [optional]  |
+| **closedPeriodId** | **string?** | The closed period ID. If specified, both timelineScope and timelineCode must also be specified.              When provided, the timeline A2B is filtered to only the matching closed period. The fromEffectiveAt and toEffectiveAt              parameters still define the overall query window; the closedPeriodId restricts which closed period&#39;s data is returned within that window. | [optional]  |
 
 ### Return type
 

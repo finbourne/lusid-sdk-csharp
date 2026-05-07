@@ -637,6 +637,11 @@ Class | Method | HTTP request | Description
 *TransactionConfigurationApi* | [**SetSideDefinitions**](docs/TransactionConfigurationApi.md#setsidedefinitions) | **PUT** /api/transactionconfiguration/sides | SetSideDefinitions: Set the given side definitions
 *TransactionConfigurationApi* | [**SetTransactionType**](docs/TransactionConfigurationApi.md#settransactiontype) | **PUT** /api/transactionconfiguration/types/{source}/{type} | SetTransactionType: Set a specific transaction type
 *TransactionConfigurationApi* | [**SetTransactionTypeSource**](docs/TransactionConfigurationApi.md#settransactiontypesource) | **PUT** /api/transactionconfiguration/types/{source} | SetTransactionTypeSource: Set the transaction types for the given source and scope
+*TransactionFeeTypesApi* | [**CreateTransactionFeeType**](docs/TransactionFeeTypesApi.md#createtransactionfeetype) | **POST** /api/transactions/transactionfeetypes/{scope}/{code} | [EXPERIMENTAL] CreateTransactionFeeType: Create a transaction fee type
+*TransactionFeeTypesApi* | [**DeleteTransactionFeeType**](docs/TransactionFeeTypesApi.md#deletetransactionfeetype) | **DELETE** /api/transactions/transactionfeetypes/{scope}/{code} | [EXPERIMENTAL] DeleteTransactionFeeType: Delete a transaction fee type
+*TransactionFeeTypesApi* | [**GetTransactionFeeType**](docs/TransactionFeeTypesApi.md#gettransactionfeetype) | **GET** /api/transactions/transactionfeetypes/{scope}/{code} | [EXPERIMENTAL] GetTransactionFeeType: Get a transaction fee type
+*TransactionFeeTypesApi* | [**ListTransactionFeeTypes**](docs/TransactionFeeTypesApi.md#listtransactionfeetypes) | **GET** /api/transactions/transactionfeetypes | [EXPERIMENTAL] ListTransactionFeeTypes: List transaction fee types
+*TransactionFeeTypesApi* | [**UpdateTransactionFeeType**](docs/TransactionFeeTypesApi.md#updatetransactionfeetype) | **PUT** /api/transactions/transactionfeetypes/{scope}/{code} | [EXPERIMENTAL] UpdateTransactionFeeType: Update a transaction fee type
 *TransactionFeesApi* | [**DeleteTransactionFeeRule**](docs/TransactionFeesApi.md#deletetransactionfeerule) | **DELETE** /api/transactions/fees/rules/{code} | DeleteTransactionFeeRule: Deletes a fee rule.
 *TransactionFeesApi* | [**GetApplicableTransactionFees**](docs/TransactionFeesApi.md#getapplicabletransactionfees) | **POST** /api/transactions/fees/$GetApplicableFees | GetApplicableTransactionFees: Get the Fees and Commissions that may be applicable to a transaction.
 *TransactionFeesApi* | [**GetTransactionFeeRule**](docs/TransactionFeesApi.md#gettransactionfeerule) | **GET** /api/transactions/fees/rules/{code} | GetTransactionFeeRule: Retrieve the definition of single fee rule.
@@ -691,11 +696,6 @@ Class | Method | HTTP request | Description
 *TransactionPortfoliosApi* | [**UpsertSettlementInstructions**](docs/TransactionPortfoliosApi.md#upsertsettlementinstructions) | **POST** /api/transactionportfolios/{scope}/{code}/settlementinstructions | [EARLY ACCESS] UpsertSettlementInstructions: Upsert Settlement Instructions.
 *TransactionPortfoliosApi* | [**UpsertTransactionProperties**](docs/TransactionPortfoliosApi.md#upserttransactionproperties) | **POST** /api/transactionportfolios/{scope}/{code}/transactions/{transactionId}/properties | UpsertTransactionProperties: Upsert transaction properties
 *TransactionPortfoliosApi* | [**UpsertTransactions**](docs/TransactionPortfoliosApi.md#upserttransactions) | **POST** /api/transactionportfolios/{scope}/{code}/transactions | UpsertTransactions: Upsert transactions
-*TransactionTransactionFeesApi* | [**CreateTransactionFee**](docs/TransactionTransactionFeesApi.md#createtransactionfee) | **POST** /api/transactions/transactionfees/{scope}/{code} | [EXPERIMENTAL] CreateTransactionFee: Create a TransactionFee
-*TransactionTransactionFeesApi* | [**DeleteTransactionFee**](docs/TransactionTransactionFeesApi.md#deletetransactionfee) | **DELETE** /api/transactions/transactionfees/{scope}/{code} | [EXPERIMENTAL] DeleteTransactionFee: Delete a TransactionFee
-*TransactionTransactionFeesApi* | [**GetTransactionFee**](docs/TransactionTransactionFeesApi.md#gettransactionfee) | **GET** /api/transactions/transactionfees/{scope}/{code} | [EXPERIMENTAL] GetTransactionFee: Get a TransactionFee
-*TransactionTransactionFeesApi* | [**ListTransactionFees**](docs/TransactionTransactionFeesApi.md#listtransactionfees) | **GET** /api/transactions/transactionfees | [EXPERIMENTAL] ListTransactionFees: List TransactionFees
-*TransactionTransactionFeesApi* | [**UpdateTransactionFee**](docs/TransactionTransactionFeesApi.md#updatetransactionfee) | **PUT** /api/transactions/transactionfees/{scope}/{code} | [EXPERIMENTAL] UpdateTransactionFee: Update a TransactionFee
 *TransferAgencyApi* | [**CalculateOrderDates**](docs/TransferAgencyApi.md#calculateorderdates) | **POST** /api/transferagency/orderdates | [EXPERIMENTAL] CalculateOrderDates: Calculate the key dates associated with transfer agency orders
 *TranslationApi* | [**TranslateInstrumentDefinitions**](docs/TranslationApi.md#translateinstrumentdefinitions) | **POST** /api/translation/instrumentdefinitions | [EXPERIMENTAL] TranslateInstrumentDefinitions: Translate instruments
 *TranslationApi* | [**TranslateTradeTickets**](docs/TranslationApi.md#translatetradetickets) | **POST** /api/translation/tradetickets | [EXPERIMENTAL] TranslateTradeTickets: Translate trade ticket
@@ -998,7 +998,7 @@ Class | Method | HTTP request | Description
  - [CreateTaxRuleSetRequest](docs/CreateTaxRuleSetRequest.md)
  - [CreateTimelineRequest](docs/CreateTimelineRequest.md)
  - [CreateTradeTicketsResponse](docs/CreateTradeTicketsResponse.md)
- - [CreateTransactionFeeRequest](docs/CreateTransactionFeeRequest.md)
+ - [CreateTransactionFeeTypeRequest](docs/CreateTransactionFeeTypeRequest.md)
  - [CreateTransactionPortfolioRequest](docs/CreateTransactionPortfolioRequest.md)
  - [CreateUnitDefinition](docs/CreateUnitDefinition.md)
  - [CreditDefaultSwap](docs/CreditDefaultSwap.md)
@@ -1768,7 +1768,7 @@ Class | Method | HTTP request | Description
  - [ResourceListOfString](docs/ResourceListOfString.md)
  - [ResourceListOfTaxRuleSet](docs/ResourceListOfTaxRuleSet.md)
  - [ResourceListOfTransaction](docs/ResourceListOfTransaction.md)
- - [ResourceListOfTransactionFee](docs/ResourceListOfTransactionFee.md)
+ - [ResourceListOfTransactionFeeType](docs/ResourceListOfTransactionFeeType.md)
  - [ResourceListOfTransactionSettlementInstruction](docs/ResourceListOfTransactionSettlementInstruction.md)
  - [ResourceListOfTransactionType](docs/ResourceListOfTransactionType.md)
  - [ResourceListOfValueType](docs/ResourceListOfValueType.md)
@@ -1906,8 +1906,8 @@ Class | Method | HTTP request | Description
  - [TransactionCurrencyAndAmount](docs/TransactionCurrencyAndAmount.md)
  - [TransactionDateWindows](docs/TransactionDateWindows.md)
  - [TransactionDiagnostics](docs/TransactionDiagnostics.md)
- - [TransactionFee](docs/TransactionFee.md)
  - [TransactionFeeCapitalisation](docs/TransactionFeeCapitalisation.md)
+ - [TransactionFeeType](docs/TransactionFeeType.md)
  - [TransactionFieldMap](docs/TransactionFieldMap.md)
  - [TransactionMatchingAlternativeId](docs/TransactionMatchingAlternativeId.md)
  - [TransactionPrice](docs/TransactionPrice.md)
@@ -1995,7 +1995,7 @@ Class | Method | HTTP request | Description
  - [UpdateStagingRuleSetRequest](docs/UpdateStagingRuleSetRequest.md)
  - [UpdateTaxRuleSetRequest](docs/UpdateTaxRuleSetRequest.md)
  - [UpdateTimelineRequest](docs/UpdateTimelineRequest.md)
- - [UpdateTransactionFeeRequest](docs/UpdateTransactionFeeRequest.md)
+ - [UpdateTransactionFeeTypeRequest](docs/UpdateTransactionFeeTypeRequest.md)
  - [UpdateUnitRequest](docs/UpdateUnitRequest.md)
  - [UpsertCdsFlowConventionsRequest](docs/UpsertCdsFlowConventionsRequest.md)
  - [UpsertComplexMarketDataRequest](docs/UpsertComplexMarketDataRequest.md)

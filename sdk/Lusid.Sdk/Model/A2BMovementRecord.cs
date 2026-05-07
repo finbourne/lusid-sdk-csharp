@@ -41,6 +41,9 @@ namespace Lusid.Sdk.Model
         /// <param name="movementName">The name of the movement..</param>
         /// <param name="effectiveDate">The date of the movement..</param>
         /// <param name="units">The number of units of the instrument that are affected by the movement..</param>
+        /// <param name="runningUnits">The cumulative number of units for this sub-holding, as at this movement..</param>
+        /// <param name="runningBalance">runningBalance.</param>
+        /// <param name="runningCost">The running cost in portfolio currency for this sub-holding, as at this movement..</param>
         /// <param name="start">start.</param>
         /// <param name="flows">flows.</param>
         /// <param name="gains">gains.</param>
@@ -49,7 +52,7 @@ namespace Lusid.Sdk.Model
         /// <param name="properties">The properties which have been requested to be decorated onto the holding. These will be from the &#39;Instrument&#39; domain..</param>
         /// <param name="groupId">Arbitrary string that can be used to cross reference an entry in the A2B report with activity in the A2B-Movements. This should be used purely as a token. The content should not be relied upon..</param>
         /// <param name="errors">Any errors with the record are reported here..</param>
-        public A2BMovementRecord(ResourceId portfolioId = default(ResourceId), string holdingType = default(string), string instrumentScope = default(string), string instrumentUid = default(string), Dictionary<string, PerpetualProperty> subHoldingKeys = default(Dictionary<string, PerpetualProperty>), string currency = default(string), string transactionId = default(string), string movementName = default(string), DateTimeOffset effectiveDate = default(DateTimeOffset), decimal units = default(decimal), A2BCategory start = default(A2BCategory), A2BCategory flows = default(A2BCategory), A2BCategory gains = default(A2BCategory), A2BCategory carry = default(A2BCategory), A2BCategory end = default(A2BCategory), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string groupId = default(string), List<ResponseMetaData> errors = default(List<ResponseMetaData>))
+        public A2BMovementRecord(ResourceId portfolioId = default(ResourceId), string holdingType = default(string), string instrumentScope = default(string), string instrumentUid = default(string), Dictionary<string, PerpetualProperty> subHoldingKeys = default(Dictionary<string, PerpetualProperty>), string currency = default(string), string transactionId = default(string), string movementName = default(string), DateTimeOffset effectiveDate = default(DateTimeOffset), decimal units = default(decimal), decimal? runningUnits = default(decimal?), A2BCategory runningBalance = default(A2BCategory), decimal? runningCost = default(decimal?), A2BCategory start = default(A2BCategory), A2BCategory flows = default(A2BCategory), A2BCategory gains = default(A2BCategory), A2BCategory carry = default(A2BCategory), A2BCategory end = default(A2BCategory), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string groupId = default(string), List<ResponseMetaData> errors = default(List<ResponseMetaData>))
         {
             this.PortfolioId = portfolioId;
             this.HoldingType = holdingType;
@@ -61,6 +64,9 @@ namespace Lusid.Sdk.Model
             this.MovementName = movementName;
             this.EffectiveDate = effectiveDate;
             this.Units = units;
+            this.RunningUnits = runningUnits;
+            this.RunningBalance = runningBalance;
+            this.RunningCost = runningCost;
             this.Start = start;
             this.Flows = flows;
             this.Gains = gains;
@@ -141,6 +147,26 @@ namespace Lusid.Sdk.Model
         public decimal Units { get; set; }
 
         /// <summary>
+        /// The cumulative number of units for this sub-holding, as at this movement.
+        /// </summary>
+        /// <value>The cumulative number of units for this sub-holding, as at this movement.</value>
+        [DataMember(Name = "runningUnits", EmitDefaultValue = true)]
+        public decimal? RunningUnits { get; set; }
+
+        /// <summary>
+        /// Gets or Sets RunningBalance
+        /// </summary>
+        [DataMember(Name = "runningBalance", EmitDefaultValue = false)]
+        public A2BCategory RunningBalance { get; set; }
+
+        /// <summary>
+        /// The running cost in portfolio currency for this sub-holding, as at this movement.
+        /// </summary>
+        /// <value>The running cost in portfolio currency for this sub-holding, as at this movement.</value>
+        [DataMember(Name = "runningCost", EmitDefaultValue = true)]
+        public decimal? RunningCost { get; set; }
+
+        /// <summary>
         /// Gets or Sets Start
         /// </summary>
         [DataMember(Name = "start", EmitDefaultValue = false)]
@@ -209,6 +235,9 @@ namespace Lusid.Sdk.Model
             sb.Append("  MovementName: ").Append(MovementName).Append("\n");
             sb.Append("  EffectiveDate: ").Append(EffectiveDate).Append("\n");
             sb.Append("  Units: ").Append(Units).Append("\n");
+            sb.Append("  RunningUnits: ").Append(RunningUnits).Append("\n");
+            sb.Append("  RunningBalance: ").Append(RunningBalance).Append("\n");
+            sb.Append("  RunningCost: ").Append(RunningCost).Append("\n");
             sb.Append("  Start: ").Append(Start).Append("\n");
             sb.Append("  Flows: ").Append(Flows).Append("\n");
             sb.Append("  Gains: ").Append(Gains).Append("\n");
@@ -303,6 +332,21 @@ namespace Lusid.Sdk.Model
                     this.Units.Equals(input.Units)
                 ) && 
                 (
+                    this.RunningUnits == input.RunningUnits ||
+                    (this.RunningUnits != null &&
+                    this.RunningUnits.Equals(input.RunningUnits))
+                ) && 
+                (
+                    this.RunningBalance == input.RunningBalance ||
+                    (this.RunningBalance != null &&
+                    this.RunningBalance.Equals(input.RunningBalance))
+                ) && 
+                (
+                    this.RunningCost == input.RunningCost ||
+                    (this.RunningCost != null &&
+                    this.RunningCost.Equals(input.RunningCost))
+                ) && 
+                (
                     this.Start == input.Start ||
                     (this.Start != null &&
                     this.Start.Equals(input.Start))
@@ -392,6 +436,18 @@ namespace Lusid.Sdk.Model
                     hashCode = (hashCode * 59) + this.EffectiveDate.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Units.GetHashCode();
+                if (this.RunningUnits != null)
+                {
+                    hashCode = (hashCode * 59) + this.RunningUnits.GetHashCode();
+                }
+                if (this.RunningBalance != null)
+                {
+                    hashCode = (hashCode * 59) + this.RunningBalance.GetHashCode();
+                }
+                if (this.RunningCost != null)
+                {
+                    hashCode = (hashCode * 59) + this.RunningCost.GetHashCode();
+                }
                 if (this.Start != null)
                 {
                     hashCode = (hashCode * 59) + this.Start.GetHashCode();

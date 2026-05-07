@@ -528,10 +528,10 @@ namespace Lusid.Sdk.Model
         SettlementInstruction = 83,
 
         /// <summary>
-        /// Enum TransactionFee for value: TransactionFee
+        /// Enum TransactionFeeType for value: TransactionFeeType
         /// </summary>
-        [EnumMember(Value = "TransactionFee")]
-        TransactionFee = 84
+        [EnumMember(Value = "TransactionFeeType")]
+        TransactionFeeType = 84
     }
 
 }

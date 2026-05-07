@@ -666,10 +666,13 @@ namespace Lusid.Sdk.Api
         /// <param name="recipeIdCode">The code of the given recipeId (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot; domain to decorate onto              the results. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot;. (optional)</param>
         /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="timelineScope">The scope of the timeline to use for loading data per closed period. (optional)</param>
+        /// <param name="timelineCode">The code of the timeline to use for loading data per closed period. (optional)</param>
+        /// <param name="closedPeriodId">The closed period ID. If specified, both timelineScope and timelineCode must also be specified.              When provided, the timeline A2B is filtered to only the matching closed period. The fromEffectiveAt and toEffectiveAt              parameters still define the overall query window; the closedPeriodId restricts which closed period&#39;s data is returned within that window. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>VersionedResourceListOfA2BMovementRecord</returns>
-        VersionedResourceListOfA2BMovementRecord GetA2BMovementsTradingVsHolding(string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), List<string>? propertyKeys = default(List<string>?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        VersionedResourceListOfA2BMovementRecord GetA2BMovementsTradingVsHolding(string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), List<string>? propertyKeys = default(List<string>?), string? filter = default(string?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetA2BMovementsTradingVsHolding: Get an A2B report at the movement level for the given portfolio, with P&amp;L split between holding and trading returns.
@@ -687,10 +690,13 @@ namespace Lusid.Sdk.Api
         /// <param name="recipeIdCode">The code of the given recipeId (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot; domain to decorate onto              the results. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot;. (optional)</param>
         /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="timelineScope">The scope of the timeline to use for loading data per closed period. (optional)</param>
+        /// <param name="timelineCode">The code of the timeline to use for loading data per closed period. (optional)</param>
+        /// <param name="closedPeriodId">The closed period ID. If specified, both timelineScope and timelineCode must also be specified.              When provided, the timeline A2B is filtered to only the matching closed period. The fromEffectiveAt and toEffectiveAt              parameters still define the overall query window; the closedPeriodId restricts which closed period&#39;s data is returned within that window. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of VersionedResourceListOfA2BMovementRecord</returns>
-        Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfA2BMovementRecord> GetA2BMovementsTradingVsHoldingWithHttpInfo(string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), List<string>? propertyKeys = default(List<string>?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfA2BMovementRecord> GetA2BMovementsTradingVsHoldingWithHttpInfo(string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), List<string>? propertyKeys = default(List<string>?), string? filter = default(string?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// GetBucketedCashFlows: Get bucketed cash flows from a list of portfolios
         /// </summary>
@@ -2474,11 +2480,14 @@ namespace Lusid.Sdk.Api
         /// <param name="recipeIdCode">The code of the given recipeId (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot; domain to decorate onto              the results. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot;. (optional)</param>
         /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="timelineScope">The scope of the timeline to use for loading data per closed period. (optional)</param>
+        /// <param name="timelineCode">The code of the timeline to use for loading data per closed period. (optional)</param>
+        /// <param name="closedPeriodId">The closed period ID. If specified, both timelineScope and timelineCode must also be specified.              When provided, the timeline A2B is filtered to only the matching closed period. The fromEffectiveAt and toEffectiveAt              parameters still define the overall query window; the closedPeriodId restricts which closed period&#39;s data is returned within that window. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of VersionedResourceListOfA2BMovementRecord</returns>
-        System.Threading.Tasks.Task<VersionedResourceListOfA2BMovementRecord> GetA2BMovementsTradingVsHoldingAsync(string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), List<string>? propertyKeys = default(List<string>?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<VersionedResourceListOfA2BMovementRecord> GetA2BMovementsTradingVsHoldingAsync(string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), List<string>? propertyKeys = default(List<string>?), string? filter = default(string?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetA2BMovementsTradingVsHolding: Get an A2B report at the movement level for the given portfolio, with P&amp;L split between holding and trading returns.
@@ -2496,11 +2505,14 @@ namespace Lusid.Sdk.Api
         /// <param name="recipeIdCode">The code of the given recipeId (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot; domain to decorate onto              the results. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot;. (optional)</param>
         /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="timelineScope">The scope of the timeline to use for loading data per closed period. (optional)</param>
+        /// <param name="timelineCode">The code of the timeline to use for loading data per closed period. (optional)</param>
+        /// <param name="closedPeriodId">The closed period ID. If specified, both timelineScope and timelineCode must also be specified.              When provided, the timeline A2B is filtered to only the matching closed period. The fromEffectiveAt and toEffectiveAt              parameters still define the overall query window; the closedPeriodId restricts which closed period&#39;s data is returned within that window. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (VersionedResourceListOfA2BMovementRecord)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfA2BMovementRecord>> GetA2BMovementsTradingVsHoldingWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), List<string>? propertyKeys = default(List<string>?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfA2BMovementRecord>> GetA2BMovementsTradingVsHoldingWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), List<string>? propertyKeys = default(List<string>?), string? filter = default(string?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// GetBucketedCashFlows: Get bucketed cash flows from a list of portfolios
         /// </summary>
@@ -8925,12 +8937,15 @@ namespace Lusid.Sdk.Api
         /// <param name="recipeIdCode">The code of the given recipeId (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot; domain to decorate onto              the results. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot;. (optional)</param>
         /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="timelineScope">The scope of the timeline to use for loading data per closed period. (optional)</param>
+        /// <param name="timelineCode">The code of the timeline to use for loading data per closed period. (optional)</param>
+        /// <param name="closedPeriodId">The closed period ID. If specified, both timelineScope and timelineCode must also be specified.              When provided, the timeline A2B is filtered to only the matching closed period. The fromEffectiveAt and toEffectiveAt              parameters still define the overall query window; the closedPeriodId restricts which closed period&#39;s data is returned within that window. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>VersionedResourceListOfA2BMovementRecord</returns>
-        public VersionedResourceListOfA2BMovementRecord GetA2BMovementsTradingVsHolding(string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), List<string>? propertyKeys = default(List<string>?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public VersionedResourceListOfA2BMovementRecord GetA2BMovementsTradingVsHolding(string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), List<string>? propertyKeys = default(List<string>?), string? filter = default(string?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfA2BMovementRecord> localVarResponse = GetA2BMovementsTradingVsHoldingWithHttpInfo(scope, code, fromEffectiveAt, toEffectiveAt, asAt, recipeIdScope, recipeIdCode, propertyKeys, filter, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfA2BMovementRecord> localVarResponse = GetA2BMovementsTradingVsHoldingWithHttpInfo(scope, code, fromEffectiveAt, toEffectiveAt, asAt, recipeIdScope, recipeIdCode, propertyKeys, filter, timelineScope, timelineCode, closedPeriodId, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -8947,10 +8962,13 @@ namespace Lusid.Sdk.Api
         /// <param name="recipeIdCode">The code of the given recipeId (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot; domain to decorate onto              the results. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot;. (optional)</param>
         /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="timelineScope">The scope of the timeline to use for loading data per closed period. (optional)</param>
+        /// <param name="timelineCode">The code of the timeline to use for loading data per closed period. (optional)</param>
+        /// <param name="closedPeriodId">The closed period ID. If specified, both timelineScope and timelineCode must also be specified.              When provided, the timeline A2B is filtered to only the matching closed period. The fromEffectiveAt and toEffectiveAt              parameters still define the overall query window; the closedPeriodId restricts which closed period&#39;s data is returned within that window. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of VersionedResourceListOfA2BMovementRecord</returns>
-        public Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfA2BMovementRecord> GetA2BMovementsTradingVsHoldingWithHttpInfo(string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), List<string>? propertyKeys = default(List<string>?), string? filter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfA2BMovementRecord> GetA2BMovementsTradingVsHoldingWithHttpInfo(string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), List<string>? propertyKeys = default(List<string>?), string? filter = default(string?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -9038,6 +9056,21 @@ namespace Lusid.Sdk.Api
             {
 
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+            if (timelineScope != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineScope", timelineScope));
+            }
+            if (timelineCode != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineCode", timelineCode));
+            }
+            if (closedPeriodId != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "closedPeriodId", closedPeriodId));
             }
 
             localVarRequestOptions.Operation = "TransactionPortfoliosApi.GetA2BMovementsTradingVsHolding";
@@ -9087,13 +9120,16 @@ namespace Lusid.Sdk.Api
         /// <param name="recipeIdCode">The code of the given recipeId (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot; domain to decorate onto              the results. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot;. (optional)</param>
         /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="timelineScope">The scope of the timeline to use for loading data per closed period. (optional)</param>
+        /// <param name="timelineCode">The code of the timeline to use for loading data per closed period. (optional)</param>
+        /// <param name="closedPeriodId">The closed period ID. If specified, both timelineScope and timelineCode must also be specified.              When provided, the timeline A2B is filtered to only the matching closed period. The fromEffectiveAt and toEffectiveAt              parameters still define the overall query window; the closedPeriodId restricts which closed period&#39;s data is returned within that window. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of VersionedResourceListOfA2BMovementRecord</returns>
-        public async System.Threading.Tasks.Task<VersionedResourceListOfA2BMovementRecord> GetA2BMovementsTradingVsHoldingAsync(string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), List<string>? propertyKeys = default(List<string>?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<VersionedResourceListOfA2BMovementRecord> GetA2BMovementsTradingVsHoldingAsync(string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), List<string>? propertyKeys = default(List<string>?), string? filter = default(string?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfA2BMovementRecord> localVarResponse = await GetA2BMovementsTradingVsHoldingWithHttpInfoAsync(scope, code, fromEffectiveAt, toEffectiveAt, asAt, recipeIdScope, recipeIdCode, propertyKeys, filter, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfA2BMovementRecord> localVarResponse = await GetA2BMovementsTradingVsHoldingWithHttpInfoAsync(scope, code, fromEffectiveAt, toEffectiveAt, asAt, recipeIdScope, recipeIdCode, propertyKeys, filter, timelineScope, timelineCode, closedPeriodId, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -9110,11 +9146,14 @@ namespace Lusid.Sdk.Api
         /// <param name="recipeIdCode">The code of the given recipeId (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot; domain to decorate onto              the results. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot;. (optional)</param>
         /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="timelineScope">The scope of the timeline to use for loading data per closed period. (optional)</param>
+        /// <param name="timelineCode">The code of the timeline to use for loading data per closed period. (optional)</param>
+        /// <param name="closedPeriodId">The closed period ID. If specified, both timelineScope and timelineCode must also be specified.              When provided, the timeline A2B is filtered to only the matching closed period. The fromEffectiveAt and toEffectiveAt              parameters still define the overall query window; the closedPeriodId restricts which closed period&#39;s data is returned within that window. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (VersionedResourceListOfA2BMovementRecord)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfA2BMovementRecord>> GetA2BMovementsTradingVsHoldingWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), List<string>? propertyKeys = default(List<string>?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfA2BMovementRecord>> GetA2BMovementsTradingVsHoldingWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), List<string>? propertyKeys = default(List<string>?), string? filter = default(string?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -9198,6 +9237,18 @@ namespace Lusid.Sdk.Api
             if (filter != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+            if (timelineScope != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineScope", timelineScope));
+            }
+            if (timelineCode != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timelineCode", timelineCode));
+            }
+            if (closedPeriodId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "closedPeriodId", closedPeriodId));
             }
 
             localVarRequestOptions.Operation = "TransactionPortfoliosApi.GetA2BMovementsTradingVsHolding";

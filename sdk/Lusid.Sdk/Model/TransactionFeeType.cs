@@ -23,34 +23,57 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// UpdateTransactionFeeRequest
+    /// TransactionFeeType
     /// </summary>
-    [DataContract(Name = "UpdateTransactionFeeRequest")]
-    public partial class UpdateTransactionFeeRequest : IEquatable<UpdateTransactionFeeRequest>, IValidatableObject
+    [DataContract(Name = "TransactionFeeType")]
+    public partial class TransactionFeeType : IEquatable<TransactionFeeType>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UpdateTransactionFeeRequest" /> class.
+        /// Initializes a new instance of the <see cref="TransactionFeeType" /> class.
         /// </summary>
-        /// <param name="description">A description of the transaction fee..</param>
+        /// <param name="id">id.</param>
+        /// <param name="displayName">The display name of the transaction fee type..</param>
+        /// <param name="description">A description of the transaction fee type..</param>
         /// <param name="calculation">calculation.</param>
         /// <param name="condition">The condition that the transaction must meet in order for the fee to be applied..</param>
         /// <param name="txnPropertyKey">The property key to which the fee value will be applied and decorated onto the transaction. Must be in the &#39;Transaction&#39; property domain..</param>
-        /// <param name="properties">A set of properties for the transaction fee..</param>
-        /// <param name="isActive">Indicates whether the transaction fee is currently active and should be applied to transactions. Optional when creating a transaction fee, defaults to true, if a value is not provided..</param>
-        public UpdateTransactionFeeRequest(string description = default(string), FeeCalculationRequest calculation = default(FeeCalculationRequest), string condition = default(string), string txnPropertyKey = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), bool? isActive = default(bool?))
+        /// <param name="properties">A set of properties for the transaction fee type..</param>
+        /// <param name="varVersion">varVersion.</param>
+        /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
+        /// <param name="isActive">Indicates whether the transaction fee type is currently active and should be applied to transactions. Optional when creating a transaction fee type, defaults to true, if a value is not provided..</param>
+        /// <param name="links">links.</param>
+        public TransactionFeeType(ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), FeeCalculationRequest calculation = default(FeeCalculationRequest), string condition = default(string), string txnPropertyKey = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion varVersion = default(ModelVersion), string href = default(string), bool isActive = default(bool), List<Link> links = default(List<Link>))
         {
+            this.Id = id;
+            this.DisplayName = displayName;
             this.Description = description;
             this.Calculation = calculation;
             this.Condition = condition;
             this.TxnPropertyKey = txnPropertyKey;
             this.Properties = properties;
+            this.VarVersion = varVersion;
+            this.Href = href;
             this.IsActive = isActive;
+            this.Links = links;
         }
 
         /// <summary>
-        /// A description of the transaction fee.
+        /// Gets or Sets Id
         /// </summary>
-        /// <value>A description of the transaction fee.</value>
+        [DataMember(Name = "id", EmitDefaultValue = false)]
+        public ResourceId Id { get; set; }
+
+        /// <summary>
+        /// The display name of the transaction fee type.
+        /// </summary>
+        /// <value>The display name of the transaction fee type.</value>
+        [DataMember(Name = "displayName", EmitDefaultValue = true)]
+        public string DisplayName { get; set; }
+
+        /// <summary>
+        /// A description of the transaction fee type.
+        /// </summary>
+        /// <value>A description of the transaction fee type.</value>
         [DataMember(Name = "description", EmitDefaultValue = true)]
         public string Description { get; set; }
 
@@ -75,18 +98,37 @@ namespace Lusid.Sdk.Model
         public string TxnPropertyKey { get; set; }
 
         /// <summary>
-        /// A set of properties for the transaction fee.
+        /// A set of properties for the transaction fee type.
         /// </summary>
-        /// <value>A set of properties for the transaction fee.</value>
+        /// <value>A set of properties for the transaction fee type.</value>
         [DataMember(Name = "properties", EmitDefaultValue = true)]
         public Dictionary<string, Property> Properties { get; set; }
 
         /// <summary>
-        /// Indicates whether the transaction fee is currently active and should be applied to transactions. Optional when creating a transaction fee, defaults to true, if a value is not provided.
+        /// Gets or Sets VarVersion
         /// </summary>
-        /// <value>Indicates whether the transaction fee is currently active and should be applied to transactions. Optional when creating a transaction fee, defaults to true, if a value is not provided.</value>
+        [DataMember(Name = "version", EmitDefaultValue = false)]
+        public ModelVersion VarVersion { get; set; }
+
+        /// <summary>
+        /// The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
+        /// </summary>
+        /// <value>The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.</value>
+        [DataMember(Name = "href", EmitDefaultValue = true)]
+        public string Href { get; set; }
+
+        /// <summary>
+        /// Indicates whether the transaction fee type is currently active and should be applied to transactions. Optional when creating a transaction fee type, defaults to true, if a value is not provided.
+        /// </summary>
+        /// <value>Indicates whether the transaction fee type is currently active and should be applied to transactions. Optional when creating a transaction fee type, defaults to true, if a value is not provided.</value>
         [DataMember(Name = "isActive", EmitDefaultValue = true)]
-        public bool? IsActive { get; set; }
+        public bool IsActive { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Links
+        /// </summary>
+        [DataMember(Name = "links", EmitDefaultValue = true)]
+        public List<Link> Links { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -95,13 +137,18 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class UpdateTransactionFeeRequest {\n");
+            sb.Append("class TransactionFeeType {\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Calculation: ").Append(Calculation).Append("\n");
             sb.Append("  Condition: ").Append(Condition).Append("\n");
             sb.Append("  TxnPropertyKey: ").Append(TxnPropertyKey).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
+            sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("  IsActive: ").Append(IsActive).Append("\n");
+            sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -122,21 +169,31 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as UpdateTransactionFeeRequest);
+            return this.Equals(input as TransactionFeeType);
         }
 
         /// <summary>
-        /// Returns true if UpdateTransactionFeeRequest instances are equal
+        /// Returns true if TransactionFeeType instances are equal
         /// </summary>
-        /// <param name="input">Instance of UpdateTransactionFeeRequest to be compared</param>
+        /// <param name="input">Instance of TransactionFeeType to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UpdateTransactionFeeRequest input)
+        public bool Equals(TransactionFeeType input)
         {
             if (input == null)
             {
                 return false;
             }
             return 
+                (
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.DisplayName == input.DisplayName ||
+                    (this.DisplayName != null &&
+                    this.DisplayName.Equals(input.DisplayName))
+                ) && 
                 (
                     this.Description == input.Description ||
                     (this.Description != null &&
@@ -164,9 +221,24 @@ namespace Lusid.Sdk.Model
                     this.Properties.SequenceEqual(input.Properties)
                 ) && 
                 (
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
+                ) && 
+                (
+                    this.Href == input.Href ||
+                    (this.Href != null &&
+                    this.Href.Equals(input.Href))
+                ) && 
+                (
                     this.IsActive == input.IsActive ||
-                    (this.IsActive != null &&
-                    this.IsActive.Equals(input.IsActive))
+                    this.IsActive.Equals(input.IsActive)
+                ) && 
+                (
+                    this.Links == input.Links ||
+                    this.Links != null &&
+                    input.Links != null &&
+                    this.Links.SequenceEqual(input.Links)
                 );
         }
 
@@ -179,6 +251,14 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Id != null)
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
+                if (this.DisplayName != null)
+                {
+                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
+                }
                 if (this.Description != null)
                 {
                     hashCode = (hashCode * 59) + this.Description.GetHashCode();
@@ -199,9 +279,18 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Properties.GetHashCode();
                 }
-                if (this.IsActive != null)
+                if (this.VarVersion != null)
                 {
-                    hashCode = (hashCode * 59) + this.IsActive.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
+                }
+                if (this.Href != null)
+                {
+                    hashCode = (hashCode * 59) + this.Href.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.IsActive.GetHashCode();
+                if (this.Links != null)
+                {
+                    hashCode = (hashCode * 59) + this.Links.GetHashCode();
                 }
                 return hashCode;
             }
@@ -214,49 +303,6 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Description (string) maxLength
-            if (this.Description != null && this.Description.Length > 1024)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be less than 1024.", new [] { "Description" });
-            }
-
-            // Description (string) minLength
-            if (this.Description != null && this.Description.Length < 0)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be greater than 0.", new [] { "Description" });
-            }
-
-            // Description (string) pattern
-            Regex regexDescription = new Regex(@"^[\s\S]*$", RegexOptions.CultureInvariant);
-            if (false == regexDescription.Match(this.Description).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, must match a pattern of " + regexDescription, new [] { "Description" });
-            }
-
-            // Condition (string) maxLength
-            if (this.Condition != null && this.Condition.Length > 16384)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Condition, length must be less than 16384.", new [] { "Condition" });
-            }
-
-            // Condition (string) minLength
-            if (this.Condition != null && this.Condition.Length < 0)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Condition, length must be greater than 0.", new [] { "Condition" });
-            }
-
-            // TxnPropertyKey (string) maxLength
-            if (this.TxnPropertyKey != null && this.TxnPropertyKey.Length > 256)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TxnPropertyKey, length must be less than 256.", new [] { "TxnPropertyKey" });
-            }
-
-            // TxnPropertyKey (string) minLength
-            if (this.TxnPropertyKey != null && this.TxnPropertyKey.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TxnPropertyKey, length must be greater than 1.", new [] { "TxnPropertyKey" });
-            }
-
             yield break;
         }
     }

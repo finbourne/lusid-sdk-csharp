@@ -15,6 +15,9 @@ Name | Type | Description | Notes
 **MovementName** | **string** | The name of the movement. | [optional] 
 **EffectiveDate** | **DateTimeOffset** | The date of the movement. | [optional] 
 **Units** | **decimal** | The number of units of the instrument that are affected by the movement. | [optional] 
+**RunningUnits** | **decimal?** | The cumulative number of units for this sub-holding, as at this movement. | [optional] 
+**RunningBalance** | [**A2BCategory**](A2BCategory.md) |  | [optional] 
+**RunningCost** | **decimal?** | The running cost in portfolio currency for this sub-holding, as at this movement. | [optional] 
 **Start** | [**A2BCategory**](A2BCategory.md) |  | [optional] 
 **Flows** | [**A2BCategory**](A2BCategory.md) |  | [optional] 
 **Gains** | [**A2BCategory**](A2BCategory.md) |  | [optional] 
@@ -37,6 +40,8 @@ Dictionary<string, PerpetualProperty> subHoldingKeys = new Dictionary<string, Pe
 string currency = "example currency";
 string transactionId = "example transactionId";
 string movementName = "example movementName";decimal? units = "example units";
+A2BCategory? runningBalance = new A2BCategory();
+
 A2BCategory? start = new A2BCategory();
 
 A2BCategory? flows = new A2BCategory();
@@ -62,6 +67,9 @@ A2BMovementRecord a2BMovementRecordInstance = new A2BMovementRecord(
     movementName: movementName,
     effectiveDate: effectiveDate,
     units: units,
+    runningUnits: runningUnits,
+    runningBalance: runningBalance,
+    runningCost: runningCost,
     start: start,
     flows: flows,
     gains: gains,

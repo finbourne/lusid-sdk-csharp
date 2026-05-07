@@ -612,7 +612,7 @@ namespace Lusid.Sdk.Api
         /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the holdings of transaction portfolios in the Fund. Defaults              to return the latest version of the holdings if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot;, \&quot;Holding\&quot; or \&quot;Portfolio\&quot; domain to decorate onto              the holdings. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/Cost\&quot;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot;, \&quot;Holding\&quot; or \&quot;Portfolio\&quot;,\&quot;CustodianAccount\&quot; or \&quot;LegalEntity\&quot; domain to decorate onto domain to decorate onto              the holdings. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/Cost\&quot;. (optional)</param>
         /// <param name="byTaxlots">Whether to expand the holdings to return the underlying tax-lots. Defaults to False. (optional)</param>
         /// <param name="includeSettlementEventsAfterDays">Number of days ahead to bring back settlements from, in relation to the specified effectiveAt. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -633,7 +633,7 @@ namespace Lusid.Sdk.Api
         /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the holdings of transaction portfolios in the Fund. Defaults              to return the latest version of the holdings if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot;, \&quot;Holding\&quot; or \&quot;Portfolio\&quot; domain to decorate onto              the holdings. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/Cost\&quot;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot;, \&quot;Holding\&quot; or \&quot;Portfolio\&quot;,\&quot;CustodianAccount\&quot; or \&quot;LegalEntity\&quot; domain to decorate onto domain to decorate onto              the holdings. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/Cost\&quot;. (optional)</param>
         /// <param name="byTaxlots">Whether to expand the holdings to return the underlying tax-lots. Defaults to False. (optional)</param>
         /// <param name="includeSettlementEventsAfterDays">Number of days ahead to bring back settlements from, in relation to the specified effectiveAt. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -2064,7 +2064,7 @@ namespace Lusid.Sdk.Api
         /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the holdings of transaction portfolios in the Fund. Defaults              to return the latest version of the holdings if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot;, \&quot;Holding\&quot; or \&quot;Portfolio\&quot; domain to decorate onto              the holdings. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/Cost\&quot;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot;, \&quot;Holding\&quot; or \&quot;Portfolio\&quot;,\&quot;CustodianAccount\&quot; or \&quot;LegalEntity\&quot; domain to decorate onto domain to decorate onto              the holdings. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/Cost\&quot;. (optional)</param>
         /// <param name="byTaxlots">Whether to expand the holdings to return the underlying tax-lots. Defaults to False. (optional)</param>
         /// <param name="includeSettlementEventsAfterDays">Number of days ahead to bring back settlements from, in relation to the specified effectiveAt. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -2086,7 +2086,7 @@ namespace Lusid.Sdk.Api
         /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the holdings of transaction portfolios in the Fund. Defaults              to return the latest version of the holdings if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot;, \&quot;Holding\&quot; or \&quot;Portfolio\&quot; domain to decorate onto              the holdings. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/Cost\&quot;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot;, \&quot;Holding\&quot; or \&quot;Portfolio\&quot;,\&quot;CustodianAccount\&quot; or \&quot;LegalEntity\&quot; domain to decorate onto domain to decorate onto              the holdings. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/Cost\&quot;. (optional)</param>
         /// <param name="byTaxlots">Whether to expand the holdings to return the underlying tax-lots. Defaults to False. (optional)</param>
         /// <param name="includeSettlementEventsAfterDays">Number of days ahead to bring back settlements from, in relation to the specified effectiveAt. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -7741,7 +7741,7 @@ namespace Lusid.Sdk.Api
         /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the holdings of transaction portfolios in the Fund. Defaults              to return the latest version of the holdings if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot;, \&quot;Holding\&quot; or \&quot;Portfolio\&quot; domain to decorate onto              the holdings. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/Cost\&quot;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot;, \&quot;Holding\&quot; or \&quot;Portfolio\&quot;,\&quot;CustodianAccount\&quot; or \&quot;LegalEntity\&quot; domain to decorate onto domain to decorate onto              the holdings. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/Cost\&quot;. (optional)</param>
         /// <param name="byTaxlots">Whether to expand the holdings to return the underlying tax-lots. Defaults to False. (optional)</param>
         /// <param name="includeSettlementEventsAfterDays">Number of days ahead to bring back settlements from, in relation to the specified effectiveAt. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -7763,7 +7763,7 @@ namespace Lusid.Sdk.Api
         /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the holdings of transaction portfolios in the Fund. Defaults              to return the latest version of the holdings if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot;, \&quot;Holding\&quot; or \&quot;Portfolio\&quot; domain to decorate onto              the holdings. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/Cost\&quot;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot;, \&quot;Holding\&quot; or \&quot;Portfolio\&quot;,\&quot;CustodianAccount\&quot; or \&quot;LegalEntity\&quot; domain to decorate onto domain to decorate onto              the holdings. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/Cost\&quot;. (optional)</param>
         /// <param name="byTaxlots">Whether to expand the holdings to return the underlying tax-lots. Defaults to False. (optional)</param>
         /// <param name="includeSettlementEventsAfterDays">Number of days ahead to bring back settlements from, in relation to the specified effectiveAt. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -7905,7 +7905,7 @@ namespace Lusid.Sdk.Api
         /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the holdings of transaction portfolios in the Fund. Defaults              to return the latest version of the holdings if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot;, \&quot;Holding\&quot; or \&quot;Portfolio\&quot; domain to decorate onto              the holdings. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/Cost\&quot;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot;, \&quot;Holding\&quot; or \&quot;Portfolio\&quot;,\&quot;CustodianAccount\&quot; or \&quot;LegalEntity\&quot; domain to decorate onto domain to decorate onto              the holdings. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/Cost\&quot;. (optional)</param>
         /// <param name="byTaxlots">Whether to expand the holdings to return the underlying tax-lots. Defaults to False. (optional)</param>
         /// <param name="includeSettlementEventsAfterDays">Number of days ahead to bring back settlements from, in relation to the specified effectiveAt. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -7928,7 +7928,7 @@ namespace Lusid.Sdk.Api
         /// <param name="navTypeCode">When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the holdings of transaction portfolios in the Fund. Defaults              to return the latest version of the holdings if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot;, \&quot;Holding\&quot; or \&quot;Portfolio\&quot; domain to decorate onto              the holdings. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/Cost\&quot;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot;, \&quot;Holding\&quot; or \&quot;Portfolio\&quot;,\&quot;CustodianAccount\&quot; or \&quot;LegalEntity\&quot; domain to decorate onto domain to decorate onto              the holdings. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/Cost\&quot;. (optional)</param>
         /// <param name="byTaxlots">Whether to expand the holdings to return the underlying tax-lots. Defaults to False. (optional)</param>
         /// <param name="includeSettlementEventsAfterDays">Number of days ahead to bring back settlements from, in relation to the specified effectiveAt. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>

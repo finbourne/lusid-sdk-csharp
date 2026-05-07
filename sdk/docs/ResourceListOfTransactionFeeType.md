@@ -1,10 +1,10 @@
-# Lusid.Sdk.Model.ResourceListOfTransactionFee
+# Lusid.Sdk.Model.ResourceListOfTransactionFeeType
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Values** | [**List&lt;TransactionFee&gt;**](TransactionFee.md) |  | 
+**Values** | [**List&lt;TransactionFeeType&gt;**](TransactionFeeType.md) |  | 
 **Href** | **string** |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 **NextPage** | **string** |  | [optional] 
@@ -14,13 +14,13 @@ Name | Type | Description | Notes
 using Lusid.Sdk.Model;
 using System;
 
-List<TransactionFee> values = new List<TransactionFee>();
+List<TransactionFeeType> values = new List<TransactionFeeType>();
 string href = "example href";
 List<Link> links = new List<Link>();
 string nextPage = "example nextPage";
 string previousPage = "example previousPage";
 
-ResourceListOfTransactionFee resourceListOfTransactionFeeInstance = new ResourceListOfTransactionFee(
+ResourceListOfTransactionFeeType resourceListOfTransactionFeeTypeInstance = new ResourceListOfTransactionFeeType(
     values: values,
     href: href,
     links: links,
