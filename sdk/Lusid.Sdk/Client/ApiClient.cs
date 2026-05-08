@@ -236,7 +236,10 @@ namespace Lusid.Sdk.Client
         public Response<T> Execute<T>(Request request)
         {
             var restSharpRequest = request.ToRestSharpRequest();
-            var restResponse = this.Execute<T>(restSharpRequest);
+            // Run the async path on a ThreadPool thread to avoid the deadlock-prone
+            // AsyncHelpers.RunSync / CustomSynchronizationContext / WaitHandle.WaitOne
+            // pattern that RestSharp uses for its sync extension methods.
+            var restResponse = Task.Run(() => this.ExecuteAsync<T>(restSharpRequest)).GetAwaiter().GetResult();
             return restResponse.ToSdkResponse();
         }
 
@@ -321,9 +324,10 @@ namespace Lusid.Sdk.Client
         private IClient DefaultCreateRestClient(ClientOptions clientOptions, IReadableConfiguration configuration)
         {
             var httpClient = new HttpClient(_createHttpMessageHandler(clientOptions), _disposeHandler);
-            // set the timeout to be infinite, because the timeout is set on the request and then the lower of these two times
-            // will be used. It would therefore not be possible to set an infinite timeout if we didn't do it here
-            httpClient.Timeout = Timeout.InfiniteTimeSpan;
+            // A new HttpClient is created per API call, so this timeout is effectively per-request.
+            // This ensures the request is cancelled even if RestSharp's internal timeout is not honoured
+            // (e.g. in the sync-over-async path via AsyncHelpers.RunSync).
+            httpClient.Timeout = clientOptions.Timeout ?? Timeout.InfiniteTimeSpan;
             return new RestClientWrapper(httpClient,
                 options: clientOptions,
                 configureSerialization: s =>
