@@ -23,30 +23,30 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// ResourceListOfNavActivityAdjustment
+    /// ResourceListOfNavActivityAdjustmentResponse
     /// </summary>
-    [DataContract(Name = "ResourceListOfNavActivityAdjustment")]
-    public partial class ResourceListOfNavActivityAdjustment : IEquatable<ResourceListOfNavActivityAdjustment>, IValidatableObject
+    [DataContract(Name = "ResourceListOfNavActivityAdjustmentResponse")]
+    public partial class ResourceListOfNavActivityAdjustmentResponse : IEquatable<ResourceListOfNavActivityAdjustmentResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ResourceListOfNavActivityAdjustment" /> class.
+        /// Initializes a new instance of the <see cref="ResourceListOfNavActivityAdjustmentResponse" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected ResourceListOfNavActivityAdjustment() { }
+        protected ResourceListOfNavActivityAdjustmentResponse() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ResourceListOfNavActivityAdjustment" /> class.
+        /// Initializes a new instance of the <see cref="ResourceListOfNavActivityAdjustmentResponse" /> class.
         /// </summary>
         /// <param name="values">values (required).</param>
         /// <param name="href">href.</param>
         /// <param name="links">links.</param>
         /// <param name="nextPage">nextPage.</param>
         /// <param name="previousPage">previousPage.</param>
-        public ResourceListOfNavActivityAdjustment(List<NavActivityAdjustment> values = default(List<NavActivityAdjustment>), string href = default(string), List<Link> links = default(List<Link>), string nextPage = default(string), string previousPage = default(string))
+        public ResourceListOfNavActivityAdjustmentResponse(List<NavActivityAdjustmentResponse> values = default(List<NavActivityAdjustmentResponse>), string href = default(string), List<Link> links = default(List<Link>), string nextPage = default(string), string previousPage = default(string))
         {
             // to ensure "values" is required (not null)
             if (values == null)
             {
-                throw new ArgumentNullException("values is a required property for ResourceListOfNavActivityAdjustment and cannot be null");
+                throw new ArgumentNullException("values is a required property for ResourceListOfNavActivityAdjustmentResponse and cannot be null");
             }
             this.Values = values;
             this.Href = href;
@@ -59,7 +59,7 @@ namespace Lusid.Sdk.Model
         /// Gets or Sets Values
         /// </summary>
         [DataMember(Name = "values", IsRequired = true, EmitDefaultValue = true)]
-        public List<NavActivityAdjustment> Values { get; set; }
+        public List<NavActivityAdjustmentResponse> Values { get; set; }
 
         /// <summary>
         /// Gets or Sets Href
@@ -92,7 +92,7 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ResourceListOfNavActivityAdjustment {\n");
+            sb.Append("class ResourceListOfNavActivityAdjustmentResponse {\n");
             sb.Append("  Values: ").Append(Values).Append("\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
@@ -118,15 +118,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ResourceListOfNavActivityAdjustment);
+            return this.Equals(input as ResourceListOfNavActivityAdjustmentResponse);
         }
 
         /// <summary>
-        /// Returns true if ResourceListOfNavActivityAdjustment instances are equal
+        /// Returns true if ResourceListOfNavActivityAdjustmentResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of ResourceListOfNavActivityAdjustment to be compared</param>
+        /// <param name="input">Instance of ResourceListOfNavActivityAdjustmentResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ResourceListOfNavActivityAdjustment input)
+        public bool Equals(ResourceListOfNavActivityAdjustmentResponse input)
         {
             if (input == null)
             {

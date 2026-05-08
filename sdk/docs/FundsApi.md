@@ -1230,7 +1230,7 @@ catch (ApiException e)
 
 <a id="deletenavactivityadjustments"></a>
 # **DeleteNavActivityAdjustments**
-> DeletedEntityResponse DeleteNavActivityAdjustments (string scope, string code, string valuationPointCode, List<NavActivityAdjustment> navActivityAdjustment, string? navTypeCode = null, string? valuationPointCodeVariant = null)
+> DeletedEntityResponse DeleteNavActivityAdjustments (string scope, string code, string valuationPointCode, List<NavActivityAdjustmentResponse> navActivityAdjustmentResponse, string? navTypeCode = null, string? valuationPointCodeVariant = null)
 
 [EXPERIMENTAL] DeleteNavActivityAdjustments: Delete Nav activity adjustments.
 
@@ -1278,17 +1278,17 @@ namespace Examples
             var scope = "scope_example";  // string | The scope of the Fund.
             var code = "code_example";  // string | The code of the Fund. Together with the scope is the unique identifier for the given Fund.
             var valuationPointCode = "valuationPointCode_example";  // string | The valuation point Code to delete the adjustment from
-            var navActivityAdjustment = new List<NavActivityAdjustment>(); // List<NavActivityAdjustment> | The request describing the Nav activity adjustments to delete from a specific valuation point and nav type
+            var navActivityAdjustmentResponse = new List<NavActivityAdjustmentResponse>(); // List<NavActivityAdjustmentResponse> | The request describing the Nav activity adjustments to delete from a specific valuation point and nav type
             var navTypeCode = "navTypeCode_example";  // string? | When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional) 
             var valuationPointCodeVariant = "valuationPointCodeVariant_example";  // string? | The variant of the valuation point used in the request. Together with the valuation point code marks the unique branch for the NavType. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // DeletedEntityResponse result = apiInstance.DeleteNavActivityAdjustments(scope, code, valuationPointCode, navActivityAdjustment, navTypeCode, valuationPointCodeVariant, opts: opts);
+                // DeletedEntityResponse result = apiInstance.DeleteNavActivityAdjustments(scope, code, valuationPointCode, navActivityAdjustmentResponse, navTypeCode, valuationPointCodeVariant, opts: opts);
 
                 // [EXPERIMENTAL] DeleteNavActivityAdjustments: Delete Nav activity adjustments.
-                DeletedEntityResponse result = apiInstance.DeleteNavActivityAdjustments(scope, code, valuationPointCode, navActivityAdjustment, navTypeCode, valuationPointCodeVariant);
+                DeletedEntityResponse result = apiInstance.DeleteNavActivityAdjustments(scope, code, valuationPointCode, navActivityAdjustmentResponse, navTypeCode, valuationPointCodeVariant);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -1309,7 +1309,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] DeleteNavActivityAdjustments: Delete Nav activity adjustments.
-    ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteNavActivityAdjustmentsWithHttpInfo(scope, code, valuationPointCode, navActivityAdjustment, navTypeCode, valuationPointCodeVariant);
+    ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteNavActivityAdjustmentsWithHttpInfo(scope, code, valuationPointCode, navActivityAdjustmentResponse, navTypeCode, valuationPointCodeVariant);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -1329,7 +1329,7 @@ catch (ApiException e)
 | **scope** | **string** | The scope of the Fund. |  |
 | **code** | **string** | The code of the Fund. Together with the scope is the unique identifier for the given Fund. |  |
 | **valuationPointCode** | **string** | The valuation point Code to delete the adjustment from |  |
-| **navActivityAdjustment** | [**List&lt;NavActivityAdjustment&gt;**](NavActivityAdjustment.md) | The request describing the Nav activity adjustments to delete from a specific valuation point and nav type |  |
+| **navActivityAdjustmentResponse** | [**List&lt;NavActivityAdjustmentResponse&gt;**](NavActivityAdjustmentResponse.md) | The request describing the Nav activity adjustments to delete from a specific valuation point and nav type |  |
 | **navTypeCode** | **string?** | When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used. | [optional]  |
 | **valuationPointCodeVariant** | **string?** | The variant of the valuation point used in the request. Together with the valuation point code marks the unique branch for the NavType. | [optional]  |
 
@@ -3636,7 +3636,7 @@ catch (ApiException e)
 
 <a id="listnavactivityadjustments"></a>
 # **ListNavActivityAdjustments**
-> ResourceListOfNavActivityAdjustment ListNavActivityAdjustments (string scope, string code, string valuationPointCode, string? navTypeCode = null, DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null, string? valuationPointCodeVariant = null)
+> ResourceListOfNavActivityAdjustmentResponse ListNavActivityAdjustments (string scope, string code, string valuationPointCode, string? navTypeCode = null, DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null, string? valuationPointCodeVariant = null)
 
 [EXPERIMENTAL] ListNavActivityAdjustments: List NAV adjustment activities applied to a valuation point
 
@@ -3694,10 +3694,10 @@ namespace Examples
             try
             {
                 // uncomment the below to set overrides at the request level
-                // ResourceListOfNavActivityAdjustment result = apiInstance.ListNavActivityAdjustments(scope, code, valuationPointCode, navTypeCode, asAt, page, limit, filter, valuationPointCodeVariant, opts: opts);
+                // ResourceListOfNavActivityAdjustmentResponse result = apiInstance.ListNavActivityAdjustments(scope, code, valuationPointCode, navTypeCode, asAt, page, limit, filter, valuationPointCodeVariant, opts: opts);
 
                 // [EXPERIMENTAL] ListNavActivityAdjustments: List NAV adjustment activities applied to a valuation point
-                ResourceListOfNavActivityAdjustment result = apiInstance.ListNavActivityAdjustments(scope, code, valuationPointCode, navTypeCode, asAt, page, limit, filter, valuationPointCodeVariant);
+                ResourceListOfNavActivityAdjustmentResponse result = apiInstance.ListNavActivityAdjustments(scope, code, valuationPointCode, navTypeCode, asAt, page, limit, filter, valuationPointCodeVariant);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -3718,7 +3718,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] ListNavActivityAdjustments: List NAV adjustment activities applied to a valuation point
-    ApiResponse<ResourceListOfNavActivityAdjustment> response = apiInstance.ListNavActivityAdjustmentsWithHttpInfo(scope, code, valuationPointCode, navTypeCode, asAt, page, limit, filter, valuationPointCodeVariant);
+    ApiResponse<ResourceListOfNavActivityAdjustmentResponse> response = apiInstance.ListNavActivityAdjustmentsWithHttpInfo(scope, code, valuationPointCode, navTypeCode, asAt, page, limit, filter, valuationPointCodeVariant);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -3747,7 +3747,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**ResourceListOfNavActivityAdjustment**](ResourceListOfNavActivityAdjustment.md)
+[**ResourceListOfNavActivityAdjustmentResponse**](ResourceListOfNavActivityAdjustmentResponse.md)
 
 ### HTTP request headers
 

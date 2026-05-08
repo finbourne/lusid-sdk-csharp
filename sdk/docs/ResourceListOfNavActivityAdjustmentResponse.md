@@ -1,10 +1,10 @@
-# Lusid.Sdk.Model.ResourceListOfNavActivityAdjustment
+# Lusid.Sdk.Model.ResourceListOfNavActivityAdjustmentResponse
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Values** | [**List&lt;NavActivityAdjustment&gt;**](NavActivityAdjustment.md) |  | 
+**Values** | [**List&lt;NavActivityAdjustmentResponse&gt;**](NavActivityAdjustmentResponse.md) |  | 
 **Href** | **string** |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 **NextPage** | **string** |  | [optional] 
@@ -14,13 +14,13 @@ Name | Type | Description | Notes
 using Lusid.Sdk.Model;
 using System;
 
-List<NavActivityAdjustment> values = new List<NavActivityAdjustment>();
+List<NavActivityAdjustmentResponse> values = new List<NavActivityAdjustmentResponse>();
 string href = "example href";
 List<Link> links = new List<Link>();
 string nextPage = "example nextPage";
 string previousPage = "example previousPage";
 
-ResourceListOfNavActivityAdjustment resourceListOfNavActivityAdjustmentInstance = new ResourceListOfNavActivityAdjustment(
+ResourceListOfNavActivityAdjustmentResponse resourceListOfNavActivityAdjustmentResponseInstance = new ResourceListOfNavActivityAdjustmentResponse(
     values: values,
     href: href,
     links: links,
