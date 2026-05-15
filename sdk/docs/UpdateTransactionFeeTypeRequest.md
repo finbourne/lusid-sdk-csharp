@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **Description** | **string** | A description of the transaction fee type. | [optional] 
 **Calculation** | [**FeeCalculationRequest**](FeeCalculationRequest.md) |  | [optional] 
 **Condition** | **string** | The condition that the transaction must meet in order for the fee to be applied. | [optional] 
-**TxnPropertyKey** | **string** | The property key to which the fee value will be applied and decorated onto the transaction. Must be in the &#39;Transaction&#39; property domain. | [optional] 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | A set of properties for the transaction fee type. | [optional] 
 **IsActive** | **bool?** | Indicates whether the transaction fee type is currently active and should be applied to transactions. Optional when creating a transaction fee type, defaults to true, if a value is not provided. | [optional] 
 
@@ -19,7 +18,6 @@ string description = "example description";
 FeeCalculationRequest? calculation = new FeeCalculationRequest();
 
 string condition = "example condition";
-string txnPropertyKey = "example txnPropertyKey";
 Dictionary<string, Property> properties = new Dictionary<string, Property>();
 bool? isActive = //"True";
 
@@ -27,7 +25,6 @@ UpdateTransactionFeeTypeRequest updateTransactionFeeTypeRequestInstance = new Up
     description: description,
     calculation: calculation,
     condition: condition,
-    txnPropertyKey: txnPropertyKey,
     properties: properties,
     isActive: isActive);
 ```

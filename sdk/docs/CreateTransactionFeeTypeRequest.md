@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DisplayName** | **string** | The display name of the transaction fee type. | 
-**Description** | **string** | A description of the transaction fee type. | 
+**Description** | **string** | A description of the transaction fee type. | [optional] 
 **Calculation** | [**FeeCalculationRequest**](FeeCalculationRequest.md) |  | 
 **Condition** | **string** | The condition that the transaction must meet in order for the fee to be applied. | 
 **TxnPropertyKey** | **string** | The property key to which the fee value will be applied and decorated onto the transaction. Must be in the &#39;Transaction&#39; property domain. | 
@@ -17,7 +17,7 @@ using Lusid.Sdk.Model;
 using System;
 
 string displayName = "displayName";
-string description = "description";
+string description = "example description";
 FeeCalculationRequest calculation = new FeeCalculationRequest();
 string condition = "condition";
 string txnPropertyKey = "txnPropertyKey";

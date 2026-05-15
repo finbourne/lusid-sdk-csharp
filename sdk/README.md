@@ -452,6 +452,7 @@ Class | Method | HTTP request | Description
 *PortfolioGroupsApi* | [**GetPortfolioGroupRelations**](docs/PortfolioGroupsApi.md#getportfoliogrouprelations) | **GET** /api/portfoliogroups/{scope}/{code}/relations | [EXPERIMENTAL] GetPortfolioGroupRelations: Get Relations for Portfolio Group
 *PortfolioGroupsApi* | [**GetPortfolioGroupRelationships**](docs/PortfolioGroupsApi.md#getportfoliogrouprelationships) | **GET** /api/portfoliogroups/{scope}/{code}/relationships | [EARLY ACCESS] GetPortfolioGroupRelationships: Get Relationships for Portfolio Group
 *PortfolioGroupsApi* | [**GetTransactionsForPortfolioGroup**](docs/PortfolioGroupsApi.md#gettransactionsforportfoliogroup) | **GET** /api/portfoliogroups/{scope}/{code}/transactions | GetTransactionsForPortfolioGroup: Get transactions for transaction portfolios in a portfolio group
+*PortfolioGroupsApi* | [**ListAllPortfolioGroups**](docs/PortfolioGroupsApi.md#listallportfoliogroups) | **GET** /api/portfoliogroups | ListAllPortfolioGroups: List all portfolio groups
 *PortfolioGroupsApi* | [**ListPortfolioGroups**](docs/PortfolioGroupsApi.md#listportfoliogroups) | **GET** /api/portfoliogroups/{scope} | ListPortfolioGroups: List portfolio groups
 *PortfolioGroupsApi* | [**PatchPortfolioGroupAccessMetadata**](docs/PortfolioGroupsApi.md#patchportfoliogroupaccessmetadata) | **PATCH** /api/portfoliogroups/{scope}/{code}/metadata | [EARLY ACCESS] PatchPortfolioGroupAccessMetadata: Patch Access Metadata rules for a Portfolio Group.
 *PortfolioGroupsApi* | [**UpdatePortfolioGroup**](docs/PortfolioGroupsApi.md#updateportfoliogroup) | **PUT** /api/portfoliogroups/{scope}/{code} | [EARLY ACCESS] UpdatePortfolioGroup: Update portfolio group
@@ -1088,6 +1089,7 @@ Class | Method | HTTP request | Description
  - [DividendOptionEvent](docs/DividendOptionEvent.md)
  - [DividendReinvestmentEvent](docs/DividendReinvestmentEvent.md)
  - [DrawdownEvent](docs/DrawdownEvent.md)
+ - [DrawingEvent](docs/DrawingEvent.md)
  - [EarlyCloseOutEvent](docs/EarlyCloseOutEvent.md)
  - [EarlyRedemptionElection](docs/EarlyRedemptionElection.md)
  - [EarlyRedemptionEvent](docs/EarlyRedemptionEvent.md)

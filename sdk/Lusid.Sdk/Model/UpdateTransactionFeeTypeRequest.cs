@@ -34,15 +34,13 @@ namespace Lusid.Sdk.Model
         /// <param name="description">A description of the transaction fee type..</param>
         /// <param name="calculation">calculation.</param>
         /// <param name="condition">The condition that the transaction must meet in order for the fee to be applied..</param>
-        /// <param name="txnPropertyKey">The property key to which the fee value will be applied and decorated onto the transaction. Must be in the &#39;Transaction&#39; property domain..</param>
         /// <param name="properties">A set of properties for the transaction fee type..</param>
         /// <param name="isActive">Indicates whether the transaction fee type is currently active and should be applied to transactions. Optional when creating a transaction fee type, defaults to true, if a value is not provided..</param>
-        public UpdateTransactionFeeTypeRequest(string description = default(string), FeeCalculationRequest calculation = default(FeeCalculationRequest), string condition = default(string), string txnPropertyKey = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), bool? isActive = default(bool?))
+        public UpdateTransactionFeeTypeRequest(string description = default(string), FeeCalculationRequest calculation = default(FeeCalculationRequest), string condition = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), bool? isActive = default(bool?))
         {
             this.Description = description;
             this.Calculation = calculation;
             this.Condition = condition;
-            this.TxnPropertyKey = txnPropertyKey;
             this.Properties = properties;
             this.IsActive = isActive;
         }
@@ -66,13 +64,6 @@ namespace Lusid.Sdk.Model
         /// <value>The condition that the transaction must meet in order for the fee to be applied.</value>
         [DataMember(Name = "condition", EmitDefaultValue = true)]
         public string Condition { get; set; }
-
-        /// <summary>
-        /// The property key to which the fee value will be applied and decorated onto the transaction. Must be in the &#39;Transaction&#39; property domain.
-        /// </summary>
-        /// <value>The property key to which the fee value will be applied and decorated onto the transaction. Must be in the &#39;Transaction&#39; property domain.</value>
-        [DataMember(Name = "txnPropertyKey", EmitDefaultValue = true)]
-        public string TxnPropertyKey { get; set; }
 
         /// <summary>
         /// A set of properties for the transaction fee type.
@@ -99,7 +90,6 @@ namespace Lusid.Sdk.Model
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Calculation: ").Append(Calculation).Append("\n");
             sb.Append("  Condition: ").Append(Condition).Append("\n");
-            sb.Append("  TxnPropertyKey: ").Append(TxnPropertyKey).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  IsActive: ").Append(IsActive).Append("\n");
             sb.Append("}\n");
@@ -153,11 +143,6 @@ namespace Lusid.Sdk.Model
                     this.Condition.Equals(input.Condition))
                 ) && 
                 (
-                    this.TxnPropertyKey == input.TxnPropertyKey ||
-                    (this.TxnPropertyKey != null &&
-                    this.TxnPropertyKey.Equals(input.TxnPropertyKey))
-                ) && 
-                (
                     this.Properties == input.Properties ||
                     this.Properties != null &&
                     input.Properties != null &&
@@ -190,10 +175,6 @@ namespace Lusid.Sdk.Model
                 if (this.Condition != null)
                 {
                     hashCode = (hashCode * 59) + this.Condition.GetHashCode();
-                }
-                if (this.TxnPropertyKey != null)
-                {
-                    hashCode = (hashCode * 59) + this.TxnPropertyKey.GetHashCode();
                 }
                 if (this.Properties != null)
                 {
@@ -243,18 +224,6 @@ namespace Lusid.Sdk.Model
             if (this.Condition != null && this.Condition.Length < 0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Condition, length must be greater than 0.", new [] { "Condition" });
-            }
-
-            // TxnPropertyKey (string) maxLength
-            if (this.TxnPropertyKey != null && this.TxnPropertyKey.Length > 256)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TxnPropertyKey, length must be less than 256.", new [] { "TxnPropertyKey" });
-            }
-
-            // TxnPropertyKey (string) minLength
-            if (this.TxnPropertyKey != null && this.TxnPropertyKey.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TxnPropertyKey, length must be greater than 1.", new [] { "TxnPropertyKey" });
             }
 
             yield break;
