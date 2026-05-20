@@ -537,7 +537,13 @@ namespace Lusid.Sdk.Model
             /// Enum TransactionFeeType for value: TransactionFeeType
             /// </summary>
             [EnumMember(Value = "TransactionFeeType")]
-            TransactionFeeType = 84
+            TransactionFeeType = 84,
+
+            /// <summary>
+            /// Enum TransactionFee for value: TransactionFee
+            /// </summary>
+            [EnumMember(Value = "TransactionFee")]
+            TransactionFee = 85
         }
 
 
@@ -586,7 +592,7 @@ namespace Lusid.Sdk.Model
         /// <param name="identifierScope">The scope that the identifier definition exists in. (required).</param>
         /// <param name="identifierType">What the identifier represents. Together with \&quot;domain\&quot; and \&quot;identifierScope\&quot; this uniquely identifies the identifier definition. (required).</param>
         /// <param name="lifeTime">Describes whether an identifier value is associated with an entity for all effective dates or applies within a specified effective date range. Available values: Perpetual, TimeVariant. (required).</param>
-        /// <param name="hierarchyUsage">MasterIdentifier (aka unique) An entity can have one value for this identifier definition on a given effective date. A value for this identifier definition can only be associated with one entity (in a given scope) on a given effective date. ParentIdentifier (aka non-unique) An entity can have one value for this identifier definition on a given effective date. A value for this identifier definition can be associated with many entities (in a given scope) on a given effective date. Default value: MasterIdentifier. Available values: MasterIdentifier, ParentIdentifier..</param>
+        /// <param name="hierarchyUsage">MasterIdentifier (aka unique)  An entity can have one value for this identifier definition on a given effective date.  A value for this identifier definition can only be associated with one entity (in a given scope) on a given effective date.  ParentIdentifier (aka non-unique)  An entity can have one value for this identifier definition on a given effective date.  A value for this identifier definition can be associated with many entities (in a given scope) on a given effective date.  Default value: MasterIdentifier. Available values: MasterIdentifier, ParentIdentifier..</param>
         /// <param name="hierarchyLevel">Optional metadata associated with the identifier definition..</param>
         /// <param name="displayName">A display name for the identifier. E.g. Figi..</param>
         /// <param name="description">An optional description for the identifier..</param>
@@ -629,9 +635,9 @@ namespace Lusid.Sdk.Model
         public string IdentifierType { get; set; }
 
         /// <summary>
-        /// MasterIdentifier (aka unique) An entity can have one value for this identifier definition on a given effective date. A value for this identifier definition can only be associated with one entity (in a given scope) on a given effective date. ParentIdentifier (aka non-unique) An entity can have one value for this identifier definition on a given effective date. A value for this identifier definition can be associated with many entities (in a given scope) on a given effective date. Default value: MasterIdentifier. Available values: MasterIdentifier, ParentIdentifier.
+        /// MasterIdentifier (aka unique)  An entity can have one value for this identifier definition on a given effective date.  A value for this identifier definition can only be associated with one entity (in a given scope) on a given effective date.  ParentIdentifier (aka non-unique)  An entity can have one value for this identifier definition on a given effective date.  A value for this identifier definition can be associated with many entities (in a given scope) on a given effective date.  Default value: MasterIdentifier. Available values: MasterIdentifier, ParentIdentifier.
         /// </summary>
-        /// <value>MasterIdentifier (aka unique) An entity can have one value for this identifier definition on a given effective date. A value for this identifier definition can only be associated with one entity (in a given scope) on a given effective date. ParentIdentifier (aka non-unique) An entity can have one value for this identifier definition on a given effective date. A value for this identifier definition can be associated with many entities (in a given scope) on a given effective date. Default value: MasterIdentifier. Available values: MasterIdentifier, ParentIdentifier.</value>
+        /// <value>MasterIdentifier (aka unique)  An entity can have one value for this identifier definition on a given effective date.  A value for this identifier definition can only be associated with one entity (in a given scope) on a given effective date.  ParentIdentifier (aka non-unique)  An entity can have one value for this identifier definition on a given effective date.  A value for this identifier definition can be associated with many entities (in a given scope) on a given effective date.  Default value: MasterIdentifier. Available values: MasterIdentifier, ParentIdentifier.</value>
         [DataMember(Name = "hierarchyUsage", EmitDefaultValue = true)]
         public string HierarchyUsage { get; set; }
 
