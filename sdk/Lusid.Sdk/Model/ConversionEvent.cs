@@ -43,14 +43,16 @@ namespace Lusid.Sdk.Model
         /// <param name="newInstrument">newInstrument (required).</param>
         /// <param name="responseDeadlineDate">Date/time that the account servicer has set as the deadline to respond,  with instructions, to an outstanding event. Not required..</param>
         /// <param name="marketDeadlineDate">Date/time which the issuer or issuer&#39;s agent has set as the deadline to respond,  with an instruction, to an outstanding offer or privilege. Not required..</param>
+        /// <param name="effectiveDate">Date which establishes when the conversion is recognised..</param>
         /// <param name="periodOfAction">periodOfAction.</param>
         /// <param name="fractionalUnitsCashPrice">The cash price paid in lieu of fractionalUnits. Not required.  If provided, must have FractionalUnitsCashCurrency too..</param>
         /// <param name="fractionalUnitsCashCurrency">Optional. Used in calculating cash-in-lieu of fractional shares. Not required.  If provided, must have FractionalUnitsCashPrice too..</param>
         /// <param name="securityOfferElections">List of possible security offers for this conversion event. There must be at most one election of this type.    If the ParticipationType is Mandatory:     This list must have exactly one election that is chosen and default.  CashAndSecurityOfferElections and CashOfferElections &lt;b&gt; must be null or empty&lt;/b&gt;.     If the ParticipationType is Voluntary:     This list can be empty,  so long as CashAndSecurityOfferElections or CashOfferElections  has at least one election. None of these elections have to be chosen or default..</param>
         /// <param name="cashAndSecurityOfferElections">List of possible cash and security offers for this conversion event. There must be at most one election of this type.    If the ParticipationType is Mandatory:    This list &lt;b&gt; must be null or empty&lt;/b&gt;.    If the ParticipationType is Voluntary:    This list can be empty,  so long as SecurityOfferElections or CashOfferElections  has at least one election. None of these elections have to be chosen or default..</param>
         /// <param name="cashOfferElections">List of possible cash offers for this conversion event. There must be at most one election of this type.    If the ParticipationType is Mandatory:    This list &lt;b&gt; must be null or empty&lt;/b&gt;.    If the ParticipationType is Voluntary:    This list can be empty,  so long as SecurityOfferElections or CashAndSecurityOfferElections  has at least one election. None of these elections have to be chosen or default..</param>
+        /// <param name="lapseElections">List of possible lapse elections for this conversion event. There must be at most one election of this type.    If provided, the holder is not entitled to receive anything for the conversion..</param>
         /// <param name="instrumentEventType">The Type of Event. Available values: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent, CapletFloorletCashFlowEvent, EarlyCloseOutEvent, DepositRollEvent, ConsentEvent, DrawingEvent. (required) (default to &quot;ConversionEvent&quot;).</param>
-        public ConversionEvent(DateTimeOffset recordDate = default(DateTimeOffset), DateTimeOffset paymentDate = default(DateTimeOffset), NewInstrument newInstrument = default(NewInstrument), DateTimeOffset? responseDeadlineDate = default(DateTimeOffset?), DateTimeOffset? marketDeadlineDate = default(DateTimeOffset?), EventDateRange periodOfAction = default(EventDateRange), decimal? fractionalUnitsCashPrice = default(decimal?), string fractionalUnitsCashCurrency = default(string), List<SecurityOfferElection> securityOfferElections = default(List<SecurityOfferElection>), List<CashAndSecurityOfferElection> cashAndSecurityOfferElections = default(List<CashAndSecurityOfferElection>), List<CashOfferElection> cashOfferElections = default(List<CashOfferElection>), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
+        public ConversionEvent(DateTimeOffset recordDate = default(DateTimeOffset), DateTimeOffset paymentDate = default(DateTimeOffset), NewInstrument newInstrument = default(NewInstrument), DateTimeOffset? responseDeadlineDate = default(DateTimeOffset?), DateTimeOffset? marketDeadlineDate = default(DateTimeOffset?), DateTimeOffset? effectiveDate = default(DateTimeOffset?), EventDateRange periodOfAction = default(EventDateRange), decimal? fractionalUnitsCashPrice = default(decimal?), string fractionalUnitsCashCurrency = default(string), List<SecurityOfferElection> securityOfferElections = default(List<SecurityOfferElection>), List<CashAndSecurityOfferElection> cashAndSecurityOfferElections = default(List<CashAndSecurityOfferElection>), List<CashOfferElection> cashOfferElections = default(List<CashOfferElection>), List<LapseElection> lapseElections = default(List<LapseElection>), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
             // to ensure "newInstrument" is required (not null)
             if (newInstrument == null)
@@ -62,12 +64,14 @@ namespace Lusid.Sdk.Model
             this.PaymentDate = paymentDate;
             this.ResponseDeadlineDate = responseDeadlineDate;
             this.MarketDeadlineDate = marketDeadlineDate;
+            this.EffectiveDate = effectiveDate;
             this.PeriodOfAction = periodOfAction;
             this.FractionalUnitsCashPrice = fractionalUnitsCashPrice;
             this.FractionalUnitsCashCurrency = fractionalUnitsCashCurrency;
             this.SecurityOfferElections = securityOfferElections;
             this.CashAndSecurityOfferElections = cashAndSecurityOfferElections;
             this.CashOfferElections = cashOfferElections;
+            this.LapseElections = lapseElections;
         }
 
         /// <summary>
@@ -103,6 +107,13 @@ namespace Lusid.Sdk.Model
         /// <value>Date/time which the issuer or issuer&#39;s agent has set as the deadline to respond,  with an instruction, to an outstanding offer or privilege. Not required.</value>
         [DataMember(Name = "marketDeadlineDate", EmitDefaultValue = true)]
         public DateTimeOffset? MarketDeadlineDate { get; set; }
+
+        /// <summary>
+        /// Date which establishes when the conversion is recognised.
+        /// </summary>
+        /// <value>Date which establishes when the conversion is recognised.</value>
+        [DataMember(Name = "effectiveDate", EmitDefaultValue = true)]
+        public DateTimeOffset? EffectiveDate { get; set; }
 
         /// <summary>
         /// Gets or Sets PeriodOfAction
@@ -146,6 +157,13 @@ namespace Lusid.Sdk.Model
         public List<CashOfferElection> CashOfferElections { get; set; }
 
         /// <summary>
+        /// List of possible lapse elections for this conversion event. There must be at most one election of this type.    If provided, the holder is not entitled to receive anything for the conversion.
+        /// </summary>
+        /// <value>List of possible lapse elections for this conversion event. There must be at most one election of this type.    If provided, the holder is not entitled to receive anything for the conversion.</value>
+        [DataMember(Name = "lapseElections", EmitDefaultValue = true)]
+        public List<LapseElection> LapseElections { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -159,12 +177,14 @@ namespace Lusid.Sdk.Model
             sb.Append("  NewInstrument: ").Append(NewInstrument).Append("\n");
             sb.Append("  ResponseDeadlineDate: ").Append(ResponseDeadlineDate).Append("\n");
             sb.Append("  MarketDeadlineDate: ").Append(MarketDeadlineDate).Append("\n");
+            sb.Append("  EffectiveDate: ").Append(EffectiveDate).Append("\n");
             sb.Append("  PeriodOfAction: ").Append(PeriodOfAction).Append("\n");
             sb.Append("  FractionalUnitsCashPrice: ").Append(FractionalUnitsCashPrice).Append("\n");
             sb.Append("  FractionalUnitsCashCurrency: ").Append(FractionalUnitsCashCurrency).Append("\n");
             sb.Append("  SecurityOfferElections: ").Append(SecurityOfferElections).Append("\n");
             sb.Append("  CashAndSecurityOfferElections: ").Append(CashAndSecurityOfferElections).Append("\n");
             sb.Append("  CashOfferElections: ").Append(CashOfferElections).Append("\n");
+            sb.Append("  LapseElections: ").Append(LapseElections).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -226,6 +246,11 @@ namespace Lusid.Sdk.Model
                     this.MarketDeadlineDate.Equals(input.MarketDeadlineDate))
                 ) && base.Equals(input) && 
                 (
+                    this.EffectiveDate == input.EffectiveDate ||
+                    (this.EffectiveDate != null &&
+                    this.EffectiveDate.Equals(input.EffectiveDate))
+                ) && base.Equals(input) && 
+                (
                     this.PeriodOfAction == input.PeriodOfAction ||
                     (this.PeriodOfAction != null &&
                     this.PeriodOfAction.Equals(input.PeriodOfAction))
@@ -257,6 +282,12 @@ namespace Lusid.Sdk.Model
                     this.CashOfferElections != null &&
                     input.CashOfferElections != null &&
                     this.CashOfferElections.SequenceEqual(input.CashOfferElections)
+                ) && base.Equals(input) && 
+                (
+                    this.LapseElections == input.LapseElections ||
+                    this.LapseElections != null &&
+                    input.LapseElections != null &&
+                    this.LapseElections.SequenceEqual(input.LapseElections)
                 );
         }
 
@@ -289,6 +320,10 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.MarketDeadlineDate.GetHashCode();
                 }
+                if (this.EffectiveDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.EffectiveDate.GetHashCode();
+                }
                 if (this.PeriodOfAction != null)
                 {
                     hashCode = (hashCode * 59) + this.PeriodOfAction.GetHashCode();
@@ -312,6 +347,10 @@ namespace Lusid.Sdk.Model
                 if (this.CashOfferElections != null)
                 {
                     hashCode = (hashCode * 59) + this.CashOfferElections.GetHashCode();
+                }
+                if (this.LapseElections != null)
+                {
+                    hashCode = (hashCode * 59) + this.LapseElections.GetHashCode();
                 }
                 return hashCode;
             }

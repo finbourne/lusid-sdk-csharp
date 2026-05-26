@@ -35,16 +35,18 @@ namespace Lusid.Sdk.Model
         /// <param name="effectiveAt">The effective-at timestamp for the entity.</param>
         /// <param name="entityType">The type of the LUSID entity.</param>
         /// <param name="scope">The scope of the entity.</param>
+        /// <param name="code">The code of the entity. Populated for scope+code entities (e.g. Portfolio). Null for identifier-based entities (e.g. Instrument)..</param>
         /// <param name="identifierKey">The identifier key for the entity.</param>
         /// <param name="identifierValue">The identifier value for the entity.</param>
         /// <param name="entityUniqueId">The unique identifier for the entity.</param>
         /// <param name="displayName">The display name of the entity.</param>
-        public LusidEntityResult(DateTimeOffset asAt = default(DateTimeOffset), DateTimeOffset effectiveAt = default(DateTimeOffset), string entityType = default(string), string scope = default(string), string identifierKey = default(string), string identifierValue = default(string), string entityUniqueId = default(string), string displayName = default(string))
+        public LusidEntityResult(DateTimeOffset asAt = default(DateTimeOffset), DateTimeOffset effectiveAt = default(DateTimeOffset), string entityType = default(string), string scope = default(string), string code = default(string), string identifierKey = default(string), string identifierValue = default(string), string entityUniqueId = default(string), string displayName = default(string))
         {
             this.AsAt = asAt;
             this.EffectiveAt = effectiveAt;
             this.EntityType = entityType;
             this.Scope = scope;
+            this.Code = code;
             this.IdentifierKey = identifierKey;
             this.IdentifierValue = identifierValue;
             this.EntityUniqueId = entityUniqueId;
@@ -78,6 +80,13 @@ namespace Lusid.Sdk.Model
         /// <value>The scope of the entity</value>
         [DataMember(Name = "scope", EmitDefaultValue = true)]
         public string Scope { get; set; }
+
+        /// <summary>
+        /// The code of the entity. Populated for scope+code entities (e.g. Portfolio). Null for identifier-based entities (e.g. Instrument).
+        /// </summary>
+        /// <value>The code of the entity. Populated for scope+code entities (e.g. Portfolio). Null for identifier-based entities (e.g. Instrument).</value>
+        [DataMember(Name = "code", EmitDefaultValue = true)]
+        public string Code { get; set; }
 
         /// <summary>
         /// The identifier key for the entity
@@ -119,6 +128,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  EffectiveAt: ").Append(EffectiveAt).Append("\n");
             sb.Append("  EntityType: ").Append(EntityType).Append("\n");
             sb.Append("  Scope: ").Append(Scope).Append("\n");
+            sb.Append("  Code: ").Append(Code).Append("\n");
             sb.Append("  IdentifierKey: ").Append(IdentifierKey).Append("\n");
             sb.Append("  IdentifierValue: ").Append(IdentifierValue).Append("\n");
             sb.Append("  EntityUniqueId: ").Append(EntityUniqueId).Append("\n");
@@ -179,6 +189,11 @@ namespace Lusid.Sdk.Model
                     this.Scope.Equals(input.Scope))
                 ) && 
                 (
+                    this.Code == input.Code ||
+                    (this.Code != null &&
+                    this.Code.Equals(input.Code))
+                ) && 
+                (
                     this.IdentifierKey == input.IdentifierKey ||
                     (this.IdentifierKey != null &&
                     this.IdentifierKey.Equals(input.IdentifierKey))
@@ -224,6 +239,10 @@ namespace Lusid.Sdk.Model
                 if (this.Scope != null)
                 {
                     hashCode = (hashCode * 59) + this.Scope.GetHashCode();
+                }
+                if (this.Code != null)
+                {
+                    hashCode = (hashCode * 59) + this.Code.GetHashCode();
                 }
                 if (this.IdentifierKey != null)
                 {

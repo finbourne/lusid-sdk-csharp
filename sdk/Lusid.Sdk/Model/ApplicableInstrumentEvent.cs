@@ -49,7 +49,9 @@ namespace Lusid.Sdk.Model
         /// <param name="appliedInstrumentEventInstructionId">appliedInstrumentEventInstructionId.</param>
         /// <param name="transactions">transactions.</param>
         /// <param name="transactionDiagnostics">transactionDiagnostics.</param>
-        public ApplicableInstrumentEvent(ResourceId portfolioId = default(ResourceId), long holdingId = default(long), string lusidInstrumentId = default(string), string instrumentScope = default(string), string instrumentType = default(string), string instrumentEventType = default(string), string instrumentEventId = default(string), InstrumentEventHolder generatedEvent = default(InstrumentEventHolder), GeneratedEventDiagnostics generatedEventDiagnostics = default(GeneratedEventDiagnostics), InstrumentEventHolder loadedEvent = default(InstrumentEventHolder), string appliedInstrumentEventInstructionId = default(string), List<Transaction> transactions = default(List<Transaction>), TransactionDiagnostics transactionDiagnostics = default(TransactionDiagnostics))
+        /// <param name="appliedInstrumentEventInstruction">appliedInstrumentEventInstruction.</param>
+        /// <param name="eligibleBalance">eligibleBalance.</param>
+        public ApplicableInstrumentEvent(ResourceId portfolioId = default(ResourceId), long holdingId = default(long), string lusidInstrumentId = default(string), string instrumentScope = default(string), string instrumentType = default(string), string instrumentEventType = default(string), string instrumentEventId = default(string), InstrumentEventHolder generatedEvent = default(InstrumentEventHolder), GeneratedEventDiagnostics generatedEventDiagnostics = default(GeneratedEventDiagnostics), InstrumentEventHolder loadedEvent = default(InstrumentEventHolder), string appliedInstrumentEventInstructionId = default(string), List<Transaction> transactions = default(List<Transaction>), TransactionDiagnostics transactionDiagnostics = default(TransactionDiagnostics), InstrumentEventInstruction appliedInstrumentEventInstruction = default(InstrumentEventInstruction), decimal? eligibleBalance = default(decimal?))
         {
             // to ensure "portfolioId" is required (not null)
             if (portfolioId == null)
@@ -94,6 +96,8 @@ namespace Lusid.Sdk.Model
             this.AppliedInstrumentEventInstructionId = appliedInstrumentEventInstructionId;
             this.Transactions = transactions;
             this.TransactionDiagnostics = transactionDiagnostics;
+            this.AppliedInstrumentEventInstruction = appliedInstrumentEventInstruction;
+            this.EligibleBalance = eligibleBalance;
         }
 
         /// <summary>
@@ -175,6 +179,18 @@ namespace Lusid.Sdk.Model
         public TransactionDiagnostics TransactionDiagnostics { get; set; }
 
         /// <summary>
+        /// Gets or Sets AppliedInstrumentEventInstruction
+        /// </summary>
+        [DataMember(Name = "appliedInstrumentEventInstruction", EmitDefaultValue = false)]
+        public InstrumentEventInstruction AppliedInstrumentEventInstruction { get; set; }
+
+        /// <summary>
+        /// Gets or Sets EligibleBalance
+        /// </summary>
+        [DataMember(Name = "eligibleBalance", EmitDefaultValue = true)]
+        public decimal? EligibleBalance { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -195,6 +211,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  AppliedInstrumentEventInstructionId: ").Append(AppliedInstrumentEventInstructionId).Append("\n");
             sb.Append("  Transactions: ").Append(Transactions).Append("\n");
             sb.Append("  TransactionDiagnostics: ").Append(TransactionDiagnostics).Append("\n");
+            sb.Append("  AppliedInstrumentEventInstruction: ").Append(AppliedInstrumentEventInstruction).Append("\n");
+            sb.Append("  EligibleBalance: ").Append(EligibleBalance).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -294,6 +312,16 @@ namespace Lusid.Sdk.Model
                     this.TransactionDiagnostics == input.TransactionDiagnostics ||
                     (this.TransactionDiagnostics != null &&
                     this.TransactionDiagnostics.Equals(input.TransactionDiagnostics))
+                ) && 
+                (
+                    this.AppliedInstrumentEventInstruction == input.AppliedInstrumentEventInstruction ||
+                    (this.AppliedInstrumentEventInstruction != null &&
+                    this.AppliedInstrumentEventInstruction.Equals(input.AppliedInstrumentEventInstruction))
+                ) && 
+                (
+                    this.EligibleBalance == input.EligibleBalance ||
+                    (this.EligibleBalance != null &&
+                    this.EligibleBalance.Equals(input.EligibleBalance))
                 );
         }
 
@@ -354,6 +382,14 @@ namespace Lusid.Sdk.Model
                 if (this.TransactionDiagnostics != null)
                 {
                     hashCode = (hashCode * 59) + this.TransactionDiagnostics.GetHashCode();
+                }
+                if (this.AppliedInstrumentEventInstruction != null)
+                {
+                    hashCode = (hashCode * 59) + this.AppliedInstrumentEventInstruction.GetHashCode();
+                }
+                if (this.EligibleBalance != null)
+                {
+                    hashCode = (hashCode * 59) + this.EligibleBalance.GetHashCode();
                 }
                 return hashCode;
             }

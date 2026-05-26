@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **ChartOfAccountsId** | [**ResourceId**](ResourceId.md) |  | 
 **PostingModuleCodes** | **List&lt;string&gt;** | The Posting Module Codes from which the rules to be applied are retrieved. | [optional] 
 **CleardownModuleCodes** | **List&lt;string&gt;** | The Cleardown Module Codes from which the rules to be applied are retrieved. | [optional] 
+**SettlementConfiguration** | [**NavSettlementConfiguration**](NavSettlementConfiguration.md) |  | [optional] 
 **ValuationRecipeId** | [**ResourceId**](ResourceId.md) |  | 
 **HoldingRecipeId** | [**ResourceId**](ResourceId.md) |  | 
 **AccountingMethod** | **string** | Determines the accounting treatment given to the simple position portfolio&#39;s tax lots. A non-default value is required. Available values: AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency, IntraDayThenFirstInFirstOut, LongTermHighestCostFirst, LongTermHighestCostFirstPortfolioCurrency, HighestCostFirstPortfolioCurrency, LowestCostFirstPortfolioCurrency, MaximumLossMinimumGain, MaximumLossMinimumGainPortfolioCurrency. | 
@@ -33,6 +34,8 @@ string description = "example description";
 ResourceId chartOfAccountsId = new ResourceId();
 List<string> postingModuleCodes = new List<string>();
 List<string> cleardownModuleCodes = new List<string>();
+NavSettlementConfiguration? settlementConfiguration = new NavSettlementConfiguration();
+
 ResourceId valuationRecipeId = new ResourceId();
 ResourceId holdingRecipeId = new ResourceId();
 string accountingMethod = "accountingMethod";
@@ -53,6 +56,7 @@ NavType navTypeInstance = new NavType(
     chartOfAccountsId: chartOfAccountsId,
     postingModuleCodes: postingModuleCodes,
     cleardownModuleCodes: cleardownModuleCodes,
+    settlementConfiguration: settlementConfiguration,
     valuationRecipeId: valuationRecipeId,
     holdingRecipeId: holdingRecipeId,
     accountingMethod: accountingMethod,

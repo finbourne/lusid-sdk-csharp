@@ -43,6 +43,7 @@ namespace Lusid.Sdk.Model
         /// <param name="chartOfAccountsId">chartOfAccountsId (required).</param>
         /// <param name="postingModuleCodes">The Posting Module Codes from which the rules to be applied are retrieved..</param>
         /// <param name="cleardownModuleCodes">The Cleardown Module Codes from which the rules to be applied are retrieved..</param>
+        /// <param name="settlementConfiguration">settlementConfiguration.</param>
         /// <param name="valuationRecipeId">valuationRecipeId (required).</param>
         /// <param name="holdingRecipeId">holdingRecipeId (required).</param>
         /// <param name="accountingMethod">Determines the accounting treatment given to the simple position portfolio&#39;s tax lots. A non-default value is required. Available values: AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency, IntraDayThenFirstInFirstOut, LongTermHighestCostFirst, LongTermHighestCostFirstPortfolioCurrency, HighestCostFirstPortfolioCurrency, LowestCostFirstPortfolioCurrency, MaximumLossMinimumGain, MaximumLossMinimumGainPortfolioCurrency. (required).</param>
@@ -53,7 +54,7 @@ namespace Lusid.Sdk.Model
         /// <param name="amortisationRuleSetId">amortisationRuleSetId.</param>
         /// <param name="leaderNavTypeCode">The code of the Nav Type that this Nav Type will follow when set..</param>
         /// <param name="transactionTemplateScope">The Transaction Template Scope used by the NavType. Will default to the scope set on the parent portfolio. If the fund has multiple parent portfolios, then the Transaction Template Scope must be provided..</param>
-        public NavType(string status = default(string), string code = default(string), string displayName = default(string), string description = default(string), ResourceId chartOfAccountsId = default(ResourceId), List<string> postingModuleCodes = default(List<string>), List<string> cleardownModuleCodes = default(List<string>), ResourceId valuationRecipeId = default(ResourceId), ResourceId holdingRecipeId = default(ResourceId), string accountingMethod = default(string), List<string> subHoldingKeys = default(List<string>), string amortisationMethod = default(string), string transactionTypeScope = default(string), string cashGainLossCalculationDate = default(string), ResourceId amortisationRuleSetId = default(ResourceId), string leaderNavTypeCode = default(string), string transactionTemplateScope = default(string))
+        public NavType(string status = default(string), string code = default(string), string displayName = default(string), string description = default(string), ResourceId chartOfAccountsId = default(ResourceId), List<string> postingModuleCodes = default(List<string>), List<string> cleardownModuleCodes = default(List<string>), NavSettlementConfiguration settlementConfiguration = default(NavSettlementConfiguration), ResourceId valuationRecipeId = default(ResourceId), ResourceId holdingRecipeId = default(ResourceId), string accountingMethod = default(string), List<string> subHoldingKeys = default(List<string>), string amortisationMethod = default(string), string transactionTypeScope = default(string), string cashGainLossCalculationDate = default(string), ResourceId amortisationRuleSetId = default(ResourceId), string leaderNavTypeCode = default(string), string transactionTemplateScope = default(string))
         {
             // to ensure "status" is required (not null)
             if (status == null)
@@ -108,6 +109,7 @@ namespace Lusid.Sdk.Model
             this.Description = description;
             this.PostingModuleCodes = postingModuleCodes;
             this.CleardownModuleCodes = cleardownModuleCodes;
+            this.SettlementConfiguration = settlementConfiguration;
             this.SubHoldingKeys = subHoldingKeys;
             this.AmortisationRuleSetId = amortisationRuleSetId;
             this.LeaderNavTypeCode = leaderNavTypeCode;
@@ -161,6 +163,12 @@ namespace Lusid.Sdk.Model
         /// <value>The Cleardown Module Codes from which the rules to be applied are retrieved.</value>
         [DataMember(Name = "cleardownModuleCodes", EmitDefaultValue = true)]
         public List<string> CleardownModuleCodes { get; set; }
+
+        /// <summary>
+        /// Gets or Sets SettlementConfiguration
+        /// </summary>
+        [DataMember(Name = "settlementConfiguration", EmitDefaultValue = false)]
+        public NavSettlementConfiguration SettlementConfiguration { get; set; }
 
         /// <summary>
         /// Gets or Sets ValuationRecipeId
@@ -244,6 +252,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  ChartOfAccountsId: ").Append(ChartOfAccountsId).Append("\n");
             sb.Append("  PostingModuleCodes: ").Append(PostingModuleCodes).Append("\n");
             sb.Append("  CleardownModuleCodes: ").Append(CleardownModuleCodes).Append("\n");
+            sb.Append("  SettlementConfiguration: ").Append(SettlementConfiguration).Append("\n");
             sb.Append("  ValuationRecipeId: ").Append(ValuationRecipeId).Append("\n");
             sb.Append("  HoldingRecipeId: ").Append(HoldingRecipeId).Append("\n");
             sb.Append("  AccountingMethod: ").Append(AccountingMethod).Append("\n");
@@ -325,6 +334,11 @@ namespace Lusid.Sdk.Model
                     this.CleardownModuleCodes != null &&
                     input.CleardownModuleCodes != null &&
                     this.CleardownModuleCodes.SequenceEqual(input.CleardownModuleCodes)
+                ) && 
+                (
+                    this.SettlementConfiguration == input.SettlementConfiguration ||
+                    (this.SettlementConfiguration != null &&
+                    this.SettlementConfiguration.Equals(input.SettlementConfiguration))
                 ) && 
                 (
                     this.ValuationRecipeId == input.ValuationRecipeId ||
@@ -415,6 +429,10 @@ namespace Lusid.Sdk.Model
                 if (this.CleardownModuleCodes != null)
                 {
                     hashCode = (hashCode * 59) + this.CleardownModuleCodes.GetHashCode();
+                }
+                if (this.SettlementConfiguration != null)
+                {
+                    hashCode = (hashCode * 59) + this.SettlementConfiguration.GetHashCode();
                 }
                 if (this.ValuationRecipeId != null)
                 {

@@ -18,6 +18,8 @@ Name | Type | Description | Notes
 **AppliedInstrumentEventInstructionId** | **string** |  | [optional] 
 **Transactions** | [**List&lt;Transaction&gt;**](Transaction.md) |  | [optional] 
 **TransactionDiagnostics** | [**TransactionDiagnostics**](TransactionDiagnostics.md) |  | [optional] 
+**AppliedInstrumentEventInstruction** | [**InstrumentEventInstruction**](InstrumentEventInstruction.md) |  | [optional] 
+**EligibleBalance** | **decimal?** |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -39,6 +41,8 @@ string appliedInstrumentEventInstructionId = "example appliedInstrumentEventInst
 List<Transaction> transactions = new List<Transaction>();
 TransactionDiagnostics? transactionDiagnostics = new TransactionDiagnostics();
 
+InstrumentEventInstruction? appliedInstrumentEventInstruction = new InstrumentEventInstruction();
+
 
 ApplicableInstrumentEvent applicableInstrumentEventInstance = new ApplicableInstrumentEvent(
     portfolioId: portfolioId,
@@ -53,7 +57,9 @@ ApplicableInstrumentEvent applicableInstrumentEventInstance = new ApplicableInst
     loadedEvent: loadedEvent,
     appliedInstrumentEventInstructionId: appliedInstrumentEventInstructionId,
     transactions: transactions,
-    transactionDiagnostics: transactionDiagnostics);
+    transactionDiagnostics: transactionDiagnostics,
+    appliedInstrumentEventInstruction: appliedInstrumentEventInstruction,
+    eligibleBalance: eligibleBalance);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **EffectiveAt** | **DateTimeOffset** | The effective-at timestamp for the entity | [optional] 
 **EntityType** | **string** | The type of the LUSID entity | [optional] 
 **Scope** | **string** | The scope of the entity | [optional] 
+**Code** | **string** | The code of the entity. Populated for scope+code entities (e.g. Portfolio). Null for identifier-based entities (e.g. Instrument). | [optional] 
 **IdentifierKey** | **string** | The identifier key for the entity | [optional] 
 **IdentifierValue** | **string** | The identifier value for the entity | [optional] 
 **EntityUniqueId** | **string** | The unique identifier for the entity | [optional] 
@@ -20,6 +21,7 @@ using System;
 
 string entityType = "example entityType";
 string scope = "example scope";
+string code = "example code";
 string identifierKey = "example identifierKey";
 string identifierValue = "example identifierValue";
 string entityUniqueId = "example entityUniqueId";
@@ -30,6 +32,7 @@ LusidEntityResult lusidEntityResultInstance = new LusidEntityResult(
     effectiveAt: effectiveAt,
     entityType: entityType,
     scope: scope,
+    code: code,
     identifierKey: identifierKey,
     identifierValue: identifierValue,
     entityUniqueId: entityUniqueId,
