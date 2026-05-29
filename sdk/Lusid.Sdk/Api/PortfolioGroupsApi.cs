@@ -446,10 +446,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the portfolio group definition. Defaults to return              the latest version of the portfolio group definition if not specified. (optional)</param>
         /// <param name="relatedEntityPropertyKeys">A list of property keys from any domain that supports relationships              to decorate onto related entities. These must take the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the portfolio group in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;PortfolioGroup&#39; domain to decorate onto the portfolio group. These must take the format {domain}/{scope}/{code}, e.g. &#39;PortfolioGroup/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PortfolioGroup</returns>
-        PortfolioGroup GetPortfolioGroup(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        PortfolioGroup GetPortfolioGroup(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetPortfolioGroup: Get portfolio group
@@ -464,10 +465,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the portfolio group definition. Defaults to return              the latest version of the portfolio group definition if not specified. (optional)</param>
         /// <param name="relatedEntityPropertyKeys">A list of property keys from any domain that supports relationships              to decorate onto related entities. These must take the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the portfolio group in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;PortfolioGroup&#39; domain to decorate onto the portfolio group. These must take the format {domain}/{scope}/{code}, e.g. &#39;PortfolioGroup/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PortfolioGroup</returns>
-        Lusid.Sdk.Client.ApiResponse<PortfolioGroup> GetPortfolioGroupWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<PortfolioGroup> GetPortfolioGroupWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetPortfolioGroupAccessMetadataByKey: Get an entry identified by a metadataKey in the Access Metadata of a Portfolio Group
         /// </summary>
@@ -773,10 +775,11 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="relatedEntityPropertyKeys">A list of property keys from any domain that supports relationships              to decorate onto related entities. These must take the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the portfolio groups in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;PortfolioGroup&#39; domain to decorate onto the portfolio groups. These must take the format {domain}/{scope}/{code}, e.g. &#39;PortfolioGroup/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfPortfolioGroup</returns>
-        PagedResourceListOfPortfolioGroup ListAllPortfolioGroups(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        PagedResourceListOfPortfolioGroup ListAllPortfolioGroups(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// ListAllPortfolioGroups: List all portfolio groups
@@ -793,10 +796,11 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="relatedEntityPropertyKeys">A list of property keys from any domain that supports relationships              to decorate onto related entities. These must take the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the portfolio groups in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;PortfolioGroup&#39; domain to decorate onto the portfolio groups. These must take the format {domain}/{scope}/{code}, e.g. &#39;PortfolioGroup/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfPortfolioGroup</returns>
-        Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPortfolioGroup> ListAllPortfolioGroupsWithHttpInfo(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPortfolioGroup> ListAllPortfolioGroupsWithHttpInfo(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// ListPortfolioGroups: List portfolio groups
         /// </summary>
@@ -813,10 +817,11 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="relatedEntityPropertyKeys">A list of property keys from any domain that supports relationships              to decorate onto related entities. These must take the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the portfolio groups in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;PortfolioGroup&#39; domain to decorate onto the portfolio groups. These must take the format {domain}/{scope}/{code}, e.g. &#39;PortfolioGroup/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfPortfolioGroup</returns>
-        PagedResourceListOfPortfolioGroup ListPortfolioGroups(string scope, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        PagedResourceListOfPortfolioGroup ListPortfolioGroups(string scope, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// ListPortfolioGroups: List portfolio groups
@@ -834,10 +839,11 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="relatedEntityPropertyKeys">A list of property keys from any domain that supports relationships              to decorate onto related entities. These must take the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the portfolio groups in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;PortfolioGroup&#39; domain to decorate onto the portfolio groups. These must take the format {domain}/{scope}/{code}, e.g. &#39;PortfolioGroup/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfPortfolioGroup</returns>
-        Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPortfolioGroup> ListPortfolioGroupsWithHttpInfo(string scope, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPortfolioGroup> ListPortfolioGroupsWithHttpInfo(string scope, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] PatchPortfolioGroupAccessMetadata: Patch Access Metadata rules for a Portfolio Group.
         /// </summary>
@@ -1414,11 +1420,12 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the portfolio group definition. Defaults to return              the latest version of the portfolio group definition if not specified. (optional)</param>
         /// <param name="relatedEntityPropertyKeys">A list of property keys from any domain that supports relationships              to decorate onto related entities. These must take the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the portfolio group in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;PortfolioGroup&#39; domain to decorate onto the portfolio group. These must take the format {domain}/{scope}/{code}, e.g. &#39;PortfolioGroup/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PortfolioGroup</returns>
-        System.Threading.Tasks.Task<PortfolioGroup> GetPortfolioGroupAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<PortfolioGroup> GetPortfolioGroupAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetPortfolioGroup: Get portfolio group
@@ -1433,11 +1440,12 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the portfolio group definition. Defaults to return              the latest version of the portfolio group definition if not specified. (optional)</param>
         /// <param name="relatedEntityPropertyKeys">A list of property keys from any domain that supports relationships              to decorate onto related entities. These must take the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the portfolio group in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;PortfolioGroup&#39; domain to decorate onto the portfolio group. These must take the format {domain}/{scope}/{code}, e.g. &#39;PortfolioGroup/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PortfolioGroup)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PortfolioGroup>> GetPortfolioGroupWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PortfolioGroup>> GetPortfolioGroupWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetPortfolioGroupAccessMetadataByKey: Get an entry identified by a metadataKey in the Access Metadata of a Portfolio Group
         /// </summary>
@@ -1759,11 +1767,12 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="relatedEntityPropertyKeys">A list of property keys from any domain that supports relationships              to decorate onto related entities. These must take the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the portfolio groups in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;PortfolioGroup&#39; domain to decorate onto the portfolio groups. These must take the format {domain}/{scope}/{code}, e.g. &#39;PortfolioGroup/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfPortfolioGroup</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfPortfolioGroup> ListAllPortfolioGroupsAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<PagedResourceListOfPortfolioGroup> ListAllPortfolioGroupsAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// ListAllPortfolioGroups: List all portfolio groups
@@ -1780,11 +1789,12 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="relatedEntityPropertyKeys">A list of property keys from any domain that supports relationships              to decorate onto related entities. These must take the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the portfolio groups in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;PortfolioGroup&#39; domain to decorate onto the portfolio groups. These must take the format {domain}/{scope}/{code}, e.g. &#39;PortfolioGroup/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfPortfolioGroup)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPortfolioGroup>> ListAllPortfolioGroupsWithHttpInfoAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPortfolioGroup>> ListAllPortfolioGroupsWithHttpInfoAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// ListPortfolioGroups: List portfolio groups
         /// </summary>
@@ -1801,11 +1811,12 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="relatedEntityPropertyKeys">A list of property keys from any domain that supports relationships              to decorate onto related entities. These must take the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the portfolio groups in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;PortfolioGroup&#39; domain to decorate onto the portfolio groups. These must take the format {domain}/{scope}/{code}, e.g. &#39;PortfolioGroup/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfPortfolioGroup</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfPortfolioGroup> ListPortfolioGroupsAsync(string scope, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<PagedResourceListOfPortfolioGroup> ListPortfolioGroupsAsync(string scope, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// ListPortfolioGroups: List portfolio groups
@@ -1823,11 +1834,12 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="relatedEntityPropertyKeys">A list of property keys from any domain that supports relationships              to decorate onto related entities. These must take the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the portfolio groups in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;PortfolioGroup&#39; domain to decorate onto the portfolio groups. These must take the format {domain}/{scope}/{code}, e.g. &#39;PortfolioGroup/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfPortfolioGroup)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPortfolioGroup>> ListPortfolioGroupsWithHttpInfoAsync(string scope, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPortfolioGroup>> ListPortfolioGroupsWithHttpInfoAsync(string scope, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] PatchPortfolioGroupAccessMetadata: Patch Access Metadata rules for a Portfolio Group.
         /// </summary>
@@ -5327,12 +5339,13 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the portfolio group definition. Defaults to return              the latest version of the portfolio group definition if not specified. (optional)</param>
         /// <param name="relatedEntityPropertyKeys">A list of property keys from any domain that supports relationships              to decorate onto related entities. These must take the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the portfolio group in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;PortfolioGroup&#39; domain to decorate onto the portfolio group. These must take the format {domain}/{scope}/{code}, e.g. &#39;PortfolioGroup/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PortfolioGroup</returns>
-        public PortfolioGroup GetPortfolioGroup(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public PortfolioGroup GetPortfolioGroup(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PortfolioGroup> localVarResponse = GetPortfolioGroupWithHttpInfo(scope, code, effectiveAt, asAt, relatedEntityPropertyKeys, relationshipDefinitionIds, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<PortfolioGroup> localVarResponse = GetPortfolioGroupWithHttpInfo(scope, code, effectiveAt, asAt, relatedEntityPropertyKeys, relationshipDefinitionIds, propertyKeys, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -5346,10 +5359,11 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the portfolio group definition. Defaults to return              the latest version of the portfolio group definition if not specified. (optional)</param>
         /// <param name="relatedEntityPropertyKeys">A list of property keys from any domain that supports relationships              to decorate onto related entities. These must take the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the portfolio group in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;PortfolioGroup&#39; domain to decorate onto the portfolio group. These must take the format {domain}/{scope}/{code}, e.g. &#39;PortfolioGroup/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PortfolioGroup</returns>
-        public Lusid.Sdk.Client.ApiResponse<PortfolioGroup> GetPortfolioGroupWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<PortfolioGroup> GetPortfolioGroupWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -5418,6 +5432,11 @@ namespace Lusid.Sdk.Api
             {
 
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "relationshipDefinitionIds", relationshipDefinitionIds));
+            }
+            if (propertyKeys != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "propertyKeys", propertyKeys));
             }
 
             localVarRequestOptions.Operation = "PortfolioGroupsApi.GetPortfolioGroup";
@@ -5464,13 +5483,14 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the portfolio group definition. Defaults to return              the latest version of the portfolio group definition if not specified. (optional)</param>
         /// <param name="relatedEntityPropertyKeys">A list of property keys from any domain that supports relationships              to decorate onto related entities. These must take the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the portfolio group in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;PortfolioGroup&#39; domain to decorate onto the portfolio group. These must take the format {domain}/{scope}/{code}, e.g. &#39;PortfolioGroup/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PortfolioGroup</returns>
-        public async System.Threading.Tasks.Task<PortfolioGroup> GetPortfolioGroupAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<PortfolioGroup> GetPortfolioGroupAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PortfolioGroup> localVarResponse = await GetPortfolioGroupWithHttpInfoAsync(scope, code, effectiveAt, asAt, relatedEntityPropertyKeys, relationshipDefinitionIds, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PortfolioGroup> localVarResponse = await GetPortfolioGroupWithHttpInfoAsync(scope, code, effectiveAt, asAt, relatedEntityPropertyKeys, relationshipDefinitionIds, propertyKeys, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -5484,11 +5504,12 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the portfolio group definition. Defaults to return              the latest version of the portfolio group definition if not specified. (optional)</param>
         /// <param name="relatedEntityPropertyKeys">A list of property keys from any domain that supports relationships              to decorate onto related entities. These must take the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the portfolio group in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;PortfolioGroup&#39; domain to decorate onto the portfolio group. These must take the format {domain}/{scope}/{code}, e.g. &#39;PortfolioGroup/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PortfolioGroup)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PortfolioGroup>> GetPortfolioGroupWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PortfolioGroup>> GetPortfolioGroupWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -5554,6 +5575,10 @@ namespace Lusid.Sdk.Api
             if (relationshipDefinitionIds != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "relationshipDefinitionIds", relationshipDefinitionIds));
+            }
+            if (propertyKeys != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "propertyKeys", propertyKeys));
             }
 
             localVarRequestOptions.Operation = "PortfolioGroupsApi.GetPortfolioGroup";
@@ -7870,12 +7895,13 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="relatedEntityPropertyKeys">A list of property keys from any domain that supports relationships              to decorate onto related entities. These must take the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the portfolio groups in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;PortfolioGroup&#39; domain to decorate onto the portfolio groups. These must take the format {domain}/{scope}/{code}, e.g. &#39;PortfolioGroup/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfPortfolioGroup</returns>
-        public PagedResourceListOfPortfolioGroup ListAllPortfolioGroups(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public PagedResourceListOfPortfolioGroup ListAllPortfolioGroups(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPortfolioGroup> localVarResponse = ListAllPortfolioGroupsWithHttpInfo(effectiveAt, asAt, page, limit, filter, sortBy, relatedEntityPropertyKeys, relationshipDefinitionIds, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPortfolioGroup> localVarResponse = ListAllPortfolioGroupsWithHttpInfo(effectiveAt, asAt, page, limit, filter, sortBy, relatedEntityPropertyKeys, relationshipDefinitionIds, propertyKeys, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -7891,10 +7917,11 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="relatedEntityPropertyKeys">A list of property keys from any domain that supports relationships              to decorate onto related entities. These must take the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the portfolio groups in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;PortfolioGroup&#39; domain to decorate onto the portfolio groups. These must take the format {domain}/{scope}/{code}, e.g. &#39;PortfolioGroup/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfPortfolioGroup</returns>
-        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPortfolioGroup> ListAllPortfolioGroupsWithHttpInfo(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPortfolioGroup> ListAllPortfolioGroupsWithHttpInfo(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
 
@@ -7969,6 +7996,11 @@ namespace Lusid.Sdk.Api
             {
 
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "relationshipDefinitionIds", relationshipDefinitionIds));
+            }
+            if (propertyKeys != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "propertyKeys", propertyKeys));
             }
 
             localVarRequestOptions.Operation = "PortfolioGroupsApi.ListAllPortfolioGroups";
@@ -8017,13 +8049,14 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="relatedEntityPropertyKeys">A list of property keys from any domain that supports relationships              to decorate onto related entities. These must take the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the portfolio groups in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;PortfolioGroup&#39; domain to decorate onto the portfolio groups. These must take the format {domain}/{scope}/{code}, e.g. &#39;PortfolioGroup/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfPortfolioGroup</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfPortfolioGroup> ListAllPortfolioGroupsAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<PagedResourceListOfPortfolioGroup> ListAllPortfolioGroupsAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPortfolioGroup> localVarResponse = await ListAllPortfolioGroupsWithHttpInfoAsync(effectiveAt, asAt, page, limit, filter, sortBy, relatedEntityPropertyKeys, relationshipDefinitionIds, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPortfolioGroup> localVarResponse = await ListAllPortfolioGroupsWithHttpInfoAsync(effectiveAt, asAt, page, limit, filter, sortBy, relatedEntityPropertyKeys, relationshipDefinitionIds, propertyKeys, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -8039,11 +8072,12 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="relatedEntityPropertyKeys">A list of property keys from any domain that supports relationships              to decorate onto related entities. These must take the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the portfolio groups in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;PortfolioGroup&#39; domain to decorate onto the portfolio groups. These must take the format {domain}/{scope}/{code}, e.g. &#39;PortfolioGroup/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfPortfolioGroup)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPortfolioGroup>> ListAllPortfolioGroupsWithHttpInfoAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPortfolioGroup>> ListAllPortfolioGroupsWithHttpInfoAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
@@ -8111,6 +8145,10 @@ namespace Lusid.Sdk.Api
             if (relationshipDefinitionIds != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "relationshipDefinitionIds", relationshipDefinitionIds));
+            }
+            if (propertyKeys != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "propertyKeys", propertyKeys));
             }
 
             localVarRequestOptions.Operation = "PortfolioGroupsApi.ListAllPortfolioGroups";
@@ -8161,12 +8199,13 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="relatedEntityPropertyKeys">A list of property keys from any domain that supports relationships              to decorate onto related entities. These must take the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the portfolio groups in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;PortfolioGroup&#39; domain to decorate onto the portfolio groups. These must take the format {domain}/{scope}/{code}, e.g. &#39;PortfolioGroup/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfPortfolioGroup</returns>
-        public PagedResourceListOfPortfolioGroup ListPortfolioGroups(string scope, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public PagedResourceListOfPortfolioGroup ListPortfolioGroups(string scope, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPortfolioGroup> localVarResponse = ListPortfolioGroupsWithHttpInfo(scope, effectiveAt, asAt, page, limit, filter, sortBy, relatedEntityPropertyKeys, relationshipDefinitionIds, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPortfolioGroup> localVarResponse = ListPortfolioGroupsWithHttpInfo(scope, effectiveAt, asAt, page, limit, filter, sortBy, relatedEntityPropertyKeys, relationshipDefinitionIds, propertyKeys, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -8183,10 +8222,11 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="relatedEntityPropertyKeys">A list of property keys from any domain that supports relationships              to decorate onto related entities. These must take the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the portfolio groups in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;PortfolioGroup&#39; domain to decorate onto the portfolio groups. These must take the format {domain}/{scope}/{code}, e.g. &#39;PortfolioGroup/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfPortfolioGroup</returns>
-        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPortfolioGroup> ListPortfolioGroupsWithHttpInfo(string scope, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPortfolioGroup> ListPortfolioGroupsWithHttpInfo(string scope, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -8268,6 +8308,11 @@ namespace Lusid.Sdk.Api
             {
 
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "relationshipDefinitionIds", relationshipDefinitionIds));
+            }
+            if (propertyKeys != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "propertyKeys", propertyKeys));
             }
 
             localVarRequestOptions.Operation = "PortfolioGroupsApi.ListPortfolioGroups";
@@ -8317,13 +8362,14 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="relatedEntityPropertyKeys">A list of property keys from any domain that supports relationships              to decorate onto related entities. These must take the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the portfolio groups in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;PortfolioGroup&#39; domain to decorate onto the portfolio groups. These must take the format {domain}/{scope}/{code}, e.g. &#39;PortfolioGroup/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfPortfolioGroup</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfPortfolioGroup> ListPortfolioGroupsAsync(string scope, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<PagedResourceListOfPortfolioGroup> ListPortfolioGroupsAsync(string scope, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPortfolioGroup> localVarResponse = await ListPortfolioGroupsWithHttpInfoAsync(scope, effectiveAt, asAt, page, limit, filter, sortBy, relatedEntityPropertyKeys, relationshipDefinitionIds, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPortfolioGroup> localVarResponse = await ListPortfolioGroupsWithHttpInfoAsync(scope, effectiveAt, asAt, page, limit, filter, sortBy, relatedEntityPropertyKeys, relationshipDefinitionIds, propertyKeys, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -8340,11 +8386,12 @@ namespace Lusid.Sdk.Api
         /// <param name="sortBy">A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="relatedEntityPropertyKeys">A list of property keys from any domain that supports relationships              to decorate onto related entities. These must take the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. (optional)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the portfolio groups in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;PortfolioGroup&#39; domain to decorate onto the portfolio groups. These must take the format {domain}/{scope}/{code}, e.g. &#39;PortfolioGroup/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfPortfolioGroup)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPortfolioGroup>> ListPortfolioGroupsWithHttpInfoAsync(string scope, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPortfolioGroup>> ListPortfolioGroupsWithHttpInfoAsync(string scope, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -8419,6 +8466,10 @@ namespace Lusid.Sdk.Api
             if (relationshipDefinitionIds != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "relationshipDefinitionIds", relationshipDefinitionIds));
+            }
+            if (propertyKeys != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "propertyKeys", propertyKeys));
             }
 
             localVarRequestOptions.Operation = "PortfolioGroupsApi.ListPortfolioGroups";

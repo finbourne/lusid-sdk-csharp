@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | 
 **Href** | **string** | The specific Uniform Resource Identifier (URI) for this resource at the requested asAt datetime. | [optional] 
 **LeaderNavTypeCode** | **string** | The code of the Nav Type that this Nav Type will follow when set. | [optional] 
+**DateOfLastPcaScan** | **DateTimeOffset?** | The last date a PCA scan was conducted for a Valuation Point | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -63,7 +64,8 @@ FinalisedValuationPoint finalisedValuationPointInstance = new FinalisedValuation
     properties: properties,
     varVersion: varVersion,
     href: href,
-    leaderNavTypeCode: leaderNavTypeCode);
+    leaderNavTypeCode: leaderNavTypeCode,
+    dateOfLastPcaScan: dateOfLastPcaScan);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

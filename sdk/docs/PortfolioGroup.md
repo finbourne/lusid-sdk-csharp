@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **Created** | **DateTimeOffset** | The effective datetime at which the portfolio group was created. No portfolios or sub groups can be added to the group before this date. | [optional] 
 **Portfolios** | [**List&lt;ResourceId&gt;**](ResourceId.md) | The collection of resource identifiers for the portfolios contained in the portfolio group. | [optional] 
 **SubGroups** | [**List&lt;ResourceId&gt;**](ResourceId.md) | The collection of resource identifiers for the portfolio groups contained in the portfolio group as sub groups. | [optional] 
+**Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | A collection of properties from the &#39;PortfolioGroup&#39; domain decorating the portfolio group. Returned only when the request specifies propertyKeys. | [optional] 
 **Relationships** | [**List&lt;Relationship&gt;**](Relationship.md) | A set of relationships associated to the portfolio group. | [optional] 
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
@@ -25,6 +26,7 @@ string displayName = "displayName";
 string description = "example description";
 List<ResourceId> portfolios = new List<ResourceId>();
 List<ResourceId> subGroups = new List<ResourceId>();
+Dictionary<string, Property> properties = new Dictionary<string, Property>();
 List<Relationship> relationships = new List<Relationship>();
 ModelVersion? varVersion = new ModelVersion();
 
@@ -38,6 +40,7 @@ PortfolioGroup portfolioGroupInstance = new PortfolioGroup(
     created: created,
     portfolios: portfolios,
     subGroups: subGroups,
+    properties: properties,
     relationships: relationships,
     varVersion: varVersion,
     links: links);

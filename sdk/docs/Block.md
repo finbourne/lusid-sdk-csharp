@@ -12,8 +12,8 @@ Name | Type | Description | Notes
 **LusidInstrumentId** | **string** | The LUSID instrument id for the instrument ordered. | 
 **Quantity** | **decimal** | The total quantity of given instrument ordered. | 
 **Side** | **string** | The client&#39;s representation of the block&#39;s side (buy, sell, short, etc) | 
-**Type** | **string** | The block order&#39;s type (examples: Limit, Market, ...) | 
-**TimeInForce** | **string** | The block orders&#39; time in force (examples: Day, GoodTilCancel, ...) | 
+**Type** | **string** | The block order&#39;s type (examples: Limit, Market, ...) | [optional] 
+**TimeInForce** | **string** | The block orders&#39; time in force (examples: Day, GoodTilCancel, ...) | [optional] 
 **CreatedDate** | **DateTimeOffset** | The date on which the block was made | 
 **LimitPrice** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
 **StopPrice** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
@@ -33,8 +33,8 @@ Dictionary<string, string> instrumentIdentifiers = new Dictionary<string, string
 string lusidInstrumentId = "lusidInstrumentId";decimal quantity = "quantity";
 
 string side = "side";
-string type = "type";
-string timeInForce = "timeInForce";
+string type = "example type";
+string timeInForce = "example timeInForce";
 CurrencyAndAmount? limitPrice = new CurrencyAndAmount();
 
 CurrencyAndAmount? stopPrice = new CurrencyAndAmount();
