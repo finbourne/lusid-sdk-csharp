@@ -5,27 +5,27 @@ A definition for the period you wish to close
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DiaryEntryCode** | **string** | Unique code for the Valuation Point. | 
-**DiaryEntryVariant** | **string** | Optional variant code. Only required when it is necessary to choose between scenarios with multiple estimates. | 
+**ValuationPointCode** | **string** | Unique code for the Valuation Point. | 
+**Variant** | **string** | Optional variant code. Only required when it is necessary to choose between scenarios with multiple estimates. | [optional] 
 **Name** | **string** | Identifiable Name assigned to the Valuation Point. | [optional] 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | A set of properties for the diary entry. | [optional] 
-**ApplyClearDown** | **bool?** | Defaults to false. Set to true if you want that the closed period to have the clear down applied. | [optional] 
-**UpdateInclusionDateNavAdjustments** | **bool?** | Defaults to false. Set to true if you have the required licence and want the InclusionDate property values to be used to determine whether items should be automatically included in the post close activities. | [optional] 
+**ApplyClearDown** | **bool?** | Defaults to null. Set to true if you want the closed period to have the clear down applied. | [optional] 
+**UpdateInclusionDateNavAdjustments** | **bool?** | Defaults to null. Set to true if you have the required licence and want the InclusionDate property values to be used to determine whether items should be automatically included in the post close activities. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
 using System;
 
-string diaryEntryCode = "diaryEntryCode";
-string diaryEntryVariant = "diaryEntryVariant";
+string valuationPointCode = "valuationPointCode";
+string variant = "example variant";
 string name = "example name";
 Dictionary<string, Property> properties = new Dictionary<string, Property>();
 bool? applyClearDown = //"True";
 bool? updateInclusionDateNavAdjustments = //"True";
 
 UpdateValuationPointRequest updateValuationPointRequestInstance = new UpdateValuationPointRequest(
-    diaryEntryCode: diaryEntryCode,
-    diaryEntryVariant: diaryEntryVariant,
+    valuationPointCode: valuationPointCode,
+    variant: variant,
     name: name,
     properties: properties,
     applyClearDown: applyClearDown,

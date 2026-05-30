@@ -310,9 +310,9 @@ namespace Lusid.Sdk.Model
             }
 
             // ResourceId (string) maxLength
-            if (this.ResourceId != null && this.ResourceId.Length > 64)
+            if (this.ResourceId != null && this.ResourceId.Length > 512)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ResourceId, length must be less than 64.", new [] { "ResourceId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ResourceId, length must be less than 512.", new [] { "ResourceId" });
             }
 
             // ResourceId (string) minLength

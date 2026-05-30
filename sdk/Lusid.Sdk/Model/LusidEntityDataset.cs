@@ -33,7 +33,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="asAt">The asAt date to fetch the data. Nullable. Defaults to latest..</param>
         /// <param name="effectiveAt">The effectiveAt date to fetch the data. Nullable. Defaults to latest..</param>
-        /// <param name="scope">The scope of the entities to check. Required..</param>
+        /// <param name="scope">The scope of the entities to check. Required for scoped entity types (Instrument, Portfolio).  Must not be provided for unscoped entity types (LegalEntity)..</param>
         /// <param name="asAtModifiedSince">Nullable. Filters the dataset for version.asAtModified greater than or equal to this value..</param>
         /// <param name="selectorAttribute">An attribute (field name, propertyKey or identifierKey) to use to sub-divide the dataset..</param>
         /// <param name="selectorValue">The value of the above attribute used to sub-divide the dataset..</param>
@@ -64,9 +64,9 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset? EffectiveAt { get; set; }
 
         /// <summary>
-        /// The scope of the entities to check. Required.
+        /// The scope of the entities to check. Required for scoped entity types (Instrument, Portfolio).  Must not be provided for unscoped entity types (LegalEntity).
         /// </summary>
-        /// <value>The scope of the entities to check. Required.</value>
+        /// <value>The scope of the entities to check. Required for scoped entity types (Instrument, Portfolio).  Must not be provided for unscoped entity types (LegalEntity).</value>
         [DataMember(Name = "scope", EmitDefaultValue = true)]
         public string Scope { get; set; }
 

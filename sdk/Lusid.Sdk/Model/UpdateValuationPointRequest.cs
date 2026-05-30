@@ -36,26 +36,21 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateValuationPointRequest" /> class.
         /// </summary>
-        /// <param name="diaryEntryCode">Unique code for the Valuation Point. (required).</param>
-        /// <param name="diaryEntryVariant">Optional variant code. Only required when it is necessary to choose between scenarios with multiple estimates. (required).</param>
+        /// <param name="valuationPointCode">Unique code for the Valuation Point. (required).</param>
+        /// <param name="variant">Optional variant code. Only required when it is necessary to choose between scenarios with multiple estimates..</param>
         /// <param name="name">Identifiable Name assigned to the Valuation Point..</param>
         /// <param name="properties">A set of properties for the diary entry..</param>
-        /// <param name="applyClearDown">Defaults to false. Set to true if you want that the closed period to have the clear down applied..</param>
-        /// <param name="updateInclusionDateNavAdjustments">Defaults to false. Set to true if you have the required licence and want the InclusionDate property values to be used to determine whether items should be automatically included in the post close activities..</param>
-        public UpdateValuationPointRequest(string diaryEntryCode = default(string), string diaryEntryVariant = default(string), string name = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), bool? applyClearDown = default(bool?), bool? updateInclusionDateNavAdjustments = default(bool?))
+        /// <param name="applyClearDown">Defaults to null. Set to true if you want the closed period to have the clear down applied..</param>
+        /// <param name="updateInclusionDateNavAdjustments">Defaults to null. Set to true if you have the required licence and want the InclusionDate property values to be used to determine whether items should be automatically included in the post close activities..</param>
+        public UpdateValuationPointRequest(string valuationPointCode = default(string), string variant = default(string), string name = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), bool? applyClearDown = default(bool?), bool? updateInclusionDateNavAdjustments = default(bool?))
         {
-            // to ensure "diaryEntryCode" is required (not null)
-            if (diaryEntryCode == null)
+            // to ensure "valuationPointCode" is required (not null)
+            if (valuationPointCode == null)
             {
-                throw new ArgumentNullException("diaryEntryCode is a required property for UpdateValuationPointRequest and cannot be null");
+                throw new ArgumentNullException("valuationPointCode is a required property for UpdateValuationPointRequest and cannot be null");
             }
-            this.DiaryEntryCode = diaryEntryCode;
-            // to ensure "diaryEntryVariant" is required (not null)
-            if (diaryEntryVariant == null)
-            {
-                throw new ArgumentNullException("diaryEntryVariant is a required property for UpdateValuationPointRequest and cannot be null");
-            }
-            this.DiaryEntryVariant = diaryEntryVariant;
+            this.ValuationPointCode = valuationPointCode;
+            this.Variant = variant;
             this.Name = name;
             this.Properties = properties;
             this.ApplyClearDown = applyClearDown;
@@ -66,15 +61,15 @@ namespace Lusid.Sdk.Model
         /// Unique code for the Valuation Point.
         /// </summary>
         /// <value>Unique code for the Valuation Point.</value>
-        [DataMember(Name = "diaryEntryCode", IsRequired = true, EmitDefaultValue = true)]
-        public string DiaryEntryCode { get; set; }
+        [DataMember(Name = "valuationPointCode", IsRequired = true, EmitDefaultValue = true)]
+        public string ValuationPointCode { get; set; }
 
         /// <summary>
         /// Optional variant code. Only required when it is necessary to choose between scenarios with multiple estimates.
         /// </summary>
         /// <value>Optional variant code. Only required when it is necessary to choose between scenarios with multiple estimates.</value>
-        [DataMember(Name = "diaryEntryVariant", IsRequired = true, EmitDefaultValue = true)]
-        public string DiaryEntryVariant { get; set; }
+        [DataMember(Name = "variant", EmitDefaultValue = true)]
+        public string Variant { get; set; }
 
         /// <summary>
         /// Identifiable Name assigned to the Valuation Point.
@@ -91,16 +86,16 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, Property> Properties { get; set; }
 
         /// <summary>
-        /// Defaults to false. Set to true if you want that the closed period to have the clear down applied.
+        /// Defaults to null. Set to true if you want the closed period to have the clear down applied.
         /// </summary>
-        /// <value>Defaults to false. Set to true if you want that the closed period to have the clear down applied.</value>
+        /// <value>Defaults to null. Set to true if you want the closed period to have the clear down applied.</value>
         [DataMember(Name = "applyClearDown", EmitDefaultValue = true)]
         public bool? ApplyClearDown { get; set; }
 
         /// <summary>
-        /// Defaults to false. Set to true if you have the required licence and want the InclusionDate property values to be used to determine whether items should be automatically included in the post close activities.
+        /// Defaults to null. Set to true if you have the required licence and want the InclusionDate property values to be used to determine whether items should be automatically included in the post close activities.
         /// </summary>
-        /// <value>Defaults to false. Set to true if you have the required licence and want the InclusionDate property values to be used to determine whether items should be automatically included in the post close activities.</value>
+        /// <value>Defaults to null. Set to true if you have the required licence and want the InclusionDate property values to be used to determine whether items should be automatically included in the post close activities.</value>
         [DataMember(Name = "updateInclusionDateNavAdjustments", EmitDefaultValue = true)]
         public bool? UpdateInclusionDateNavAdjustments { get; set; }
 
@@ -112,8 +107,8 @@ namespace Lusid.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class UpdateValuationPointRequest {\n");
-            sb.Append("  DiaryEntryCode: ").Append(DiaryEntryCode).Append("\n");
-            sb.Append("  DiaryEntryVariant: ").Append(DiaryEntryVariant).Append("\n");
+            sb.Append("  ValuationPointCode: ").Append(ValuationPointCode).Append("\n");
+            sb.Append("  Variant: ").Append(Variant).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  ApplyClearDown: ").Append(ApplyClearDown).Append("\n");
@@ -154,14 +149,14 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
-                    this.DiaryEntryCode == input.DiaryEntryCode ||
-                    (this.DiaryEntryCode != null &&
-                    this.DiaryEntryCode.Equals(input.DiaryEntryCode))
+                    this.ValuationPointCode == input.ValuationPointCode ||
+                    (this.ValuationPointCode != null &&
+                    this.ValuationPointCode.Equals(input.ValuationPointCode))
                 ) && 
                 (
-                    this.DiaryEntryVariant == input.DiaryEntryVariant ||
-                    (this.DiaryEntryVariant != null &&
-                    this.DiaryEntryVariant.Equals(input.DiaryEntryVariant))
+                    this.Variant == input.Variant ||
+                    (this.Variant != null &&
+                    this.Variant.Equals(input.Variant))
                 ) && 
                 (
                     this.Name == input.Name ||
@@ -195,13 +190,13 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.DiaryEntryCode != null)
+                if (this.ValuationPointCode != null)
                 {
-                    hashCode = (hashCode * 59) + this.DiaryEntryCode.GetHashCode();
+                    hashCode = (hashCode * 59) + this.ValuationPointCode.GetHashCode();
                 }
-                if (this.DiaryEntryVariant != null)
+                if (this.Variant != null)
                 {
-                    hashCode = (hashCode * 59) + this.DiaryEntryVariant.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Variant.GetHashCode();
                 }
                 if (this.Name != null)
                 {
@@ -230,42 +225,42 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // DiaryEntryCode (string) maxLength
-            if (this.DiaryEntryCode != null && this.DiaryEntryCode.Length > 64)
+            // ValuationPointCode (string) maxLength
+            if (this.ValuationPointCode != null && this.ValuationPointCode.Length > 64)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DiaryEntryCode, length must be less than 64.", new [] { "DiaryEntryCode" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ValuationPointCode, length must be less than 64.", new [] { "ValuationPointCode" });
             }
 
-            // DiaryEntryCode (string) minLength
-            if (this.DiaryEntryCode != null && this.DiaryEntryCode.Length < 1)
+            // ValuationPointCode (string) minLength
+            if (this.ValuationPointCode != null && this.ValuationPointCode.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DiaryEntryCode, length must be greater than 1.", new [] { "DiaryEntryCode" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ValuationPointCode, length must be greater than 1.", new [] { "ValuationPointCode" });
             }
 
-            // DiaryEntryCode (string) pattern
-            Regex regexDiaryEntryCode = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
-            if (false == regexDiaryEntryCode.Match(this.DiaryEntryCode).Success)
+            // ValuationPointCode (string) pattern
+            Regex regexValuationPointCode = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
+            if (false == regexValuationPointCode.Match(this.ValuationPointCode).Success)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DiaryEntryCode, must match a pattern of " + regexDiaryEntryCode, new [] { "DiaryEntryCode" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ValuationPointCode, must match a pattern of " + regexValuationPointCode, new [] { "ValuationPointCode" });
             }
 
-            // DiaryEntryVariant (string) maxLength
-            if (this.DiaryEntryVariant != null && this.DiaryEntryVariant.Length > 64)
+            // Variant (string) maxLength
+            if (this.Variant != null && this.Variant.Length > 64)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DiaryEntryVariant, length must be less than 64.", new [] { "DiaryEntryVariant" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Variant, length must be less than 64.", new [] { "Variant" });
             }
 
-            // DiaryEntryVariant (string) minLength
-            if (this.DiaryEntryVariant != null && this.DiaryEntryVariant.Length < 1)
+            // Variant (string) minLength
+            if (this.Variant != null && this.Variant.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DiaryEntryVariant, length must be greater than 1.", new [] { "DiaryEntryVariant" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Variant, length must be greater than 1.", new [] { "Variant" });
             }
 
-            // DiaryEntryVariant (string) pattern
-            Regex regexDiaryEntryVariant = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
-            if (false == regexDiaryEntryVariant.Match(this.DiaryEntryVariant).Success)
+            // Variant (string) pattern
+            Regex regexVariant = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
+            if (false == regexVariant.Match(this.Variant).Success)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DiaryEntryVariant, must match a pattern of " + regexDiaryEntryVariant, new [] { "DiaryEntryVariant" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Variant, must match a pattern of " + regexVariant, new [] { "Variant" });
             }
 
             // Name (string) maxLength

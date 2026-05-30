@@ -10,6 +10,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**CreateFee**](FundsApi.md#createfee) | **POST** /api/funds/{scope}/{code}/fees | [EXPERIMENTAL] CreateFee: Create a Fee. |
 | [**CreateFund**](FundsApi.md#createfund) | **POST** /api/funds/{scope} | [EXPERIMENTAL] CreateFund: Create a Fund. |
 | [**CreateFundV2**](FundsApi.md#createfundv2) | **POST** /api/funds/v2/{scope} | [EXPERIMENTAL] CreateFundV2: Create a Fund V2 (Preview). |
+| [**CreateValuationPoint**](FundsApi.md#createvaluationpoint) | **POST** /api/funds/{scope}/{code}/valuationpoints/$create | [EXPERIMENTAL] CreateValuationPoint: Create a Valuation Point. |
 | [**DeactivateNavTypes**](FundsApi.md#deactivatenavtypes) | **POST** /api/funds/{scope}/{code}/deactivateNavTypes | [EXPERIMENTAL] DeactivateNavTypes: Deactivate NAV types on a Fund. |
 | [**DeleteBookmark**](FundsApi.md#deletebookmark) | **DELETE** /api/funds/{scope}/{code}/bookmarks/{bookmarkCode} | [EXPERIMENTAL] DeleteBookmark: Delete a Bookmark. |
 | [**DeleteFee**](FundsApi.md#deletefee) | **DELETE** /api/funds/{scope}/{code}/fees/{feeCode} | [EXPERIMENTAL] DeleteFee: Delete a Fee. |
@@ -754,6 +755,126 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | The newly created Fund. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="createvaluationpoint"></a>
+# **CreateValuationPoint**
+> ValuationPoint CreateValuationPoint (string scope, string code, CreateValuationPointRequest createValuationPointRequest, string? navTypeCode = null)
+
+[EXPERIMENTAL] CreateValuationPoint: Create a Valuation Point.
+
+Insert the estimate Valuation Point.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<FundsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<FundsApi>();
+            var scope = "scope_example";  // string | The scope of the Fund.
+            var code = "code_example";  // string | The code of the Fund. Together with the scope this uniquely identifies the Fund.
+            var createValuationPointRequest = new CreateValuationPointRequest(); // CreateValuationPointRequest | The Valuation Point Estimate definition to create.
+            var navTypeCode = "navTypeCode_example";  // string? | When provided, creates the Valuation Point against the specified NAV Type, otherwise the Primary NAV Type will be used. (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // ValuationPoint result = apiInstance.CreateValuationPoint(scope, code, createValuationPointRequest, navTypeCode, opts: opts);
+
+                // [EXPERIMENTAL] CreateValuationPoint: Create a Valuation Point.
+                ValuationPoint result = apiInstance.CreateValuationPoint(scope, code, createValuationPointRequest, navTypeCode);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling FundsApi.CreateValuationPoint: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the CreateValuationPointWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] CreateValuationPoint: Create a Valuation Point.
+    ApiResponse<ValuationPoint> response = apiInstance.CreateValuationPointWithHttpInfo(scope, code, createValuationPointRequest, navTypeCode);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling FundsApi.CreateValuationPointWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Fund. |  |
+| **code** | **string** | The code of the Fund. Together with the scope this uniquely identifies the Fund. |  |
+| **createValuationPointRequest** | [**CreateValuationPointRequest**](CreateValuationPointRequest.md) | The Valuation Point Estimate definition to create. |  |
+| **navTypeCode** | **string?** | When provided, creates the Valuation Point against the specified NAV Type, otherwise the Primary NAV Type will be used. | [optional]  |
+
+### Return type
+
+[**ValuationPoint**](ValuationPoint.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The created estimated Valuation Point |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
@@ -5021,7 +5142,7 @@ catch (ApiException e)
 
 <a id="updatevaluationpoint"></a>
 # **UpdateValuationPoint**
-> DiaryEntry UpdateValuationPoint (string scope, string code, UpdateValuationPointRequest updateValuationPointRequest, string? navTypeCode = null)
+> ValuationPoint UpdateValuationPoint (string scope, string code, UpdateValuationPointRequest updateValuationPointRequest, string? navTypeCode = null)
 
 [EXPERIMENTAL] UpdateValuationPoint: Update a Valuation Point.
 
@@ -5074,10 +5195,10 @@ namespace Examples
             try
             {
                 // uncomment the below to set overrides at the request level
-                // DiaryEntry result = apiInstance.UpdateValuationPoint(scope, code, updateValuationPointRequest, navTypeCode, opts: opts);
+                // ValuationPoint result = apiInstance.UpdateValuationPoint(scope, code, updateValuationPointRequest, navTypeCode, opts: opts);
 
                 // [EXPERIMENTAL] UpdateValuationPoint: Update a Valuation Point.
-                DiaryEntry result = apiInstance.UpdateValuationPoint(scope, code, updateValuationPointRequest, navTypeCode);
+                ValuationPoint result = apiInstance.UpdateValuationPoint(scope, code, updateValuationPointRequest, navTypeCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -5098,7 +5219,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] UpdateValuationPoint: Update a Valuation Point.
-    ApiResponse<DiaryEntry> response = apiInstance.UpdateValuationPointWithHttpInfo(scope, code, updateValuationPointRequest, navTypeCode);
+    ApiResponse<ValuationPoint> response = apiInstance.UpdateValuationPointWithHttpInfo(scope, code, updateValuationPointRequest, navTypeCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -5122,7 +5243,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**DiaryEntry**](DiaryEntry.md)
+[**ValuationPoint**](ValuationPoint.md)
 
 ### HTTP request headers
 
