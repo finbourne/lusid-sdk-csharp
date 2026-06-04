@@ -32,6 +32,7 @@ Name | Type | Description | Notes
 **ResolvedTransactionTypeDetails** | [**TransactionTypeDetails**](TransactionTypeDetails.md) |  | [optional] 
 **DataModelMembership** | [**DataModelMembership**](DataModelMembership.md) |  | [optional] 
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
+**StagedModifications** | [**StagedModificationsInfo**](StagedModificationsInfo.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -67,6 +68,8 @@ DataModelMembership? dataModelMembership = new DataModelMembership();
 
 ModelVersion? varVersion = new ModelVersion();
 
+StagedModificationsInfo? stagedModifications = new StagedModificationsInfo();
+
 
 Transaction transactionInstance = new Transaction(
     transactionId: transactionId,
@@ -95,7 +98,8 @@ Transaction transactionInstance = new Transaction(
     strategyTag: strategyTag,
     resolvedTransactionTypeDetails: resolvedTransactionTypeDetails,
     dataModelMembership: dataModelMembership,
-    varVersion: varVersion);
+    varVersion: varVersion,
+    stagedModifications: stagedModifications);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

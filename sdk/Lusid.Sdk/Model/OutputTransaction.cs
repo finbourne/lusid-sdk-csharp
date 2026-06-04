@@ -126,7 +126,8 @@ namespace Lusid.Sdk.Model
         /// <param name="sequencePriority">The calculated priority level for this transaction..</param>
         /// <param name="settlementSummary">settlementSummary.</param>
         /// <param name="varVersion">varVersion.</param>
-        public OutputTransaction(string transactionId = default(string), string type = default(string), string description = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string instrumentScope = default(string), string instrumentUid = default(string), DateTimeOffset transactionDate = default(DateTimeOffset), DateTimeOffset settlementDate = default(DateTimeOffset), decimal units = default(decimal), decimal transactionAmount = default(decimal), TransactionPrice transactionPrice = default(TransactionPrice), CurrencyAndAmount totalConsideration = default(CurrencyAndAmount), decimal exchangeRate = default(decimal), decimal? transactionToPortfolioRate = default(decimal?), string transactionCurrency = default(string), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string counterpartyId = default(string), string source = default(string), TransactionStatusEnum ?transactionStatus = default(TransactionStatusEnum?), DateTimeOffset entryDateTime = default(DateTimeOffset), DateTimeOffset? cancelDateTime = default(DateTimeOffset?), List<RealisedGainLoss> realisedGainLoss = default(List<RealisedGainLoss>), List<long> holdingIds = default(List<long>), string sourceType = default(string), string sourceInstrumentEventId = default(string), CustodianAccount custodianAccount = default(CustodianAccount), string transactionGroupId = default(string), TransactionTypeDetails resolvedTransactionTypeDetails = default(TransactionTypeDetails), decimal grossTransactionAmount = default(decimal), OtcConfirmation otcConfirmation = default(OtcConfirmation), ResourceId orderId = default(ResourceId), ResourceId allocationId = default(ResourceId), DateTimeOffset? accountingDate = default(DateTimeOffset?), List<Economics> economics = default(List<Economics>), DataModelMembership dataModelMembership = default(DataModelMembership), int? sequence = default(int?), int? sequencePriority = default(int?), TransactionSettlementSummary settlementSummary = default(TransactionSettlementSummary), ModelVersion varVersion = default(ModelVersion))
+        /// <param name="stagedModifications">stagedModifications.</param>
+        public OutputTransaction(string transactionId = default(string), string type = default(string), string description = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string instrumentScope = default(string), string instrumentUid = default(string), DateTimeOffset transactionDate = default(DateTimeOffset), DateTimeOffset settlementDate = default(DateTimeOffset), decimal units = default(decimal), decimal transactionAmount = default(decimal), TransactionPrice transactionPrice = default(TransactionPrice), CurrencyAndAmount totalConsideration = default(CurrencyAndAmount), decimal exchangeRate = default(decimal), decimal? transactionToPortfolioRate = default(decimal?), string transactionCurrency = default(string), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string counterpartyId = default(string), string source = default(string), TransactionStatusEnum ?transactionStatus = default(TransactionStatusEnum?), DateTimeOffset entryDateTime = default(DateTimeOffset), DateTimeOffset? cancelDateTime = default(DateTimeOffset?), List<RealisedGainLoss> realisedGainLoss = default(List<RealisedGainLoss>), List<long> holdingIds = default(List<long>), string sourceType = default(string), string sourceInstrumentEventId = default(string), CustodianAccount custodianAccount = default(CustodianAccount), string transactionGroupId = default(string), TransactionTypeDetails resolvedTransactionTypeDetails = default(TransactionTypeDetails), decimal grossTransactionAmount = default(decimal), OtcConfirmation otcConfirmation = default(OtcConfirmation), ResourceId orderId = default(ResourceId), ResourceId allocationId = default(ResourceId), DateTimeOffset? accountingDate = default(DateTimeOffset?), List<Economics> economics = default(List<Economics>), DataModelMembership dataModelMembership = default(DataModelMembership), int? sequence = default(int?), int? sequencePriority = default(int?), TransactionSettlementSummary settlementSummary = default(TransactionSettlementSummary), ModelVersion varVersion = default(ModelVersion), StagedModificationsInfo stagedModifications = default(StagedModificationsInfo))
         {
             // to ensure "transactionId" is required (not null)
             if (transactionId == null)
@@ -182,6 +183,7 @@ namespace Lusid.Sdk.Model
             this.SequencePriority = sequencePriority;
             this.SettlementSummary = settlementSummary;
             this.VarVersion = varVersion;
+            this.StagedModifications = stagedModifications;
         }
 
         /// <summary>
@@ -441,6 +443,12 @@ namespace Lusid.Sdk.Model
         public ModelVersion VarVersion { get; set; }
 
         /// <summary>
+        /// Gets or Sets StagedModifications
+        /// </summary>
+        [DataMember(Name = "stagedModifications", EmitDefaultValue = false)]
+        public StagedModificationsInfo StagedModifications { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -487,6 +495,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  SequencePriority: ").Append(SequencePriority).Append("\n");
             sb.Append("  SettlementSummary: ").Append(SettlementSummary).Append("\n");
             sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
+            sb.Append("  StagedModifications: ").Append(StagedModifications).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -716,6 +725,11 @@ namespace Lusid.Sdk.Model
                     this.VarVersion == input.VarVersion ||
                     (this.VarVersion != null &&
                     this.VarVersion.Equals(input.VarVersion))
+                ) && 
+                (
+                    this.StagedModifications == input.StagedModifications ||
+                    (this.StagedModifications != null &&
+                    this.StagedModifications.Equals(input.StagedModifications))
                 );
         }
 
@@ -868,6 +882,10 @@ namespace Lusid.Sdk.Model
                 if (this.VarVersion != null)
                 {
                     hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
+                }
+                if (this.StagedModifications != null)
+                {
+                    hashCode = (hashCode * 59) + this.StagedModifications.GetHashCode();
                 }
                 return hashCode;
             }

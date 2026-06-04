@@ -40,7 +40,7 @@ namespace Lusid.Sdk.Model
         /// <param name="valuationPointCode">The code of the Valuation Point..</param>
         /// <param name="variant">The Variant name for the Valuation Point..</param>
         /// <param name="name">Identifiable Name assigned to the Valuation Point..</param>
-        /// <param name="status">The status of the Valuation Point. Available values: Undefined, Estimate, Final, Candidate, Unofficial. (required).</param>
+        /// <param name="status">The status of the Valuation Point. Available values: Undefined, Estimate, Final, Candidate, Unofficial, Rejected. (required).</param>
         /// <param name="applyClearDown">Indicates whether a clear down was applied when the Valuation Point was created..</param>
         /// <param name="effectiveAt">The effective time of the Valuation Point. (required).</param>
         /// <param name="queryAsAt">The AsAt time of the Valuation Point. This is the AsAt time that will be used when requests are made using the entry..</param>
@@ -102,9 +102,9 @@ namespace Lusid.Sdk.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// The status of the Valuation Point. Available values: Undefined, Estimate, Final, Candidate, Unofficial.
+        /// The status of the Valuation Point. Available values: Undefined, Estimate, Final, Candidate, Unofficial, Rejected.
         /// </summary>
-        /// <value>The status of the Valuation Point. Available values: Undefined, Estimate, Final, Candidate, Unofficial.</value>
+        /// <value>The status of the Valuation Point. Available values: Undefined, Estimate, Final, Candidate, Unofficial, Rejected.</value>
         [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
         public string Status { get; set; }
 

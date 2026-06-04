@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **ValuationPointCode** | **string** | The code of the Valuation Point. | [optional] 
 **Variant** | **string** | The Variant name for the Valuation Point. | [optional] 
 **Name** | **string** | Identifiable Name assigned to the Valuation Point. | [optional] 
-**Status** | **string** | The status of the Valuation Point. Available values: Undefined, Estimate, Final, Candidate, Unofficial. | 
+**Status** | **string** | The status of the Valuation Point. Available values: Undefined, Estimate, Final, Candidate, Unofficial, Rejected. | 
 **ApplyClearDown** | **bool** | Indicates whether a clear down was applied when the Valuation Point was created. | [optional] 
 **EffectiveAt** | **DateTimeOffset** | The effective time of the Valuation Point. | 
 **QueryAsAt** | **DateTimeOffset** | The AsAt time of the Valuation Point. This is the AsAt time that will be used when requests are made using the entry. | [optional] 

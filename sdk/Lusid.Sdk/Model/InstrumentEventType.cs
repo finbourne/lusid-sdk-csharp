@@ -471,7 +471,13 @@ namespace Lusid.Sdk.Model
         /// Enum CapitalGainsDistributionEvent for value: CapitalGainsDistributionEvent
         /// </summary>
         [EnumMember(Value = "CapitalGainsDistributionEvent")]
-        CapitalGainsDistributionEvent = 74
+        CapitalGainsDistributionEvent = 74,
+
+        /// <summary>
+        /// Enum ExchangeOfferEvent for value: ExchangeOfferEvent
+        /// </summary>
+        [EnumMember(Value = "ExchangeOfferEvent")]
+        ExchangeOfferEvent = 75
     }
 
 }

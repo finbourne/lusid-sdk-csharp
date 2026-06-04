@@ -44,6 +44,7 @@ Name | Type | Description | Notes
 **SequencePriority** | **int?** | The calculated priority level for this transaction. | [optional] 
 **SettlementSummary** | [**TransactionSettlementSummary**](TransactionSettlementSummary.md) |  | [optional] 
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
+**StagedModifications** | [**StagedModificationsInfo**](StagedModificationsInfo.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -87,6 +88,8 @@ TransactionSettlementSummary? settlementSummary = new TransactionSettlementSumma
 
 ModelVersion? varVersion = new ModelVersion();
 
+StagedModificationsInfo? stagedModifications = new StagedModificationsInfo();
+
 
 OutputTransaction outputTransactionInstance = new OutputTransaction(
     transactionId: transactionId,
@@ -127,7 +130,8 @@ OutputTransaction outputTransactionInstance = new OutputTransaction(
     sequence: sequence,
     sequencePriority: sequencePriority,
     settlementSummary: settlementSummary,
-    varVersion: varVersion);
+    varVersion: varVersion,
+    stagedModifications: stagedModifications);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
