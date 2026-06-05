@@ -381,6 +381,8 @@ Class | Method | HTTP request | Description
 *LegalEntitiesApi* | [**UpsertLegalEntities**](docs/LegalEntitiesApi.md#upsertlegalentities) | **POST** /api/legalentities/$batchUpsert | [EARLY ACCESS] UpsertLegalEntities: Batch upsert Legal Entities
 *LegalEntitiesApi* | [**UpsertLegalEntity**](docs/LegalEntitiesApi.md#upsertlegalentity) | **POST** /api/legalentities | UpsertLegalEntity: Upsert Legal Entity
 *LegalEntitiesApi* | [**UpsertLegalEntityAccessMetadata**](docs/LegalEntitiesApi.md#upsertlegalentityaccessmetadata) | **PUT** /api/legalentities/{idTypeScope}/{idTypeCode}/{code}/metadata/{metadataKey} | UpsertLegalEntityAccessMetadata: Upsert a Legal Entity Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.
+*MarketDataFieldConfigurationApi* | [**GetMarketDataFieldConfiguration**](docs/MarketDataFieldConfigurationApi.md#getmarketdatafieldconfiguration) | **GET** /api/marketdata/fieldconfiguration/{marketDataCategory} | [EARLY ACCESS] GetMarketDataFieldConfiguration: Get a Market Data Field Configuration
+*MarketDataFieldConfigurationApi* | [**UpdateMarketDataFieldConfiguration**](docs/MarketDataFieldConfigurationApi.md#updatemarketdatafieldconfiguration) | **POST** /api/marketdata/fieldconfiguration/{marketDataCategory}/$update | [EARLY ACCESS] UpdateMarketDataFieldConfiguration: Update a Market Data Field Configuration
 *OrderGraphApi* | [**ListOrderGraphBlocks**](docs/OrderGraphApi.md#listordergraphblocks) | **GET** /api/ordergraph/blocks | ListOrderGraphBlocks: Lists blocks that pass the filter provided, and builds a summary picture of the state of their associated order entities.
 *OrderGraphApi* | [**ListOrderGraphPlacementChildren**](docs/OrderGraphApi.md#listordergraphplacementchildren) | **GET** /api/ordergraph/placementchildren/{scope}/{code} | [EARLY ACCESS] ListOrderGraphPlacementChildren: Lists all placements for the parent placement specified by the scope and code, and builds a summary picture of the state of their associated order entities.
 *OrderGraphApi* | [**ListOrderGraphPlacements**](docs/OrderGraphApi.md#listordergraphplacements) | **GET** /api/ordergraph/placements | ListOrderGraphPlacements: Lists placements that pass the filter provided, and builds a summary picture of the state of their associated order entities.
@@ -1098,6 +1100,7 @@ Class | Method | HTTP request | Description
  - [DividendReinvestmentEvent](docs/DividendReinvestmentEvent.md)
  - [DrawdownEvent](docs/DrawdownEvent.md)
  - [DrawingEvent](docs/DrawingEvent.md)
+ - [DutchAuctionEvent](docs/DutchAuctionEvent.md)
  - [EarlyCloseOutEvent](docs/EarlyCloseOutEvent.md)
  - [EarlyRedemptionElection](docs/EarlyRedemptionElection.md)
  - [EarlyRedemptionEvent](docs/EarlyRedemptionEvent.md)
@@ -1386,6 +1389,7 @@ Class | Method | HTTP request | Description
  - [MarkToMarketConventions](docs/MarkToMarketConventions.md)
  - [MarketContext](docs/MarketContext.md)
  - [MarketContextSuppliers](docs/MarketContextSuppliers.md)
+ - [MarketDataFieldConfiguration](docs/MarketDataFieldConfiguration.md)
  - [MarketDataKeyRule](docs/MarketDataKeyRule.md)
  - [MarketDataOptions](docs/MarketDataOptions.md)
  - [MarketDataOptionsType](docs/MarketDataOptionsType.md)
@@ -1408,6 +1412,10 @@ Class | Method | HTTP request | Description
  - [MembershipAmendmentResponse](docs/MembershipAmendmentResponse.md)
  - [MembershipAndStatus](docs/MembershipAndStatus.md)
  - [MergerEvent](docs/MergerEvent.md)
+ - [MetadataFieldDefinition](docs/MetadataFieldDefinition.md)
+ - [MetadataFieldsToAdd](docs/MetadataFieldsToAdd.md)
+ - [MetadataFieldsToRemove](docs/MetadataFieldsToRemove.md)
+ - [MetadataFieldsToUpdate](docs/MetadataFieldsToUpdate.md)
  - [MetricValue](docs/MetricValue.md)
  - [MixedLotConstituentsElection](docs/MixedLotConstituentsElection.md)
  - [ModelClient](docs/ModelClient.md)
@@ -2010,6 +2018,7 @@ Class | Method | HTTP request | Description
  - [UpdateGroupReconciliationDefinitionRequest](docs/UpdateGroupReconciliationDefinitionRequest.md)
  - [UpdateIdentifierDefinitionRequest](docs/UpdateIdentifierDefinitionRequest.md)
  - [UpdateInstrumentIdentifierRequest](docs/UpdateInstrumentIdentifierRequest.md)
+ - [UpdateMarketDataFieldConfigurationRequest](docs/UpdateMarketDataFieldConfigurationRequest.md)
  - [UpdateOrdersResponse](docs/UpdateOrdersResponse.md)
  - [UpdatePlacementsResponse](docs/UpdatePlacementsResponse.md)
  - [UpdatePortfolioGroupRequest](docs/UpdatePortfolioGroupRequest.md)
