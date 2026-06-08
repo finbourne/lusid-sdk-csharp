@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **AsAt** | **DateTimeOffset** | The asAt datetime for the Calendar Entry. | 
 **HoldingsAsAtOverride** | **DateTimeOffset?** | The optional AsAt Override to use for building holdings in the Valuation Point. Defaults to QueryAsAt. | [optional] 
 **ValuationsAsAtOverride** | **DateTimeOffset?** | The optional AsAt Override to use for performing valuations in the Valuation Point. Defaults to QueryAsAt. | [optional] 
+**DateOfLastPcaScan** | **DateTimeOffset?** | The last date a PCA scan was conducted for a Valuation Point | [optional] 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | The properties for the Calendar Entry. These will be from the &#39;ClosedPeriod&#39; domain. | [optional] 
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | 
 
@@ -30,6 +31,7 @@ EstimateVariant estimateVariantInstance = new EstimateVariant(
     asAt: asAt,
     holdingsAsAtOverride: holdingsAsAtOverride,
     valuationsAsAtOverride: valuationsAsAtOverride,
+    dateOfLastPcaScan: dateOfLastPcaScan,
     properties: properties,
     varVersion: varVersion);
 ```

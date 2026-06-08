@@ -42,9 +42,10 @@ namespace Lusid.Sdk.Model
         /// <param name="asAt">The asAt datetime for the Calendar Entry. (required).</param>
         /// <param name="holdingsAsAtOverride">The optional AsAt Override to use for building holdings in the Valuation Point. Defaults to QueryAsAt..</param>
         /// <param name="valuationsAsAtOverride">The optional AsAt Override to use for performing valuations in the Valuation Point. Defaults to QueryAsAt..</param>
+        /// <param name="dateOfLastPcaScan">The last date a PCA scan was conducted for a Valuation Point.</param>
         /// <param name="properties">The properties for the Calendar Entry. These will be from the &#39;ClosedPeriod&#39; domain..</param>
         /// <param name="varVersion">varVersion (required).</param>
-        public EstimateVariant(string variant = default(string), string displayName = default(string), string description = default(string), DateTimeOffset asAt = default(DateTimeOffset), DateTimeOffset? holdingsAsAtOverride = default(DateTimeOffset?), DateTimeOffset? valuationsAsAtOverride = default(DateTimeOffset?), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion varVersion = default(ModelVersion))
+        public EstimateVariant(string variant = default(string), string displayName = default(string), string description = default(string), DateTimeOffset asAt = default(DateTimeOffset), DateTimeOffset? holdingsAsAtOverride = default(DateTimeOffset?), DateTimeOffset? valuationsAsAtOverride = default(DateTimeOffset?), DateTimeOffset? dateOfLastPcaScan = default(DateTimeOffset?), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion varVersion = default(ModelVersion))
         {
             // to ensure "displayName" is required (not null)
             if (displayName == null)
@@ -63,6 +64,7 @@ namespace Lusid.Sdk.Model
             this.Description = description;
             this.HoldingsAsAtOverride = holdingsAsAtOverride;
             this.ValuationsAsAtOverride = valuationsAsAtOverride;
+            this.DateOfLastPcaScan = dateOfLastPcaScan;
             this.Properties = properties;
         }
 
@@ -109,6 +111,13 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset? ValuationsAsAtOverride { get; set; }
 
         /// <summary>
+        /// The last date a PCA scan was conducted for a Valuation Point
+        /// </summary>
+        /// <value>The last date a PCA scan was conducted for a Valuation Point</value>
+        [DataMember(Name = "dateOfLastPcaScan", EmitDefaultValue = true)]
+        public DateTimeOffset? DateOfLastPcaScan { get; set; }
+
+        /// <summary>
         /// The properties for the Calendar Entry. These will be from the &#39;ClosedPeriod&#39; domain.
         /// </summary>
         /// <value>The properties for the Calendar Entry. These will be from the &#39;ClosedPeriod&#39; domain.</value>
@@ -135,6 +144,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  AsAt: ").Append(AsAt).Append("\n");
             sb.Append("  HoldingsAsAtOverride: ").Append(HoldingsAsAtOverride).Append("\n");
             sb.Append("  ValuationsAsAtOverride: ").Append(ValuationsAsAtOverride).Append("\n");
+            sb.Append("  DateOfLastPcaScan: ").Append(DateOfLastPcaScan).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("}\n");
@@ -203,6 +213,11 @@ namespace Lusid.Sdk.Model
                     this.ValuationsAsAtOverride.Equals(input.ValuationsAsAtOverride))
                 ) && 
                 (
+                    this.DateOfLastPcaScan == input.DateOfLastPcaScan ||
+                    (this.DateOfLastPcaScan != null &&
+                    this.DateOfLastPcaScan.Equals(input.DateOfLastPcaScan))
+                ) && 
+                (
                     this.Properties == input.Properties ||
                     this.Properties != null &&
                     input.Properties != null &&
@@ -247,6 +262,10 @@ namespace Lusid.Sdk.Model
                 if (this.ValuationsAsAtOverride != null)
                 {
                     hashCode = (hashCode * 59) + this.ValuationsAsAtOverride.GetHashCode();
+                }
+                if (this.DateOfLastPcaScan != null)
+                {
+                    hashCode = (hashCode * 59) + this.DateOfLastPcaScan.GetHashCode();
                 }
                 if (this.Properties != null)
                 {

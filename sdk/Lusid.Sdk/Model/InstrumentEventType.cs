@@ -483,7 +483,13 @@ namespace Lusid.Sdk.Model
         /// Enum DutchAuctionEvent for value: DutchAuctionEvent
         /// </summary>
         [EnumMember(Value = "DutchAuctionEvent")]
-        DutchAuctionEvent = 76
+        DutchAuctionEvent = 76,
+
+        /// <summary>
+        /// Enum WorthlessEvent for value: WorthlessEvent
+        /// </summary>
+        [EnumMember(Value = "WorthlessEvent")]
+        WorthlessEvent = 77
     }
 
 }

@@ -1,29 +1,24 @@
-# Lusid.Sdk.Model.AmortisationEvent
-Definition of an Amortisation event.  This is an event that describes the occurence of amortisation.
+# Lusid.Sdk.Model.WorthlessEvent
+Mandatory corporate action that removes a security holding from the portfolio at zero proceeds (zero-recovery write-off, WRTH).  The full eligible holding is debited on the PaymentDate; no cash is received and no new security is credited.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **InstrumentEventType** | **string** | The Type of Event. Available values: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent, CapletFloorletCashFlowEvent, EarlyCloseOutEvent, DepositRollEvent, ConsentEvent, DrawingEvent, CapitalGainsDistributionEvent, ExchangeOfferEvent, DutchAuctionEvent, WorthlessEvent. | 
-**AmountReduced** | **decimal** | The amount reduced in this amortisation event.  That is, the difference between the previous notional amount and the current notional amount as set in this event. | 
-**DomCcy** | **string** | Domestic currency of the originating instrument | 
-**PayReceive** | **string** | Is this event in relation to the Pay or Receive leg | 
-**PaymentDate** | **DateTimeOffset** | The date the principal payment is to be made. | 
+**RecordDate** | **DateTimeOffset** | Positions are struck at close of business on this date to determine eligible holdings. | [optional] 
+**PaymentDate** | **DateTimeOffset** | The date the security debit is processed in LUSID; no cash payment is associated. Must be &gt;&#x3D; RecordDate. | [optional] 
+**AnnouncementDate** | **DateTimeOffset?** | The date the issuer or agent announces the write-off. Optional — null when no separate announcement date is provided.  When populated, must be &lt;&#x3D; RecordDate. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
 using System;
-decimal amountReduced = "amountReduced";
 
-string domCcy = "domCcy";
-string payReceive = "payReceive";
 
-AmortisationEvent amortisationEventInstance = new AmortisationEvent(
-    amountReduced: amountReduced,
-    domCcy: domCcy,
-    payReceive: payReceive,
-    paymentDate: paymentDate);
+WorthlessEvent worthlessEventInstance = new WorthlessEvent(
+    recordDate: recordDate,
+    paymentDate: paymentDate,
+    announcementDate: announcementDate);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

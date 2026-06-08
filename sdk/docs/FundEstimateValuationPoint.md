@@ -15,7 +15,6 @@ Name | Type | Description | Notes
 **ApplyClearDown** | **bool** | Set to true if that closed period should have the clear down applied. | [optional] 
 **LeaderNavTypeCode** | **string** | The code of the Nav Type that this Nav Type will follow when set. | [optional] 
 **Variants** | [**List&lt;EstimateVariant&gt;**](EstimateVariant.md) | The variants of the Estimate Valuation Point.  | [optional] 
-**DateOfLastPcaScan** | **DateTimeOffset?** | The last date a PCA scan was conducted for a Valuation Point | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -43,8 +42,7 @@ FundEstimateValuationPoint fundEstimateValuationPointInstance = new FundEstimate
     status: status,
     applyClearDown: applyClearDown,
     leaderNavTypeCode: leaderNavTypeCode,
-    variants: variants,
-    dateOfLastPcaScan: dateOfLastPcaScan);
+    variants: variants);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
