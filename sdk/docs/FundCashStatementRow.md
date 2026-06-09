@@ -24,6 +24,7 @@ Name | Type | Description | Notes
 **CostBasisBase** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
 **AvgRate** | **decimal?** | Weighted average FX rate (costBasisBase / balanceLocal). Null when balance is zero. | [optional] 
 **FxRateMovement** | **decimal?** | FX rate for this specific movement (CashflowBase / CashFlowLocal). Null when localAmount is zero. | [optional] 
+**Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | The requested properties decorated onto the cash statement row. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -49,6 +50,7 @@ CurrencyAndAmount? realisedFxPnl = new CurrencyAndAmount();
 
 CurrencyAndAmount? costBasisBase = new CurrencyAndAmount();
 
+Dictionary<string, Property> properties = new Dictionary<string, Property>();
 List<Link> links = new List<Link>();
 
 FundCashStatementRow fundCashStatementRowInstance = new FundCashStatementRow(
@@ -71,6 +73,7 @@ FundCashStatementRow fundCashStatementRowInstance = new FundCashStatementRow(
     costBasisBase: costBasisBase,
     avgRate: avgRate,
     fxRateMovement: fxRateMovement,
+    properties: properties,
     links: links);
 ```
 
