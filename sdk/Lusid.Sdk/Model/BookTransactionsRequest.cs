@@ -38,7 +38,8 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="allocationIds">A collection of Allocation IDs (required).</param>
         /// <param name="transactionProperties">A collection of properties.</param>
-        public BookTransactionsRequest(List<ResourceId> allocationIds = default(List<ResourceId>), Dictionary<string, PerpetualProperty> transactionProperties = default(Dictionary<string, PerpetualProperty>))
+        /// <param name="fxInstrumentType">The type of FX instrument to create when settlement currency differs from portfolio base currency. Use None to suppress FX instrument and order creation. Defaults to None. Available values: None, FxForward, FxSpot..</param>
+        public BookTransactionsRequest(List<ResourceId> allocationIds = default(List<ResourceId>), Dictionary<string, PerpetualProperty> transactionProperties = default(Dictionary<string, PerpetualProperty>), string fxInstrumentType = default(string))
         {
             // to ensure "allocationIds" is required (not null)
             if (allocationIds == null)
@@ -47,6 +48,7 @@ namespace Lusid.Sdk.Model
             }
             this.AllocationIds = allocationIds;
             this.TransactionProperties = transactionProperties;
+            this.FxInstrumentType = fxInstrumentType;
         }
 
         /// <summary>
@@ -64,6 +66,13 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, PerpetualProperty> TransactionProperties { get; set; }
 
         /// <summary>
+        /// The type of FX instrument to create when settlement currency differs from portfolio base currency. Use None to suppress FX instrument and order creation. Defaults to None. Available values: None, FxForward, FxSpot.
+        /// </summary>
+        /// <value>The type of FX instrument to create when settlement currency differs from portfolio base currency. Use None to suppress FX instrument and order creation. Defaults to None. Available values: None, FxForward, FxSpot.</value>
+        [DataMember(Name = "fxInstrumentType", EmitDefaultValue = true)]
+        public string FxInstrumentType { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -73,6 +82,7 @@ namespace Lusid.Sdk.Model
             sb.Append("class BookTransactionsRequest {\n");
             sb.Append("  AllocationIds: ").Append(AllocationIds).Append("\n");
             sb.Append("  TransactionProperties: ").Append(TransactionProperties).Append("\n");
+            sb.Append("  FxInstrumentType: ").Append(FxInstrumentType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -119,6 +129,11 @@ namespace Lusid.Sdk.Model
                     this.TransactionProperties != null &&
                     input.TransactionProperties != null &&
                     this.TransactionProperties.SequenceEqual(input.TransactionProperties)
+                ) && 
+                (
+                    this.FxInstrumentType == input.FxInstrumentType ||
+                    (this.FxInstrumentType != null &&
+                    this.FxInstrumentType.Equals(input.FxInstrumentType))
                 );
         }
 
@@ -138,6 +153,10 @@ namespace Lusid.Sdk.Model
                 if (this.TransactionProperties != null)
                 {
                     hashCode = (hashCode * 59) + this.TransactionProperties.GetHashCode();
+                }
+                if (this.FxInstrumentType != null)
+                {
+                    hashCode = (hashCode * 59) + this.FxInstrumentType.GetHashCode();
                 }
                 return hashCode;
             }

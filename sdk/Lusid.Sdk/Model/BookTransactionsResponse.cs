@@ -33,10 +33,12 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="values">values.</param>
         /// <param name="failed">failed.</param>
-        public BookTransactionsResponse(Dictionary<string, Transaction> values = default(Dictionary<string, Transaction>), Dictionary<string, ErrorDetail> failed = default(Dictionary<string, ErrorDetail>))
+        /// <param name="fxOrders">fxOrders.</param>
+        public BookTransactionsResponse(Dictionary<string, Transaction> values = default(Dictionary<string, Transaction>), Dictionary<string, ErrorDetail> failed = default(Dictionary<string, ErrorDetail>), List<BlockAndOrders> fxOrders = default(List<BlockAndOrders>))
         {
             this.Values = values;
             this.Failed = failed;
+            this.FxOrders = fxOrders;
         }
 
         /// <summary>
@@ -52,6 +54,12 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, ErrorDetail> Failed { get; set; }
 
         /// <summary>
+        /// Gets or Sets FxOrders
+        /// </summary>
+        [DataMember(Name = "fxOrders", EmitDefaultValue = true)]
+        public List<BlockAndOrders> FxOrders { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -61,6 +69,7 @@ namespace Lusid.Sdk.Model
             sb.Append("class BookTransactionsResponse {\n");
             sb.Append("  Values: ").Append(Values).Append("\n");
             sb.Append("  Failed: ").Append(Failed).Append("\n");
+            sb.Append("  FxOrders: ").Append(FxOrders).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -107,6 +116,12 @@ namespace Lusid.Sdk.Model
                     this.Failed != null &&
                     input.Failed != null &&
                     this.Failed.SequenceEqual(input.Failed)
+                ) && 
+                (
+                    this.FxOrders == input.FxOrders ||
+                    this.FxOrders != null &&
+                    input.FxOrders != null &&
+                    this.FxOrders.SequenceEqual(input.FxOrders)
                 );
         }
 
@@ -126,6 +141,10 @@ namespace Lusid.Sdk.Model
                 if (this.Failed != null)
                 {
                     hashCode = (hashCode * 59) + this.Failed.GetHashCode();
+                }
+                if (this.FxOrders != null)
+                {
+                    hashCode = (hashCode * 59) + this.FxOrders.GetHashCode();
                 }
                 return hashCode;
             }

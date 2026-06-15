@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **EntityType** | **string** | The type of the entity that the deleted response applies to. | [optional] 
 **EntityUniqueId** | **string** | The unique Id of the entity that the deleted response applies to. | [optional] 
 **StagedModifications** | [**StagedModificationsInfo**](StagedModificationsInfo.md) |  | [optional] 
+**Metadata** | **Dictionary&lt;string, List&lt;ResponseMetaData&gt;&gt;** | Contains warnings or additional information related to the delete operation. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -21,6 +22,7 @@ string entityType = "example entityType";
 string entityUniqueId = "example entityUniqueId";
 StagedModificationsInfo? stagedModifications = new StagedModificationsInfo();
 
+Dictionary<string, List<ResponseMetaData>> metadata = new Dictionary<string, List<ResponseMetaData>>();
 List<Link> links = new List<Link>();
 
 DeletedEntityResponse deletedEntityResponseInstance = new DeletedEntityResponse(
@@ -30,6 +32,7 @@ DeletedEntityResponse deletedEntityResponseInstance = new DeletedEntityResponse(
     entityType: entityType,
     entityUniqueId: entityUniqueId,
     stagedModifications: stagedModifications,
+    metadata: metadata,
     links: links);
 ```
 

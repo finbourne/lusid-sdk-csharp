@@ -489,7 +489,19 @@ namespace Lusid.Sdk.Model
         /// Enum WorthlessEvent for value: WorthlessEvent
         /// </summary>
         [EnumMember(Value = "WorthlessEvent")]
-        WorthlessEvent = 77
+        WorthlessEvent = 77,
+
+        /// <summary>
+        /// Enum PutRedemptionEvent for value: PutRedemptionEvent
+        /// </summary>
+        [EnumMember(Value = "PutRedemptionEvent")]
+        PutRedemptionEvent = 78,
+
+        /// <summary>
+        /// Enum LoanFacilityDelayedCompensationPaymentEvent for value: LoanFacilityDelayedCompensationPaymentEvent
+        /// </summary>
+        [EnumMember(Value = "LoanFacilityDelayedCompensationPaymentEvent")]
+        LoanFacilityDelayedCompensationPaymentEvent = 79
     }
 
 }
