@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// The set of options that control miscellaneous and default market resolution behaviour.  These are aimed at a &#39;crude&#39; level of control for those who do not wish to fine tune the way that data is resolved.  For clients who wish to simply match instruments to prices this is quite possibly sufficient. For those wishing to control market data sources  according to requirements based on accuracy or timeliness it is not. In more advanced cases the options should largely be ignored and rules specified  per source. Be aware that where no specified rule matches the final fallback is on to the logic implied here.
+    /// The set of options that control miscellaneous and default market resolution behaviour.  A default scope entered here will cause duplicate (\&quot;default\&quot;) rules to be created across all asset types, pointing at that scope.  These are aimed at a &#39;crude&#39; level of control for those who do not wish to fine tune the way that data is resolved.  For clients who wish to simply match instruments to prices this is quite possibly sufficient. For those wishing to control market data sources  according to requirements based on accuracy or timeliness it is not recommended. In more advanced cases the options should largely be ignored and rules specified  per source.  If no default scope is supplied, no default rules are created.  Where a default scope is supplied, a default rule is constructed per asset type, pointing at that scope, and appended  after all specified rules so it is only tried as a last resort. Each default rule is wild-carded within its asset type  (for example Quote.{instrumentCodeType}.* or Fx.*.*) rather than being a single fully wild-carded rule, and one (two for  Rates) is generated per asset type. Consequently, where no specified rule matches a dependency, the failure reported is  this constructed default rule in the provided default scope.  It is not recommended to rely on this behaviour, as these rules match a wide range of data and are likely to be slow to resolve.  It is better to specify rules for the data you require in the MarketRules of the MarketContext.
     /// </summary>
     [DataContract(Name = "MarketOptions")]
     public partial class MarketOptions : IEquatable<MarketOptions>, IValidatableObject
@@ -31,27 +31,17 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MarketOptions" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected MarketOptions() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MarketOptions" /> class.
-        /// </summary>
         /// <param name="defaultSupplier">The default supplier of data. This controls which &#39;dialect&#39; is used to find particular market data. e.g. one supplier might address data by RIC, another by PermId.</param>
         /// <param name="defaultInstrumentCodeType">When instrument quotes are searched for, what identifier should be used by default.</param>
-        /// <param name="defaultScope">For default rules, which scope should data be searched for in (required).</param>
+        /// <param name="defaultScope">The scope in which to search for data when applying default rules. This is optional: if omitted, no default rules  are created and market data is resolved only via the explicitly specified market data key rules..</param>
         /// <param name="attemptToInferMissingFx">if true will calculate a missing Fx pair (e.g. THBJPY) from the inverse JPYTHB or from standardised pairs against USD, e.g. THBUSD and JPYUSD.</param>
         /// <param name="calendarScope">The scope in which holiday calendars stored.</param>
         /// <param name="conventionScope">The scope in which conventions stored.</param>
         public MarketOptions(string defaultSupplier = default(string), string defaultInstrumentCodeType = default(string), string defaultScope = default(string), bool attemptToInferMissingFx = default(bool), string calendarScope = default(string), string conventionScope = default(string))
         {
-            // to ensure "defaultScope" is required (not null)
-            if (defaultScope == null)
-            {
-                throw new ArgumentNullException("defaultScope is a required property for MarketOptions and cannot be null");
-            }
-            this.DefaultScope = defaultScope;
             this.DefaultSupplier = defaultSupplier;
             this.DefaultInstrumentCodeType = defaultInstrumentCodeType;
+            this.DefaultScope = defaultScope;
             this.AttemptToInferMissingFx = attemptToInferMissingFx;
             this.CalendarScope = calendarScope;
             this.ConventionScope = conventionScope;
@@ -72,10 +62,10 @@ namespace Lusid.Sdk.Model
         public string DefaultInstrumentCodeType { get; set; }
 
         /// <summary>
-        /// For default rules, which scope should data be searched for in
+        /// The scope in which to search for data when applying default rules. This is optional: if omitted, no default rules  are created and market data is resolved only via the explicitly specified market data key rules.
         /// </summary>
-        /// <value>For default rules, which scope should data be searched for in</value>
-        [DataMember(Name = "defaultScope", IsRequired = true, EmitDefaultValue = true)]
+        /// <value>The scope in which to search for data when applying default rules. This is optional: if omitted, no default rules  are created and market data is resolved only via the explicitly specified market data key rules.</value>
+        [DataMember(Name = "defaultScope", EmitDefaultValue = true)]
         public string DefaultScope { get; set; }
 
         /// <summary>

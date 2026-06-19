@@ -45,7 +45,7 @@ namespace Lusid.Sdk.Model
         /// <param name="currency">The Currency for the Account (required).</param>
         /// <param name="properties">Set of unique Custodian Account properties and associated values to store with the Custodian Account. Each property must be from the &#39;CustodianAccount&#39; domain..</param>
         /// <param name="custodianIdentifier">custodianIdentifier (required).</param>
-        /// <param name="accountType">The Type of the Custodian Account. Default value: Margin. Available values: Margin, Cash, Swap..</param>
+        /// <param name="accountType">The type of the Custodian Account. This is a free-text field that accepts any value. Optional, with no default..</param>
         public CustodianAccountRequest(string scope = default(string), string code = default(string), string status = default(string), string accountNumber = default(string), string accountName = default(string), string accountingMethod = default(string), string currency = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), TypedResourceId custodianIdentifier = default(TypedResourceId), string accountType = default(string))
         {
             // to ensure "code" is required (not null)
@@ -153,9 +153,9 @@ namespace Lusid.Sdk.Model
         public TypedResourceId CustodianIdentifier { get; set; }
 
         /// <summary>
-        /// The Type of the Custodian Account. Default value: Margin. Available values: Margin, Cash, Swap.
+        /// The type of the Custodian Account. This is a free-text field that accepts any value. Optional, with no default.
         /// </summary>
-        /// <value>The Type of the Custodian Account. Default value: Margin. Available values: Margin, Cash, Swap.</value>
+        /// <value>The type of the Custodian Account. This is a free-text field that accepts any value. Optional, with no default.</value>
         [DataMember(Name = "accountType", EmitDefaultValue = true)]
         public string AccountType { get; set; }
 
@@ -398,6 +398,25 @@ namespace Lusid.Sdk.Model
             if (this.AccountingMethod != null && this.AccountingMethod.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AccountingMethod, length must be greater than 1.", new [] { "AccountingMethod" });
+            }
+
+            // AccountType (string) maxLength
+            if (this.AccountType != null && this.AccountType.Length > 512)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AccountType, length must be less than 512.", new [] { "AccountType" });
+            }
+
+            // AccountType (string) minLength
+            if (this.AccountType != null && this.AccountType.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AccountType, length must be greater than 1.", new [] { "AccountType" });
+            }
+
+            // AccountType (string) pattern
+            Regex regexAccountType = new Regex(@"^[\s\S]*$", RegexOptions.CultureInvariant);
+            if (false == regexAccountType.Match(this.AccountType).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AccountType, must match a pattern of " + regexAccountType, new [] { "AccountType" });
             }
 
             yield break;

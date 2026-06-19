@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **Currency** | **string** | The Currency for the Account | 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | Set of unique Custodian Account properties and associated values to store with the Custodian Account. Each property must be from the &#39;CustodianAccount&#39; domain. | [optional] 
 **Custodian** | [**LegalEntity**](LegalEntity.md) |  | 
-**AccountType** | **string** | The Type of the Custodian Account. Default value: Margin. Available values: Margin, Cash, Swap. | 
+**AccountType** | **string** | The type of the Custodian Account. This is a free-text field that accepts any value. Optional, with no default. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -26,7 +26,7 @@ string accountingMethod = "accountingMethod";
 string currency = "currency";
 Dictionary<string, Property> properties = new Dictionary<string, Property>();
 LegalEntity custodian = new LegalEntity();
-string accountType = "accountType";
+string accountType = "example accountType";
 
 CustodianAccount custodianAccountInstance = new CustodianAccount(
     custodianAccountId: custodianAccountId,
