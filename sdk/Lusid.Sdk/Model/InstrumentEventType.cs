@@ -507,7 +507,13 @@ namespace Lusid.Sdk.Model
         /// Enum InterestPaymentEvent for value: InterestPaymentEvent
         /// </summary>
         [EnumMember(Value = "InterestPaymentEvent")]
-        InterestPaymentEvent = 80
+        InterestPaymentEvent = 80,
+
+        /// <summary>
+        /// Enum PriorityIssueEvent for value: PriorityIssueEvent
+        /// </summary>
+        [EnumMember(Value = "PriorityIssueEvent")]
+        PriorityIssueEvent = 81
     }
 
 }

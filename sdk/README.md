@@ -1647,6 +1647,7 @@ Class | Method | HTTP request | Description
  - [PricingModel](docs/PricingModel.md)
  - [PricingOptions](docs/PricingOptions.md)
  - [PrimarySchedule](docs/PrimarySchedule.md)
+ - [PriorityIssueEvent](docs/PriorityIssueEvent.md)
  - [ProcessedCommand](docs/ProcessedCommand.md)
  - [Property](docs/Property.md)
  - [PropertyDefinition](docs/PropertyDefinition.md)
