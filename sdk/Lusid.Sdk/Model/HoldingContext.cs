@@ -32,11 +32,9 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="HoldingContext" /> class.
         /// </summary>
         /// <param name="taxLotLevelHoldings">Whether or not to expand the holdings to return the underlying tax-lots. Defaults to True..</param>
-        /// <param name="aggregateCashCommitments">When true, cash commitment holdings sharing a SubHoldingKey are folded into a single aggregated  row per portfolio, mirroring how cash balances are already aggregated. Defaults to false to  preserve existing behaviour. Ignored when TaxLotLevelHoldings is true — tax-lot granularity  takes precedence. Aggregation is per-portfolio: cross-portfolio rows in portfolio-group / fund  responses stay separate, matching the behaviour of positions and cash balances..</param>
-        public HoldingContext(bool taxLotLevelHoldings = default(bool), bool aggregateCashCommitments = default(bool))
+        public HoldingContext(bool taxLotLevelHoldings = default(bool))
         {
             this.TaxLotLevelHoldings = taxLotLevelHoldings;
-            this.AggregateCashCommitments = aggregateCashCommitments;
         }
 
         /// <summary>
@@ -47,13 +45,6 @@ namespace Lusid.Sdk.Model
         public bool TaxLotLevelHoldings { get; set; }
 
         /// <summary>
-        /// When true, cash commitment holdings sharing a SubHoldingKey are folded into a single aggregated  row per portfolio, mirroring how cash balances are already aggregated. Defaults to false to  preserve existing behaviour. Ignored when TaxLotLevelHoldings is true — tax-lot granularity  takes precedence. Aggregation is per-portfolio: cross-portfolio rows in portfolio-group / fund  responses stay separate, matching the behaviour of positions and cash balances.
-        /// </summary>
-        /// <value>When true, cash commitment holdings sharing a SubHoldingKey are folded into a single aggregated  row per portfolio, mirroring how cash balances are already aggregated. Defaults to false to  preserve existing behaviour. Ignored when TaxLotLevelHoldings is true — tax-lot granularity  takes precedence. Aggregation is per-portfolio: cross-portfolio rows in portfolio-group / fund  responses stay separate, matching the behaviour of positions and cash balances.</value>
-        [DataMember(Name = "aggregateCashCommitments", EmitDefaultValue = true)]
-        public bool AggregateCashCommitments { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -62,7 +53,6 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class HoldingContext {\n");
             sb.Append("  TaxLotLevelHoldings: ").Append(TaxLotLevelHoldings).Append("\n");
-            sb.Append("  AggregateCashCommitments: ").Append(AggregateCashCommitments).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -101,10 +91,6 @@ namespace Lusid.Sdk.Model
                 (
                     this.TaxLotLevelHoldings == input.TaxLotLevelHoldings ||
                     this.TaxLotLevelHoldings.Equals(input.TaxLotLevelHoldings)
-                ) && 
-                (
-                    this.AggregateCashCommitments == input.AggregateCashCommitments ||
-                    this.AggregateCashCommitments.Equals(input.AggregateCashCommitments)
                 );
         }
 
@@ -118,7 +104,6 @@ namespace Lusid.Sdk.Model
             {
                 int hashCode = 41;
                 hashCode = (hashCode * 59) + this.TaxLotLevelHoldings.GetHashCode();
-                hashCode = (hashCode * 59) + this.AggregateCashCommitments.GetHashCode();
                 return hashCode;
             }
         }
