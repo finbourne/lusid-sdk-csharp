@@ -15,6 +15,8 @@ Name | Type | Description | Notes
 **Condition** | **string** | The condition that the transaction must satisfy to generate the movement, such as: Portfolio.BaseCurrency eq &#39;GBP&#39;. The condition can contain fields and properties from transactions and portfolios. If no condition is provided, the movement will apply for all transactions of this type. | [optional] 
 **SettlementMode** | **string** | Configures how movements should settle. Allowed values: &#39;Internal&#39; and &#39;External&#39;. A movement with &#39;Internal&#39; settlement mode will settle automatically on the contractual settlement date regardlesss of portfolio configuration or settlement instruction. An &#39;External&#39; movement can be settled automatically or by a settlement instruction. Available values: Internal, External. | [optional] 
 **CalculateTradeDateToSettlementFxPnL** | **bool?** | Configures whether Trade To Settlement Date Realised Gain Loss should be calculated. This overrides the value set at the Portfolio level.If null, then the Portfolio Settlement Configuration TradeToSettlementDateRealisedFxPnl setting will be used.If false, then no TradeToSettlementDateRealisedFxPnl will apply for this movement and if true, then TradeToSettlementDateRealisedFxPnlwill be calculated for this movement. | [optional] 
+**CustodianAccountType** | **string** | The type of custodian account this movement targets, e.g. Cash or Margin. Free text, optional. | [optional] 
+**AccountSelector** | **string** | An optional selector expression used to identify the specific account this movement targets. E.g. From/To. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -30,6 +32,8 @@ string settlementDateOverride = "example settlementDateOverride";
 string condition = "example condition";
 string settlementMode = "example settlementMode";
 bool? calculateTradeDateToSettlementFxPnL = //"True";
+string custodianAccountType = "example custodianAccountType";
+string accountSelector = "example accountSelector";
 
 TransactionTypeMovement transactionTypeMovementInstance = new TransactionTypeMovement(
     movementTypes: movementTypes,
@@ -42,7 +46,9 @@ TransactionTypeMovement transactionTypeMovementInstance = new TransactionTypeMov
     settlementDateOverride: settlementDateOverride,
     condition: condition,
     settlementMode: settlementMode,
-    calculateTradeDateToSettlementFxPnL: calculateTradeDateToSettlementFxPnL);
+    calculateTradeDateToSettlementFxPnL: calculateTradeDateToSettlementFxPnL,
+    custodianAccountType: custodianAccountType,
+    accountSelector: accountSelector);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

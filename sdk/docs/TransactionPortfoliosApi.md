@@ -21,6 +21,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**DeleteCustodianAccounts**](TransactionPortfoliosApi.md#deletecustodianaccounts) | **POST** /api/transactionportfolios/{scope}/{code}/custodianaccounts/$delete | DeleteCustodianAccounts: Soft or hard delete multiple custodian accounts |
 | [**DeletePropertiesFromTransaction**](TransactionPortfoliosApi.md#deletepropertiesfromtransaction) | **DELETE** /api/transactionportfolios/{scope}/{code}/transactions/{transactionId}/properties | DeletePropertiesFromTransaction: Delete properties from transaction |
 | [**DeleteSettlementInstructions**](TransactionPortfoliosApi.md#deletesettlementinstructions) | **DELETE** /api/transactionportfolios/{scope}/{code}/settlementinstructions | [EARLY ACCESS] DeleteSettlementInstructions: Delete Settlement Instructions. |
+| [**DeleteVirtualTransactionOverride**](TransactionPortfoliosApi.md#deletevirtualtransactionoverride) | **DELETE** /api/transactionportfolios/{scope}/{code}/overridevirtualtransactions | [EARLY ACCESS] DeleteVirtualTransactionOverride: [EARLY ACCESS] Delete a virtual transaction override |
 | [**GetA2BData**](TransactionPortfoliosApi.md#geta2bdata) | **GET** /api/transactionportfolios/{scope}/{code}/a2b | GetA2BData: Get A2B data |
 | [**GetA2BMovements**](TransactionPortfoliosApi.md#geta2bmovements) | **GET** /api/transactionportfolios/{scope}/{code}/a2bmovements | GetA2BMovements: Get an A2B report at the movement level for the given portfolio. |
 | [**GetA2BMovementsTradingVsHolding**](TransactionPortfoliosApi.md#geta2bmovementstradingvsholding) | **GET** /api/transactionportfolios/{scope}/{code}/a2bmovements/tradingvsholding | [EXPERIMENTAL] GetA2BMovementsTradingVsHolding: Get an A2B report at the movement level for the given portfolio, with P&amp;L split between holding and trading returns. |
@@ -42,7 +43,6 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**ListCustodianAccounts**](TransactionPortfoliosApi.md#listcustodianaccounts) | **GET** /api/transactionportfolios/{scope}/{code}/custodianaccounts | ListCustodianAccounts: List Custodian Accounts |
 | [**ListHoldingsAdjustments**](TransactionPortfoliosApi.md#listholdingsadjustments) | **GET** /api/transactionportfolios/{scope}/{code}/holdingsadjustments | ListHoldingsAdjustments: List holdings adjustments |
 | [**ListSettlementInstructions**](TransactionPortfoliosApi.md#listsettlementinstructions) | **GET** /api/transactionportfolios/{scope}/{code}/settlementinstructions | [EARLY ACCESS] ListSettlementInstructions: List Settlement Instructions. |
-| [**OverrideVirtualTransactions**](TransactionPortfoliosApi.md#overridevirtualtransactions) | **POST** /api/transactionportfolios/{scope}/{code}/overridevirtualtransactions | [EARLY ACCESS] OverrideVirtualTransactions: [EARLY ACCESS] Override virtual transactions |
 | [**PatchPortfolioDetails**](TransactionPortfoliosApi.md#patchportfoliodetails) | **PATCH** /api/transactionportfolios/{scope}/{code}/details | PatchPortfolioDetails: Patch portfolio details |
 | [**PreviewTransaction**](TransactionPortfoliosApi.md#previewtransaction) | **POST** /api/transactionportfolios/{scope}/{code}/previewTransaction | PreviewTransaction: Preview a transaction |
 | [**ResolveInstrument**](TransactionPortfoliosApi.md#resolveinstrument) | **POST** /api/transactionportfolios/{scope}/{code}/$resolve | ResolveInstrument: Resolve instrument |
@@ -53,6 +53,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**UpsertSettlementInstructions**](TransactionPortfoliosApi.md#upsertsettlementinstructions) | **POST** /api/transactionportfolios/{scope}/{code}/settlementinstructions | [EARLY ACCESS] UpsertSettlementInstructions: Upsert Settlement Instructions. |
 | [**UpsertTransactionProperties**](TransactionPortfoliosApi.md#upserttransactionproperties) | **POST** /api/transactionportfolios/{scope}/{code}/transactions/{transactionId}/properties | UpsertTransactionProperties: Upsert transaction properties |
 | [**UpsertTransactions**](TransactionPortfoliosApi.md#upserttransactions) | **POST** /api/transactionportfolios/{scope}/{code}/transactions | UpsertTransactions: Upsert transactions |
+| [**UpsertVirtualTransactionOverride**](TransactionPortfoliosApi.md#upsertvirtualtransactionoverride) | **POST** /api/transactionportfolios/{scope}/{code}/overridevirtualtransactions | [EARLY ACCESS] UpsertVirtualTransactionOverride: [EARLY ACCESS] Upsert a virtual transaction override |
 
 <a id="adjustholdings"></a>
 # **AdjustHoldings**
@@ -2099,6 +2100,126 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The ids of the deleted settlement instructions |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="deletevirtualtransactionoverride"></a>
+# **DeleteVirtualTransactionOverride**
+> DeletedEntityResponse DeleteVirtualTransactionOverride (string scope, string code, string instrumentEventId, string? portfolioEffectiveAt = null)
+
+[EARLY ACCESS] DeleteVirtualTransactionOverride: [EARLY ACCESS] Delete a virtual transaction override
+
+Reverts the override for the specified instrument event by cancelling all active override transactions  and deleting the cancel instruction, restoring the original virtual transactions to an active state.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TransactionPortfoliosApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionPortfoliosApi>();
+            var scope = "scope_example";  // string | The scope of the transaction portfolio.
+            var code = "code_example";  // string | The code of the transaction portfolio. Together with the scope this uniquely identifies the transaction portfolio.
+            var instrumentEventId = "instrumentEventId_example";  // string | The ID of the instrument event whose override should be reverted.
+            var portfolioEffectiveAt = "portfolioEffectiveAt_example";  // string? | The effective datetime used to resolve the portfolio. Defaults to the current LUSID system datetime if not specified. (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeleteVirtualTransactionOverride(scope, code, instrumentEventId, portfolioEffectiveAt, opts: opts);
+
+                // [EARLY ACCESS] DeleteVirtualTransactionOverride: [EARLY ACCESS] Delete a virtual transaction override
+                DeletedEntityResponse result = apiInstance.DeleteVirtualTransactionOverride(scope, code, instrumentEventId, portfolioEffectiveAt);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling TransactionPortfoliosApi.DeleteVirtualTransactionOverride: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the DeleteVirtualTransactionOverrideWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] DeleteVirtualTransactionOverride: [EARLY ACCESS] Delete a virtual transaction override
+    ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteVirtualTransactionOverrideWithHttpInfo(scope, code, instrumentEventId, portfolioEffectiveAt);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling TransactionPortfoliosApi.DeleteVirtualTransactionOverrideWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the transaction portfolio. |  |
+| **code** | **string** | The code of the transaction portfolio. Together with the scope this uniquely identifies the transaction portfolio. |  |
+| **instrumentEventId** | **string** | The ID of the instrument event whose override should be reverted. |  |
+| **portfolioEffectiveAt** | **string?** | The effective datetime used to resolve the portfolio. Defaults to the current LUSID system datetime if not specified. | [optional]  |
+
+### Return type
+
+[**DeletedEntityResponse**](DeletedEntityResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The datetime that the override was deleted |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
@@ -4836,134 +4957,6 @@ catch (ApiException e)
 
 [Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
-<a id="overridevirtualtransactions"></a>
-# **OverrideVirtualTransactions**
-> OverrideVirtualTransactionsResponse OverrideVirtualTransactions (string scope, string code, string instrumentEventId, List<TransactionRequest> transactionRequest, string? portfolioEffectiveAt = null, bool? preserveProperties = null, string? dataModelScope = null, string? dataModelCode = null)
-
-[EARLY ACCESS] OverrideVirtualTransactions: [EARLY ACCESS] Override virtual transactions
-
-Override virtual transactions generated by an instrument event with manually provided input transactions.  This will cancel the specified instrument event and upsert the provided transactions as replacements.  The replacement transactions will have the OverrideOfInstrumentEvent system property set and a source type of OverriddenVirtualTransaction.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using Lusid.Sdk.Api;
-using Lusid.Sdk.Client;
-using Lusid.Sdk.Extensions;
-using Lusid.Sdk.Model;
-using Newtonsoft.Json;
-
-namespace Examples
-{
-    public static class Program
-    {
-        public static void Main()
-        {
-            var secretsFilename = "secrets.json";
-            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
-            // Replace with the relevant values
-            File.WriteAllText(
-                path, 
-                @"{
-                    ""api"": {
-                        ""tokenUrl"": ""<your-token-url>"",
-                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
-                        ""username"": ""<your-username>"",
-                        ""password"": ""<your-password>"",
-                        ""clientId"": ""<your-client-id>"",
-                        ""clientSecret"": ""<your-client-secret>""
-                    }
-                }");
-
-            // uncomment the below to use configuration overrides
-            // var opts = new ConfigurationOptions();
-            // opts.TimeoutMs = 30_000;
-
-            // uncomment the below to use an api factory with overrides
-            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TransactionPortfoliosApi>();
-
-            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionPortfoliosApi>();
-            var scope = "scope_example";  // string | The scope of the transaction portfolio.
-            var code = "code_example";  // string | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
-            var instrumentEventId = "instrumentEventId_example";  // string | The ID of the instrument event whose virtual transactions should be overridden.
-            var transactionRequest = new List<TransactionRequest>(); // List<TransactionRequest> | A list of transactions to replace the virtual transactions generated by the instrument event.
-            var portfolioEffectiveAt = "portfolioEffectiveAt_example";  // string? | The effective datetime used to resolve the portfolio. Defaults to the current LUSID system datetime if not specified. (optional) 
-            var preserveProperties = true;  // bool? | If set to false, the entire property set will be overwritten by the provided properties. If not specified or set to true, only the properties provided will be updated. (optional)  (default to true)
-            var dataModelScope = "dataModelScope_example";  // string? | The optional scope of a Custom Data Model to use (optional) 
-            var dataModelCode = "dataModelCode_example";  // string? | The optional code of a Custom Data Model to use (optional) 
-
-            try
-            {
-                // uncomment the below to set overrides at the request level
-                // OverrideVirtualTransactionsResponse result = apiInstance.OverrideVirtualTransactions(scope, code, instrumentEventId, transactionRequest, portfolioEffectiveAt, preserveProperties, dataModelScope, dataModelCode, opts: opts);
-
-                // [EARLY ACCESS] OverrideVirtualTransactions: [EARLY ACCESS] Override virtual transactions
-                OverrideVirtualTransactionsResponse result = apiInstance.OverrideVirtualTransactions(scope, code, instrumentEventId, transactionRequest, portfolioEffectiveAt, preserveProperties, dataModelScope, dataModelCode);
-                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
-            }
-            catch (ApiException e)
-            {
-                Console.WriteLine("Exception when calling TransactionPortfoliosApi.OverrideVirtualTransactions: " + e.Message);
-                Console.WriteLine("Status Code: " + e.ErrorCode);
-                Console.WriteLine(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the OverrideVirtualTransactionsWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // [EARLY ACCESS] OverrideVirtualTransactions: [EARLY ACCESS] Override virtual transactions
-    ApiResponse<OverrideVirtualTransactionsResponse> response = apiInstance.OverrideVirtualTransactionsWithHttpInfo(scope, code, instrumentEventId, transactionRequest, portfolioEffectiveAt, preserveProperties, dataModelScope, dataModelCode);
-    Console.WriteLine("Status Code: " + response.StatusCode);
-    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
-    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
-}
-catch (ApiException e)
-{
-    Console.WriteLine("Exception when calling TransactionPortfoliosApi.OverrideVirtualTransactionsWithHttpInfo: " + e.Message);
-    Console.WriteLine("Status Code: " + e.ErrorCode);
-    Console.WriteLine(e.StackTrace);
-}
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **scope** | **string** | The scope of the transaction portfolio. |  |
-| **code** | **string** | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. |  |
-| **instrumentEventId** | **string** | The ID of the instrument event whose virtual transactions should be overridden. |  |
-| **transactionRequest** | [**List&lt;TransactionRequest&gt;**](TransactionRequest.md) | A list of transactions to replace the virtual transactions generated by the instrument event. |  |
-| **portfolioEffectiveAt** | **string?** | The effective datetime used to resolve the portfolio. Defaults to the current LUSID system datetime if not specified. | [optional]  |
-| **preserveProperties** | **bool?** | If set to false, the entire property set will be overwritten by the provided properties. If not specified or set to true, only the properties provided will be updated. | [optional] [default to true] |
-| **dataModelScope** | **string?** | The optional scope of a Custom Data Model to use | [optional]  |
-| **dataModelCode** | **string?** | The optional code of a Custom Data Model to use | [optional]  |
-
-### Return type
-
-[**OverrideVirtualTransactionsResponse**](OverrideVirtualTransactionsResponse.md)
-
-### HTTP request headers
-
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
- - **Accept**: text/plain, application/json, text/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | The result of the override including the cancel instruction and instrument event details |  -  |
-| **400** | The details of the input related failure |  -  |
-| **0** | Error response |  -  |
-
-[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
-
 <a id="patchportfoliodetails"></a>
 # **PatchPortfolioDetails**
 > PortfolioDetails PatchPortfolioDetails (string scope, string code, List<Operation> operation, DateTimeOrCutLabel? effectiveAt = null)
@@ -6181,6 +6174,134 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The version of the transaction portfolio that contains the newly updated or inserted transactions |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="upsertvirtualtransactionoverride"></a>
+# **UpsertVirtualTransactionOverride**
+> OverrideVirtualTransactionsResponse UpsertVirtualTransactionOverride (string scope, string code, string instrumentEventId, List<TransactionRequest> transactionRequest, string? portfolioEffectiveAt = null, bool? preserveProperties = null, string? dataModelScope = null, string? dataModelCode = null)
+
+[EARLY ACCESS] UpsertVirtualTransactionOverride: [EARLY ACCESS] Upsert a virtual transaction override
+
+Creates or updates virtual transaction overrides for an instrument event with manually provided input transactions.  This will cancel the specified instrument event and upsert the provided transactions as replacements.  The replacement transactions will have the OverrideOfInstrumentEvent system property set and a source type of OverriddenVirtualTransaction.  Calling this endpoint again with the same transaction IDs will update the existing overrides in place.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TransactionPortfoliosApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionPortfoliosApi>();
+            var scope = "scope_example";  // string | The scope of the transaction portfolio.
+            var code = "code_example";  // string | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
+            var instrumentEventId = "instrumentEventId_example";  // string | The ID of the instrument event whose virtual transactions should be overridden.
+            var transactionRequest = new List<TransactionRequest>(); // List<TransactionRequest> | A list of transactions to replace the virtual transactions generated by the instrument event.
+            var portfolioEffectiveAt = "portfolioEffectiveAt_example";  // string? | The effective datetime used to resolve the portfolio. Defaults to the current LUSID system datetime if not specified. (optional) 
+            var preserveProperties = true;  // bool? | If set to false, the entire property set will be overwritten by the provided properties. If not specified or set to true, only the properties provided will be updated. (optional)  (default to true)
+            var dataModelScope = "dataModelScope_example";  // string? | The optional scope of a Custom Data Model to use (optional) 
+            var dataModelCode = "dataModelCode_example";  // string? | The optional code of a Custom Data Model to use (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // OverrideVirtualTransactionsResponse result = apiInstance.UpsertVirtualTransactionOverride(scope, code, instrumentEventId, transactionRequest, portfolioEffectiveAt, preserveProperties, dataModelScope, dataModelCode, opts: opts);
+
+                // [EARLY ACCESS] UpsertVirtualTransactionOverride: [EARLY ACCESS] Upsert a virtual transaction override
+                OverrideVirtualTransactionsResponse result = apiInstance.UpsertVirtualTransactionOverride(scope, code, instrumentEventId, transactionRequest, portfolioEffectiveAt, preserveProperties, dataModelScope, dataModelCode);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling TransactionPortfoliosApi.UpsertVirtualTransactionOverride: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the UpsertVirtualTransactionOverrideWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] UpsertVirtualTransactionOverride: [EARLY ACCESS] Upsert a virtual transaction override
+    ApiResponse<OverrideVirtualTransactionsResponse> response = apiInstance.UpsertVirtualTransactionOverrideWithHttpInfo(scope, code, instrumentEventId, transactionRequest, portfolioEffectiveAt, preserveProperties, dataModelScope, dataModelCode);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling TransactionPortfoliosApi.UpsertVirtualTransactionOverrideWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the transaction portfolio. |  |
+| **code** | **string** | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. |  |
+| **instrumentEventId** | **string** | The ID of the instrument event whose virtual transactions should be overridden. |  |
+| **transactionRequest** | [**List&lt;TransactionRequest&gt;**](TransactionRequest.md) | A list of transactions to replace the virtual transactions generated by the instrument event. |  |
+| **portfolioEffectiveAt** | **string?** | The effective datetime used to resolve the portfolio. Defaults to the current LUSID system datetime if not specified. | [optional]  |
+| **preserveProperties** | **bool?** | If set to false, the entire property set will be overwritten by the provided properties. If not specified or set to true, only the properties provided will be updated. | [optional] [default to true] |
+| **dataModelScope** | **string?** | The optional scope of a Custom Data Model to use | [optional]  |
+| **dataModelCode** | **string?** | The optional code of a Custom Data Model to use | [optional]  |
+
+### Return type
+
+[**OverrideVirtualTransactionsResponse**](OverrideVirtualTransactionsResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The result of the upsert including the cancel instruction and instrument event details |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
