@@ -513,7 +513,13 @@ namespace Lusid.Sdk.Model
         /// Enum PriorityIssueEvent for value: PriorityIssueEvent
         /// </summary>
         [EnumMember(Value = "PriorityIssueEvent")]
-        PriorityIssueEvent = 81
+        PriorityIssueEvent = 81,
+
+        /// <summary>
+        /// Enum ClassActionEvent for value: ClassActionEvent
+        /// </summary>
+        [EnumMember(Value = "ClassActionEvent")]
+        ClassActionEvent = 82
     }
 
 }
