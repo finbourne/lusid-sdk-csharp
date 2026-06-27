@@ -48,8 +48,16 @@ namespace Lusid.Sdk.Model
         /// <param name="securityOfferElections">List of possible SecurityOfferElections for this event..</param>
         /// <param name="cashAndSecurityOfferElections">List of possible CashAndSecurityOfferElections for this event..</param>
         /// <param name="cashOfferElections">List of possible CashOfferElections for this event..</param>
-        /// <param name="instrumentEventType">The Type of Event. Available values: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent, CapletFloorletCashFlowEvent, EarlyCloseOutEvent, DepositRollEvent, ConsentEvent, DrawingEvent, CapitalGainsDistributionEvent, ExchangeOfferEvent, DutchAuctionEvent, WorthlessEvent, PutRedemptionEvent, LoanFacilityDelayedCompensationPaymentEvent, InterestPaymentEvent, PriorityIssueEvent, ClassActionEvent. (required) (default to &quot;TenderEvent&quot;).</param>
-        public TenderEvent(DateTimeOffset? announcementDate = default(DateTimeOffset?), DateTimeOffset exDate = default(DateTimeOffset), DateTimeOffset? recordDate = default(DateTimeOffset?), DateTimeOffset paymentDate = default(DateTimeOffset), NewInstrument newInstrument = default(NewInstrument), decimal? fractionalUnitsCashPrice = default(decimal?), string fractionalUnitsCashCurrency = default(string), List<SecurityOfferElection> securityOfferElections = default(List<SecurityOfferElection>), List<CashAndSecurityOfferElection> cashAndSecurityOfferElections = default(List<CashAndSecurityOfferElection>), List<CashOfferElection> cashOfferElections = default(List<CashOfferElection>), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
+        /// <param name="offerType">Informational ISO 20022 OfferTp indicator (e.g. \&quot;ACPR\&quot;). Optional. No calculation impact..</param>
+        /// <param name="accruedInterestPerUnit">Optional per-unit accrued interest on the tendered face, from the last coupon date up to  (but excluding) PaymentDate. Bond instrument types only. If left empty, analytics-core  resolves it at event time from the bond&#39;s coupon schedule and market data..</param>
+        /// <param name="minPieceSize">Bond-specific minimum instructable face amount. Optional. Must be strictly positive when set..</param>
+        /// <param name="minIncrement">Bond-specific increment above MinPieceSize. Optional. When set, MinPieceSize must also be set.  Must be strictly positive..</param>
+        /// <param name="prorationRate">Proration applied when the offer is oversubscribed. Defaults to 1 if not set.  Must be greater than 0 and less than or equal to 1. (default to 1D).</param>
+        /// <param name="responseDeadlineDate">Account-servicer SLA deadline for holder instruction. Optional at the DTO layer;  required under Voluntary participation on bond instrument types..</param>
+        /// <param name="marketDeadlineDate">Offeror&#39;s-agent deadline for holder instruction. Optional at the DTO layer;  required under Voluntary participation on bond instrument types..</param>
+        /// <param name="earlyResponseDeadline">Optional early-tender deadline. When set, must be on or before ResponseDeadlineDate..</param>
+        /// <param name="instrumentEventType">The Type of Event. Available values: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent, CapletFloorletCashFlowEvent, EarlyCloseOutEvent, DepositRollEvent, ConsentEvent, DrawingEvent, CapitalGainsDistributionEvent, ExchangeOfferEvent, DutchAuctionEvent, WorthlessEvent, PutRedemptionEvent, LoanFacilityDelayedCompensationPaymentEvent, InterestPaymentEvent, PriorityIssueEvent, ClassActionEvent, BankruptcyEvent, LiquidationPaymentEvent. (required) (default to &quot;TenderEvent&quot;).</param>
+        public TenderEvent(DateTimeOffset? announcementDate = default(DateTimeOffset?), DateTimeOffset exDate = default(DateTimeOffset), DateTimeOffset? recordDate = default(DateTimeOffset?), DateTimeOffset paymentDate = default(DateTimeOffset), NewInstrument newInstrument = default(NewInstrument), decimal? fractionalUnitsCashPrice = default(decimal?), string fractionalUnitsCashCurrency = default(string), List<SecurityOfferElection> securityOfferElections = default(List<SecurityOfferElection>), List<CashAndSecurityOfferElection> cashAndSecurityOfferElections = default(List<CashAndSecurityOfferElection>), List<CashOfferElection> cashOfferElections = default(List<CashOfferElection>), string offerType = default(string), decimal? accruedInterestPerUnit = default(decimal?), decimal? minPieceSize = default(decimal?), decimal? minIncrement = default(decimal?), decimal prorationRate = (decimal)1D, DateTimeOffset? responseDeadlineDate = default(DateTimeOffset?), DateTimeOffset? marketDeadlineDate = default(DateTimeOffset?), DateTimeOffset? earlyResponseDeadline = default(DateTimeOffset?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
             // to ensure "newInstrument" is required (not null)
             if (newInstrument == null)
@@ -66,6 +74,14 @@ namespace Lusid.Sdk.Model
             this.SecurityOfferElections = securityOfferElections;
             this.CashAndSecurityOfferElections = cashAndSecurityOfferElections;
             this.CashOfferElections = cashOfferElections;
+            this.OfferType = offerType;
+            this.AccruedInterestPerUnit = accruedInterestPerUnit;
+            this.MinPieceSize = minPieceSize;
+            this.MinIncrement = minIncrement;
+            this.ProrationRate = prorationRate;
+            this.ResponseDeadlineDate = responseDeadlineDate;
+            this.MarketDeadlineDate = marketDeadlineDate;
+            this.EarlyResponseDeadline = earlyResponseDeadline;
         }
 
         /// <summary>
@@ -138,6 +154,62 @@ namespace Lusid.Sdk.Model
         public List<CashOfferElection> CashOfferElections { get; set; }
 
         /// <summary>
+        /// Informational ISO 20022 OfferTp indicator (e.g. \&quot;ACPR\&quot;). Optional. No calculation impact.
+        /// </summary>
+        /// <value>Informational ISO 20022 OfferTp indicator (e.g. \&quot;ACPR\&quot;). Optional. No calculation impact.</value>
+        [DataMember(Name = "offerType", EmitDefaultValue = true)]
+        public string OfferType { get; set; }
+
+        /// <summary>
+        /// Optional per-unit accrued interest on the tendered face, from the last coupon date up to  (but excluding) PaymentDate. Bond instrument types only. If left empty, analytics-core  resolves it at event time from the bond&#39;s coupon schedule and market data.
+        /// </summary>
+        /// <value>Optional per-unit accrued interest on the tendered face, from the last coupon date up to  (but excluding) PaymentDate. Bond instrument types only. If left empty, analytics-core  resolves it at event time from the bond&#39;s coupon schedule and market data.</value>
+        [DataMember(Name = "accruedInterestPerUnit", EmitDefaultValue = true)]
+        public decimal? AccruedInterestPerUnit { get; set; }
+
+        /// <summary>
+        /// Bond-specific minimum instructable face amount. Optional. Must be strictly positive when set.
+        /// </summary>
+        /// <value>Bond-specific minimum instructable face amount. Optional. Must be strictly positive when set.</value>
+        [DataMember(Name = "minPieceSize", EmitDefaultValue = true)]
+        public decimal? MinPieceSize { get; set; }
+
+        /// <summary>
+        /// Bond-specific increment above MinPieceSize. Optional. When set, MinPieceSize must also be set.  Must be strictly positive.
+        /// </summary>
+        /// <value>Bond-specific increment above MinPieceSize. Optional. When set, MinPieceSize must also be set.  Must be strictly positive.</value>
+        [DataMember(Name = "minIncrement", EmitDefaultValue = true)]
+        public decimal? MinIncrement { get; set; }
+
+        /// <summary>
+        /// Proration applied when the offer is oversubscribed. Defaults to 1 if not set.  Must be greater than 0 and less than or equal to 1.
+        /// </summary>
+        /// <value>Proration applied when the offer is oversubscribed. Defaults to 1 if not set.  Must be greater than 0 and less than or equal to 1.</value>
+        [DataMember(Name = "prorationRate", EmitDefaultValue = true)]
+        public decimal ProrationRate { get; set; }
+
+        /// <summary>
+        /// Account-servicer SLA deadline for holder instruction. Optional at the DTO layer;  required under Voluntary participation on bond instrument types.
+        /// </summary>
+        /// <value>Account-servicer SLA deadline for holder instruction. Optional at the DTO layer;  required under Voluntary participation on bond instrument types.</value>
+        [DataMember(Name = "responseDeadlineDate", EmitDefaultValue = true)]
+        public DateTimeOffset? ResponseDeadlineDate { get; set; }
+
+        /// <summary>
+        /// Offeror&#39;s-agent deadline for holder instruction. Optional at the DTO layer;  required under Voluntary participation on bond instrument types.
+        /// </summary>
+        /// <value>Offeror&#39;s-agent deadline for holder instruction. Optional at the DTO layer;  required under Voluntary participation on bond instrument types.</value>
+        [DataMember(Name = "marketDeadlineDate", EmitDefaultValue = true)]
+        public DateTimeOffset? MarketDeadlineDate { get; set; }
+
+        /// <summary>
+        /// Optional early-tender deadline. When set, must be on or before ResponseDeadlineDate.
+        /// </summary>
+        /// <value>Optional early-tender deadline. When set, must be on or before ResponseDeadlineDate.</value>
+        [DataMember(Name = "earlyResponseDeadline", EmitDefaultValue = true)]
+        public DateTimeOffset? EarlyResponseDeadline { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -156,6 +228,14 @@ namespace Lusid.Sdk.Model
             sb.Append("  SecurityOfferElections: ").Append(SecurityOfferElections).Append("\n");
             sb.Append("  CashAndSecurityOfferElections: ").Append(CashAndSecurityOfferElections).Append("\n");
             sb.Append("  CashOfferElections: ").Append(CashOfferElections).Append("\n");
+            sb.Append("  OfferType: ").Append(OfferType).Append("\n");
+            sb.Append("  AccruedInterestPerUnit: ").Append(AccruedInterestPerUnit).Append("\n");
+            sb.Append("  MinPieceSize: ").Append(MinPieceSize).Append("\n");
+            sb.Append("  MinIncrement: ").Append(MinIncrement).Append("\n");
+            sb.Append("  ProrationRate: ").Append(ProrationRate).Append("\n");
+            sb.Append("  ResponseDeadlineDate: ").Append(ResponseDeadlineDate).Append("\n");
+            sb.Append("  MarketDeadlineDate: ").Append(MarketDeadlineDate).Append("\n");
+            sb.Append("  EarlyResponseDeadline: ").Append(EarlyResponseDeadline).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -243,6 +323,45 @@ namespace Lusid.Sdk.Model
                     this.CashOfferElections != null &&
                     input.CashOfferElections != null &&
                     this.CashOfferElections.SequenceEqual(input.CashOfferElections)
+                ) && base.Equals(input) && 
+                (
+                    this.OfferType == input.OfferType ||
+                    (this.OfferType != null &&
+                    this.OfferType.Equals(input.OfferType))
+                ) && base.Equals(input) && 
+                (
+                    this.AccruedInterestPerUnit == input.AccruedInterestPerUnit ||
+                    (this.AccruedInterestPerUnit != null &&
+                    this.AccruedInterestPerUnit.Equals(input.AccruedInterestPerUnit))
+                ) && base.Equals(input) && 
+                (
+                    this.MinPieceSize == input.MinPieceSize ||
+                    (this.MinPieceSize != null &&
+                    this.MinPieceSize.Equals(input.MinPieceSize))
+                ) && base.Equals(input) && 
+                (
+                    this.MinIncrement == input.MinIncrement ||
+                    (this.MinIncrement != null &&
+                    this.MinIncrement.Equals(input.MinIncrement))
+                ) && base.Equals(input) && 
+                (
+                    this.ProrationRate == input.ProrationRate ||
+                    this.ProrationRate.Equals(input.ProrationRate)
+                ) && base.Equals(input) && 
+                (
+                    this.ResponseDeadlineDate == input.ResponseDeadlineDate ||
+                    (this.ResponseDeadlineDate != null &&
+                    this.ResponseDeadlineDate.Equals(input.ResponseDeadlineDate))
+                ) && base.Equals(input) && 
+                (
+                    this.MarketDeadlineDate == input.MarketDeadlineDate ||
+                    (this.MarketDeadlineDate != null &&
+                    this.MarketDeadlineDate.Equals(input.MarketDeadlineDate))
+                ) && base.Equals(input) && 
+                (
+                    this.EarlyResponseDeadline == input.EarlyResponseDeadline ||
+                    (this.EarlyResponseDeadline != null &&
+                    this.EarlyResponseDeadline.Equals(input.EarlyResponseDeadline))
                 );
         }
 
@@ -294,6 +413,35 @@ namespace Lusid.Sdk.Model
                 if (this.CashOfferElections != null)
                 {
                     hashCode = (hashCode * 59) + this.CashOfferElections.GetHashCode();
+                }
+                if (this.OfferType != null)
+                {
+                    hashCode = (hashCode * 59) + this.OfferType.GetHashCode();
+                }
+                if (this.AccruedInterestPerUnit != null)
+                {
+                    hashCode = (hashCode * 59) + this.AccruedInterestPerUnit.GetHashCode();
+                }
+                if (this.MinPieceSize != null)
+                {
+                    hashCode = (hashCode * 59) + this.MinPieceSize.GetHashCode();
+                }
+                if (this.MinIncrement != null)
+                {
+                    hashCode = (hashCode * 59) + this.MinIncrement.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.ProrationRate.GetHashCode();
+                if (this.ResponseDeadlineDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.ResponseDeadlineDate.GetHashCode();
+                }
+                if (this.MarketDeadlineDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.MarketDeadlineDate.GetHashCode();
+                }
+                if (this.EarlyResponseDeadline != null)
+                {
+                    hashCode = (hashCode * 59) + this.EarlyResponseDeadline.GetHashCode();
                 }
                 return hashCode;
             }

@@ -58,8 +58,10 @@ namespace Lusid.Sdk.Model
         /// <param name="weight">The proportion of the total portfolio value ordered for the given instrument ordered..</param>
         /// <param name="amount">amount.</param>
         /// <param name="dataModelMembership">dataModelMembership.</param>
+        /// <param name="derivedComplianceState">The compliance state of the order, derived from pre-trade compliance runs..</param>
+        /// <param name="derivedApprovalState">The approval state of the order..</param>
         /// <param name="links">links.</param>
-        public Order(Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), ModelVersion varVersion = default(ModelVersion), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), decimal? quantity = default(decimal?), string side = default(string), ResourceId orderBookId = default(ResourceId), ResourceId portfolioId = default(ResourceId), ResourceId id = default(ResourceId), string instrumentScope = default(string), string lusidInstrumentId = default(string), string state = default(string), string type = default(string), string timeInForce = default(string), DateTimeOffset date = default(DateTimeOffset), CurrencyAndAmount price = default(CurrencyAndAmount), CurrencyAndAmount limitPrice = default(CurrencyAndAmount), CurrencyAndAmount stopPrice = default(CurrencyAndAmount), ResourceId orderInstructionId = default(ResourceId), ResourceId packageId = default(ResourceId), decimal? weight = default(decimal?), CurrencyAndAmount amount = default(CurrencyAndAmount), DataModelMembership dataModelMembership = default(DataModelMembership), List<Link> links = default(List<Link>))
+        public Order(Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), ModelVersion varVersion = default(ModelVersion), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), decimal? quantity = default(decimal?), string side = default(string), ResourceId orderBookId = default(ResourceId), ResourceId portfolioId = default(ResourceId), ResourceId id = default(ResourceId), string instrumentScope = default(string), string lusidInstrumentId = default(string), string state = default(string), string type = default(string), string timeInForce = default(string), DateTimeOffset date = default(DateTimeOffset), CurrencyAndAmount price = default(CurrencyAndAmount), CurrencyAndAmount limitPrice = default(CurrencyAndAmount), CurrencyAndAmount stopPrice = default(CurrencyAndAmount), ResourceId orderInstructionId = default(ResourceId), ResourceId packageId = default(ResourceId), decimal? weight = default(decimal?), CurrencyAndAmount amount = default(CurrencyAndAmount), DataModelMembership dataModelMembership = default(DataModelMembership), string derivedComplianceState = default(string), string derivedApprovalState = default(string), List<Link> links = default(List<Link>))
         {
             // to ensure "instrumentIdentifiers" is required (not null)
             if (instrumentIdentifiers == null)
@@ -103,6 +105,8 @@ namespace Lusid.Sdk.Model
             this.Weight = weight;
             this.Amount = amount;
             this.DataModelMembership = dataModelMembership;
+            this.DerivedComplianceState = derivedComplianceState;
+            this.DerivedApprovalState = derivedApprovalState;
             this.Links = links;
         }
 
@@ -250,6 +254,20 @@ namespace Lusid.Sdk.Model
         public DataModelMembership DataModelMembership { get; set; }
 
         /// <summary>
+        /// The compliance state of the order, derived from pre-trade compliance runs.
+        /// </summary>
+        /// <value>The compliance state of the order, derived from pre-trade compliance runs.</value>
+        [DataMember(Name = "derivedComplianceState", EmitDefaultValue = true)]
+        public string DerivedComplianceState { get; set; }
+
+        /// <summary>
+        /// The approval state of the order.
+        /// </summary>
+        /// <value>The approval state of the order.</value>
+        [DataMember(Name = "derivedApprovalState", EmitDefaultValue = true)]
+        public string DerivedApprovalState { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -285,6 +303,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  Weight: ").Append(Weight).Append("\n");
             sb.Append("  Amount: ").Append(Amount).Append("\n");
             sb.Append("  DataModelMembership: ").Append(DataModelMembership).Append("\n");
+            sb.Append("  DerivedComplianceState: ").Append(DerivedComplianceState).Append("\n");
+            sb.Append("  DerivedApprovalState: ").Append(DerivedApprovalState).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -434,6 +454,16 @@ namespace Lusid.Sdk.Model
                     this.DataModelMembership.Equals(input.DataModelMembership))
                 ) && 
                 (
+                    this.DerivedComplianceState == input.DerivedComplianceState ||
+                    (this.DerivedComplianceState != null &&
+                    this.DerivedComplianceState.Equals(input.DerivedComplianceState))
+                ) && 
+                (
+                    this.DerivedApprovalState == input.DerivedApprovalState ||
+                    (this.DerivedApprovalState != null &&
+                    this.DerivedApprovalState.Equals(input.DerivedApprovalState))
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -537,6 +567,14 @@ namespace Lusid.Sdk.Model
                 if (this.DataModelMembership != null)
                 {
                     hashCode = (hashCode * 59) + this.DataModelMembership.GetHashCode();
+                }
+                if (this.DerivedComplianceState != null)
+                {
+                    hashCode = (hashCode * 59) + this.DerivedComplianceState.GetHashCode();
+                }
+                if (this.DerivedApprovalState != null)
+                {
+                    hashCode = (hashCode * 59) + this.DerivedApprovalState.GetHashCode();
                 }
                 if (this.Links != null)
                 {

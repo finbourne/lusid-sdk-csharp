@@ -610,7 +610,7 @@ catch (ApiException e)
 
 ListSideDefinitions: List the side definitions
 
-List all the side definitions in the given scope
+List all the side definitions in the given scope, or across all scopes when scope is '*'.
 
 ### Example
 ```csharp
@@ -652,7 +652,7 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionConfigurationApi>();
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the transaction types. Defaults to returning the latest versions if not specified. (optional) 
-            var scope = "\"default\"";  // string? | The scope in which the side exists. When not supplied the scope is 'default'. (optional)  (default to "default")
+            var scope = "\"default\"";  // string? | The scope in which the side exists. When not supplied the scope is 'default'. Use '*' to list across all scopes. (optional)  (default to "default")
 
             try
             {
@@ -699,7 +699,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the transaction types. Defaults to returning the latest versions if not specified. | [optional]  |
-| **scope** | **string?** | The scope in which the side exists. When not supplied the scope is &#39;default&#39;. | [optional] [default to &quot;default&quot;] |
+| **scope** | **string?** | The scope in which the side exists. When not supplied the scope is &#39;default&#39;. Use &#39;*&#39; to list across all scopes. | [optional] [default to &quot;default&quot;] |
 
 ### Return type
 
@@ -768,7 +768,7 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TransactionConfigurationApi>();
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the transaction types. Defaults              to returning the latest versions if not specified. (optional) 
-            var scope = "\"default\"";  // string? | The scope in which the side exists. When not supplied the scope is 'default'. (optional)  (default to "default")
+            var scope = "\"default\"";  // string? | The scope in which the transaction types exist. When not supplied the scope is 'default'. Use '*' to list across all scopes. (optional)  (default to "default")
 
             try
             {
@@ -815,7 +815,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the transaction types. Defaults              to returning the latest versions if not specified. | [optional]  |
-| **scope** | **string?** | The scope in which the side exists. When not supplied the scope is &#39;default&#39;. | [optional] [default to &quot;default&quot;] |
+| **scope** | **string?** | The scope in which the transaction types exist. When not supplied the scope is &#39;default&#39;. Use &#39;*&#39; to list across all scopes. | [optional] [default to &quot;default&quot;] |
 
 ### Return type
 

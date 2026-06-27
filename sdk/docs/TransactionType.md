@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Movements** | [**List&lt;TransactionTypeMovement&gt;**](TransactionTypeMovement.md) | Movement data for the transaction type | 
 **Properties** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) | Properties attached to the transaction type | [optional] 
 **Calculations** | [**List&lt;TransactionTypeCalculation&gt;**](TransactionTypeCalculation.md) | Calculations to be performed for the transaction type | [optional] 
+**Scope** | **string** | The scope in which the transaction type exists. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -18,6 +19,7 @@ List<TransactionTypeAlias> aliases = new List<TransactionTypeAlias>();
 List<TransactionTypeMovement> movements = new List<TransactionTypeMovement>();
 Dictionary<string, PerpetualProperty> properties = new Dictionary<string, PerpetualProperty>();
 List<TransactionTypeCalculation> calculations = new List<TransactionTypeCalculation>();
+string scope = "example scope";
 List<Link> links = new List<Link>();
 
 TransactionType transactionTypeInstance = new TransactionType(
@@ -25,6 +27,7 @@ TransactionType transactionTypeInstance = new TransactionType(
     movements: movements,
     properties: properties,
     calculations: calculations,
+    scope: scope,
     links: links);
 ```
 

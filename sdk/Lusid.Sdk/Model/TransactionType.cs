@@ -40,8 +40,9 @@ namespace Lusid.Sdk.Model
         /// <param name="movements">Movement data for the transaction type (required).</param>
         /// <param name="properties">Properties attached to the transaction type.</param>
         /// <param name="calculations">Calculations to be performed for the transaction type.</param>
+        /// <param name="scope">The scope in which the transaction type exists..</param>
         /// <param name="links">links.</param>
-        public TransactionType(List<TransactionTypeAlias> aliases = default(List<TransactionTypeAlias>), List<TransactionTypeMovement> movements = default(List<TransactionTypeMovement>), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), List<TransactionTypeCalculation> calculations = default(List<TransactionTypeCalculation>), List<Link> links = default(List<Link>))
+        public TransactionType(List<TransactionTypeAlias> aliases = default(List<TransactionTypeAlias>), List<TransactionTypeMovement> movements = default(List<TransactionTypeMovement>), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), List<TransactionTypeCalculation> calculations = default(List<TransactionTypeCalculation>), string scope = default(string), List<Link> links = default(List<Link>))
         {
             // to ensure "aliases" is required (not null)
             if (aliases == null)
@@ -57,6 +58,7 @@ namespace Lusid.Sdk.Model
             this.Movements = movements;
             this.Properties = properties;
             this.Calculations = calculations;
+            this.Scope = scope;
             this.Links = links;
         }
 
@@ -89,6 +91,13 @@ namespace Lusid.Sdk.Model
         public List<TransactionTypeCalculation> Calculations { get; set; }
 
         /// <summary>
+        /// The scope in which the transaction type exists.
+        /// </summary>
+        /// <value>The scope in which the transaction type exists.</value>
+        [DataMember(Name = "scope", EmitDefaultValue = true)]
+        public string Scope { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -106,6 +115,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Movements: ").Append(Movements).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  Calculations: ").Append(Calculations).Append("\n");
+            sb.Append("  Scope: ").Append(Scope).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -167,6 +177,11 @@ namespace Lusid.Sdk.Model
                     this.Calculations.SequenceEqual(input.Calculations)
                 ) && 
                 (
+                    this.Scope == input.Scope ||
+                    (this.Scope != null &&
+                    this.Scope.Equals(input.Scope))
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -198,6 +213,10 @@ namespace Lusid.Sdk.Model
                 if (this.Calculations != null)
                 {
                     hashCode = (hashCode * 59) + this.Calculations.GetHashCode();
+                }
+                if (this.Scope != null)
+                {
+                    hashCode = (hashCode * 59) + this.Scope.GetHashCode();
                 }
                 if (this.Links != null)
                 {

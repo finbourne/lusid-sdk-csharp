@@ -44,8 +44,9 @@ namespace Lusid.Sdk.Model
         /// <param name="amount">The value, field or property key defining the side&#39;s amount (required).</param>
         /// <param name="notionalAmount">The value, field or property key defining the side&#39;s notional amount.</param>
         /// <param name="currentFace">The value, field or property key defining the side&#39;s current face / outstanding notional..</param>
+        /// <param name="scope">The scope in which the side definition exists..</param>
         /// <param name="links">links.</param>
-        public SideDefinition(string side = default(string), string security = default(string), string currency = default(string), string rate = default(string), string units = default(string), string amount = default(string), string notionalAmount = default(string), string currentFace = default(string), List<Link> links = default(List<Link>))
+        public SideDefinition(string side = default(string), string security = default(string), string currency = default(string), string rate = default(string), string units = default(string), string amount = default(string), string notionalAmount = default(string), string currentFace = default(string), string scope = default(string), List<Link> links = default(List<Link>))
         {
             // to ensure "side" is required (not null)
             if (side == null)
@@ -85,6 +86,7 @@ namespace Lusid.Sdk.Model
             this.Amount = amount;
             this.NotionalAmount = notionalAmount;
             this.CurrentFace = currentFace;
+            this.Scope = scope;
             this.Links = links;
         }
 
@@ -145,6 +147,13 @@ namespace Lusid.Sdk.Model
         public string CurrentFace { get; set; }
 
         /// <summary>
+        /// The scope in which the side definition exists.
+        /// </summary>
+        /// <value>The scope in which the side definition exists.</value>
+        [DataMember(Name = "scope", EmitDefaultValue = true)]
+        public string Scope { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -166,6 +175,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Amount: ").Append(Amount).Append("\n");
             sb.Append("  NotionalAmount: ").Append(NotionalAmount).Append("\n");
             sb.Append("  CurrentFace: ").Append(CurrentFace).Append("\n");
+            sb.Append("  Scope: ").Append(Scope).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -243,6 +253,11 @@ namespace Lusid.Sdk.Model
                     this.CurrentFace.Equals(input.CurrentFace))
                 ) && 
                 (
+                    this.Scope == input.Scope ||
+                    (this.Scope != null &&
+                    this.Scope.Equals(input.Scope))
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -290,6 +305,10 @@ namespace Lusid.Sdk.Model
                 if (this.CurrentFace != null)
                 {
                     hashCode = (hashCode * 59) + this.CurrentFace.GetHashCode();
+                }
+                if (this.Scope != null)
+                {
+                    hashCode = (hashCode * 59) + this.Scope.GetHashCode();
                 }
                 if (this.Links != null)
                 {

@@ -27,6 +27,8 @@ Name | Type | Description | Notes
 **Weight** | **decimal?** | The proportion of the total portfolio value ordered for the given instrument ordered. | [optional] 
 **Amount** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
 **DataModelMembership** | [**DataModelMembership**](DataModelMembership.md) |  | [optional] 
+**DerivedComplianceState** | **string** | The compliance state of the order, derived from pre-trade compliance runs. | [optional] 
+**DerivedApprovalState** | **string** | The approval state of the order. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -62,6 +64,8 @@ CurrencyAndAmount? amount = new CurrencyAndAmount();
 
 DataModelMembership? dataModelMembership = new DataModelMembership();
 
+string derivedComplianceState = "example derivedComplianceState";
+string derivedApprovalState = "example derivedApprovalState";
 List<Link> links = new List<Link>();
 
 Order orderInstance = new Order(
@@ -87,6 +91,8 @@ Order orderInstance = new Order(
     weight: weight,
     amount: amount,
     dataModelMembership: dataModelMembership,
+    derivedComplianceState: derivedComplianceState,
+    derivedApprovalState: derivedApprovalState,
     links: links);
 ```
 

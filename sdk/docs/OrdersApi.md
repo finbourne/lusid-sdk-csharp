@@ -247,7 +247,7 @@ catch (ApiException e)
 
 <a id="listorders"></a>
 # **ListOrders**
-> PagedResourceListOfOrder ListOrders (DateTimeOffset? asAt = null, string? page = null, List<string>? sortBy = null, int? limit = null, string? filter = null, List<string>? propertyKeys = null, string? dataModelScope = null, string? dataModelCode = null, string? membershipType = null)
+> PagedResourceListOfOrder ListOrders (DateTimeOffset? asAt = null, string? page = null, List<string>? sortBy = null, int? limit = null, string? filter = null, List<string>? propertyKeys = null, string? dataModelScope = null, string? dataModelCode = null, string? membershipType = null, bool? getDerivedComplianceStatuses = null)
 
 ListOrders: List Orders
 
@@ -301,14 +301,15 @@ namespace Examples
             var dataModelScope = "dataModelScope_example";  // string? | The optional scope of a Custom Data Model to use (optional) 
             var dataModelCode = "dataModelCode_example";  // string? | The optional code of a Custom Data Model to use (optional) 
             var membershipType = "membershipType_example";  // string? | The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional) 
+            var getDerivedComplianceStatuses = false;  // bool? | If true, derives and decorates ComplianceState and ApprovalState onto each order using the V2 compliance engine. Defaults to false. (optional)  (default to false)
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // PagedResourceListOfOrder result = apiInstance.ListOrders(asAt, page, sortBy, limit, filter, propertyKeys, dataModelScope, dataModelCode, membershipType, opts: opts);
+                // PagedResourceListOfOrder result = apiInstance.ListOrders(asAt, page, sortBy, limit, filter, propertyKeys, dataModelScope, dataModelCode, membershipType, getDerivedComplianceStatuses, opts: opts);
 
                 // ListOrders: List Orders
-                PagedResourceListOfOrder result = apiInstance.ListOrders(asAt, page, sortBy, limit, filter, propertyKeys, dataModelScope, dataModelCode, membershipType);
+                PagedResourceListOfOrder result = apiInstance.ListOrders(asAt, page, sortBy, limit, filter, propertyKeys, dataModelScope, dataModelCode, membershipType, getDerivedComplianceStatuses);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -329,7 +330,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // ListOrders: List Orders
-    ApiResponse<PagedResourceListOfOrder> response = apiInstance.ListOrdersWithHttpInfo(asAt, page, sortBy, limit, filter, propertyKeys, dataModelScope, dataModelCode, membershipType);
+    ApiResponse<PagedResourceListOfOrder> response = apiInstance.ListOrdersWithHttpInfo(asAt, page, sortBy, limit, filter, propertyKeys, dataModelScope, dataModelCode, membershipType, getDerivedComplianceStatuses);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -355,6 +356,7 @@ catch (ApiException e)
 | **dataModelScope** | **string?** | The optional scope of a Custom Data Model to use | [optional]  |
 | **dataModelCode** | **string?** | The optional code of a Custom Data Model to use | [optional]  |
 | **membershipType** | **string?** | The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. | [optional]  |
+| **getDerivedComplianceStatuses** | **bool?** | If true, derives and decorates ComplianceState and ApprovalState onto each order using the V2 compliance engine. Defaults to false. | [optional] [default to false] |
 
 ### Return type
 

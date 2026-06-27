@@ -11,6 +11,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**GetPortfolioByEntityUniqueId**](EntitiesApi.md#getportfoliobyentityuniqueid) | **GET** /api/entities/portfolios/{entityUniqueId} | GetPortfolioByEntityUniqueId: Get portfolio by EntityUniqueId |
 | [**GetPortfolioChanges**](EntitiesApi.md#getportfoliochanges) | **GET** /api/entities/changes/portfolios | GetPortfolioChanges: Get the next change to each portfolio in a scope. |
 | [**GetPropertyDefinitionByEntityUniqueId**](EntitiesApi.md#getpropertydefinitionbyentityuniqueid) | **GET** /api/entities/propertydefinitions/{entityUniqueId} | GetPropertyDefinitionByEntityUniqueId: Get property definition by EntityUniqueId |
+| [**GetTransactionByEntityUniqueId**](EntitiesApi.md#gettransactionbyentityuniqueid) | **GET** /api/entities/transactions/{entityUniqueId} | GetTransactionByEntityUniqueId: Get transaction by EntityUniqueId |
 
 <a id="getcustomentitybyentityuniqueid"></a>
 # **GetCustomEntityByEntityUniqueId**
@@ -853,6 +854,128 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The requested property definition entity |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="gettransactionbyentityuniqueid"></a>
+# **GetTransactionByEntityUniqueId**
+> TransactionEntity GetTransactionByEntityUniqueId (string entityUniqueId, DateTimeOffset? asAt = null, List<string>? previews = null, string? dataModelScope = null, string? dataModelCode = null)
+
+GetTransactionByEntityUniqueId: Get transaction by EntityUniqueId
+
+Retrieve a transaction by its entity unique identifier.    If the transaction's portfolio is deleted, this will return the state of the transaction immediately prior to portfolio deletion.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<EntitiesApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<EntitiesApi>();
+            var entityUniqueId = "entityUniqueId_example";  // string | The entity unique identifier of the transaction. The expected format is '{portfolioEntityUniqueId}_{transactionId}'.
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the transaction. Defaults to returning the latest version of the transaction if not specified. (optional) 
+            var previews = new List<string>?(); // List<string>? | The ids of the staged modifications to be previewed in the response. (optional) 
+            var dataModelScope = "dataModelScope_example";  // string? | The optional scope of a Custom Data Model to use. (optional) 
+            var dataModelCode = "dataModelCode_example";  // string? | The optional code of a Custom Data Model to use. (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // TransactionEntity result = apiInstance.GetTransactionByEntityUniqueId(entityUniqueId, asAt, previews, dataModelScope, dataModelCode, opts: opts);
+
+                // GetTransactionByEntityUniqueId: Get transaction by EntityUniqueId
+                TransactionEntity result = apiInstance.GetTransactionByEntityUniqueId(entityUniqueId, asAt, previews, dataModelScope, dataModelCode);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling EntitiesApi.GetTransactionByEntityUniqueId: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetTransactionByEntityUniqueIdWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // GetTransactionByEntityUniqueId: Get transaction by EntityUniqueId
+    ApiResponse<TransactionEntity> response = apiInstance.GetTransactionByEntityUniqueIdWithHttpInfo(entityUniqueId, asAt, previews, dataModelScope, dataModelCode);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling EntitiesApi.GetTransactionByEntityUniqueIdWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **entityUniqueId** | **string** | The entity unique identifier of the transaction. The expected format is &#39;{portfolioEntityUniqueId}_{transactionId}&#39;. |  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the transaction. Defaults to returning the latest version of the transaction if not specified. | [optional]  |
+| **previews** | [**List&lt;string&gt;?**](string.md) | The ids of the staged modifications to be previewed in the response. | [optional]  |
+| **dataModelScope** | **string?** | The optional scope of a Custom Data Model to use. | [optional]  |
+| **dataModelCode** | **string?** | The optional code of a Custom Data Model to use. | [optional]  |
+
+### Return type
+
+[**TransactionEntity**](TransactionEntity.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The requested transaction entity |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 

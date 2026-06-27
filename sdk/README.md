@@ -228,6 +228,7 @@ Class | Method | HTTP request | Description
 *EntitiesApi* | [**GetPortfolioByEntityUniqueId**](docs/EntitiesApi.md#getportfoliobyentityuniqueid) | **GET** /api/entities/portfolios/{entityUniqueId} | GetPortfolioByEntityUniqueId: Get portfolio by EntityUniqueId
 *EntitiesApi* | [**GetPortfolioChanges**](docs/EntitiesApi.md#getportfoliochanges) | **GET** /api/entities/changes/portfolios | GetPortfolioChanges: Get the next change to each portfolio in a scope.
 *EntitiesApi* | [**GetPropertyDefinitionByEntityUniqueId**](docs/EntitiesApi.md#getpropertydefinitionbyentityuniqueid) | **GET** /api/entities/propertydefinitions/{entityUniqueId} | GetPropertyDefinitionByEntityUniqueId: Get property definition by EntityUniqueId
+*EntitiesApi* | [**GetTransactionByEntityUniqueId**](docs/EntitiesApi.md#gettransactionbyentityuniqueid) | **GET** /api/entities/transactions/{entityUniqueId} | GetTransactionByEntityUniqueId: Get transaction by EntityUniqueId
 *ExecutionsApi* | [**DeleteExecution**](docs/ExecutionsApi.md#deleteexecution) | **DELETE** /api/executions/{scope}/{code} | [EARLY ACCESS] DeleteExecution: Delete execution
 *ExecutionsApi* | [**GetExecution**](docs/ExecutionsApi.md#getexecution) | **GET** /api/executions/{scope}/{code} | [EARLY ACCESS] GetExecution: Get Execution
 *ExecutionsApi* | [**ListExecutions**](docs/ExecutionsApi.md#listexecutions) | **GET** /api/executions | ListExecutions: List Executions
@@ -270,6 +271,7 @@ Class | Method | HTTP request | Description
 *FundsApi* | [**GetValuationPointData**](docs/FundsApi.md#getvaluationpointdata) | **POST** /api/funds/{scope}/{code}/valuationpoints/$query | [EXPERIMENTAL] GetValuationPointData: Get Valuation Point Data for a Fund.
 *FundsApi* | [**GetValuationPointJournalEntryLines**](docs/FundsApi.md#getvaluationpointjournalentrylines) | **POST** /api/funds/{scope}/{code}/valuationpoints/journalentrylines/$query | [EXPERIMENTAL] GetValuationPointJournalEntryLines: Get the Journal Entry Lines for the given Fund.
 *FundsApi* | [**GetValuationPointPnlSummary**](docs/FundsApi.md#getvaluationpointpnlsummary) | **POST** /api/funds/{scope}/{code}/valuationpoints/pnlsummary/$query | [EXPERIMENTAL] GetValuationPointPnlSummary: Get a PnL summary for the given Valuation Point in the Fund.
+*FundsApi* | [**GetValuationPointQuotes**](docs/FundsApi.md#getvaluationpointquotes) | **POST** /api/funds/{scope}/{code}/valuationpoints/quotes/$query | [EXPERIMENTAL] GetValuationPointQuotes: Get the Quotes for the given Fund and Valuation Point.
 *FundsApi* | [**GetValuationPointTransactions**](docs/FundsApi.md#getvaluationpointtransactions) | **POST** /api/funds/{scope}/{code}/valuationpoints/transactions/$query | [EXPERIMENTAL] GetValuationPointTransactions: Get the Transactions for the given Fund.
 *FundsApi* | [**GetValuationPointTrialBalance**](docs/FundsApi.md#getvaluationpointtrialbalance) | **POST** /api/funds/{scope}/{code}/valuationpoints/trialbalance/$query | [EXPERIMENTAL] GetValuationPointTrialBalance: Get Trial Balance for the given Fund.
 *FundsApi* | [**GetValuationPointUnsettledTransactions**](docs/FundsApi.md#getvaluationpointunsettledtransactions) | **POST** /api/funds/{scope}/{code}/valuationpoints/unsettledtransactions/$query | [EXPERIMENTAL] GetValuationPointUnsettledTransactions: Get Unsettled Transactions for the given Fund.
@@ -567,12 +569,12 @@ Class | Method | HTTP request | Description
 *RelationshipDefinitionsApi* | [**UpdateRelationshipDefinition**](docs/RelationshipDefinitionsApi.md#updaterelationshipdefinition) | **PUT** /api/relationshipdefinitions/{scope}/{code} | [EARLY ACCESS] UpdateRelationshipDefinition: Update Relationship Definition
 *RelationshipsApi* | [**CreateRelationship**](docs/RelationshipsApi.md#createrelationship) | **POST** /api/relationshipdefinitions/{scope}/{code}/relationships | CreateRelationship: Create Relationship
 *RelationshipsApi* | [**DeleteRelationship**](docs/RelationshipsApi.md#deleterelationship) | **POST** /api/relationshipdefinitions/{scope}/{code}/relationships/$delete | [EARLY ACCESS] DeleteRelationship: Delete Relationship
-*ResourceRecordApi* | [**DeleteResourceRecord**](docs/ResourceRecordApi.md#deleteresourcerecord) | **DELETE** /api/resourcerecords/{scope}/{code}/{resourceId} | [EARLY ACCESS] DeleteResourceRecord: Delete a Resource Record
-*ResourceRecordApi* | [**GetResourceRecord**](docs/ResourceRecordApi.md#getresourcerecord) | **GET** /api/resourcerecords/{scope}/{code}/{resourceId} | [EARLY ACCESS] GetResourceRecord: Get a Resource Record
-*ResourceRecordApi* | [**ListResourceRecordCodes**](docs/ResourceRecordApi.md#listresourcerecordcodes) | **GET** /api/resourcerecords/{scope} | [EARLY ACCESS] ListResourceRecordCodes: List Resource Records Codes for Scope
-*ResourceRecordApi* | [**ListResourceRecordScopes**](docs/ResourceRecordApi.md#listresourcerecordscopes) | **GET** /api/resourcerecords | [EARLY ACCESS] ListResourceRecordScopes: List Resource Record Scopes
-*ResourceRecordApi* | [**ListResourceRecords**](docs/ResourceRecordApi.md#listresourcerecords) | **GET** /api/resourcerecords/{scope}/{code} | [EARLY ACCESS] ListResourceRecords: List Resource Records
-*ResourceRecordApi* | [**UpsertResourceRecord**](docs/ResourceRecordApi.md#upsertresourcerecord) | **POST** /api/resourcerecords | [EARLY ACCESS] UpsertResourceRecord: Upsert a Resource Record
+*ResourceRecordApi* | [**DeleteResourceRecord**](docs/ResourceRecordApi.md#deleteresourcerecord) | **DELETE** /api/resourcerecords/{scope}/{code}/{resourceId} | DeleteResourceRecord: Delete a Resource Record
+*ResourceRecordApi* | [**GetResourceRecord**](docs/ResourceRecordApi.md#getresourcerecord) | **GET** /api/resourcerecords/{scope}/{code}/{resourceId} | GetResourceRecord: Get a Resource Record
+*ResourceRecordApi* | [**ListResourceRecordCodes**](docs/ResourceRecordApi.md#listresourcerecordcodes) | **GET** /api/resourcerecords/{scope} | ListResourceRecordCodes: List Resource Records Codes for Scope
+*ResourceRecordApi* | [**ListResourceRecordScopes**](docs/ResourceRecordApi.md#listresourcerecordscopes) | **GET** /api/resourcerecords | ListResourceRecordScopes: List Resource Record Scopes
+*ResourceRecordApi* | [**ListResourceRecords**](docs/ResourceRecordApi.md#listresourcerecords) | **GET** /api/resourcerecords/{scope}/{code} | ListResourceRecords: List Resource Records
+*ResourceRecordApi* | [**UpsertResourceRecord**](docs/ResourceRecordApi.md#upsertresourcerecord) | **POST** /api/resourcerecords | UpsertResourceRecord: Upsert a Resource Record
 *SchemasApi* | [**GetEntitySchema**](docs/SchemasApi.md#getentityschema) | **GET** /api/schemas/entities/{entity} | [EARLY ACCESS] GetEntitySchema: Get schema
 *SchemasApi* | [**GetPropertySchema**](docs/SchemasApi.md#getpropertyschema) | **GET** /api/schemas/properties | [EARLY ACCESS] GetPropertySchema: Get property schema
 *SchemasApi* | [**GetValueTypes**](docs/SchemasApi.md#getvaluetypes) | **GET** /api/schemas/types | [EARLY ACCESS] GetValueTypes: Get value types
@@ -750,6 +752,7 @@ Class | Method | HTTP request | Description
  - [AccountHolder](docs/AccountHolder.md)
  - [AccountHolderIdentifier](docs/AccountHolderIdentifier.md)
  - [AccountProperties](docs/AccountProperties.md)
+ - [AccountedQuote](docs/AccountedQuote.md)
  - [AccountedTransaction](docs/AccountedTransaction.md)
  - [AccountingMethod](docs/AccountingMethod.md)
  - [AccountsUpsertResponse](docs/AccountsUpsertResponse.md)
@@ -812,6 +815,7 @@ Class | Method | HTTP request | Description
  - [ApportionmentMethodProperty](docs/ApportionmentMethodProperty.md)
  - [AssetClass](docs/AssetClass.md)
  - [AssetLeg](docs/AssetLeg.md)
+ - [BankruptcyEvent](docs/BankruptcyEvent.md)
  - [Barrier](docs/Barrier.md)
  - [Basket](docs/Basket.md)
  - [BasketIdentifier](docs/BasketIdentifier.md)
@@ -1377,6 +1381,7 @@ Class | Method | HTTP request | Description
  - [LifeCycleEventValue](docs/LifeCycleEventValue.md)
  - [LineageMember](docs/LineageMember.md)
  - [Link](docs/Link.md)
+ - [LiquidationPaymentEvent](docs/LiquidationPaymentEvent.md)
  - [ListAggregationReconciliation](docs/ListAggregationReconciliation.md)
  - [ListAggregationResponse](docs/ListAggregationResponse.md)
  - [ListComplexMarketDataWithMetaDataResponse](docs/ListComplexMarketDataWithMetaDataResponse.md)
@@ -1958,6 +1963,7 @@ Class | Method | HTTP request | Description
  - [TransactionCurrencyAndAmount](docs/TransactionCurrencyAndAmount.md)
  - [TransactionDateWindows](docs/TransactionDateWindows.md)
  - [TransactionDiagnostics](docs/TransactionDiagnostics.md)
+ - [TransactionEntity](docs/TransactionEntity.md)
  - [TransactionFeeCapitalisation](docs/TransactionFeeCapitalisation.md)
  - [TransactionFeeType](docs/TransactionFeeType.md)
  - [TransactionFieldMap](docs/TransactionFieldMap.md)
@@ -2116,6 +2122,7 @@ Class | Method | HTTP request | Description
  - [ValuationPointDataResponse](docs/ValuationPointDataResponse.md)
  - [ValuationPointInstrument](docs/ValuationPointInstrument.md)
  - [ValuationPointOverview](docs/ValuationPointOverview.md)
+ - [ValuationPointResourceListOfAccountedQuote](docs/ValuationPointResourceListOfAccountedQuote.md)
  - [ValuationPointResourceListOfAccountedTransaction](docs/ValuationPointResourceListOfAccountedTransaction.md)
  - [ValuationPointResourceListOfFundCashStatementRow](docs/ValuationPointResourceListOfFundCashStatementRow.md)
  - [ValuationPointResourceListOfFundJournalEntryLine](docs/ValuationPointResourceListOfFundJournalEntryLine.md)

@@ -4,18 +4,18 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**DeleteResourceRecord**](ResourceRecordApi.md#deleteresourcerecord) | **DELETE** /api/resourcerecords/{scope}/{code}/{resourceId} | [EARLY ACCESS] DeleteResourceRecord: Delete a Resource Record |
-| [**GetResourceRecord**](ResourceRecordApi.md#getresourcerecord) | **GET** /api/resourcerecords/{scope}/{code}/{resourceId} | [EARLY ACCESS] GetResourceRecord: Get a Resource Record |
-| [**ListResourceRecordCodes**](ResourceRecordApi.md#listresourcerecordcodes) | **GET** /api/resourcerecords/{scope} | [EARLY ACCESS] ListResourceRecordCodes: List Resource Records Codes for Scope |
-| [**ListResourceRecordScopes**](ResourceRecordApi.md#listresourcerecordscopes) | **GET** /api/resourcerecords | [EARLY ACCESS] ListResourceRecordScopes: List Resource Record Scopes |
-| [**ListResourceRecords**](ResourceRecordApi.md#listresourcerecords) | **GET** /api/resourcerecords/{scope}/{code} | [EARLY ACCESS] ListResourceRecords: List Resource Records |
-| [**UpsertResourceRecord**](ResourceRecordApi.md#upsertresourcerecord) | **POST** /api/resourcerecords | [EARLY ACCESS] UpsertResourceRecord: Upsert a Resource Record |
+| [**DeleteResourceRecord**](ResourceRecordApi.md#deleteresourcerecord) | **DELETE** /api/resourcerecords/{scope}/{code}/{resourceId} | DeleteResourceRecord: Delete a Resource Record |
+| [**GetResourceRecord**](ResourceRecordApi.md#getresourcerecord) | **GET** /api/resourcerecords/{scope}/{code}/{resourceId} | GetResourceRecord: Get a Resource Record |
+| [**ListResourceRecordCodes**](ResourceRecordApi.md#listresourcerecordcodes) | **GET** /api/resourcerecords/{scope} | ListResourceRecordCodes: List Resource Records Codes for Scope |
+| [**ListResourceRecordScopes**](ResourceRecordApi.md#listresourcerecordscopes) | **GET** /api/resourcerecords | ListResourceRecordScopes: List Resource Record Scopes |
+| [**ListResourceRecords**](ResourceRecordApi.md#listresourcerecords) | **GET** /api/resourcerecords/{scope}/{code} | ListResourceRecords: List Resource Records |
+| [**UpsertResourceRecord**](ResourceRecordApi.md#upsertresourcerecord) | **POST** /api/resourcerecords | UpsertResourceRecord: Upsert a Resource Record |
 
 <a id="deleteresourcerecord"></a>
 # **DeleteResourceRecord**
 > DeletedEntityResponse DeleteResourceRecord (string scope, string code, string resourceId)
 
-[EARLY ACCESS] DeleteResourceRecord: Delete a Resource Record
+DeleteResourceRecord: Delete a Resource Record
 
 Delete a resource record.
 
@@ -67,7 +67,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // DeletedEntityResponse result = apiInstance.DeleteResourceRecord(scope, code, resourceId, opts: opts);
 
-                // [EARLY ACCESS] DeleteResourceRecord: Delete a Resource Record
+                // DeleteResourceRecord: Delete a Resource Record
                 DeletedEntityResponse result = apiInstance.DeleteResourceRecord(scope, code, resourceId);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -88,7 +88,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] DeleteResourceRecord: Delete a Resource Record
+    // DeleteResourceRecord: Delete a Resource Record
     ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteResourceRecordWithHttpInfo(scope, code, resourceId);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -133,7 +133,7 @@ catch (ApiException e)
 # **GetResourceRecord**
 > ResourceRecord GetResourceRecord (string scope, string code, string resourceId, DateTimeOffset? asAt = null)
 
-[EARLY ACCESS] GetResourceRecord: Get a Resource Record
+GetResourceRecord: Get a Resource Record
 
 Retrieve a resource record by its identifier.
 
@@ -186,7 +186,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // ResourceRecord result = apiInstance.GetResourceRecord(scope, code, resourceId, asAt, opts: opts);
 
-                // [EARLY ACCESS] GetResourceRecord: Get a Resource Record
+                // GetResourceRecord: Get a Resource Record
                 ResourceRecord result = apiInstance.GetResourceRecord(scope, code, resourceId, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -207,7 +207,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] GetResourceRecord: Get a Resource Record
+    // GetResourceRecord: Get a Resource Record
     ApiResponse<ResourceRecord> response = apiInstance.GetResourceRecordWithHttpInfo(scope, code, resourceId, asAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -253,7 +253,7 @@ catch (ApiException e)
 # **ListResourceRecordCodes**
 > ResourceListOfString ListResourceRecordCodes (string scope, DateTimeOffset? asAt = null, string? sortOrder = null)
 
-[EARLY ACCESS] ListResourceRecordCodes: List Resource Records Codes for Scope
+ListResourceRecordCodes: List Resource Records Codes for Scope
 
 List all resource records matching particular criteria.
 
@@ -305,7 +305,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // ResourceListOfString result = apiInstance.ListResourceRecordCodes(scope, asAt, sortOrder, opts: opts);
 
-                // [EARLY ACCESS] ListResourceRecordCodes: List Resource Records Codes for Scope
+                // ListResourceRecordCodes: List Resource Records Codes for Scope
                 ResourceListOfString result = apiInstance.ListResourceRecordCodes(scope, asAt, sortOrder);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -326,7 +326,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] ListResourceRecordCodes: List Resource Records Codes for Scope
+    // ListResourceRecordCodes: List Resource Records Codes for Scope
     ApiResponse<ResourceListOfString> response = apiInstance.ListResourceRecordCodesWithHttpInfo(scope, asAt, sortOrder);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -371,7 +371,7 @@ catch (ApiException e)
 # **ListResourceRecordScopes**
 > ResourceListOfScopeDefinition ListResourceRecordScopes (DateTimeOffset? asAt = null, string? page = null, int? limit = null)
 
-[EARLY ACCESS] ListResourceRecordScopes: List Resource Record Scopes
+ListResourceRecordScopes: List Resource Record Scopes
 
 List all resource records matching particular criteria.
 
@@ -423,7 +423,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // ResourceListOfScopeDefinition result = apiInstance.ListResourceRecordScopes(asAt, page, limit, opts: opts);
 
-                // [EARLY ACCESS] ListResourceRecordScopes: List Resource Record Scopes
+                // ListResourceRecordScopes: List Resource Record Scopes
                 ResourceListOfScopeDefinition result = apiInstance.ListResourceRecordScopes(asAt, page, limit);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -444,7 +444,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] ListResourceRecordScopes: List Resource Record Scopes
+    // ListResourceRecordScopes: List Resource Record Scopes
     ApiResponse<ResourceListOfScopeDefinition> response = apiInstance.ListResourceRecordScopesWithHttpInfo(asAt, page, limit);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -489,7 +489,7 @@ catch (ApiException e)
 # **ListResourceRecords**
 > PagedResourceListOfResourceRecord ListResourceRecords (string scope, string code, DateTimeOffset? asAt = null, string? page = null, List<string>? sortBy = null, int? limit = null, string? filter = null)
 
-[EARLY ACCESS] ListResourceRecords: List Resource Records
+ListResourceRecords: List Resource Records
 
 List all resource records matching particular criteria.
 
@@ -545,7 +545,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // PagedResourceListOfResourceRecord result = apiInstance.ListResourceRecords(scope, code, asAt, page, sortBy, limit, filter, opts: opts);
 
-                // [EARLY ACCESS] ListResourceRecords: List Resource Records
+                // ListResourceRecords: List Resource Records
                 PagedResourceListOfResourceRecord result = apiInstance.ListResourceRecords(scope, code, asAt, page, sortBy, limit, filter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -566,7 +566,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] ListResourceRecords: List Resource Records
+    // ListResourceRecords: List Resource Records
     ApiResponse<PagedResourceListOfResourceRecord> response = apiInstance.ListResourceRecordsWithHttpInfo(scope, code, asAt, page, sortBy, limit, filter);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -615,7 +615,7 @@ catch (ApiException e)
 # **UpsertResourceRecord**
 > ResourceRecord UpsertResourceRecord (UpsertResourceRecordRequest upsertResourceRecordRequest)
 
-[EARLY ACCESS] UpsertResourceRecord: Upsert a Resource Record
+UpsertResourceRecord: Upsert a Resource Record
 
 Create or update a resource record.
 
@@ -665,7 +665,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // ResourceRecord result = apiInstance.UpsertResourceRecord(upsertResourceRecordRequest, opts: opts);
 
-                // [EARLY ACCESS] UpsertResourceRecord: Upsert a Resource Record
+                // UpsertResourceRecord: Upsert a Resource Record
                 ResourceRecord result = apiInstance.UpsertResourceRecord(upsertResourceRecordRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -686,7 +686,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] UpsertResourceRecord: Upsert a Resource Record
+    // UpsertResourceRecord: Upsert a Resource Record
     ApiResponse<ResourceRecord> response = apiInstance.UpsertResourceRecordWithHttpInfo(upsertResourceRecordRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));

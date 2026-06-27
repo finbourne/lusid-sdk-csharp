@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **Amount** | **string** | The value, field or property key defining the side&#39;s amount | 
 **NotionalAmount** | **string** | The value, field or property key defining the side&#39;s notional amount | [optional] 
 **CurrentFace** | **string** | The value, field or property key defining the side&#39;s current face / outstanding notional. | [optional] 
+**Scope** | **string** | The scope in which the side definition exists. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -26,6 +27,7 @@ string units = "units";
 string amount = "amount";
 string notionalAmount = "example notionalAmount";
 string currentFace = "example currentFace";
+string scope = "example scope";
 List<Link> links = new List<Link>();
 
 SideDefinition sideDefinitionInstance = new SideDefinition(
@@ -37,6 +39,7 @@ SideDefinition sideDefinitionInstance = new SideDefinition(
     amount: amount,
     notionalAmount: notionalAmount,
     currentFace: currentFace,
+    scope: scope,
     links: links);
 ```
 
