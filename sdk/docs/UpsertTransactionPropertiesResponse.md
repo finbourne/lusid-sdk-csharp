@@ -6,7 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Href** | **string** | The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime. | [optional] 
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
-**Properties** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) |  | [optional] 
+**Properties** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) | The properties that were upserted on the transaction. | [optional] 
+**Metadata** | **Dictionary&lt;string, List&lt;ResponseMetaData&gt;&gt;** | Contains warnings related to the upsert event. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -17,12 +18,14 @@ string href = "example href";
 ModelVersion? varVersion = new ModelVersion();
 
 Dictionary<string, PerpetualProperty> properties = new Dictionary<string, PerpetualProperty>();
+Dictionary<string, List<ResponseMetaData>> metadata = new Dictionary<string, List<ResponseMetaData>>();
 List<Link> links = new List<Link>();
 
 UpsertTransactionPropertiesResponse upsertTransactionPropertiesResponseInstance = new UpsertTransactionPropertiesResponse(
     href: href,
     varVersion: varVersion,
     properties: properties,
+    metadata: metadata,
     links: links);
 ```
 

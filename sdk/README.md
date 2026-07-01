@@ -72,6 +72,7 @@ Class | Method | HTTP request | Description
 *CalendarsApi* | [**IsBusinessDateTime**](docs/CalendarsApi.md#isbusinessdatetime) | **GET** /api/calendars/businessday/{scope}/{code} | [EARLY ACCESS] IsBusinessDateTime: Check whether a DateTime is a \"Business DateTime\"
 *CalendarsApi* | [**ListCalendars**](docs/CalendarsApi.md#listcalendars) | **GET** /api/calendars/generic | [EARLY ACCESS] ListCalendars: List Calendars
 *CalendarsApi* | [**ListCalendarsInScope**](docs/CalendarsApi.md#listcalendarsinscope) | **GET** /api/calendars/generic/{scope} | ListCalendarsInScope: List all calenders in a specified scope
+*CalendarsApi* | [**ResolveTenors**](docs/CalendarsApi.md#resolvetenors) | **POST** /api/calendars/tenors/resolve | [EARLY ACCESS] ResolveTenors: Resolve tenor strings to settlement dates.
 *CalendarsApi* | [**UpdateCalendar**](docs/CalendarsApi.md#updatecalendar) | **POST** /api/calendars/generic/{scope}/{code} | [EARLY ACCESS] UpdateCalendar: Update a calendar
 *ChartOfAccountsApi* | [**CreateChartOfAccounts**](docs/ChartOfAccountsApi.md#createchartofaccounts) | **POST** /api/chartofaccounts/{scope} | [EXPERIMENTAL] CreateChartOfAccounts: Create a Chart of Accounts
 *ChartOfAccountsApi* | [**CreateCleardownModule**](docs/ChartOfAccountsApi.md#createcleardownmodule) | **POST** /api/chartofaccounts/{scope}/{code}/cleardownmodules | [EXPERIMENTAL] CreateCleardownModule: Create a Cleardown Module
@@ -284,7 +285,8 @@ Class | Method | HTTP request | Description
 *FundsApi* | [**ListValuationPointOverview**](docs/FundsApi.md#listvaluationpointoverview) | **GET** /api/funds/{scope}/{code}/valuationPointOverview | [EXPERIMENTAL] ListValuationPointOverview: List Valuation Points Overview for a given Fund.
 *FundsApi* | [**PatchFee**](docs/FundsApi.md#patchfee) | **PATCH** /api/funds/{scope}/{code}/fees/{feeCode} | [EXPERIMENTAL] PatchFee: Patch Fee.
 *FundsApi* | [**PatchFund**](docs/FundsApi.md#patchfund) | **PATCH** /api/funds/{scope}/{code} | [EXPERIMENTAL] PatchFund: Patch a Fund.
-*FundsApi* | [**QueryCashStatement**](docs/FundsApi.md#querycashstatement) | **POST** /api/funds/{scope}/{code}/valuationpoints/cashstatement/$query | [EXPERIMENTAL] QueryCashStatement: [EXPERIMENTAL] QueryCashStatement: Query cash statement for a Fund valuation point.
+*FundsApi* | [**QueryCashStatement**](docs/FundsApi.md#querycashstatement) | **POST** /api/funds/{scope}/{code}/valuationpoints/cashstatement/$query | [DEPRECATED] QueryCashStatement: [DEPRECATED] QueryCashStatement: Query cash statement for a Fund valuation point.
+*FundsApi* | [**QueryCashStatementLocalCurrency**](docs/FundsApi.md#querycashstatementlocalcurrency) | **POST** /api/funds/{scope}/{code}/valuationpoints/cashstatementlocalcurrency/$query | [EXPERIMENTAL] QueryCashStatementLocalCurrency: [EXPERIMENTAL] QueryCashStatementLocalCurrency: Query the local-currency cash statement for a Fund valuation point.
 *FundsApi* | [**RevertValuationPointToEstimate**](docs/FundsApi.md#revertvaluationpointtoestimate) | **POST** /api/funds/{scope}/{code}/valuationpoints/$reverttoestimate | [EXPERIMENTAL] RevertValuationPointToEstimate: Reverts a Final Valuation Point to Estimate.
 *FundsApi* | [**SetShareClassInstruments**](docs/FundsApi.md#setshareclassinstruments) | **PUT** /api/funds/{scope}/{code}/shareclasses | [EXPERIMENTAL] SetShareClassInstruments: Set the ShareClass Instruments on a Fund.
 *FundsApi* | [**UpdateValuationPoint**](docs/FundsApi.md#updatevaluationpoint) | **PUT** /api/funds/{scope}/{code}/valuationpoints | [EXPERIMENTAL] UpdateValuationPoint: Update a Valuation Point.
@@ -1196,6 +1198,7 @@ Class | Method | HTTP request | Description
  - [FundCalendarEntriesType](docs/FundCalendarEntriesType.md)
  - [FundCalendarEntry](docs/FundCalendarEntry.md)
  - [FundCalendarEntryType](docs/FundCalendarEntryType.md)
+ - [FundCashStatementLocalCurrency](docs/FundCashStatementLocalCurrency.md)
  - [FundCashStatementRow](docs/FundCashStatementRow.md)
  - [FundConfiguration](docs/FundConfiguration.md)
  - [FundConfigurationProperties](docs/FundConfigurationProperties.md)
@@ -1585,6 +1588,7 @@ Class | Method | HTTP request | Description
  - [PagedResourceListOfWorkspace](docs/PagedResourceListOfWorkspace.md)
  - [PagedResourceListOfWorkspaceItem](docs/PagedResourceListOfWorkspaceItem.md)
  - [PartialClosureConstituent](docs/PartialClosureConstituent.md)
+ - [PartialDefeasanceEvent](docs/PartialDefeasanceEvent.md)
  - [Participation](docs/Participation.md)
  - [ParticipationRequest](docs/ParticipationRequest.md)
  - [ParticipationSetRequest](docs/ParticipationSetRequest.md)
@@ -1749,6 +1753,8 @@ Class | Method | HTTP request | Description
  - [RepurchaseOfferEvent](docs/RepurchaseOfferEvent.md)
  - [RequestedChanges](docs/RequestedChanges.md)
  - [ResetEvent](docs/ResetEvent.md)
+ - [ResolveTenorsRequest](docs/ResolveTenorsRequest.md)
+ - [ResolveTenorsResponse](docs/ResolveTenorsResponse.md)
  - [ResourceId](docs/ResourceId.md)
  - [ResourceListOfAccessControlledResource](docs/ResourceListOfAccessControlledResource.md)
  - [ResourceListOfAccessMetadataValueOf](docs/ResourceListOfAccessMetadataValueOf.md)
@@ -2124,6 +2130,7 @@ Class | Method | HTTP request | Description
  - [ValuationPointOverview](docs/ValuationPointOverview.md)
  - [ValuationPointResourceListOfAccountedQuote](docs/ValuationPointResourceListOfAccountedQuote.md)
  - [ValuationPointResourceListOfAccountedTransaction](docs/ValuationPointResourceListOfAccountedTransaction.md)
+ - [ValuationPointResourceListOfFundCashStatementLocalCurrency](docs/ValuationPointResourceListOfFundCashStatementLocalCurrency.md)
  - [ValuationPointResourceListOfFundCashStatementRow](docs/ValuationPointResourceListOfFundCashStatementRow.md)
  - [ValuationPointResourceListOfFundJournalEntryLine](docs/ValuationPointResourceListOfFundJournalEntryLine.md)
  - [ValuationPointResourceListOfPnlJournalEntryLine](docs/ValuationPointResourceListOfPnlJournalEntryLine.md)

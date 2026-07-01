@@ -531,7 +531,13 @@ namespace Lusid.Sdk.Model
         /// Enum LiquidationPaymentEvent for value: LiquidationPaymentEvent
         /// </summary>
         [EnumMember(Value = "LiquidationPaymentEvent")]
-        LiquidationPaymentEvent = 84
+        LiquidationPaymentEvent = 84,
+
+        /// <summary>
+        /// Enum PartialDefeasanceEvent for value: PartialDefeasanceEvent
+        /// </summary>
+        [EnumMember(Value = "PartialDefeasanceEvent")]
+        PartialDefeasanceEvent = 85
     }
 
 }

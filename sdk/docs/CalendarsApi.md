@@ -17,6 +17,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**IsBusinessDateTime**](CalendarsApi.md#isbusinessdatetime) | **GET** /api/calendars/businessday/{scope}/{code} | [EARLY ACCESS] IsBusinessDateTime: Check whether a DateTime is a \&quot;Business DateTime\&quot; |
 | [**ListCalendars**](CalendarsApi.md#listcalendars) | **GET** /api/calendars/generic | [EARLY ACCESS] ListCalendars: List Calendars |
 | [**ListCalendarsInScope**](CalendarsApi.md#listcalendarsinscope) | **GET** /api/calendars/generic/{scope} | ListCalendarsInScope: List all calenders in a specified scope |
+| [**ResolveTenors**](CalendarsApi.md#resolvetenors) | **POST** /api/calendars/tenors/resolve | [EARLY ACCESS] ResolveTenors: Resolve tenor strings to settlement dates. |
 | [**UpdateCalendar**](CalendarsApi.md#updatecalendar) | **POST** /api/calendars/generic/{scope}/{code} | [EARLY ACCESS] UpdateCalendar: Update a calendar |
 
 <a id="addbusinessdaystodate"></a>
@@ -1562,6 +1563,120 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Calendars in the requested scope |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="resolvetenors"></a>
+# **ResolveTenors**
+> ResolveTenorsResponse ResolveTenors (ResolveTenorsRequest resolveTenorsRequest)
+
+[EARLY ACCESS] ResolveTenors: Resolve tenor strings to settlement dates.
+
+Resolves a list of tenor strings (e.g. ON, TN, SP, SN, 1W, 1M, 3M, 6M, 1Y) to settlement dates  using the specified holiday calendars, spot days, business day convention, and end-of-month rule.                The spot date is calculated by adding the specified number of business days (SpotDays) to the start date.  Day and week tenors ({N}D, {N}W) are resolved relative to the start or spot date respectively.  Month and year tenors ({N}M, {N}Y) are resolved relative to the spot date and adjusted  according to the business day convention and end-of-month rule.                Unrecognised tenor strings cause a validation error.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CalendarsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CalendarsApi>();
+            var resolveTenorsRequest = new ResolveTenorsRequest(); // ResolveTenorsRequest | Request containing start date, calendars, spot days, tenors, and optional conventions
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // ResolveTenorsResponse result = apiInstance.ResolveTenors(resolveTenorsRequest, opts: opts);
+
+                // [EARLY ACCESS] ResolveTenors: Resolve tenor strings to settlement dates.
+                ResolveTenorsResponse result = apiInstance.ResolveTenors(resolveTenorsRequest);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling CalendarsApi.ResolveTenors: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the ResolveTenorsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] ResolveTenors: Resolve tenor strings to settlement dates.
+    ApiResponse<ResolveTenorsResponse> response = apiInstance.ResolveTenorsWithHttpInfo(resolveTenorsRequest);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling CalendarsApi.ResolveTenorsWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **resolveTenorsRequest** | [**ResolveTenorsRequest**](ResolveTenorsRequest.md) | Request containing start date, calendars, spot days, tenors, and optional conventions |  |
+
+### Return type
+
+[**ResolveTenorsResponse**](ResolveTenorsResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The resolved settlement dates for each tenor |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 

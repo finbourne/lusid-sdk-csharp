@@ -53,7 +53,7 @@ namespace Lusid.Sdk.Model
         /// <param name="cashGainLossCalculationDate">The option when the Cash Gain Loss to be calulated, TransactionDate/SettlementDate. A non-default value is required. Available values: SettlementDate, TransactionDate. (required).</param>
         /// <param name="amortisationRuleSetId">amortisationRuleSetId.</param>
         /// <param name="leaderNavTypeCode">The code of the Nav Type that this Nav Type will follow when set..</param>
-        /// <param name="transactionTemplateScope">The Transaction Template Scope used by the NavType. Will default to the scope set on the parent portfolio. If the fund has multiple parent portfolios, then the Transaction Template Scope must be provided..</param>
+        /// <param name="transactionTemplateScope">The Transaction Template Scope used by the NavType. (required).</param>
         public NavType(string status = default(string), string code = default(string), string displayName = default(string), string description = default(string), ResourceId chartOfAccountsId = default(ResourceId), List<string> postingModuleCodes = default(List<string>), List<string> cleardownModuleCodes = default(List<string>), NavSettlementConfiguration settlementConfiguration = default(NavSettlementConfiguration), ResourceId valuationRecipeId = default(ResourceId), ResourceId holdingRecipeId = default(ResourceId), string accountingMethod = default(string), List<string> subHoldingKeys = default(List<string>), string amortisationMethod = default(string), string transactionTypeScope = default(string), string cashGainLossCalculationDate = default(string), ResourceId amortisationRuleSetId = default(ResourceId), string leaderNavTypeCode = default(string), string transactionTemplateScope = default(string))
         {
             // to ensure "status" is required (not null)
@@ -104,6 +104,12 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("cashGainLossCalculationDate is a required property for NavType and cannot be null");
             }
             this.CashGainLossCalculationDate = cashGainLossCalculationDate;
+            // to ensure "transactionTemplateScope" is required (not null)
+            if (transactionTemplateScope == null)
+            {
+                throw new ArgumentNullException("transactionTemplateScope is a required property for NavType and cannot be null");
+            }
+            this.TransactionTemplateScope = transactionTemplateScope;
             this.Code = code;
             this.DisplayName = displayName;
             this.Description = description;
@@ -113,7 +119,6 @@ namespace Lusid.Sdk.Model
             this.SubHoldingKeys = subHoldingKeys;
             this.AmortisationRuleSetId = amortisationRuleSetId;
             this.LeaderNavTypeCode = leaderNavTypeCode;
-            this.TransactionTemplateScope = transactionTemplateScope;
         }
 
         /// <summary>
@@ -231,10 +236,10 @@ namespace Lusid.Sdk.Model
         public string LeaderNavTypeCode { get; set; }
 
         /// <summary>
-        /// The Transaction Template Scope used by the NavType. Will default to the scope set on the parent portfolio. If the fund has multiple parent portfolios, then the Transaction Template Scope must be provided.
+        /// The Transaction Template Scope used by the NavType.
         /// </summary>
-        /// <value>The Transaction Template Scope used by the NavType. Will default to the scope set on the parent portfolio. If the fund has multiple parent portfolios, then the Transaction Template Scope must be provided.</value>
-        [DataMember(Name = "transactionTemplateScope", EmitDefaultValue = true)]
+        /// <value>The Transaction Template Scope used by the NavType.</value>
+        [DataMember(Name = "transactionTemplateScope", IsRequired = true, EmitDefaultValue = true)]
         public string TransactionTemplateScope { get; set; }
 
         /// <summary>

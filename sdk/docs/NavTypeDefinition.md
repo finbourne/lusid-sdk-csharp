@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **CashGainLossCalculationDate** | **string** | The option when the Cash Gain Loss to be calulated, TransactionDate/SettlementDate. A non-default value is required. Available values: SettlementDate, TransactionDate. | 
 **AmortisationRuleSetId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **LeaderNavTypeCode** | **string** | The code of the Nav Type that this Nav Type will follow when set. | [optional] 
-**TransactionTemplateScope** | **string** | The Transaction Template Scope used by the NavType. Will default to the scope set on the parent portfolio. If the fund has multiple parent portfolios, then the Transaction Template Scope must be provided. | [optional] 
+**TransactionTemplateScope** | **string** | The Transaction Template Scope used by the NavType. | 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -44,7 +44,7 @@ string cashGainLossCalculationDate = "cashGainLossCalculationDate";
 ResourceId? amortisationRuleSetId = new ResourceId();
 
 string leaderNavTypeCode = "example leaderNavTypeCode";
-string transactionTemplateScope = "example transactionTemplateScope";
+string transactionTemplateScope = "transactionTemplateScope";
 
 NavTypeDefinition navTypeDefinitionInstance = new NavTypeDefinition(
     code: code,
