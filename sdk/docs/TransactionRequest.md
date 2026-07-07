@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **CustodianAccountId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **TransactionGroupId** | **string** | The identifier for grouping economic events across multiple transactions | [optional] 
 **StrategyTag** | [**List&lt;Strategy&gt;**](Strategy.md) | A list of strategies representing the allocation of units across multiple sub-holding keys | [optional] 
+**CustodianEntries** | [**List&lt;CustodianEntry&gt;**](CustodianEntry.md) | A list of Custodian Entries associated with the transaction. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -51,6 +52,7 @@ ResourceId? custodianAccountId = new ResourceId();
 
 string transactionGroupId = "example transactionGroupId";
 List<Strategy> strategyTag = new List<Strategy>();
+List<CustodianEntry> custodianEntries = new List<CustodianEntry>();
 
 TransactionRequest transactionRequestInstance = new TransactionRequest(
     transactionId: transactionId,
@@ -71,7 +73,8 @@ TransactionRequest transactionRequestInstance = new TransactionRequest(
     allocationId: allocationId,
     custodianAccountId: custodianAccountId,
     transactionGroupId: transactionGroupId,
-    strategyTag: strategyTag);
+    strategyTag: strategyTag,
+    custodianEntries: custodianEntries);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

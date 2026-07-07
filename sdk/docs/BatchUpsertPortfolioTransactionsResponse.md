@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Values** | [**Dictionary&lt;string, Transaction&gt;**](Transaction.md) | The transactions which have been successfully upserted. | [optional] 
 **Failed** | [**Dictionary&lt;string, ErrorDetail&gt;**](ErrorDetail.md) | The transactions that could not be upserted along with a reason for their failure. | [optional] 
 **Metadata** | **Dictionary&lt;string, List&lt;ResponseMetaData&gt;&gt;** | Contains warnings related to unresolved instruments or non-existent transaction types for the upserted trades | [optional] 
+**Staged** | [**Dictionary&lt;string, Transaction&gt;**](Transaction.md) | The transactions that have been staged pending approval. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -16,12 +17,14 @@ using System;
 Dictionary<string, Transaction> values = new Dictionary<string, Transaction>();
 Dictionary<string, ErrorDetail> failed = new Dictionary<string, ErrorDetail>();
 Dictionary<string, List<ResponseMetaData>> metadata = new Dictionary<string, List<ResponseMetaData>>();
+Dictionary<string, Transaction> staged = new Dictionary<string, Transaction>();
 List<Link> links = new List<Link>();
 
 BatchUpsertPortfolioTransactionsResponse batchUpsertPortfolioTransactionsResponseInstance = new BatchUpsertPortfolioTransactionsResponse(
     values: values,
     failed: failed,
     metadata: metadata,
+    staged: staged,
     links: links);
 ```
 

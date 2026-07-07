@@ -48,7 +48,7 @@ namespace Lusid.Sdk.Model
         /// <param name="settlementMode">Configures how movements should settle. Allowed values: &#39;Internal&#39; and &#39;External&#39;. A movement with &#39;Internal&#39; settlement mode will settle automatically on the contractual settlement date regardlesss of portfolio configuration or settlement instruction. An &#39;External&#39; movement can be settled automatically or by a settlement instruction. Available values: Internal, External..</param>
         /// <param name="calculateTradeDateToSettlementFxPnL">Configures whether Trade To Settlement Date Realised Gain Loss should be calculated. This overrides the value set at the Portfolio level.If null, then the Portfolio Settlement Configuration TradeToSettlementDateRealisedFxPnl setting will be used.If false, then no TradeToSettlementDateRealisedFxPnl will apply for this movement and if true, then TradeToSettlementDateRealisedFxPnlwill be calculated for this movement..</param>
         /// <param name="custodianAccountType">The type of custodian account this movement targets, e.g. Cash or Margin. Free text, optional..</param>
-        /// <param name="accountSelector">An optional selector expression used to identify the specific account this movement targets. E.g. From/To..</param>
+        /// <param name="accountSelector">An optional selector expression used to identify the specific account this movement targets. E.g. From/To. Available values: From, To..</param>
         public TransactionTypeMovement(string movementTypes = default(string), string side = default(string), int direction = default(int), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), List<TransactionTypePropertyMapping> mappings = default(List<TransactionTypePropertyMapping>), string name = default(string), List<string> movementOptions = default(List<string>), string settlementDateOverride = default(string), string condition = default(string), string settlementMode = default(string), bool? calculateTradeDateToSettlementFxPnL = default(bool?), string custodianAccountType = default(string), string accountSelector = default(string))
         {
             // to ensure "movementTypes" is required (not null)
@@ -161,9 +161,9 @@ namespace Lusid.Sdk.Model
         public string CustodianAccountType { get; set; }
 
         /// <summary>
-        /// An optional selector expression used to identify the specific account this movement targets. E.g. From/To.
+        /// An optional selector expression used to identify the specific account this movement targets. E.g. From/To. Available values: From, To.
         /// </summary>
-        /// <value>An optional selector expression used to identify the specific account this movement targets. E.g. From/To.</value>
+        /// <value>An optional selector expression used to identify the specific account this movement targets. E.g. From/To. Available values: From, To.</value>
         [DataMember(Name = "accountSelector", EmitDefaultValue = true)]
         public string AccountSelector { get; set; }
 

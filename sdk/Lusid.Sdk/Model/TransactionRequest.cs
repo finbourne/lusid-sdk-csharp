@@ -55,7 +55,8 @@ namespace Lusid.Sdk.Model
         /// <param name="custodianAccountId">custodianAccountId.</param>
         /// <param name="transactionGroupId">The identifier for grouping economic events across multiple transactions.</param>
         /// <param name="strategyTag">A list of strategies representing the allocation of units across multiple sub-holding keys.</param>
-        public TransactionRequest(string transactionId = default(string), string type = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), DateTimeOrCutLabel transactionDate = default(DateTimeOrCutLabel), DateTimeOrCutLabel settlementDate = default(DateTimeOrCutLabel), decimal units = default(decimal), TransactionPrice transactionPrice = default(TransactionPrice), CurrencyAndAmount totalConsideration = default(CurrencyAndAmount), decimal? exchangeRate = default(decimal?), string transactionCurrency = default(string), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string counterpartyId = default(string), string source = default(string), OtcConfirmation otcConfirmation = default(OtcConfirmation), ResourceId orderId = default(ResourceId), ResourceId allocationId = default(ResourceId), ResourceId custodianAccountId = default(ResourceId), string transactionGroupId = default(string), List<Strategy> strategyTag = default(List<Strategy>))
+        /// <param name="custodianEntries">A list of Custodian Entries associated with the transaction..</param>
+        public TransactionRequest(string transactionId = default(string), string type = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), DateTimeOrCutLabel transactionDate = default(DateTimeOrCutLabel), DateTimeOrCutLabel settlementDate = default(DateTimeOrCutLabel), decimal units = default(decimal), TransactionPrice transactionPrice = default(TransactionPrice), CurrencyAndAmount totalConsideration = default(CurrencyAndAmount), decimal? exchangeRate = default(decimal?), string transactionCurrency = default(string), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string counterpartyId = default(string), string source = default(string), OtcConfirmation otcConfirmation = default(OtcConfirmation), ResourceId orderId = default(ResourceId), ResourceId allocationId = default(ResourceId), ResourceId custodianAccountId = default(ResourceId), string transactionGroupId = default(string), List<Strategy> strategyTag = default(List<Strategy>), List<CustodianEntry> custodianEntries = default(List<CustodianEntry>))
         {
             // to ensure "transactionId" is required (not null)
             if (transactionId == null)
@@ -106,6 +107,7 @@ namespace Lusid.Sdk.Model
             this.CustodianAccountId = custodianAccountId;
             this.TransactionGroupId = transactionGroupId;
             this.StrategyTag = strategyTag;
+            this.CustodianEntries = custodianEntries;
         }
 
         /// <summary>
@@ -236,6 +238,13 @@ namespace Lusid.Sdk.Model
         public List<Strategy> StrategyTag { get; set; }
 
         /// <summary>
+        /// A list of Custodian Entries associated with the transaction.
+        /// </summary>
+        /// <value>A list of Custodian Entries associated with the transaction.</value>
+        [DataMember(Name = "custodianEntries", EmitDefaultValue = true)]
+        public List<CustodianEntry> CustodianEntries { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -262,6 +271,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  CustodianAccountId: ").Append(CustodianAccountId).Append("\n");
             sb.Append("  TransactionGroupId: ").Append(TransactionGroupId).Append("\n");
             sb.Append("  StrategyTag: ").Append(StrategyTag).Append("\n");
+            sb.Append("  CustodianEntries: ").Append(CustodianEntries).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -393,6 +403,12 @@ namespace Lusid.Sdk.Model
                     this.StrategyTag != null &&
                     input.StrategyTag != null &&
                     this.StrategyTag.SequenceEqual(input.StrategyTag)
+                ) && 
+                (
+                    this.CustodianEntries == input.CustodianEntries ||
+                    this.CustodianEntries != null &&
+                    input.CustodianEntries != null &&
+                    this.CustodianEntries.SequenceEqual(input.CustodianEntries)
                 );
         }
 
@@ -477,6 +493,10 @@ namespace Lusid.Sdk.Model
                 if (this.StrategyTag != null)
                 {
                     hashCode = (hashCode * 59) + this.StrategyTag.GetHashCode();
+                }
+                if (this.CustodianEntries != null)
+                {
+                    hashCode = (hashCode * 59) + this.CustodianEntries.GetHashCode();
                 }
                 return hashCode;
             }

@@ -237,10 +237,12 @@ namespace Lusid.Sdk.Api
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial.</param>
         /// <param name="requestBody">The payload describing the transactions to be created or updated.</param>
         /// <param name="preserveProperties">If set to false, the entire property set will be overwritten by the provided properties. If not specified or set to true, only the properties provided will be updated. (optional, default to true)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>BatchUpsertPortfolioTransactionsResponse</returns>
-        BatchUpsertPortfolioTransactionsResponse BatchUpsertTransactions(string scope, string code, string successMode, Dictionary<string, TransactionRequest> requestBody, bool? preserveProperties = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        BatchUpsertPortfolioTransactionsResponse BatchUpsertTransactions(string scope, string code, string successMode, Dictionary<string, TransactionRequest> requestBody, bool? preserveProperties = default(bool?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// BatchUpsertTransactions: Batch upsert transactions
@@ -254,10 +256,12 @@ namespace Lusid.Sdk.Api
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial.</param>
         /// <param name="requestBody">The payload describing the transactions to be created or updated.</param>
         /// <param name="preserveProperties">If set to false, the entire property set will be overwritten by the provided properties. If not specified or set to true, only the properties provided will be updated. (optional, default to true)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of BatchUpsertPortfolioTransactionsResponse</returns>
-        Lusid.Sdk.Client.ApiResponse<BatchUpsertPortfolioTransactionsResponse> BatchUpsertTransactionsWithHttpInfo(string scope, string code, string successMode, Dictionary<string, TransactionRequest> requestBody, bool? preserveProperties = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<BatchUpsertPortfolioTransactionsResponse> BatchUpsertTransactionsWithHttpInfo(string scope, string code, string successMode, Dictionary<string, TransactionRequest> requestBody, bool? preserveProperties = default(bool?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] BuildSettlementInstructions: Build Settlement Instructions
         /// </summary>
@@ -2060,11 +2064,13 @@ namespace Lusid.Sdk.Api
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial.</param>
         /// <param name="requestBody">The payload describing the transactions to be created or updated.</param>
         /// <param name="preserveProperties">If set to false, the entire property set will be overwritten by the provided properties. If not specified or set to true, only the properties provided will be updated. (optional, default to true)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of BatchUpsertPortfolioTransactionsResponse</returns>
-        System.Threading.Tasks.Task<BatchUpsertPortfolioTransactionsResponse> BatchUpsertTransactionsAsync(string scope, string code, string successMode, Dictionary<string, TransactionRequest> requestBody, bool? preserveProperties = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<BatchUpsertPortfolioTransactionsResponse> BatchUpsertTransactionsAsync(string scope, string code, string successMode, Dictionary<string, TransactionRequest> requestBody, bool? preserveProperties = default(bool?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// BatchUpsertTransactions: Batch upsert transactions
@@ -2078,11 +2084,13 @@ namespace Lusid.Sdk.Api
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial.</param>
         /// <param name="requestBody">The payload describing the transactions to be created or updated.</param>
         /// <param name="preserveProperties">If set to false, the entire property set will be overwritten by the provided properties. If not specified or set to true, only the properties provided will be updated. (optional, default to true)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (BatchUpsertPortfolioTransactionsResponse)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<BatchUpsertPortfolioTransactionsResponse>> BatchUpsertTransactionsWithHttpInfoAsync(string scope, string code, string successMode, Dictionary<string, TransactionRequest> requestBody, bool? preserveProperties = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<BatchUpsertPortfolioTransactionsResponse>> BatchUpsertTransactionsWithHttpInfoAsync(string scope, string code, string successMode, Dictionary<string, TransactionRequest> requestBody, bool? preserveProperties = default(bool?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] BuildSettlementInstructions: Build Settlement Instructions
         /// </summary>
@@ -5509,12 +5517,14 @@ namespace Lusid.Sdk.Api
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial.</param>
         /// <param name="requestBody">The payload describing the transactions to be created or updated.</param>
         /// <param name="preserveProperties">If set to false, the entire property set will be overwritten by the provided properties. If not specified or set to true, only the properties provided will be updated. (optional, default to true)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>BatchUpsertPortfolioTransactionsResponse</returns>
-        public BatchUpsertPortfolioTransactionsResponse BatchUpsertTransactions(string scope, string code, string successMode, Dictionary<string, TransactionRequest> requestBody, bool? preserveProperties = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public BatchUpsertPortfolioTransactionsResponse BatchUpsertTransactions(string scope, string code, string successMode, Dictionary<string, TransactionRequest> requestBody, bool? preserveProperties = default(bool?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<BatchUpsertPortfolioTransactionsResponse> localVarResponse = BatchUpsertTransactionsWithHttpInfo(scope, code, successMode, requestBody, preserveProperties, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<BatchUpsertPortfolioTransactionsResponse> localVarResponse = BatchUpsertTransactionsWithHttpInfo(scope, code, successMode, requestBody, preserveProperties, dataModelScope, dataModelCode, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -5527,10 +5537,12 @@ namespace Lusid.Sdk.Api
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial.</param>
         /// <param name="requestBody">The payload describing the transactions to be created or updated.</param>
         /// <param name="preserveProperties">If set to false, the entire property set will be overwritten by the provided properties. If not specified or set to true, only the properties provided will be updated. (optional, default to true)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of BatchUpsertPortfolioTransactionsResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<BatchUpsertPortfolioTransactionsResponse> BatchUpsertTransactionsWithHttpInfo(string scope, string code, string successMode, Dictionary<string, TransactionRequest> requestBody, bool? preserveProperties = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<BatchUpsertPortfolioTransactionsResponse> BatchUpsertTransactionsWithHttpInfo(string scope, string code, string successMode, Dictionary<string, TransactionRequest> requestBody, bool? preserveProperties = default(bool?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -5602,6 +5614,16 @@ namespace Lusid.Sdk.Api
 
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "preserveProperties", preserveProperties));
             }
+            if (dataModelScope != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dataModelScope", dataModelScope));
+            }
+            if (dataModelCode != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dataModelCode", dataModelCode));
+            }
             localVarRequestOptions.Data = requestBody;
 
             localVarRequestOptions.Operation = "TransactionPortfoliosApi.BatchUpsertTransactions";
@@ -5647,13 +5669,15 @@ namespace Lusid.Sdk.Api
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial.</param>
         /// <param name="requestBody">The payload describing the transactions to be created or updated.</param>
         /// <param name="preserveProperties">If set to false, the entire property set will be overwritten by the provided properties. If not specified or set to true, only the properties provided will be updated. (optional, default to true)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of BatchUpsertPortfolioTransactionsResponse</returns>
-        public async System.Threading.Tasks.Task<BatchUpsertPortfolioTransactionsResponse> BatchUpsertTransactionsAsync(string scope, string code, string successMode, Dictionary<string, TransactionRequest> requestBody, bool? preserveProperties = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<BatchUpsertPortfolioTransactionsResponse> BatchUpsertTransactionsAsync(string scope, string code, string successMode, Dictionary<string, TransactionRequest> requestBody, bool? preserveProperties = default(bool?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<BatchUpsertPortfolioTransactionsResponse> localVarResponse = await BatchUpsertTransactionsWithHttpInfoAsync(scope, code, successMode, requestBody, preserveProperties, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<BatchUpsertPortfolioTransactionsResponse> localVarResponse = await BatchUpsertTransactionsWithHttpInfoAsync(scope, code, successMode, requestBody, preserveProperties, dataModelScope, dataModelCode, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -5666,11 +5690,13 @@ namespace Lusid.Sdk.Api
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial.</param>
         /// <param name="requestBody">The payload describing the transactions to be created or updated.</param>
         /// <param name="preserveProperties">If set to false, the entire property set will be overwritten by the provided properties. If not specified or set to true, only the properties provided will be updated. (optional, default to true)</param>
+        /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
+        /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (BatchUpsertPortfolioTransactionsResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<BatchUpsertPortfolioTransactionsResponse>> BatchUpsertTransactionsWithHttpInfoAsync(string scope, string code, string successMode, Dictionary<string, TransactionRequest> requestBody, bool? preserveProperties = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<BatchUpsertPortfolioTransactionsResponse>> BatchUpsertTransactionsWithHttpInfoAsync(string scope, string code, string successMode, Dictionary<string, TransactionRequest> requestBody, bool? preserveProperties = default(bool?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -5741,6 +5767,14 @@ namespace Lusid.Sdk.Api
             if (preserveProperties != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "preserveProperties", preserveProperties));
+            }
+            if (dataModelScope != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dataModelScope", dataModelScope));
+            }
+            if (dataModelCode != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dataModelCode", dataModelCode));
             }
             localVarRequestOptions.Data = requestBody;
 

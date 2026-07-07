@@ -785,7 +785,7 @@ catch (ApiException e)
 
 <a id="batchupserttransactions"></a>
 # **BatchUpsertTransactions**
-> BatchUpsertPortfolioTransactionsResponse BatchUpsertTransactions (string scope, string code, string successMode, Dictionary<string, TransactionRequest> requestBody, bool? preserveProperties = null)
+> BatchUpsertPortfolioTransactionsResponse BatchUpsertTransactions (string scope, string code, string successMode, Dictionary<string, TransactionRequest> requestBody, bool? preserveProperties = null, string? dataModelScope = null, string? dataModelCode = null)
 
 BatchUpsertTransactions: Batch upsert transactions
 
@@ -835,14 +835,16 @@ namespace Examples
             var successMode = "\"Partial\"";  // string | Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial. (default to "Partial")
             var requestBody = new Dictionary<string, TransactionRequest>(); // Dictionary<string, TransactionRequest> | The payload describing the transactions to be created or updated.
             var preserveProperties = true;  // bool? | If set to false, the entire property set will be overwritten by the provided properties. If not specified or set to true, only the properties provided will be updated. (optional)  (default to true)
+            var dataModelScope = "dataModelScope_example";  // string? | The optional scope of a Custom Data Model to use (optional) 
+            var dataModelCode = "dataModelCode_example";  // string? | The optional code of a Custom Data Model to use (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // BatchUpsertPortfolioTransactionsResponse result = apiInstance.BatchUpsertTransactions(scope, code, successMode, requestBody, preserveProperties, opts: opts);
+                // BatchUpsertPortfolioTransactionsResponse result = apiInstance.BatchUpsertTransactions(scope, code, successMode, requestBody, preserveProperties, dataModelScope, dataModelCode, opts: opts);
 
                 // BatchUpsertTransactions: Batch upsert transactions
-                BatchUpsertPortfolioTransactionsResponse result = apiInstance.BatchUpsertTransactions(scope, code, successMode, requestBody, preserveProperties);
+                BatchUpsertPortfolioTransactionsResponse result = apiInstance.BatchUpsertTransactions(scope, code, successMode, requestBody, preserveProperties, dataModelScope, dataModelCode);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -863,7 +865,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // BatchUpsertTransactions: Batch upsert transactions
-    ApiResponse<BatchUpsertPortfolioTransactionsResponse> response = apiInstance.BatchUpsertTransactionsWithHttpInfo(scope, code, successMode, requestBody, preserveProperties);
+    ApiResponse<BatchUpsertPortfolioTransactionsResponse> response = apiInstance.BatchUpsertTransactionsWithHttpInfo(scope, code, successMode, requestBody, preserveProperties, dataModelScope, dataModelCode);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -885,6 +887,8 @@ catch (ApiException e)
 | **successMode** | **string** | Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial. | [default to &quot;Partial&quot;] |
 | **requestBody** | [**Dictionary&lt;string, TransactionRequest&gt;**](TransactionRequest.md) | The payload describing the transactions to be created or updated. |  |
 | **preserveProperties** | **bool?** | If set to false, the entire property set will be overwritten by the provided properties. If not specified or set to true, only the properties provided will be updated. | [optional] [default to true] |
+| **dataModelScope** | **string?** | The optional scope of a Custom Data Model to use | [optional]  |
+| **dataModelCode** | **string?** | The optional code of a Custom Data Model to use | [optional]  |
 
 ### Return type
 

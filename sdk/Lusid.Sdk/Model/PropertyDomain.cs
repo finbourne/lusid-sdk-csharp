@@ -510,40 +510,46 @@ namespace Lusid.Sdk.Model
         Worker = 80,
 
         /// <summary>
+        /// Enum Workflow for value: Workflow
+        /// </summary>
+        [EnumMember(Value = "Workflow")]
+        Workflow = 81,
+
+        /// <summary>
         /// Enum StagingRuleSet for value: StagingRuleSet
         /// </summary>
         [EnumMember(Value = "StagingRuleSet")]
-        StagingRuleSet = 81,
+        StagingRuleSet = 82,
 
         /// <summary>
         /// Enum IdentifierDefinition for value: IdentifierDefinition
         /// </summary>
         [EnumMember(Value = "IdentifierDefinition")]
-        IdentifierDefinition = 82,
+        IdentifierDefinition = 83,
 
         /// <summary>
         /// Enum SettlementInstruction for value: SettlementInstruction
         /// </summary>
         [EnumMember(Value = "SettlementInstruction")]
-        SettlementInstruction = 83,
+        SettlementInstruction = 84,
 
         /// <summary>
         /// Enum TransactionFeeType for value: TransactionFeeType
         /// </summary>
         [EnumMember(Value = "TransactionFeeType")]
-        TransactionFeeType = 84,
+        TransactionFeeType = 85,
 
         /// <summary>
         /// Enum AllocationMethod for value: AllocationMethod
         /// </summary>
         [EnumMember(Value = "AllocationMethod")]
-        AllocationMethod = 85,
+        AllocationMethod = 86,
 
         /// <summary>
         /// Enum TransactionFee for value: TransactionFee
         /// </summary>
         [EnumMember(Value = "TransactionFee")]
-        TransactionFee = 86
+        TransactionFee = 87
     }
 
 }

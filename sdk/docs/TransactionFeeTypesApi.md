@@ -4,17 +4,17 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**CreateTransactionFeeType**](TransactionFeeTypesApi.md#createtransactionfeetype) | **POST** /api/transactions/transactionfeetypes/{scope}/{code} | [EXPERIMENTAL] CreateTransactionFeeType: Create a transaction fee type |
-| [**DeleteTransactionFeeType**](TransactionFeeTypesApi.md#deletetransactionfeetype) | **DELETE** /api/transactions/transactionfeetypes/{scope}/{code} | [EXPERIMENTAL] DeleteTransactionFeeType: Delete a transaction fee type |
-| [**GetTransactionFeeType**](TransactionFeeTypesApi.md#gettransactionfeetype) | **GET** /api/transactions/transactionfeetypes/{scope}/{code} | [EXPERIMENTAL] GetTransactionFeeType: Get a transaction fee type |
-| [**ListTransactionFeeTypes**](TransactionFeeTypesApi.md#listtransactionfeetypes) | **GET** /api/transactions/transactionfeetypes | [EXPERIMENTAL] ListTransactionFeeTypes: List transaction fee types |
-| [**UpdateTransactionFeeType**](TransactionFeeTypesApi.md#updatetransactionfeetype) | **PUT** /api/transactions/transactionfeetypes/{scope}/{code} | [EXPERIMENTAL] UpdateTransactionFeeType: Update a transaction fee type |
+| [**CreateTransactionFeeType**](TransactionFeeTypesApi.md#createtransactionfeetype) | **POST** /api/transactions/transactionfeetypes/{scope}/{code} | [EARLY ACCESS] CreateTransactionFeeType: Create a transaction fee type |
+| [**DeleteTransactionFeeType**](TransactionFeeTypesApi.md#deletetransactionfeetype) | **DELETE** /api/transactions/transactionfeetypes/{scope}/{code} | [EARLY ACCESS] DeleteTransactionFeeType: Delete a transaction fee type |
+| [**GetTransactionFeeType**](TransactionFeeTypesApi.md#gettransactionfeetype) | **GET** /api/transactions/transactionfeetypes/{scope}/{code} | [EARLY ACCESS] GetTransactionFeeType: Get a transaction fee type |
+| [**ListTransactionFeeTypes**](TransactionFeeTypesApi.md#listtransactionfeetypes) | **GET** /api/transactions/transactionfeetypes | [EARLY ACCESS] ListTransactionFeeTypes: List transaction fee types |
+| [**UpdateTransactionFeeType**](TransactionFeeTypesApi.md#updatetransactionfeetype) | **PUT** /api/transactions/transactionfeetypes/{scope}/{code} | [EARLY ACCESS] UpdateTransactionFeeType: Update a transaction fee type |
 
 <a id="createtransactionfeetype"></a>
 # **CreateTransactionFeeType**
 > TransactionFeeType CreateTransactionFeeType (string scope, string code, CreateTransactionFeeTypeRequest createTransactionFeeTypeRequest)
 
-[EXPERIMENTAL] CreateTransactionFeeType: Create a transaction fee type
+[EARLY ACCESS] CreateTransactionFeeType: Create a transaction fee type
 
 Create a transaction fee type for the specified scope and code.
 
@@ -66,7 +66,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // TransactionFeeType result = apiInstance.CreateTransactionFeeType(scope, code, createTransactionFeeTypeRequest, opts: opts);
 
-                // [EXPERIMENTAL] CreateTransactionFeeType: Create a transaction fee type
+                // [EARLY ACCESS] CreateTransactionFeeType: Create a transaction fee type
                 TransactionFeeType result = apiInstance.CreateTransactionFeeType(scope, code, createTransactionFeeTypeRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -87,7 +87,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] CreateTransactionFeeType: Create a transaction fee type
+    // [EARLY ACCESS] CreateTransactionFeeType: Create a transaction fee type
     ApiResponse<TransactionFeeType> response = apiInstance.CreateTransactionFeeTypeWithHttpInfo(scope, code, createTransactionFeeTypeRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -132,7 +132,7 @@ catch (ApiException e)
 # **DeleteTransactionFeeType**
 > DeletedEntityResponse DeleteTransactionFeeType (string scope, string code)
 
-[EXPERIMENTAL] DeleteTransactionFeeType: Delete a transaction fee type
+[EARLY ACCESS] DeleteTransactionFeeType: Delete a transaction fee type
 
 Delete a transaction fee type for the specified scope and code. To note, this will be a monotemporal delete, meaning that  the transaction fee type will be deleted for all effective time (including past and future versions of the transaction fee type).
 
@@ -183,7 +183,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // DeletedEntityResponse result = apiInstance.DeleteTransactionFeeType(scope, code, opts: opts);
 
-                // [EXPERIMENTAL] DeleteTransactionFeeType: Delete a transaction fee type
+                // [EARLY ACCESS] DeleteTransactionFeeType: Delete a transaction fee type
                 DeletedEntityResponse result = apiInstance.DeleteTransactionFeeType(scope, code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -204,7 +204,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] DeleteTransactionFeeType: Delete a transaction fee type
+    // [EARLY ACCESS] DeleteTransactionFeeType: Delete a transaction fee type
     ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteTransactionFeeTypeWithHttpInfo(scope, code);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -248,7 +248,7 @@ catch (ApiException e)
 # **GetTransactionFeeType**
 > TransactionFeeType GetTransactionFeeType (string scope, string code, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, List<string>? propertyKeys = null)
 
-[EXPERIMENTAL] GetTransactionFeeType: Get a transaction fee type
+[EARLY ACCESS] GetTransactionFeeType: Get a transaction fee type
 
 Get the transaction fee type for the specified scope and code.
 
@@ -302,7 +302,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // TransactionFeeType result = apiInstance.GetTransactionFeeType(scope, code, effectiveAt, asAt, propertyKeys, opts: opts);
 
-                // [EXPERIMENTAL] GetTransactionFeeType: Get a transaction fee type
+                // [EARLY ACCESS] GetTransactionFeeType: Get a transaction fee type
                 TransactionFeeType result = apiInstance.GetTransactionFeeType(scope, code, effectiveAt, asAt, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -323,7 +323,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetTransactionFeeType: Get a transaction fee type
+    // [EARLY ACCESS] GetTransactionFeeType: Get a transaction fee type
     ApiResponse<TransactionFeeType> response = apiInstance.GetTransactionFeeTypeWithHttpInfo(scope, code, effectiveAt, asAt, propertyKeys);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -370,7 +370,7 @@ catch (ApiException e)
 # **ListTransactionFeeTypes**
 > ResourceListOfTransactionFeeType ListTransactionFeeTypes (DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null, List<string>? sortBy = null, List<string>? propertyKeys = null)
 
-[EXPERIMENTAL] ListTransactionFeeTypes: List transaction fee types
+[EARLY ACCESS] ListTransactionFeeTypes: List transaction fee types
 
 List transaction fee types that match the specified criteria.
 
@@ -426,7 +426,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // ResourceListOfTransactionFeeType result = apiInstance.ListTransactionFeeTypes(effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys, opts: opts);
 
-                // [EXPERIMENTAL] ListTransactionFeeTypes: List transaction fee types
+                // [EARLY ACCESS] ListTransactionFeeTypes: List transaction fee types
                 ResourceListOfTransactionFeeType result = apiInstance.ListTransactionFeeTypes(effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -447,7 +447,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] ListTransactionFeeTypes: List transaction fee types
+    // [EARLY ACCESS] ListTransactionFeeTypes: List transaction fee types
     ApiResponse<ResourceListOfTransactionFeeType> response = apiInstance.ListTransactionFeeTypesWithHttpInfo(effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -496,7 +496,7 @@ catch (ApiException e)
 # **UpdateTransactionFeeType**
 > TransactionFeeType UpdateTransactionFeeType (string scope, string code, UpdateTransactionFeeTypeRequest updateTransactionFeeTypeRequest)
 
-[EXPERIMENTAL] UpdateTransactionFeeType: Update a transaction fee type
+[EARLY ACCESS] UpdateTransactionFeeType: Update a transaction fee type
 
 Update a transaction fee type by providing the new contents of the transaction fee type.  The displayName field cannot be updated.
 
@@ -548,7 +548,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // TransactionFeeType result = apiInstance.UpdateTransactionFeeType(scope, code, updateTransactionFeeTypeRequest, opts: opts);
 
-                // [EXPERIMENTAL] UpdateTransactionFeeType: Update a transaction fee type
+                // [EARLY ACCESS] UpdateTransactionFeeType: Update a transaction fee type
                 TransactionFeeType result = apiInstance.UpdateTransactionFeeType(scope, code, updateTransactionFeeTypeRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -569,7 +569,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] UpdateTransactionFeeType: Update a transaction fee type
+    // [EARLY ACCESS] UpdateTransactionFeeType: Update a transaction fee type
     ApiResponse<TransactionFeeType> response = apiInstance.UpdateTransactionFeeTypeWithHttpInfo(scope, code, updateTransactionFeeTypeRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
