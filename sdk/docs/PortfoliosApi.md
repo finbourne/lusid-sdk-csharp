@@ -19,6 +19,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**GetPortfolioCommands**](PortfoliosApi.md#getportfoliocommands) | **GET** /api/portfolios/{scope}/{code}/commands | GetPortfolioCommands: Get portfolio commands |
 | [**GetPortfolioMetadata**](PortfoliosApi.md#getportfoliometadata) | **GET** /api/portfolios/{scope}/{code}/metadata | GetPortfolioMetadata: Get access metadata rules for a portfolio |
 | [**GetPortfolioProperties**](PortfoliosApi.md#getportfolioproperties) | **GET** /api/portfolios/{scope}/{code}/properties | GetPortfolioProperties: Get portfolio properties |
+| [**GetPortfolioPropertiesTimeSeries**](PortfoliosApi.md#getportfoliopropertiestimeseries) | **GET** /api/portfolios/{scope}/{code}/properties/time-series/batch | [BETA] GetPortfolioPropertiesTimeSeries: Get portfolio properties time series |
 | [**GetPortfolioPropertyTimeSeries**](PortfoliosApi.md#getportfoliopropertytimeseries) | **GET** /api/portfolios/{scope}/{code}/properties/time-series | GetPortfolioPropertyTimeSeries: Get portfolio property time series |
 | [**GetPortfolioRelations**](PortfoliosApi.md#getportfoliorelations) | **GET** /api/portfolios/{scope}/{code}/relations | [EXPERIMENTAL] GetPortfolioRelations: Get portfolio relations |
 | [**GetPortfolioRelationships**](PortfoliosApi.md#getportfoliorelationships) | **GET** /api/portfolios/{scope}/{code}/relationships | GetPortfolioRelationships: Get portfolio relationships |
@@ -1879,6 +1880,134 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The properties of the specified portfolio |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="getportfoliopropertiestimeseries"></a>
+# **GetPortfolioPropertiesTimeSeries**
+> ResourceListOfPropertyIntervalTimeSeries GetPortfolioPropertiesTimeSeries (string scope, string code, List<string> propertyKeys, string? portfolioEffectiveAt = null, DateTimeOffset? asAt = null, string? filter = null, string? page = null, int? limit = null)
+
+[BETA] GetPortfolioPropertiesTimeSeries: Get portfolio properties time series
+
+Show the complete time series (history) for multiple portfolio properties at once, grouped by property key.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<PortfoliosApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<PortfoliosApi>();
+            var scope = "scope_example";  // string | The scope of the portfolio.
+            var code = "code_example";  // string | The code of the portfolio. Together with the scope this uniquely identifies the portfolio.
+            var propertyKeys = new List<string>(); // List<string> | The property keys of the properties whose history to show. These must be from the 'Portfolio' domain and in the format {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'.
+            var portfolioEffectiveAt = "portfolioEffectiveAt_example";  // string? | The effective datetime used to resolve the portfolio. Defaults to the current LUSID system datetime if not specified. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to show the history. Defaults to returning the current datetime if not supplied. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the results. For more information about filtering,              see https://support.lusid.com/knowledgebase/article/KA-01914. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing properties; this value is returned from              the previous call. If a pagination token is provided, the propertyKeys, filter, portfolioEffectiveAt, and asAt              fields must not have changed since the original request. (optional) 
+            var limit = 56;  // int? | When paginating, limit the number of property keys returned per page to this number. (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfPropertyIntervalTimeSeries result = apiInstance.GetPortfolioPropertiesTimeSeries(scope, code, propertyKeys, portfolioEffectiveAt, asAt, filter, page, limit, opts: opts);
+
+                // [BETA] GetPortfolioPropertiesTimeSeries: Get portfolio properties time series
+                ResourceListOfPropertyIntervalTimeSeries result = apiInstance.GetPortfolioPropertiesTimeSeries(scope, code, propertyKeys, portfolioEffectiveAt, asAt, filter, page, limit);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling PortfoliosApi.GetPortfolioPropertiesTimeSeries: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetPortfolioPropertiesTimeSeriesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [BETA] GetPortfolioPropertiesTimeSeries: Get portfolio properties time series
+    ApiResponse<ResourceListOfPropertyIntervalTimeSeries> response = apiInstance.GetPortfolioPropertiesTimeSeriesWithHttpInfo(scope, code, propertyKeys, portfolioEffectiveAt, asAt, filter, page, limit);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling PortfoliosApi.GetPortfolioPropertiesTimeSeriesWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the portfolio. |  |
+| **code** | **string** | The code of the portfolio. Together with the scope this uniquely identifies the portfolio. |  |
+| **propertyKeys** | [**List&lt;string&gt;**](string.md) | The property keys of the properties whose history to show. These must be from the &#39;Portfolio&#39; domain and in the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. |  |
+| **portfolioEffectiveAt** | **string?** | The effective datetime used to resolve the portfolio. Defaults to the current LUSID system datetime if not specified. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to show the history. Defaults to returning the current datetime if not supplied. | [optional]  |
+| **filter** | **string?** | Expression to filter the results. For more information about filtering,              see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing properties; this value is returned from              the previous call. If a pagination token is provided, the propertyKeys, filter, portfolioEffectiveAt, and asAt              fields must not have changed since the original request. | [optional]  |
+| **limit** | **int?** | When paginating, limit the number of property keys returned per page to this number. | [optional]  |
+
+### Return type
+
+[**ResourceListOfPropertyIntervalTimeSeries**](ResourceListOfPropertyIntervalTimeSeries.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The time series of the properties, grouped by property key |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 

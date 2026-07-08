@@ -41,7 +41,8 @@ namespace Lusid.Sdk.Model
         /// <param name="displayName">The name of the corporate action source (required).</param>
         /// <param name="description">The description of the corporate action source.</param>
         /// <param name="instrumentScopes">The list of instrument scopes used as the scope resolution strategy when resolving instruments of upserted corporate actions..</param>
-        public CreateCorporateActionSourceRequest(string scope = default(string), string code = default(string), string displayName = default(string), string description = default(string), List<string> instrumentScopes = default(List<string>))
+        /// <param name="eventInheritance">eventInheritance.</param>
+        public CreateCorporateActionSourceRequest(string scope = default(string), string code = default(string), string displayName = default(string), string description = default(string), List<string> instrumentScopes = default(List<string>), EventInheritance eventInheritance = default(EventInheritance))
         {
             // to ensure "scope" is required (not null)
             if (scope == null)
@@ -63,6 +64,7 @@ namespace Lusid.Sdk.Model
             this.DisplayName = displayName;
             this.Description = description;
             this.InstrumentScopes = instrumentScopes;
+            this.EventInheritance = eventInheritance;
         }
 
         /// <summary>
@@ -101,6 +103,12 @@ namespace Lusid.Sdk.Model
         public List<string> InstrumentScopes { get; set; }
 
         /// <summary>
+        /// Gets or Sets EventInheritance
+        /// </summary>
+        [DataMember(Name = "eventInheritance", EmitDefaultValue = false)]
+        public EventInheritance EventInheritance { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -113,6 +121,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  InstrumentScopes: ").Append(InstrumentScopes).Append("\n");
+            sb.Append("  EventInheritance: ").Append(EventInheritance).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -173,6 +182,11 @@ namespace Lusid.Sdk.Model
                     this.InstrumentScopes != null &&
                     input.InstrumentScopes != null &&
                     this.InstrumentScopes.SequenceEqual(input.InstrumentScopes)
+                ) && 
+                (
+                    this.EventInheritance == input.EventInheritance ||
+                    (this.EventInheritance != null &&
+                    this.EventInheritance.Equals(input.EventInheritance))
                 );
         }
 
@@ -204,6 +218,10 @@ namespace Lusid.Sdk.Model
                 if (this.InstrumentScopes != null)
                 {
                     hashCode = (hashCode * 59) + this.InstrumentScopes.GetHashCode();
+                }
+                if (this.EventInheritance != null)
+                {
+                    hashCode = (hashCode * 59) + this.EventInheritance.GetHashCode();
                 }
                 return hashCode;
             }

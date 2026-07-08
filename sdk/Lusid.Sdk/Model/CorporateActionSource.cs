@@ -37,8 +37,9 @@ namespace Lusid.Sdk.Model
         /// <param name="displayName">The name of the corporate action source.</param>
         /// <param name="description">The description of the corporate action source.</param>
         /// <param name="instrumentScopes">The list of instrument scopes used as the scope resolution strategy when resolving instruments of upserted corporate actions..</param>
+        /// <param name="eventInheritance">eventInheritance.</param>
         /// <param name="links">links.</param>
-        public CorporateActionSource(string href = default(string), ResourceId id = default(ResourceId), ModelVersion varVersion = default(ModelVersion), string displayName = default(string), string description = default(string), List<string> instrumentScopes = default(List<string>), List<Link> links = default(List<Link>))
+        public CorporateActionSource(string href = default(string), ResourceId id = default(ResourceId), ModelVersion varVersion = default(ModelVersion), string displayName = default(string), string description = default(string), List<string> instrumentScopes = default(List<string>), EventInheritance eventInheritance = default(EventInheritance), List<Link> links = default(List<Link>))
         {
             this.Href = href;
             this.Id = id;
@@ -46,6 +47,7 @@ namespace Lusid.Sdk.Model
             this.DisplayName = displayName;
             this.Description = description;
             this.InstrumentScopes = instrumentScopes;
+            this.EventInheritance = eventInheritance;
             this.Links = links;
         }
 
@@ -90,6 +92,12 @@ namespace Lusid.Sdk.Model
         public List<string> InstrumentScopes { get; set; }
 
         /// <summary>
+        /// Gets or Sets EventInheritance
+        /// </summary>
+        [DataMember(Name = "eventInheritance", EmitDefaultValue = false)]
+        public EventInheritance EventInheritance { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -109,6 +117,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  InstrumentScopes: ").Append(InstrumentScopes).Append("\n");
+            sb.Append("  EventInheritance: ").Append(EventInheritance).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -177,6 +186,11 @@ namespace Lusid.Sdk.Model
                     this.InstrumentScopes.SequenceEqual(input.InstrumentScopes)
                 ) && 
                 (
+                    this.EventInheritance == input.EventInheritance ||
+                    (this.EventInheritance != null &&
+                    this.EventInheritance.Equals(input.EventInheritance))
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -216,6 +230,10 @@ namespace Lusid.Sdk.Model
                 if (this.InstrumentScopes != null)
                 {
                     hashCode = (hashCode * 59) + this.InstrumentScopes.GetHashCode();
+                }
+                if (this.EventInheritance != null)
+                {
+                    hashCode = (hashCode * 59) + this.EventInheritance.GetHashCode();
                 }
                 if (this.Links != null)
                 {

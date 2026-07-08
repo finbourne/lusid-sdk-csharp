@@ -545,6 +545,45 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of PortfolioProperties</returns>
         Lusid.Sdk.Client.ApiResponse<PortfolioProperties> GetPortfolioPropertiesWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
+        /// [BETA] GetPortfolioPropertiesTimeSeries: Get portfolio properties time series
+        /// </summary>
+        /// <remarks>
+        /// Show the complete time series (history) for multiple portfolio properties at once, grouped by property key.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="propertyKeys">The property keys of the properties whose history to show. These must be from the &#39;Portfolio&#39; domain and in the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;.</param>
+        /// <param name="portfolioEffectiveAt">The effective datetime used to resolve the portfolio. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to show the history. Defaults to returning the current datetime if not supplied. (optional)</param>
+        /// <param name="filter">Expression to filter the results. For more information about filtering,              see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing properties; this value is returned from              the previous call. If a pagination token is provided, the propertyKeys, filter, portfolioEffectiveAt, and asAt              fields must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of property keys returned per page to this number. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ResourceListOfPropertyIntervalTimeSeries</returns>
+        ResourceListOfPropertyIntervalTimeSeries GetPortfolioPropertiesTimeSeries(string scope, string code, List<string> propertyKeys, string? portfolioEffectiveAt = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [BETA] GetPortfolioPropertiesTimeSeries: Get portfolio properties time series
+        /// </summary>
+        /// <remarks>
+        /// Show the complete time series (history) for multiple portfolio properties at once, grouped by property key.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="propertyKeys">The property keys of the properties whose history to show. These must be from the &#39;Portfolio&#39; domain and in the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;.</param>
+        /// <param name="portfolioEffectiveAt">The effective datetime used to resolve the portfolio. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to show the history. Defaults to returning the current datetime if not supplied. (optional)</param>
+        /// <param name="filter">Expression to filter the results. For more information about filtering,              see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing properties; this value is returned from              the previous call. If a pagination token is provided, the propertyKeys, filter, portfolioEffectiveAt, and asAt              fields must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of property keys returned per page to this number. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of ResourceListOfPropertyIntervalTimeSeries</returns>
+        Lusid.Sdk.Client.ApiResponse<ResourceListOfPropertyIntervalTimeSeries> GetPortfolioPropertiesTimeSeriesWithHttpInfo(string scope, string code, List<string> propertyKeys, string? portfolioEffectiveAt = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// GetPortfolioPropertyTimeSeries: Get portfolio property time series
         /// </summary>
         /// <remarks>
@@ -1662,6 +1701,47 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PortfolioProperties)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PortfolioProperties>> GetPortfolioPropertiesWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [BETA] GetPortfolioPropertiesTimeSeries: Get portfolio properties time series
+        /// </summary>
+        /// <remarks>
+        /// Show the complete time series (history) for multiple portfolio properties at once, grouped by property key.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="propertyKeys">The property keys of the properties whose history to show. These must be from the &#39;Portfolio&#39; domain and in the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;.</param>
+        /// <param name="portfolioEffectiveAt">The effective datetime used to resolve the portfolio. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to show the history. Defaults to returning the current datetime if not supplied. (optional)</param>
+        /// <param name="filter">Expression to filter the results. For more information about filtering,              see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing properties; this value is returned from              the previous call. If a pagination token is provided, the propertyKeys, filter, portfolioEffectiveAt, and asAt              fields must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of property keys returned per page to this number. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ResourceListOfPropertyIntervalTimeSeries</returns>
+        System.Threading.Tasks.Task<ResourceListOfPropertyIntervalTimeSeries> GetPortfolioPropertiesTimeSeriesAsync(string scope, string code, List<string> propertyKeys, string? portfolioEffectiveAt = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [BETA] GetPortfolioPropertiesTimeSeries: Get portfolio properties time series
+        /// </summary>
+        /// <remarks>
+        /// Show the complete time series (history) for multiple portfolio properties at once, grouped by property key.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="propertyKeys">The property keys of the properties whose history to show. These must be from the &#39;Portfolio&#39; domain and in the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;.</param>
+        /// <param name="portfolioEffectiveAt">The effective datetime used to resolve the portfolio. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to show the history. Defaults to returning the current datetime if not supplied. (optional)</param>
+        /// <param name="filter">Expression to filter the results. For more information about filtering,              see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing properties; this value is returned from              the previous call. If a pagination token is provided, the propertyKeys, filter, portfolioEffectiveAt, and asAt              fields must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of property keys returned per page to this number. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (ResourceListOfPropertyIntervalTimeSeries)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfPropertyIntervalTimeSeries>> GetPortfolioPropertiesTimeSeriesWithHttpInfoAsync(string scope, string code, List<string> propertyKeys, string? portfolioEffectiveAt = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// GetPortfolioPropertyTimeSeries: Get portfolio property time series
         /// </summary>
@@ -6498,6 +6578,311 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPortfolioProperties", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [BETA] GetPortfolioPropertiesTimeSeries: Get portfolio properties time series Show the complete time series (history) for multiple portfolio properties at once, grouped by property key.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="propertyKeys">The property keys of the properties whose history to show. These must be from the &#39;Portfolio&#39; domain and in the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;.</param>
+        /// <param name="portfolioEffectiveAt">The effective datetime used to resolve the portfolio. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to show the history. Defaults to returning the current datetime if not supplied. (optional)</param>
+        /// <param name="filter">Expression to filter the results. For more information about filtering,              see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing properties; this value is returned from              the previous call. If a pagination token is provided, the propertyKeys, filter, portfolioEffectiveAt, and asAt              fields must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of property keys returned per page to this number. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ResourceListOfPropertyIntervalTimeSeries</returns>
+        public ResourceListOfPropertyIntervalTimeSeries GetPortfolioPropertiesTimeSeries(string scope, string code, List<string> propertyKeys, string? portfolioEffectiveAt = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfPropertyIntervalTimeSeries> localVarResponse = GetPortfolioPropertiesTimeSeriesWithHttpInfo(scope, code, propertyKeys, portfolioEffectiveAt, asAt, filter, page, limit, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [BETA] GetPortfolioPropertiesTimeSeries: Get portfolio properties time series Show the complete time series (history) for multiple portfolio properties at once, grouped by property key.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="propertyKeys">The property keys of the properties whose history to show. These must be from the &#39;Portfolio&#39; domain and in the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;.</param>
+        /// <param name="portfolioEffectiveAt">The effective datetime used to resolve the portfolio. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to show the history. Defaults to returning the current datetime if not supplied. (optional)</param>
+        /// <param name="filter">Expression to filter the results. For more information about filtering,              see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing properties; this value is returned from              the previous call. If a pagination token is provided, the propertyKeys, filter, portfolioEffectiveAt, and asAt              fields must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of property keys returned per page to this number. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of ResourceListOfPropertyIntervalTimeSeries</returns>
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfPropertyIntervalTimeSeries> GetPortfolioPropertiesTimeSeriesWithHttpInfo(string scope, string code, List<string> propertyKeys, string? portfolioEffectiveAt = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling PortfoliosApi->GetPortfolioPropertiesTimeSeries");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling PortfoliosApi->GetPortfolioPropertiesTimeSeries");
+            }
+
+            // verify the required parameter 'propertyKeys' is set
+            if (propertyKeys == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'propertyKeys' when calling PortfoliosApi->GetPortfolioPropertiesTimeSeries");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "propertyKeys", propertyKeys));
+            if (portfolioEffectiveAt != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "portfolioEffectiveAt", portfolioEffectiveAt));
+            }
+            if (asAt != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (filter != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+            if (page != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (limit != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+
+            localVarRequestOptions.Operation = "PortfoliosApi.GetPortfolioPropertiesTimeSeries";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<ResourceListOfPropertyIntervalTimeSeries>("/api/portfolios/{scope}/{code}/properties/time-series/batch", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetPortfolioPropertiesTimeSeries", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [BETA] GetPortfolioPropertiesTimeSeries: Get portfolio properties time series Show the complete time series (history) for multiple portfolio properties at once, grouped by property key.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="propertyKeys">The property keys of the properties whose history to show. These must be from the &#39;Portfolio&#39; domain and in the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;.</param>
+        /// <param name="portfolioEffectiveAt">The effective datetime used to resolve the portfolio. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to show the history. Defaults to returning the current datetime if not supplied. (optional)</param>
+        /// <param name="filter">Expression to filter the results. For more information about filtering,              see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing properties; this value is returned from              the previous call. If a pagination token is provided, the propertyKeys, filter, portfolioEffectiveAt, and asAt              fields must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of property keys returned per page to this number. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ResourceListOfPropertyIntervalTimeSeries</returns>
+        public async System.Threading.Tasks.Task<ResourceListOfPropertyIntervalTimeSeries> GetPortfolioPropertiesTimeSeriesAsync(string scope, string code, List<string> propertyKeys, string? portfolioEffectiveAt = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfPropertyIntervalTimeSeries> localVarResponse = await GetPortfolioPropertiesTimeSeriesWithHttpInfoAsync(scope, code, propertyKeys, portfolioEffectiveAt, asAt, filter, page, limit, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [BETA] GetPortfolioPropertiesTimeSeries: Get portfolio properties time series Show the complete time series (history) for multiple portfolio properties at once, grouped by property key.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="propertyKeys">The property keys of the properties whose history to show. These must be from the &#39;Portfolio&#39; domain and in the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;.</param>
+        /// <param name="portfolioEffectiveAt">The effective datetime used to resolve the portfolio. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to show the history. Defaults to returning the current datetime if not supplied. (optional)</param>
+        /// <param name="filter">Expression to filter the results. For more information about filtering,              see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing properties; this value is returned from              the previous call. If a pagination token is provided, the propertyKeys, filter, portfolioEffectiveAt, and asAt              fields must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of property keys returned per page to this number. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (ResourceListOfPropertyIntervalTimeSeries)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfPropertyIntervalTimeSeries>> GetPortfolioPropertiesTimeSeriesWithHttpInfoAsync(string scope, string code, List<string> propertyKeys, string? portfolioEffectiveAt = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling PortfoliosApi->GetPortfolioPropertiesTimeSeries");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling PortfoliosApi->GetPortfolioPropertiesTimeSeries");
+            }
+
+            // verify the required parameter 'propertyKeys' is set
+            if (propertyKeys == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'propertyKeys' when calling PortfoliosApi->GetPortfolioPropertiesTimeSeries");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "propertyKeys", propertyKeys));
+            if (portfolioEffectiveAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "portfolioEffectiveAt", portfolioEffectiveAt));
+            }
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (filter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+
+            localVarRequestOptions.Operation = "PortfoliosApi.GetPortfolioPropertiesTimeSeries";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<ResourceListOfPropertyIntervalTimeSeries>("/api/portfolios/{scope}/{code}/properties/time-series/batch", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetPortfolioPropertiesTimeSeries", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

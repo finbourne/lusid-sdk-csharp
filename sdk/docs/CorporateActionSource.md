@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **DisplayName** | **string** | The name of the corporate action source | [optional] 
 **Description** | **string** | The description of the corporate action source | [optional] 
 **InstrumentScopes** | **List&lt;string&gt;** | The list of instrument scopes used as the scope resolution strategy when resolving instruments of upserted corporate actions. | [optional] 
+**EventInheritance** | [**EventInheritance**](EventInheritance.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -25,6 +26,8 @@ ModelVersion? varVersion = new ModelVersion();
 string displayName = "example displayName";
 string description = "example description";
 List<string> instrumentScopes = new List<string>();
+EventInheritance? eventInheritance = new EventInheritance();
+
 List<Link> links = new List<Link>();
 
 CorporateActionSource corporateActionSourceInstance = new CorporateActionSource(
@@ -34,6 +37,7 @@ CorporateActionSource corporateActionSourceInstance = new CorporateActionSource(
     displayName: displayName,
     description: description,
     instrumentScopes: instrumentScopes,
+    eventInheritance: eventInheritance,
     links: links);
 ```
 
