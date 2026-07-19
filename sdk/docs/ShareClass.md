@@ -5,14 +5,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **InstrumentIdentifiers** | **Dictionary&lt;string, string&gt;** | Unique instrument identifiers | 
-**Series** | [**List&lt;Series&gt;**](Series.md) | The series that belong to this Share Class. | [optional] 
-**Code** | **string** | The unique code for the Share Class. Must be unique within the Fund. | 
 **Name** | **string** | The display name of the Share Class. | 
 **Description** | **string** | An optional description for the Share Class. | [optional] 
 **ShareClassShortCode** | **string** | A short code that uniquely identifies the share class within the Fund. | 
 **LaunchPrice** | **decimal?** | The launch price set when a shareclass is added to the fund. Defaults to 1. | [optional] 
 **LaunchDate** | **DateTimeOffset?** | The launch date set when a shareclass is added to the fund. Defaults to Fund Inception Date. | [optional] 
-**ApportionmentFactor** | **decimal?** | The weighting factor used for apportionment across this share class. | [optional] 
+**ApportionmentFactor** | **decimal?** | Only used for fixed percentage method or be zero, must equal 1 or 0 across all classes in the fund. | [optional] 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | An optional set of properties to attach to the auto-created Instrument. Only applied when createInstrument is true. | [optional] 
 **FundShareClassType** | **string** | The Type of Share Class. Available values: Unitised, Inactive, Series, PrivateEquity, Partnership. | 
 **DistributionType** | **string** | The type of distribution the ShareClass will calculate. Available values: Income, Accumulation. | 
@@ -31,8 +29,6 @@ using Lusid.Sdk.Model;
 using System;
 
 Dictionary<string, string> instrumentIdentifiers = new Dictionary<string, string>();
-List<Series> series = new List<Series>();
-string code = "code";
 string name = "name";
 string description = "example description";
 string shareClassShortCode = "shareClassShortCode";
@@ -51,8 +47,6 @@ string hedging = "hedging";
 
 ShareClass shareClassInstance = new ShareClass(
     instrumentIdentifiers: instrumentIdentifiers,
-    series: series,
-    code: code,
     name: name,
     description: description,
     shareClassShortCode: shareClassShortCode,

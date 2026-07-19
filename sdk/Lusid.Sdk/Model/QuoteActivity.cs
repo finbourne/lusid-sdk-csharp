@@ -39,10 +39,10 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="QuoteActivity" /> class.
         /// </summary>
         /// <param name="asAt">The asAt time for which the adjustment is being applied. (required).</param>
-        /// <param name="effectiveAt">The EffectiveAt time of the quote event that need to be added to the closed period. (required).</param>
-        /// <param name="entityUniqueId">The EntityUniqueId from the quote which needs to be added as a post close activity. (required).</param>
+        /// <param name="effectiveAt">The EffectiveAt time of the entity event that need to be added to the closed period. (required).</param>
+        /// <param name="entityUniqueId">The EntityUniqueId from the entity which needs to be added as a post close activity. (required).</param>
         /// <param name="instrumentId">The InstrumentId from the quote which needs to be added as a post close activity. (required).</param>
-        /// <param name="navActivityAdjustmentType">The type of the entity being applied, for example a PortfolioTransaction. Available values: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity, QuoteActivity. (required) (default to &quot;QuoteActivity&quot;).</param>
+        /// <param name="navActivityAdjustmentType">The type of the entity being applied, for example a PortfolioTransaction. Available values: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity, QuoteActivity, ComplexMarketDataActivity. (required) (default to &quot;QuoteActivity&quot;).</param>
         public QuoteActivity(DateTimeOffset asAt = default(DateTimeOffset), DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), string entityUniqueId = default(string), string instrumentId = default(string), NavActivityAdjustmentTypeEnum navActivityAdjustmentType = default(NavActivityAdjustmentTypeEnum)) : base(navActivityAdjustmentType)
         {
             this.AsAt = asAt;
@@ -74,16 +74,16 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset AsAt { get; set; }
 
         /// <summary>
-        /// The EffectiveAt time of the quote event that need to be added to the closed period.
+        /// The EffectiveAt time of the entity event that need to be added to the closed period.
         /// </summary>
-        /// <value>The EffectiveAt time of the quote event that need to be added to the closed period.</value>
+        /// <value>The EffectiveAt time of the entity event that need to be added to the closed period.</value>
         [DataMember(Name = "effectiveAt", IsRequired = true, EmitDefaultValue = true)]
         public DateTimeOrCutLabel EffectiveAt { get; set; }
 
         /// <summary>
-        /// The EntityUniqueId from the quote which needs to be added as a post close activity.
+        /// The EntityUniqueId from the entity which needs to be added as a post close activity.
         /// </summary>
-        /// <value>The EntityUniqueId from the quote which needs to be added as a post close activity.</value>
+        /// <value>The EntityUniqueId from the entity which needs to be added as a post close activity.</value>
         [DataMember(Name = "entityUniqueId", IsRequired = true, EmitDefaultValue = true)]
         public string EntityUniqueId { get; set; }
 

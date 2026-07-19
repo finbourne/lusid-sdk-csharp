@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **UseAnnualisedDirectRates** | **bool** | Flag indicating whether to use daily updated annualised interest  rates for calculating the accrued interest. Defaults to false. | [optional] 
 **CapRate** | **decimal?** | The maximum floating rate which a cashflow can accrue. | [optional] 
 **FloorRate** | **decimal?** | The minimum floating rate which a cashflow can accrue. | [optional] 
+**ScheduleId** | **string** | Optional: identifier for the Schedule. This is only used for Schedules on FlexibleDeposit instruments where the list of Schedules  on the instrument definition can be modified by upsert of a DepositRollEvent. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -44,6 +45,7 @@ Compounding? compounding = new Compounding();
 
 string resetConvention = "example resetConvention";
 bool useAnnualisedDirectRates = //"True";
+string scheduleId = "example scheduleId";
 
 FloatSchedule floatScheduleInstance = new FloatSchedule(
     startDate: startDate,
@@ -62,7 +64,8 @@ FloatSchedule floatScheduleInstance = new FloatSchedule(
     resetConvention: resetConvention,
     useAnnualisedDirectRates: useAnnualisedDirectRates,
     capRate: capRate,
-    floorRate: floorRate);
+    floorRate: floorRate,
+    scheduleId: scheduleId);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

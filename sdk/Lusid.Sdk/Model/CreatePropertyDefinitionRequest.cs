@@ -555,7 +555,19 @@ namespace Lusid.Sdk.Model
             /// Enum TransactionFee for value: TransactionFee
             /// </summary>
             [EnumMember(Value = "TransactionFee")]
-            TransactionFee = 87
+            TransactionFee = 87,
+
+            /// <summary>
+            /// Enum Subscription for value: Subscription
+            /// </summary>
+            [EnumMember(Value = "Subscription")]
+            Subscription = 88,
+
+            /// <summary>
+            /// Enum ScenarioDefinition for value: ScenarioDefinition
+            /// </summary>
+            [EnumMember(Value = "ScenarioDefinition")]
+            ScenarioDefinition = 89
         }
 
 

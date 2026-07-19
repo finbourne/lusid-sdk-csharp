@@ -62,9 +62,9 @@ namespace Lusid.Sdk.Model
         [DataMember(Name = "state", IsRequired = true, EmitDefaultValue = true)]
         public StateEnum State { get; set; }
         /// <summary>
-        /// The nominal asset class of the instrument. Available values: InterestRates, FX, Inflation, Equities, Credit, Commodities, Money, Unknown.
+        /// The nominal asset class of the instrument. Available values: InterestRates, FX, Inflation, Equities, Credit, Commodities, Money, Unknown, RealEstate.
         /// </summary>
-        /// <value>The nominal asset class of the instrument. Available values: InterestRates, FX, Inflation, Equities, Credit, Commodities, Money, Unknown.</value>
+        /// <value>The nominal asset class of the instrument. Available values: InterestRates, FX, Inflation, Equities, Credit, Commodities, Money, Unknown, RealEstate.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum AssetClassEnum
         {
@@ -114,14 +114,20 @@ namespace Lusid.Sdk.Model
             /// Enum Unknown for value: Unknown
             /// </summary>
             [EnumMember(Value = "Unknown")]
-            Unknown = 8
+            Unknown = 8,
+
+            /// <summary>
+            /// Enum RealEstate for value: RealEstate
+            /// </summary>
+            [EnumMember(Value = "RealEstate")]
+            RealEstate = 9
         }
 
 
         /// <summary>
-        /// The nominal asset class of the instrument. Available values: InterestRates, FX, Inflation, Equities, Credit, Commodities, Money, Unknown.
+        /// The nominal asset class of the instrument. Available values: InterestRates, FX, Inflation, Equities, Credit, Commodities, Money, Unknown, RealEstate.
         /// </summary>
-        /// <value>The nominal asset class of the instrument. Available values: InterestRates, FX, Inflation, Equities, Credit, Commodities, Money, Unknown.</value>
+        /// <value>The nominal asset class of the instrument. Available values: InterestRates, FX, Inflation, Equities, Credit, Commodities, Money, Unknown, RealEstate.</value>
         [DataMember(Name = "assetClass", EmitDefaultValue = false)]
         public AssetClassEnum? AssetClass { get; set; }
         /// <summary>
@@ -143,7 +149,7 @@ namespace Lusid.Sdk.Model
         /// <param name="lookthroughPortfolio">lookthroughPortfolio.</param>
         /// <param name="instrumentDefinition">instrumentDefinition.</param>
         /// <param name="state">The state of of the instrument at the asAt datetime of this version of the instrument definition. Available values: Active, Inactive, Deleted. (required).</param>
-        /// <param name="assetClass">The nominal asset class of the instrument. Available values: InterestRates, FX, Inflation, Equities, Credit, Commodities, Money, Unknown..</param>
+        /// <param name="assetClass">The nominal asset class of the instrument. Available values: InterestRates, FX, Inflation, Equities, Credit, Commodities, Money, Unknown, RealEstate..</param>
         /// <param name="domCcy">The domestic currency, meaning the currency in which the instrument would typically be expected to pay cashflows, e.g. a share in AAPL being USD..</param>
         /// <param name="relationships">A set of relationships associated to the instrument..</param>
         /// <param name="settlementCycle">settlementCycle.</param>

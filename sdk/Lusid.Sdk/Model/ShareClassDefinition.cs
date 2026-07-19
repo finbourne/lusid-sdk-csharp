@@ -36,13 +36,13 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ShareClassDefinition" /> class.
         /// </summary>
-        /// <param name="code">The unique code for the Share Class. Must be unique within the Fund. (required).</param>
+        /// <param name="instrumentIdentifiers">Unique instrument identifiers (required).</param>
         /// <param name="name">The display name of the Share Class. (required).</param>
         /// <param name="description">An optional description for the Share Class..</param>
         /// <param name="shareClassShortCode">A short code that uniquely identifies the share class within the Fund. (required).</param>
         /// <param name="launchPrice">The launch price set when a shareclass is added to the fund. Defaults to 1..</param>
         /// <param name="launchDate">The launch date set when a shareclass is added to the fund. Defaults to Fund Inception Date..</param>
-        /// <param name="apportionmentFactor">The weighting factor used for apportionment across this share class..</param>
+        /// <param name="apportionmentFactor">Only used for fixed percentage method or be zero, must equal 1 or 0 across all classes in the fund..</param>
         /// <param name="properties">An optional set of properties to attach to the auto-created Instrument. Only applied when createInstrument is true..</param>
         /// <param name="fundShareClassType">The Type of Share Class. Available values: Unitised, Inactive, Series, PrivateEquity, Partnership. (required).</param>
         /// <param name="distributionType">The type of distribution the ShareClass will calculate. Available values: Income, Accumulation. (required).</param>
@@ -55,14 +55,14 @@ namespace Lusid.Sdk.Model
         /// <param name="timeZoneConventions">timeZoneConventions.</param>
         /// <param name="distributionPaymentType">The tax treatment applied to distributions. Available values: Invalid, Gross, Net..</param>
         /// <param name="hedging">Indicates whether the ShareClass applies currency hedging. Available values: Invalid, None, ApplyHedging. (required).</param>
-        public ShareClassDefinition(string code = default(string), string name = default(string), string description = default(string), string shareClassShortCode = default(string), decimal? launchPrice = default(decimal?), DateTimeOffset? launchDate = default(DateTimeOffset?), decimal? apportionmentFactor = default(decimal?), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string fundShareClassType = default(string), string distributionType = default(string), string domCcy = default(string), TradingConventions tradingConventions = default(TradingConventions), int? unitsPrecision = default(int?), int? pricePrecision = default(int?), List<SimpleRoundingConvention> roundingConventions = default(List<SimpleRoundingConvention>), List<SimpleRoundingConvention> roundingConventionsUnits = default(List<SimpleRoundingConvention>), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), string distributionPaymentType = default(string), string hedging = default(string))
+        public ShareClassDefinition(Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string name = default(string), string description = default(string), string shareClassShortCode = default(string), decimal? launchPrice = default(decimal?), DateTimeOffset? launchDate = default(DateTimeOffset?), decimal? apportionmentFactor = default(decimal?), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string fundShareClassType = default(string), string distributionType = default(string), string domCcy = default(string), TradingConventions tradingConventions = default(TradingConventions), int? unitsPrecision = default(int?), int? pricePrecision = default(int?), List<SimpleRoundingConvention> roundingConventions = default(List<SimpleRoundingConvention>), List<SimpleRoundingConvention> roundingConventionsUnits = default(List<SimpleRoundingConvention>), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), string distributionPaymentType = default(string), string hedging = default(string))
         {
-            // to ensure "code" is required (not null)
-            if (code == null)
+            // to ensure "instrumentIdentifiers" is required (not null)
+            if (instrumentIdentifiers == null)
             {
-                throw new ArgumentNullException("code is a required property for ShareClassDefinition and cannot be null");
+                throw new ArgumentNullException("instrumentIdentifiers is a required property for ShareClassDefinition and cannot be null");
             }
-            this.Code = code;
+            this.InstrumentIdentifiers = instrumentIdentifiers;
             // to ensure "name" is required (not null)
             if (name == null)
             {
@@ -114,11 +114,11 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The unique code for the Share Class. Must be unique within the Fund.
+        /// Unique instrument identifiers
         /// </summary>
-        /// <value>The unique code for the Share Class. Must be unique within the Fund.</value>
-        [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = true)]
-        public string Code { get; set; }
+        /// <value>Unique instrument identifiers</value>
+        [DataMember(Name = "instrumentIdentifiers", IsRequired = true, EmitDefaultValue = true)]
+        public Dictionary<string, string> InstrumentIdentifiers { get; set; }
 
         /// <summary>
         /// The display name of the Share Class.
@@ -156,9 +156,9 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset? LaunchDate { get; set; }
 
         /// <summary>
-        /// The weighting factor used for apportionment across this share class.
+        /// Only used for fixed percentage method or be zero, must equal 1 or 0 across all classes in the fund.
         /// </summary>
-        /// <value>The weighting factor used for apportionment across this share class.</value>
+        /// <value>Only used for fixed percentage method or be zero, must equal 1 or 0 across all classes in the fund.</value>
         [DataMember(Name = "apportionmentFactor", EmitDefaultValue = true)]
         public decimal? ApportionmentFactor { get; set; }
 
@@ -252,7 +252,7 @@ namespace Lusid.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class ShareClassDefinition {\n");
-            sb.Append("  Code: ").Append(Code).Append("\n");
+            sb.Append("  InstrumentIdentifiers: ").Append(InstrumentIdentifiers).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  ShareClassShortCode: ").Append(ShareClassShortCode).Append("\n");
@@ -307,9 +307,10 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
-                    this.Code == input.Code ||
-                    (this.Code != null &&
-                    this.Code.Equals(input.Code))
+                    this.InstrumentIdentifiers == input.InstrumentIdentifiers ||
+                    this.InstrumentIdentifiers != null &&
+                    input.InstrumentIdentifiers != null &&
+                    this.InstrumentIdentifiers.SequenceEqual(input.InstrumentIdentifiers)
                 ) && 
                 (
                     this.Name == input.Name ||
@@ -415,9 +416,9 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Code != null)
+                if (this.InstrumentIdentifiers != null)
                 {
-                    hashCode = (hashCode * 59) + this.Code.GetHashCode();
+                    hashCode = (hashCode * 59) + this.InstrumentIdentifiers.GetHashCode();
                 }
                 if (this.Name != null)
                 {
@@ -502,25 +503,6 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Code (string) maxLength
-            if (this.Code != null && this.Code.Length > 64)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Code, length must be less than 64.", new [] { "Code" });
-            }
-
-            // Code (string) minLength
-            if (this.Code != null && this.Code.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Code, length must be greater than 1.", new [] { "Code" });
-            }
-
-            // Code (string) pattern
-            Regex regexCode = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
-            if (false == regexCode.Match(this.Code).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Code, must match a pattern of " + regexCode, new [] { "Code" });
-            }
-
             // Name (string) maxLength
             if (this.Name != null && this.Name.Length > 256)
             {

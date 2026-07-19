@@ -549,7 +549,13 @@ namespace Lusid.Sdk.Model
         /// Enum WarrantsExerciseEvent for value: WarrantsExerciseEvent
         /// </summary>
         [EnumMember(Value = "WarrantsExerciseEvent")]
-        WarrantsExerciseEvent = 87
+        WarrantsExerciseEvent = 87,
+
+        /// <summary>
+        /// Enum PariPassuEvent for value: PariPassuEvent
+        /// </summary>
+        [EnumMember(Value = "PariPassuEvent")]
+        PariPassuEvent = 88
     }
 
 }

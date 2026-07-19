@@ -28,6 +28,7 @@ namespace Lusid.Sdk.Model
     /// </summary>
     [DataContract(Name = "NavActivityAdjustment")]
     [JsonConverter(typeof(JsonSubtypes), "NavActivityAdjustmentType")]
+    [JsonSubtypes.KnownSubType(typeof(ComplexMarketDataActivity), "ComplexMarketDataActivity")]
     [JsonSubtypes.KnownSubType(typeof(InstrumentActivity), "InstrumentActivity")]
     [JsonSubtypes.KnownSubType(typeof(PortfolioSettlementInstruction), "PortfolioSettlementInstruction")]
     [JsonSubtypes.KnownSubType(typeof(PortfolioTransaction), "PortfolioTransaction")]
@@ -35,9 +36,9 @@ namespace Lusid.Sdk.Model
     public partial class NavActivityAdjustment : IEquatable<NavActivityAdjustment>, IValidatableObject
     {
         /// <summary>
-        /// The type of the entity being applied, for example a PortfolioTransaction. Available values: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity, QuoteActivity.
+        /// The type of the entity being applied, for example a PortfolioTransaction. Available values: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity, QuoteActivity, ComplexMarketDataActivity.
         /// </summary>
-        /// <value>The type of the entity being applied, for example a PortfolioTransaction. Available values: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity, QuoteActivity.</value>
+        /// <value>The type of the entity being applied, for example a PortfolioTransaction. Available values: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity, QuoteActivity, ComplexMarketDataActivity.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum NavActivityAdjustmentTypeEnum
         {
@@ -63,14 +64,20 @@ namespace Lusid.Sdk.Model
             /// Enum QuoteActivity for value: QuoteActivity
             /// </summary>
             [EnumMember(Value = "QuoteActivity")]
-            QuoteActivity = 4
+            QuoteActivity = 4,
+
+            /// <summary>
+            /// Enum ComplexMarketDataActivity for value: ComplexMarketDataActivity
+            /// </summary>
+            [EnumMember(Value = "ComplexMarketDataActivity")]
+            ComplexMarketDataActivity = 5
         }
 
 
         /// <summary>
-        /// The type of the entity being applied, for example a PortfolioTransaction. Available values: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity, QuoteActivity.
+        /// The type of the entity being applied, for example a PortfolioTransaction. Available values: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity, QuoteActivity, ComplexMarketDataActivity.
         /// </summary>
-        /// <value>The type of the entity being applied, for example a PortfolioTransaction. Available values: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity, QuoteActivity.</value>
+        /// <value>The type of the entity being applied, for example a PortfolioTransaction. Available values: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity, QuoteActivity, ComplexMarketDataActivity.</value>
         [DataMember(Name = "navActivityAdjustmentType", IsRequired = true, EmitDefaultValue = true)]
         public NavActivityAdjustmentTypeEnum NavActivityAdjustmentType { get; set; }
         /// <summary>
@@ -81,7 +88,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NavActivityAdjustment" /> class.
         /// </summary>
-        /// <param name="navActivityAdjustmentType">The type of the entity being applied, for example a PortfolioTransaction. Available values: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity, QuoteActivity. (required).</param>
+        /// <param name="navActivityAdjustmentType">The type of the entity being applied, for example a PortfolioTransaction. Available values: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity, QuoteActivity, ComplexMarketDataActivity. (required).</param>
         public NavActivityAdjustment(NavActivityAdjustmentTypeEnum navActivityAdjustmentType = default(NavActivityAdjustmentTypeEnum))
         {
             this.NavActivityAdjustmentType = navActivityAdjustmentType;

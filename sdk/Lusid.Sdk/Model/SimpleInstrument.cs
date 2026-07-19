@@ -31,9 +31,9 @@ namespace Lusid.Sdk.Model
     public partial class SimpleInstrument : LusidInstrument, IEquatable<SimpleInstrument>, IValidatableObject
     {
         /// <summary>
-        /// Available values: InterestRates, FX, Inflation, Equities, Credit, Commodities, Money, Unknown.
+        /// Available values: InterestRates, FX, Inflation, Equities, Credit, Commodities, Money, Unknown, RealEstate.
         /// </summary>
-        /// <value>Available values: InterestRates, FX, Inflation, Equities, Credit, Commodities, Money, Unknown.</value>
+        /// <value>Available values: InterestRates, FX, Inflation, Equities, Credit, Commodities, Money, Unknown, RealEstate.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum AssetClassEnum
         {
@@ -83,14 +83,20 @@ namespace Lusid.Sdk.Model
             /// Enum Unknown for value: Unknown
             /// </summary>
             [EnumMember(Value = "Unknown")]
-            Unknown = 8
+            Unknown = 8,
+
+            /// <summary>
+            /// Enum RealEstate for value: RealEstate
+            /// </summary>
+            [EnumMember(Value = "RealEstate")]
+            RealEstate = 9
         }
 
 
         /// <summary>
-        /// Available values: InterestRates, FX, Inflation, Equities, Credit, Commodities, Money, Unknown.
+        /// Available values: InterestRates, FX, Inflation, Equities, Credit, Commodities, Money, Unknown, RealEstate.
         /// </summary>
-        /// <value>Available values: InterestRates, FX, Inflation, Equities, Credit, Commodities, Money, Unknown.</value>
+        /// <value>Available values: InterestRates, FX, Inflation, Equities, Credit, Commodities, Money, Unknown, RealEstate.</value>
         [DataMember(Name = "assetClass", IsRequired = true, EmitDefaultValue = true)]
         public AssetClassEnum AssetClass { get; set; }
         /// <summary>
@@ -103,7 +109,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="maturityDate">The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.  For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as  Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it..</param>
         /// <param name="domCcy">The domestic currency. (required).</param>
-        /// <param name="assetClass">Available values: InterestRates, FX, Inflation, Equities, Credit, Commodities, Money, Unknown. (required).</param>
+        /// <param name="assetClass">Available values: InterestRates, FX, Inflation, Equities, Credit, Commodities, Money, Unknown, RealEstate. (required).</param>
         /// <param name="fgnCcys">The set of foreign currencies, if any (optional)..</param>
         /// <param name="simpleInstrumentType">The Instrument type of the simple instrument. (required).</param>
         /// <param name="timeZoneConventions">timeZoneConventions.</param>

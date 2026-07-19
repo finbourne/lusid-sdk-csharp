@@ -45,6 +45,8 @@ Name | Type | Description | Notes
 **SettlementSummary** | [**TransactionSettlementSummary**](TransactionSettlementSummary.md) |  | [optional] 
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **StagedModifications** | [**StagedModificationsInfo**](StagedModificationsInfo.md) |  | [optional] 
+**CustodianEntries** | [**List&lt;CustodianEntry&gt;**](CustodianEntry.md) | Set of of Custodian Entries associated with the transaction. | [optional] 
+**ResolvedCustodianAccounts** | [**List&lt;ResolvedCustodianAccount&gt;**](ResolvedCustodianAccount.md) | Set of Custodian Accounts resolved from each movement on the Transaction. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -90,6 +92,8 @@ ModelVersion? varVersion = new ModelVersion();
 
 StagedModificationsInfo? stagedModifications = new StagedModificationsInfo();
 
+List<CustodianEntry> custodianEntries = new List<CustodianEntry>();
+List<ResolvedCustodianAccount> resolvedCustodianAccounts = new List<ResolvedCustodianAccount>();
 
 OutputTransaction outputTransactionInstance = new OutputTransaction(
     transactionId: transactionId,
@@ -131,7 +135,9 @@ OutputTransaction outputTransactionInstance = new OutputTransaction(
     sequencePriority: sequencePriority,
     settlementSummary: settlementSummary,
     varVersion: varVersion,
-    stagedModifications: stagedModifications);
+    stagedModifications: stagedModifications,
+    custodianEntries: custodianEntries,
+    resolvedCustodianAccounts: resolvedCustodianAccounts);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -42,7 +42,7 @@ namespace Lusid.Sdk.Model
         /// <param name="asAt">The asAt time for which the adjustment is being applied. (required).</param>
         /// <param name="scope">The Scope of the given entity (required).</param>
         /// <param name="lusidInstrumentId">The LusidInstrumentId of the given entity (required).</param>
-        /// <param name="navActivityAdjustmentType">The type of the entity being applied, for example a PortfolioTransaction. Available values: PortfolioTransactionAdjustment, PortfolioSettlementInstructionAdjustment, InstrumentActivityAdjustment, QuoteActivityAdjustment. (required) (default to &quot;InstrumentActivityAdjustment&quot;).</param>
+        /// <param name="navActivityAdjustmentType">The type of the entity being applied, for example a PortfolioTransaction. Available values: PortfolioTransactionAdjustment, PortfolioSettlementInstructionAdjustment, InstrumentActivityAdjustment, QuoteActivityAdjustment, ComplexMarketDataActivityAdjustment. (required) (default to &quot;InstrumentActivityAdjustment&quot;).</param>
         public InstrumentActivityAdjustment(string navActivityAdjustmentSource = default(string), DateTimeOffset asAt = default(DateTimeOffset), string scope = default(string), string lusidInstrumentId = default(string), NavActivityAdjustmentTypeEnum navActivityAdjustmentType = default(NavActivityAdjustmentTypeEnum)) : base(navActivityAdjustmentType)
         {
             // to ensure "navActivityAdjustmentSource" is required (not null)

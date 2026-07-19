@@ -36,7 +36,7 @@ namespace Lusid.Sdk.Model
         /// <param name="addedOriginValuationPointCode">The Valuation Point, only for an Instrument added as part of a Complex Close action..</param>
         /// <param name="addedOriginValuationPointVariantCode">The Valuation Point variant, only for Instruments added as part of a Complex Close action..</param>
         /// <param name="valuationPointOriginSource">Collection of sources of Post Close Activities which added this instrument. Available values: Undefined, Manual, Auto..</param>
-        /// <param name="valuationPointOriginType">Collection of types of Post Close Activities which added this instrument. Available values: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity, QuoteActivity..</param>
+        /// <param name="valuationPointOriginType">Collection of types of Post Close Activities which added this instrument. Available values: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity, QuoteActivity, ComplexMarketDataActivity..</param>
         /// <param name="properties">The requested instrument properties. These will be from the &#39;Instrument&#39; domain..</param>
         public ValuationPointInstrument(Instrument instrument = default(Instrument), string valuationPointOrigin = default(string), string addedOriginValuationPointCode = default(string), string addedOriginValuationPointVariantCode = default(string), List<string> valuationPointOriginSource = default(List<string>), List<string> valuationPointOriginType = default(List<string>), Dictionary<string, Property> properties = default(Dictionary<string, Property>))
         {
@@ -84,9 +84,9 @@ namespace Lusid.Sdk.Model
         public List<string> ValuationPointOriginSource { get; set; }
 
         /// <summary>
-        /// Collection of types of Post Close Activities which added this instrument. Available values: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity, QuoteActivity.
+        /// Collection of types of Post Close Activities which added this instrument. Available values: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity, QuoteActivity, ComplexMarketDataActivity.
         /// </summary>
-        /// <value>Collection of types of Post Close Activities which added this instrument. Available values: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity, QuoteActivity.</value>
+        /// <value>Collection of types of Post Close Activities which added this instrument. Available values: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity, QuoteActivity, ComplexMarketDataActivity.</value>
         [DataMember(Name = "valuationPointOriginType", EmitDefaultValue = true)]
         public List<string> ValuationPointOriginType { get; set; }
 

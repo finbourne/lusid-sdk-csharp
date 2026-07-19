@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**NavActivityAdjustmentType** | **string** | The type of the entity being applied, for example a PortfolioTransaction. Available values: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity, QuoteActivity. | 
+**NavActivityAdjustmentType** | **string** | The type of the entity being applied, for example a PortfolioTransaction. Available values: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity, QuoteActivity, ComplexMarketDataActivity. | 
 **AsAt** | **DateTimeOffset** | The asAt time for which the adjustment is being applied. | 
-**EffectiveAt** | [**DateTimeOrCutLabel**](DateTimeOrCutLabel.md) | The EffectiveAt time of the quote event that need to be added to the closed period. | 
-**EntityUniqueId** | **string** | The EntityUniqueId from the quote which needs to be added as a post close activity. | 
+**EffectiveAt** | [**DateTimeOrCutLabel**](DateTimeOrCutLabel.md) | The EffectiveAt time of the entity event that need to be added to the closed period. | 
+**EntityUniqueId** | **string** | The EntityUniqueId from the entity which needs to be added as a post close activity. | 
 **InstrumentId** | **string** | The InstrumentId from the quote which needs to be added as a post close activity. | 
 
 ```csharp

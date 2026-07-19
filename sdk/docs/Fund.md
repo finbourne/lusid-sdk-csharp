@@ -23,7 +23,6 @@ Name | Type | Description | Notes
 **AdditionalNavTypes** | [**List&lt;NavType&gt;**](NavType.md) | The definitions for any additional NAVs on the Fund. | [optional] 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | A set of properties for the Fund. | [optional] 
 **CreateInstrument** | **bool** | Whether to create instruments for the Fund&#39;s share classes, series, or partner classes upon creation. Defaults to false. | [optional] 
-**ApportionmentMethodProperty** | [**ApportionmentMethodProperty**](ApportionmentMethodProperty.md) |  | [optional] 
 **AllocationGroups** | [**List&lt;AllocationGroup&gt;**](AllocationGroup.md) | An optional list of Allocation Group definitions for the Fund. | [optional] 
 **ShareClasses** | [**List&lt;ShareClass&gt;**](ShareClass.md) | An optional list of Share Class definitions for the Fund. | [optional] 
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
@@ -53,8 +52,6 @@ NavType? primaryNavType = new NavType();
 List<NavType> additionalNavTypes = new List<NavType>();
 Dictionary<string, Property> properties = new Dictionary<string, Property>();
 bool createInstrument = //"True";
-ApportionmentMethodProperty? apportionmentMethodProperty = new ApportionmentMethodProperty();
-
 List<AllocationGroup> allocationGroups = new List<AllocationGroup>();
 List<ShareClass> shareClasses = new List<ShareClass>();
 ModelVersion? varVersion = new ModelVersion();
@@ -80,7 +77,6 @@ Fund fundInstance = new Fund(
     additionalNavTypes: additionalNavTypes,
     properties: properties,
     createInstrument: createInstrument,
-    apportionmentMethodProperty: apportionmentMethodProperty,
     allocationGroups: allocationGroups,
     shareClasses: shareClasses,
     varVersion: varVersion,

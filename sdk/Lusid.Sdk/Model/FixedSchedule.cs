@@ -48,8 +48,9 @@ namespace Lusid.Sdk.Model
         /// <param name="paymentCurrency">Payment currency. This does not have to be the same as the nominal bond or observation/reset currency. (required).</param>
         /// <param name="stubType">When a payment schedule doesn&#39;t have regular payment intervals just because of the  first and/or last coupons of the schedule, we call those irregular coupons stubs.  This configuration specifies what type of stub is used when building the schedule  Supported values are:  None &#x3D; this is a regular payment schedule with no stubs. DO NOT use it with irregular schedules or you will get incorrect and unexpected behaviour.  ShortFront &#x3D; this is an irregular payment schedule where only the first coupon is irregular, and covers a payment period that is shorter than the regular payment period.  ShortBack &#x3D; this is an irregular payment schedule where only the last coupon is irregular, and covers a payment period that is shorter than the regular payment period.  LongFront &#x3D; this is an irregular payment schedule where only the first coupon is irregular, and covers a payment period that is longer than the regular payment period.  LongBack &#x3D; this is an irregular payment schedule where only the last coupon is irregular, and covers a payment period that is longer than the regular payment period.  Both &#x3D; this is an irregular payment schedule where both the first and the last coupons are irregular, and the length of these periods is calculated based on the first coupon payment date that should have been explicitly set..</param>
         /// <param name="exDividendConfiguration">exDividendConfiguration.</param>
+        /// <param name="scheduleId">Optional: identifier for the Schedule. This is only used for Schedules on FlexibleDeposit instruments where the list of Schedules  on the instrument definition can be modified by upsert of a DepositRollEvent..</param>
         /// <param name="scheduleType">Available values: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, BondConversionSchedule, Invalid. (required) (default to &quot;FixedSchedule&quot;).</param>
-        public FixedSchedule(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), FlowConventions flowConventions = default(FlowConventions), decimal couponRate = default(decimal), FlowConventionName conventionName = default(FlowConventionName), int? exDividendDays = default(int?), decimal notional = default(decimal), string paymentCurrency = default(string), string stubType = default(string), ExDividendConfiguration exDividendConfiguration = default(ExDividendConfiguration), ScheduleTypeEnum scheduleType = default(ScheduleTypeEnum)) : base(scheduleType)
+        public FixedSchedule(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), FlowConventions flowConventions = default(FlowConventions), decimal couponRate = default(decimal), FlowConventionName conventionName = default(FlowConventionName), int? exDividendDays = default(int?), decimal notional = default(decimal), string paymentCurrency = default(string), string stubType = default(string), ExDividendConfiguration exDividendConfiguration = default(ExDividendConfiguration), string scheduleId = default(string), ScheduleTypeEnum scheduleType = default(ScheduleTypeEnum)) : base(scheduleType)
         {
             this.StartDate = startDate;
             this.MaturityDate = maturityDate;
@@ -66,6 +67,7 @@ namespace Lusid.Sdk.Model
             this.Notional = notional;
             this.StubType = stubType;
             this.ExDividendConfiguration = exDividendConfiguration;
+            this.ScheduleId = scheduleId;
         }
 
         /// <summary>
@@ -136,6 +138,13 @@ namespace Lusid.Sdk.Model
         public ExDividendConfiguration ExDividendConfiguration { get; set; }
 
         /// <summary>
+        /// Optional: identifier for the Schedule. This is only used for Schedules on FlexibleDeposit instruments where the list of Schedules  on the instrument definition can be modified by upsert of a DepositRollEvent.
+        /// </summary>
+        /// <value>Optional: identifier for the Schedule. This is only used for Schedules on FlexibleDeposit instruments where the list of Schedules  on the instrument definition can be modified by upsert of a DepositRollEvent.</value>
+        [DataMember(Name = "scheduleId", EmitDefaultValue = true)]
+        public string ScheduleId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -154,6 +163,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  PaymentCurrency: ").Append(PaymentCurrency).Append("\n");
             sb.Append("  StubType: ").Append(StubType).Append("\n");
             sb.Append("  ExDividendConfiguration: ").Append(ExDividendConfiguration).Append("\n");
+            sb.Append("  ScheduleId: ").Append(ScheduleId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -236,6 +246,11 @@ namespace Lusid.Sdk.Model
                     this.ExDividendConfiguration == input.ExDividendConfiguration ||
                     (this.ExDividendConfiguration != null &&
                     this.ExDividendConfiguration.Equals(input.ExDividendConfiguration))
+                ) && base.Equals(input) && 
+                (
+                    this.ScheduleId == input.ScheduleId ||
+                    (this.ScheduleId != null &&
+                    this.ScheduleId.Equals(input.ScheduleId))
                 );
         }
 
@@ -281,6 +296,10 @@ namespace Lusid.Sdk.Model
                 if (this.ExDividendConfiguration != null)
                 {
                     hashCode = (hashCode * 59) + this.ExDividendConfiguration.GetHashCode();
+                }
+                if (this.ScheduleId != null)
+                {
+                    hashCode = (hashCode * 59) + this.ScheduleId.GetHashCode();
                 }
                 return hashCode;
             }

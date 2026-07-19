@@ -43,7 +43,7 @@ namespace Lusid.Sdk.Model
         /// <param name="portfolioScope">The portfolio scope of the given entity (required).</param>
         /// <param name="portfolioCode">The portfolio code of the given entity (required).</param>
         /// <param name="transactionId">The transaction Id of the PortfolioTransaction being adjusted (required).</param>
-        /// <param name="navActivityAdjustmentType">The type of the entity being applied, for example a PortfolioTransaction. Available values: PortfolioTransactionAdjustment, PortfolioSettlementInstructionAdjustment, InstrumentActivityAdjustment, QuoteActivityAdjustment. (required) (default to &quot;PortfolioTransactionAdjustment&quot;).</param>
+        /// <param name="navActivityAdjustmentType">The type of the entity being applied, for example a PortfolioTransaction. Available values: PortfolioTransactionAdjustment, PortfolioSettlementInstructionAdjustment, InstrumentActivityAdjustment, QuoteActivityAdjustment, ComplexMarketDataActivityAdjustment. (required) (default to &quot;PortfolioTransactionAdjustment&quot;).</param>
         public PortfolioTransactionAdjustment(string navActivityAdjustmentSource = default(string), DateTimeOffset asAt = default(DateTimeOffset), string portfolioScope = default(string), string portfolioCode = default(string), string transactionId = default(string), NavActivityAdjustmentTypeEnum navActivityAdjustmentType = default(NavActivityAdjustmentTypeEnum)) : base(navActivityAdjustmentType)
         {
             // to ensure "navActivityAdjustmentSource" is required (not null)

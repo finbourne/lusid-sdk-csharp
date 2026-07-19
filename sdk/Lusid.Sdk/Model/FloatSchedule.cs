@@ -55,8 +55,9 @@ namespace Lusid.Sdk.Model
         /// <param name="useAnnualisedDirectRates">Flag indicating whether to use daily updated annualised interest  rates for calculating the accrued interest. Defaults to false..</param>
         /// <param name="capRate">The maximum floating rate which a cashflow can accrue..</param>
         /// <param name="floorRate">The minimum floating rate which a cashflow can accrue..</param>
+        /// <param name="scheduleId">Optional: identifier for the Schedule. This is only used for Schedules on FlexibleDeposit instruments where the list of Schedules  on the instrument definition can be modified by upsert of a DepositRollEvent..</param>
         /// <param name="scheduleType">Available values: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, BondConversionSchedule, Invalid. (required) (default to &quot;FloatSchedule&quot;).</param>
-        public FloatSchedule(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), FlowConventions flowConventions = default(FlowConventions), FlowConventionName conventionName = default(FlowConventionName), int? exDividendDays = default(int?), FlowConventionName indexConventionName = default(FlowConventionName), IndexConvention indexConventions = default(IndexConvention), decimal notional = default(decimal), string paymentCurrency = default(string), decimal spread = default(decimal), string stubType = default(string), ExDividendConfiguration exDividendConfiguration = default(ExDividendConfiguration), Compounding compounding = default(Compounding), string resetConvention = default(string), bool useAnnualisedDirectRates = default(bool), decimal? capRate = default(decimal?), decimal? floorRate = default(decimal?), ScheduleTypeEnum scheduleType = default(ScheduleTypeEnum)) : base(scheduleType)
+        public FloatSchedule(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), FlowConventions flowConventions = default(FlowConventions), FlowConventionName conventionName = default(FlowConventionName), int? exDividendDays = default(int?), FlowConventionName indexConventionName = default(FlowConventionName), IndexConvention indexConventions = default(IndexConvention), decimal notional = default(decimal), string paymentCurrency = default(string), decimal spread = default(decimal), string stubType = default(string), ExDividendConfiguration exDividendConfiguration = default(ExDividendConfiguration), Compounding compounding = default(Compounding), string resetConvention = default(string), bool useAnnualisedDirectRates = default(bool), decimal? capRate = default(decimal?), decimal? floorRate = default(decimal?), string scheduleId = default(string), ScheduleTypeEnum scheduleType = default(ScheduleTypeEnum)) : base(scheduleType)
         {
             // to ensure "paymentCurrency" is required (not null)
             if (paymentCurrency == null)
@@ -80,6 +81,7 @@ namespace Lusid.Sdk.Model
             this.UseAnnualisedDirectRates = useAnnualisedDirectRates;
             this.CapRate = capRate;
             this.FloorRate = floorRate;
+            this.ScheduleId = scheduleId;
         }
 
         /// <summary>
@@ -196,6 +198,13 @@ namespace Lusid.Sdk.Model
         public decimal? FloorRate { get; set; }
 
         /// <summary>
+        /// Optional: identifier for the Schedule. This is only used for Schedules on FlexibleDeposit instruments where the list of Schedules  on the instrument definition can be modified by upsert of a DepositRollEvent.
+        /// </summary>
+        /// <value>Optional: identifier for the Schedule. This is only used for Schedules on FlexibleDeposit instruments where the list of Schedules  on the instrument definition can be modified by upsert of a DepositRollEvent.</value>
+        [DataMember(Name = "scheduleId", EmitDefaultValue = true)]
+        public string ScheduleId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -221,6 +230,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  UseAnnualisedDirectRates: ").Append(UseAnnualisedDirectRates).Append("\n");
             sb.Append("  CapRate: ").Append(CapRate).Append("\n");
             sb.Append("  FloorRate: ").Append(FloorRate).Append("\n");
+            sb.Append("  ScheduleId: ").Append(ScheduleId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -337,6 +347,11 @@ namespace Lusid.Sdk.Model
                     this.FloorRate == input.FloorRate ||
                     (this.FloorRate != null &&
                     this.FloorRate.Equals(input.FloorRate))
+                ) && base.Equals(input) && 
+                (
+                    this.ScheduleId == input.ScheduleId ||
+                    (this.ScheduleId != null &&
+                    this.ScheduleId.Equals(input.ScheduleId))
                 );
         }
 
@@ -407,6 +422,10 @@ namespace Lusid.Sdk.Model
                 if (this.FloorRate != null)
                 {
                     hashCode = (hashCode * 59) + this.FloorRate.GetHashCode();
+                }
+                if (this.ScheduleId != null)
+                {
+                    hashCode = (hashCode * 59) + this.ScheduleId.GetHashCode();
                 }
                 return hashCode;
             }
