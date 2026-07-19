@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **ShareClassData** | [**List&lt;ShareClassData&gt;**](ShareClassData.md) | The data for all share classes in fund. Share classes are identified by their short codes. | 
 **ValuationPointCode** | **string** | The code of the valuation point. | [optional] 
 **PreviousValuationPointCode** | **string** | The code of the previous valuation point. | [optional] 
+**ApportionmentResults** | [**List&lt;ApportionmentBreakdown&gt;**](ApportionmentBreakdown.md) | The apportionment results for the valuation point: one fund-level entry plus one entry per allocation group. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -27,6 +28,7 @@ FundValuationPointData fundValuationPointData = new FundValuationPointData();
 List<ShareClassData> shareClassData = new List<ShareClassData>();
 string valuationPointCode = "example valuationPointCode";
 string previousValuationPointCode = "example previousValuationPointCode";
+List<ApportionmentBreakdown> apportionmentResults = new List<ApportionmentBreakdown>();
 List<Link> links = new List<Link>();
 
 ValuationPointDataResponse valuationPointDataResponseInstance = new ValuationPointDataResponse(
@@ -38,6 +40,7 @@ ValuationPointDataResponse valuationPointDataResponseInstance = new ValuationPoi
     shareClassData: shareClassData,
     valuationPointCode: valuationPointCode,
     previousValuationPointCode: previousValuationPointCode,
+    apportionmentResults: apportionmentResults,
     links: links);
 ```
 

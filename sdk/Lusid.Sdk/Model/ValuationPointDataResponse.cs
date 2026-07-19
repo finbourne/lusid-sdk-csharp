@@ -44,8 +44,9 @@ namespace Lusid.Sdk.Model
         /// <param name="shareClassData">The data for all share classes in fund. Share classes are identified by their short codes. (required).</param>
         /// <param name="valuationPointCode">The code of the valuation point..</param>
         /// <param name="previousValuationPointCode">The code of the previous valuation point..</param>
+        /// <param name="apportionmentResults">The apportionment results for the valuation point: one fund-level entry plus one entry per allocation group..</param>
         /// <param name="links">links.</param>
-        public ValuationPointDataResponse(string href = default(string), string type = default(string), string status = default(string), FundDetails fundDetails = default(FundDetails), FundValuationPointData fundValuationPointData = default(FundValuationPointData), List<ShareClassData> shareClassData = default(List<ShareClassData>), string valuationPointCode = default(string), string previousValuationPointCode = default(string), List<Link> links = default(List<Link>))
+        public ValuationPointDataResponse(string href = default(string), string type = default(string), string status = default(string), FundDetails fundDetails = default(FundDetails), FundValuationPointData fundValuationPointData = default(FundValuationPointData), List<ShareClassData> shareClassData = default(List<ShareClassData>), string valuationPointCode = default(string), string previousValuationPointCode = default(string), List<ApportionmentBreakdown> apportionmentResults = default(List<ApportionmentBreakdown>), List<Link> links = default(List<Link>))
         {
             // to ensure "type" is required (not null)
             if (type == null)
@@ -80,6 +81,7 @@ namespace Lusid.Sdk.Model
             this.Href = href;
             this.ValuationPointCode = valuationPointCode;
             this.PreviousValuationPointCode = previousValuationPointCode;
+            this.ApportionmentResults = apportionmentResults;
             this.Links = links;
         }
 
@@ -138,6 +140,13 @@ namespace Lusid.Sdk.Model
         public string PreviousValuationPointCode { get; set; }
 
         /// <summary>
+        /// The apportionment results for the valuation point: one fund-level entry plus one entry per allocation group.
+        /// </summary>
+        /// <value>The apportionment results for the valuation point: one fund-level entry plus one entry per allocation group.</value>
+        [DataMember(Name = "apportionmentResults", EmitDefaultValue = true)]
+        public List<ApportionmentBreakdown> ApportionmentResults { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -159,6 +168,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  ShareClassData: ").Append(ShareClassData).Append("\n");
             sb.Append("  ValuationPointCode: ").Append(ValuationPointCode).Append("\n");
             sb.Append("  PreviousValuationPointCode: ").Append(PreviousValuationPointCode).Append("\n");
+            sb.Append("  ApportionmentResults: ").Append(ApportionmentResults).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -237,6 +247,12 @@ namespace Lusid.Sdk.Model
                     this.PreviousValuationPointCode.Equals(input.PreviousValuationPointCode))
                 ) && 
                 (
+                    this.ApportionmentResults == input.ApportionmentResults ||
+                    this.ApportionmentResults != null &&
+                    input.ApportionmentResults != null &&
+                    this.ApportionmentResults.SequenceEqual(input.ApportionmentResults)
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -284,6 +300,10 @@ namespace Lusid.Sdk.Model
                 if (this.PreviousValuationPointCode != null)
                 {
                     hashCode = (hashCode * 59) + this.PreviousValuationPointCode.GetHashCode();
+                }
+                if (this.ApportionmentResults != null)
+                {
+                    hashCode = (hashCode * 59) + this.ApportionmentResults.GetHashCode();
                 }
                 if (this.Links != null)
                 {
