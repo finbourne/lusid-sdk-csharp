@@ -272,13 +272,6 @@ namespace Lusid.Sdk.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ShareClassShortCode, length must be greater than 1.", new [] { "ShareClassShortCode" });
             }
 
-            // ShareClassShortCode (string) pattern
-            Regex regexShareClassShortCode = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
-            if (false == regexShareClassShortCode.Match(this.ShareClassShortCode).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ShareClassShortCode, must match a pattern of " + regexShareClassShortCode, new [] { "ShareClassShortCode" });
-            }
-
             // Formula (string) maxLength
             if (this.Formula != null && this.Formula.Length > 1024)
             {

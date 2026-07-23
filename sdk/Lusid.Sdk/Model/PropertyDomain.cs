@@ -561,7 +561,13 @@ namespace Lusid.Sdk.Model
         /// Enum ScenarioDefinition for value: ScenarioDefinition
         /// </summary>
         [EnumMember(Value = "ScenarioDefinition")]
-        ScenarioDefinition = 89
+        ScenarioDefinition = 89,
+
+        /// <summary>
+        /// Enum PaymentInstruction for value: PaymentInstruction
+        /// </summary>
+        [EnumMember(Value = "PaymentInstruction")]
+        PaymentInstruction = 90
     }
 
 }
