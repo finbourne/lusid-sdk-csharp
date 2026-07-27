@@ -163,8 +163,9 @@ namespace Lusid.Sdk.Model
         /// <param name="taxRuleSetScope">The scope of the tax rule sets for this portfolio..</param>
         /// <param name="settlementConfiguration">settlementConfiguration.</param>
         /// <param name="stagedModifications">stagedModifications.</param>
+        /// <param name="transactionExclusionFilter">A filter expression that identifies transactions to exclude when building the transaction portfolio&#39;s transactions and holdings. Transactions matching this filter are flagged as excluded..</param>
         /// <param name="links">links.</param>
-        public PortfolioDetails(string href = default(string), ResourceId originPortfolioId = default(ResourceId), ModelVersion varVersion = default(ModelVersion), string baseCurrency = default(string), ResourceId corporateActionSourceId = default(ResourceId), List<string> subHoldingKeys = default(List<string>), List<string> instrumentScopes = default(List<string>), AccountingMethodEnum ?accountingMethod = default(AccountingMethodEnum?), string amortisationMethod = default(string), string transactionTypeScope = default(string), string cashGainLossCalculationDate = default(string), InstrumentEventConfiguration instrumentEventConfiguration = default(InstrumentEventConfiguration), ResourceId amortisationRuleSetId = default(ResourceId), string taxRuleSetScope = default(string), PortfolioSettlementConfiguration settlementConfiguration = default(PortfolioSettlementConfiguration), StagedModificationsInfo stagedModifications = default(StagedModificationsInfo), List<Link> links = default(List<Link>))
+        public PortfolioDetails(string href = default(string), ResourceId originPortfolioId = default(ResourceId), ModelVersion varVersion = default(ModelVersion), string baseCurrency = default(string), ResourceId corporateActionSourceId = default(ResourceId), List<string> subHoldingKeys = default(List<string>), List<string> instrumentScopes = default(List<string>), AccountingMethodEnum ?accountingMethod = default(AccountingMethodEnum?), string amortisationMethod = default(string), string transactionTypeScope = default(string), string cashGainLossCalculationDate = default(string), InstrumentEventConfiguration instrumentEventConfiguration = default(InstrumentEventConfiguration), ResourceId amortisationRuleSetId = default(ResourceId), string taxRuleSetScope = default(string), PortfolioSettlementConfiguration settlementConfiguration = default(PortfolioSettlementConfiguration), StagedModificationsInfo stagedModifications = default(StagedModificationsInfo), string transactionExclusionFilter = default(string), List<Link> links = default(List<Link>))
         {
             // to ensure "originPortfolioId" is required (not null)
             if (originPortfolioId == null)
@@ -197,6 +198,7 @@ namespace Lusid.Sdk.Model
             this.TaxRuleSetScope = taxRuleSetScope;
             this.SettlementConfiguration = settlementConfiguration;
             this.StagedModifications = stagedModifications;
+            this.TransactionExclusionFilter = transactionExclusionFilter;
             this.Links = links;
         }
 
@@ -298,6 +300,13 @@ namespace Lusid.Sdk.Model
         public StagedModificationsInfo StagedModifications { get; set; }
 
         /// <summary>
+        /// A filter expression that identifies transactions to exclude when building the transaction portfolio&#39;s transactions and holdings. Transactions matching this filter are flagged as excluded.
+        /// </summary>
+        /// <value>A filter expression that identifies transactions to exclude when building the transaction portfolio&#39;s transactions and holdings. Transactions matching this filter are flagged as excluded.</value>
+        [DataMember(Name = "transactionExclusionFilter", EmitDefaultValue = true)]
+        public string TransactionExclusionFilter { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -327,6 +336,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  TaxRuleSetScope: ").Append(TaxRuleSetScope).Append("\n");
             sb.Append("  SettlementConfiguration: ").Append(SettlementConfiguration).Append("\n");
             sb.Append("  StagedModifications: ").Append(StagedModifications).Append("\n");
+            sb.Append("  TransactionExclusionFilter: ").Append(TransactionExclusionFilter).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -445,6 +455,11 @@ namespace Lusid.Sdk.Model
                     this.StagedModifications.Equals(input.StagedModifications))
                 ) && 
                 (
+                    this.TransactionExclusionFilter == input.TransactionExclusionFilter ||
+                    (this.TransactionExclusionFilter != null &&
+                    this.TransactionExclusionFilter.Equals(input.TransactionExclusionFilter))
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -522,6 +537,10 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.StagedModifications.GetHashCode();
                 }
+                if (this.TransactionExclusionFilter != null)
+                {
+                    hashCode = (hashCode * 59) + this.TransactionExclusionFilter.GetHashCode();
+                }
                 if (this.Links != null)
                 {
                     hashCode = (hashCode * 59) + this.Links.GetHashCode();
@@ -537,6 +556,25 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // TransactionExclusionFilter (string) maxLength
+            if (this.TransactionExclusionFilter != null && this.TransactionExclusionFilter.Length > 16384)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionExclusionFilter, length must be less than 16384.", new [] { "TransactionExclusionFilter" });
+            }
+
+            // TransactionExclusionFilter (string) minLength
+            if (this.TransactionExclusionFilter != null && this.TransactionExclusionFilter.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionExclusionFilter, length must be greater than 0.", new [] { "TransactionExclusionFilter" });
+            }
+
+            // TransactionExclusionFilter (string) pattern
+            Regex regexTransactionExclusionFilter = new Regex(@"^[\s\S]*$", RegexOptions.CultureInvariant);
+            if (false == regexTransactionExclusionFilter.Match(this.TransactionExclusionFilter).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionExclusionFilter, must match a pattern of " + regexTransactionExclusionFilter, new [] { "TransactionExclusionFilter" });
+            }
+
             yield break;
         }
     }

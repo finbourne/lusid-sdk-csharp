@@ -111,10 +111,11 @@ namespace Lusid.Sdk.Api
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
+        /// <param name="returnExcludedTransactions">Whether to include transactions that a portfolio&#39;s transaction exclusion filter marks as excluded. Defaults to false. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>VersionedResourceListOfOutputTransaction</returns>
-        VersionedResourceListOfOutputTransaction BuildTransactionsForPortfolioGroup(string scope, string code, TransactionQueryParameters transactionQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int? limit = default(int?), string? page = default(string?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), string? membershipType = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        VersionedResourceListOfOutputTransaction BuildTransactionsForPortfolioGroup(string scope, string code, TransactionQueryParameters transactionQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int? limit = default(int?), string? page = default(string?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), string? membershipType = default(string?), bool? returnExcludedTransactions = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// BuildTransactionsForPortfolioGroup: Build transactions for transaction portfolios in a portfolio group
@@ -134,10 +135,11 @@ namespace Lusid.Sdk.Api
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
+        /// <param name="returnExcludedTransactions">Whether to include transactions that a portfolio&#39;s transaction exclusion filter marks as excluded. Defaults to false. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of VersionedResourceListOfOutputTransaction</returns>
-        Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfOutputTransaction> BuildTransactionsForPortfolioGroupWithHttpInfo(string scope, string code, TransactionQueryParameters transactionQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int? limit = default(int?), string? page = default(string?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), string? membershipType = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfOutputTransaction> BuildTransactionsForPortfolioGroupWithHttpInfo(string scope, string code, TransactionQueryParameters transactionQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int? limit = default(int?), string? page = default(string?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), string? membershipType = default(string?), bool? returnExcludedTransactions = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// CreatePortfolioGroup: Create portfolio group
         /// </summary>
@@ -1065,11 +1067,12 @@ namespace Lusid.Sdk.Api
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
+        /// <param name="returnExcludedTransactions">Whether to include transactions that a portfolio&#39;s transaction exclusion filter marks as excluded. Defaults to false. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of VersionedResourceListOfOutputTransaction</returns>
-        System.Threading.Tasks.Task<VersionedResourceListOfOutputTransaction> BuildTransactionsForPortfolioGroupAsync(string scope, string code, TransactionQueryParameters transactionQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int? limit = default(int?), string? page = default(string?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), string? membershipType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<VersionedResourceListOfOutputTransaction> BuildTransactionsForPortfolioGroupAsync(string scope, string code, TransactionQueryParameters transactionQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int? limit = default(int?), string? page = default(string?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), string? membershipType = default(string?), bool? returnExcludedTransactions = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// BuildTransactionsForPortfolioGroup: Build transactions for transaction portfolios in a portfolio group
@@ -1089,11 +1092,12 @@ namespace Lusid.Sdk.Api
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
+        /// <param name="returnExcludedTransactions">Whether to include transactions that a portfolio&#39;s transaction exclusion filter marks as excluded. Defaults to false. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (VersionedResourceListOfOutputTransaction)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfOutputTransaction>> BuildTransactionsForPortfolioGroupWithHttpInfoAsync(string scope, string code, TransactionQueryParameters transactionQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int? limit = default(int?), string? page = default(string?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), string? membershipType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfOutputTransaction>> BuildTransactionsForPortfolioGroupWithHttpInfoAsync(string scope, string code, TransactionQueryParameters transactionQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int? limit = default(int?), string? page = default(string?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), string? membershipType = default(string?), bool? returnExcludedTransactions = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// CreatePortfolioGroup: Create portfolio group
         /// </summary>
@@ -2612,12 +2616,13 @@ namespace Lusid.Sdk.Api
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
+        /// <param name="returnExcludedTransactions">Whether to include transactions that a portfolio&#39;s transaction exclusion filter marks as excluded. Defaults to false. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>VersionedResourceListOfOutputTransaction</returns>
-        public VersionedResourceListOfOutputTransaction BuildTransactionsForPortfolioGroup(string scope, string code, TransactionQueryParameters transactionQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int? limit = default(int?), string? page = default(string?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), string? membershipType = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public VersionedResourceListOfOutputTransaction BuildTransactionsForPortfolioGroup(string scope, string code, TransactionQueryParameters transactionQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int? limit = default(int?), string? page = default(string?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), string? membershipType = default(string?), bool? returnExcludedTransactions = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfOutputTransaction> localVarResponse = BuildTransactionsForPortfolioGroupWithHttpInfo(scope, code, transactionQueryParameters, asAt, filter, propertyKeys, limit, page, dataModelScope, dataModelCode, membershipType, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfOutputTransaction> localVarResponse = BuildTransactionsForPortfolioGroupWithHttpInfo(scope, code, transactionQueryParameters, asAt, filter, propertyKeys, limit, page, dataModelScope, dataModelCode, membershipType, returnExcludedTransactions, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2636,10 +2641,11 @@ namespace Lusid.Sdk.Api
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
+        /// <param name="returnExcludedTransactions">Whether to include transactions that a portfolio&#39;s transaction exclusion filter marks as excluded. Defaults to false. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of VersionedResourceListOfOutputTransaction</returns>
-        public Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfOutputTransaction> BuildTransactionsForPortfolioGroupWithHttpInfo(string scope, string code, TransactionQueryParameters transactionQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int? limit = default(int?), string? page = default(string?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), string? membershipType = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfOutputTransaction> BuildTransactionsForPortfolioGroupWithHttpInfo(string scope, string code, TransactionQueryParameters transactionQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int? limit = default(int?), string? page = default(string?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), string? membershipType = default(string?), bool? returnExcludedTransactions = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -2739,6 +2745,11 @@ namespace Lusid.Sdk.Api
 
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "membershipType", membershipType));
             }
+            if (returnExcludedTransactions != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "returnExcludedTransactions", returnExcludedTransactions));
+            }
             localVarRequestOptions.Data = transactionQueryParameters;
 
             localVarRequestOptions.Operation = "PortfolioGroupsApi.BuildTransactionsForPortfolioGroup";
@@ -2790,13 +2801,14 @@ namespace Lusid.Sdk.Api
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
+        /// <param name="returnExcludedTransactions">Whether to include transactions that a portfolio&#39;s transaction exclusion filter marks as excluded. Defaults to false. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of VersionedResourceListOfOutputTransaction</returns>
-        public async System.Threading.Tasks.Task<VersionedResourceListOfOutputTransaction> BuildTransactionsForPortfolioGroupAsync(string scope, string code, TransactionQueryParameters transactionQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int? limit = default(int?), string? page = default(string?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), string? membershipType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<VersionedResourceListOfOutputTransaction> BuildTransactionsForPortfolioGroupAsync(string scope, string code, TransactionQueryParameters transactionQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int? limit = default(int?), string? page = default(string?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), string? membershipType = default(string?), bool? returnExcludedTransactions = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfOutputTransaction> localVarResponse = await BuildTransactionsForPortfolioGroupWithHttpInfoAsync(scope, code, transactionQueryParameters, asAt, filter, propertyKeys, limit, page, dataModelScope, dataModelCode, membershipType, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfOutputTransaction> localVarResponse = await BuildTransactionsForPortfolioGroupWithHttpInfoAsync(scope, code, transactionQueryParameters, asAt, filter, propertyKeys, limit, page, dataModelScope, dataModelCode, membershipType, returnExcludedTransactions, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2815,11 +2827,12 @@ namespace Lusid.Sdk.Api
         /// <param name="dataModelScope">The optional scope of a Custom Data Model to use (optional)</param>
         /// <param name="dataModelCode">The optional code of a Custom Data Model to use (optional)</param>
         /// <param name="membershipType">The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional)</param>
+        /// <param name="returnExcludedTransactions">Whether to include transactions that a portfolio&#39;s transaction exclusion filter marks as excluded. Defaults to false. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (VersionedResourceListOfOutputTransaction)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfOutputTransaction>> BuildTransactionsForPortfolioGroupWithHttpInfoAsync(string scope, string code, TransactionQueryParameters transactionQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int? limit = default(int?), string? page = default(string?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), string? membershipType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfOutputTransaction>> BuildTransactionsForPortfolioGroupWithHttpInfoAsync(string scope, string code, TransactionQueryParameters transactionQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int? limit = default(int?), string? page = default(string?), string? dataModelScope = default(string?), string? dataModelCode = default(string?), string? membershipType = default(string?), bool? returnExcludedTransactions = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -2911,6 +2924,10 @@ namespace Lusid.Sdk.Api
             if (membershipType != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "membershipType", membershipType));
+            }
+            if (returnExcludedTransactions != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "returnExcludedTransactions", returnExcludedTransactions));
             }
             localVarRequestOptions.Data = transactionQueryParameters;
 

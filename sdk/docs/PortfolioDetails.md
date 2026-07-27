@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **TaxRuleSetScope** | **string** | The scope of the tax rule sets for this portfolio. | [optional] 
 **SettlementConfiguration** | [**PortfolioSettlementConfiguration**](PortfolioSettlementConfiguration.md) |  | [optional] 
 **StagedModifications** | [**StagedModificationsInfo**](StagedModificationsInfo.md) |  | [optional] 
+**TransactionExclusionFilter** | **string** | A filter expression that identifies transactions to exclude when building the transaction portfolio&#39;s transactions and holdings. Transactions matching this filter are flagged as excluded. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -47,6 +48,7 @@ PortfolioSettlementConfiguration? settlementConfiguration = new PortfolioSettlem
 
 StagedModificationsInfo? stagedModifications = new StagedModificationsInfo();
 
+string transactionExclusionFilter = "example transactionExclusionFilter";
 List<Link> links = new List<Link>();
 
 PortfolioDetails portfolioDetailsInstance = new PortfolioDetails(
@@ -66,6 +68,7 @@ PortfolioDetails portfolioDetailsInstance = new PortfolioDetails(
     taxRuleSetScope: taxRuleSetScope,
     settlementConfiguration: settlementConfiguration,
     stagedModifications: stagedModifications,
+    transactionExclusionFilter: transactionExclusionFilter,
     links: links);
 ```
 

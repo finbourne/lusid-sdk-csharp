@@ -45,8 +45,10 @@ namespace Lusid.Sdk.Model
         /// <param name="announcementDate">Date the stock split was announced..</param>
         /// <param name="fractionalUnitsCashPrice">The cash price per unit paid in lieu when fractional units can not be distributed..</param>
         /// <param name="fractionalUnitsCashCurrency">The currency of the cash paid in lieu of fractional units..</param>
+        /// <param name="fractionalUnitsRoundingConvention">The convention used to round the fractional units entitlement. Defaults to Floor. Available values: Floor, Ceiling, RoundHalfUp, RoundHalfDown, RoundToDecimalPlaces, BuyUp, BankerRounding..</param>
+        /// <param name="fractionalUnitsDecimalPlaces">The number of decimal places to round to when FractionalUnitsRoundingConvention is RoundToDecimalPlaces..</param>
         /// <param name="instrumentEventType">The Type of Event. Available values: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent, CapletFloorletCashFlowEvent, EarlyCloseOutEvent, DepositRollEvent, ConsentEvent, DrawingEvent, CapitalGainsDistributionEvent, ExchangeOfferEvent, DutchAuctionEvent, WorthlessEvent, PutRedemptionEvent, LoanFacilityDelayedCompensationPaymentEvent, InterestPaymentEvent, PriorityIssueEvent, ClassActionEvent, BankruptcyEvent, LiquidationPaymentEvent, PartialDefeasanceEvent, SecurityWriteOffEvent, WarrantsExerciseEvent, PariPassuEvent. (required) (default to &quot;StockSplitEvent&quot;).</param>
-        public StockSplitEvent(DateTimeOffset paymentDate = default(DateTimeOffset), DateTimeOffset exDate = default(DateTimeOffset), UnitsRatio unitsRatio = default(UnitsRatio), DateTimeOffset? recordDate = default(DateTimeOffset?), DateTimeOffset? announcementDate = default(DateTimeOffset?), decimal? fractionalUnitsCashPrice = default(decimal?), string fractionalUnitsCashCurrency = default(string), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
+        public StockSplitEvent(DateTimeOffset paymentDate = default(DateTimeOffset), DateTimeOffset exDate = default(DateTimeOffset), UnitsRatio unitsRatio = default(UnitsRatio), DateTimeOffset? recordDate = default(DateTimeOffset?), DateTimeOffset? announcementDate = default(DateTimeOffset?), decimal? fractionalUnitsCashPrice = default(decimal?), string fractionalUnitsCashCurrency = default(string), string fractionalUnitsRoundingConvention = default(string), int? fractionalUnitsDecimalPlaces = default(int?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
             // to ensure "unitsRatio" is required (not null)
             if (unitsRatio == null)
@@ -60,6 +62,8 @@ namespace Lusid.Sdk.Model
             this.AnnouncementDate = announcementDate;
             this.FractionalUnitsCashPrice = fractionalUnitsCashPrice;
             this.FractionalUnitsCashCurrency = fractionalUnitsCashCurrency;
+            this.FractionalUnitsRoundingConvention = fractionalUnitsRoundingConvention;
+            this.FractionalUnitsDecimalPlaces = fractionalUnitsDecimalPlaces;
         }
 
         /// <summary>
@@ -111,6 +115,20 @@ namespace Lusid.Sdk.Model
         public string FractionalUnitsCashCurrency { get; set; }
 
         /// <summary>
+        /// The convention used to round the fractional units entitlement. Defaults to Floor. Available values: Floor, Ceiling, RoundHalfUp, RoundHalfDown, RoundToDecimalPlaces, BuyUp, BankerRounding.
+        /// </summary>
+        /// <value>The convention used to round the fractional units entitlement. Defaults to Floor. Available values: Floor, Ceiling, RoundHalfUp, RoundHalfDown, RoundToDecimalPlaces, BuyUp, BankerRounding.</value>
+        [DataMember(Name = "fractionalUnitsRoundingConvention", EmitDefaultValue = true)]
+        public string FractionalUnitsRoundingConvention { get; set; }
+
+        /// <summary>
+        /// The number of decimal places to round to when FractionalUnitsRoundingConvention is RoundToDecimalPlaces.
+        /// </summary>
+        /// <value>The number of decimal places to round to when FractionalUnitsRoundingConvention is RoundToDecimalPlaces.</value>
+        [DataMember(Name = "fractionalUnitsDecimalPlaces", EmitDefaultValue = true)]
+        public int? FractionalUnitsDecimalPlaces { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -126,6 +144,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  AnnouncementDate: ").Append(AnnouncementDate).Append("\n");
             sb.Append("  FractionalUnitsCashPrice: ").Append(FractionalUnitsCashPrice).Append("\n");
             sb.Append("  FractionalUnitsCashCurrency: ").Append(FractionalUnitsCashCurrency).Append("\n");
+            sb.Append("  FractionalUnitsRoundingConvention: ").Append(FractionalUnitsRoundingConvention).Append("\n");
+            sb.Append("  FractionalUnitsDecimalPlaces: ").Append(FractionalUnitsDecimalPlaces).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -195,6 +215,16 @@ namespace Lusid.Sdk.Model
                     this.FractionalUnitsCashCurrency == input.FractionalUnitsCashCurrency ||
                     (this.FractionalUnitsCashCurrency != null &&
                     this.FractionalUnitsCashCurrency.Equals(input.FractionalUnitsCashCurrency))
+                ) && base.Equals(input) && 
+                (
+                    this.FractionalUnitsRoundingConvention == input.FractionalUnitsRoundingConvention ||
+                    (this.FractionalUnitsRoundingConvention != null &&
+                    this.FractionalUnitsRoundingConvention.Equals(input.FractionalUnitsRoundingConvention))
+                ) && base.Equals(input) && 
+                (
+                    this.FractionalUnitsDecimalPlaces == input.FractionalUnitsDecimalPlaces ||
+                    (this.FractionalUnitsDecimalPlaces != null &&
+                    this.FractionalUnitsDecimalPlaces.Equals(input.FractionalUnitsDecimalPlaces))
                 );
         }
 
@@ -234,6 +264,14 @@ namespace Lusid.Sdk.Model
                 if (this.FractionalUnitsCashCurrency != null)
                 {
                     hashCode = (hashCode * 59) + this.FractionalUnitsCashCurrency.GetHashCode();
+                }
+                if (this.FractionalUnitsRoundingConvention != null)
+                {
+                    hashCode = (hashCode * 59) + this.FractionalUnitsRoundingConvention.GetHashCode();
+                }
+                if (this.FractionalUnitsDecimalPlaces != null)
+                {
+                    hashCode = (hashCode * 59) + this.FractionalUnitsDecimalPlaces.GetHashCode();
                 }
                 return hashCode;
             }

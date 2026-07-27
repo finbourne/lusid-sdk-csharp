@@ -15,6 +15,8 @@ Name | Type | Description | Notes
 **PeriodOfAction** | [**EventDateRange**](EventDateRange.md) |  | [optional] 
 **FractionalUnitsCashPrice** | **decimal?** | The cash price paid in lieu of fractionalUnits. Not required.  If provided, must have FractionalUnitsCashCurrency too. | [optional] 
 **FractionalUnitsCashCurrency** | **string** | Optional. Used in calculating cash-in-lieu of fractional shares. Not required.  If provided, must have FractionalUnitsCashPrice too. | [optional] 
+**FractionalUnitsRoundingConvention** | **string** | The convention used to round the fractional units entitlement. Defaults to Floor.  Not permitted when ConversionType is Exchange144A. Available values: Floor, Ceiling, RoundHalfUp, RoundHalfDown, RoundToDecimalPlaces, BuyUp, BankerRounding. | [optional] 
+**FractionalUnitsDecimalPlaces** | **int?** | The number of decimal places to round to when FractionalUnitsRoundingConvention is RoundToDecimalPlaces. | [optional] 
 **SecurityOfferElections** | [**List&lt;SecurityOfferElection&gt;**](SecurityOfferElection.md) | List of possible security offers for this conversion event. There must be at most one election of this type.    If the ParticipationType is Mandatory:     This list must have exactly one election that is chosen and default.  CashAndSecurityOfferElections and CashOfferElections &lt;b&gt; must be null or empty&lt;/b&gt;.     If the ParticipationType is Voluntary:     This list can be empty,  so long as CashAndSecurityOfferElections or CashOfferElections  has at least one election. None of these elections have to be chosen or default. | [optional] 
 **CashAndSecurityOfferElections** | [**List&lt;CashAndSecurityOfferElection&gt;**](CashAndSecurityOfferElection.md) | List of possible cash and security offers for this conversion event. There must be at most one election of this type.    If the ParticipationType is Mandatory:    This list &lt;b&gt; must be null or empty&lt;/b&gt;.    If the ParticipationType is Voluntary:    This list can be empty,  so long as SecurityOfferElections or CashOfferElections  has at least one election. None of these elections have to be chosen or default. | [optional] 
 **CashOfferElections** | [**List&lt;CashOfferElection&gt;**](CashOfferElection.md) | List of possible cash offers for this conversion event. There must be at most one election of this type.    If the ParticipationType is Mandatory:    This list &lt;b&gt; must be null or empty&lt;/b&gt;.    If the ParticipationType is Voluntary:    This list can be empty,  so long as SecurityOfferElections or CashAndSecurityOfferElections  has at least one election. None of these elections have to be chosen or default. | [optional] 
@@ -29,6 +31,7 @@ NewInstrument newInstrument = new NewInstrument();
 EventDateRange? periodOfAction = new EventDateRange();
 
 string fractionalUnitsCashCurrency = "example fractionalUnitsCashCurrency";
+string fractionalUnitsRoundingConvention = "example fractionalUnitsRoundingConvention";
 List<SecurityOfferElection> securityOfferElections = new List<SecurityOfferElection>();
 List<CashAndSecurityOfferElection> cashAndSecurityOfferElections = new List<CashAndSecurityOfferElection>();
 List<CashOfferElection> cashOfferElections = new List<CashOfferElection>();
@@ -45,6 +48,8 @@ ConversionEvent conversionEventInstance = new ConversionEvent(
     periodOfAction: periodOfAction,
     fractionalUnitsCashPrice: fractionalUnitsCashPrice,
     fractionalUnitsCashCurrency: fractionalUnitsCashCurrency,
+    fractionalUnitsRoundingConvention: fractionalUnitsRoundingConvention,
+    fractionalUnitsDecimalPlaces: fractionalUnitsDecimalPlaces,
     securityOfferElections: securityOfferElections,
     cashAndSecurityOfferElections: cashAndSecurityOfferElections,
     cashOfferElections: cashOfferElections,

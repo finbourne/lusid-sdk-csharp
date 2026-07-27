@@ -151,6 +151,7 @@ namespace Lusid.Sdk.Model
         /// <param name="description">A description for the transaction portfolio..</param>
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies the transaction portfolio. (required).</param>
         /// <param name="created">The effective datetime at which to create the transaction portfolio. No transactions can be added to the transaction portfolio before this date. Defaults to the current LUSID system datetime if not specified..</param>
+        /// <param name="enablementDate">The effective datetime from which transactions booked to the transaction portfolio begin contributing to holdings, valuations and other computed results. Transactions with an earlier effective date are still accepted and stored, but do not affect any computed results until this date. Defaults to the portfolio&#39;s creation date if not specified..</param>
         /// <param name="baseCurrency">The base currency of the transaction portfolio in ISO 4217 currency code format. (required).</param>
         /// <param name="corporateActionSourceId">corporateActionSourceId.</param>
         /// <param name="accountingMethod">Determines the accounting treatment given to the transaction portfolio&#39;s tax lots. Default value: AverageCost. Available values: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency, IntraDayThenFirstInFirstOut, LongTermHighestCostFirst, LongTermHighestCostFirstPortfolioCurrency, HighestCostFirstPortfolioCurrency, LowestCostFirstPortfolioCurrency, MaximumLossMinimumGain, MaximumLossMinimumGainPortfolioCurrency..</param>
@@ -164,7 +165,8 @@ namespace Lusid.Sdk.Model
         /// <param name="amortisationRuleSetId">amortisationRuleSetId.</param>
         /// <param name="taxRuleSetScope">The scope of the tax rule sets for this portfolio..</param>
         /// <param name="settlementConfiguration">settlementConfiguration.</param>
-        public CreateTransactionPortfolioRequest(string displayName = default(string), string description = default(string), string code = default(string), DateTimeOffset? created = default(DateTimeOffset?), string baseCurrency = default(string), ResourceId corporateActionSourceId = default(ResourceId), AccountingMethodEnum ?accountingMethod = default(AccountingMethodEnum?), List<string> subHoldingKeys = default(List<string>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), List<string> instrumentScopes = default(List<string>), string amortisationMethod = default(string), string transactionTypeScope = default(string), string cashGainLossCalculationDate = default(string), InstrumentEventConfiguration instrumentEventConfiguration = default(InstrumentEventConfiguration), ResourceId amortisationRuleSetId = default(ResourceId), string taxRuleSetScope = default(string), PortfolioSettlementConfiguration settlementConfiguration = default(PortfolioSettlementConfiguration))
+        /// <param name="transactionExclusionFilter">A filter expression that identifies transactions to exclude when building the transaction portfolio&#39;s transactions and holdings. Transactions matching this filter are flagged as excluded..</param>
+        public CreateTransactionPortfolioRequest(string displayName = default(string), string description = default(string), string code = default(string), DateTimeOffset? created = default(DateTimeOffset?), DateTimeOffset? enablementDate = default(DateTimeOffset?), string baseCurrency = default(string), ResourceId corporateActionSourceId = default(ResourceId), AccountingMethodEnum ?accountingMethod = default(AccountingMethodEnum?), List<string> subHoldingKeys = default(List<string>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), List<string> instrumentScopes = default(List<string>), string amortisationMethod = default(string), string transactionTypeScope = default(string), string cashGainLossCalculationDate = default(string), InstrumentEventConfiguration instrumentEventConfiguration = default(InstrumentEventConfiguration), ResourceId amortisationRuleSetId = default(ResourceId), string taxRuleSetScope = default(string), PortfolioSettlementConfiguration settlementConfiguration = default(PortfolioSettlementConfiguration), string transactionExclusionFilter = default(string))
         {
             // to ensure "displayName" is required (not null)
             if (displayName == null)
@@ -186,6 +188,7 @@ namespace Lusid.Sdk.Model
             this.BaseCurrency = baseCurrency;
             this.Description = description;
             this.Created = created;
+            this.EnablementDate = enablementDate;
             this.CorporateActionSourceId = corporateActionSourceId;
             this.AccountingMethod = accountingMethod;
             this.SubHoldingKeys = subHoldingKeys;
@@ -198,6 +201,7 @@ namespace Lusid.Sdk.Model
             this.AmortisationRuleSetId = amortisationRuleSetId;
             this.TaxRuleSetScope = taxRuleSetScope;
             this.SettlementConfiguration = settlementConfiguration;
+            this.TransactionExclusionFilter = transactionExclusionFilter;
         }
 
         /// <summary>
@@ -227,6 +231,13 @@ namespace Lusid.Sdk.Model
         /// <value>The effective datetime at which to create the transaction portfolio. No transactions can be added to the transaction portfolio before this date. Defaults to the current LUSID system datetime if not specified.</value>
         [DataMember(Name = "created", EmitDefaultValue = true)]
         public DateTimeOffset? Created { get; set; }
+
+        /// <summary>
+        /// The effective datetime from which transactions booked to the transaction portfolio begin contributing to holdings, valuations and other computed results. Transactions with an earlier effective date are still accepted and stored, but do not affect any computed results until this date. Defaults to the portfolio&#39;s creation date if not specified.
+        /// </summary>
+        /// <value>The effective datetime from which transactions booked to the transaction portfolio begin contributing to holdings, valuations and other computed results. Transactions with an earlier effective date are still accepted and stored, but do not affect any computed results until this date. Defaults to the portfolio&#39;s creation date if not specified.</value>
+        [DataMember(Name = "enablementDate", EmitDefaultValue = true)]
+        public DateTimeOffset? EnablementDate { get; set; }
 
         /// <summary>
         /// The base currency of the transaction portfolio in ISO 4217 currency code format.
@@ -309,6 +320,13 @@ namespace Lusid.Sdk.Model
         public PortfolioSettlementConfiguration SettlementConfiguration { get; set; }
 
         /// <summary>
+        /// A filter expression that identifies transactions to exclude when building the transaction portfolio&#39;s transactions and holdings. Transactions matching this filter are flagged as excluded.
+        /// </summary>
+        /// <value>A filter expression that identifies transactions to exclude when building the transaction portfolio&#39;s transactions and holdings. Transactions matching this filter are flagged as excluded.</value>
+        [DataMember(Name = "transactionExclusionFilter", EmitDefaultValue = true)]
+        public string TransactionExclusionFilter { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -320,6 +338,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Code: ").Append(Code).Append("\n");
             sb.Append("  Created: ").Append(Created).Append("\n");
+            sb.Append("  EnablementDate: ").Append(EnablementDate).Append("\n");
             sb.Append("  BaseCurrency: ").Append(BaseCurrency).Append("\n");
             sb.Append("  CorporateActionSourceId: ").Append(CorporateActionSourceId).Append("\n");
             sb.Append("  AccountingMethod: ").Append(AccountingMethod).Append("\n");
@@ -333,6 +352,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  AmortisationRuleSetId: ").Append(AmortisationRuleSetId).Append("\n");
             sb.Append("  TaxRuleSetScope: ").Append(TaxRuleSetScope).Append("\n");
             sb.Append("  SettlementConfiguration: ").Append(SettlementConfiguration).Append("\n");
+            sb.Append("  TransactionExclusionFilter: ").Append(TransactionExclusionFilter).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -387,6 +407,11 @@ namespace Lusid.Sdk.Model
                     this.Created == input.Created ||
                     (this.Created != null &&
                     this.Created.Equals(input.Created))
+                ) && 
+                (
+                    this.EnablementDate == input.EnablementDate ||
+                    (this.EnablementDate != null &&
+                    this.EnablementDate.Equals(input.EnablementDate))
                 ) && 
                 (
                     this.BaseCurrency == input.BaseCurrency ||
@@ -454,6 +479,11 @@ namespace Lusid.Sdk.Model
                     this.SettlementConfiguration == input.SettlementConfiguration ||
                     (this.SettlementConfiguration != null &&
                     this.SettlementConfiguration.Equals(input.SettlementConfiguration))
+                ) && 
+                (
+                    this.TransactionExclusionFilter == input.TransactionExclusionFilter ||
+                    (this.TransactionExclusionFilter != null &&
+                    this.TransactionExclusionFilter.Equals(input.TransactionExclusionFilter))
                 );
         }
 
@@ -481,6 +511,10 @@ namespace Lusid.Sdk.Model
                 if (this.Created != null)
                 {
                     hashCode = (hashCode * 59) + this.Created.GetHashCode();
+                }
+                if (this.EnablementDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.EnablementDate.GetHashCode();
                 }
                 if (this.BaseCurrency != null)
                 {
@@ -530,6 +564,10 @@ namespace Lusid.Sdk.Model
                 if (this.SettlementConfiguration != null)
                 {
                     hashCode = (hashCode * 59) + this.SettlementConfiguration.GetHashCode();
+                }
+                if (this.TransactionExclusionFilter != null)
+                {
+                    hashCode = (hashCode * 59) + this.TransactionExclusionFilter.GetHashCode();
                 }
                 return hashCode;
             }
@@ -584,6 +622,25 @@ namespace Lusid.Sdk.Model
             if (false == regexTaxRuleSetScope.Match(this.TaxRuleSetScope).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TaxRuleSetScope, must match a pattern of " + regexTaxRuleSetScope, new [] { "TaxRuleSetScope" });
+            }
+
+            // TransactionExclusionFilter (string) maxLength
+            if (this.TransactionExclusionFilter != null && this.TransactionExclusionFilter.Length > 16384)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionExclusionFilter, length must be less than 16384.", new [] { "TransactionExclusionFilter" });
+            }
+
+            // TransactionExclusionFilter (string) minLength
+            if (this.TransactionExclusionFilter != null && this.TransactionExclusionFilter.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionExclusionFilter, length must be greater than 0.", new [] { "TransactionExclusionFilter" });
+            }
+
+            // TransactionExclusionFilter (string) pattern
+            Regex regexTransactionExclusionFilter = new Regex(@"^[\s\S]*$", RegexOptions.CultureInvariant);
+            if (false == regexTransactionExclusionFilter.Match(this.TransactionExclusionFilter).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionExclusionFilter, must match a pattern of " + regexTransactionExclusionFilter, new [] { "TransactionExclusionFilter" });
             }
 
             yield break;

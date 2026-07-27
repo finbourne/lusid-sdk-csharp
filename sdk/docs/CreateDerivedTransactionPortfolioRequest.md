@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Code** | **string** | The code of the derived transaction portfolio. Together with the scope this uniquely identifies the derived transaction portfolio. | 
 **ParentPortfolioId** | [**ResourceId**](ResourceId.md) |  | 
 **Created** | **DateTimeOffset?** | This will be auto-populated to be the parent portfolio creation date. | [optional] 
+**EnablementDate** | **DateTimeOffset?** | The effective datetime from which transactions booked to the derived transaction portfolio begin contributing to holdings, valuations and other computed results. Transactions with an earlier effective date are still accepted and stored, but do not affect any computed results until this date. Defaults to the portfolio&#39;s creation date if not specified. | [optional] 
 **CorporateActionSourceId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **AccountingMethod** | **string** | Determines the accounting treatment given to the transaction portfolio&#39;s tax lots. Default value: AverageCost. Available values: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency, IntraDayThenFirstInFirstOut, LongTermHighestCostFirst, LongTermHighestCostFirstPortfolioCurrency, HighestCostFirstPortfolioCurrency, LowestCostFirstPortfolioCurrency, MaximumLossMinimumGain, MaximumLossMinimumGainPortfolioCurrency. | [optional] 
 **SubHoldingKeys** | **List&lt;string&gt;** | A set of unique transaction properties to group the derived transaction portfolio&#39;s holdings by, perhaps for strategy tagging. Each property must be from the &#39;Transaction&#39; domain and identified by a key in the format {domain}/{scope}/{code}, for example &#39;Transaction/strategies/quantsignal&#39;. See https://support.lusid.com/knowledgebase/article/KA-01879/en-us for more information. | [optional] 
@@ -19,6 +20,7 @@ Name | Type | Description | Notes
 **AmortisationRuleSetId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **InstrumentEventConfiguration** | [**InstrumentEventConfiguration**](InstrumentEventConfiguration.md) |  | [optional] 
 **SettlementConfiguration** | [**PortfolioSettlementConfiguration**](PortfolioSettlementConfiguration.md) |  | [optional] 
+**TransactionExclusionFilter** | **string** | A filter expression that identifies transactions to exclude when building the transaction portfolio&#39;s transactions and holdings. Transactions matching this filter are flagged as excluded. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -42,6 +44,7 @@ InstrumentEventConfiguration? instrumentEventConfiguration = new InstrumentEvent
 
 PortfolioSettlementConfiguration? settlementConfiguration = new PortfolioSettlementConfiguration();
 
+string transactionExclusionFilter = "example transactionExclusionFilter";
 
 CreateDerivedTransactionPortfolioRequest createDerivedTransactionPortfolioRequestInstance = new CreateDerivedTransactionPortfolioRequest(
     displayName: displayName,
@@ -49,6 +52,7 @@ CreateDerivedTransactionPortfolioRequest createDerivedTransactionPortfolioReques
     code: code,
     parentPortfolioId: parentPortfolioId,
     created: created,
+    enablementDate: enablementDate,
     corporateActionSourceId: corporateActionSourceId,
     accountingMethod: accountingMethod,
     subHoldingKeys: subHoldingKeys,
@@ -58,7 +62,8 @@ CreateDerivedTransactionPortfolioRequest createDerivedTransactionPortfolioReques
     cashGainLossCalculationDate: cashGainLossCalculationDate,
     amortisationRuleSetId: amortisationRuleSetId,
     instrumentEventConfiguration: instrumentEventConfiguration,
-    settlementConfiguration: settlementConfiguration);
+    settlementConfiguration: settlementConfiguration,
+    transactionExclusionFilter: transactionExclusionFilter);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

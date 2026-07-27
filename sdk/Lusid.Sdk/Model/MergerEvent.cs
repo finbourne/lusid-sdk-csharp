@@ -44,12 +44,14 @@ namespace Lusid.Sdk.Model
         /// <param name="exDate">The first date on which the holder of record of the original shares has entitled ownership of the new shares..</param>
         /// <param name="fractionalUnitsCashCurrency">Optional. Used in calculating cash-in-lieu of fractional shares..</param>
         /// <param name="fractionalUnitsCashPrice">Optional. Used in calculating cash-in-lieu of fractional shares..</param>
+        /// <param name="fractionalUnitsRoundingConvention">The convention used to round the fractional units entitlement. Defaults to Floor. Available values: Floor, Ceiling, RoundHalfUp, RoundHalfDown, RoundToDecimalPlaces, BuyUp, BankerRounding..</param>
+        /// <param name="fractionalUnitsDecimalPlaces">The number of decimal places to round to when FractionalUnitsRoundingConvention is RoundToDecimalPlaces..</param>
         /// <param name="newInstrument">newInstrument (required).</param>
         /// <param name="paymentDate">Date on which the merger takes place..</param>
         /// <param name="recordDate">Optional. Date you have to be the holder of record of the original shares in order to receive the new shares..</param>
         /// <param name="securityOfferElections">List of possible SecurityOfferElections for this merger event.</param>
         /// <param name="instrumentEventType">The Type of Event. Available values: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent, CapletFloorletCashFlowEvent, EarlyCloseOutEvent, DepositRollEvent, ConsentEvent, DrawingEvent, CapitalGainsDistributionEvent, ExchangeOfferEvent, DutchAuctionEvent, WorthlessEvent, PutRedemptionEvent, LoanFacilityDelayedCompensationPaymentEvent, InterestPaymentEvent, PriorityIssueEvent, ClassActionEvent, BankruptcyEvent, LiquidationPaymentEvent, PartialDefeasanceEvent, SecurityWriteOffEvent, WarrantsExerciseEvent, PariPassuEvent. (required) (default to &quot;MergerEvent&quot;).</param>
-        public MergerEvent(DateTimeOffset? announcementDate = default(DateTimeOffset?), List<CashAndSecurityOfferElection> cashAndSecurityOfferElections = default(List<CashAndSecurityOfferElection>), List<CashOfferElection> cashOfferElections = default(List<CashOfferElection>), DateTimeOffset exDate = default(DateTimeOffset), string fractionalUnitsCashCurrency = default(string), decimal? fractionalUnitsCashPrice = default(decimal?), NewInstrument newInstrument = default(NewInstrument), DateTimeOffset paymentDate = default(DateTimeOffset), DateTimeOffset? recordDate = default(DateTimeOffset?), List<SecurityOfferElection> securityOfferElections = default(List<SecurityOfferElection>), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
+        public MergerEvent(DateTimeOffset? announcementDate = default(DateTimeOffset?), List<CashAndSecurityOfferElection> cashAndSecurityOfferElections = default(List<CashAndSecurityOfferElection>), List<CashOfferElection> cashOfferElections = default(List<CashOfferElection>), DateTimeOffset exDate = default(DateTimeOffset), string fractionalUnitsCashCurrency = default(string), decimal? fractionalUnitsCashPrice = default(decimal?), string fractionalUnitsRoundingConvention = default(string), int? fractionalUnitsDecimalPlaces = default(int?), NewInstrument newInstrument = default(NewInstrument), DateTimeOffset paymentDate = default(DateTimeOffset), DateTimeOffset? recordDate = default(DateTimeOffset?), List<SecurityOfferElection> securityOfferElections = default(List<SecurityOfferElection>), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
             // to ensure "newInstrument" is required (not null)
             if (newInstrument == null)
@@ -63,6 +65,8 @@ namespace Lusid.Sdk.Model
             this.ExDate = exDate;
             this.FractionalUnitsCashCurrency = fractionalUnitsCashCurrency;
             this.FractionalUnitsCashPrice = fractionalUnitsCashPrice;
+            this.FractionalUnitsRoundingConvention = fractionalUnitsRoundingConvention;
+            this.FractionalUnitsDecimalPlaces = fractionalUnitsDecimalPlaces;
             this.PaymentDate = paymentDate;
             this.RecordDate = recordDate;
             this.SecurityOfferElections = securityOfferElections;
@@ -111,6 +115,20 @@ namespace Lusid.Sdk.Model
         public decimal? FractionalUnitsCashPrice { get; set; }
 
         /// <summary>
+        /// The convention used to round the fractional units entitlement. Defaults to Floor. Available values: Floor, Ceiling, RoundHalfUp, RoundHalfDown, RoundToDecimalPlaces, BuyUp, BankerRounding.
+        /// </summary>
+        /// <value>The convention used to round the fractional units entitlement. Defaults to Floor. Available values: Floor, Ceiling, RoundHalfUp, RoundHalfDown, RoundToDecimalPlaces, BuyUp, BankerRounding.</value>
+        [DataMember(Name = "fractionalUnitsRoundingConvention", EmitDefaultValue = true)]
+        public string FractionalUnitsRoundingConvention { get; set; }
+
+        /// <summary>
+        /// The number of decimal places to round to when FractionalUnitsRoundingConvention is RoundToDecimalPlaces.
+        /// </summary>
+        /// <value>The number of decimal places to round to when FractionalUnitsRoundingConvention is RoundToDecimalPlaces.</value>
+        [DataMember(Name = "fractionalUnitsDecimalPlaces", EmitDefaultValue = true)]
+        public int? FractionalUnitsDecimalPlaces { get; set; }
+
+        /// <summary>
         /// Gets or Sets NewInstrument
         /// </summary>
         [DataMember(Name = "newInstrument", IsRequired = true, EmitDefaultValue = true)]
@@ -152,6 +170,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  ExDate: ").Append(ExDate).Append("\n");
             sb.Append("  FractionalUnitsCashCurrency: ").Append(FractionalUnitsCashCurrency).Append("\n");
             sb.Append("  FractionalUnitsCashPrice: ").Append(FractionalUnitsCashPrice).Append("\n");
+            sb.Append("  FractionalUnitsRoundingConvention: ").Append(FractionalUnitsRoundingConvention).Append("\n");
+            sb.Append("  FractionalUnitsDecimalPlaces: ").Append(FractionalUnitsDecimalPlaces).Append("\n");
             sb.Append("  NewInstrument: ").Append(NewInstrument).Append("\n");
             sb.Append("  PaymentDate: ").Append(PaymentDate).Append("\n");
             sb.Append("  RecordDate: ").Append(RecordDate).Append("\n");
@@ -224,6 +244,16 @@ namespace Lusid.Sdk.Model
                     this.FractionalUnitsCashPrice.Equals(input.FractionalUnitsCashPrice))
                 ) && base.Equals(input) && 
                 (
+                    this.FractionalUnitsRoundingConvention == input.FractionalUnitsRoundingConvention ||
+                    (this.FractionalUnitsRoundingConvention != null &&
+                    this.FractionalUnitsRoundingConvention.Equals(input.FractionalUnitsRoundingConvention))
+                ) && base.Equals(input) && 
+                (
+                    this.FractionalUnitsDecimalPlaces == input.FractionalUnitsDecimalPlaces ||
+                    (this.FractionalUnitsDecimalPlaces != null &&
+                    this.FractionalUnitsDecimalPlaces.Equals(input.FractionalUnitsDecimalPlaces))
+                ) && base.Equals(input) && 
+                (
                     this.NewInstrument == input.NewInstrument ||
                     (this.NewInstrument != null &&
                     this.NewInstrument.Equals(input.NewInstrument))
@@ -278,6 +308,14 @@ namespace Lusid.Sdk.Model
                 if (this.FractionalUnitsCashPrice != null)
                 {
                     hashCode = (hashCode * 59) + this.FractionalUnitsCashPrice.GetHashCode();
+                }
+                if (this.FractionalUnitsRoundingConvention != null)
+                {
+                    hashCode = (hashCode * 59) + this.FractionalUnitsRoundingConvention.GetHashCode();
+                }
+                if (this.FractionalUnitsDecimalPlaces != null)
+                {
+                    hashCode = (hashCode * 59) + this.FractionalUnitsDecimalPlaces.GetHashCode();
                 }
                 if (this.NewInstrument != null)
                 {

@@ -13,6 +13,8 @@ Name | Type | Description | Notes
 **NewInstrument** | [**NewInstrument**](NewInstrument.md) |  | 
 **FractionalUnitsCashPrice** | **decimal?** | The cash price paid in lieu of fractionalUnits. | [optional] 
 **FractionalUnitsCashCurrency** | **string** | The currency of the cash paid in lieu of fractionalUnits. | [optional] 
+**FractionalUnitsRoundingConvention** | **string** | The convention used to round the fractional units entitlement. Defaults to Floor. Available values: Floor, Ceiling, RoundHalfUp, RoundHalfDown, RoundToDecimalPlaces, BuyUp, BankerRounding. | [optional] 
+**FractionalUnitsDecimalPlaces** | **int?** | The number of decimal places to round to when FractionalUnitsRoundingConvention is RoundToDecimalPlaces. | [optional] 
 **SecurityOfferElections** | [**List&lt;SecurityOfferElection&gt;**](SecurityOfferElection.md) | List of possible SecurityOfferElections for this event. | [optional] 
 **CashAndSecurityOfferElections** | [**List&lt;CashAndSecurityOfferElection&gt;**](CashAndSecurityOfferElection.md) | List of possible CashAndSecurityOfferElections for this event. | [optional] 
 **CashOfferElections** | [**List&lt;CashOfferElection&gt;**](CashOfferElection.md) | List of possible CashOfferElections for this event. | [optional] 
@@ -31,6 +33,7 @@ using System;
 
 NewInstrument newInstrument = new NewInstrument();
 string fractionalUnitsCashCurrency = "example fractionalUnitsCashCurrency";
+string fractionalUnitsRoundingConvention = "example fractionalUnitsRoundingConvention";
 List<SecurityOfferElection> securityOfferElections = new List<SecurityOfferElection>();
 List<CashAndSecurityOfferElection> cashAndSecurityOfferElections = new List<CashAndSecurityOfferElection>();
 List<CashOfferElection> cashOfferElections = new List<CashOfferElection>();
@@ -44,6 +47,8 @@ TenderEvent tenderEventInstance = new TenderEvent(
     newInstrument: newInstrument,
     fractionalUnitsCashPrice: fractionalUnitsCashPrice,
     fractionalUnitsCashCurrency: fractionalUnitsCashCurrency,
+    fractionalUnitsRoundingConvention: fractionalUnitsRoundingConvention,
+    fractionalUnitsDecimalPlaces: fractionalUnitsDecimalPlaces,
     securityOfferElections: securityOfferElections,
     cashAndSecurityOfferElections: cashAndSecurityOfferElections,
     cashOfferElections: cashOfferElections,

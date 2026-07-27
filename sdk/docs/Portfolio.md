@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **DisplayName** | **string** | The name of the portfolio. | 
 **Description** | **string** | The long form description of the portfolio. | [optional] 
 **Created** | **DateTimeOffset** | The effective datetime at which the portfolio was created. No transactions or constituents can be added to the portfolio before this date. | 
+**EnablementDate** | **DateTimeOffset?** | The effective datetime from which transactions or holdings booked to the portfolio begin contributing to holdings, valuations and other computed results. Data with an earlier effective date is still accepted and stored, but does not affect any computed results until this date. Defaults to the portfolio&#39;s creation date when not explicitly set. | [optional] 
 **ParentPortfolioId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **StagedModifications** | [**StagedModificationsInfo**](StagedModificationsInfo.md) |  | [optional] 
@@ -27,6 +28,7 @@ Name | Type | Description | Notes
 **AmortisationRuleSetId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **TaxRuleSetScope** | **string** | The scope of the tax rule sets for this portfolio. | [optional] 
 **SettlementConfiguration** | [**PortfolioSettlementConfiguration**](PortfolioSettlementConfiguration.md) |  | [optional] 
+**TransactionExclusionFilter** | **string** | A filter expression that identifies transactions to exclude when building the transaction portfolio&#39;s transactions and holdings. Transactions matching this filter are flagged as excluded. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -60,6 +62,7 @@ ResourceId? amortisationRuleSetId = new ResourceId();
 string taxRuleSetScope = "example taxRuleSetScope";
 PortfolioSettlementConfiguration? settlementConfiguration = new PortfolioSettlementConfiguration();
 
+string transactionExclusionFilter = "example transactionExclusionFilter";
 List<Link> links = new List<Link>();
 
 Portfolio portfolioInstance = new Portfolio(
@@ -69,6 +72,7 @@ Portfolio portfolioInstance = new Portfolio(
     displayName: displayName,
     description: description,
     created: created,
+    enablementDate: enablementDate,
     parentPortfolioId: parentPortfolioId,
     varVersion: varVersion,
     stagedModifications: stagedModifications,
@@ -85,6 +89,7 @@ Portfolio portfolioInstance = new Portfolio(
     amortisationRuleSetId: amortisationRuleSetId,
     taxRuleSetScope: taxRuleSetScope,
     settlementConfiguration: settlementConfiguration,
+    transactionExclusionFilter: transactionExclusionFilter,
     links: links);
 ```
 

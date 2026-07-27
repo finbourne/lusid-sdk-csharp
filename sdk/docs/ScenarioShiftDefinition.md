@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ShiftType** | **string** |  | 
+**ScenarioShiftType** | **string** | Available values: RateCurveShiftDefinition. | 
 
 ```csharp
 using Lusid.Sdk.Model;
 using System;
 
-string shiftType = "shiftType";
+string scenarioShiftType = "scenarioShiftType";
 
 ScenarioShiftDefinition scenarioShiftDefinitionInstance = new ScenarioShiftDefinition(
-    shiftType: shiftType);
+    scenarioShiftType: scenarioShiftType);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

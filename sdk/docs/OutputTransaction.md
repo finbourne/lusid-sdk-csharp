@@ -47,6 +47,7 @@ Name | Type | Description | Notes
 **StagedModifications** | [**StagedModificationsInfo**](StagedModificationsInfo.md) |  | [optional] 
 **CustodianEntries** | [**List&lt;CustodianEntry&gt;**](CustodianEntry.md) | Set of of Custodian Entries associated with the transaction. | [optional] 
 **ResolvedCustodianAccounts** | [**List&lt;ResolvedCustodianAccount&gt;**](ResolvedCustodianAccount.md) | Set of Custodian Accounts resolved from each movement on the Transaction. | [optional] 
+**IsExcluded** | **bool** | Whether the transaction was excluded from the portfolio&#39;s holdings by the portfolio&#39;s transaction exclusion filter. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -94,6 +95,7 @@ StagedModificationsInfo? stagedModifications = new StagedModificationsInfo();
 
 List<CustodianEntry> custodianEntries = new List<CustodianEntry>();
 List<ResolvedCustodianAccount> resolvedCustodianAccounts = new List<ResolvedCustodianAccount>();
+bool isExcluded = //"True";
 
 OutputTransaction outputTransactionInstance = new OutputTransaction(
     transactionId: transactionId,
@@ -137,7 +139,8 @@ OutputTransaction outputTransactionInstance = new OutputTransaction(
     varVersion: varVersion,
     stagedModifications: stagedModifications,
     custodianEntries: custodianEntries,
-    resolvedCustodianAccounts: resolvedCustodianAccounts);
+    resolvedCustodianAccounts: resolvedCustodianAccounts,
+    isExcluded: isExcluded);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

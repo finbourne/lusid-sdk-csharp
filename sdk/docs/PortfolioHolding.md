@@ -28,6 +28,7 @@ Name | Type | Description | Notes
 **CustodianAccountId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **UnsettledUnits** | **decimal** | The number of unsettled units for the holding. | [optional] 
 **OverdueUnits** | **decimal** | The number of unsettled units for the holding that are beyond their contractual settlement date. | [optional] 
+**ResolvedCustodianAccount** | [**ResolvedCustodianAccount**](ResolvedCustodianAccount.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -59,6 +60,8 @@ CurrencyAndAmount? variationMarginPortfolioCcy = new CurrencyAndAmount();
 List<SettlementSchedule> settlementSchedule = new List<SettlementSchedule>();
 ResourceId? custodianAccountId = new ResourceId();
 decimal? unsettledUnits = "example unsettledUnits";decimal? overdueUnits = "example overdueUnits";
+ResolvedCustodianAccount? resolvedCustodianAccount = new ResolvedCustodianAccount();
+
 
 PortfolioHolding portfolioHoldingInstance = new PortfolioHolding(
     instrumentScope: instrumentScope,
@@ -83,7 +86,8 @@ PortfolioHolding portfolioHoldingInstance = new PortfolioHolding(
     currentFace: currentFace,
     custodianAccountId: custodianAccountId,
     unsettledUnits: unsettledUnits,
-    overdueUnits: overdueUnits);
+    overdueUnits: overdueUnits,
+    resolvedCustodianAccount: resolvedCustodianAccount);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

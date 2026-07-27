@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Description** | **string** | A description for the simple position portfolio. | [optional] 
 **Code** | **string** | The code of the simple position portfolio. Together with the scope this uniquely identifies the simple position portfolio. | 
 **Created** | **DateTimeOffset?** | The effective datetime at which to create the simple position portfolio. No holdings can be set on the simple position portfolio before this date. Defaults to the current LUSID system datetime if not specified. | [optional] 
+**EnablementDate** | **DateTimeOffset?** | The effective datetime from which holdings set on the simple position portfolio begin contributing to valuations and other computed results. Holdings with an earlier effective date are still accepted and stored, but do not affect any computed results until this date. Defaults to the portfolio&#39;s creation date if not specified. | [optional] 
 **BaseCurrency** | **string** | The base currency of the simple position portfolio in ISO 4217 currency code format. | 
 **CorporateActionSourceId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **AccountingMethod** | **string** | Determines the accounting treatment given to the simple position portfolio&#39;s tax lots. Default value: AverageCost. Available values: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency, IntraDayThenFirstInFirstOut, LongTermHighestCostFirst, LongTermHighestCostFirstPortfolioCurrency, HighestCostFirstPortfolioCurrency, LowestCostFirstPortfolioCurrency, MaximumLossMinimumGain, MaximumLossMinimumGainPortfolioCurrency. | [optional] 
@@ -47,6 +48,7 @@ CreateSimplePositionPortfolioRequest createSimplePositionPortfolioRequestInstanc
     description: description,
     code: code,
     created: created,
+    enablementDate: enablementDate,
     baseCurrency: baseCurrency,
     corporateActionSourceId: corporateActionSourceId,
     accountingMethod: accountingMethod,

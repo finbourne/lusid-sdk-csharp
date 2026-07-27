@@ -151,6 +151,7 @@ namespace Lusid.Sdk.Model
         /// <param name="description">A description for the simple position portfolio..</param>
         /// <param name="code">The code of the simple position portfolio. Together with the scope this uniquely identifies the simple position portfolio. (required).</param>
         /// <param name="created">The effective datetime at which to create the simple position portfolio. No holdings can be set on the simple position portfolio before this date. Defaults to the current LUSID system datetime if not specified..</param>
+        /// <param name="enablementDate">The effective datetime from which holdings set on the simple position portfolio begin contributing to valuations and other computed results. Holdings with an earlier effective date are still accepted and stored, but do not affect any computed results until this date. Defaults to the portfolio&#39;s creation date if not specified..</param>
         /// <param name="baseCurrency">The base currency of the simple position portfolio in ISO 4217 currency code format. (required).</param>
         /// <param name="corporateActionSourceId">corporateActionSourceId.</param>
         /// <param name="accountingMethod">Determines the accounting treatment given to the simple position portfolio&#39;s tax lots. Default value: AverageCost. Available values: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency, IntraDayThenFirstInFirstOut, LongTermHighestCostFirst, LongTermHighestCostFirstPortfolioCurrency, HighestCostFirstPortfolioCurrency, LowestCostFirstPortfolioCurrency, MaximumLossMinimumGain, MaximumLossMinimumGainPortfolioCurrency..</param>
@@ -162,7 +163,7 @@ namespace Lusid.Sdk.Model
         /// <param name="cashGainLossCalculationDate">The option when the Cash Gain Loss to be calulated. Default value: SettlementDate. Available values: Default, SettlementDate, TransactionDate..</param>
         /// <param name="instrumentEventConfiguration">instrumentEventConfiguration.</param>
         /// <param name="amortisationRuleSetId">amortisationRuleSetId.</param>
-        public CreateSimplePositionPortfolioRequest(string displayName = default(string), string description = default(string), string code = default(string), DateTimeOffset? created = default(DateTimeOffset?), string baseCurrency = default(string), ResourceId corporateActionSourceId = default(ResourceId), AccountingMethodEnum ?accountingMethod = default(AccountingMethodEnum?), List<string> subHoldingKeys = default(List<string>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), List<string> instrumentScopes = default(List<string>), string amortisationMethod = default(string), string transactionTypeScope = default(string), string cashGainLossCalculationDate = default(string), InstrumentEventConfiguration instrumentEventConfiguration = default(InstrumentEventConfiguration), ResourceId amortisationRuleSetId = default(ResourceId))
+        public CreateSimplePositionPortfolioRequest(string displayName = default(string), string description = default(string), string code = default(string), DateTimeOffset? created = default(DateTimeOffset?), DateTimeOffset? enablementDate = default(DateTimeOffset?), string baseCurrency = default(string), ResourceId corporateActionSourceId = default(ResourceId), AccountingMethodEnum ?accountingMethod = default(AccountingMethodEnum?), List<string> subHoldingKeys = default(List<string>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), List<string> instrumentScopes = default(List<string>), string amortisationMethod = default(string), string transactionTypeScope = default(string), string cashGainLossCalculationDate = default(string), InstrumentEventConfiguration instrumentEventConfiguration = default(InstrumentEventConfiguration), ResourceId amortisationRuleSetId = default(ResourceId))
         {
             // to ensure "displayName" is required (not null)
             if (displayName == null)
@@ -184,6 +185,7 @@ namespace Lusid.Sdk.Model
             this.BaseCurrency = baseCurrency;
             this.Description = description;
             this.Created = created;
+            this.EnablementDate = enablementDate;
             this.CorporateActionSourceId = corporateActionSourceId;
             this.AccountingMethod = accountingMethod;
             this.SubHoldingKeys = subHoldingKeys;
@@ -223,6 +225,13 @@ namespace Lusid.Sdk.Model
         /// <value>The effective datetime at which to create the simple position portfolio. No holdings can be set on the simple position portfolio before this date. Defaults to the current LUSID system datetime if not specified.</value>
         [DataMember(Name = "created", EmitDefaultValue = true)]
         public DateTimeOffset? Created { get; set; }
+
+        /// <summary>
+        /// The effective datetime from which holdings set on the simple position portfolio begin contributing to valuations and other computed results. Holdings with an earlier effective date are still accepted and stored, but do not affect any computed results until this date. Defaults to the portfolio&#39;s creation date if not specified.
+        /// </summary>
+        /// <value>The effective datetime from which holdings set on the simple position portfolio begin contributing to valuations and other computed results. Holdings with an earlier effective date are still accepted and stored, but do not affect any computed results until this date. Defaults to the portfolio&#39;s creation date if not specified.</value>
+        [DataMember(Name = "enablementDate", EmitDefaultValue = true)]
+        public DateTimeOffset? EnablementDate { get; set; }
 
         /// <summary>
         /// The base currency of the simple position portfolio in ISO 4217 currency code format.
@@ -303,6 +312,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Code: ").Append(Code).Append("\n");
             sb.Append("  Created: ").Append(Created).Append("\n");
+            sb.Append("  EnablementDate: ").Append(EnablementDate).Append("\n");
             sb.Append("  BaseCurrency: ").Append(BaseCurrency).Append("\n");
             sb.Append("  CorporateActionSourceId: ").Append(CorporateActionSourceId).Append("\n");
             sb.Append("  AccountingMethod: ").Append(AccountingMethod).Append("\n");
@@ -368,6 +378,11 @@ namespace Lusid.Sdk.Model
                     this.Created == input.Created ||
                     (this.Created != null &&
                     this.Created.Equals(input.Created))
+                ) && 
+                (
+                    this.EnablementDate == input.EnablementDate ||
+                    (this.EnablementDate != null &&
+                    this.EnablementDate.Equals(input.EnablementDate))
                 ) && 
                 (
                     this.BaseCurrency == input.BaseCurrency ||
@@ -452,6 +467,10 @@ namespace Lusid.Sdk.Model
                 if (this.Created != null)
                 {
                     hashCode = (hashCode * 59) + this.Created.GetHashCode();
+                }
+                if (this.EnablementDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.EnablementDate.GetHashCode();
                 }
                 if (this.BaseCurrency != null)
                 {

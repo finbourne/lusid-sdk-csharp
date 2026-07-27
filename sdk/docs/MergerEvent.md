@@ -12,6 +12,8 @@ Name | Type | Description | Notes
 **ExDate** | **DateTimeOffset** | The first date on which the holder of record of the original shares has entitled ownership of the new shares. | [optional] 
 **FractionalUnitsCashCurrency** | **string** | Optional. Used in calculating cash-in-lieu of fractional shares. | [optional] 
 **FractionalUnitsCashPrice** | **decimal?** | Optional. Used in calculating cash-in-lieu of fractional shares. | [optional] 
+**FractionalUnitsRoundingConvention** | **string** | The convention used to round the fractional units entitlement. Defaults to Floor. Available values: Floor, Ceiling, RoundHalfUp, RoundHalfDown, RoundToDecimalPlaces, BuyUp, BankerRounding. | [optional] 
+**FractionalUnitsDecimalPlaces** | **int?** | The number of decimal places to round to when FractionalUnitsRoundingConvention is RoundToDecimalPlaces. | [optional] 
 **NewInstrument** | [**NewInstrument**](NewInstrument.md) |  | 
 **PaymentDate** | **DateTimeOffset** | Date on which the merger takes place. | [optional] 
 **RecordDate** | **DateTimeOffset?** | Optional. Date you have to be the holder of record of the original shares in order to receive the new shares. | [optional] 
@@ -24,6 +26,7 @@ using System;
 List<CashAndSecurityOfferElection> cashAndSecurityOfferElections = new List<CashAndSecurityOfferElection>();
 List<CashOfferElection> cashOfferElections = new List<CashOfferElection>();
 string fractionalUnitsCashCurrency = "example fractionalUnitsCashCurrency";
+string fractionalUnitsRoundingConvention = "example fractionalUnitsRoundingConvention";
 NewInstrument newInstrument = new NewInstrument();
 List<SecurityOfferElection> securityOfferElections = new List<SecurityOfferElection>();
 
@@ -34,6 +37,8 @@ MergerEvent mergerEventInstance = new MergerEvent(
     exDate: exDate,
     fractionalUnitsCashCurrency: fractionalUnitsCashCurrency,
     fractionalUnitsCashPrice: fractionalUnitsCashPrice,
+    fractionalUnitsRoundingConvention: fractionalUnitsRoundingConvention,
+    fractionalUnitsDecimalPlaces: fractionalUnitsDecimalPlaces,
     newInstrument: newInstrument,
     paymentDate: paymentDate,
     recordDate: recordDate,

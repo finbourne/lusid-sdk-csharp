@@ -12,6 +12,8 @@ Name | Type | Description | Notes
 **PaymentDate** | **DateTimeOffset** | The date the Bonus Issue is executed. | [optional] 
 **FractionalUnitsCashPrice** | **decimal?** | Optional. Used in calculating cash-in-lieu of fractional shares. | [optional] 
 **FractionalUnitsCashCurrency** | **string** | Optional. Used in calculating cash-in-lieu of fractional shares. | [optional] 
+**FractionalUnitsRoundingConvention** | **string** | The convention used to round the fractional units entitlement. Defaults to Floor. Available values: Floor, Ceiling, RoundHalfUp, RoundHalfDown, RoundToDecimalPlaces, BuyUp, BankerRounding. | [optional] 
+**FractionalUnitsDecimalPlaces** | **int?** | The number of decimal places to round to when FractionalUnitsRoundingConvention is RoundToDecimalPlaces. | [optional] 
 **SecurityOfferElections** | [**List&lt;SecurityOfferElection&gt;**](SecurityOfferElection.md) | Possible SecurityElections for this Bonus Issue event, if any. | [optional] 
 **CashOfferElections** | [**List&lt;CashOfferElection&gt;**](CashOfferElection.md) | Possible CashOfferElections for this Bonus Issue event, if any. | [optional] 
 **LapseElections** | [**List&lt;LapseElection&gt;**](LapseElection.md) | Possible LapseElections for this Bonus Issue event, if any. | [optional] 
@@ -21,6 +23,7 @@ using Lusid.Sdk.Model;
 using System;
 
 string fractionalUnitsCashCurrency = "example fractionalUnitsCashCurrency";
+string fractionalUnitsRoundingConvention = "example fractionalUnitsRoundingConvention";
 List<SecurityOfferElection> securityOfferElections = new List<SecurityOfferElection>();
 List<CashOfferElection> cashOfferElections = new List<CashOfferElection>();
 List<LapseElection> lapseElections = new List<LapseElection>();
@@ -32,6 +35,8 @@ BonusIssueEvent bonusIssueEventInstance = new BonusIssueEvent(
     paymentDate: paymentDate,
     fractionalUnitsCashPrice: fractionalUnitsCashPrice,
     fractionalUnitsCashCurrency: fractionalUnitsCashCurrency,
+    fractionalUnitsRoundingConvention: fractionalUnitsRoundingConvention,
+    fractionalUnitsDecimalPlaces: fractionalUnitsDecimalPlaces,
     securityOfferElections: securityOfferElections,
     cashOfferElections: cashOfferElections,
     lapseElections: lapseElections);

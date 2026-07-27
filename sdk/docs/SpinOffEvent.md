@@ -15,6 +15,8 @@ Name | Type | Description | Notes
 **CostFactor** | **decimal?** | Optional. The fraction of cost that is transferred from the existing shares to the new shares. | [optional] 
 **FractionalUnitsCashPrice** | **decimal?** | Optional. Used in calculating cash-in-lieu of fractional shares. | [optional] 
 **FractionalUnitsCashCurrency** | **string** | Optional. Used in calculating cash-in-lieu of fractional shares. | [optional] 
+**FractionalUnitsRoundingConvention** | **string** | The convention used to round the fractional units entitlement. Defaults to Floor. Available values: Floor, Ceiling, RoundHalfUp, RoundHalfDown, RoundToDecimalPlaces, BuyUp, BankerRounding. | [optional] 
+**FractionalUnitsDecimalPlaces** | **int?** | The number of decimal places to round to when FractionalUnitsRoundingConvention is RoundToDecimalPlaces. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -23,6 +25,7 @@ using System;
 NewInstrument newInstrument = new NewInstrument();
 UnitsRatio unitsRatio = new UnitsRatio();
 string fractionalUnitsCashCurrency = "example fractionalUnitsCashCurrency";
+string fractionalUnitsRoundingConvention = "example fractionalUnitsRoundingConvention";
 
 SpinOffEvent spinOffEventInstance = new SpinOffEvent(
     announcementDate: announcementDate,
@@ -33,7 +36,9 @@ SpinOffEvent spinOffEventInstance = new SpinOffEvent(
     unitsRatio: unitsRatio,
     costFactor: costFactor,
     fractionalUnitsCashPrice: fractionalUnitsCashPrice,
-    fractionalUnitsCashCurrency: fractionalUnitsCashCurrency);
+    fractionalUnitsCashCurrency: fractionalUnitsCashCurrency,
+    fractionalUnitsRoundingConvention: fractionalUnitsRoundingConvention,
+    fractionalUnitsDecimalPlaces: fractionalUnitsDecimalPlaces);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

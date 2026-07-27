@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Description** | **string** | A description for the transaction portfolio. | [optional] 
 **Code** | **string** | The code of the transaction portfolio. Together with the scope this uniquely identifies the transaction portfolio. | 
 **Created** | **DateTimeOffset?** | The effective datetime at which to create the transaction portfolio. No transactions can be added to the transaction portfolio before this date. Defaults to the current LUSID system datetime if not specified. | [optional] 
+**EnablementDate** | **DateTimeOffset?** | The effective datetime from which transactions booked to the transaction portfolio begin contributing to holdings, valuations and other computed results. Transactions with an earlier effective date are still accepted and stored, but do not affect any computed results until this date. Defaults to the portfolio&#39;s creation date if not specified. | [optional] 
 **BaseCurrency** | **string** | The base currency of the transaction portfolio in ISO 4217 currency code format. | 
 **CorporateActionSourceId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **AccountingMethod** | **string** | Determines the accounting treatment given to the transaction portfolio&#39;s tax lots. Default value: AverageCost. Available values: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst, ProRateByUnits, ProRateByCost, ProRateByCostPortfolioCurrency, IntraDayThenFirstInFirstOut, LongTermHighestCostFirst, LongTermHighestCostFirstPortfolioCurrency, HighestCostFirstPortfolioCurrency, LowestCostFirstPortfolioCurrency, MaximumLossMinimumGain, MaximumLossMinimumGainPortfolioCurrency. | [optional] 
@@ -21,6 +22,7 @@ Name | Type | Description | Notes
 **AmortisationRuleSetId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **TaxRuleSetScope** | **string** | The scope of the tax rule sets for this portfolio. | [optional] 
 **SettlementConfiguration** | [**PortfolioSettlementConfiguration**](PortfolioSettlementConfiguration.md) |  | [optional] 
+**TransactionExclusionFilter** | **string** | A filter expression that identifies transactions to exclude when building the transaction portfolio&#39;s transactions and holdings. Transactions matching this filter are flagged as excluded. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -46,12 +48,14 @@ ResourceId? amortisationRuleSetId = new ResourceId();
 string taxRuleSetScope = "example taxRuleSetScope";
 PortfolioSettlementConfiguration? settlementConfiguration = new PortfolioSettlementConfiguration();
 
+string transactionExclusionFilter = "example transactionExclusionFilter";
 
 CreateTransactionPortfolioRequest createTransactionPortfolioRequestInstance = new CreateTransactionPortfolioRequest(
     displayName: displayName,
     description: description,
     code: code,
     created: created,
+    enablementDate: enablementDate,
     baseCurrency: baseCurrency,
     corporateActionSourceId: corporateActionSourceId,
     accountingMethod: accountingMethod,
@@ -64,7 +68,8 @@ CreateTransactionPortfolioRequest createTransactionPortfolioRequestInstance = ne
     instrumentEventConfiguration: instrumentEventConfiguration,
     amortisationRuleSetId: amortisationRuleSetId,
     taxRuleSetScope: taxRuleSetScope,
-    settlementConfiguration: settlementConfiguration);
+    settlementConfiguration: settlementConfiguration,
+    transactionExclusionFilter: transactionExclusionFilter);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

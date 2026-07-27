@@ -1029,7 +1029,7 @@ catch (ApiException e)
 
 <a id="buildtransactions"></a>
 # **BuildTransactions**
-> VersionedResourceListOfOutputTransaction BuildTransactions (string scope, string code, TransactionQueryParameters transactionQueryParameters, DateTimeOffset? asAt = null, string? filter = null, List<string>? propertyKeys = null, int? limit = null, string? page = null, string? dataModelScope = null, string? dataModelCode = null, string? membershipType = null)
+> VersionedResourceListOfOutputTransaction BuildTransactions (string scope, string code, TransactionQueryParameters transactionQueryParameters, DateTimeOffset? asAt = null, string? filter = null, List<string>? propertyKeys = null, int? limit = null, string? page = null, string? dataModelScope = null, string? dataModelCode = null, string? membershipType = null, bool? returnExcludedTransactions = null)
 
 BuildTransactions: Build transactions
 
@@ -1085,14 +1085,15 @@ namespace Examples
             var dataModelScope = "dataModelScope_example";  // string? | The optional scope of a Custom Data Model to use (optional) 
             var dataModelCode = "dataModelCode_example";  // string? | The optional code of a Custom Data Model to use (optional) 
             var membershipType = "membershipType_example";  // string? | The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional) 
+            var returnExcludedTransactions = false;  // bool? | Whether to include transactions that the portfolio's transaction exclusion filter marks as excluded. Defaults to false. (optional)  (default to false)
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // VersionedResourceListOfOutputTransaction result = apiInstance.BuildTransactions(scope, code, transactionQueryParameters, asAt, filter, propertyKeys, limit, page, dataModelScope, dataModelCode, membershipType, opts: opts);
+                // VersionedResourceListOfOutputTransaction result = apiInstance.BuildTransactions(scope, code, transactionQueryParameters, asAt, filter, propertyKeys, limit, page, dataModelScope, dataModelCode, membershipType, returnExcludedTransactions, opts: opts);
 
                 // BuildTransactions: Build transactions
-                VersionedResourceListOfOutputTransaction result = apiInstance.BuildTransactions(scope, code, transactionQueryParameters, asAt, filter, propertyKeys, limit, page, dataModelScope, dataModelCode, membershipType);
+                VersionedResourceListOfOutputTransaction result = apiInstance.BuildTransactions(scope, code, transactionQueryParameters, asAt, filter, propertyKeys, limit, page, dataModelScope, dataModelCode, membershipType, returnExcludedTransactions);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -1113,7 +1114,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // BuildTransactions: Build transactions
-    ApiResponse<VersionedResourceListOfOutputTransaction> response = apiInstance.BuildTransactionsWithHttpInfo(scope, code, transactionQueryParameters, asAt, filter, propertyKeys, limit, page, dataModelScope, dataModelCode, membershipType);
+    ApiResponse<VersionedResourceListOfOutputTransaction> response = apiInstance.BuildTransactionsWithHttpInfo(scope, code, transactionQueryParameters, asAt, filter, propertyKeys, limit, page, dataModelScope, dataModelCode, membershipType, returnExcludedTransactions);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -1141,6 +1142,7 @@ catch (ApiException e)
 | **dataModelScope** | **string?** | The optional scope of a Custom Data Model to use | [optional]  |
 | **dataModelCode** | **string?** | The optional code of a Custom Data Model to use | [optional]  |
 | **membershipType** | **string?** | The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. | [optional]  |
+| **returnExcludedTransactions** | **bool?** | Whether to include transactions that the portfolio&#39;s transaction exclusion filter marks as excluded. Defaults to false. | [optional] [default to false] |
 
 ### Return type
 
@@ -4967,7 +4969,7 @@ catch (ApiException e)
 
 PatchPortfolioDetails: Patch portfolio details
 
-Create or update certain details for a particular transaction portfolio.  Note that not all elements of a transaction portfolio definition are  modifiable once it has been created due to the potential implications for data already stored.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: BaseCurrency, AccountingMethod, SubHoldingKeys, AmortisationMethod, TransactionTypeScope, CashGainLossCalculationDate, InstrumentEventConfiguration, AmortisationRuleSetId, TaxRuleSetScope, SettlementConfiguration.
+Create or update certain details for a particular transaction portfolio.  Note that not all elements of a transaction portfolio definition are  modifiable once it has been created due to the potential implications for data already stored.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: BaseCurrency, AccountingMethod, SubHoldingKeys, AmortisationMethod, TransactionTypeScope, CashGainLossCalculationDate, InstrumentEventConfiguration, AmortisationRuleSetId, TaxRuleSetScope, SettlementConfiguration, TransactionExclusionFilter.
 
 ### Example
 ```csharp

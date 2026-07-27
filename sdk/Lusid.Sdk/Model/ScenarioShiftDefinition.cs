@@ -17,6 +17,7 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using JsonSubTypes;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 
@@ -26,42 +27,44 @@ namespace Lusid.Sdk.Model
     /// ScenarioShiftDefinition
     /// </summary>
     [DataContract(Name = "ScenarioShiftDefinition")]
+    [JsonConverter(typeof(JsonSubtypes), "ScenarioShiftType")]
+    [JsonSubtypes.KnownSubType(typeof(RateCurveShiftDefinition), "RateCurveShiftDefinition")]
     public partial class ScenarioShiftDefinition : IEquatable<ScenarioShiftDefinition>, IValidatableObject
     {
+        /// <summary>
+        /// Available values: RateCurveShiftDefinition.
+        /// </summary>
+        /// <value>Available values: RateCurveShiftDefinition.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum ScenarioShiftTypeEnum
+        {
+            /// <summary>
+            /// Enum RateCurveShiftDefinition for value: RateCurveShiftDefinition
+            /// </summary>
+            [EnumMember(Value = "RateCurveShiftDefinition")]
+            RateCurveShiftDefinition = 1
+        }
+
+
+        /// <summary>
+        /// Available values: RateCurveShiftDefinition.
+        /// </summary>
+        /// <value>Available values: RateCurveShiftDefinition.</value>
+        [DataMember(Name = "scenarioShiftType", IsRequired = true, EmitDefaultValue = true)]
+        public ScenarioShiftTypeEnum ScenarioShiftType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="ScenarioShiftDefinition" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected ScenarioShiftDefinition()
-        {
-            this.AdditionalProperties = new Dictionary<string, object>();
-        }
+        protected ScenarioShiftDefinition() { }
         /// <summary>
         /// Initializes a new instance of the <see cref="ScenarioShiftDefinition" /> class.
         /// </summary>
-        /// <param name="shiftType">shiftType (required).</param>
-        public ScenarioShiftDefinition(string shiftType = default(string))
+        /// <param name="scenarioShiftType">Available values: RateCurveShiftDefinition. (required).</param>
+        public ScenarioShiftDefinition(ScenarioShiftTypeEnum scenarioShiftType = default(ScenarioShiftTypeEnum))
         {
-            // to ensure "shiftType" is required (not null)
-            if (shiftType == null)
-            {
-                throw new ArgumentNullException("shiftType is a required property for ScenarioShiftDefinition and cannot be null");
-            }
-            this.ShiftType = shiftType;
-            this.AdditionalProperties = new Dictionary<string, object>();
+            this.ScenarioShiftType = scenarioShiftType;
         }
-
-        /// <summary>
-        /// Gets or Sets ShiftType
-        /// </summary>
-        [DataMember(Name = "shiftType", IsRequired = true, EmitDefaultValue = true)]
-        public string ShiftType { get; set; }
-
-        /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -71,8 +74,7 @@ namespace Lusid.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class ScenarioShiftDefinition {\n");
-            sb.Append("  ShiftType: ").Append(ShiftType).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
+            sb.Append("  ScenarioShiftType: ").Append(ScenarioShiftType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -109,11 +111,9 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
-                    this.ShiftType == input.ShiftType ||
-                    (this.ShiftType != null &&
-                    this.ShiftType.Equals(input.ShiftType))
-                )
-                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
+                    this.ScenarioShiftType == input.ScenarioShiftType ||
+                    this.ScenarioShiftType.Equals(input.ScenarioShiftType)
+                );
         }
 
         /// <summary>
@@ -125,14 +125,7 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.ShiftType != null)
-                {
-                    hashCode = (hashCode * 59) + this.ShiftType.GetHashCode();
-                }
-                if (this.AdditionalProperties != null)
-                {
-                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.ScenarioShiftType.GetHashCode();
                 return hashCode;
             }
         }
@@ -144,25 +137,16 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // ShiftType (string) maxLength
-            if (this.ShiftType != null && this.ShiftType.Length > 64)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ShiftType, length must be less than 64.", new [] { "ShiftType" });
-            }
+            return this.BaseValidate(validationContext);
+        }
 
-            // ShiftType (string) minLength
-            if (this.ShiftType != null && this.ShiftType.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ShiftType, length must be greater than 1.", new [] { "ShiftType" });
-            }
-
-            // ShiftType (string) pattern
-            Regex regexShiftType = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
-            if (false == regexShiftType.Match(this.ShiftType).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ShiftType, must match a pattern of " + regexShiftType, new [] { "ShiftType" });
-            }
-
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        protected IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> BaseValidate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

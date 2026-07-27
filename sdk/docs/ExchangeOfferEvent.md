@@ -17,6 +17,8 @@ Name | Type | Description | Notes
 **MinIncrement** | **decimal?** |  | [optional] 
 **FractionalUnitsCashPrice** | **decimal?** |  | [optional] 
 **FractionalUnitsCashCurrency** | **string** |  | [optional] 
+**FractionalUnitsRoundingConvention** | **string** | The convention used to round the fractional units entitlement. Defaults to Floor. Available values: Floor, Ceiling, RoundHalfUp, RoundHalfDown, RoundToDecimalPlaces, BuyUp, BankerRounding. | [optional] 
+**FractionalUnitsDecimalPlaces** | **int?** | The number of decimal places to round to when FractionalUnitsRoundingConvention is RoundToDecimalPlaces. | [optional] 
 **InstructionReference** | **string** |  | [optional] 
 
 ```csharp
@@ -31,6 +33,7 @@ List<SecurityOfferElection> securityOfferElections = new List<SecurityOfferElect
 List<MixedLotConstituentsElection> mixedLotConstituentsElections = new List<MixedLotConstituentsElection>();
 List<LapseElection> lapseElections = new List<LapseElection>();
 string fractionalUnitsCashCurrency = "example fractionalUnitsCashCurrency";
+string fractionalUnitsRoundingConvention = "example fractionalUnitsRoundingConvention";
 string instructionReference = "example instructionReference";
 
 ExchangeOfferEvent exchangeOfferEventInstance = new ExchangeOfferEvent(
@@ -46,6 +49,8 @@ ExchangeOfferEvent exchangeOfferEventInstance = new ExchangeOfferEvent(
     minIncrement: minIncrement,
     fractionalUnitsCashPrice: fractionalUnitsCashPrice,
     fractionalUnitsCashCurrency: fractionalUnitsCashCurrency,
+    fractionalUnitsRoundingConvention: fractionalUnitsRoundingConvention,
+    fractionalUnitsDecimalPlaces: fractionalUnitsDecimalPlaces,
     instructionReference: instructionReference);
 ```
 

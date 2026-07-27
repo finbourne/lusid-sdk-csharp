@@ -19,6 +19,8 @@ Name | Type | Description | Notes
 **ProrationRate** | **decimal?** | The proration rate applied to OVER subscriptions when the offer is oversubscribed.  Treated as 1 (full allocation) when not supplied. Must be greater than 0 and less than  or equal to 1. SECU basic entitlement is never prorated. | [optional] 
 **FractionalUnitsCashPrice** | **decimal?** | Price per fractional unit used to compute cash-in-lieu for fractional entitlement remainders.  When not supplied, fractional residuals are discarded with no cash-in-lieu.  Forms an optional pair with FractionalUnitsCashCurrency — both must be supplied together. | [optional] 
 **FractionalUnitsCashCurrency** | **string** | Currency of FractionalUnitsCashPrice. Required if and only if FractionalUnitsCashPrice is supplied. | [optional] 
+**FractionalUnitsRoundingConvention** | **string** | The convention used to round the fractional units entitlement. Defaults to Floor. Available values: Floor, Ceiling, RoundHalfUp, RoundHalfDown, RoundToDecimalPlaces, BuyUp, BankerRounding. | [optional] 
+**FractionalUnitsDecimalPlaces** | **int?** | The number of decimal places to round to when FractionalUnitsRoundingConvention is RoundToDecimalPlaces. | [optional] 
 **SecurityOfferElections** | [**List&lt;SecurityOfferElection&gt;**](SecurityOfferElection.md) | Security offer elections — exactly one entry keyed &#39;SECU&#39; (basic entitlement) and an optional  entry keyed &#39;OVER&#39; (over-subscription) when the issuer offers the over-subscription facility. | [optional] 
 **LapseElections** | [**List&lt;LapseElection&gt;**](LapseElection.md) | Lapse elections — exactly one entry keyed &#39;NOAC&#39;, recording the holder&#39;s explicit no-action election. | [optional] 
 
@@ -30,6 +32,7 @@ string subscriptionCurrency = "example subscriptionCurrency";
 NewInstrument? newInstrument = new NewInstrument();
 
 string fractionalUnitsCashCurrency = "example fractionalUnitsCashCurrency";
+string fractionalUnitsRoundingConvention = "example fractionalUnitsRoundingConvention";
 List<SecurityOfferElection> securityOfferElections = new List<SecurityOfferElection>();
 List<LapseElection> lapseElections = new List<LapseElection>();
 
@@ -47,6 +50,8 @@ PriorityIssueEvent priorityIssueEventInstance = new PriorityIssueEvent(
     prorationRate: prorationRate,
     fractionalUnitsCashPrice: fractionalUnitsCashPrice,
     fractionalUnitsCashCurrency: fractionalUnitsCashCurrency,
+    fractionalUnitsRoundingConvention: fractionalUnitsRoundingConvention,
+    fractionalUnitsDecimalPlaces: fractionalUnitsDecimalPlaces,
     securityOfferElections: securityOfferElections,
     lapseElections: lapseElections);
 ```

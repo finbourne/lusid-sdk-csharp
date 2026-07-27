@@ -13,6 +13,8 @@ Name | Type | Description | Notes
 **AnnouncementDate** | **DateTimeOffset?** | Date the stock split was announced. | [optional] 
 **FractionalUnitsCashPrice** | **decimal?** | The cash price per unit paid in lieu when fractional units can not be distributed. | [optional] 
 **FractionalUnitsCashCurrency** | **string** | The currency of the cash paid in lieu of fractional units. | [optional] 
+**FractionalUnitsRoundingConvention** | **string** | The convention used to round the fractional units entitlement. Defaults to Floor. Available values: Floor, Ceiling, RoundHalfUp, RoundHalfDown, RoundToDecimalPlaces, BuyUp, BankerRounding. | [optional] 
+**FractionalUnitsDecimalPlaces** | **int?** | The number of decimal places to round to when FractionalUnitsRoundingConvention is RoundToDecimalPlaces. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -20,6 +22,7 @@ using System;
 
 UnitsRatio unitsRatio = new UnitsRatio();
 string fractionalUnitsCashCurrency = "example fractionalUnitsCashCurrency";
+string fractionalUnitsRoundingConvention = "example fractionalUnitsRoundingConvention";
 
 StockSplitEvent stockSplitEventInstance = new StockSplitEvent(
     paymentDate: paymentDate,
@@ -28,7 +31,9 @@ StockSplitEvent stockSplitEventInstance = new StockSplitEvent(
     recordDate: recordDate,
     announcementDate: announcementDate,
     fractionalUnitsCashPrice: fractionalUnitsCashPrice,
-    fractionalUnitsCashCurrency: fractionalUnitsCashCurrency);
+    fractionalUnitsCashCurrency: fractionalUnitsCashCurrency,
+    fractionalUnitsRoundingConvention: fractionalUnitsRoundingConvention,
+    fractionalUnitsDecimalPlaces: fractionalUnitsDecimalPlaces);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -274,7 +274,7 @@ catch (ApiException e)
 
 <a id="buildtransactionsforportfoliogroup"></a>
 # **BuildTransactionsForPortfolioGroup**
-> VersionedResourceListOfOutputTransaction BuildTransactionsForPortfolioGroup (string scope, string code, TransactionQueryParameters transactionQueryParameters, DateTimeOffset? asAt = null, string? filter = null, List<string>? propertyKeys = null, int? limit = null, string? page = null, string? dataModelScope = null, string? dataModelCode = null, string? membershipType = null)
+> VersionedResourceListOfOutputTransaction BuildTransactionsForPortfolioGroup (string scope, string code, TransactionQueryParameters transactionQueryParameters, DateTimeOffset? asAt = null, string? filter = null, List<string>? propertyKeys = null, int? limit = null, string? page = null, string? dataModelScope = null, string? dataModelCode = null, string? membershipType = null, bool? returnExcludedTransactions = null)
 
 BuildTransactionsForPortfolioGroup: Build transactions for transaction portfolios in a portfolio group
 
@@ -330,14 +330,15 @@ namespace Examples
             var dataModelScope = "dataModelScope_example";  // string? | The optional scope of a Custom Data Model to use (optional) 
             var dataModelCode = "dataModelCode_example";  // string? | The optional code of a Custom Data Model to use (optional) 
             var membershipType = "membershipType_example";  // string? | The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. (optional) 
+            var returnExcludedTransactions = false;  // bool? | Whether to include transactions that a portfolio's transaction exclusion filter marks as excluded. Defaults to false. (optional)  (default to false)
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // VersionedResourceListOfOutputTransaction result = apiInstance.BuildTransactionsForPortfolioGroup(scope, code, transactionQueryParameters, asAt, filter, propertyKeys, limit, page, dataModelScope, dataModelCode, membershipType, opts: opts);
+                // VersionedResourceListOfOutputTransaction result = apiInstance.BuildTransactionsForPortfolioGroup(scope, code, transactionQueryParameters, asAt, filter, propertyKeys, limit, page, dataModelScope, dataModelCode, membershipType, returnExcludedTransactions, opts: opts);
 
                 // BuildTransactionsForPortfolioGroup: Build transactions for transaction portfolios in a portfolio group
-                VersionedResourceListOfOutputTransaction result = apiInstance.BuildTransactionsForPortfolioGroup(scope, code, transactionQueryParameters, asAt, filter, propertyKeys, limit, page, dataModelScope, dataModelCode, membershipType);
+                VersionedResourceListOfOutputTransaction result = apiInstance.BuildTransactionsForPortfolioGroup(scope, code, transactionQueryParameters, asAt, filter, propertyKeys, limit, page, dataModelScope, dataModelCode, membershipType, returnExcludedTransactions);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -358,7 +359,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // BuildTransactionsForPortfolioGroup: Build transactions for transaction portfolios in a portfolio group
-    ApiResponse<VersionedResourceListOfOutputTransaction> response = apiInstance.BuildTransactionsForPortfolioGroupWithHttpInfo(scope, code, transactionQueryParameters, asAt, filter, propertyKeys, limit, page, dataModelScope, dataModelCode, membershipType);
+    ApiResponse<VersionedResourceListOfOutputTransaction> response = apiInstance.BuildTransactionsForPortfolioGroupWithHttpInfo(scope, code, transactionQueryParameters, asAt, filter, propertyKeys, limit, page, dataModelScope, dataModelCode, membershipType, returnExcludedTransactions);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -386,6 +387,7 @@ catch (ApiException e)
 | **dataModelScope** | **string?** | The optional scope of a Custom Data Model to use | [optional]  |
 | **dataModelCode** | **string?** | The optional code of a Custom Data Model to use | [optional]  |
 | **membershipType** | **string?** | The membership types of the specified Custom Data Model to return. Default value: Member. Available values: All, Member, Candidate. | [optional]  |
+| **returnExcludedTransactions** | **bool?** | Whether to include transactions that a portfolio&#39;s transaction exclusion filter marks as excluded. Defaults to false. | [optional] [default to false] |
 
 ### Return type
 
