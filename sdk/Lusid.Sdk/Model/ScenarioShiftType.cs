@@ -32,7 +32,25 @@ namespace Lusid.Sdk.Model
         /// Enum RateCurveShiftDefinition for value: RateCurveShiftDefinition
         /// </summary>
         [EnumMember(Value = "RateCurveShiftDefinition")]
-        RateCurveShiftDefinition = 1
+        RateCurveShiftDefinition = 1,
+
+        /// <summary>
+        /// Enum FxShiftDefinition for value: FxShiftDefinition
+        /// </summary>
+        [EnumMember(Value = "FxShiftDefinition")]
+        FxShiftDefinition = 2,
+
+        /// <summary>
+        /// Enum EquityShiftDefinition for value: EquityShiftDefinition
+        /// </summary>
+        [EnumMember(Value = "EquityShiftDefinition")]
+        EquityShiftDefinition = 3,
+
+        /// <summary>
+        /// Enum VolSurfaceShiftDefinition for value: VolSurfaceShiftDefinition
+        /// </summary>
+        [EnumMember(Value = "VolSurfaceShiftDefinition")]
+        VolSurfaceShiftDefinition = 4
     }
 
 }

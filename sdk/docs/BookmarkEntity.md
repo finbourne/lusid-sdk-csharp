@@ -1,0 +1,55 @@
+# Lusid.Sdk.Model.BookmarkEntity
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Href** | **string** | The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime. | 
+**EntityUniqueId** | **string** | The unique id of the entity. | 
+**AsAtVersionNumber** | **int?** | The integer version number for the entity (the entity was created at version 1) | [optional] 
+**Status** | **string** | The status of the entity at the current time. Available values: Prevailing, Deleted, DoesNotExist. | 
+**AsAtDeleted** | **DateTimeOffset?** | The asAt datetime at which the entity was deleted. | [optional] 
+**UserIdDeleted** | **string** | The unique id of the user who deleted the entity. | [optional] 
+**RequestIdDeleted** | **string** | The unique request id of the command that deleted the entity. | [optional] 
+**EffectiveAtCreated** | **DateTimeOffset?** | The EffectiveAt this Entity is created, if entity does not currently exist in EffectiveAt. | [optional] 
+**PrevailingBookmark** | [**FundCalendarEntry**](FundCalendarEntry.md) |  | [optional] 
+**DeletedBookmark** | [**FundCalendarEntry**](FundCalendarEntry.md) |  | [optional] 
+**PreviewedStatus** | **string** | The status of the previewed entity. Available values: Prevailing, Deleted, DoesNotExist. | [optional] 
+**PreviewedBookmark** | [**FundCalendarEntry**](FundCalendarEntry.md) |  | [optional] 
+**Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
+
+```csharp
+using Lusid.Sdk.Model;
+using System;
+
+string href = "href";
+string entityUniqueId = "entityUniqueId";
+string status = "status";
+string userIdDeleted = "example userIdDeleted";
+string requestIdDeleted = "example requestIdDeleted";
+FundCalendarEntry? prevailingBookmark = new FundCalendarEntry();
+
+FundCalendarEntry? deletedBookmark = new FundCalendarEntry();
+
+string previewedStatus = "example previewedStatus";
+FundCalendarEntry? previewedBookmark = new FundCalendarEntry();
+
+List<Link> links = new List<Link>();
+
+BookmarkEntity bookmarkEntityInstance = new BookmarkEntity(
+    href: href,
+    entityUniqueId: entityUniqueId,
+    asAtVersionNumber: asAtVersionNumber,
+    status: status,
+    asAtDeleted: asAtDeleted,
+    userIdDeleted: userIdDeleted,
+    requestIdDeleted: requestIdDeleted,
+    effectiveAtCreated: effectiveAtCreated,
+    prevailingBookmark: prevailingBookmark,
+    deletedBookmark: deletedBookmark,
+    previewedStatus: previewedStatus,
+    previewedBookmark: previewedBookmark,
+    links: links);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

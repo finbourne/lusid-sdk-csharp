@@ -4,10 +4,127 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
+| [**CreateScenarioFromTemplate**](ScenariosApi.md#createscenariofromtemplate) | **POST** /api/scenarios/{scope}/$fromTemplate | [EARLY ACCESS] CreateScenarioFromTemplate: [EARLY ACCESS] CreateScenarioFromTemplate: Create a Scenario from a pre-built template. |
 | [**DeleteScenario**](ScenariosApi.md#deletescenario) | **DELETE** /api/scenarios/{scope}/{code} | [EARLY ACCESS] DeleteScenario: Delete a Scenario, assuming that it is present. |
 | [**GetScenario**](ScenariosApi.md#getscenario) | **GET** /api/scenarios/{scope}/{code} | [EARLY ACCESS] GetScenario: Get Scenario |
 | [**ListScenarios**](ScenariosApi.md#listscenarios) | **GET** /api/scenarios/{scope} | [EARLY ACCESS] ListScenarios: List the set of Scenario definitions |
 | [**UpsertScenario**](ScenariosApi.md#upsertscenario) | **POST** /api/scenarios | [EARLY ACCESS] UpsertScenario: Upsert a Scenario. This creates or updates the scenario definition in LUSID. |
+
+<a id="createscenariofromtemplate"></a>
+# **CreateScenarioFromTemplate**
+> UpsertSingleStructuredDataResponse CreateScenarioFromTemplate (string scope, CreateScenarioFromTemplateRequest createScenarioFromTemplateRequest)
+
+[EARLY ACCESS] CreateScenarioFromTemplate: [EARLY ACCESS] CreateScenarioFromTemplate: Create a Scenario from a pre-built template.
+
+Creates and stores a scenario built from a pre-defined parameterised template, for example a  parallel rates shift or an equity crash. The template determines the scenario's shifts; the  parameters supply the targets (e.g. currency or instrument) and optionally override the default  shift size. The created scenario is stored in the given scope and behaves exactly like a  hand-built scenario.                Available templates: RatesUp, RatesDown, CurveSteepener, CurveFlattener, VolSpike, EquityCrash,  FxShock, RiskOff.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ScenariosApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ScenariosApi>();
+            var scope = "scope_example";  // string | The scope in which to create the scenario
+            var createScenarioFromTemplateRequest = new CreateScenarioFromTemplateRequest(); // CreateScenarioFromTemplateRequest | The template, code and parameters to create the scenario from
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // UpsertSingleStructuredDataResponse result = apiInstance.CreateScenarioFromTemplate(scope, createScenarioFromTemplateRequest, opts: opts);
+
+                // [EARLY ACCESS] CreateScenarioFromTemplate: [EARLY ACCESS] CreateScenarioFromTemplate: Create a Scenario from a pre-built template.
+                UpsertSingleStructuredDataResponse result = apiInstance.CreateScenarioFromTemplate(scope, createScenarioFromTemplateRequest);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling ScenariosApi.CreateScenarioFromTemplate: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the CreateScenarioFromTemplateWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] CreateScenarioFromTemplate: [EARLY ACCESS] CreateScenarioFromTemplate: Create a Scenario from a pre-built template.
+    ApiResponse<UpsertSingleStructuredDataResponse> response = apiInstance.CreateScenarioFromTemplateWithHttpInfo(scope, createScenarioFromTemplateRequest);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling ScenariosApi.CreateScenarioFromTemplateWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope in which to create the scenario |  |
+| **createScenarioFromTemplateRequest** | [**CreateScenarioFromTemplateRequest**](CreateScenarioFromTemplateRequest.md) | The template, code and parameters to create the scenario from |  |
+
+### Return type
+
+[**UpsertSingleStructuredDataResponse**](UpsertSingleStructuredDataResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The successfully created scenario or any failure |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="deletescenario"></a>
 # **DeleteScenario**

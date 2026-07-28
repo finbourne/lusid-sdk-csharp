@@ -555,7 +555,13 @@ namespace Lusid.Sdk.Model
         /// Enum PariPassuEvent for value: PariPassuEvent
         /// </summary>
         [EnumMember(Value = "PariPassuEvent")]
-        PariPassuEvent = 88
+        PariPassuEvent = 88,
+
+        /// <summary>
+        /// Enum ChangeEvent for value: ChangeEvent
+        /// </summary>
+        [EnumMember(Value = "ChangeEvent")]
+        ChangeEvent = 89
     }
 
 }

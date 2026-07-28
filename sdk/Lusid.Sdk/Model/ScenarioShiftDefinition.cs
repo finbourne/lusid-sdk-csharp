@@ -28,13 +28,16 @@ namespace Lusid.Sdk.Model
     /// </summary>
     [DataContract(Name = "ScenarioShiftDefinition")]
     [JsonConverter(typeof(JsonSubtypes), "ScenarioShiftType")]
+    [JsonSubtypes.KnownSubType(typeof(EquityShiftDefinition), "EquityShiftDefinition")]
+    [JsonSubtypes.KnownSubType(typeof(FxShiftDefinition), "FxShiftDefinition")]
     [JsonSubtypes.KnownSubType(typeof(RateCurveShiftDefinition), "RateCurveShiftDefinition")]
+    [JsonSubtypes.KnownSubType(typeof(VolSurfaceShiftDefinition), "VolSurfaceShiftDefinition")]
     public partial class ScenarioShiftDefinition : IEquatable<ScenarioShiftDefinition>, IValidatableObject
     {
         /// <summary>
-        /// Available values: RateCurveShiftDefinition.
+        /// Available values: RateCurveShiftDefinition, FxShiftDefinition, EquityShiftDefinition, VolSurfaceShiftDefinition.
         /// </summary>
-        /// <value>Available values: RateCurveShiftDefinition.</value>
+        /// <value>Available values: RateCurveShiftDefinition, FxShiftDefinition, EquityShiftDefinition, VolSurfaceShiftDefinition.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ScenarioShiftTypeEnum
         {
@@ -42,14 +45,32 @@ namespace Lusid.Sdk.Model
             /// Enum RateCurveShiftDefinition for value: RateCurveShiftDefinition
             /// </summary>
             [EnumMember(Value = "RateCurveShiftDefinition")]
-            RateCurveShiftDefinition = 1
+            RateCurveShiftDefinition = 1,
+
+            /// <summary>
+            /// Enum FxShiftDefinition for value: FxShiftDefinition
+            /// </summary>
+            [EnumMember(Value = "FxShiftDefinition")]
+            FxShiftDefinition = 2,
+
+            /// <summary>
+            /// Enum EquityShiftDefinition for value: EquityShiftDefinition
+            /// </summary>
+            [EnumMember(Value = "EquityShiftDefinition")]
+            EquityShiftDefinition = 3,
+
+            /// <summary>
+            /// Enum VolSurfaceShiftDefinition for value: VolSurfaceShiftDefinition
+            /// </summary>
+            [EnumMember(Value = "VolSurfaceShiftDefinition")]
+            VolSurfaceShiftDefinition = 4
         }
 
 
         /// <summary>
-        /// Available values: RateCurveShiftDefinition.
+        /// Available values: RateCurveShiftDefinition, FxShiftDefinition, EquityShiftDefinition, VolSurfaceShiftDefinition.
         /// </summary>
-        /// <value>Available values: RateCurveShiftDefinition.</value>
+        /// <value>Available values: RateCurveShiftDefinition, FxShiftDefinition, EquityShiftDefinition, VolSurfaceShiftDefinition.</value>
         [DataMember(Name = "scenarioShiftType", IsRequired = true, EmitDefaultValue = true)]
         public ScenarioShiftTypeEnum ScenarioShiftType { get; set; }
         /// <summary>
@@ -60,7 +81,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ScenarioShiftDefinition" /> class.
         /// </summary>
-        /// <param name="scenarioShiftType">Available values: RateCurveShiftDefinition. (required).</param>
+        /// <param name="scenarioShiftType">Available values: RateCurveShiftDefinition, FxShiftDefinition, EquityShiftDefinition, VolSurfaceShiftDefinition. (required).</param>
         public ScenarioShiftDefinition(ScenarioShiftTypeEnum scenarioShiftType = default(ScenarioShiftTypeEnum))
         {
             this.ScenarioShiftType = scenarioShiftType;

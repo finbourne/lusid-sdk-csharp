@@ -31,6 +31,7 @@ namespace Lusid.Sdk.Model
     [JsonSubtypes.KnownSubType(typeof(CdsModelOptions), "CdsModelOptions")]
     [JsonSubtypes.KnownSubType(typeof(EmptyModelOptions), "EmptyModelOptions")]
     [JsonSubtypes.KnownSubType(typeof(EquityModelOptions), "EquityModelOptions")]
+    [JsonSubtypes.KnownSubType(typeof(FlexibleLoanPricerOptions), "FlexibleLoanPricerOptions")]
     [JsonSubtypes.KnownSubType(typeof(FundingLegOptions), "FundingLegOptions")]
     [JsonSubtypes.KnownSubType(typeof(FxForwardModelOptions), "FxForwardModelOptions")]
     [JsonSubtypes.KnownSubType(typeof(IndexModelOptions), "IndexModelOptions")]
@@ -38,9 +39,9 @@ namespace Lusid.Sdk.Model
     public partial class ModelOptions : IEquatable<ModelOptions>, IValidatableObject
     {
         /// <summary>
-        /// Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions.
+        /// Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions.
         /// </summary>
-        /// <value>Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions.</value>
+        /// <value>Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ModelOptionsTypeEnum
         {
@@ -90,14 +91,20 @@ namespace Lusid.Sdk.Model
             /// Enum CdsModelOptions for value: CdsModelOptions
             /// </summary>
             [EnumMember(Value = "CdsModelOptions")]
-            CdsModelOptions = 8
+            CdsModelOptions = 8,
+
+            /// <summary>
+            /// Enum FlexibleLoanPricerOptions for value: FlexibleLoanPricerOptions
+            /// </summary>
+            [EnumMember(Value = "FlexibleLoanPricerOptions")]
+            FlexibleLoanPricerOptions = 9
         }
 
 
         /// <summary>
-        /// Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions.
+        /// Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions.
         /// </summary>
-        /// <value>Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions.</value>
+        /// <value>Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions.</value>
         [DataMember(Name = "modelOptionsType", IsRequired = true, EmitDefaultValue = true)]
         public ModelOptionsTypeEnum ModelOptionsType { get; set; }
         /// <summary>
@@ -108,7 +115,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ModelOptions" /> class.
         /// </summary>
-        /// <param name="modelOptionsType">Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions. (required).</param>
+        /// <param name="modelOptionsType">Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions. (required).</param>
         public ModelOptions(ModelOptionsTypeEnum modelOptionsType = default(ModelOptionsTypeEnum))
         {
             this.ModelOptionsType = modelOptionsType;

@@ -119,12 +119,14 @@ namespace Lusid.Sdk.Model
         /// <param name="forwardRateObservableType">Available values: ForwardPoints, ForwardRate, RatesCurve, FxForwardCurve, Invalid. (required).</param>
         /// <param name="discountingMethod">Available values: Standard, ConstantTimeValueOfMoney, Invalid. (required).</param>
         /// <param name="convertToReportCcy">Convert all FX flows to the report currency  By setting this all FX forwards will be priced using Forward Curves that have Report Currency as the base. (required).</param>
-        /// <param name="modelOptionsType">Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions. (required) (default to &quot;FxForwardModelOptions&quot;).</param>
-        public FxForwardModelOptions(ForwardRateObservableTypeEnum forwardRateObservableType = default(ForwardRateObservableTypeEnum), DiscountingMethodEnum discountingMethod = default(DiscountingMethodEnum), bool convertToReportCcy = default(bool), ModelOptionsTypeEnum modelOptionsType = default(ModelOptionsTypeEnum)) : base(modelOptionsType)
+        /// <param name="allowSpotFallbackForReportCcy">When converting to the report currency, allow falling back to pricing off the natural-pair forward  and converting to the report currency at spot when the report-currency cross forward curves are not  available. Defaults to false, in which case the report-currency cross forwards are required..</param>
+        /// <param name="modelOptionsType">Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions. (required) (default to &quot;FxForwardModelOptions&quot;).</param>
+        public FxForwardModelOptions(ForwardRateObservableTypeEnum forwardRateObservableType = default(ForwardRateObservableTypeEnum), DiscountingMethodEnum discountingMethod = default(DiscountingMethodEnum), bool convertToReportCcy = default(bool), bool allowSpotFallbackForReportCcy = default(bool), ModelOptionsTypeEnum modelOptionsType = default(ModelOptionsTypeEnum)) : base(modelOptionsType)
         {
             this.ForwardRateObservableType = forwardRateObservableType;
             this.DiscountingMethod = discountingMethod;
             this.ConvertToReportCcy = convertToReportCcy;
+            this.AllowSpotFallbackForReportCcy = allowSpotFallbackForReportCcy;
         }
 
         /// <summary>
@@ -133,6 +135,13 @@ namespace Lusid.Sdk.Model
         /// <value>Convert all FX flows to the report currency  By setting this all FX forwards will be priced using Forward Curves that have Report Currency as the base.</value>
         [DataMember(Name = "convertToReportCcy", IsRequired = true, EmitDefaultValue = true)]
         public bool ConvertToReportCcy { get; set; }
+
+        /// <summary>
+        /// When converting to the report currency, allow falling back to pricing off the natural-pair forward  and converting to the report currency at spot when the report-currency cross forward curves are not  available. Defaults to false, in which case the report-currency cross forwards are required.
+        /// </summary>
+        /// <value>When converting to the report currency, allow falling back to pricing off the natural-pair forward  and converting to the report currency at spot when the report-currency cross forward curves are not  available. Defaults to false, in which case the report-currency cross forwards are required.</value>
+        [DataMember(Name = "allowSpotFallbackForReportCcy", EmitDefaultValue = true)]
+        public bool AllowSpotFallbackForReportCcy { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -146,6 +155,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  ForwardRateObservableType: ").Append(ForwardRateObservableType).Append("\n");
             sb.Append("  DiscountingMethod: ").Append(DiscountingMethod).Append("\n");
             sb.Append("  ConvertToReportCcy: ").Append(ConvertToReportCcy).Append("\n");
+            sb.Append("  AllowSpotFallbackForReportCcy: ").Append(AllowSpotFallbackForReportCcy).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -192,6 +202,10 @@ namespace Lusid.Sdk.Model
                 (
                     this.ConvertToReportCcy == input.ConvertToReportCcy ||
                     this.ConvertToReportCcy.Equals(input.ConvertToReportCcy)
+                ) && base.Equals(input) && 
+                (
+                    this.AllowSpotFallbackForReportCcy == input.AllowSpotFallbackForReportCcy ||
+                    this.AllowSpotFallbackForReportCcy.Equals(input.AllowSpotFallbackForReportCcy)
                 );
         }
 
@@ -207,6 +221,7 @@ namespace Lusid.Sdk.Model
                 hashCode = (hashCode * 59) + this.ForwardRateObservableType.GetHashCode();
                 hashCode = (hashCode * 59) + this.DiscountingMethod.GetHashCode();
                 hashCode = (hashCode * 59) + this.ConvertToReportCcy.GetHashCode();
+                hashCode = (hashCode * 59) + this.AllowSpotFallbackForReportCcy.GetHashCode();
                 return hashCode;
             }
         }

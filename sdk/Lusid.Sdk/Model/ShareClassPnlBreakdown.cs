@@ -38,8 +38,9 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="apportionedNonClassSpecificPnl">Bucket of detail for PnL within the queried period not explicitly allocated to any share class but has been apportioned to the share class. (required).</param>
         /// <param name="classPnl">Bucket of detail for PnL specific to the share class within the queried period. (required).</param>
-        /// <param name="totalPnl">Bucket of detail for the sum of class PnL and PnL not specific to a class within the queried period. (required).</param>
-        public ShareClassPnlBreakdown(Dictionary<string, ShareClassAmount> apportionedNonClassSpecificPnl = default(Dictionary<string, ShareClassAmount>), Dictionary<string, ShareClassAmount> classPnl = default(Dictionary<string, ShareClassAmount>), Dictionary<string, ShareClassAmount> totalPnl = default(Dictionary<string, ShareClassAmount>))
+        /// <param name="groupApportionedPnl">Bucket of detail for the share class&#39;s apportioned share of PnL allocated to the allocation groups it belongs to, within the queried period. (required).</param>
+        /// <param name="totalPnl">Bucket of detail for the total PnL within the queried period: the sum of the class-specific, apportioned non-class-specific and allocation-group-apportioned PnL. (required).</param>
+        public ShareClassPnlBreakdown(Dictionary<string, ShareClassAmount> apportionedNonClassSpecificPnl = default(Dictionary<string, ShareClassAmount>), Dictionary<string, ShareClassAmount> classPnl = default(Dictionary<string, ShareClassAmount>), Dictionary<string, ShareClassAmount> groupApportionedPnl = default(Dictionary<string, ShareClassAmount>), Dictionary<string, ShareClassAmount> totalPnl = default(Dictionary<string, ShareClassAmount>))
         {
             // to ensure "apportionedNonClassSpecificPnl" is required (not null)
             if (apportionedNonClassSpecificPnl == null)
@@ -53,6 +54,12 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("classPnl is a required property for ShareClassPnlBreakdown and cannot be null");
             }
             this.ClassPnl = classPnl;
+            // to ensure "groupApportionedPnl" is required (not null)
+            if (groupApportionedPnl == null)
+            {
+                throw new ArgumentNullException("groupApportionedPnl is a required property for ShareClassPnlBreakdown and cannot be null");
+            }
+            this.GroupApportionedPnl = groupApportionedPnl;
             // to ensure "totalPnl" is required (not null)
             if (totalPnl == null)
             {
@@ -76,9 +83,16 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, ShareClassAmount> ClassPnl { get; set; }
 
         /// <summary>
-        /// Bucket of detail for the sum of class PnL and PnL not specific to a class within the queried period.
+        /// Bucket of detail for the share class&#39;s apportioned share of PnL allocated to the allocation groups it belongs to, within the queried period.
         /// </summary>
-        /// <value>Bucket of detail for the sum of class PnL and PnL not specific to a class within the queried period.</value>
+        /// <value>Bucket of detail for the share class&#39;s apportioned share of PnL allocated to the allocation groups it belongs to, within the queried period.</value>
+        [DataMember(Name = "groupApportionedPnl", IsRequired = true, EmitDefaultValue = true)]
+        public Dictionary<string, ShareClassAmount> GroupApportionedPnl { get; set; }
+
+        /// <summary>
+        /// Bucket of detail for the total PnL within the queried period: the sum of the class-specific, apportioned non-class-specific and allocation-group-apportioned PnL.
+        /// </summary>
+        /// <value>Bucket of detail for the total PnL within the queried period: the sum of the class-specific, apportioned non-class-specific and allocation-group-apportioned PnL.</value>
         [DataMember(Name = "totalPnl", IsRequired = true, EmitDefaultValue = true)]
         public Dictionary<string, ShareClassAmount> TotalPnl { get; set; }
 
@@ -92,6 +106,7 @@ namespace Lusid.Sdk.Model
             sb.Append("class ShareClassPnlBreakdown {\n");
             sb.Append("  ApportionedNonClassSpecificPnl: ").Append(ApportionedNonClassSpecificPnl).Append("\n");
             sb.Append("  ClassPnl: ").Append(ClassPnl).Append("\n");
+            sb.Append("  GroupApportionedPnl: ").Append(GroupApportionedPnl).Append("\n");
             sb.Append("  TotalPnl: ").Append(TotalPnl).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -141,6 +156,12 @@ namespace Lusid.Sdk.Model
                     this.ClassPnl.SequenceEqual(input.ClassPnl)
                 ) && 
                 (
+                    this.GroupApportionedPnl == input.GroupApportionedPnl ||
+                    this.GroupApportionedPnl != null &&
+                    input.GroupApportionedPnl != null &&
+                    this.GroupApportionedPnl.SequenceEqual(input.GroupApportionedPnl)
+                ) && 
+                (
                     this.TotalPnl == input.TotalPnl ||
                     this.TotalPnl != null &&
                     input.TotalPnl != null &&
@@ -164,6 +185,10 @@ namespace Lusid.Sdk.Model
                 if (this.ClassPnl != null)
                 {
                     hashCode = (hashCode * 59) + this.ClassPnl.GetHashCode();
+                }
+                if (this.GroupApportionedPnl != null)
+                {
+                    hashCode = (hashCode * 59) + this.GroupApportionedPnl.GetHashCode();
                 }
                 if (this.TotalPnl != null)
                 {
