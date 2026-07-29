@@ -561,7 +561,31 @@ namespace Lusid.Sdk.Model
         /// Enum ChangeEvent for value: ChangeEvent
         /// </summary>
         [EnumMember(Value = "ChangeEvent")]
-        ChangeEvent = 89
+        ChangeEvent = 89,
+
+        /// <summary>
+        /// Enum PikBondCouponEvent for value: PikBondCouponEvent
+        /// </summary>
+        [EnumMember(Value = "PikBondCouponEvent")]
+        PikBondCouponEvent = 90,
+
+        /// <summary>
+        /// Enum PikBondCashCouponEvent for value: PikBondCashCouponEvent
+        /// </summary>
+        [EnumMember(Value = "PikBondCashCouponEvent")]
+        PikBondCashCouponEvent = 91,
+
+        /// <summary>
+        /// Enum PikBondInterestCapitalisationEvent for value: PikBondInterestCapitalisationEvent
+        /// </summary>
+        [EnumMember(Value = "PikBondInterestCapitalisationEvent")]
+        PikBondInterestCapitalisationEvent = 92,
+
+        /// <summary>
+        /// Enum PikBondPrincipalEvent for value: PikBondPrincipalEvent
+        /// </summary>
+        [EnumMember(Value = "PikBondPrincipalEvent")]
+        PikBondPrincipalEvent = 93
     }
 
 }

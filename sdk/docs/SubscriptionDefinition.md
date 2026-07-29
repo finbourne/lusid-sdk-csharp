@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **TimelineId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **AddressKeys** | **List&lt;string&gt;** | The set of addresses the subscriber wishes to receive. | [optional] 
 **ByTaxLots** | **bool** |  | [optional] 
+**SubscriptionType** | **string** | The kind of data the subscription streams (holdings or transactions), defaulting to holdings.  Address keys and byTaxLots are not valid for a transactions subscription. Available values: Holdings, Transactions. | [optional] 
 **StartEffectiveAt** | **DateTimeOffset?** |  | [optional] 
 **EndEffectiveAt** | **DateTimeOffset?** |  | [optional] 
 **StartAsAt** | **DateTimeOffset?** |  | [optional] 
@@ -29,6 +30,7 @@ ResourceId? timelineId = new ResourceId();
 
 List<string> addressKeys = new List<string>();
 bool byTaxLots = //"True";
+string subscriptionType = "example subscriptionType";
 
 SubscriptionDefinition subscriptionDefinitionInstance = new SubscriptionDefinition(
     scope: scope,
@@ -39,6 +41,7 @@ SubscriptionDefinition subscriptionDefinitionInstance = new SubscriptionDefiniti
     timelineId: timelineId,
     addressKeys: addressKeys,
     byTaxLots: byTaxLots,
+    subscriptionType: subscriptionType,
     startEffectiveAt: startEffectiveAt,
     endEffectiveAt: endEffectiveAt,
     startAsAt: startAsAt);
