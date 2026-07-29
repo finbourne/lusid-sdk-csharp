@@ -214,6 +214,18 @@ namespace Lusid.Sdk.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CurrencyPair, must match a pattern of " + regexCurrencyPair, new [] { "CurrencyPair" });
             }
 
+            // Amount (decimal) maximum
+            if (this.Amount > (decimal)1000000)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Amount, must be a value less than or equal to 1000000.", new [] { "Amount" });
+            }
+
+            // Amount (decimal) minimum
+            if (this.Amount < (decimal)-1000000)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Amount, must be a value greater than or equal to -1000000.", new [] { "Amount" });
+            }
+
             yield break;
         }
     }

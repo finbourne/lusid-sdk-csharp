@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **ValuationSchedule** | [**ValuationSchedule**](ValuationSchedule.md) |  | 
 **MarketDataOverrides** | [**MarketDataOverrides**](MarketDataOverrides.md) |  | [optional] 
 **CorporateActionSourceId** | [**ResourceId**](ResourceId.md) |  | [optional] 
+**Scenario** | [**ScenarioReference**](ScenarioReference.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -40,6 +41,8 @@ MarketDataOverrides? marketDataOverrides = new MarketDataOverrides();
 
 ResourceId? corporateActionSourceId = new ResourceId();
 
+ScenarioReference? scenario = new ScenarioReference();
+
 
 ValuationRequest valuationRequestInstance = new ValuationRequest(
     recipeId: recipeId,
@@ -55,7 +58,8 @@ ValuationRequest valuationRequestInstance = new ValuationRequest(
     portfolioEntityIds: portfolioEntityIds,
     valuationSchedule: valuationSchedule,
     marketDataOverrides: marketDataOverrides,
-    corporateActionSourceId: corporateActionSourceId);
+    corporateActionSourceId: corporateActionSourceId,
+    scenario: scenario);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

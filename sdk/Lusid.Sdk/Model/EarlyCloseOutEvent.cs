@@ -42,12 +42,13 @@ namespace Lusid.Sdk.Model
         /// <param name="closeOutCcy">The currency corresponding to the amount to be closed out early. Required. (required).</param>
         /// <param name="closeOutToOtherRate">The rate between close out amount and other amount. Optional. If provided, must be strictly positive..</param>
         /// <param name="effectiveDate">The date of the event..</param>
+        /// <param name="closeOutTolerance">Tolerance for inferring a full close-out. Optional. When set, and the recomputed close-out quantity is  within this tolerance of the holding&#39;s units, the full holding is closed out so the holding nets to zero;  otherwise the recomputed quantity is used. When absent, the recomputed quantity is always used, which may  leave a residual holding.  For example, if the tolerance is set to 0.01 and the calculated value returns 99.99 against a true  sub-holding of 100, the full holding will be closed out and no residual will be produced..</param>
         /// <param name="otherAmount">The other amount to be closed out early. Optional. If provided, must be strictly positive..</param>
         /// <param name="otherCcy">The currency corresponding to the other amount to be closed out early. Optional..</param>
         /// <param name="otherToCloseOutRate">The rate between other amount and close out amount. Optional. If provided, must be strictly positive..</param>
         /// <param name="settlementCcy">The settlement currency. Required. (required).</param>
         /// <param name="instrumentEventType">The Type of Event. Available values: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent, EarlyRedemptionEvent, FutureMarkToMarketEvent, AdjustGlobalCommitmentEvent, ContractInitialisationEvent, DrawdownEvent, LoanInterestRepaymentEvent, UpdateDepositAmountEvent, LoanPrincipalRepaymentEvent, DepositInterestPaymentEvent, DepositCloseEvent, LoanFacilityContractRolloverEvent, RepurchaseOfferEvent, RepoPartialClosureEvent, RepoCashFlowEvent, FlexibleRepoInterestPaymentEvent, FlexibleRepoCashFlowEvent, FlexibleRepoCollateralEvent, ConversionEvent, FlexibleRepoPartialClosureEvent, FlexibleRepoFullClosureEvent, CapletFloorletCashFlowEvent, EarlyCloseOutEvent, DepositRollEvent, ConsentEvent, DrawingEvent, CapitalGainsDistributionEvent, ExchangeOfferEvent, DutchAuctionEvent, WorthlessEvent, PutRedemptionEvent, LoanFacilityDelayedCompensationPaymentEvent, InterestPaymentEvent, PriorityIssueEvent, ClassActionEvent, BankruptcyEvent, LiquidationPaymentEvent, PartialDefeasanceEvent, SecurityWriteOffEvent, WarrantsExerciseEvent, PariPassuEvent, ChangeEvent. (required) (default to &quot;EarlyCloseOutEvent&quot;).</param>
-        public EarlyCloseOutEvent(decimal closeOutAmount = default(decimal), string closeOutCcy = default(string), decimal? closeOutToOtherRate = default(decimal?), DateTimeOffset effectiveDate = default(DateTimeOffset), decimal? otherAmount = default(decimal?), string otherCcy = default(string), decimal? otherToCloseOutRate = default(decimal?), string settlementCcy = default(string), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
+        public EarlyCloseOutEvent(decimal closeOutAmount = default(decimal), string closeOutCcy = default(string), decimal? closeOutToOtherRate = default(decimal?), DateTimeOffset effectiveDate = default(DateTimeOffset), decimal? closeOutTolerance = default(decimal?), decimal? otherAmount = default(decimal?), string otherCcy = default(string), decimal? otherToCloseOutRate = default(decimal?), string settlementCcy = default(string), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
             this.CloseOutAmount = closeOutAmount;
             // to ensure "closeOutCcy" is required (not null)
@@ -64,6 +65,7 @@ namespace Lusid.Sdk.Model
             this.SettlementCcy = settlementCcy;
             this.CloseOutToOtherRate = closeOutToOtherRate;
             this.EffectiveDate = effectiveDate;
+            this.CloseOutTolerance = closeOutTolerance;
             this.OtherAmount = otherAmount;
             this.OtherCcy = otherCcy;
             this.OtherToCloseOutRate = otherToCloseOutRate;
@@ -96,6 +98,13 @@ namespace Lusid.Sdk.Model
         /// <value>The date of the event.</value>
         [DataMember(Name = "effectiveDate", EmitDefaultValue = false)]
         public DateTimeOffset EffectiveDate { get; set; }
+
+        /// <summary>
+        /// Tolerance for inferring a full close-out. Optional. When set, and the recomputed close-out quantity is  within this tolerance of the holding&#39;s units, the full holding is closed out so the holding nets to zero;  otherwise the recomputed quantity is used. When absent, the recomputed quantity is always used, which may  leave a residual holding.  For example, if the tolerance is set to 0.01 and the calculated value returns 99.99 against a true  sub-holding of 100, the full holding will be closed out and no residual will be produced.
+        /// </summary>
+        /// <value>Tolerance for inferring a full close-out. Optional. When set, and the recomputed close-out quantity is  within this tolerance of the holding&#39;s units, the full holding is closed out so the holding nets to zero;  otherwise the recomputed quantity is used. When absent, the recomputed quantity is always used, which may  leave a residual holding.  For example, if the tolerance is set to 0.01 and the calculated value returns 99.99 against a true  sub-holding of 100, the full holding will be closed out and no residual will be produced.</value>
+        [DataMember(Name = "closeOutTolerance", EmitDefaultValue = true)]
+        public decimal? CloseOutTolerance { get; set; }
 
         /// <summary>
         /// The other amount to be closed out early. Optional. If provided, must be strictly positive.
@@ -138,6 +147,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  CloseOutCcy: ").Append(CloseOutCcy).Append("\n");
             sb.Append("  CloseOutToOtherRate: ").Append(CloseOutToOtherRate).Append("\n");
             sb.Append("  EffectiveDate: ").Append(EffectiveDate).Append("\n");
+            sb.Append("  CloseOutTolerance: ").Append(CloseOutTolerance).Append("\n");
             sb.Append("  OtherAmount: ").Append(OtherAmount).Append("\n");
             sb.Append("  OtherCcy: ").Append(OtherCcy).Append("\n");
             sb.Append("  OtherToCloseOutRate: ").Append(OtherToCloseOutRate).Append("\n");
@@ -197,6 +207,11 @@ namespace Lusid.Sdk.Model
                     this.EffectiveDate.Equals(input.EffectiveDate))
                 ) && base.Equals(input) && 
                 (
+                    this.CloseOutTolerance == input.CloseOutTolerance ||
+                    (this.CloseOutTolerance != null &&
+                    this.CloseOutTolerance.Equals(input.CloseOutTolerance))
+                ) && base.Equals(input) && 
+                (
                     this.OtherAmount == input.OtherAmount ||
                     (this.OtherAmount != null &&
                     this.OtherAmount.Equals(input.OtherAmount))
@@ -239,6 +254,10 @@ namespace Lusid.Sdk.Model
                 if (this.EffectiveDate != null)
                 {
                     hashCode = (hashCode * 59) + this.EffectiveDate.GetHashCode();
+                }
+                if (this.CloseOutTolerance != null)
+                {
+                    hashCode = (hashCode * 59) + this.CloseOutTolerance.GetHashCode();
                 }
                 if (this.OtherAmount != null)
                 {

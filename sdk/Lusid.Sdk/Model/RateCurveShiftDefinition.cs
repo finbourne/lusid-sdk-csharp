@@ -70,6 +70,33 @@ namespace Lusid.Sdk.Model
         [DataMember(Name = "shiftType", IsRequired = true, EmitDefaultValue = true)]
         public ShiftTypeEnum ShiftType { get; set; }
         /// <summary>
+        /// Available values: Bps, Percentage.
+        /// </summary>
+        /// <value>Available values: Bps, Percentage.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum ScaleEnum
+        {
+            /// <summary>
+            /// Enum Bps for value: Bps
+            /// </summary>
+            [EnumMember(Value = "Bps")]
+            Bps = 1,
+
+            /// <summary>
+            /// Enum Percentage for value: Percentage
+            /// </summary>
+            [EnumMember(Value = "Percentage")]
+            Percentage = 2
+        }
+
+
+        /// <summary>
+        /// Available values: Bps, Percentage.
+        /// </summary>
+        /// <value>Available values: Bps, Percentage.</value>
+        [DataMember(Name = "scale", EmitDefaultValue = false)]
+        public ScaleEnum? Scale { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="RateCurveShiftDefinition" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -78,12 +105,13 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="RateCurveShiftDefinition" /> class.
         /// </summary>
         /// <param name="ccy">ccy (required).</param>
-        /// <param name="amount">amount (required).</param>
+        /// <param name="amount">The size of the shift, in the units given by Scale: basis points by default (50 means +50bps),  or a percentage of each rate when Scale is Percentage (1 means rates scaled by 1.01). (required).</param>
         /// <param name="startTenor">startTenor.</param>
         /// <param name="endTenor">endTenor.</param>
         /// <param name="shiftType">Available values: Parallel, Steepen, Flatten, Twist. (required).</param>
+        /// <param name="scale">Available values: Bps, Percentage..</param>
         /// <param name="scenarioShiftType">Available values: RateCurveShiftDefinition, FxShiftDefinition, EquityShiftDefinition, VolSurfaceShiftDefinition. (required) (default to &quot;RateCurveShiftDefinition&quot;).</param>
-        public RateCurveShiftDefinition(string ccy = default(string), decimal amount = default(decimal), string startTenor = default(string), string endTenor = default(string), ShiftTypeEnum shiftType = default(ShiftTypeEnum), ScenarioShiftTypeEnum scenarioShiftType = default(ScenarioShiftTypeEnum)) : base(scenarioShiftType)
+        public RateCurveShiftDefinition(string ccy = default(string), decimal amount = default(decimal), string startTenor = default(string), string endTenor = default(string), ShiftTypeEnum shiftType = default(ShiftTypeEnum), ScaleEnum ?scale = default(ScaleEnum?), ScenarioShiftTypeEnum scenarioShiftType = default(ScenarioShiftTypeEnum)) : base(scenarioShiftType)
         {
             // to ensure "ccy" is required (not null)
             if (ccy == null)
@@ -95,6 +123,7 @@ namespace Lusid.Sdk.Model
             this.ShiftType = shiftType;
             this.StartTenor = startTenor;
             this.EndTenor = endTenor;
+            this.Scale = scale;
         }
 
         /// <summary>
@@ -104,8 +133,9 @@ namespace Lusid.Sdk.Model
         public string Ccy { get; set; }
 
         /// <summary>
-        /// Gets or Sets Amount
+        /// The size of the shift, in the units given by Scale: basis points by default (50 means +50bps),  or a percentage of each rate when Scale is Percentage (1 means rates scaled by 1.01).
         /// </summary>
+        /// <value>The size of the shift, in the units given by Scale: basis points by default (50 means +50bps),  or a percentage of each rate when Scale is Percentage (1 means rates scaled by 1.01).</value>
         [DataMember(Name = "amount", IsRequired = true, EmitDefaultValue = true)]
         public decimal Amount { get; set; }
 
@@ -135,6 +165,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  StartTenor: ").Append(StartTenor).Append("\n");
             sb.Append("  EndTenor: ").Append(EndTenor).Append("\n");
             sb.Append("  ShiftType: ").Append(ShiftType).Append("\n");
+            sb.Append("  Scale: ").Append(Scale).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -192,6 +223,10 @@ namespace Lusid.Sdk.Model
                 (
                     this.ShiftType == input.ShiftType ||
                     this.ShiftType.Equals(input.ShiftType)
+                ) && base.Equals(input) && 
+                (
+                    this.Scale == input.Scale ||
+                    this.Scale.Equals(input.Scale)
                 );
         }
 
@@ -218,6 +253,7 @@ namespace Lusid.Sdk.Model
                     hashCode = (hashCode * 59) + this.EndTenor.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.ShiftType.GetHashCode();
+                hashCode = (hashCode * 59) + this.Scale.GetHashCode();
                 return hashCode;
             }
         }
@@ -253,6 +289,18 @@ namespace Lusid.Sdk.Model
             if (this.Ccy != null && this.Ccy.Length < 3)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Ccy, length must be greater than 3.", new [] { "Ccy" });
+            }
+
+            // Amount (decimal) maximum
+            if (this.Amount > (decimal)1000000)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Amount, must be a value less than or equal to 1000000.", new [] { "Amount" });
+            }
+
+            // Amount (decimal) minimum
+            if (this.Amount < (decimal)-1000000)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Amount, must be a value greater than or equal to -1000000.", new [] { "Amount" });
             }
 
             // StartTenor (string) maxLength

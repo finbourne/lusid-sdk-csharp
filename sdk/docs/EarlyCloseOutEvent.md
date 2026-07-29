@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **CloseOutCcy** | **string** | The currency corresponding to the amount to be closed out early. Required. | 
 **CloseOutToOtherRate** | **decimal?** | The rate between close out amount and other amount. Optional. If provided, must be strictly positive. | [optional] 
 **EffectiveDate** | **DateTimeOffset** | The date of the event. | [optional] 
+**CloseOutTolerance** | **decimal?** | Tolerance for inferring a full close-out. Optional. When set, and the recomputed close-out quantity is  within this tolerance of the holding&#39;s units, the full holding is closed out so the holding nets to zero;  otherwise the recomputed quantity is used. When absent, the recomputed quantity is always used, which may  leave a residual holding.  For example, if the tolerance is set to 0.01 and the calculated value returns 99.99 against a true  sub-holding of 100, the full holding will be closed out and no residual will be produced. | [optional] 
 **OtherAmount** | **decimal?** | The other amount to be closed out early. Optional. If provided, must be strictly positive. | [optional] 
 **OtherCcy** | **string** | The currency corresponding to the other amount to be closed out early. Optional. | [optional] 
 **OtherToCloseOutRate** | **decimal?** | The rate between other amount and close out amount. Optional. If provided, must be strictly positive. | [optional] 
@@ -29,6 +30,7 @@ EarlyCloseOutEvent earlyCloseOutEventInstance = new EarlyCloseOutEvent(
     closeOutCcy: closeOutCcy,
     closeOutToOtherRate: closeOutToOtherRate,
     effectiveDate: effectiveDate,
+    closeOutTolerance: closeOutTolerance,
     otherAmount: otherAmount,
     otherCcy: otherCcy,
     otherToCloseOutRate: otherToCloseOutRate,

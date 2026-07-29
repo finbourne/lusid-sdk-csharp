@@ -38,7 +38,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="averagingMethod">Defines whether a weighted or unweighted average is used when calculating the average rate.  It applies only when CompoundingMethod &#x3D; ‘Averaging‘.    Default value: None. Available values: None, Unweighted, Weighted, UnweightedIncludingWeekends..</param>
         /// <param name="calculationShiftMethod">Defines which resets and day counts are used for the rate calculation    Default value: NoShift. Available values: Lookback, NoShift, ObservationPeriodShift, Lockout..</param>
-        /// <param name="compoundingMethod">If the interest rate is simple, compounded or using a pre-computed compounded index.    Supported string (enumeration) values are: [Averaging, Compounding, CompoundedIndex, NonCumulativeCompounding]. (required).</param>
+        /// <param name="compoundingMethod">If the interest rate is simple, compounded or using a pre-computed compounded index.    Supported string (enumeration) values are: [Averaging, Compounding, CompoundedIndex, NonCumulativeCompounding, NonCumulativeCompoundingBalanceAware]. (required).</param>
         /// <param name="resetFrequency">The interest payment frequency.    For more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097) (required).</param>
         /// <param name="shift">Defines the number of days to lockout or shift observation period by - should be a non-negative integer.  Defaults to 0 if not set..</param>
         /// <param name="spreadCompoundingMethod">Defines how the computed leg spread is applied to compounded rate.  It applies only when CompoundingMethod &#x3D; ‘Compounding‘ or ‘CompoundedIndex‘.    Available compounding methods:    | Method | Description |  | - -- -- - | - -- -- -- -- -- |  | Straight | Compounding rate in each compound period includes the spread. |  | Flat | Compounding rate does not include the spread, and the spread is used for simple interest in each compound period. |  | SpreadExclusive | Compounding rate does not include the spread, and the spread is used for simple interest for whole accrual period. |    The values \&quot;IsdaCompounding\&quot;, \&quot;NoCompounding\&quot;, \&quot;IsdaFlatCompounding\&quot;, and \&quot;None\&quot; are accepted for compatibility  with existing instruments and their use is discouraged.    Supported string (enumeration) values are: [Straight, IsdaCompounding, NoCompounding, SpreadExclusive, IsdaFlatCompounding, Flat, None].  Defaults to \&quot;None\&quot; if not set..</param>
@@ -79,9 +79,9 @@ namespace Lusid.Sdk.Model
         public string CalculationShiftMethod { get; set; }
 
         /// <summary>
-        /// If the interest rate is simple, compounded or using a pre-computed compounded index.    Supported string (enumeration) values are: [Averaging, Compounding, CompoundedIndex, NonCumulativeCompounding].
+        /// If the interest rate is simple, compounded or using a pre-computed compounded index.    Supported string (enumeration) values are: [Averaging, Compounding, CompoundedIndex, NonCumulativeCompounding, NonCumulativeCompoundingBalanceAware].
         /// </summary>
-        /// <value>If the interest rate is simple, compounded or using a pre-computed compounded index.    Supported string (enumeration) values are: [Averaging, Compounding, CompoundedIndex, NonCumulativeCompounding].</value>
+        /// <value>If the interest rate is simple, compounded or using a pre-computed compounded index.    Supported string (enumeration) values are: [Averaging, Compounding, CompoundedIndex, NonCumulativeCompounding, NonCumulativeCompoundingBalanceAware].</value>
         [DataMember(Name = "compoundingMethod", IsRequired = true, EmitDefaultValue = true)]
         public string CompoundingMethod { get; set; }
 
