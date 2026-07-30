@@ -136,7 +136,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of CancelPlacementsResponse</returns>
         Lusid.Sdk.Client.ApiResponse<CancelPlacementsResponse> CancelPlacementsWithHttpInfo(Dictionary<string, ResourceId> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// CreateOrders: Upsert a Block and associated orders
+        /// CreateOrders: Create Orders and create/update Block
         /// </summary>
         /// <remarks>
         /// Create orders, and blocks if they don&#39;t already exist.  This will fail if the block exists and already references orders with differing blocking fields.
@@ -149,7 +149,7 @@ namespace Lusid.Sdk.Api
         ResourceListOfBlockAndOrders CreateOrders(BlockAndOrdersCreateRequest blockAndOrdersCreateRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// CreateOrders: Upsert a Block and associated orders
+        /// CreateOrders: Create Orders and create/update Block
         /// </summary>
         /// <remarks>
         /// Create orders, and blocks if they don&#39;t already exist.  This will fail if the block exists and already references orders with differing blocking fields.
@@ -490,7 +490,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (CancelPlacementsResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CancelPlacementsResponse>> CancelPlacementsWithHttpInfoAsync(Dictionary<string, ResourceId> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// CreateOrders: Upsert a Block and associated orders
+        /// CreateOrders: Create Orders and create/update Block
         /// </summary>
         /// <remarks>
         /// Create orders, and blocks if they don&#39;t already exist.  This will fail if the block exists and already references orders with differing blocking fields.
@@ -504,7 +504,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ResourceListOfBlockAndOrders> CreateOrdersAsync(BlockAndOrdersCreateRequest blockAndOrdersCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// CreateOrders: Upsert a Block and associated orders
+        /// CreateOrders: Create Orders and create/update Block
         /// </summary>
         /// <remarks>
         /// Create orders, and blocks if they don&#39;t already exist.  This will fail if the block exists and already references orders with differing blocking fields.
@@ -1738,7 +1738,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// CreateOrders: Upsert a Block and associated orders Create orders, and blocks if they don&#39;t already exist.  This will fail if the block exists and already references orders with differing blocking fields.
+        /// CreateOrders: Create Orders and create/update Block Create orders, and blocks if they don&#39;t already exist.  This will fail if the block exists and already references orders with differing blocking fields.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="blockAndOrdersCreateRequest">The collection of block and orders requests.</param>
@@ -1752,7 +1752,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// CreateOrders: Upsert a Block and associated orders Create orders, and blocks if they don&#39;t already exist.  This will fail if the block exists and already references orders with differing blocking fields.
+        /// CreateOrders: Create Orders and create/update Block Create orders, and blocks if they don&#39;t already exist.  This will fail if the block exists and already references orders with differing blocking fields.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="blockAndOrdersCreateRequest">The collection of block and orders requests.</param>
@@ -1842,7 +1842,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// CreateOrders: Upsert a Block and associated orders Create orders, and blocks if they don&#39;t already exist.  This will fail if the block exists and already references orders with differing blocking fields.
+        /// CreateOrders: Create Orders and create/update Block Create orders, and blocks if they don&#39;t already exist.  This will fail if the block exists and already references orders with differing blocking fields.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="blockAndOrdersCreateRequest">The collection of block and orders requests.</param>
@@ -1857,7 +1857,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// CreateOrders: Upsert a Block and associated orders Create orders, and blocks if they don&#39;t already exist.  This will fail if the block exists and already references orders with differing blocking fields.
+        /// CreateOrders: Create Orders and create/update Block Create orders, and blocks if they don&#39;t already exist.  This will fail if the block exists and already references orders with differing blocking fields.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="blockAndOrdersCreateRequest">The collection of block and orders requests.</param>

@@ -8,7 +8,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**CancelOrders**](OrderManagementApi.md#cancelorders) | **POST** /api/ordermanagement/cancelorders | [EARLY ACCESS] CancelOrders: Cancel existing orders |
 | [**CancelOrdersAndMoveRemaining**](OrderManagementApi.md#cancelordersandmoveremaining) | **POST** /api/ordermanagement/cancelordersandmoveremaining | [EARLY ACCESS] CancelOrdersAndMoveRemaining: Cancel existing orders and move any unplaced quantities to new orders in new blocks |
 | [**CancelPlacements**](OrderManagementApi.md#cancelplacements) | **POST** /api/ordermanagement/$cancelplacements | [EARLY ACCESS] CancelPlacements: Cancel existing placements |
-| [**CreateOrders**](OrderManagementApi.md#createorders) | **POST** /api/ordermanagement/createorders | CreateOrders: Upsert a Block and associated orders |
+| [**CreateOrders**](OrderManagementApi.md#createorders) | **POST** /api/ordermanagement/createorders | CreateOrders: Create Orders and create/update Block |
 | [**GetOrderHistory**](OrderManagementApi.md#getorderhistory) | **GET** /api/ordermanagement/order/{scope}/{code}/$history | GetOrderHistory: Get the history of an order and related entity changes |
 | [**MoveOrders**](OrderManagementApi.md#moveorders) | **POST** /api/ordermanagement/moveorders | [EARLY ACCESS] MoveOrders: Move orders to new or existing block |
 | [**PlaceBlocks**](OrderManagementApi.md#placeblocks) | **POST** /api/ordermanagement/placeblocks | [EARLY ACCESS] PlaceBlocks: Places blocks for a given list of placement requests. |
@@ -482,7 +482,7 @@ catch (ApiException e)
 # **CreateOrders**
 > ResourceListOfBlockAndOrders CreateOrders (BlockAndOrdersCreateRequest blockAndOrdersCreateRequest)
 
-CreateOrders: Upsert a Block and associated orders
+CreateOrders: Create Orders and create/update Block
 
 Create orders, and blocks if they don't already exist.  This will fail if the block exists and already references orders with differing blocking fields.
 
@@ -532,7 +532,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // ResourceListOfBlockAndOrders result = apiInstance.CreateOrders(blockAndOrdersCreateRequest, opts: opts);
 
-                // CreateOrders: Upsert a Block and associated orders
+                // CreateOrders: Create Orders and create/update Block
                 ResourceListOfBlockAndOrders result = apiInstance.CreateOrders(blockAndOrdersCreateRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -553,7 +553,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // CreateOrders: Upsert a Block and associated orders
+    // CreateOrders: Create Orders and create/update Block
     ApiResponse<ResourceListOfBlockAndOrders> response = apiInstance.CreateOrdersWithHttpInfo(blockAndOrdersCreateRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));

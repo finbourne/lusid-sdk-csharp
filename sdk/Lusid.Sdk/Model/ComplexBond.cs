@@ -42,18 +42,20 @@ namespace Lusid.Sdk.Model
         /// <param name="calculationType">The calculation type applied to the bond coupon amount. This is required for bonds that have a particular type of computing the period coupon, such as simple compounding,  irregular coupons etc.  The default CalculationType is &#x60;Standard&#x60;, which returns a coupon amount equal to Principal * Coupon Rate / Coupon Frequency. Coupon Frequency is 12M / Payment Frequency.  Payment Frequency can be 1M, 3M, 6M, 12M etc. So Coupon Frequency can be 12, 4, 2, 1 respectively.    Supported string (enumeration) values are: [Standard, DayCountCoupon, NoCalculationFloater, BrazilFixedCoupon, StandardWithCappedAccruedInterest]..</param>
         /// <param name="schedules">schedules..</param>
         /// <param name="originalIssuePrice">The price the complex bond was issued at. This is to be entered as a percentage of par, for example a value of 98.5 would represent 98.5%..</param>
+        /// <param name="issueDate">The date the bond was issued to the market. This may be after the StartDate (dated date) from which interest accrues, for example for agency mortgage-backed securities. The payment schedule is unchanged, but no coupon entitlement (ex-dividend) date can fall before this date: a buyer settling on the issue date is entitled to the first coupon, and accrued interest includes completed-but-unpaid coupons until their entitlement passes..</param>
         /// <param name="roundingConventions">Rounding conventions for analytics, if any..</param>
         /// <param name="assetBacked">If this flag is set to true, then the outstanding notional and principal repayments will be calculated based  on pool factors in the quote store. Usually AssetBacked bonds also require a RollConvention setting of   within the FlowConventions any given rates schedule (to ensure payment dates always happen on the same day  of the month) and US Agency MBSs with Pay Delay features also require their rates schedules to include an  ExDividendConfiguration to drive the lag between interest accrual and payment..</param>
         /// <param name="assetPoolIdentifier">Identifier used to retrieve pool factor information about this bond from the quote store. This is typically  the bond&#39;s ISIN, but can also be ClientInternal. Please ensure you align the MarketDataKeyRule with the  correct Quote (Quote.ClientInternal.* or Quote.Isin.*).</param>
         /// <param name="tradingConventions">tradingConventions.</param>
         /// <param name="timeZoneConventions">timeZoneConventions.</param>
         /// <param name="instrumentType">Available values: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit, FlexibleRepo, ToBeAnnounced, VolatilitySwap. (required) (default to &quot;ComplexBond&quot;).</param>
-        public ComplexBond(Dictionary<string, string> identifiers = default(Dictionary<string, string>), string calculationType = default(string), List<Schedule> schedules = default(List<Schedule>), decimal? originalIssuePrice = default(decimal?), List<RoundingConvention> roundingConventions = default(List<RoundingConvention>), bool? assetBacked = default(bool?), string assetPoolIdentifier = default(string), TradingConventions tradingConventions = default(TradingConventions), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
+        public ComplexBond(Dictionary<string, string> identifiers = default(Dictionary<string, string>), string calculationType = default(string), List<Schedule> schedules = default(List<Schedule>), decimal? originalIssuePrice = default(decimal?), DateTimeOffset? issueDate = default(DateTimeOffset?), List<RoundingConvention> roundingConventions = default(List<RoundingConvention>), bool? assetBacked = default(bool?), string assetPoolIdentifier = default(string), TradingConventions tradingConventions = default(TradingConventions), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
         {
             this.Identifiers = identifiers;
             this.CalculationType = calculationType;
             this.Schedules = schedules;
             this.OriginalIssuePrice = originalIssuePrice;
+            this.IssueDate = issueDate;
             this.RoundingConventions = roundingConventions;
             this.AssetBacked = assetBacked;
             this.AssetPoolIdentifier = assetPoolIdentifier;
@@ -88,6 +90,13 @@ namespace Lusid.Sdk.Model
         /// <value>The price the complex bond was issued at. This is to be entered as a percentage of par, for example a value of 98.5 would represent 98.5%.</value>
         [DataMember(Name = "originalIssuePrice", EmitDefaultValue = true)]
         public decimal? OriginalIssuePrice { get; set; }
+
+        /// <summary>
+        /// The date the bond was issued to the market. This may be after the StartDate (dated date) from which interest accrues, for example for agency mortgage-backed securities. The payment schedule is unchanged, but no coupon entitlement (ex-dividend) date can fall before this date: a buyer settling on the issue date is entitled to the first coupon, and accrued interest includes completed-but-unpaid coupons until their entitlement passes.
+        /// </summary>
+        /// <value>The date the bond was issued to the market. This may be after the StartDate (dated date) from which interest accrues, for example for agency mortgage-backed securities. The payment schedule is unchanged, but no coupon entitlement (ex-dividend) date can fall before this date: a buyer settling on the issue date is entitled to the first coupon, and accrued interest includes completed-but-unpaid coupons until their entitlement passes.</value>
+        [DataMember(Name = "issueDate", EmitDefaultValue = true)]
+        public DateTimeOffset? IssueDate { get; set; }
 
         /// <summary>
         /// Rounding conventions for analytics, if any.
@@ -135,6 +144,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  CalculationType: ").Append(CalculationType).Append("\n");
             sb.Append("  Schedules: ").Append(Schedules).Append("\n");
             sb.Append("  OriginalIssuePrice: ").Append(OriginalIssuePrice).Append("\n");
+            sb.Append("  IssueDate: ").Append(IssueDate).Append("\n");
             sb.Append("  RoundingConventions: ").Append(RoundingConventions).Append("\n");
             sb.Append("  AssetBacked: ").Append(AssetBacked).Append("\n");
             sb.Append("  AssetPoolIdentifier: ").Append(AssetPoolIdentifier).Append("\n");
@@ -198,6 +208,11 @@ namespace Lusid.Sdk.Model
                     this.OriginalIssuePrice.Equals(input.OriginalIssuePrice))
                 ) && base.Equals(input) && 
                 (
+                    this.IssueDate == input.IssueDate ||
+                    (this.IssueDate != null &&
+                    this.IssueDate.Equals(input.IssueDate))
+                ) && base.Equals(input) && 
+                (
                     this.RoundingConventions == input.RoundingConventions ||
                     this.RoundingConventions != null &&
                     input.RoundingConventions != null &&
@@ -249,6 +264,10 @@ namespace Lusid.Sdk.Model
                 if (this.OriginalIssuePrice != null)
                 {
                     hashCode = (hashCode * 59) + this.OriginalIssuePrice.GetHashCode();
+                }
+                if (this.IssueDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.IssueDate.GetHashCode();
                 }
                 if (this.RoundingConventions != null)
                 {

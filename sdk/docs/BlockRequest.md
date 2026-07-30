@@ -9,7 +9,8 @@ Name | Type | Description | Notes
 **OrderIds** | [**List&lt;ResourceId&gt;**](ResourceId.md) | The related order ids. | [optional] 
 **Properties** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) | Client-defined properties associated with this block. | [optional] 
 **InstrumentIdentifiers** | **Dictionary&lt;string, string&gt;** | The instrument ordered. | 
-**Quantity** | **decimal** | The total quantity of given instrument ordered. | 
+**Quantity** | **decimal?** | The total quantity of given instrument ordered. | [optional] 
+**Amount** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
 **Side** | **string** | The client&#39;s representation of the block&#39;s side (buy, sell, short, etc) | 
 **Type** | **string** | The block order&#39;s type (examples: Limit, Market, ...) | [optional] 
 **TimeInForce** | **string** | The block orders&#39; time in force (examples: Day, GoodTilCancel, ...) | [optional] 
@@ -25,7 +26,8 @@ using System;
 ResourceId id = new ResourceId();
 List<ResourceId> orderIds = new List<ResourceId>();
 Dictionary<string, PerpetualProperty> properties = new Dictionary<string, PerpetualProperty>();
-Dictionary<string, string> instrumentIdentifiers = new Dictionary<string, string>();decimal quantity = "quantity";
+Dictionary<string, string> instrumentIdentifiers = new Dictionary<string, string>();
+CurrencyAndAmount? amount = new CurrencyAndAmount();
 
 string side = "side";
 string type = "example type";
@@ -42,6 +44,7 @@ BlockRequest blockRequestInstance = new BlockRequest(
     properties: properties,
     instrumentIdentifiers: instrumentIdentifiers,
     quantity: quantity,
+    amount: amount,
     side: side,
     type: type,
     timeInForce: timeInForce,

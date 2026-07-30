@@ -10,7 +10,8 @@ Name | Type | Description | Notes
 **Properties** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) | Client-defined properties associated with this block. | [optional] 
 **InstrumentIdentifiers** | **Dictionary&lt;string, string&gt;** | The instrument ordered. | 
 **LusidInstrumentId** | **string** | The LUSID instrument id for the instrument ordered. | 
-**Quantity** | **decimal** | The total quantity of given instrument ordered. | 
+**Quantity** | **decimal?** | The total quantity of given instrument ordered. | [optional] 
+**Amount** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
 **Side** | **string** | The client&#39;s representation of the block&#39;s side (buy, sell, short, etc) | 
 **Type** | **string** | The block order&#39;s type (examples: Limit, Market, ...) | [optional] 
 **TimeInForce** | **string** | The block orders&#39; time in force (examples: Day, GoodTilCancel, ...) | [optional] 
@@ -30,7 +31,8 @@ ResourceId id = new ResourceId();
 List<ResourceId> orderIds = new List<ResourceId>();
 Dictionary<string, PerpetualProperty> properties = new Dictionary<string, PerpetualProperty>();
 Dictionary<string, string> instrumentIdentifiers = new Dictionary<string, string>();
-string lusidInstrumentId = "lusidInstrumentId";decimal quantity = "quantity";
+string lusidInstrumentId = "lusidInstrumentId";
+CurrencyAndAmount? amount = new CurrencyAndAmount();
 
 string side = "side";
 string type = "example type";
@@ -53,6 +55,7 @@ Block blockInstance = new Block(
     instrumentIdentifiers: instrumentIdentifiers,
     lusidInstrumentId: lusidInstrumentId,
     quantity: quantity,
+    amount: amount,
     side: side,
     type: type,
     timeInForce: timeInForce,

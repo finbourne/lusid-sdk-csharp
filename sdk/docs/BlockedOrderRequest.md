@@ -5,7 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Properties** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) | Client-defined properties associated with this order. | [optional] 
-**Quantity** | **decimal** | The quantity of the given instrument ordered. | 
+**Quantity** | **decimal?** | The quantity of the given instrument ordered. | [optional] 
+**Amount** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
 **OrderBookId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **PortfolioId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **Id** | [**ResourceId**](ResourceId.md) |  | 
@@ -20,7 +21,8 @@ Name | Type | Description | Notes
 using Lusid.Sdk.Model;
 using System;
 
-Dictionary<string, PerpetualProperty> properties = new Dictionary<string, PerpetualProperty>();decimal quantity = "quantity";
+Dictionary<string, PerpetualProperty> properties = new Dictionary<string, PerpetualProperty>();
+CurrencyAndAmount? amount = new CurrencyAndAmount();
 
 ResourceId? orderBookId = new ResourceId();
 
@@ -39,6 +41,7 @@ string side = "example side";
 BlockedOrderRequest blockedOrderRequestInstance = new BlockedOrderRequest(
     properties: properties,
     quantity: quantity,
+    amount: amount,
     orderBookId: orderBookId,
     portfolioId: portfolioId,
     id: id,

@@ -41,7 +41,8 @@ namespace Lusid.Sdk.Model
         /// <param name="properties">Client-defined properties associated with this block..</param>
         /// <param name="instrumentIdentifiers">The instrument ordered. (required).</param>
         /// <param name="lusidInstrumentId">The LUSID instrument id for the instrument ordered. (required).</param>
-        /// <param name="quantity">The total quantity of given instrument ordered. (required).</param>
+        /// <param name="quantity">The total quantity of given instrument ordered..</param>
+        /// <param name="amount">amount.</param>
         /// <param name="side">The client&#39;s representation of the block&#39;s side (buy, sell, short, etc) (required).</param>
         /// <param name="type">The block order&#39;s type (examples: Limit, Market, ...).</param>
         /// <param name="timeInForce">The block orders&#39; time in force (examples: Day, GoodTilCancel, ...).</param>
@@ -52,7 +53,7 @@ namespace Lusid.Sdk.Model
         /// <param name="varVersion">varVersion.</param>
         /// <param name="dataModelMembership">dataModelMembership.</param>
         /// <param name="links">links.</param>
-        public Block(ResourceId id = default(ResourceId), List<ResourceId> orderIds = default(List<ResourceId>), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string lusidInstrumentId = default(string), decimal quantity = default(decimal), string side = default(string), string type = default(string), string timeInForce = default(string), DateTimeOffset createdDate = default(DateTimeOffset), CurrencyAndAmount limitPrice = default(CurrencyAndAmount), CurrencyAndAmount stopPrice = default(CurrencyAndAmount), bool isSwept = default(bool), ModelVersion varVersion = default(ModelVersion), DataModelMembership dataModelMembership = default(DataModelMembership), List<Link> links = default(List<Link>))
+        public Block(ResourceId id = default(ResourceId), List<ResourceId> orderIds = default(List<ResourceId>), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string lusidInstrumentId = default(string), decimal? quantity = default(decimal?), CurrencyAndAmount amount = default(CurrencyAndAmount), string side = default(string), string type = default(string), string timeInForce = default(string), DateTimeOffset createdDate = default(DateTimeOffset), CurrencyAndAmount limitPrice = default(CurrencyAndAmount), CurrencyAndAmount stopPrice = default(CurrencyAndAmount), bool isSwept = default(bool), ModelVersion varVersion = default(ModelVersion), DataModelMembership dataModelMembership = default(DataModelMembership), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -78,7 +79,6 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("lusidInstrumentId is a required property for Block and cannot be null");
             }
             this.LusidInstrumentId = lusidInstrumentId;
-            this.Quantity = quantity;
             // to ensure "side" is required (not null)
             if (side == null)
             {
@@ -88,6 +88,8 @@ namespace Lusid.Sdk.Model
             this.CreatedDate = createdDate;
             this.IsSwept = isSwept;
             this.Properties = properties;
+            this.Quantity = quantity;
+            this.Amount = amount;
             this.Type = type;
             this.TimeInForce = timeInForce;
             this.LimitPrice = limitPrice;
@@ -135,8 +137,14 @@ namespace Lusid.Sdk.Model
         /// The total quantity of given instrument ordered.
         /// </summary>
         /// <value>The total quantity of given instrument ordered.</value>
-        [DataMember(Name = "quantity", IsRequired = true, EmitDefaultValue = true)]
-        public decimal Quantity { get; set; }
+        [DataMember(Name = "quantity", EmitDefaultValue = true)]
+        public decimal? Quantity { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Amount
+        /// </summary>
+        [DataMember(Name = "amount", EmitDefaultValue = false)]
+        public CurrencyAndAmount Amount { get; set; }
 
         /// <summary>
         /// The client&#39;s representation of the block&#39;s side (buy, sell, short, etc)
@@ -217,6 +225,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  InstrumentIdentifiers: ").Append(InstrumentIdentifiers).Append("\n");
             sb.Append("  LusidInstrumentId: ").Append(LusidInstrumentId).Append("\n");
             sb.Append("  Quantity: ").Append(Quantity).Append("\n");
+            sb.Append("  Amount: ").Append(Amount).Append("\n");
             sb.Append("  Side: ").Append(Side).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  TimeInForce: ").Append(TimeInForce).Append("\n");
@@ -292,7 +301,13 @@ namespace Lusid.Sdk.Model
                 ) && 
                 (
                     this.Quantity == input.Quantity ||
-                    this.Quantity.Equals(input.Quantity)
+                    (this.Quantity != null &&
+                    this.Quantity.Equals(input.Quantity))
+                ) && 
+                (
+                    this.Amount == input.Amount ||
+                    (this.Amount != null &&
+                    this.Amount.Equals(input.Amount))
                 ) && 
                 (
                     this.Side == input.Side ||
@@ -375,7 +390,14 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.LusidInstrumentId.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Quantity.GetHashCode();
+                if (this.Quantity != null)
+                {
+                    hashCode = (hashCode * 59) + this.Quantity.GetHashCode();
+                }
+                if (this.Amount != null)
+                {
+                    hashCode = (hashCode * 59) + this.Amount.GetHashCode();
+                }
                 if (this.Side != null)
                 {
                     hashCode = (hashCode * 59) + this.Side.GetHashCode();

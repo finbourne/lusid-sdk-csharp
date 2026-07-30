@@ -37,7 +37,8 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="BlockedOrderRequest" /> class.
         /// </summary>
         /// <param name="properties">Client-defined properties associated with this order..</param>
-        /// <param name="quantity">The quantity of the given instrument ordered. (required).</param>
+        /// <param name="quantity">The quantity of the given instrument ordered..</param>
+        /// <param name="amount">amount.</param>
         /// <param name="orderBookId">orderBookId.</param>
         /// <param name="portfolioId">portfolioId.</param>
         /// <param name="id">id (required).</param>
@@ -47,9 +48,8 @@ namespace Lusid.Sdk.Model
         /// <param name="orderInstruction">orderInstruction.</param>
         /// <param name="package">package.</param>
         /// <param name="side">The client&#39;s representation of the order&#39;s side (buy, sell, short, etc).</param>
-        public BlockedOrderRequest(Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), decimal quantity = default(decimal), ResourceId orderBookId = default(ResourceId), ResourceId portfolioId = default(ResourceId), ResourceId id = default(ResourceId), string state = default(string), DateTimeOffset date = default(DateTimeOffset), CurrencyAndAmount price = default(CurrencyAndAmount), ResourceId orderInstruction = default(ResourceId), ResourceId package = default(ResourceId), string side = default(string))
+        public BlockedOrderRequest(Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), decimal? quantity = default(decimal?), CurrencyAndAmount amount = default(CurrencyAndAmount), ResourceId orderBookId = default(ResourceId), ResourceId portfolioId = default(ResourceId), ResourceId id = default(ResourceId), string state = default(string), DateTimeOffset date = default(DateTimeOffset), CurrencyAndAmount price = default(CurrencyAndAmount), ResourceId orderInstruction = default(ResourceId), ResourceId package = default(ResourceId), string side = default(string))
         {
-            this.Quantity = quantity;
             // to ensure "id" is required (not null)
             if (id == null)
             {
@@ -57,6 +57,8 @@ namespace Lusid.Sdk.Model
             }
             this.Id = id;
             this.Properties = properties;
+            this.Quantity = quantity;
+            this.Amount = amount;
             this.OrderBookId = orderBookId;
             this.PortfolioId = portfolioId;
             this.State = state;
@@ -78,8 +80,14 @@ namespace Lusid.Sdk.Model
         /// The quantity of the given instrument ordered.
         /// </summary>
         /// <value>The quantity of the given instrument ordered.</value>
-        [DataMember(Name = "quantity", IsRequired = true, EmitDefaultValue = true)]
-        public decimal Quantity { get; set; }
+        [DataMember(Name = "quantity", EmitDefaultValue = true)]
+        public decimal? Quantity { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Amount
+        /// </summary>
+        [DataMember(Name = "amount", EmitDefaultValue = false)]
+        public CurrencyAndAmount Amount { get; set; }
 
         /// <summary>
         /// Gets or Sets OrderBookId
@@ -148,6 +156,7 @@ namespace Lusid.Sdk.Model
             sb.Append("class BlockedOrderRequest {\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  Quantity: ").Append(Quantity).Append("\n");
+            sb.Append("  Amount: ").Append(Amount).Append("\n");
             sb.Append("  OrderBookId: ").Append(OrderBookId).Append("\n");
             sb.Append("  PortfolioId: ").Append(PortfolioId).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
@@ -200,7 +209,13 @@ namespace Lusid.Sdk.Model
                 ) && 
                 (
                     this.Quantity == input.Quantity ||
-                    this.Quantity.Equals(input.Quantity)
+                    (this.Quantity != null &&
+                    this.Quantity.Equals(input.Quantity))
+                ) && 
+                (
+                    this.Amount == input.Amount ||
+                    (this.Amount != null &&
+                    this.Amount.Equals(input.Amount))
                 ) && 
                 (
                     this.OrderBookId == input.OrderBookId ||
@@ -262,7 +277,14 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Properties.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Quantity.GetHashCode();
+                if (this.Quantity != null)
+                {
+                    hashCode = (hashCode * 59) + this.Quantity.GetHashCode();
+                }
+                if (this.Amount != null)
+                {
+                    hashCode = (hashCode * 59) + this.Amount.GetHashCode();
+                }
                 if (this.OrderBookId != null)
                 {
                     hashCode = (hashCode * 59) + this.OrderBookId.GetHashCode();
