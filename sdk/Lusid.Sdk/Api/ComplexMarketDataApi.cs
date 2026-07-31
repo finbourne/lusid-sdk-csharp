@@ -105,16 +105,18 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the ComplexMarketData. Defaults to latest if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effectiveAt datetime at which to list the ComplexMarketData. Defaults to latest if not specified. Note  that this parameter is not implemented at this time and the latest version of the ComplexMarketData will  always be returned. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing ComplexMarketData; this              value is returned from the previous call. If a pagination token is provided, the effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effectiveAt datetime or cut label at which to list the ComplexMarketData. Defaults to latest if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing ComplexMarketData; this              value is returned from the previous call. If a pagination token is provided, the filter, scope, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. If not specified, no pagination will be applied. It is  highly recommended to supply a value for this parameter as the default behaviour will change in the future. (optional)</param>
         /// <param name="timelineScope">The scope of the Timeline. (optional)</param>
         /// <param name="timelineCode">The code of the Timeline. This can optionally include a colon followed by the Closed Period ID to use at the head of the timeline, for a timeline with unconfirmed periods. (optional)</param>
         /// <param name="closedPeriodId">The closed period ID. If this is specified, both timelineScope and timelineCode must be specified. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. The following fields are supported:              &#39;Scope&#39;, &#39;MarketDataId.MarketAsset&#39;, &#39;MarketDataId.Provider&#39;, &#39;MarketDataId.PriceSource&#39;,              &#39;MarketDataId.Lineage&#39; (the lineage of the stored market data) and &#39;MarketData.MarketDataType&#39;.              The market data document contents are not filterable.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="scope">Optionally restrict the results to ComplexMarketData in a single scope. If not              specified, ComplexMarketData from all scopes will be returned. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfListComplexMarketDataWithMetaDataResponse</returns>
-        ResourceListOfListComplexMarketDataWithMetaDataResponse ListComplexMarketData(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        ResourceListOfListComplexMarketDataWithMetaDataResponse ListComplexMarketData(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), string? filter = default(string?), string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// ListComplexMarketData: List the set of ComplexMarketData
@@ -124,16 +126,18 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the ComplexMarketData. Defaults to latest if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effectiveAt datetime at which to list the ComplexMarketData. Defaults to latest if not specified. Note  that this parameter is not implemented at this time and the latest version of the ComplexMarketData will  always be returned. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing ComplexMarketData; this              value is returned from the previous call. If a pagination token is provided, the effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effectiveAt datetime or cut label at which to list the ComplexMarketData. Defaults to latest if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing ComplexMarketData; this              value is returned from the previous call. If a pagination token is provided, the filter, scope, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. If not specified, no pagination will be applied. It is  highly recommended to supply a value for this parameter as the default behaviour will change in the future. (optional)</param>
         /// <param name="timelineScope">The scope of the Timeline. (optional)</param>
         /// <param name="timelineCode">The code of the Timeline. This can optionally include a colon followed by the Closed Period ID to use at the head of the timeline, for a timeline with unconfirmed periods. (optional)</param>
         /// <param name="closedPeriodId">The closed period ID. If this is specified, both timelineScope and timelineCode must be specified. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. The following fields are supported:              &#39;Scope&#39;, &#39;MarketDataId.MarketAsset&#39;, &#39;MarketDataId.Provider&#39;, &#39;MarketDataId.PriceSource&#39;,              &#39;MarketDataId.Lineage&#39; (the lineage of the stored market data) and &#39;MarketData.MarketDataType&#39;.              The market data document contents are not filterable.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="scope">Optionally restrict the results to ComplexMarketData in a single scope. If not              specified, ComplexMarketData from all scopes will be returned. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfListComplexMarketDataWithMetaDataResponse</returns>
-        Lusid.Sdk.Client.ApiResponse<ResourceListOfListComplexMarketDataWithMetaDataResponse> ListComplexMarketDataWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<ResourceListOfListComplexMarketDataWithMetaDataResponse> ListComplexMarketDataWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), string? filter = default(string?), string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] UpsertAppendComplexMarketData: Appends a new point to the end of a ComplexMarketData definition.
         /// </summary>
@@ -277,17 +281,19 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the ComplexMarketData. Defaults to latest if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effectiveAt datetime at which to list the ComplexMarketData. Defaults to latest if not specified. Note  that this parameter is not implemented at this time and the latest version of the ComplexMarketData will  always be returned. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing ComplexMarketData; this              value is returned from the previous call. If a pagination token is provided, the effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effectiveAt datetime or cut label at which to list the ComplexMarketData. Defaults to latest if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing ComplexMarketData; this              value is returned from the previous call. If a pagination token is provided, the filter, scope, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. If not specified, no pagination will be applied. It is  highly recommended to supply a value for this parameter as the default behaviour will change in the future. (optional)</param>
         /// <param name="timelineScope">The scope of the Timeline. (optional)</param>
         /// <param name="timelineCode">The code of the Timeline. This can optionally include a colon followed by the Closed Period ID to use at the head of the timeline, for a timeline with unconfirmed periods. (optional)</param>
         /// <param name="closedPeriodId">The closed period ID. If this is specified, both timelineScope and timelineCode must be specified. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. The following fields are supported:              &#39;Scope&#39;, &#39;MarketDataId.MarketAsset&#39;, &#39;MarketDataId.Provider&#39;, &#39;MarketDataId.PriceSource&#39;,              &#39;MarketDataId.Lineage&#39; (the lineage of the stored market data) and &#39;MarketData.MarketDataType&#39;.              The market data document contents are not filterable.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="scope">Optionally restrict the results to ComplexMarketData in a single scope. If not              specified, ComplexMarketData from all scopes will be returned. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfListComplexMarketDataWithMetaDataResponse</returns>
-        System.Threading.Tasks.Task<ResourceListOfListComplexMarketDataWithMetaDataResponse> ListComplexMarketDataAsync(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<ResourceListOfListComplexMarketDataWithMetaDataResponse> ListComplexMarketDataAsync(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), string? filter = default(string?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// ListComplexMarketData: List the set of ComplexMarketData
@@ -297,17 +303,19 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the ComplexMarketData. Defaults to latest if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effectiveAt datetime at which to list the ComplexMarketData. Defaults to latest if not specified. Note  that this parameter is not implemented at this time and the latest version of the ComplexMarketData will  always be returned. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing ComplexMarketData; this              value is returned from the previous call. If a pagination token is provided, the effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effectiveAt datetime or cut label at which to list the ComplexMarketData. Defaults to latest if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing ComplexMarketData; this              value is returned from the previous call. If a pagination token is provided, the filter, scope, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. If not specified, no pagination will be applied. It is  highly recommended to supply a value for this parameter as the default behaviour will change in the future. (optional)</param>
         /// <param name="timelineScope">The scope of the Timeline. (optional)</param>
         /// <param name="timelineCode">The code of the Timeline. This can optionally include a colon followed by the Closed Period ID to use at the head of the timeline, for a timeline with unconfirmed periods. (optional)</param>
         /// <param name="closedPeriodId">The closed period ID. If this is specified, both timelineScope and timelineCode must be specified. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. The following fields are supported:              &#39;Scope&#39;, &#39;MarketDataId.MarketAsset&#39;, &#39;MarketDataId.Provider&#39;, &#39;MarketDataId.PriceSource&#39;,              &#39;MarketDataId.Lineage&#39; (the lineage of the stored market data) and &#39;MarketData.MarketDataType&#39;.              The market data document contents are not filterable.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="scope">Optionally restrict the results to ComplexMarketData in a single scope. If not              specified, ComplexMarketData from all scopes will be returned. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfListComplexMarketDataWithMetaDataResponse)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfListComplexMarketDataWithMetaDataResponse>> ListComplexMarketDataWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfListComplexMarketDataWithMetaDataResponse>> ListComplexMarketDataWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), string? filter = default(string?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] UpsertAppendComplexMarketData: Appends a new point to the end of a ComplexMarketData definition.
         /// </summary>
@@ -1034,18 +1042,20 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the ComplexMarketData. Defaults to latest if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effectiveAt datetime at which to list the ComplexMarketData. Defaults to latest if not specified. Note  that this parameter is not implemented at this time and the latest version of the ComplexMarketData will  always be returned. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing ComplexMarketData; this              value is returned from the previous call. If a pagination token is provided, the effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effectiveAt datetime or cut label at which to list the ComplexMarketData. Defaults to latest if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing ComplexMarketData; this              value is returned from the previous call. If a pagination token is provided, the filter, scope, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. If not specified, no pagination will be applied. It is  highly recommended to supply a value for this parameter as the default behaviour will change in the future. (optional)</param>
         /// <param name="timelineScope">The scope of the Timeline. (optional)</param>
         /// <param name="timelineCode">The code of the Timeline. This can optionally include a colon followed by the Closed Period ID to use at the head of the timeline, for a timeline with unconfirmed periods. (optional)</param>
         /// <param name="closedPeriodId">The closed period ID. If this is specified, both timelineScope and timelineCode must be specified. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. The following fields are supported:              &#39;Scope&#39;, &#39;MarketDataId.MarketAsset&#39;, &#39;MarketDataId.Provider&#39;, &#39;MarketDataId.PriceSource&#39;,              &#39;MarketDataId.Lineage&#39; (the lineage of the stored market data) and &#39;MarketData.MarketDataType&#39;.              The market data document contents are not filterable.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="scope">Optionally restrict the results to ComplexMarketData in a single scope. If not              specified, ComplexMarketData from all scopes will be returned. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfListComplexMarketDataWithMetaDataResponse</returns>
-        public ResourceListOfListComplexMarketDataWithMetaDataResponse ListComplexMarketData(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public ResourceListOfListComplexMarketDataWithMetaDataResponse ListComplexMarketData(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), string? filter = default(string?), string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfListComplexMarketDataWithMetaDataResponse> localVarResponse = ListComplexMarketDataWithHttpInfo(asAt, effectiveAt, page, limit, timelineScope, timelineCode, closedPeriodId, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfListComplexMarketDataWithMetaDataResponse> localVarResponse = ListComplexMarketDataWithHttpInfo(asAt, effectiveAt, page, limit, timelineScope, timelineCode, closedPeriodId, filter, scope, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1054,16 +1064,18 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the ComplexMarketData. Defaults to latest if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effectiveAt datetime at which to list the ComplexMarketData. Defaults to latest if not specified. Note  that this parameter is not implemented at this time and the latest version of the ComplexMarketData will  always be returned. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing ComplexMarketData; this              value is returned from the previous call. If a pagination token is provided, the effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effectiveAt datetime or cut label at which to list the ComplexMarketData. Defaults to latest if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing ComplexMarketData; this              value is returned from the previous call. If a pagination token is provided, the filter, scope, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. If not specified, no pagination will be applied. It is  highly recommended to supply a value for this parameter as the default behaviour will change in the future. (optional)</param>
         /// <param name="timelineScope">The scope of the Timeline. (optional)</param>
         /// <param name="timelineCode">The code of the Timeline. This can optionally include a colon followed by the Closed Period ID to use at the head of the timeline, for a timeline with unconfirmed periods. (optional)</param>
         /// <param name="closedPeriodId">The closed period ID. If this is specified, both timelineScope and timelineCode must be specified. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. The following fields are supported:              &#39;Scope&#39;, &#39;MarketDataId.MarketAsset&#39;, &#39;MarketDataId.Provider&#39;, &#39;MarketDataId.PriceSource&#39;,              &#39;MarketDataId.Lineage&#39; (the lineage of the stored market data) and &#39;MarketData.MarketDataType&#39;.              The market data document contents are not filterable.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="scope">Optionally restrict the results to ComplexMarketData in a single scope. If not              specified, ComplexMarketData from all scopes will be returned. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfListComplexMarketDataWithMetaDataResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfListComplexMarketDataWithMetaDataResponse> ListComplexMarketDataWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfListComplexMarketDataWithMetaDataResponse> ListComplexMarketDataWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), string? filter = default(string?), string? scope = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
 
@@ -1133,6 +1145,16 @@ namespace Lusid.Sdk.Api
             {
 
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "closedPeriodId", closedPeriodId));
+            }
+            if (filter != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+            if (scope != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scope", scope));
             }
 
             localVarRequestOptions.Operation = "ComplexMarketDataApi.ListComplexMarketData";
@@ -1174,19 +1196,21 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the ComplexMarketData. Defaults to latest if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effectiveAt datetime at which to list the ComplexMarketData. Defaults to latest if not specified. Note  that this parameter is not implemented at this time and the latest version of the ComplexMarketData will  always be returned. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing ComplexMarketData; this              value is returned from the previous call. If a pagination token is provided, the effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effectiveAt datetime or cut label at which to list the ComplexMarketData. Defaults to latest if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing ComplexMarketData; this              value is returned from the previous call. If a pagination token is provided, the filter, scope, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. If not specified, no pagination will be applied. It is  highly recommended to supply a value for this parameter as the default behaviour will change in the future. (optional)</param>
         /// <param name="timelineScope">The scope of the Timeline. (optional)</param>
         /// <param name="timelineCode">The code of the Timeline. This can optionally include a colon followed by the Closed Period ID to use at the head of the timeline, for a timeline with unconfirmed periods. (optional)</param>
         /// <param name="closedPeriodId">The closed period ID. If this is specified, both timelineScope and timelineCode must be specified. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. The following fields are supported:              &#39;Scope&#39;, &#39;MarketDataId.MarketAsset&#39;, &#39;MarketDataId.Provider&#39;, &#39;MarketDataId.PriceSource&#39;,              &#39;MarketDataId.Lineage&#39; (the lineage of the stored market data) and &#39;MarketData.MarketDataType&#39;.              The market data document contents are not filterable.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="scope">Optionally restrict the results to ComplexMarketData in a single scope. If not              specified, ComplexMarketData from all scopes will be returned. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfListComplexMarketDataWithMetaDataResponse</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfListComplexMarketDataWithMetaDataResponse> ListComplexMarketDataAsync(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<ResourceListOfListComplexMarketDataWithMetaDataResponse> ListComplexMarketDataAsync(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), string? filter = default(string?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfListComplexMarketDataWithMetaDataResponse> localVarResponse = await ListComplexMarketDataWithHttpInfoAsync(asAt, effectiveAt, page, limit, timelineScope, timelineCode, closedPeriodId, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfListComplexMarketDataWithMetaDataResponse> localVarResponse = await ListComplexMarketDataWithHttpInfoAsync(asAt, effectiveAt, page, limit, timelineScope, timelineCode, closedPeriodId, filter, scope, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1195,17 +1219,19 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the ComplexMarketData. Defaults to latest if not specified. (optional)</param>
-        /// <param name="effectiveAt">The effectiveAt datetime at which to list the ComplexMarketData. Defaults to latest if not specified. Note  that this parameter is not implemented at this time and the latest version of the ComplexMarketData will  always be returned. (optional)</param>
-        /// <param name="page">The pagination token to use to continue listing ComplexMarketData; this              value is returned from the previous call. If a pagination token is provided, the effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="effectiveAt">The effectiveAt datetime or cut label at which to list the ComplexMarketData. Defaults to latest if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing ComplexMarketData; this              value is returned from the previous call. If a pagination token is provided, the filter, scope, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. If not specified, no pagination will be applied. It is  highly recommended to supply a value for this parameter as the default behaviour will change in the future. (optional)</param>
         /// <param name="timelineScope">The scope of the Timeline. (optional)</param>
         /// <param name="timelineCode">The code of the Timeline. This can optionally include a colon followed by the Closed Period ID to use at the head of the timeline, for a timeline with unconfirmed periods. (optional)</param>
         /// <param name="closedPeriodId">The closed period ID. If this is specified, both timelineScope and timelineCode must be specified. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. The following fields are supported:              &#39;Scope&#39;, &#39;MarketDataId.MarketAsset&#39;, &#39;MarketDataId.Provider&#39;, &#39;MarketDataId.PriceSource&#39;,              &#39;MarketDataId.Lineage&#39; (the lineage of the stored market data) and &#39;MarketData.MarketDataType&#39;.              The market data document contents are not filterable.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="scope">Optionally restrict the results to ComplexMarketData in a single scope. If not              specified, ComplexMarketData from all scopes will be returned. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfListComplexMarketDataWithMetaDataResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfListComplexMarketDataWithMetaDataResponse>> ListComplexMarketDataWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfListComplexMarketDataWithMetaDataResponse>> ListComplexMarketDataWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), int? limit = default(int?), string? timelineScope = default(string?), string? timelineCode = default(string?), string? closedPeriodId = default(string?), string? filter = default(string?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
@@ -1269,6 +1295,14 @@ namespace Lusid.Sdk.Api
             if (closedPeriodId != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "closedPeriodId", closedPeriodId));
+            }
+            if (filter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+            if (scope != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scope", scope));
             }
 
             localVarRequestOptions.Operation = "ComplexMarketDataApi.ListComplexMarketData";

@@ -48,7 +48,8 @@ namespace Lusid.Sdk.Model
         /// <param name="returnZeroPv">returnZeroPv.</param>
         /// <param name="enableLegLevelInferenceForCustomSrsColumns">When enabled, allows inference between leg-level and  instrument-level data during portfolio valuation. If  data is missing at one level, it may be inferred from  the other level. For example, missing leg-level data   may be inferred from existing leg-level and instrument-  level data when ProduceSeparateResultForLinearOtcLegs  is enabled, and vice versa. Explicitly provided data  always takes precedence..</param>
         /// <param name="useInstrumentScaleFactorAsDefault">When enabled, priceScaleFactor defined at the instrument level will  be used in the absence of quote scaleFactor when resolving quotes..</param>
-        public PricingOptions(ModelSelection modelSelection = default(ModelSelection), bool useInstrumentTypeToDeterminePricer = default(bool), bool allowAnyInstrumentsWithSecUidToPriceOffLookup = default(bool), bool allowPartiallySuccessfulEvaluation = default(bool), bool produceSeparateResultForLinearOtcLegs = default(bool), bool fxForwardContractsAsUnitsInBothLegs = default(bool), bool enableUseOfCachedUnitResults = default(bool), bool windowValuationOnInstrumentStartEnd = default(bool), bool removeContingentCashflowsInPaymentDiary = default(bool), bool useChildSubHoldingKeysForPortfolioExpansion = default(bool), bool validateDomesticAndQuoteCurrenciesAreConsistent = default(bool), bool mbsValuationUsingHoldingCurrentFace = default(bool), bool convertSrsCashFlowsToPortfolioCurrency = default(bool), string conservedQuantityForLookthroughExpansion = default(string), ReturnZeroPvOptions returnZeroPv = default(ReturnZeroPvOptions), bool enableLegLevelInferenceForCustomSrsColumns = default(bool), bool useInstrumentScaleFactorAsDefault = default(bool))
+        /// <param name="scaleInstrumentAccruedOverrideByContractSize">When enabled, an SRS InstrumentAccrued override is multiplied by the instrument contractSize (legacy behaviour).  By default this is disabled, and the override is treated as the accrued for a single unit, keeping the  holding-level identity PV &#x3D; CleanPv + Accrued consistent..</param>
+        public PricingOptions(ModelSelection modelSelection = default(ModelSelection), bool useInstrumentTypeToDeterminePricer = default(bool), bool allowAnyInstrumentsWithSecUidToPriceOffLookup = default(bool), bool allowPartiallySuccessfulEvaluation = default(bool), bool produceSeparateResultForLinearOtcLegs = default(bool), bool fxForwardContractsAsUnitsInBothLegs = default(bool), bool enableUseOfCachedUnitResults = default(bool), bool windowValuationOnInstrumentStartEnd = default(bool), bool removeContingentCashflowsInPaymentDiary = default(bool), bool useChildSubHoldingKeysForPortfolioExpansion = default(bool), bool validateDomesticAndQuoteCurrenciesAreConsistent = default(bool), bool mbsValuationUsingHoldingCurrentFace = default(bool), bool convertSrsCashFlowsToPortfolioCurrency = default(bool), string conservedQuantityForLookthroughExpansion = default(string), ReturnZeroPvOptions returnZeroPv = default(ReturnZeroPvOptions), bool enableLegLevelInferenceForCustomSrsColumns = default(bool), bool useInstrumentScaleFactorAsDefault = default(bool), bool scaleInstrumentAccruedOverrideByContractSize = default(bool))
         {
             this.ModelSelection = modelSelection;
             this.UseInstrumentTypeToDeterminePricer = useInstrumentTypeToDeterminePricer;
@@ -67,6 +68,7 @@ namespace Lusid.Sdk.Model
             this.ReturnZeroPv = returnZeroPv;
             this.EnableLegLevelInferenceForCustomSrsColumns = enableLegLevelInferenceForCustomSrsColumns;
             this.UseInstrumentScaleFactorAsDefault = useInstrumentScaleFactorAsDefault;
+            this.ScaleInstrumentAccruedOverrideByContractSize = scaleInstrumentAccruedOverrideByContractSize;
         }
 
         /// <summary>
@@ -186,6 +188,13 @@ namespace Lusid.Sdk.Model
         public bool UseInstrumentScaleFactorAsDefault { get; set; }
 
         /// <summary>
+        /// When enabled, an SRS InstrumentAccrued override is multiplied by the instrument contractSize (legacy behaviour).  By default this is disabled, and the override is treated as the accrued for a single unit, keeping the  holding-level identity PV &#x3D; CleanPv + Accrued consistent.
+        /// </summary>
+        /// <value>When enabled, an SRS InstrumentAccrued override is multiplied by the instrument contractSize (legacy behaviour).  By default this is disabled, and the override is treated as the accrued for a single unit, keeping the  holding-level identity PV &#x3D; CleanPv + Accrued consistent.</value>
+        [DataMember(Name = "scaleInstrumentAccruedOverrideByContractSize", EmitDefaultValue = true)]
+        public bool ScaleInstrumentAccruedOverrideByContractSize { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -210,6 +219,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  ReturnZeroPv: ").Append(ReturnZeroPv).Append("\n");
             sb.Append("  EnableLegLevelInferenceForCustomSrsColumns: ").Append(EnableLegLevelInferenceForCustomSrsColumns).Append("\n");
             sb.Append("  UseInstrumentScaleFactorAsDefault: ").Append(UseInstrumentScaleFactorAsDefault).Append("\n");
+            sb.Append("  ScaleInstrumentAccruedOverrideByContractSize: ").Append(ScaleInstrumentAccruedOverrideByContractSize).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -315,6 +325,10 @@ namespace Lusid.Sdk.Model
                 (
                     this.UseInstrumentScaleFactorAsDefault == input.UseInstrumentScaleFactorAsDefault ||
                     this.UseInstrumentScaleFactorAsDefault.Equals(input.UseInstrumentScaleFactorAsDefault)
+                ) && 
+                (
+                    this.ScaleInstrumentAccruedOverrideByContractSize == input.ScaleInstrumentAccruedOverrideByContractSize ||
+                    this.ScaleInstrumentAccruedOverrideByContractSize.Equals(input.ScaleInstrumentAccruedOverrideByContractSize)
                 );
         }
 
@@ -353,6 +367,7 @@ namespace Lusid.Sdk.Model
                 }
                 hashCode = (hashCode * 59) + this.EnableLegLevelInferenceForCustomSrsColumns.GetHashCode();
                 hashCode = (hashCode * 59) + this.UseInstrumentScaleFactorAsDefault.GetHashCode();
+                hashCode = (hashCode * 59) + this.ScaleInstrumentAccruedOverrideByContractSize.GetHashCode();
                 return hashCode;
             }
         }

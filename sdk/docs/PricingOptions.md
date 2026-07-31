@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **ReturnZeroPv** | [**ReturnZeroPvOptions**](ReturnZeroPvOptions.md) |  | [optional] 
 **EnableLegLevelInferenceForCustomSrsColumns** | **bool** | When enabled, allows inference between leg-level and  instrument-level data during portfolio valuation. If  data is missing at one level, it may be inferred from  the other level. For example, missing leg-level data   may be inferred from existing leg-level and instrument-  level data when ProduceSeparateResultForLinearOtcLegs  is enabled, and vice versa. Explicitly provided data  always takes precedence. | [optional] 
 **UseInstrumentScaleFactorAsDefault** | **bool** | When enabled, priceScaleFactor defined at the instrument level will  be used in the absence of quote scaleFactor when resolving quotes. | [optional] 
+**ScaleInstrumentAccruedOverrideByContractSize** | **bool** | When enabled, an SRS InstrumentAccrued override is multiplied by the instrument contractSize (legacy behaviour).  By default this is disabled, and the override is treated as the accrued for a single unit, keeping the  holding-level identity PV &#x3D; CleanPv + Accrued consistent. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -46,6 +47,7 @@ ReturnZeroPvOptions? returnZeroPv = new ReturnZeroPvOptions();
 
 bool enableLegLevelInferenceForCustomSrsColumns = //"True";
 bool useInstrumentScaleFactorAsDefault = //"True";
+bool scaleInstrumentAccruedOverrideByContractSize = //"True";
 
 PricingOptions pricingOptionsInstance = new PricingOptions(
     modelSelection: modelSelection,
@@ -64,7 +66,8 @@ PricingOptions pricingOptionsInstance = new PricingOptions(
     conservedQuantityForLookthroughExpansion: conservedQuantityForLookthroughExpansion,
     returnZeroPv: returnZeroPv,
     enableLegLevelInferenceForCustomSrsColumns: enableLegLevelInferenceForCustomSrsColumns,
-    useInstrumentScaleFactorAsDefault: useInstrumentScaleFactorAsDefault);
+    useInstrumentScaleFactorAsDefault: useInstrumentScaleFactorAsDefault,
+    scaleInstrumentAccruedOverrideByContractSize: scaleInstrumentAccruedOverrideByContractSize);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
