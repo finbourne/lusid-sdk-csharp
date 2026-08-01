@@ -44,7 +44,7 @@ namespace Lusid.Sdk.Model
         /// <param name="booked">booked (required).</param>
         /// <param name="derivedState">A simple description of the overall state of a block. (required).</param>
         /// <param name="derivedComplianceState">The overall compliance state of a block, derived from the block&#39;s orders. Available values: Pending, Failed, Passed, ManuallyApproved, PartiallyOverridden, Warning. (required).</param>
-        /// <param name="derivedApprovalState">The overall approval state of a block, derived from approval of the block&#39;s orders. Available values: Pending, Rejected, Approved. (required).</param>
+        /// <param name="derivedApprovalState">The overall approval state of a block, derived from approval of the block&#39;s orders. Available values: Pending, Rejected, Approved, Placed. (required).</param>
         public OrderGraphBlock(Block block = default(Block), OrderGraphBlockOrderSynopsis ordered = default(OrderGraphBlockOrderSynopsis), OrderGraphBlockPlacementSynopsis placed = default(OrderGraphBlockPlacementSynopsis), OrderGraphBlockExecutionSynopsis executed = default(OrderGraphBlockExecutionSynopsis), OrderGraphBlockAllocationSynopsis allocated = default(OrderGraphBlockAllocationSynopsis), OrderGraphBlockTransactionSynopsis booked = default(OrderGraphBlockTransactionSynopsis), string derivedState = default(string), string derivedComplianceState = default(string), string derivedApprovalState = default(string))
         {
             // to ensure "block" is required (not null)
@@ -154,9 +154,9 @@ namespace Lusid.Sdk.Model
         public string DerivedComplianceState { get; set; }
 
         /// <summary>
-        /// The overall approval state of a block, derived from approval of the block&#39;s orders. Available values: Pending, Rejected, Approved.
+        /// The overall approval state of a block, derived from approval of the block&#39;s orders. Available values: Pending, Rejected, Approved, Placed.
         /// </summary>
-        /// <value>The overall approval state of a block, derived from approval of the block&#39;s orders. Available values: Pending, Rejected, Approved.</value>
+        /// <value>The overall approval state of a block, derived from approval of the block&#39;s orders. Available values: Pending, Rejected, Approved, Placed.</value>
         [DataMember(Name = "derivedApprovalState", IsRequired = true, EmitDefaultValue = true)]
         public string DerivedApprovalState { get; set; }
 

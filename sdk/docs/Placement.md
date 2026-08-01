@@ -11,7 +11,8 @@ Name | Type | Description | Notes
 **Properties** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) | Client-defined properties associated with this placement. | [optional] 
 **InstrumentIdentifiers** | **Dictionary&lt;string, string&gt;** | The instrument ordered. | 
 **LusidInstrumentId** | **string** | The LUSID instrument id for the instrument placement. | 
-**Quantity** | **decimal** | The quantity of given instrument ordered. | 
+**Quantity** | **decimal?** | The quantity of given instrument ordered. | [optional] 
+**Amount** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
 **State** | **string** | The state of this placement (typically a FIX state; Open, Filled, etc). | 
 **Side** | **string** | The side (Buy, Sell, ...) of this placement. | 
 **TimeInForce** | **string** | The time in force applicable to this placement (GTC, FOK, Day, etc) | 
@@ -36,7 +37,8 @@ ResourceId? parentPlacementId = new ResourceId();
 List<ResourceId> blockIds = new List<ResourceId>();
 Dictionary<string, PerpetualProperty> properties = new Dictionary<string, PerpetualProperty>();
 Dictionary<string, string> instrumentIdentifiers = new Dictionary<string, string>();
-string lusidInstrumentId = "lusidInstrumentId";decimal quantity = "quantity";
+string lusidInstrumentId = "lusidInstrumentId";
+CurrencyAndAmount? amount = new CurrencyAndAmount();
 
 string state = "state";
 string side = "side";
@@ -63,6 +65,7 @@ Placement placementInstance = new Placement(
     instrumentIdentifiers: instrumentIdentifiers,
     lusidInstrumentId: lusidInstrumentId,
     quantity: quantity,
+    amount: amount,
     state: state,
     side: side,
     timeInForce: timeInForce,

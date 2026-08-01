@@ -46,8 +46,11 @@ namespace Lusid.Sdk.Model
         /// <param name="externalFeeFilters">The set of filters used to decide which JE lines are used for inputting fees from an external source..</param>
         /// <param name="properties">A set of properties for the Fund Configuration..</param>
         /// <param name="varVersion">varVersion.</param>
+        /// <param name="bucketSets">The ordered set of component bucket set definitions for this fund configuration. Each bucket set defines how JE lines are grouped into buckets at VP finalisation..</param>
+        /// <param name="apportionmentBucketSet">The code of the bucket set definition within this fund configuration that is designated as the apportionment bucket set. Must reference a BucketSetDefinition code within the BucketSets collection..</param>
+        /// <param name="apportionmentMethodProperty">apportionmentMethodProperty.</param>
         /// <param name="links">links.</param>
-        public FundConfiguration(string href = default(string), ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), List<ComponentFilter> dealingFilters = default(List<ComponentFilter>), List<ComponentFilter> pnlFilters = default(List<ComponentFilter>), List<ComponentFilter> backOutFilters = default(List<ComponentFilter>), List<ExternalFeeComponentFilter> externalFeeFilters = default(List<ExternalFeeComponentFilter>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion varVersion = default(ModelVersion), List<Link> links = default(List<Link>))
+        public FundConfiguration(string href = default(string), ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), List<ComponentFilter> dealingFilters = default(List<ComponentFilter>), List<ComponentFilter> pnlFilters = default(List<ComponentFilter>), List<ComponentFilter> backOutFilters = default(List<ComponentFilter>), List<ExternalFeeComponentFilter> externalFeeFilters = default(List<ExternalFeeComponentFilter>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion varVersion = default(ModelVersion), List<BucketSetDefinition> bucketSets = default(List<BucketSetDefinition>), string apportionmentBucketSet = default(string), ApportionmentMethodProperty apportionmentMethodProperty = default(ApportionmentMethodProperty), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -64,6 +67,9 @@ namespace Lusid.Sdk.Model
             this.ExternalFeeFilters = externalFeeFilters;
             this.Properties = properties;
             this.VarVersion = varVersion;
+            this.BucketSets = bucketSets;
+            this.ApportionmentBucketSet = apportionmentBucketSet;
+            this.ApportionmentMethodProperty = apportionmentMethodProperty;
             this.Links = links;
         }
 
@@ -136,6 +142,26 @@ namespace Lusid.Sdk.Model
         public ModelVersion VarVersion { get; set; }
 
         /// <summary>
+        /// The ordered set of component bucket set definitions for this fund configuration. Each bucket set defines how JE lines are grouped into buckets at VP finalisation.
+        /// </summary>
+        /// <value>The ordered set of component bucket set definitions for this fund configuration. Each bucket set defines how JE lines are grouped into buckets at VP finalisation.</value>
+        [DataMember(Name = "bucketSets", EmitDefaultValue = true)]
+        public List<BucketSetDefinition> BucketSets { get; set; }
+
+        /// <summary>
+        /// The code of the bucket set definition within this fund configuration that is designated as the apportionment bucket set. Must reference a BucketSetDefinition code within the BucketSets collection.
+        /// </summary>
+        /// <value>The code of the bucket set definition within this fund configuration that is designated as the apportionment bucket set. Must reference a BucketSetDefinition code within the BucketSets collection.</value>
+        [DataMember(Name = "apportionmentBucketSet", EmitDefaultValue = true)]
+        public string ApportionmentBucketSet { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ApportionmentMethodProperty
+        /// </summary>
+        [DataMember(Name = "apportionmentMethodProperty", EmitDefaultValue = false)]
+        public ApportionmentMethodProperty ApportionmentMethodProperty { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -159,6 +185,9 @@ namespace Lusid.Sdk.Model
             sb.Append("  ExternalFeeFilters: ").Append(ExternalFeeFilters).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
+            sb.Append("  BucketSets: ").Append(BucketSets).Append("\n");
+            sb.Append("  ApportionmentBucketSet: ").Append(ApportionmentBucketSet).Append("\n");
+            sb.Append("  ApportionmentMethodProperty: ").Append(ApportionmentMethodProperty).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -251,6 +280,22 @@ namespace Lusid.Sdk.Model
                     this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
+                    this.BucketSets == input.BucketSets ||
+                    this.BucketSets != null &&
+                    input.BucketSets != null &&
+                    this.BucketSets.SequenceEqual(input.BucketSets)
+                ) && 
+                (
+                    this.ApportionmentBucketSet == input.ApportionmentBucketSet ||
+                    (this.ApportionmentBucketSet != null &&
+                    this.ApportionmentBucketSet.Equals(input.ApportionmentBucketSet))
+                ) && 
+                (
+                    this.ApportionmentMethodProperty == input.ApportionmentMethodProperty ||
+                    (this.ApportionmentMethodProperty != null &&
+                    this.ApportionmentMethodProperty.Equals(input.ApportionmentMethodProperty))
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -306,6 +351,18 @@ namespace Lusid.Sdk.Model
                 if (this.VarVersion != null)
                 {
                     hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
+                }
+                if (this.BucketSets != null)
+                {
+                    hashCode = (hashCode * 59) + this.BucketSets.GetHashCode();
+                }
+                if (this.ApportionmentBucketSet != null)
+                {
+                    hashCode = (hashCode * 59) + this.ApportionmentBucketSet.GetHashCode();
+                }
+                if (this.ApportionmentMethodProperty != null)
+                {
+                    hashCode = (hashCode * 59) + this.ApportionmentMethodProperty.GetHashCode();
                 }
                 if (this.Links != null)
                 {

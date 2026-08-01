@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | [**ResourceId**](ResourceId.md) |  | 
 **Quantity** | **decimal?** | The quantity of given instrument ordered. | [optional] 
+**Amount** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
 **Properties** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) | Client-defined properties associated with this placement. | [optional] 
 **Type** | **string** | The type of this placement (Market, Limit, etc). | [optional] 
 **LimitPrice** | **decimal?** | The optional price, as currency and amount, associated with this placement. | [optional] 
@@ -20,6 +21,8 @@ using Lusid.Sdk.Model;
 using System;
 
 ResourceId id = new ResourceId();
+CurrencyAndAmount? amount = new CurrencyAndAmount();
+
 Dictionary<string, PerpetualProperty> properties = new Dictionary<string, PerpetualProperty>();
 string type = "example type";
 string counterparty = "example counterparty";
@@ -29,6 +32,7 @@ string entryType = "example entryType";
 PlacementUpdateRequest placementUpdateRequestInstance = new PlacementUpdateRequest(
     id: id,
     quantity: quantity,
+    amount: amount,
     properties: properties,
     type: type,
     limitPrice: limitPrice,

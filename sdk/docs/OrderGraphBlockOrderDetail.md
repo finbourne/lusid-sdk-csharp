@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | [**ResourceId**](ResourceId.md) |  | 
 **ComplianceState** | **string** | The compliance state of this order. Available values: Pending, Failed, Passed, ManuallyApproved, PartiallyOverridden, Warning. | 
-**ApprovalState** | **string** | The approval state of this order. Available values: Pending, Rejected, Approved. | 
+**ApprovalState** | **string** | The approval state of this order. Available values: Pending, Rejected, Approved, Placed. | 
 **PortfolioId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **PortfolioName** | **string** | The name of the order&#39;s referenced Portfolio. | [optional] 
 **OrderApprovalTaskId** | **string** | The task id associated with the approval state of the order. | [optional] 

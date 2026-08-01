@@ -8,6 +8,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**DeleteScenario**](ScenariosApi.md#deletescenario) | **DELETE** /api/scenarios/{scope}/{code} | [EARLY ACCESS] DeleteScenario: Delete a Scenario, assuming that it is present. |
 | [**GetScenario**](ScenariosApi.md#getscenario) | **GET** /api/scenarios/{scope}/{code} | [EARLY ACCESS] GetScenario: Get Scenario |
 | [**ListScenarios**](ScenariosApi.md#listscenarios) | **GET** /api/scenarios/{scope} | [EARLY ACCESS] ListScenarios: List the set of Scenario definitions |
+| [**PreviewScenario**](ScenariosApi.md#previewscenario) | **POST** /api/scenarios/$preview | [EARLY ACCESS] PreviewScenario: Preview a Scenario |
 | [**UpsertScenario**](ScenariosApi.md#upsertscenario) | **POST** /api/scenarios | [EARLY ACCESS] UpsertScenario: Upsert a Scenario. This creates or updates the scenario definition in LUSID. |
 
 <a id="createscenariofromtemplate"></a>
@@ -477,6 +478,120 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The requested scenarios |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="previewscenario"></a>
+# **PreviewScenario**
+> ScenarioPreviewResponse PreviewScenario (ScenarioPreviewRequest scenarioPreviewRequest)
+
+[EARLY ACCESS] PreviewScenario: Preview a Scenario
+
+Preview what a scenario would do to a portfolio's market data, without running a valuation.                The portfolio's market data dependencies are resolved through the given recipe and the scenario's  shifts are applied; the response lists every market data target the shifts changed, with values  before and after, plus any market data that matched a shift but could not honour it. Supply  either a reference to a stored scenario, or inline shift definitions to test a definition before  saving it.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ScenariosApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ScenariosApi>();
+            var scenarioPreviewRequest = new ScenarioPreviewRequest(); // ScenarioPreviewRequest | The recipe, portfolios, effective date and scenario (stored reference or inline shifts) to preview
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // ScenarioPreviewResponse result = apiInstance.PreviewScenario(scenarioPreviewRequest, opts: opts);
+
+                // [EARLY ACCESS] PreviewScenario: Preview a Scenario
+                ScenarioPreviewResponse result = apiInstance.PreviewScenario(scenarioPreviewRequest);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling ScenariosApi.PreviewScenario: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the PreviewScenarioWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] PreviewScenario: Preview a Scenario
+    ApiResponse<ScenarioPreviewResponse> response = apiInstance.PreviewScenarioWithHttpInfo(scenarioPreviewRequest);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling ScenariosApi.PreviewScenarioWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scenarioPreviewRequest** | [**ScenarioPreviewRequest**](ScenarioPreviewRequest.md) | The recipe, portfolios, effective date and scenario (stored reference or inline shifts) to preview |  |
+
+### Return type
+
+[**ScenarioPreviewResponse**](ScenarioPreviewResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The preview of the scenario&#39;s effect on the portfolio&#39;s market data, or any failure |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 

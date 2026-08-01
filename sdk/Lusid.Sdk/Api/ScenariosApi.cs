@@ -148,6 +148,31 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of PagedResourceListOfGetScenarioResponse</returns>
         Lusid.Sdk.Client.ApiResponse<PagedResourceListOfGetScenarioResponse> ListScenariosWithHttpInfo(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EARLY ACCESS] PreviewScenario: Preview a Scenario
+        /// </summary>
+        /// <remarks>
+        /// Preview what a scenario would do to a portfolio&#39;s market data, without running a valuation.                The portfolio&#39;s market data dependencies are resolved through the given recipe and the scenario&#39;s  shifts are applied; the response lists every market data target the shifts changed, with values  before and after, plus any market data that matched a shift but could not honour it. Supply  either a reference to a stored scenario, or inline shift definitions to test a definition before  saving it.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scenarioPreviewRequest">The recipe, portfolios, effective date and scenario (stored reference or inline shifts) to preview</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ScenarioPreviewResponse</returns>
+        ScenarioPreviewResponse PreviewScenario(ScenarioPreviewRequest scenarioPreviewRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] PreviewScenario: Preview a Scenario
+        /// </summary>
+        /// <remarks>
+        /// Preview what a scenario would do to a portfolio&#39;s market data, without running a valuation.                The portfolio&#39;s market data dependencies are resolved through the given recipe and the scenario&#39;s  shifts are applied; the response lists every market data target the shifts changed, with values  before and after, plus any market data that matched a shift but could not honour it. Supply  either a reference to a stored scenario, or inline shift definitions to test a definition before  saving it.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scenarioPreviewRequest">The recipe, portfolios, effective date and scenario (stored reference or inline shifts) to preview</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of ScenarioPreviewResponse</returns>
+        Lusid.Sdk.Client.ApiResponse<ScenarioPreviewResponse> PreviewScenarioWithHttpInfo(ScenarioPreviewRequest scenarioPreviewRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EARLY ACCESS] UpsertScenario: Upsert a Scenario. This creates or updates the scenario definition in LUSID.
         /// </summary>
         /// <remarks>
@@ -305,6 +330,33 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfGetScenarioResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfGetScenarioResponse>> ListScenariosWithHttpInfoAsync(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EARLY ACCESS] PreviewScenario: Preview a Scenario
+        /// </summary>
+        /// <remarks>
+        /// Preview what a scenario would do to a portfolio&#39;s market data, without running a valuation.                The portfolio&#39;s market data dependencies are resolved through the given recipe and the scenario&#39;s  shifts are applied; the response lists every market data target the shifts changed, with values  before and after, plus any market data that matched a shift but could not honour it. Supply  either a reference to a stored scenario, or inline shift definitions to test a definition before  saving it.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scenarioPreviewRequest">The recipe, portfolios, effective date and scenario (stored reference or inline shifts) to preview</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ScenarioPreviewResponse</returns>
+        System.Threading.Tasks.Task<ScenarioPreviewResponse> PreviewScenarioAsync(ScenarioPreviewRequest scenarioPreviewRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] PreviewScenario: Preview a Scenario
+        /// </summary>
+        /// <remarks>
+        /// Preview what a scenario would do to a portfolio&#39;s market data, without running a valuation.                The portfolio&#39;s market data dependencies are resolved through the given recipe and the scenario&#39;s  shifts are applied; the response lists every market data target the shifts changed, with values  before and after, plus any market data that matched a shift but could not honour it. Supply  either a reference to a stored scenario, or inline shift definitions to test a definition before  saving it.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scenarioPreviewRequest">The recipe, portfolios, effective date and scenario (stored reference or inline shifts) to preview</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (ScenarioPreviewResponse)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ScenarioPreviewResponse>> PreviewScenarioWithHttpInfoAsync(ScenarioPreviewRequest scenarioPreviewRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] UpsertScenario: Upsert a Scenario. This creates or updates the scenario definition in LUSID.
         /// </summary>
@@ -1389,6 +1441,218 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListScenarios", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] PreviewScenario: Preview a Scenario Preview what a scenario would do to a portfolio&#39;s market data, without running a valuation.                The portfolio&#39;s market data dependencies are resolved through the given recipe and the scenario&#39;s  shifts are applied; the response lists every market data target the shifts changed, with values  before and after, plus any market data that matched a shift but could not honour it. Supply  either a reference to a stored scenario, or inline shift definitions to test a definition before  saving it.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scenarioPreviewRequest">The recipe, portfolios, effective date and scenario (stored reference or inline shifts) to preview</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ScenarioPreviewResponse</returns>
+        public ScenarioPreviewResponse PreviewScenario(ScenarioPreviewRequest scenarioPreviewRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<ScenarioPreviewResponse> localVarResponse = PreviewScenarioWithHttpInfo(scenarioPreviewRequest, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] PreviewScenario: Preview a Scenario Preview what a scenario would do to a portfolio&#39;s market data, without running a valuation.                The portfolio&#39;s market data dependencies are resolved through the given recipe and the scenario&#39;s  shifts are applied; the response lists every market data target the shifts changed, with values  before and after, plus any market data that matched a shift but could not honour it. Supply  either a reference to a stored scenario, or inline shift definitions to test a definition before  saving it.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scenarioPreviewRequest">The recipe, portfolios, effective date and scenario (stored reference or inline shifts) to preview</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of ScenarioPreviewResponse</returns>
+        public Lusid.Sdk.Client.ApiResponse<ScenarioPreviewResponse> PreviewScenarioWithHttpInfo(ScenarioPreviewRequest scenarioPreviewRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scenarioPreviewRequest' is set
+            if (scenarioPreviewRequest == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scenarioPreviewRequest' when calling ScenariosApi->PreviewScenario");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = scenarioPreviewRequest;
+
+            localVarRequestOptions.Operation = "ScenariosApi.PreviewScenario";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<ScenarioPreviewResponse>("/api/scenarios/$preview", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PreviewScenario", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] PreviewScenario: Preview a Scenario Preview what a scenario would do to a portfolio&#39;s market data, without running a valuation.                The portfolio&#39;s market data dependencies are resolved through the given recipe and the scenario&#39;s  shifts are applied; the response lists every market data target the shifts changed, with values  before and after, plus any market data that matched a shift but could not honour it. Supply  either a reference to a stored scenario, or inline shift definitions to test a definition before  saving it.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scenarioPreviewRequest">The recipe, portfolios, effective date and scenario (stored reference or inline shifts) to preview</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ScenarioPreviewResponse</returns>
+        public async System.Threading.Tasks.Task<ScenarioPreviewResponse> PreviewScenarioAsync(ScenarioPreviewRequest scenarioPreviewRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<ScenarioPreviewResponse> localVarResponse = await PreviewScenarioWithHttpInfoAsync(scenarioPreviewRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] PreviewScenario: Preview a Scenario Preview what a scenario would do to a portfolio&#39;s market data, without running a valuation.                The portfolio&#39;s market data dependencies are resolved through the given recipe and the scenario&#39;s  shifts are applied; the response lists every market data target the shifts changed, with values  before and after, plus any market data that matched a shift but could not honour it. Supply  either a reference to a stored scenario, or inline shift definitions to test a definition before  saving it.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scenarioPreviewRequest">The recipe, portfolios, effective date and scenario (stored reference or inline shifts) to preview</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (ScenarioPreviewResponse)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ScenarioPreviewResponse>> PreviewScenarioWithHttpInfoAsync(ScenarioPreviewRequest scenarioPreviewRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scenarioPreviewRequest' is set
+            if (scenarioPreviewRequest == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scenarioPreviewRequest' when calling ScenariosApi->PreviewScenario");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = scenarioPreviewRequest;
+
+            localVarRequestOptions.Operation = "ScenariosApi.PreviewScenario";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<ScenarioPreviewResponse>("/api/scenarios/$preview", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PreviewScenario", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

@@ -38,7 +38,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="id">id (required).</param>
         /// <param name="complianceState">The compliance state of this order. Available values: Pending, Failed, Passed, ManuallyApproved, PartiallyOverridden, Warning. (required).</param>
-        /// <param name="approvalState">The approval state of this order. Available values: Pending, Rejected, Approved. (required).</param>
+        /// <param name="approvalState">The approval state of this order. Available values: Pending, Rejected, Approved, Placed. (required).</param>
         /// <param name="portfolioId">portfolioId.</param>
         /// <param name="portfolioName">The name of the order&#39;s referenced Portfolio..</param>
         /// <param name="orderApprovalTaskId">The task id associated with the approval state of the order..</param>
@@ -85,9 +85,9 @@ namespace Lusid.Sdk.Model
         public string ComplianceState { get; set; }
 
         /// <summary>
-        /// The approval state of this order. Available values: Pending, Rejected, Approved.
+        /// The approval state of this order. Available values: Pending, Rejected, Approved, Placed.
         /// </summary>
-        /// <value>The approval state of this order. Available values: Pending, Rejected, Approved.</value>
+        /// <value>The approval state of this order. Available values: Pending, Rejected, Approved, Placed.</value>
         [DataMember(Name = "approvalState", IsRequired = true, EmitDefaultValue = true)]
         public string ApprovalState { get; set; }
 

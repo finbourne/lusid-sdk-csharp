@@ -159,7 +159,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] PatchFundConfiguration: Patch Fund Configuration.
         /// </summary>
         /// <remarks>
-        /// Create or update certain fields for a particular FundConfiguration.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, DealingFilters, PnlFilters, BackOutFilters, ExternalFeeFilters.
+        /// Create or update certain fields for a particular FundConfiguration.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, DealingFilters, PnlFilters, BackOutFilters, ExternalFeeFilters, BucketSets, ApportionmentBucketSet, ApportionmentMethodProperty.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the FundConfiguration.</param>
@@ -174,7 +174,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] PatchFundConfiguration: Patch Fund Configuration.
         /// </summary>
         /// <remarks>
-        /// Create or update certain fields for a particular FundConfiguration.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, DealingFilters, PnlFilters, BackOutFilters, ExternalFeeFilters.
+        /// Create or update certain fields for a particular FundConfiguration.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, DealingFilters, PnlFilters, BackOutFilters, ExternalFeeFilters, BucketSets, ApportionmentBucketSet, ApportionmentMethodProperty.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the FundConfiguration.</param>
@@ -358,7 +358,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] PatchFundConfiguration: Patch Fund Configuration.
         /// </summary>
         /// <remarks>
-        /// Create or update certain fields for a particular FundConfiguration.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, DealingFilters, PnlFilters, BackOutFilters, ExternalFeeFilters.
+        /// Create or update certain fields for a particular FundConfiguration.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, DealingFilters, PnlFilters, BackOutFilters, ExternalFeeFilters, BucketSets, ApportionmentBucketSet, ApportionmentMethodProperty.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the FundConfiguration.</param>
@@ -374,7 +374,7 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] PatchFundConfiguration: Patch Fund Configuration.
         /// </summary>
         /// <remarks>
-        /// Create or update certain fields for a particular FundConfiguration.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, DealingFilters, PnlFilters, BackOutFilters, ExternalFeeFilters.
+        /// Create or update certain fields for a particular FundConfiguration.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, DealingFilters, PnlFilters, BackOutFilters, ExternalFeeFilters, BucketSets, ApportionmentBucketSet, ApportionmentMethodProperty.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the FundConfiguration.</param>
@@ -1530,7 +1530,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PatchFundConfiguration: Patch Fund Configuration. Create or update certain fields for a particular FundConfiguration.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, DealingFilters, PnlFilters, BackOutFilters, ExternalFeeFilters.
+        /// [EXPERIMENTAL] PatchFundConfiguration: Patch Fund Configuration. Create or update certain fields for a particular FundConfiguration.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, DealingFilters, PnlFilters, BackOutFilters, ExternalFeeFilters, BucketSets, ApportionmentBucketSet, ApportionmentMethodProperty.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the FundConfiguration.</param>
@@ -1546,7 +1546,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PatchFundConfiguration: Patch Fund Configuration. Create or update certain fields for a particular FundConfiguration.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, DealingFilters, PnlFilters, BackOutFilters, ExternalFeeFilters.
+        /// [EXPERIMENTAL] PatchFundConfiguration: Patch Fund Configuration. Create or update certain fields for a particular FundConfiguration.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, DealingFilters, PnlFilters, BackOutFilters, ExternalFeeFilters, BucketSets, ApportionmentBucketSet, ApportionmentMethodProperty.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the FundConfiguration.</param>
@@ -1652,7 +1652,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PatchFundConfiguration: Patch Fund Configuration. Create or update certain fields for a particular FundConfiguration.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, DealingFilters, PnlFilters, BackOutFilters, ExternalFeeFilters.
+        /// [EXPERIMENTAL] PatchFundConfiguration: Patch Fund Configuration. Create or update certain fields for a particular FundConfiguration.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, DealingFilters, PnlFilters, BackOutFilters, ExternalFeeFilters, BucketSets, ApportionmentBucketSet, ApportionmentMethodProperty.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the FundConfiguration.</param>
@@ -1669,7 +1669,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PatchFundConfiguration: Patch Fund Configuration. Create or update certain fields for a particular FundConfiguration.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, DealingFilters, PnlFilters, BackOutFilters, ExternalFeeFilters.
+        /// [EXPERIMENTAL] PatchFundConfiguration: Patch Fund Configuration. Create or update certain fields for a particular FundConfiguration.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, DealingFilters, PnlFilters, BackOutFilters, ExternalFeeFilters, BucketSets, ApportionmentBucketSet, ApportionmentMethodProperty.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the FundConfiguration.</param>

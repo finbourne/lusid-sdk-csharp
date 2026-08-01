@@ -42,7 +42,8 @@ namespace Lusid.Sdk.Model
         /// <param name="properties">Client-defined properties associated with this placement..</param>
         /// <param name="instrumentIdentifiers">The instrument ordered. (required).</param>
         /// <param name="lusidInstrumentId">The LUSID instrument id for the instrument placement. (required).</param>
-        /// <param name="quantity">The quantity of given instrument ordered. (required).</param>
+        /// <param name="quantity">The quantity of given instrument ordered..</param>
+        /// <param name="amount">amount.</param>
         /// <param name="state">The state of this placement (typically a FIX state; Open, Filled, etc). (required).</param>
         /// <param name="side">The side (Buy, Sell, ...) of this placement. (required).</param>
         /// <param name="timeInForce">The time in force applicable to this placement (GTC, FOK, Day, etc) (required).</param>
@@ -56,7 +57,7 @@ namespace Lusid.Sdk.Model
         /// <param name="varVersion">varVersion.</param>
         /// <param name="dataModelMembership">dataModelMembership.</param>
         /// <param name="links">links.</param>
-        public Placement(ResourceId id = default(ResourceId), ResourceId parentPlacementId = default(ResourceId), List<ResourceId> blockIds = default(List<ResourceId>), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string lusidInstrumentId = default(string), decimal quantity = default(decimal), string state = default(string), string side = default(string), string timeInForce = default(string), string type = default(string), DateTimeOffset createdDate = default(DateTimeOffset), CurrencyAndAmount limitPrice = default(CurrencyAndAmount), CurrencyAndAmount stopPrice = default(CurrencyAndAmount), string counterparty = default(string), string executionSystem = default(string), string entryType = default(string), ModelVersion varVersion = default(ModelVersion), DataModelMembership dataModelMembership = default(DataModelMembership), List<Link> links = default(List<Link>))
+        public Placement(ResourceId id = default(ResourceId), ResourceId parentPlacementId = default(ResourceId), List<ResourceId> blockIds = default(List<ResourceId>), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string lusidInstrumentId = default(string), decimal? quantity = default(decimal?), CurrencyAndAmount amount = default(CurrencyAndAmount), string state = default(string), string side = default(string), string timeInForce = default(string), string type = default(string), DateTimeOffset createdDate = default(DateTimeOffset), CurrencyAndAmount limitPrice = default(CurrencyAndAmount), CurrencyAndAmount stopPrice = default(CurrencyAndAmount), string counterparty = default(string), string executionSystem = default(string), string entryType = default(string), ModelVersion varVersion = default(ModelVersion), DataModelMembership dataModelMembership = default(DataModelMembership), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -82,7 +83,6 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("lusidInstrumentId is a required property for Placement and cannot be null");
             }
             this.LusidInstrumentId = lusidInstrumentId;
-            this.Quantity = quantity;
             // to ensure "state" is required (not null)
             if (state == null)
             {
@@ -110,6 +110,8 @@ namespace Lusid.Sdk.Model
             this.CreatedDate = createdDate;
             this.ParentPlacementId = parentPlacementId;
             this.Properties = properties;
+            this.Quantity = quantity;
+            this.Amount = amount;
             this.LimitPrice = limitPrice;
             this.StopPrice = stopPrice;
             this.Counterparty = counterparty;
@@ -164,8 +166,14 @@ namespace Lusid.Sdk.Model
         /// The quantity of given instrument ordered.
         /// </summary>
         /// <value>The quantity of given instrument ordered.</value>
-        [DataMember(Name = "quantity", IsRequired = true, EmitDefaultValue = true)]
-        public decimal Quantity { get; set; }
+        [DataMember(Name = "quantity", EmitDefaultValue = true)]
+        public decimal? Quantity { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Amount
+        /// </summary>
+        [DataMember(Name = "amount", EmitDefaultValue = false)]
+        public CurrencyAndAmount Amount { get; set; }
 
         /// <summary>
         /// The state of this placement (typically a FIX state; Open, Filled, etc).
@@ -268,6 +276,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  InstrumentIdentifiers: ").Append(InstrumentIdentifiers).Append("\n");
             sb.Append("  LusidInstrumentId: ").Append(LusidInstrumentId).Append("\n");
             sb.Append("  Quantity: ").Append(Quantity).Append("\n");
+            sb.Append("  Amount: ").Append(Amount).Append("\n");
             sb.Append("  State: ").Append(State).Append("\n");
             sb.Append("  Side: ").Append(Side).Append("\n");
             sb.Append("  TimeInForce: ").Append(TimeInForce).Append("\n");
@@ -351,7 +360,13 @@ namespace Lusid.Sdk.Model
                 ) && 
                 (
                     this.Quantity == input.Quantity ||
-                    this.Quantity.Equals(input.Quantity)
+                    (this.Quantity != null &&
+                    this.Quantity.Equals(input.Quantity))
+                ) && 
+                (
+                    this.Amount == input.Amount ||
+                    (this.Amount != null &&
+                    this.Amount.Equals(input.Amount))
                 ) && 
                 (
                     this.State == input.State ||
@@ -454,7 +469,14 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.LusidInstrumentId.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Quantity.GetHashCode();
+                if (this.Quantity != null)
+                {
+                    hashCode = (hashCode * 59) + this.Quantity.GetHashCode();
+                }
+                if (this.Amount != null)
+                {
+                    hashCode = (hashCode * 59) + this.Amount.GetHashCode();
+                }
                 if (this.State != null)
                 {
                     hashCode = (hashCode * 59) + this.State.GetHashCode();

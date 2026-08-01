@@ -1,0 +1,29 @@
+# Lusid.Sdk.Model.ScenarioPreviewAppliedShift
+One market data target changed by one scenario shift.
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**EffectiveAt** | **DateTimeOffset** | The effective date of the market data the shift was applied to. | [optional] 
+**Shift** | **string** | Description of the shift, e.g. \&quot;EquityShift on &#39;SCENARIO_EQUITY&#39;\&quot;. | [optional] 
+**Target** | **string** | Description of the market data target the shift changed. | [optional] 
+**ValueBefore** | **decimal?** | The target&#39;s value before the shift. Null for multi-point targets (e.g. whole curves) where a  single number is not meaningful. | [optional] 
+**ValueAfter** | **decimal?** | The target&#39;s value after the shift. Null for multi-point targets. | [optional] 
+
+```csharp
+using Lusid.Sdk.Model;
+using System;
+
+string shift = "example shift";
+string target = "example target";
+
+ScenarioPreviewAppliedShift scenarioPreviewAppliedShiftInstance = new ScenarioPreviewAppliedShift(
+    effectiveAt: effectiveAt,
+    shift: shift,
+    target: target,
+    valueBefore: valueBefore,
+    valueAfter: valueAfter);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

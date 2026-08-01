@@ -36,27 +36,31 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderGraphBlockPlacementSynopsis" /> class.
         /// </summary>
-        /// <param name="quantity">Total number of units placed. (required).</param>
+        /// <param name="quantity">Total number of units placed..</param>
         /// <param name="quantityByState">Total number of units placed..</param>
+        /// <param name="amount">Total monetary value placed, in the block currency..</param>
+        /// <param name="amountByState">Total monetary value placed, broken down by placement state..</param>
         /// <param name="details">Identifiers for each placement in this block. (required).</param>
-        public OrderGraphBlockPlacementSynopsis(decimal quantity = default(decimal), Dictionary<string, decimal> quantityByState = default(Dictionary<string, decimal>), List<OrderGraphBlockPlacementDetail> details = default(List<OrderGraphBlockPlacementDetail>))
+        public OrderGraphBlockPlacementSynopsis(decimal? quantity = default(decimal?), Dictionary<string, decimal> quantityByState = default(Dictionary<string, decimal>), decimal? amount = default(decimal?), Dictionary<string, decimal> amountByState = default(Dictionary<string, decimal>), List<OrderGraphBlockPlacementDetail> details = default(List<OrderGraphBlockPlacementDetail>))
         {
-            this.Quantity = quantity;
             // to ensure "details" is required (not null)
             if (details == null)
             {
                 throw new ArgumentNullException("details is a required property for OrderGraphBlockPlacementSynopsis and cannot be null");
             }
             this.Details = details;
+            this.Quantity = quantity;
             this.QuantityByState = quantityByState;
+            this.Amount = amount;
+            this.AmountByState = amountByState;
         }
 
         /// <summary>
         /// Total number of units placed.
         /// </summary>
         /// <value>Total number of units placed.</value>
-        [DataMember(Name = "quantity", IsRequired = true, EmitDefaultValue = true)]
-        public decimal Quantity { get; set; }
+        [DataMember(Name = "quantity", EmitDefaultValue = true)]
+        public decimal? Quantity { get; set; }
 
         /// <summary>
         /// Total number of units placed.
@@ -64,6 +68,20 @@ namespace Lusid.Sdk.Model
         /// <value>Total number of units placed.</value>
         [DataMember(Name = "quantityByState", EmitDefaultValue = true)]
         public Dictionary<string, decimal> QuantityByState { get; set; }
+
+        /// <summary>
+        /// Total monetary value placed, in the block currency.
+        /// </summary>
+        /// <value>Total monetary value placed, in the block currency.</value>
+        [DataMember(Name = "amount", EmitDefaultValue = true)]
+        public decimal? Amount { get; set; }
+
+        /// <summary>
+        /// Total monetary value placed, broken down by placement state.
+        /// </summary>
+        /// <value>Total monetary value placed, broken down by placement state.</value>
+        [DataMember(Name = "amountByState", EmitDefaultValue = true)]
+        public Dictionary<string, decimal> AmountByState { get; set; }
 
         /// <summary>
         /// Identifiers for each placement in this block.
@@ -82,6 +100,8 @@ namespace Lusid.Sdk.Model
             sb.Append("class OrderGraphBlockPlacementSynopsis {\n");
             sb.Append("  Quantity: ").Append(Quantity).Append("\n");
             sb.Append("  QuantityByState: ").Append(QuantityByState).Append("\n");
+            sb.Append("  Amount: ").Append(Amount).Append("\n");
+            sb.Append("  AmountByState: ").Append(AmountByState).Append("\n");
             sb.Append("  Details: ").Append(Details).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -120,13 +140,25 @@ namespace Lusid.Sdk.Model
             return 
                 (
                     this.Quantity == input.Quantity ||
-                    this.Quantity.Equals(input.Quantity)
+                    (this.Quantity != null &&
+                    this.Quantity.Equals(input.Quantity))
                 ) && 
                 (
                     this.QuantityByState == input.QuantityByState ||
                     this.QuantityByState != null &&
                     input.QuantityByState != null &&
                     this.QuantityByState.SequenceEqual(input.QuantityByState)
+                ) && 
+                (
+                    this.Amount == input.Amount ||
+                    (this.Amount != null &&
+                    this.Amount.Equals(input.Amount))
+                ) && 
+                (
+                    this.AmountByState == input.AmountByState ||
+                    this.AmountByState != null &&
+                    input.AmountByState != null &&
+                    this.AmountByState.SequenceEqual(input.AmountByState)
                 ) && 
                 (
                     this.Details == input.Details ||
@@ -145,10 +177,21 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Quantity.GetHashCode();
+                if (this.Quantity != null)
+                {
+                    hashCode = (hashCode * 59) + this.Quantity.GetHashCode();
+                }
                 if (this.QuantityByState != null)
                 {
                     hashCode = (hashCode * 59) + this.QuantityByState.GetHashCode();
+                }
+                if (this.Amount != null)
+                {
+                    hashCode = (hashCode * 59) + this.Amount.GetHashCode();
+                }
+                if (this.AmountByState != null)
+                {
+                    hashCode = (hashCode * 59) + this.AmountByState.GetHashCode();
                 }
                 if (this.Details != null)
                 {

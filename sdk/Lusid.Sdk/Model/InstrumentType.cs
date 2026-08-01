@@ -302,7 +302,13 @@ namespace Lusid.Sdk.Model
         /// Enum VolatilitySwap for value: VolatilitySwap
         /// </summary>
         [EnumMember(Value = "VolatilitySwap")]
-        VolatilitySwap = 46
+        VolatilitySwap = 46,
+
+        /// <summary>
+        /// Enum ToBeAnnouncedOption for value: ToBeAnnouncedOption
+        /// </summary>
+        [EnumMember(Value = "ToBeAnnouncedOption")]
+        ToBeAnnouncedOption = 47
     }
 
 }

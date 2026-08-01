@@ -14,6 +14,9 @@ Name | Type | Description | Notes
 **ExternalFeeFilters** | [**List&lt;ExternalFeeComponentFilter&gt;**](ExternalFeeComponentFilter.md) | The set of filters used to decide which JE lines are used for inputting fees from an external source. | [optional] 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | A set of properties for the Fund Configuration. | [optional] 
 **VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
+**BucketSets** | [**List&lt;BucketSetDefinition&gt;**](BucketSetDefinition.md) | The ordered set of component bucket set definitions for this fund configuration. Each bucket set defines how JE lines are grouped into buckets at VP finalisation. | [optional] 
+**ApportionmentBucketSet** | **string** | The code of the bucket set definition within this fund configuration that is designated as the apportionment bucket set. Must reference a BucketSetDefinition code within the BucketSets collection. | [optional] 
+**ApportionmentMethodProperty** | [**ApportionmentMethodProperty**](ApportionmentMethodProperty.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -31,6 +34,10 @@ List<ExternalFeeComponentFilter> externalFeeFilters = new List<ExternalFeeCompon
 Dictionary<string, Property> properties = new Dictionary<string, Property>();
 ModelVersion? varVersion = new ModelVersion();
 
+List<BucketSetDefinition> bucketSets = new List<BucketSetDefinition>();
+string apportionmentBucketSet = "example apportionmentBucketSet";
+ApportionmentMethodProperty? apportionmentMethodProperty = new ApportionmentMethodProperty();
+
 List<Link> links = new List<Link>();
 
 FundConfiguration fundConfigurationInstance = new FundConfiguration(
@@ -44,6 +51,9 @@ FundConfiguration fundConfigurationInstance = new FundConfiguration(
     externalFeeFilters: externalFeeFilters,
     properties: properties,
     varVersion: varVersion,
+    bucketSets: bucketSets,
+    apportionmentBucketSet: apportionmentBucketSet,
+    apportionmentMethodProperty: apportionmentMethodProperty,
     links: links);
 ```
 

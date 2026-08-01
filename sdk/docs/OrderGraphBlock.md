@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **Booked** | [**OrderGraphBlockTransactionSynopsis**](OrderGraphBlockTransactionSynopsis.md) |  | 
 **DerivedState** | **string** | A simple description of the overall state of a block. | 
 **DerivedComplianceState** | **string** | The overall compliance state of a block, derived from the block&#39;s orders. Available values: Pending, Failed, Passed, ManuallyApproved, PartiallyOverridden, Warning. | 
-**DerivedApprovalState** | **string** | The overall approval state of a block, derived from approval of the block&#39;s orders. Available values: Pending, Rejected, Approved. | 
+**DerivedApprovalState** | **string** | The overall approval state of a block, derived from approval of the block&#39;s orders. Available values: Pending, Rejected, Approved, Placed. | 
 
 ```csharp
 using Lusid.Sdk.Model;
