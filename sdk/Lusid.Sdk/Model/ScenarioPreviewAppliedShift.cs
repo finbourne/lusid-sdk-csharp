@@ -32,7 +32,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="ScenarioPreviewAppliedShift" /> class.
         /// </summary>
         /// <param name="effectiveAt">The effective date of the market data the shift was applied to..</param>
-        /// <param name="shift">Description of the shift, e.g. \&quot;EquityShift on &#39;SCENARIO_EQUITY&#39;\&quot;..</param>
+        /// <param name="shift">Description of the shift, e.g. \&quot;PriceShift on &#39;SCENARIO_EQUITY&#39;\&quot;..</param>
         /// <param name="target">Description of the market data target the shift changed..</param>
         /// <param name="valueBefore">The target&#39;s value before the shift. Null for multi-point targets (e.g. whole curves) where a  single number is not meaningful..</param>
         /// <param name="valueAfter">The target&#39;s value after the shift. Null for multi-point targets..</param>
@@ -53,9 +53,9 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset EffectiveAt { get; set; }
 
         /// <summary>
-        /// Description of the shift, e.g. \&quot;EquityShift on &#39;SCENARIO_EQUITY&#39;\&quot;.
+        /// Description of the shift, e.g. \&quot;PriceShift on &#39;SCENARIO_EQUITY&#39;\&quot;.
         /// </summary>
-        /// <value>Description of the shift, e.g. \&quot;EquityShift on &#39;SCENARIO_EQUITY&#39;\&quot;.</value>
+        /// <value>Description of the shift, e.g. \&quot;PriceShift on &#39;SCENARIO_EQUITY&#39;\&quot;.</value>
         [DataMember(Name = "shift", EmitDefaultValue = true)]
         public string Shift { get; set; }
 

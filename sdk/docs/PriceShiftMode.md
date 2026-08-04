@@ -1,4 +1,4 @@
-# Lusid.Sdk.Model.EquityShiftMode
+# Lusid.Sdk.Model.PriceShiftMode
 
 ## Properties
 

@@ -23,10 +23,10 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Defines EquityShiftMode
+    /// Defines PriceShiftMode
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
-    public enum EquityShiftMode
+    public enum PriceShiftMode
     {
         /// <summary>
         /// Enum Absolute for value: absolute

@@ -24,11 +24,11 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// EquityShiftDefinition
+    /// PriceShiftDefinition
     /// </summary>
-    [DataContract(Name = "EquityShiftDefinition")]
+    [DataContract(Name = "PriceShiftDefinition")]
     [JsonConverter(typeof(JsonSubtypes), "ScenarioShiftType")]
-    public partial class EquityShiftDefinition : ScenarioShiftDefinition, IEquatable<EquityShiftDefinition>, IValidatableObject
+    public partial class PriceShiftDefinition : ScenarioShiftDefinition, IEquatable<PriceShiftDefinition>, IValidatableObject
     {
         /// <summary>
         /// Available values: Absolute, Relative, Percentage.
@@ -64,27 +64,152 @@ namespace Lusid.Sdk.Model
         [DataMember(Name = "shiftType", IsRequired = true, EmitDefaultValue = true)]
         public ShiftTypeEnum ShiftType { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="EquityShiftDefinition" /> class.
+        /// Available values: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront, Index, Ratio, Delta, PoolFactor, InflationAssumption, DirtyPrice, PrincipalWriteOff, InterestDeferred, InterestShortfall, ConstituentWeightFactor.
+        /// </summary>
+        /// <value>Available values: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront, Index, Ratio, Delta, PoolFactor, InflationAssumption, DirtyPrice, PrincipalWriteOff, InterestDeferred, InterestShortfall, ConstituentWeightFactor.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum QuoteTypeEnum
+        {
+            /// <summary>
+            /// Enum Price for value: Price
+            /// </summary>
+            [EnumMember(Value = "Price")]
+            Price = 1,
+
+            /// <summary>
+            /// Enum Spread for value: Spread
+            /// </summary>
+            [EnumMember(Value = "Spread")]
+            Spread = 2,
+
+            /// <summary>
+            /// Enum Rate for value: Rate
+            /// </summary>
+            [EnumMember(Value = "Rate")]
+            Rate = 3,
+
+            /// <summary>
+            /// Enum LogNormalVol for value: LogNormalVol
+            /// </summary>
+            [EnumMember(Value = "LogNormalVol")]
+            LogNormalVol = 4,
+
+            /// <summary>
+            /// Enum NormalVol for value: NormalVol
+            /// </summary>
+            [EnumMember(Value = "NormalVol")]
+            NormalVol = 5,
+
+            /// <summary>
+            /// Enum ParSpread for value: ParSpread
+            /// </summary>
+            [EnumMember(Value = "ParSpread")]
+            ParSpread = 6,
+
+            /// <summary>
+            /// Enum IsdaSpread for value: IsdaSpread
+            /// </summary>
+            [EnumMember(Value = "IsdaSpread")]
+            IsdaSpread = 7,
+
+            /// <summary>
+            /// Enum Upfront for value: Upfront
+            /// </summary>
+            [EnumMember(Value = "Upfront")]
+            Upfront = 8,
+
+            /// <summary>
+            /// Enum Index for value: Index
+            /// </summary>
+            [EnumMember(Value = "Index")]
+            Index = 9,
+
+            /// <summary>
+            /// Enum Ratio for value: Ratio
+            /// </summary>
+            [EnumMember(Value = "Ratio")]
+            Ratio = 10,
+
+            /// <summary>
+            /// Enum Delta for value: Delta
+            /// </summary>
+            [EnumMember(Value = "Delta")]
+            Delta = 11,
+
+            /// <summary>
+            /// Enum PoolFactor for value: PoolFactor
+            /// </summary>
+            [EnumMember(Value = "PoolFactor")]
+            PoolFactor = 12,
+
+            /// <summary>
+            /// Enum InflationAssumption for value: InflationAssumption
+            /// </summary>
+            [EnumMember(Value = "InflationAssumption")]
+            InflationAssumption = 13,
+
+            /// <summary>
+            /// Enum DirtyPrice for value: DirtyPrice
+            /// </summary>
+            [EnumMember(Value = "DirtyPrice")]
+            DirtyPrice = 14,
+
+            /// <summary>
+            /// Enum PrincipalWriteOff for value: PrincipalWriteOff
+            /// </summary>
+            [EnumMember(Value = "PrincipalWriteOff")]
+            PrincipalWriteOff = 15,
+
+            /// <summary>
+            /// Enum InterestDeferred for value: InterestDeferred
+            /// </summary>
+            [EnumMember(Value = "InterestDeferred")]
+            InterestDeferred = 16,
+
+            /// <summary>
+            /// Enum InterestShortfall for value: InterestShortfall
+            /// </summary>
+            [EnumMember(Value = "InterestShortfall")]
+            InterestShortfall = 17,
+
+            /// <summary>
+            /// Enum ConstituentWeightFactor for value: ConstituentWeightFactor
+            /// </summary>
+            [EnumMember(Value = "ConstituentWeightFactor")]
+            ConstituentWeightFactor = 18
+        }
+
+
+        /// <summary>
+        /// Available values: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront, Index, Ratio, Delta, PoolFactor, InflationAssumption, DirtyPrice, PrincipalWriteOff, InterestDeferred, InterestShortfall, ConstituentWeightFactor.
+        /// </summary>
+        /// <value>Available values: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront, Index, Ratio, Delta, PoolFactor, InflationAssumption, DirtyPrice, PrincipalWriteOff, InterestDeferred, InterestShortfall, ConstituentWeightFactor.</value>
+        [DataMember(Name = "quoteType", EmitDefaultValue = true)]
+        public QuoteTypeEnum? QuoteType { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PriceShiftDefinition" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected EquityShiftDefinition() { }
+        protected PriceShiftDefinition() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="EquityShiftDefinition" /> class.
+        /// Initializes a new instance of the <see cref="PriceShiftDefinition" /> class.
         /// </summary>
         /// <param name="instrument">instrument (required).</param>
         /// <param name="amount">amount (required).</param>
         /// <param name="shiftType">Available values: Absolute, Relative, Percentage. (required).</param>
-        /// <param name="scenarioShiftType">Available values: RateCurveShiftDefinition, FxShiftDefinition, EquityShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition. (required) (default to &quot;EquityShiftDefinition&quot;).</param>
-        public EquityShiftDefinition(string instrument = default(string), decimal amount = default(decimal), ShiftTypeEnum shiftType = default(ShiftTypeEnum), ScenarioShiftTypeEnum scenarioShiftType = default(ScenarioShiftTypeEnum)) : base(scenarioShiftType)
+        /// <param name="quoteType">Available values: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront, Index, Ratio, Delta, PoolFactor, InflationAssumption, DirtyPrice, PrincipalWriteOff, InterestDeferred, InterestShortfall, ConstituentWeightFactor..</param>
+        /// <param name="scenarioShiftType">Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition. (required) (default to &quot;PriceShiftDefinition&quot;).</param>
+        public PriceShiftDefinition(string instrument = default(string), decimal amount = default(decimal), ShiftTypeEnum shiftType = default(ShiftTypeEnum), QuoteTypeEnum ?quoteType = default(QuoteTypeEnum?), ScenarioShiftTypeEnum scenarioShiftType = default(ScenarioShiftTypeEnum)) : base(scenarioShiftType)
         {
             // to ensure "instrument" is required (not null)
             if (instrument == null)
             {
-                throw new ArgumentNullException("instrument is a required property for EquityShiftDefinition and cannot be null");
+                throw new ArgumentNullException("instrument is a required property for PriceShiftDefinition and cannot be null");
             }
             this.Instrument = instrument;
             this.Amount = amount;
             this.ShiftType = shiftType;
+            this.QuoteType = quoteType;
         }
 
         /// <summary>
@@ -106,11 +231,12 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class EquityShiftDefinition {\n");
+            sb.Append("class PriceShiftDefinition {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  Instrument: ").Append(Instrument).Append("\n");
             sb.Append("  Amount: ").Append(Amount).Append("\n");
             sb.Append("  ShiftType: ").Append(ShiftType).Append("\n");
+            sb.Append("  QuoteType: ").Append(QuoteType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -131,15 +257,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as EquityShiftDefinition);
+            return this.Equals(input as PriceShiftDefinition);
         }
 
         /// <summary>
-        /// Returns true if EquityShiftDefinition instances are equal
+        /// Returns true if PriceShiftDefinition instances are equal
         /// </summary>
-        /// <param name="input">Instance of EquityShiftDefinition to be compared</param>
+        /// <param name="input">Instance of PriceShiftDefinition to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(EquityShiftDefinition input)
+        public bool Equals(PriceShiftDefinition input)
         {
             if (input == null)
             {
@@ -158,6 +284,10 @@ namespace Lusid.Sdk.Model
                 (
                     this.ShiftType == input.ShiftType ||
                     this.ShiftType.Equals(input.ShiftType)
+                ) && base.Equals(input) && 
+                (
+                    this.QuoteType == input.QuoteType ||
+                    this.QuoteType.Equals(input.QuoteType)
                 );
         }
 
@@ -176,6 +306,7 @@ namespace Lusid.Sdk.Model
                 }
                 hashCode = (hashCode * 59) + this.Amount.GetHashCode();
                 hashCode = (hashCode * 59) + this.ShiftType.GetHashCode();
+                hashCode = (hashCode * 59) + this.QuoteType.GetHashCode();
                 return hashCode;
             }
         }

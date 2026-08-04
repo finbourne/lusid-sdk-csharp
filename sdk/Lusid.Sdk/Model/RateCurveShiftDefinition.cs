@@ -110,7 +110,7 @@ namespace Lusid.Sdk.Model
         /// <param name="endTenor">endTenor.</param>
         /// <param name="shiftType">Available values: Parallel, Steepen, Flatten, Twist. (required).</param>
         /// <param name="scale">Available values: Bps, Percentage..</param>
-        /// <param name="scenarioShiftType">Available values: RateCurveShiftDefinition, FxShiftDefinition, EquityShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition. (required) (default to &quot;RateCurveShiftDefinition&quot;).</param>
+        /// <param name="scenarioShiftType">Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition. (required) (default to &quot;RateCurveShiftDefinition&quot;).</param>
         public RateCurveShiftDefinition(string ccy = default(string), decimal amount = default(decimal), string startTenor = default(string), string endTenor = default(string), ShiftTypeEnum shiftType = default(ShiftTypeEnum), ScaleEnum ?scale = default(ScaleEnum?), ScenarioShiftTypeEnum scenarioShiftType = default(ScenarioShiftTypeEnum)) : base(scenarioShiftType)
         {
             // to ensure "ccy" is required (not null)
