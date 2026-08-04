@@ -42,7 +42,6 @@ namespace Lusid.Sdk.Model
         /// <param name="shareClassShortCode">A short code that uniquely identifies the share class within the Fund. (required).</param>
         /// <param name="launchPrice">The launch price set when a shareclass is added to the fund. Defaults to 1..</param>
         /// <param name="launchDate">The launch date set when a shareclass is added to the fund. Defaults to Fund Inception Date..</param>
-        /// <param name="apportionmentFactor">Only used for fixed percentage method or be zero, must equal 1 or 0 across all classes in the fund..</param>
         /// <param name="properties">An optional set of properties to attach to the auto-created Instrument. Only applied when createInstrument is true..</param>
         /// <param name="fundShareClassType">The Type of Share Class. Available values: Unitised, Inactive, Series, PrivateEquity, Partnership. (required).</param>
         /// <param name="distributionType">The type of distribution the ShareClass will calculate. Available values: Income, Accumulation. (required).</param>
@@ -55,7 +54,7 @@ namespace Lusid.Sdk.Model
         /// <param name="timeZoneConventions">timeZoneConventions.</param>
         /// <param name="distributionPaymentType">The tax treatment applied to distributions. Available values: Invalid, Gross, Net..</param>
         /// <param name="hedging">Indicates whether the ShareClass applies currency hedging. Available values: Invalid, None, ApplyHedging. (required).</param>
-        public ShareClassDefinition(Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string name = default(string), string description = default(string), string shareClassShortCode = default(string), decimal? launchPrice = default(decimal?), DateTimeOffset? launchDate = default(DateTimeOffset?), decimal? apportionmentFactor = default(decimal?), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string fundShareClassType = default(string), string distributionType = default(string), string domCcy = default(string), TradingConventions tradingConventions = default(TradingConventions), int? unitsPrecision = default(int?), int? pricePrecision = default(int?), List<SimpleRoundingConvention> roundingConventions = default(List<SimpleRoundingConvention>), List<SimpleRoundingConvention> roundingConventionsUnits = default(List<SimpleRoundingConvention>), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), string distributionPaymentType = default(string), string hedging = default(string))
+        public ShareClassDefinition(Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string name = default(string), string description = default(string), string shareClassShortCode = default(string), decimal? launchPrice = default(decimal?), DateTimeOffset? launchDate = default(DateTimeOffset?), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string fundShareClassType = default(string), string distributionType = default(string), string domCcy = default(string), TradingConventions tradingConventions = default(TradingConventions), int? unitsPrecision = default(int?), int? pricePrecision = default(int?), List<SimpleRoundingConvention> roundingConventions = default(List<SimpleRoundingConvention>), List<SimpleRoundingConvention> roundingConventionsUnits = default(List<SimpleRoundingConvention>), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), string distributionPaymentType = default(string), string hedging = default(string))
         {
             // to ensure "instrumentIdentifiers" is required (not null)
             if (instrumentIdentifiers == null)
@@ -102,7 +101,6 @@ namespace Lusid.Sdk.Model
             this.Description = description;
             this.LaunchPrice = launchPrice;
             this.LaunchDate = launchDate;
-            this.ApportionmentFactor = apportionmentFactor;
             this.Properties = properties;
             this.TradingConventions = tradingConventions;
             this.UnitsPrecision = unitsPrecision;
@@ -154,13 +152,6 @@ namespace Lusid.Sdk.Model
         /// <value>The launch date set when a shareclass is added to the fund. Defaults to Fund Inception Date.</value>
         [DataMember(Name = "launchDate", EmitDefaultValue = true)]
         public DateTimeOffset? LaunchDate { get; set; }
-
-        /// <summary>
-        /// Only used for fixed percentage method or be zero, must equal 1 or 0 across all classes in the fund.
-        /// </summary>
-        /// <value>Only used for fixed percentage method or be zero, must equal 1 or 0 across all classes in the fund.</value>
-        [DataMember(Name = "apportionmentFactor", EmitDefaultValue = true)]
-        public decimal? ApportionmentFactor { get; set; }
 
         /// <summary>
         /// An optional set of properties to attach to the auto-created Instrument. Only applied when createInstrument is true.
@@ -258,7 +249,6 @@ namespace Lusid.Sdk.Model
             sb.Append("  ShareClassShortCode: ").Append(ShareClassShortCode).Append("\n");
             sb.Append("  LaunchPrice: ").Append(LaunchPrice).Append("\n");
             sb.Append("  LaunchDate: ").Append(LaunchDate).Append("\n");
-            sb.Append("  ApportionmentFactor: ").Append(ApportionmentFactor).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  FundShareClassType: ").Append(FundShareClassType).Append("\n");
             sb.Append("  DistributionType: ").Append(DistributionType).Append("\n");
@@ -336,11 +326,6 @@ namespace Lusid.Sdk.Model
                     this.LaunchDate == input.LaunchDate ||
                     (this.LaunchDate != null &&
                     this.LaunchDate.Equals(input.LaunchDate))
-                ) && 
-                (
-                    this.ApportionmentFactor == input.ApportionmentFactor ||
-                    (this.ApportionmentFactor != null &&
-                    this.ApportionmentFactor.Equals(input.ApportionmentFactor))
                 ) && 
                 (
                     this.Properties == input.Properties ||
@@ -439,10 +424,6 @@ namespace Lusid.Sdk.Model
                 if (this.LaunchDate != null)
                 {
                     hashCode = (hashCode * 59) + this.LaunchDate.GetHashCode();
-                }
-                if (this.ApportionmentFactor != null)
-                {
-                    hashCode = (hashCode * 59) + this.ApportionmentFactor.GetHashCode();
                 }
                 if (this.Properties != null)
                 {
