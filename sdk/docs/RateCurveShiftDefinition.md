@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **EndTenor** | **string** |  | [optional] 
 **ShiftType** | **string** | Available values: Parallel, Steepen, Flatten, Twist. | 
 **Scale** | **string** | Available values: Bps, Percentage. | [optional] 
+**ApplyTo** | **string** | A LUSID filter expression over the instrument entity scoping which instruments this shift is  for, e.g. \&quot;properties[Instrument/default/CountryOfIssue] eq &#39;Italy&#39;\&quot;. The shifted market data  is used by the whole valuation run, but when the scenario is requested as a result column the  column is only populated for matching instruments. Only usable when the scenario is applied as  a per-metric column. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -22,6 +23,7 @@ string startTenor = "example startTenor";
 string endTenor = "example endTenor";
 string shiftType = "shiftType";
 string scale = "example scale";
+string applyTo = "example applyTo";
 
 RateCurveShiftDefinition rateCurveShiftDefinitionInstance = new RateCurveShiftDefinition(
     ccy: ccy,
@@ -29,7 +31,8 @@ RateCurveShiftDefinition rateCurveShiftDefinitionInstance = new RateCurveShiftDe
     startTenor: startTenor,
     endTenor: endTenor,
     shiftType: shiftType,
-    scale: scale);
+    scale: scale,
+    applyTo: applyTo);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

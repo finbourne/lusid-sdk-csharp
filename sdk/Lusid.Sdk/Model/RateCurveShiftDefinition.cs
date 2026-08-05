@@ -110,8 +110,9 @@ namespace Lusid.Sdk.Model
         /// <param name="endTenor">endTenor.</param>
         /// <param name="shiftType">Available values: Parallel, Steepen, Flatten, Twist. (required).</param>
         /// <param name="scale">Available values: Bps, Percentage..</param>
+        /// <param name="applyTo">A LUSID filter expression over the instrument entity scoping which instruments this shift is  for, e.g. \&quot;properties[Instrument/default/CountryOfIssue] eq &#39;Italy&#39;\&quot;. The shifted market data  is used by the whole valuation run, but when the scenario is requested as a result column the  column is only populated for matching instruments. Only usable when the scenario is applied as  a per-metric column..</param>
         /// <param name="scenarioShiftType">Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition. (required) (default to &quot;RateCurveShiftDefinition&quot;).</param>
-        public RateCurveShiftDefinition(string ccy = default(string), decimal amount = default(decimal), string startTenor = default(string), string endTenor = default(string), ShiftTypeEnum shiftType = default(ShiftTypeEnum), ScaleEnum ?scale = default(ScaleEnum?), ScenarioShiftTypeEnum scenarioShiftType = default(ScenarioShiftTypeEnum)) : base(scenarioShiftType)
+        public RateCurveShiftDefinition(string ccy = default(string), decimal amount = default(decimal), string startTenor = default(string), string endTenor = default(string), ShiftTypeEnum shiftType = default(ShiftTypeEnum), ScaleEnum ?scale = default(ScaleEnum?), string applyTo = default(string), ScenarioShiftTypeEnum scenarioShiftType = default(ScenarioShiftTypeEnum)) : base(scenarioShiftType)
         {
             // to ensure "ccy" is required (not null)
             if (ccy == null)
@@ -124,6 +125,7 @@ namespace Lusid.Sdk.Model
             this.StartTenor = startTenor;
             this.EndTenor = endTenor;
             this.Scale = scale;
+            this.ApplyTo = applyTo;
         }
 
         /// <summary>
@@ -152,6 +154,13 @@ namespace Lusid.Sdk.Model
         public string EndTenor { get; set; }
 
         /// <summary>
+        /// A LUSID filter expression over the instrument entity scoping which instruments this shift is  for, e.g. \&quot;properties[Instrument/default/CountryOfIssue] eq &#39;Italy&#39;\&quot;. The shifted market data  is used by the whole valuation run, but when the scenario is requested as a result column the  column is only populated for matching instruments. Only usable when the scenario is applied as  a per-metric column.
+        /// </summary>
+        /// <value>A LUSID filter expression over the instrument entity scoping which instruments this shift is  for, e.g. \&quot;properties[Instrument/default/CountryOfIssue] eq &#39;Italy&#39;\&quot;. The shifted market data  is used by the whole valuation run, but when the scenario is requested as a result column the  column is only populated for matching instruments. Only usable when the scenario is applied as  a per-metric column.</value>
+        [DataMember(Name = "applyTo", EmitDefaultValue = true)]
+        public string ApplyTo { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -166,6 +175,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  EndTenor: ").Append(EndTenor).Append("\n");
             sb.Append("  ShiftType: ").Append(ShiftType).Append("\n");
             sb.Append("  Scale: ").Append(Scale).Append("\n");
+            sb.Append("  ApplyTo: ").Append(ApplyTo).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -227,6 +237,11 @@ namespace Lusid.Sdk.Model
                 (
                     this.Scale == input.Scale ||
                     this.Scale.Equals(input.Scale)
+                ) && base.Equals(input) && 
+                (
+                    this.ApplyTo == input.ApplyTo ||
+                    (this.ApplyTo != null &&
+                    this.ApplyTo.Equals(input.ApplyTo))
                 );
         }
 
@@ -254,6 +269,10 @@ namespace Lusid.Sdk.Model
                 }
                 hashCode = (hashCode * 59) + this.ShiftType.GetHashCode();
                 hashCode = (hashCode * 59) + this.Scale.GetHashCode();
+                if (this.ApplyTo != null)
+                {
+                    hashCode = (hashCode * 59) + this.ApplyTo.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -339,6 +358,18 @@ namespace Lusid.Sdk.Model
             if (false == regexEndTenor.Match(this.EndTenor).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EndTenor, must match a pattern of " + regexEndTenor, new [] { "EndTenor" });
+            }
+
+            // ApplyTo (string) maxLength
+            if (this.ApplyTo != null && this.ApplyTo.Length > 2000)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ApplyTo, length must be less than 2000.", new [] { "ApplyTo" });
+            }
+
+            // ApplyTo (string) minLength
+            if (this.ApplyTo != null && this.ApplyTo.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ApplyTo, length must be greater than 1.", new [] { "ApplyTo" });
             }
 
             yield break;
