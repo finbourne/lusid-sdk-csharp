@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **DataSchema** | [**ResultDataSchema**](ResultDataSchema.md) |  | [optional] 
 **AggregationFailures** | [**List&lt;AggregationMeasureFailureDetail&gt;**](AggregationMeasureFailureDetail.md) |  | [optional] 
 **RecipeId** | [**ResourceId**](ResourceId.md) |  | [optional] 
+**ScenarioDiagnostics** | [**ScenarioDiagnostics**](ScenarioDiagnostics.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 ```csharp
@@ -26,6 +27,8 @@ ResultDataSchema? dataSchema = new ResultDataSchema();
 List<AggregationMeasureFailureDetail> aggregationFailures = new List<AggregationMeasureFailureDetail>();
 ResourceId? recipeId = new ResourceId();
 
+ScenarioDiagnostics? scenarioDiagnostics = new ScenarioDiagnostics();
+
 List<Link> links = new List<Link>();
 
 ListAggregationResponse listAggregationResponseInstance = new ListAggregationResponse(
@@ -37,6 +40,7 @@ ListAggregationResponse listAggregationResponseInstance = new ListAggregationRes
     dataSchema: dataSchema,
     aggregationFailures: aggregationFailures,
     recipeId: recipeId,
+    scenarioDiagnostics: scenarioDiagnostics,
     links: links);
 ```
 

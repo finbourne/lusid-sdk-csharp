@@ -39,8 +39,9 @@ namespace Lusid.Sdk.Model
         /// <param name="dataSchema">dataSchema.</param>
         /// <param name="aggregationFailures">aggregationFailures.</param>
         /// <param name="recipeId">recipeId.</param>
+        /// <param name="scenarioDiagnostics">scenarioDiagnostics.</param>
         /// <param name="links">links.</param>
-        public ListAggregationResponse(DateTimeOffset aggregationEffectiveAt = default(DateTimeOffset), DateTimeOffset aggregationAsAt = default(DateTimeOffset), string href = default(string), List<Dictionary<string, Object>> data = default(List<Dictionary<string, Object>>), string aggregationCurrency = default(string), ResultDataSchema dataSchema = default(ResultDataSchema), List<AggregationMeasureFailureDetail> aggregationFailures = default(List<AggregationMeasureFailureDetail>), ResourceId recipeId = default(ResourceId), List<Link> links = default(List<Link>))
+        public ListAggregationResponse(DateTimeOffset aggregationEffectiveAt = default(DateTimeOffset), DateTimeOffset aggregationAsAt = default(DateTimeOffset), string href = default(string), List<Dictionary<string, Object>> data = default(List<Dictionary<string, Object>>), string aggregationCurrency = default(string), ResultDataSchema dataSchema = default(ResultDataSchema), List<AggregationMeasureFailureDetail> aggregationFailures = default(List<AggregationMeasureFailureDetail>), ResourceId recipeId = default(ResourceId), ScenarioDiagnostics scenarioDiagnostics = default(ScenarioDiagnostics), List<Link> links = default(List<Link>))
         {
             this.AggregationEffectiveAt = aggregationEffectiveAt;
             this.AggregationAsAt = aggregationAsAt;
@@ -50,6 +51,7 @@ namespace Lusid.Sdk.Model
             this.DataSchema = dataSchema;
             this.AggregationFailures = aggregationFailures;
             this.RecipeId = recipeId;
+            this.ScenarioDiagnostics = scenarioDiagnostics;
             this.Links = links;
         }
 
@@ -102,6 +104,12 @@ namespace Lusid.Sdk.Model
         public ResourceId RecipeId { get; set; }
 
         /// <summary>
+        /// Gets or Sets ScenarioDiagnostics
+        /// </summary>
+        [DataMember(Name = "scenarioDiagnostics", EmitDefaultValue = false)]
+        public ScenarioDiagnostics ScenarioDiagnostics { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -123,6 +131,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  DataSchema: ").Append(DataSchema).Append("\n");
             sb.Append("  AggregationFailures: ").Append(AggregationFailures).Append("\n");
             sb.Append("  RecipeId: ").Append(RecipeId).Append("\n");
+            sb.Append("  ScenarioDiagnostics: ").Append(ScenarioDiagnostics).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -202,6 +211,11 @@ namespace Lusid.Sdk.Model
                     this.RecipeId.Equals(input.RecipeId))
                 ) && 
                 (
+                    this.ScenarioDiagnostics == input.ScenarioDiagnostics ||
+                    (this.ScenarioDiagnostics != null &&
+                    this.ScenarioDiagnostics.Equals(input.ScenarioDiagnostics))
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -249,6 +263,10 @@ namespace Lusid.Sdk.Model
                 if (this.RecipeId != null)
                 {
                     hashCode = (hashCode * 59) + this.RecipeId.GetHashCode();
+                }
+                if (this.ScenarioDiagnostics != null)
+                {
+                    hashCode = (hashCode * 59) + this.ScenarioDiagnostics.GetHashCode();
                 }
                 if (this.Links != null)
                 {
