@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **Unitisation** | [**UnitisationData**](UnitisationData.md) |  | [optional] 
 **Miscellaneous** | [**Dictionary&lt;string, ShareClassAmount&gt;**](ShareClassAmount.md) | Not used directly by the LUSID engines but serves as a holding area for any custom derived data points that may be useful in, for example, fee calculations). | [optional] 
 **ShareClassToFundFxRate** | **decimal** | The fx rate from the Share Class currency to the fund currency at this valuation point. | 
-**CapitalRatio** | **decimal** | The proportion of the fund&#39;s adjusted beginning equity (ie: the sum of the previous NAV and the net dealing) that is invested in the share class. | 
+**CapitalRatio** | **decimal** | The proportion of the fund&#39;s non-class-specific P&amp;L apportioned to this share class. Sums to 1 across the fund&#39;s share classes. | 
 **PreviousShareClassBreakdown** | [**PreviousShareClassBreakdown**](PreviousShareClassBreakdown.md) |  | 
 
 ```csharp

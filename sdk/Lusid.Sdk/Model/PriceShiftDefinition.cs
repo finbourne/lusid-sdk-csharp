@@ -194,29 +194,34 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PriceShiftDefinition" /> class.
         /// </summary>
-        /// <param name="instrument">instrument (required).</param>
+        /// <param name="instrument">A single instrument identifier this shift applies to. Exactly one of Instrument and Filter  must be supplied..</param>
+        /// <param name="filter">A LUSID filter expression over the instrument entity - fields and properties - selecting which  instruments&#39; quotes the shift applies to, e.g.  \&quot;assetClass eq &#39;Bond&#39; and properties[Instrument/Issuer/Name] eq &#39;X&#39;\&quot;.  Exactly one of Instrument and Filter must be supplied..</param>
         /// <param name="amount">amount (required).</param>
         /// <param name="shiftType">Available values: Absolute, Relative, Percentage. (required).</param>
         /// <param name="quoteType">Available values: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront, Index, Ratio, Delta, PoolFactor, InflationAssumption, DirtyPrice, PrincipalWriteOff, InterestDeferred, InterestShortfall, ConstituentWeightFactor..</param>
         /// <param name="scenarioShiftType">Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition. (required) (default to &quot;PriceShiftDefinition&quot;).</param>
-        public PriceShiftDefinition(string instrument = default(string), decimal amount = default(decimal), ShiftTypeEnum shiftType = default(ShiftTypeEnum), QuoteTypeEnum ?quoteType = default(QuoteTypeEnum?), ScenarioShiftTypeEnum scenarioShiftType = default(ScenarioShiftTypeEnum)) : base(scenarioShiftType)
+        public PriceShiftDefinition(string instrument = default(string), string filter = default(string), decimal amount = default(decimal), ShiftTypeEnum shiftType = default(ShiftTypeEnum), QuoteTypeEnum ?quoteType = default(QuoteTypeEnum?), ScenarioShiftTypeEnum scenarioShiftType = default(ScenarioShiftTypeEnum)) : base(scenarioShiftType)
         {
-            // to ensure "instrument" is required (not null)
-            if (instrument == null)
-            {
-                throw new ArgumentNullException("instrument is a required property for PriceShiftDefinition and cannot be null");
-            }
-            this.Instrument = instrument;
             this.Amount = amount;
             this.ShiftType = shiftType;
+            this.Instrument = instrument;
+            this.Filter = filter;
             this.QuoteType = quoteType;
         }
 
         /// <summary>
-        /// Gets or Sets Instrument
+        /// A single instrument identifier this shift applies to. Exactly one of Instrument and Filter  must be supplied.
         /// </summary>
-        [DataMember(Name = "instrument", IsRequired = true, EmitDefaultValue = true)]
+        /// <value>A single instrument identifier this shift applies to. Exactly one of Instrument and Filter  must be supplied.</value>
+        [DataMember(Name = "instrument", EmitDefaultValue = true)]
         public string Instrument { get; set; }
+
+        /// <summary>
+        /// A LUSID filter expression over the instrument entity - fields and properties - selecting which  instruments&#39; quotes the shift applies to, e.g.  \&quot;assetClass eq &#39;Bond&#39; and properties[Instrument/Issuer/Name] eq &#39;X&#39;\&quot;.  Exactly one of Instrument and Filter must be supplied.
+        /// </summary>
+        /// <value>A LUSID filter expression over the instrument entity - fields and properties - selecting which  instruments&#39; quotes the shift applies to, e.g.  \&quot;assetClass eq &#39;Bond&#39; and properties[Instrument/Issuer/Name] eq &#39;X&#39;\&quot;.  Exactly one of Instrument and Filter must be supplied.</value>
+        [DataMember(Name = "filter", EmitDefaultValue = true)]
+        public string Filter { get; set; }
 
         /// <summary>
         /// Gets or Sets Amount
@@ -234,6 +239,7 @@ namespace Lusid.Sdk.Model
             sb.Append("class PriceShiftDefinition {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  Instrument: ").Append(Instrument).Append("\n");
+            sb.Append("  Filter: ").Append(Filter).Append("\n");
             sb.Append("  Amount: ").Append(Amount).Append("\n");
             sb.Append("  ShiftType: ").Append(ShiftType).Append("\n");
             sb.Append("  QuoteType: ").Append(QuoteType).Append("\n");
@@ -278,6 +284,11 @@ namespace Lusid.Sdk.Model
                     this.Instrument.Equals(input.Instrument))
                 ) && base.Equals(input) && 
                 (
+                    this.Filter == input.Filter ||
+                    (this.Filter != null &&
+                    this.Filter.Equals(input.Filter))
+                ) && base.Equals(input) && 
+                (
                     this.Amount == input.Amount ||
                     this.Amount.Equals(input.Amount)
                 ) && base.Equals(input) && 
@@ -303,6 +314,10 @@ namespace Lusid.Sdk.Model
                 if (this.Instrument != null)
                 {
                     hashCode = (hashCode * 59) + this.Instrument.GetHashCode();
+                }
+                if (this.Filter != null)
+                {
+                    hashCode = (hashCode * 59) + this.Filter.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Amount.GetHashCode();
                 hashCode = (hashCode * 59) + this.ShiftType.GetHashCode();
@@ -342,6 +357,18 @@ namespace Lusid.Sdk.Model
             if (this.Instrument != null && this.Instrument.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Instrument, length must be greater than 1.", new [] { "Instrument" });
+            }
+
+            // Filter (string) maxLength
+            if (this.Filter != null && this.Filter.Length > 2000)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Filter, length must be less than 2000.", new [] { "Filter" });
+            }
+
+            // Filter (string) minLength
+            if (this.Filter != null && this.Filter.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Filter, length must be greater than 1.", new [] { "Filter" });
             }
 
             // Amount (decimal) maximum

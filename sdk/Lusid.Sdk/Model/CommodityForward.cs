@@ -24,52 +24,45 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Loan Facility. This is a very lightweight instrument which acts as a placeholder for the state that is built  from the instrument events. The facility acts as an agreement between a single borrower and many lenders (investors).  Several contracts may be drawn up to enable the lending of funds to the borrower. These contracts are modelled via  FlexibleLoan instruments in LUSID. The instrument events on the facility may relate to the facility as a whole  (for example to define a global commitment amount), or they may relate to a single contract (such as a paydown  transaction on a particular contract).
+    /// LUSID representation of an OTC bilateral commodity forward.  The forward settles as a single bullet at MaturityDate. Its present value is  Quantity x Price, where the price is supplied externally pre-netted (the current forward  price minus strike) via the quote store. LUSID calculates no analytics for this instrument, and it  can only be priced by lookup pricing.
     /// </summary>
-    [DataContract(Name = "LoanFacility")]
+    [DataContract(Name = "CommodityForward")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentType")]
-    public partial class LoanFacility : LusidInstrument, IEquatable<LoanFacility>, IValidatableObject
+    public partial class CommodityForward : LusidInstrument, IEquatable<CommodityForward>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="LoanFacility" /> class.
+        /// Initializes a new instance of the <see cref="CommodityForward" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected LoanFacility() { }
+        protected CommodityForward() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="LoanFacility" /> class.
+        /// Initializes a new instance of the <see cref="CommodityForward" /> class.
         /// </summary>
         /// <param name="startDate">The start date of the instrument. This is normally synonymous with the trade-date. (required).</param>
         /// <param name="maturityDate">The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.  For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as  Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it. (required).</param>
         /// <param name="domCcy">The domestic currency of the instrument. (required).</param>
-        /// <param name="initialCommitment">The initial commitment for the loan facility. (required).</param>
-        /// <param name="loanType">LoanType for this facility. The facility can either be a revolving or a  term loan. Available values: Revolver, TermLoan. (required).</param>
-        /// <param name="schedules">Repayment schedules for the loan. (required).</param>
-        /// <param name="timeZoneConventions">timeZoneConventions.</param>
-        /// <param name="instrumentType">Available values: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit, FlexibleRepo, ToBeAnnounced, VolatilitySwap, ToBeAnnouncedOption, CommodityForward. (required) (default to &quot;LoanFacility&quot;).</param>
-        public LoanFacility(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), string domCcy = default(string), decimal initialCommitment = default(decimal), string loanType = default(string), List<Schedule> schedules = default(List<Schedule>), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
+        /// <param name="strike">Agreed forward price at trade inception. Reference only — not used in the market value calculation,  which consumes the pre-netted price from the quote store..</param>
+        /// <param name="deliveryType">Whether the forward settles in cash or through physical delivery of the underlying.                Supported string (enumeration) values are: [Cash, Physical]. Available values: Cash, Physical. (required).</param>
+        /// <param name="underlying">underlying.</param>
+        /// <param name="instrumentType">Available values: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit, FlexibleRepo, ToBeAnnounced, VolatilitySwap, ToBeAnnouncedOption, CommodityForward. (required) (default to &quot;CommodityForward&quot;).</param>
+        public CommodityForward(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), string domCcy = default(string), decimal? strike = default(decimal?), string deliveryType = default(string), LusidInstrument underlying = default(LusidInstrument), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
         {
             this.StartDate = startDate;
             this.MaturityDate = maturityDate;
             // to ensure "domCcy" is required (not null)
             if (domCcy == null)
             {
-                throw new ArgumentNullException("domCcy is a required property for LoanFacility and cannot be null");
+                throw new ArgumentNullException("domCcy is a required property for CommodityForward and cannot be null");
             }
             this.DomCcy = domCcy;
-            this.InitialCommitment = initialCommitment;
-            // to ensure "loanType" is required (not null)
-            if (loanType == null)
+            // to ensure "deliveryType" is required (not null)
+            if (deliveryType == null)
             {
-                throw new ArgumentNullException("loanType is a required property for LoanFacility and cannot be null");
+                throw new ArgumentNullException("deliveryType is a required property for CommodityForward and cannot be null");
             }
-            this.LoanType = loanType;
-            // to ensure "schedules" is required (not null)
-            if (schedules == null)
-            {
-                throw new ArgumentNullException("schedules is a required property for LoanFacility and cannot be null");
-            }
-            this.Schedules = schedules;
-            this.TimeZoneConventions = timeZoneConventions;
+            this.DeliveryType = deliveryType;
+            this.Strike = strike;
+            this.Underlying = underlying;
         }
 
         /// <summary>
@@ -94,31 +87,24 @@ namespace Lusid.Sdk.Model
         public string DomCcy { get; set; }
 
         /// <summary>
-        /// The initial commitment for the loan facility.
+        /// Agreed forward price at trade inception. Reference only — not used in the market value calculation,  which consumes the pre-netted price from the quote store.
         /// </summary>
-        /// <value>The initial commitment for the loan facility.</value>
-        [DataMember(Name = "initialCommitment", IsRequired = true, EmitDefaultValue = true)]
-        public decimal InitialCommitment { get; set; }
+        /// <value>Agreed forward price at trade inception. Reference only — not used in the market value calculation,  which consumes the pre-netted price from the quote store.</value>
+        [DataMember(Name = "strike", EmitDefaultValue = true)]
+        public decimal? Strike { get; set; }
 
         /// <summary>
-        /// LoanType for this facility. The facility can either be a revolving or a  term loan. Available values: Revolver, TermLoan.
+        /// Whether the forward settles in cash or through physical delivery of the underlying.                Supported string (enumeration) values are: [Cash, Physical]. Available values: Cash, Physical.
         /// </summary>
-        /// <value>LoanType for this facility. The facility can either be a revolving or a  term loan. Available values: Revolver, TermLoan.</value>
-        [DataMember(Name = "loanType", IsRequired = true, EmitDefaultValue = true)]
-        public string LoanType { get; set; }
+        /// <value>Whether the forward settles in cash or through physical delivery of the underlying.                Supported string (enumeration) values are: [Cash, Physical]. Available values: Cash, Physical.</value>
+        [DataMember(Name = "deliveryType", IsRequired = true, EmitDefaultValue = true)]
+        public string DeliveryType { get; set; }
 
         /// <summary>
-        /// Repayment schedules for the loan.
+        /// Gets or Sets Underlying
         /// </summary>
-        /// <value>Repayment schedules for the loan.</value>
-        [DataMember(Name = "schedules", IsRequired = true, EmitDefaultValue = true)]
-        public List<Schedule> Schedules { get; set; }
-
-        /// <summary>
-        /// Gets or Sets TimeZoneConventions
-        /// </summary>
-        [DataMember(Name = "timeZoneConventions", EmitDefaultValue = false)]
-        public TimeZoneConventions TimeZoneConventions { get; set; }
+        [DataMember(Name = "underlying", EmitDefaultValue = false)]
+        public LusidInstrument Underlying { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -127,15 +113,14 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class LoanFacility {\n");
+            sb.Append("class CommodityForward {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  StartDate: ").Append(StartDate).Append("\n");
             sb.Append("  MaturityDate: ").Append(MaturityDate).Append("\n");
             sb.Append("  DomCcy: ").Append(DomCcy).Append("\n");
-            sb.Append("  InitialCommitment: ").Append(InitialCommitment).Append("\n");
-            sb.Append("  LoanType: ").Append(LoanType).Append("\n");
-            sb.Append("  Schedules: ").Append(Schedules).Append("\n");
-            sb.Append("  TimeZoneConventions: ").Append(TimeZoneConventions).Append("\n");
+            sb.Append("  Strike: ").Append(Strike).Append("\n");
+            sb.Append("  DeliveryType: ").Append(DeliveryType).Append("\n");
+            sb.Append("  Underlying: ").Append(Underlying).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -156,15 +141,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as LoanFacility);
+            return this.Equals(input as CommodityForward);
         }
 
         /// <summary>
-        /// Returns true if LoanFacility instances are equal
+        /// Returns true if CommodityForward instances are equal
         /// </summary>
-        /// <param name="input">Instance of LoanFacility to be compared</param>
+        /// <param name="input">Instance of CommodityForward to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(LoanFacility input)
+        public bool Equals(CommodityForward input)
         {
             if (input == null)
             {
@@ -187,24 +172,19 @@ namespace Lusid.Sdk.Model
                     this.DomCcy.Equals(input.DomCcy))
                 ) && base.Equals(input) && 
                 (
-                    this.InitialCommitment == input.InitialCommitment ||
-                    this.InitialCommitment.Equals(input.InitialCommitment)
+                    this.Strike == input.Strike ||
+                    (this.Strike != null &&
+                    this.Strike.Equals(input.Strike))
                 ) && base.Equals(input) && 
                 (
-                    this.LoanType == input.LoanType ||
-                    (this.LoanType != null &&
-                    this.LoanType.Equals(input.LoanType))
+                    this.DeliveryType == input.DeliveryType ||
+                    (this.DeliveryType != null &&
+                    this.DeliveryType.Equals(input.DeliveryType))
                 ) && base.Equals(input) && 
                 (
-                    this.Schedules == input.Schedules ||
-                    this.Schedules != null &&
-                    input.Schedules != null &&
-                    this.Schedules.SequenceEqual(input.Schedules)
-                ) && base.Equals(input) && 
-                (
-                    this.TimeZoneConventions == input.TimeZoneConventions ||
-                    (this.TimeZoneConventions != null &&
-                    this.TimeZoneConventions.Equals(input.TimeZoneConventions))
+                    this.Underlying == input.Underlying ||
+                    (this.Underlying != null &&
+                    this.Underlying.Equals(input.Underlying))
                 );
         }
 
@@ -229,18 +209,17 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.DomCcy.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.InitialCommitment.GetHashCode();
-                if (this.LoanType != null)
+                if (this.Strike != null)
                 {
-                    hashCode = (hashCode * 59) + this.LoanType.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Strike.GetHashCode();
                 }
-                if (this.Schedules != null)
+                if (this.DeliveryType != null)
                 {
-                    hashCode = (hashCode * 59) + this.Schedules.GetHashCode();
+                    hashCode = (hashCode * 59) + this.DeliveryType.GetHashCode();
                 }
-                if (this.TimeZoneConventions != null)
+                if (this.Underlying != null)
                 {
-                    hashCode = (hashCode * 59) + this.TimeZoneConventions.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Underlying.GetHashCode();
                 }
                 return hashCode;
             }
@@ -267,10 +246,10 @@ namespace Lusid.Sdk.Model
             {
                 yield return x;
             }
-            // LoanType (string) minLength
-            if (this.LoanType != null && this.LoanType.Length < 1)
+            // DeliveryType (string) minLength
+            if (this.DeliveryType != null && this.DeliveryType.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LoanType, length must be greater than 1.", new [] { "LoanType" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DeliveryType, length must be greater than 1.", new [] { "DeliveryType" });
             }
 
             yield break;

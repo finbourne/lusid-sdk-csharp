@@ -36,7 +36,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RecResultSet" /> class.
         /// </summary>
-        /// <param name="recType">The type of rec that this result set belongs to (e.g. Holding). Together with the rec instance, this uniquely identifies the result set. Available values: Holding, Transaction, Valuation, CashHolding. (required).</param>
+        /// <param name="recType">The type of rec that this result set belongs to (e.g. Holding). Together with the rec instance, this uniquely identifies the result set. Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity. (required).</param>
         /// <param name="recInstance">recInstance (required).</param>
         /// <param name="runNumber">The run number within the instance. Increments with each re-run. (required).</param>
         /// <param name="runAsAt">The asAt datetime at which the run happened. (required).</param>
@@ -128,9 +128,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The type of rec that this result set belongs to (e.g. Holding). Together with the rec instance, this uniquely identifies the result set. Available values: Holding, Transaction, Valuation, CashHolding.
+        /// The type of rec that this result set belongs to (e.g. Holding). Together with the rec instance, this uniquely identifies the result set. Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity.
         /// </summary>
-        /// <value>The type of rec that this result set belongs to (e.g. Holding). Together with the rec instance, this uniquely identifies the result set. Available values: Holding, Transaction, Valuation, CashHolding.</value>
+        /// <value>The type of rec that this result set belongs to (e.g. Holding). Together with the rec instance, this uniquely identifies the result set. Available values: Holding, CashHolding, Valuation, InputTransaction, OutputTransaction, SettlementActivity.</value>
         [DataMember(Name = "recType", IsRequired = true, EmitDefaultValue = true)]
         public string RecType { get; set; }
 

@@ -308,7 +308,13 @@ namespace Lusid.Sdk.Model
         /// Enum ToBeAnnouncedOption for value: ToBeAnnouncedOption
         /// </summary>
         [EnumMember(Value = "ToBeAnnouncedOption")]
-        ToBeAnnouncedOption = 47
+        ToBeAnnouncedOption = 47,
+
+        /// <summary>
+        /// Enum CommodityForward for value: CommodityForward
+        /// </summary>
+        [EnumMember(Value = "CommodityForward")]
+        CommodityForward = 48
     }
 
 }
