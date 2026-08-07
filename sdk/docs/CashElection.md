@@ -12,6 +12,8 @@ Name | Type | Description | Notes
 **IsDeclared** | **bool** | Is this the declared CashElection.  Only one Election may be Declared per Event. | [optional] 
 **IsDefault** | **bool** | Is this election the default.  Only one Election may be Default per Event | [optional] 
 **DividendCurrency** | **string** | The payment currency for this CashElection. | 
+**PaymentDate** | **DateTimeOffset?** | Optional option-level payment date. When set, it takes precedence over the event-level payment date; when omitted, the event-level payment date applies. | [optional] 
+**RateBreakdown** | [**List&lt;RateBreakdownComponent&gt;**](RateBreakdownComponent.md) | Optional tax-characterised payout lines for this election (CashDividendEvent only). When absent or empty, the election produces a single standard payment. | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -22,6 +24,7 @@ bool isChosen = //"True";
 bool isDeclared = //"True";
 bool isDefault = //"True";
 string dividendCurrency = "dividendCurrency";
+List<RateBreakdownComponent> rateBreakdown = new List<RateBreakdownComponent>();
 
 CashElection cashElectionInstance = new CashElection(
     electionKey: electionKey,
@@ -30,7 +33,9 @@ CashElection cashElectionInstance = new CashElection(
     isChosen: isChosen,
     isDeclared: isDeclared,
     isDefault: isDefault,
-    dividendCurrency: dividendCurrency);
+    dividendCurrency: dividendCurrency,
+    paymentDate: paymentDate,
+    rateBreakdown: rateBreakdown);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

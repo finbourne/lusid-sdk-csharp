@@ -77,10 +77,16 @@ namespace Lusid.Sdk.Model
         BondConversionSchedule = 8,
 
         /// <summary>
+        /// Enum PikSchedule for value: PikSchedule
+        /// </summary>
+        [EnumMember(Value = "PikSchedule")]
+        PikSchedule = 9,
+
+        /// <summary>
         /// Enum Invalid for value: Invalid
         /// </summary>
         [EnumMember(Value = "Invalid")]
-        Invalid = 9
+        Invalid = 10
     }
 
 }

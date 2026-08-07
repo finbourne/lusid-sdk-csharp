@@ -7,6 +7,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 | [**CreateScenarioFromTemplate**](ScenariosApi.md#createscenariofromtemplate) | **POST** /api/scenarios/{scope}/$fromTemplate | [EARLY ACCESS] CreateScenarioFromTemplate: [EARLY ACCESS] CreateScenarioFromTemplate: Create a Scenario from a pre-built template. |
 | [**DeleteScenario**](ScenariosApi.md#deletescenario) | **DELETE** /api/scenarios/{scope}/{code} | [EARLY ACCESS] DeleteScenario: Delete a Scenario, assuming that it is present. |
 | [**GetScenario**](ScenariosApi.md#getscenario) | **GET** /api/scenarios/{scope}/{code} | [EARLY ACCESS] GetScenario: Get Scenario |
+| [**ListScenarioVersions**](ScenariosApi.md#listscenarioversions) | **GET** /api/scenarios/{scope}/{code}/versions | [EARLY ACCESS] ListScenarioVersions: List the versions of a Scenario |
 | [**ListScenarios**](ScenariosApi.md#listscenarios) | **GET** /api/scenarios/{scope} | [EARLY ACCESS] ListScenarios: List the set of Scenario definitions |
 | [**PreviewScenario**](ScenariosApi.md#previewscenario) | **POST** /api/scenarios/$preview | [EARLY ACCESS] PreviewScenario: Preview a Scenario |
 | [**UpsertScenario**](ScenariosApi.md#upsertscenario) | **POST** /api/scenarios | [EARLY ACCESS] UpsertScenario: Upsert a Scenario. This creates or updates the scenario definition in LUSID. |
@@ -356,6 +357,128 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The successfully retrieved Scenario or any failure |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="listscenarioversions"></a>
+# **ListScenarioVersions**
+> PagedResourceListOfVersion ListScenarioVersions (string scope, string code, DateTimeOffset? asAt = null, int? limit = null, string? page = null)
+
+[EARLY ACCESS] ListScenarioVersions: List the versions of a Scenario
+
+List the AsAt versions of a single Scenario definition, newest first: one entry per change,  with the version number, the AsAt datetime it was written, and the user that wrote it.                Scenarios are perpetual (AsAt-only), so a version's AsAt datetime identifies it completely:  pass it as the asAt on GetScenario to view that version, or as the scenario reference's  asAt on a valuation to price under it.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Extensions;
+using Lusid.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""lusidUrl"": ""https://<your-domain>.lusid.com/api"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ScenariosApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ScenariosApi>();
+            var scope = "scope_example";  // string | The scope of the Scenario to list versions for.
+            var code = "code_example";  // string | The code of the Scenario to list versions for.
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime to cap the version history at. Defaults to all versions up to now. (optional) 
+            var limit = 56;  // int? | Maximum number of results to return. Defaults to 100. (optional) 
+            var page = "page_example";  // string? | Pagination token from a previous result to fetch the next page. (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfVersion result = apiInstance.ListScenarioVersions(scope, code, asAt, limit, page, opts: opts);
+
+                // [EARLY ACCESS] ListScenarioVersions: List the versions of a Scenario
+                PagedResourceListOfVersion result = apiInstance.ListScenarioVersions(scope, code, asAt, limit, page);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling ScenariosApi.ListScenarioVersions: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the ListScenarioVersionsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] ListScenarioVersions: List the versions of a Scenario
+    ApiResponse<PagedResourceListOfVersion> response = apiInstance.ListScenarioVersionsWithHttpInfo(scope, code, asAt, limit, page);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling ScenariosApi.ListScenarioVersionsWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Scenario to list versions for. |  |
+| **code** | **string** | The code of the Scenario to list versions for. |  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime to cap the version history at. Defaults to all versions up to now. | [optional]  |
+| **limit** | **int?** | Maximum number of results to return. Defaults to 100. | [optional]  |
+| **page** | **string?** | Pagination token from a previous result to fetch the next page. | [optional]  |
+
+### Return type
+
+[**PagedResourceListOfVersion**](PagedResourceListOfVersion.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The versions of the scenario, newest first |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 

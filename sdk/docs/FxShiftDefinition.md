@@ -6,15 +6,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ScenarioShiftType** | **string** | Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition. | 
 **CurrencyPair** | **string** |  | 
-**Amount** | **decimal** |  | 
+**Amount** | **decimal?** |  | [optional] 
 **ShiftType** | **string** | Available values: Absolute, Relative, Percentage. | 
 
 ```csharp
 using Lusid.Sdk.Model;
 using System;
 
-string currencyPair = "currencyPair";decimal amount = "amount";
-
+string currencyPair = "currencyPair";
 string shiftType = "shiftType";
 
 FxShiftDefinition fxShiftDefinitionInstance = new FxShiftDefinition(

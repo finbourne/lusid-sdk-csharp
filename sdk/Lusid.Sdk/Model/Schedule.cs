@@ -34,13 +34,14 @@ namespace Lusid.Sdk.Model
     [JsonSubtypes.KnownSubType(typeof(FxLinkedNotionalSchedule), "FxLinkedNotionalSchedule")]
     [JsonSubtypes.KnownSubType(typeof(FxRateSchedule), "FxRateSchedule")]
     [JsonSubtypes.KnownSubType(typeof(OptionalitySchedule), "OptionalitySchedule")]
+    [JsonSubtypes.KnownSubType(typeof(PikSchedule), "PikSchedule")]
     [JsonSubtypes.KnownSubType(typeof(StepSchedule), "StepSchedule")]
     public partial class Schedule : IEquatable<Schedule>, IValidatableObject
     {
         /// <summary>
-        /// Available values: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, BondConversionSchedule, Invalid.
+        /// Available values: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, BondConversionSchedule, PikSchedule, Invalid.
         /// </summary>
-        /// <value>Available values: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, BondConversionSchedule, Invalid.</value>
+        /// <value>Available values: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, BondConversionSchedule, PikSchedule, Invalid.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ScheduleTypeEnum
         {
@@ -93,17 +94,23 @@ namespace Lusid.Sdk.Model
             BondConversionSchedule = 8,
 
             /// <summary>
+            /// Enum PikSchedule for value: PikSchedule
+            /// </summary>
+            [EnumMember(Value = "PikSchedule")]
+            PikSchedule = 9,
+
+            /// <summary>
             /// Enum Invalid for value: Invalid
             /// </summary>
             [EnumMember(Value = "Invalid")]
-            Invalid = 9
+            Invalid = 10
         }
 
 
         /// <summary>
-        /// Available values: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, BondConversionSchedule, Invalid.
+        /// Available values: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, BondConversionSchedule, PikSchedule, Invalid.
         /// </summary>
-        /// <value>Available values: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, BondConversionSchedule, Invalid.</value>
+        /// <value>Available values: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, BondConversionSchedule, PikSchedule, Invalid.</value>
         [DataMember(Name = "scheduleType", IsRequired = true, EmitDefaultValue = true)]
         public ScheduleTypeEnum ScheduleType { get; set; }
         /// <summary>
@@ -114,7 +121,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Schedule" /> class.
         /// </summary>
-        /// <param name="scheduleType">Available values: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, BondConversionSchedule, Invalid. (required).</param>
+        /// <param name="scheduleType">Available values: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, BondConversionSchedule, PikSchedule, Invalid. (required).</param>
         public Schedule(ScheduleTypeEnum scheduleType = default(ScheduleTypeEnum))
         {
             this.ScheduleType = scheduleType;

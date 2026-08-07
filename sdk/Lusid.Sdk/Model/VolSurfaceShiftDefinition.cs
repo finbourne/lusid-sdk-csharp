@@ -66,12 +66,12 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="VolSurfaceShiftDefinition" /> class.
         /// </summary>
         /// <param name="instrument">instrument (required).</param>
-        /// <param name="amount">amount (required).</param>
+        /// <param name="amount">amount.</param>
         /// <param name="strike">strike.</param>
         /// <param name="expiry">expiry.</param>
         /// <param name="shiftType">Available values: Absolute, Relative. (required).</param>
         /// <param name="scenarioShiftType">Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition. (required) (default to &quot;VolSurfaceShiftDefinition&quot;).</param>
-        public VolSurfaceShiftDefinition(string instrument = default(string), decimal amount = default(decimal), decimal? strike = default(decimal?), string expiry = default(string), ShiftTypeEnum shiftType = default(ShiftTypeEnum), ScenarioShiftTypeEnum scenarioShiftType = default(ScenarioShiftTypeEnum)) : base(scenarioShiftType)
+        public VolSurfaceShiftDefinition(string instrument = default(string), decimal? amount = default(decimal?), decimal? strike = default(decimal?), string expiry = default(string), ShiftTypeEnum shiftType = default(ShiftTypeEnum), ScenarioShiftTypeEnum scenarioShiftType = default(ScenarioShiftTypeEnum)) : base(scenarioShiftType)
         {
             // to ensure "instrument" is required (not null)
             if (instrument == null)
@@ -79,8 +79,8 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("instrument is a required property for VolSurfaceShiftDefinition and cannot be null");
             }
             this.Instrument = instrument;
-            this.Amount = amount;
             this.ShiftType = shiftType;
+            this.Amount = amount;
             this.Strike = strike;
             this.Expiry = expiry;
         }
@@ -94,8 +94,8 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Gets or Sets Amount
         /// </summary>
-        [DataMember(Name = "amount", IsRequired = true, EmitDefaultValue = true)]
-        public decimal Amount { get; set; }
+        [DataMember(Name = "amount", EmitDefaultValue = true)]
+        public decimal? Amount { get; set; }
 
         /// <summary>
         /// Gets or Sets Strike
@@ -165,7 +165,8 @@ namespace Lusid.Sdk.Model
                 ) && base.Equals(input) && 
                 (
                     this.Amount == input.Amount ||
-                    this.Amount.Equals(input.Amount)
+                    (this.Amount != null &&
+                    this.Amount.Equals(input.Amount))
                 ) && base.Equals(input) && 
                 (
                     this.Strike == input.Strike ||
@@ -196,7 +197,10 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Instrument.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Amount.GetHashCode();
+                if (this.Amount != null)
+                {
+                    hashCode = (hashCode * 59) + this.Amount.GetHashCode();
+                }
                 if (this.Strike != null)
                 {
                     hashCode = (hashCode * 59) + this.Strike.GetHashCode();
@@ -243,14 +247,14 @@ namespace Lusid.Sdk.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Instrument, length must be greater than 1.", new [] { "Instrument" });
             }
 
-            // Amount (decimal) maximum
-            if (this.Amount > (decimal)1000000)
+            // Amount (decimal?) maximum
+            if (this.Amount > (decimal?)1000000)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Amount, must be a value less than or equal to 1000000.", new [] { "Amount" });
             }
 
-            // Amount (decimal) minimum
-            if (this.Amount < (decimal)-1000000)
+            // Amount (decimal?) minimum
+            if (this.Amount < (decimal?)-1000000)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Amount, must be a value greater than or equal to -1000000.", new [] { "Amount" });
             }

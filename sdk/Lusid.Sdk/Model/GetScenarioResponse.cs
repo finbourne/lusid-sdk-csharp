@@ -33,12 +33,14 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="href">href.</param>
         /// <param name="value">value.</param>
+        /// <param name="varVersion">varVersion.</param>
         /// <param name="failed">failed.</param>
         /// <param name="links">links.</param>
-        public GetScenarioResponse(string href = default(string), ScenarioDefinition value = default(ScenarioDefinition), ErrorDetail failed = default(ErrorDetail), List<Link> links = default(List<Link>))
+        public GetScenarioResponse(string href = default(string), ScenarioDefinition value = default(ScenarioDefinition), ModelVersion varVersion = default(ModelVersion), ErrorDetail failed = default(ErrorDetail), List<Link> links = default(List<Link>))
         {
             this.Href = href;
             this.Value = value;
+            this.VarVersion = varVersion;
             this.Failed = failed;
             this.Links = links;
         }
@@ -54,6 +56,12 @@ namespace Lusid.Sdk.Model
         /// </summary>
         [DataMember(Name = "value", EmitDefaultValue = false)]
         public ScenarioDefinition Value { get; set; }
+
+        /// <summary>
+        /// Gets or Sets VarVersion
+        /// </summary>
+        [DataMember(Name = "version", EmitDefaultValue = false)]
+        public ModelVersion VarVersion { get; set; }
 
         /// <summary>
         /// Gets or Sets Failed
@@ -77,6 +85,7 @@ namespace Lusid.Sdk.Model
             sb.Append("class GetScenarioResponse {\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  Failed: ").Append(Failed).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
@@ -125,6 +134,11 @@ namespace Lusid.Sdk.Model
                     this.Value.Equals(input.Value))
                 ) && 
                 (
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
+                ) && 
+                (
                     this.Failed == input.Failed ||
                     (this.Failed != null &&
                     this.Failed.Equals(input.Failed))
@@ -153,6 +167,10 @@ namespace Lusid.Sdk.Model
                 if (this.Value != null)
                 {
                     hashCode = (hashCode * 59) + this.Value.GetHashCode();
+                }
+                if (this.VarVersion != null)
+                {
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 if (this.Failed != null)
                 {

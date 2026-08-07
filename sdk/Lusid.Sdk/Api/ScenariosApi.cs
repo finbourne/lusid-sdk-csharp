@@ -115,6 +115,39 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of GetScenarioResponse</returns>
         Lusid.Sdk.Client.ApiResponse<GetScenarioResponse> GetScenarioWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EARLY ACCESS] ListScenarioVersions: List the versions of a Scenario
+        /// </summary>
+        /// <remarks>
+        /// List the AsAt versions of a single Scenario definition, newest first: one entry per change,  with the version number, the AsAt datetime it was written, and the user that wrote it.                Scenarios are perpetual (AsAt-only), so a version&#39;s AsAt datetime identifies it completely:  pass it as the asAt on GetScenario to view that version, or as the scenario reference&#39;s  asAt on a valuation to price under it.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Scenario to list versions for.</param>
+        /// <param name="code">The code of the Scenario to list versions for.</param>
+        /// <param name="asAt">The asAt datetime to cap the version history at. Defaults to all versions up to now. (optional)</param>
+        /// <param name="limit">Maximum number of results to return. Defaults to 100. (optional)</param>
+        /// <param name="page">Pagination token from a previous result to fetch the next page. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>PagedResourceListOfVersion</returns>
+        PagedResourceListOfVersion ListScenarioVersions(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] ListScenarioVersions: List the versions of a Scenario
+        /// </summary>
+        /// <remarks>
+        /// List the AsAt versions of a single Scenario definition, newest first: one entry per change,  with the version number, the AsAt datetime it was written, and the user that wrote it.                Scenarios are perpetual (AsAt-only), so a version&#39;s AsAt datetime identifies it completely:  pass it as the asAt on GetScenario to view that version, or as the scenario reference&#39;s  asAt on a valuation to price under it.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Scenario to list versions for.</param>
+        /// <param name="code">The code of the Scenario to list versions for.</param>
+        /// <param name="asAt">The asAt datetime to cap the version history at. Defaults to all versions up to now. (optional)</param>
+        /// <param name="limit">Maximum number of results to return. Defaults to 100. (optional)</param>
+        /// <param name="page">Pagination token from a previous result to fetch the next page. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of PagedResourceListOfVersion</returns>
+        Lusid.Sdk.Client.ApiResponse<PagedResourceListOfVersion> ListScenarioVersionsWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EARLY ACCESS] ListScenarios: List the set of Scenario definitions
         /// </summary>
         /// <remarks>
@@ -295,6 +328,41 @@ namespace Lusid.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (GetScenarioResponse)</returns>
         System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GetScenarioResponse>> GetScenarioWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EARLY ACCESS] ListScenarioVersions: List the versions of a Scenario
+        /// </summary>
+        /// <remarks>
+        /// List the AsAt versions of a single Scenario definition, newest first: one entry per change,  with the version number, the AsAt datetime it was written, and the user that wrote it.                Scenarios are perpetual (AsAt-only), so a version&#39;s AsAt datetime identifies it completely:  pass it as the asAt on GetScenario to view that version, or as the scenario reference&#39;s  asAt on a valuation to price under it.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Scenario to list versions for.</param>
+        /// <param name="code">The code of the Scenario to list versions for.</param>
+        /// <param name="asAt">The asAt datetime to cap the version history at. Defaults to all versions up to now. (optional)</param>
+        /// <param name="limit">Maximum number of results to return. Defaults to 100. (optional)</param>
+        /// <param name="page">Pagination token from a previous result to fetch the next page. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of PagedResourceListOfVersion</returns>
+        System.Threading.Tasks.Task<PagedResourceListOfVersion> ListScenarioVersionsAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EARLY ACCESS] ListScenarioVersions: List the versions of a Scenario
+        /// </summary>
+        /// <remarks>
+        /// List the AsAt versions of a single Scenario definition, newest first: one entry per change,  with the version number, the AsAt datetime it was written, and the user that wrote it.                Scenarios are perpetual (AsAt-only), so a version&#39;s AsAt datetime identifies it completely:  pass it as the asAt on GetScenario to view that version, or as the scenario reference&#39;s  asAt on a valuation to price under it.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Scenario to list versions for.</param>
+        /// <param name="code">The code of the Scenario to list versions for.</param>
+        /// <param name="asAt">The asAt datetime to cap the version history at. Defaults to all versions up to now. (optional)</param>
+        /// <param name="limit">Maximum number of results to return. Defaults to 100. (optional)</param>
+        /// <param name="page">Pagination token from a previous result to fetch the next page. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (PagedResourceListOfVersion)</returns>
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfVersion>> ListScenarioVersionsWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListScenarios: List the set of Scenario definitions
         /// </summary>
@@ -1185,6 +1253,267 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetScenario", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] ListScenarioVersions: List the versions of a Scenario List the AsAt versions of a single Scenario definition, newest first: one entry per change,  with the version number, the AsAt datetime it was written, and the user that wrote it.                Scenarios are perpetual (AsAt-only), so a version&#39;s AsAt datetime identifies it completely:  pass it as the asAt on GetScenario to view that version, or as the scenario reference&#39;s  asAt on a valuation to price under it.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Scenario to list versions for.</param>
+        /// <param name="code">The code of the Scenario to list versions for.</param>
+        /// <param name="asAt">The asAt datetime to cap the version history at. Defaults to all versions up to now. (optional)</param>
+        /// <param name="limit">Maximum number of results to return. Defaults to 100. (optional)</param>
+        /// <param name="page">Pagination token from a previous result to fetch the next page. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>PagedResourceListOfVersion</returns>
+        public PagedResourceListOfVersion ListScenarioVersions(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfVersion> localVarResponse = ListScenarioVersionsWithHttpInfo(scope, code, asAt, limit, page, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] ListScenarioVersions: List the versions of a Scenario List the AsAt versions of a single Scenario definition, newest first: one entry per change,  with the version number, the AsAt datetime it was written, and the user that wrote it.                Scenarios are perpetual (AsAt-only), so a version&#39;s AsAt datetime identifies it completely:  pass it as the asAt on GetScenario to view that version, or as the scenario reference&#39;s  asAt on a valuation to price under it.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Scenario to list versions for.</param>
+        /// <param name="code">The code of the Scenario to list versions for.</param>
+        /// <param name="asAt">The asAt datetime to cap the version history at. Defaults to all versions up to now. (optional)</param>
+        /// <param name="limit">Maximum number of results to return. Defaults to 100. (optional)</param>
+        /// <param name="page">Pagination token from a previous result to fetch the next page. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of PagedResourceListOfVersion</returns>
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfVersion> ListScenarioVersionsWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling ScenariosApi->ListScenarioVersions");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling ScenariosApi->ListScenarioVersions");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            if (asAt != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (limit != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (page != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+
+            localVarRequestOptions.Operation = "ScenariosApi.ListScenarioVersions";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<PagedResourceListOfVersion>("/api/scenarios/{scope}/{code}/versions", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListScenarioVersions", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] ListScenarioVersions: List the versions of a Scenario List the AsAt versions of a single Scenario definition, newest first: one entry per change,  with the version number, the AsAt datetime it was written, and the user that wrote it.                Scenarios are perpetual (AsAt-only), so a version&#39;s AsAt datetime identifies it completely:  pass it as the asAt on GetScenario to view that version, or as the scenario reference&#39;s  asAt on a valuation to price under it.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Scenario to list versions for.</param>
+        /// <param name="code">The code of the Scenario to list versions for.</param>
+        /// <param name="asAt">The asAt datetime to cap the version history at. Defaults to all versions up to now. (optional)</param>
+        /// <param name="limit">Maximum number of results to return. Defaults to 100. (optional)</param>
+        /// <param name="page">Pagination token from a previous result to fetch the next page. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of PagedResourceListOfVersion</returns>
+        public async System.Threading.Tasks.Task<PagedResourceListOfVersion> ListScenarioVersionsAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfVersion> localVarResponse = await ListScenarioVersionsWithHttpInfoAsync(scope, code, asAt, limit, page, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] ListScenarioVersions: List the versions of a Scenario List the AsAt versions of a single Scenario definition, newest first: one entry per change,  with the version number, the AsAt datetime it was written, and the user that wrote it.                Scenarios are perpetual (AsAt-only), so a version&#39;s AsAt datetime identifies it completely:  pass it as the asAt on GetScenario to view that version, or as the scenario reference&#39;s  asAt on a valuation to price under it.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Scenario to list versions for.</param>
+        /// <param name="code">The code of the Scenario to list versions for.</param>
+        /// <param name="asAt">The asAt datetime to cap the version history at. Defaults to all versions up to now. (optional)</param>
+        /// <param name="limit">Maximum number of results to return. Defaults to 100. (optional)</param>
+        /// <param name="page">Pagination token from a previous result to fetch the next page. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (PagedResourceListOfVersion)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfVersion>> ListScenarioVersionsWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling ScenariosApi->ListScenarioVersions");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling ScenariosApi->ListScenarioVersions");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+
+            localVarRequestOptions.Operation = "ScenariosApi.ListScenarioVersions";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedResourceListOfVersion>("/api/scenarios/{scope}/{code}/versions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListScenarioVersions", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

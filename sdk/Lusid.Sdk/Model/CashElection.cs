@@ -43,7 +43,9 @@ namespace Lusid.Sdk.Model
         /// <param name="isDeclared">Is this the declared CashElection.  Only one Election may be Declared per Event..</param>
         /// <param name="isDefault">Is this election the default.  Only one Election may be Default per Event.</param>
         /// <param name="dividendCurrency">The payment currency for this CashElection. (required).</param>
-        public CashElection(string electionKey = default(string), decimal? exchangeRate = default(decimal?), decimal? dividendRate = default(decimal?), bool isChosen = default(bool), bool isDeclared = default(bool), bool isDefault = default(bool), string dividendCurrency = default(string))
+        /// <param name="paymentDate">Optional option-level payment date. When set, it takes precedence over the event-level payment date; when omitted, the event-level payment date applies..</param>
+        /// <param name="rateBreakdown">Optional tax-characterised payout lines for this election (CashDividendEvent only). When absent or empty, the election produces a single standard payment..</param>
+        public CashElection(string electionKey = default(string), decimal? exchangeRate = default(decimal?), decimal? dividendRate = default(decimal?), bool isChosen = default(bool), bool isDeclared = default(bool), bool isDefault = default(bool), string dividendCurrency = default(string), DateTimeOffset? paymentDate = default(DateTimeOffset?), List<RateBreakdownComponent> rateBreakdown = default(List<RateBreakdownComponent>))
         {
             // to ensure "electionKey" is required (not null)
             if (electionKey == null)
@@ -62,6 +64,8 @@ namespace Lusid.Sdk.Model
             this.IsChosen = isChosen;
             this.IsDeclared = isDeclared;
             this.IsDefault = isDefault;
+            this.PaymentDate = paymentDate;
+            this.RateBreakdown = rateBreakdown;
         }
 
         /// <summary>
@@ -114,6 +118,20 @@ namespace Lusid.Sdk.Model
         public string DividendCurrency { get; set; }
 
         /// <summary>
+        /// Optional option-level payment date. When set, it takes precedence over the event-level payment date; when omitted, the event-level payment date applies.
+        /// </summary>
+        /// <value>Optional option-level payment date. When set, it takes precedence over the event-level payment date; when omitted, the event-level payment date applies.</value>
+        [DataMember(Name = "paymentDate", EmitDefaultValue = true)]
+        public DateTimeOffset? PaymentDate { get; set; }
+
+        /// <summary>
+        /// Optional tax-characterised payout lines for this election (CashDividendEvent only). When absent or empty, the election produces a single standard payment.
+        /// </summary>
+        /// <value>Optional tax-characterised payout lines for this election (CashDividendEvent only). When absent or empty, the election produces a single standard payment.</value>
+        [DataMember(Name = "rateBreakdown", EmitDefaultValue = true)]
+        public List<RateBreakdownComponent> RateBreakdown { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -128,6 +146,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  IsDeclared: ").Append(IsDeclared).Append("\n");
             sb.Append("  IsDefault: ").Append(IsDefault).Append("\n");
             sb.Append("  DividendCurrency: ").Append(DividendCurrency).Append("\n");
+            sb.Append("  PaymentDate: ").Append(PaymentDate).Append("\n");
+            sb.Append("  RateBreakdown: ").Append(RateBreakdown).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -194,6 +214,17 @@ namespace Lusid.Sdk.Model
                     this.DividendCurrency == input.DividendCurrency ||
                     (this.DividendCurrency != null &&
                     this.DividendCurrency.Equals(input.DividendCurrency))
+                ) && 
+                (
+                    this.PaymentDate == input.PaymentDate ||
+                    (this.PaymentDate != null &&
+                    this.PaymentDate.Equals(input.PaymentDate))
+                ) && 
+                (
+                    this.RateBreakdown == input.RateBreakdown ||
+                    this.RateBreakdown != null &&
+                    input.RateBreakdown != null &&
+                    this.RateBreakdown.SequenceEqual(input.RateBreakdown)
                 );
         }
 
@@ -224,6 +255,14 @@ namespace Lusid.Sdk.Model
                 if (this.DividendCurrency != null)
                 {
                     hashCode = (hashCode * 59) + this.DividendCurrency.GetHashCode();
+                }
+                if (this.PaymentDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.PaymentDate.GetHashCode();
+                }
+                if (this.RateBreakdown != null)
+                {
+                    hashCode = (hashCode * 59) + this.RateBreakdown.GetHashCode();
                 }
                 return hashCode;
             }

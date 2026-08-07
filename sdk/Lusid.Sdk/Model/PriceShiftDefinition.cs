@@ -196,16 +196,16 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="instrument">A single instrument identifier this shift applies to. Exactly one of Instrument and Filter  must be supplied..</param>
         /// <param name="filter">A LUSID filter expression over the instrument entity - fields and properties - selecting which  instruments&#39; quotes the shift applies to, e.g.  \&quot;assetClass eq &#39;Bond&#39; and properties[Instrument/Issuer/Name] eq &#39;X&#39;\&quot;.  Exactly one of Instrument and Filter must be supplied..</param>
-        /// <param name="amount">amount (required).</param>
+        /// <param name="amount">amount.</param>
         /// <param name="shiftType">Available values: Absolute, Relative, Percentage. (required).</param>
         /// <param name="quoteType">Available values: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront, Index, Ratio, Delta, PoolFactor, InflationAssumption, DirtyPrice, PrincipalWriteOff, InterestDeferred, InterestShortfall, ConstituentWeightFactor..</param>
         /// <param name="scenarioShiftType">Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition. (required) (default to &quot;PriceShiftDefinition&quot;).</param>
-        public PriceShiftDefinition(string instrument = default(string), string filter = default(string), decimal amount = default(decimal), ShiftTypeEnum shiftType = default(ShiftTypeEnum), QuoteTypeEnum ?quoteType = default(QuoteTypeEnum?), ScenarioShiftTypeEnum scenarioShiftType = default(ScenarioShiftTypeEnum)) : base(scenarioShiftType)
+        public PriceShiftDefinition(string instrument = default(string), string filter = default(string), decimal? amount = default(decimal?), ShiftTypeEnum shiftType = default(ShiftTypeEnum), QuoteTypeEnum ?quoteType = default(QuoteTypeEnum?), ScenarioShiftTypeEnum scenarioShiftType = default(ScenarioShiftTypeEnum)) : base(scenarioShiftType)
         {
-            this.Amount = amount;
             this.ShiftType = shiftType;
             this.Instrument = instrument;
             this.Filter = filter;
+            this.Amount = amount;
             this.QuoteType = quoteType;
         }
 
@@ -226,8 +226,8 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Gets or Sets Amount
         /// </summary>
-        [DataMember(Name = "amount", IsRequired = true, EmitDefaultValue = true)]
-        public decimal Amount { get; set; }
+        [DataMember(Name = "amount", EmitDefaultValue = true)]
+        public decimal? Amount { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -290,7 +290,8 @@ namespace Lusid.Sdk.Model
                 ) && base.Equals(input) && 
                 (
                     this.Amount == input.Amount ||
-                    this.Amount.Equals(input.Amount)
+                    (this.Amount != null &&
+                    this.Amount.Equals(input.Amount))
                 ) && base.Equals(input) && 
                 (
                     this.ShiftType == input.ShiftType ||
@@ -319,7 +320,10 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Filter.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Amount.GetHashCode();
+                if (this.Amount != null)
+                {
+                    hashCode = (hashCode * 59) + this.Amount.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.ShiftType.GetHashCode();
                 hashCode = (hashCode * 59) + this.QuoteType.GetHashCode();
                 return hashCode;
@@ -371,14 +375,14 @@ namespace Lusid.Sdk.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Filter, length must be greater than 1.", new [] { "Filter" });
             }
 
-            // Amount (decimal) maximum
-            if (this.Amount > (decimal)1000000)
+            // Amount (decimal?) maximum
+            if (this.Amount > (decimal?)1000000)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Amount, must be a value less than or equal to 1000000.", new [] { "Amount" });
             }
 
-            // Amount (decimal) minimum
-            if (this.Amount < (decimal)-1000000)
+            // Amount (decimal?) minimum
+            if (this.Amount < (decimal?)-1000000)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Amount, must be a value greater than or equal to -1000000.", new [] { "Amount" });
             }

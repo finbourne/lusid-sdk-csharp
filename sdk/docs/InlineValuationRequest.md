@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **Instruments** | [**List&lt;WeightedInstrument&gt;**](WeightedInstrument.md) | The set of instruments, weighted by the quantities held that are required.  It is identified by an identifier tag that can be used to identify it externally.  For a single, unique trade or transaction this can be thought of as equivalent to the transaction identifier, or  a composite of the sub-holding keys for a regular sub-holding. When there are multiple transactions sharing the same underlying instrument  such as purchase of shares on multiple dates where tax implications are different this would not be the case. | 
 **MarketDataOverrides** | [**MarketDataOverrides**](MarketDataOverrides.md) |  | [optional] 
 **CorporateActionSourceId** | [**ResourceId**](ResourceId.md) |  | [optional] 
+**Scenario** | [**ScenarioReference**](ScenarioReference.md) |  | [optional] 
 
 ```csharp
 using Lusid.Sdk.Model;
@@ -39,6 +40,8 @@ MarketDataOverrides? marketDataOverrides = new MarketDataOverrides();
 
 ResourceId? corporateActionSourceId = new ResourceId();
 
+ScenarioReference? scenario = new ScenarioReference();
+
 
 InlineValuationRequest inlineValuationRequestInstance = new InlineValuationRequest(
     recipeId: recipeId,
@@ -53,7 +56,8 @@ InlineValuationRequest inlineValuationRequestInstance = new InlineValuationReque
     valuationSchedule: valuationSchedule,
     instruments: instruments,
     marketDataOverrides: marketDataOverrides,
-    corporateActionSourceId: corporateActionSourceId);
+    corporateActionSourceId: corporateActionSourceId,
+    scenario: scenario);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

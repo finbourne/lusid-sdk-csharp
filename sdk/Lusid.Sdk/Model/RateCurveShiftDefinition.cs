@@ -105,14 +105,14 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="RateCurveShiftDefinition" /> class.
         /// </summary>
         /// <param name="ccy">ccy (required).</param>
-        /// <param name="amount">The size of the shift, in the units given by Scale: basis points by default (50 means +50bps),  or a percentage of each rate when Scale is Percentage (1 means rates scaled by 1.01). (required).</param>
+        /// <param name="amount">The size of the shift, in the units given by Scale: basis points by default (50 means +50bps),  or a percentage of each rate when Scale is Percentage (1 means rates scaled by 1.01)..</param>
         /// <param name="startTenor">startTenor.</param>
         /// <param name="endTenor">endTenor.</param>
         /// <param name="shiftType">Available values: Parallel, Steepen, Flatten, Twist. (required).</param>
         /// <param name="scale">Available values: Bps, Percentage..</param>
         /// <param name="applyTo">A LUSID filter expression over the instrument entity scoping which instruments this shift is  for, e.g. \&quot;properties[Instrument/default/CountryOfIssue] eq &#39;Italy&#39;\&quot;. The shifted market data  is used by the whole valuation run, but when the scenario is requested as a result column the  column is only populated for matching instruments. Only usable when the scenario is applied as  a per-metric column. Note that with a scope set, the base and scenario columns cover different  instrument populations: an aggregate (e.g. Sum) of the scenario column totals only the matching  instruments, so it is not directly comparable to the same aggregate of the base column..</param>
         /// <param name="scenarioShiftType">Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition. (required) (default to &quot;RateCurveShiftDefinition&quot;).</param>
-        public RateCurveShiftDefinition(string ccy = default(string), decimal amount = default(decimal), string startTenor = default(string), string endTenor = default(string), ShiftTypeEnum shiftType = default(ShiftTypeEnum), ScaleEnum ?scale = default(ScaleEnum?), string applyTo = default(string), ScenarioShiftTypeEnum scenarioShiftType = default(ScenarioShiftTypeEnum)) : base(scenarioShiftType)
+        public RateCurveShiftDefinition(string ccy = default(string), decimal? amount = default(decimal?), string startTenor = default(string), string endTenor = default(string), ShiftTypeEnum shiftType = default(ShiftTypeEnum), ScaleEnum ?scale = default(ScaleEnum?), string applyTo = default(string), ScenarioShiftTypeEnum scenarioShiftType = default(ScenarioShiftTypeEnum)) : base(scenarioShiftType)
         {
             // to ensure "ccy" is required (not null)
             if (ccy == null)
@@ -120,8 +120,8 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("ccy is a required property for RateCurveShiftDefinition and cannot be null");
             }
             this.Ccy = ccy;
-            this.Amount = amount;
             this.ShiftType = shiftType;
+            this.Amount = amount;
             this.StartTenor = startTenor;
             this.EndTenor = endTenor;
             this.Scale = scale;
@@ -138,8 +138,8 @@ namespace Lusid.Sdk.Model
         /// The size of the shift, in the units given by Scale: basis points by default (50 means +50bps),  or a percentage of each rate when Scale is Percentage (1 means rates scaled by 1.01).
         /// </summary>
         /// <value>The size of the shift, in the units given by Scale: basis points by default (50 means +50bps),  or a percentage of each rate when Scale is Percentage (1 means rates scaled by 1.01).</value>
-        [DataMember(Name = "amount", IsRequired = true, EmitDefaultValue = true)]
-        public decimal Amount { get; set; }
+        [DataMember(Name = "amount", EmitDefaultValue = true)]
+        public decimal? Amount { get; set; }
 
         /// <summary>
         /// Gets or Sets StartTenor
@@ -218,7 +218,8 @@ namespace Lusid.Sdk.Model
                 ) && base.Equals(input) && 
                 (
                     this.Amount == input.Amount ||
-                    this.Amount.Equals(input.Amount)
+                    (this.Amount != null &&
+                    this.Amount.Equals(input.Amount))
                 ) && base.Equals(input) && 
                 (
                     this.StartTenor == input.StartTenor ||
@@ -258,7 +259,10 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Ccy.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Amount.GetHashCode();
+                if (this.Amount != null)
+                {
+                    hashCode = (hashCode * 59) + this.Amount.GetHashCode();
+                }
                 if (this.StartTenor != null)
                 {
                     hashCode = (hashCode * 59) + this.StartTenor.GetHashCode();
@@ -310,14 +314,14 @@ namespace Lusid.Sdk.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Ccy, length must be greater than 3.", new [] { "Ccy" });
             }
 
-            // Amount (decimal) maximum
-            if (this.Amount > (decimal)1000000)
+            // Amount (decimal?) maximum
+            if (this.Amount > (decimal?)1000000)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Amount, must be a value less than or equal to 1000000.", new [] { "Amount" });
             }
 
-            // Amount (decimal) minimum
-            if (this.Amount < (decimal)-1000000)
+            // Amount (decimal?) minimum
+            if (this.Amount < (decimal?)-1000000)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Amount, must be a value greater than or equal to -1000000.", new [] { "Amount" });
             }

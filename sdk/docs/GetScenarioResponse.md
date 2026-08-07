@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Href** | **string** |  | [optional] 
 **Value** | [**ScenarioDefinition**](ScenarioDefinition.md) |  | [optional] 
+**VarVersion** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **Failed** | [**ErrorDetail**](ErrorDetail.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
@@ -16,6 +17,8 @@ using System;
 string href = "example href";
 ScenarioDefinition? value = new ScenarioDefinition();
 
+ModelVersion? varVersion = new ModelVersion();
+
 ErrorDetail? failed = new ErrorDetail();
 
 List<Link> links = new List<Link>();
@@ -23,6 +26,7 @@ List<Link> links = new List<Link>();
 GetScenarioResponse getScenarioResponseInstance = new GetScenarioResponse(
     href: href,
     value: value,
+    varVersion: varVersion,
     failed: failed,
     links: links);
 ```

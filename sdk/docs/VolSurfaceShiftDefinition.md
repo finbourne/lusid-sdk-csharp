@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ScenarioShiftType** | **string** | Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition. | 
 **Instrument** | **string** |  | 
-**Amount** | **decimal** |  | 
+**Amount** | **decimal?** |  | [optional] 
 **Strike** | **decimal?** |  | [optional] 
 **Expiry** | **string** |  | [optional] 
 **ShiftType** | **string** | Available values: Absolute, Relative. | 
@@ -15,8 +15,7 @@ Name | Type | Description | Notes
 using Lusid.Sdk.Model;
 using System;
 
-string instrument = "instrument";decimal amount = "amount";
-
+string instrument = "instrument";
 string expiry = "example expiry";
 string shiftType = "shiftType";
 

@@ -72,10 +72,10 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="FxShiftDefinition" /> class.
         /// </summary>
         /// <param name="currencyPair">currencyPair (required).</param>
-        /// <param name="amount">amount (required).</param>
+        /// <param name="amount">amount.</param>
         /// <param name="shiftType">Available values: Absolute, Relative, Percentage. (required).</param>
         /// <param name="scenarioShiftType">Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition. (required) (default to &quot;FxShiftDefinition&quot;).</param>
-        public FxShiftDefinition(string currencyPair = default(string), decimal amount = default(decimal), ShiftTypeEnum shiftType = default(ShiftTypeEnum), ScenarioShiftTypeEnum scenarioShiftType = default(ScenarioShiftTypeEnum)) : base(scenarioShiftType)
+        public FxShiftDefinition(string currencyPair = default(string), decimal? amount = default(decimal?), ShiftTypeEnum shiftType = default(ShiftTypeEnum), ScenarioShiftTypeEnum scenarioShiftType = default(ScenarioShiftTypeEnum)) : base(scenarioShiftType)
         {
             // to ensure "currencyPair" is required (not null)
             if (currencyPair == null)
@@ -83,8 +83,8 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("currencyPair is a required property for FxShiftDefinition and cannot be null");
             }
             this.CurrencyPair = currencyPair;
-            this.Amount = amount;
             this.ShiftType = shiftType;
+            this.Amount = amount;
         }
 
         /// <summary>
@@ -96,8 +96,8 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Gets or Sets Amount
         /// </summary>
-        [DataMember(Name = "amount", IsRequired = true, EmitDefaultValue = true)]
-        public decimal Amount { get; set; }
+        [DataMember(Name = "amount", EmitDefaultValue = true)]
+        public decimal? Amount { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -153,7 +153,8 @@ namespace Lusid.Sdk.Model
                 ) && base.Equals(input) && 
                 (
                     this.Amount == input.Amount ||
-                    this.Amount.Equals(input.Amount)
+                    (this.Amount != null &&
+                    this.Amount.Equals(input.Amount))
                 ) && base.Equals(input) && 
                 (
                     this.ShiftType == input.ShiftType ||
@@ -174,7 +175,10 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.CurrencyPair.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Amount.GetHashCode();
+                if (this.Amount != null)
+                {
+                    hashCode = (hashCode * 59) + this.Amount.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.ShiftType.GetHashCode();
                 return hashCode;
             }
@@ -214,14 +218,14 @@ namespace Lusid.Sdk.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CurrencyPair, must match a pattern of " + regexCurrencyPair, new [] { "CurrencyPair" });
             }
 
-            // Amount (decimal) maximum
-            if (this.Amount > (decimal)1000000)
+            // Amount (decimal?) maximum
+            if (this.Amount > (decimal?)1000000)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Amount, must be a value less than or equal to 1000000.", new [] { "Amount" });
             }
 
-            // Amount (decimal) minimum
-            if (this.Amount < (decimal)-1000000)
+            // Amount (decimal?) minimum
+            if (this.Amount < (decimal?)-1000000)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Amount, must be a value greater than or equal to -1000000.", new [] { "Amount" });
             }
