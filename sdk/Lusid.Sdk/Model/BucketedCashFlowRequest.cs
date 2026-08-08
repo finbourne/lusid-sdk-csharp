@@ -52,7 +52,8 @@ namespace Lusid.Sdk.Model
         /// <param name="cashFlowType">Indicate the requested cash flow representation InstrumentCashFlows or PortfolioCashFlows (GetCashLadder uses this). Available values: InstrumentCashFlow, PortfolioCashFlow, TransactionCashFlow..</param>
         /// <param name="bucketingSchedule">bucketingSchedule.</param>
         /// <param name="filter">filter.</param>
-        public BucketedCashFlowRequest(string roundingMethod = default(string), List<DateTimeOffset> bucketingDates = default(List<DateTimeOffset>), List<string> bucketTenors = default(List<string>), string effectiveAt = default(string), string windowStart = default(string), string windowEnd = default(string), ResourceId recipeId = default(ResourceId), string reportCurrency = default(string), List<string> groupBy = default(List<string>), List<string> addresses = default(List<string>), bool equipWithSubtotals = default(bool), DateTimeOffset? asAt = default(DateTimeOffset?), bool excludeUnsettledTrades = default(bool), string cashFlowType = default(string), BucketingSchedule bucketingSchedule = default(BucketingSchedule), string filter = default(string))
+        /// <param name="cashFlowCalculationVersion">The version of the cash flow calculation logic to use. Defaults to &#39;1&#39; if not specified. Valid values are &#39;1&#39; and &#39;2&#39;.  &#39;1&#39; is the current production behaviour: cash flows booked as transactions are de-duplicated against the  instrument cash flows by identifier, and movements are treated as factual when they settle on or before the effective date.  &#39;2&#39; resolves cash flows via a deterministic source waterfall (structured result store &gt; transaction &gt; instrument),  classifies cash flows as factual by the transaction trade date (so trades dealt on or before the effective date  that settle afterwards are factual), and applies corporate action date filtering..</param>
+        public BucketedCashFlowRequest(string roundingMethod = default(string), List<DateTimeOffset> bucketingDates = default(List<DateTimeOffset>), List<string> bucketTenors = default(List<string>), string effectiveAt = default(string), string windowStart = default(string), string windowEnd = default(string), ResourceId recipeId = default(ResourceId), string reportCurrency = default(string), List<string> groupBy = default(List<string>), List<string> addresses = default(List<string>), bool equipWithSubtotals = default(bool), DateTimeOffset? asAt = default(DateTimeOffset?), bool excludeUnsettledTrades = default(bool), string cashFlowType = default(string), BucketingSchedule bucketingSchedule = default(BucketingSchedule), string filter = default(string), string cashFlowCalculationVersion = default(string))
         {
             // to ensure "roundingMethod" is required (not null)
             if (roundingMethod == null)
@@ -75,6 +76,7 @@ namespace Lusid.Sdk.Model
             this.CashFlowType = cashFlowType;
             this.BucketingSchedule = bucketingSchedule;
             this.Filter = filter;
+            this.CashFlowCalculationVersion = cashFlowCalculationVersion;
         }
 
         /// <summary>
@@ -187,6 +189,13 @@ namespace Lusid.Sdk.Model
         public string Filter { get; set; }
 
         /// <summary>
+        /// The version of the cash flow calculation logic to use. Defaults to &#39;1&#39; if not specified. Valid values are &#39;1&#39; and &#39;2&#39;.  &#39;1&#39; is the current production behaviour: cash flows booked as transactions are de-duplicated against the  instrument cash flows by identifier, and movements are treated as factual when they settle on or before the effective date.  &#39;2&#39; resolves cash flows via a deterministic source waterfall (structured result store &gt; transaction &gt; instrument),  classifies cash flows as factual by the transaction trade date (so trades dealt on or before the effective date  that settle afterwards are factual), and applies corporate action date filtering.
+        /// </summary>
+        /// <value>The version of the cash flow calculation logic to use. Defaults to &#39;1&#39; if not specified. Valid values are &#39;1&#39; and &#39;2&#39;.  &#39;1&#39; is the current production behaviour: cash flows booked as transactions are de-duplicated against the  instrument cash flows by identifier, and movements are treated as factual when they settle on or before the effective date.  &#39;2&#39; resolves cash flows via a deterministic source waterfall (structured result store &gt; transaction &gt; instrument),  classifies cash flows as factual by the transaction trade date (so trades dealt on or before the effective date  that settle afterwards are factual), and applies corporate action date filtering.</value>
+        [DataMember(Name = "cashFlowCalculationVersion", EmitDefaultValue = true)]
+        public string CashFlowCalculationVersion { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -210,6 +219,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  CashFlowType: ").Append(CashFlowType).Append("\n");
             sb.Append("  BucketingSchedule: ").Append(BucketingSchedule).Append("\n");
             sb.Append("  Filter: ").Append(Filter).Append("\n");
+            sb.Append("  CashFlowCalculationVersion: ").Append(CashFlowCalculationVersion).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -326,6 +336,11 @@ namespace Lusid.Sdk.Model
                     this.Filter == input.Filter ||
                     (this.Filter != null &&
                     this.Filter.Equals(input.Filter))
+                ) && 
+                (
+                    this.CashFlowCalculationVersion == input.CashFlowCalculationVersion ||
+                    (this.CashFlowCalculationVersion != null &&
+                    this.CashFlowCalculationVersion.Equals(input.CashFlowCalculationVersion))
                 );
         }
 
@@ -396,6 +411,10 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Filter.GetHashCode();
                 }
+                if (this.CashFlowCalculationVersion != null)
+                {
+                    hashCode = (hashCode * 59) + this.CashFlowCalculationVersion.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -442,6 +461,18 @@ namespace Lusid.Sdk.Model
             if (false == regexFilter.Match(this.Filter).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Filter, must match a pattern of " + regexFilter, new [] { "Filter" });
+            }
+
+            // CashFlowCalculationVersion (string) maxLength
+            if (this.CashFlowCalculationVersion != null && this.CashFlowCalculationVersion.Length > 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CashFlowCalculationVersion, length must be less than 1.", new [] { "CashFlowCalculationVersion" });
+            }
+
+            // CashFlowCalculationVersion (string) minLength
+            if (this.CashFlowCalculationVersion != null && this.CashFlowCalculationVersion.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CashFlowCalculationVersion, length must be greater than 1.", new [] { "CashFlowCalculationVersion" });
             }
 
             yield break;

@@ -118,10 +118,11 @@ namespace Lusid.Sdk.Model
         /// <param name="assetClass">Available values: InterestRates, FX, Inflation, Equities, Credit, Commodities, Money, Unknown, RealEstate, Exotic. (required).</param>
         /// <param name="fgnCcys">The set of foreign currencies, if any (optional)..</param>
         /// <param name="simpleInstrumentType">The Instrument type of the simple instrument. (required).</param>
+        /// <param name="contractSize">The size of the contract of the simple instrument (default to 1D).</param>
         /// <param name="timeZoneConventions">timeZoneConventions.</param>
         /// <param name="tradingConventions">tradingConventions.</param>
         /// <param name="instrumentType">Available values: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan, UnsettledCash, Cash, MasteredInstrument, LoanFacility, FlexibleDeposit, FlexibleRepo, ToBeAnnounced, VolatilitySwap, ToBeAnnouncedOption, CommodityForward. (required) (default to &quot;SimpleInstrument&quot;).</param>
-        public SimpleInstrument(DateTimeOffset maturityDate = default(DateTimeOffset), string domCcy = default(string), AssetClassEnum assetClass = default(AssetClassEnum), List<string> fgnCcys = default(List<string>), string simpleInstrumentType = default(string), TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), TradingConventions tradingConventions = default(TradingConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
+        public SimpleInstrument(DateTimeOffset maturityDate = default(DateTimeOffset), string domCcy = default(string), AssetClassEnum assetClass = default(AssetClassEnum), List<string> fgnCcys = default(List<string>), string simpleInstrumentType = default(string), decimal contractSize = (decimal)1D, TimeZoneConventions timeZoneConventions = default(TimeZoneConventions), TradingConventions tradingConventions = default(TradingConventions), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
         {
             // to ensure "domCcy" is required (not null)
             if (domCcy == null)
@@ -138,6 +139,7 @@ namespace Lusid.Sdk.Model
             this.SimpleInstrumentType = simpleInstrumentType;
             this.MaturityDate = maturityDate;
             this.FgnCcys = fgnCcys;
+            this.ContractSize = contractSize;
             this.TimeZoneConventions = timeZoneConventions;
             this.TradingConventions = tradingConventions;
         }
@@ -171,6 +173,13 @@ namespace Lusid.Sdk.Model
         public string SimpleInstrumentType { get; set; }
 
         /// <summary>
+        /// The size of the contract of the simple instrument
+        /// </summary>
+        /// <value>The size of the contract of the simple instrument</value>
+        [DataMember(Name = "contractSize", EmitDefaultValue = true)]
+        public decimal ContractSize { get; set; }
+
+        /// <summary>
         /// Gets or Sets TimeZoneConventions
         /// </summary>
         [DataMember(Name = "timeZoneConventions", EmitDefaultValue = false)]
@@ -196,6 +205,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  AssetClass: ").Append(AssetClass).Append("\n");
             sb.Append("  FgnCcys: ").Append(FgnCcys).Append("\n");
             sb.Append("  SimpleInstrumentType: ").Append(SimpleInstrumentType).Append("\n");
+            sb.Append("  ContractSize: ").Append(ContractSize).Append("\n");
             sb.Append("  TimeZoneConventions: ").Append(TimeZoneConventions).Append("\n");
             sb.Append("  TradingConventions: ").Append(TradingConventions).Append("\n");
             sb.Append("}\n");
@@ -259,6 +269,10 @@ namespace Lusid.Sdk.Model
                     this.SimpleInstrumentType.Equals(input.SimpleInstrumentType))
                 ) && base.Equals(input) && 
                 (
+                    this.ContractSize == input.ContractSize ||
+                    this.ContractSize.Equals(input.ContractSize)
+                ) && base.Equals(input) && 
+                (
                     this.TimeZoneConventions == input.TimeZoneConventions ||
                     (this.TimeZoneConventions != null &&
                     this.TimeZoneConventions.Equals(input.TimeZoneConventions))
@@ -296,6 +310,7 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.SimpleInstrumentType.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.ContractSize.GetHashCode();
                 if (this.TimeZoneConventions != null)
                 {
                     hashCode = (hashCode * 59) + this.TimeZoneConventions.GetHashCode();

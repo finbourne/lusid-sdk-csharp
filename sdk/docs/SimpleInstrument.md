@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **AssetClass** | **string** | Available values: InterestRates, FX, Inflation, Equities, Credit, Commodities, Money, Unknown, RealEstate, Exotic. | 
 **FgnCcys** | **List&lt;string&gt;** | The set of foreign currencies, if any (optional). | [optional] 
 **SimpleInstrumentType** | **string** | The Instrument type of the simple instrument. | 
+**ContractSize** | **decimal** | The size of the contract of the simple instrument | [optional] [default to 1D]
 **TimeZoneConventions** | [**TimeZoneConventions**](TimeZoneConventions.md) |  | [optional] 
 **TradingConventions** | [**TradingConventions**](TradingConventions.md) |  | [optional] 
 
@@ -21,7 +22,7 @@ using System;
 string domCcy = "domCcy";
 string assetClass = "assetClass";
 List<string> fgnCcys = new List<string>();
-string simpleInstrumentType = "simpleInstrumentType";
+string simpleInstrumentType = "simpleInstrumentType";decimal? contractSize = "example contractSize";
 TimeZoneConventions? timeZoneConventions = new TimeZoneConventions();
 
 TradingConventions? tradingConventions = new TradingConventions();
@@ -33,6 +34,7 @@ SimpleInstrument simpleInstrumentInstance = new SimpleInstrument(
     assetClass: assetClass,
     fgnCcys: fgnCcys,
     simpleInstrumentType: simpleInstrumentType,
+    contractSize: contractSize,
     timeZoneConventions: timeZoneConventions,
     tradingConventions: tradingConventions);
 ```

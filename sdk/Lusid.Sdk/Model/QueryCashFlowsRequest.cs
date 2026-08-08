@@ -42,7 +42,8 @@ namespace Lusid.Sdk.Model
         /// <param name="portfolioEntityIds">The set of portfolios and portfolio groups to which the instrument events must belong. (required).</param>
         /// <param name="recipeId">recipeId (required).</param>
         /// <param name="effectiveAt">The Effective date used in the valuation of the cashflows. (required).</param>
-        public QueryCashFlowsRequest(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOffset windowStart = default(DateTimeOffset), DateTimeOffset windowEnd = default(DateTimeOffset), List<PortfolioEntityId> portfolioEntityIds = default(List<PortfolioEntityId>), ResourceId recipeId = default(ResourceId), DateTimeOffset effectiveAt = default(DateTimeOffset))
+        /// <param name="cashFlowCalculationVersion">The version of the cash flow calculation logic to use. Defaults to &#39;1&#39; if not specified. Valid values are &#39;1&#39; and &#39;2&#39;.  &#39;1&#39; is the current production behaviour: cash flows booked as transactions are de-duplicated against the  instrument cash flows by identifier, and movements are treated as factual when they settle on or before the effective date.  &#39;2&#39; resolves cash flows via a deterministic source waterfall (structured result store &gt; transaction &gt; instrument),  classifies cash flows as factual by the transaction trade date (so trades dealt on or before the effective date  that settle afterwards are factual), and applies corporate action date filtering..</param>
+        public QueryCashFlowsRequest(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOffset windowStart = default(DateTimeOffset), DateTimeOffset windowEnd = default(DateTimeOffset), List<PortfolioEntityId> portfolioEntityIds = default(List<PortfolioEntityId>), ResourceId recipeId = default(ResourceId), DateTimeOffset effectiveAt = default(DateTimeOffset), string cashFlowCalculationVersion = default(string))
         {
             this.WindowStart = windowStart;
             this.WindowEnd = windowEnd;
@@ -60,6 +61,7 @@ namespace Lusid.Sdk.Model
             this.RecipeId = recipeId;
             this.EffectiveAt = effectiveAt;
             this.AsAt = asAt;
+            this.CashFlowCalculationVersion = cashFlowCalculationVersion;
         }
 
         /// <summary>
@@ -104,6 +106,13 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset EffectiveAt { get; set; }
 
         /// <summary>
+        /// The version of the cash flow calculation logic to use. Defaults to &#39;1&#39; if not specified. Valid values are &#39;1&#39; and &#39;2&#39;.  &#39;1&#39; is the current production behaviour: cash flows booked as transactions are de-duplicated against the  instrument cash flows by identifier, and movements are treated as factual when they settle on or before the effective date.  &#39;2&#39; resolves cash flows via a deterministic source waterfall (structured result store &gt; transaction &gt; instrument),  classifies cash flows as factual by the transaction trade date (so trades dealt on or before the effective date  that settle afterwards are factual), and applies corporate action date filtering.
+        /// </summary>
+        /// <value>The version of the cash flow calculation logic to use. Defaults to &#39;1&#39; if not specified. Valid values are &#39;1&#39; and &#39;2&#39;.  &#39;1&#39; is the current production behaviour: cash flows booked as transactions are de-duplicated against the  instrument cash flows by identifier, and movements are treated as factual when they settle on or before the effective date.  &#39;2&#39; resolves cash flows via a deterministic source waterfall (structured result store &gt; transaction &gt; instrument),  classifies cash flows as factual by the transaction trade date (so trades dealt on or before the effective date  that settle afterwards are factual), and applies corporate action date filtering.</value>
+        [DataMember(Name = "cashFlowCalculationVersion", EmitDefaultValue = true)]
+        public string CashFlowCalculationVersion { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -117,6 +126,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  PortfolioEntityIds: ").Append(PortfolioEntityIds).Append("\n");
             sb.Append("  RecipeId: ").Append(RecipeId).Append("\n");
             sb.Append("  EffectiveAt: ").Append(EffectiveAt).Append("\n");
+            sb.Append("  CashFlowCalculationVersion: ").Append(CashFlowCalculationVersion).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -182,6 +192,11 @@ namespace Lusid.Sdk.Model
                     this.EffectiveAt == input.EffectiveAt ||
                     (this.EffectiveAt != null &&
                     this.EffectiveAt.Equals(input.EffectiveAt))
+                ) && 
+                (
+                    this.CashFlowCalculationVersion == input.CashFlowCalculationVersion ||
+                    (this.CashFlowCalculationVersion != null &&
+                    this.CashFlowCalculationVersion.Equals(input.CashFlowCalculationVersion))
                 );
         }
 
@@ -218,6 +233,10 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.EffectiveAt.GetHashCode();
                 }
+                if (this.CashFlowCalculationVersion != null)
+                {
+                    hashCode = (hashCode * 59) + this.CashFlowCalculationVersion.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -229,6 +248,18 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // CashFlowCalculationVersion (string) maxLength
+            if (this.CashFlowCalculationVersion != null && this.CashFlowCalculationVersion.Length > 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CashFlowCalculationVersion, length must be less than 1.", new [] { "CashFlowCalculationVersion" });
+            }
+
+            // CashFlowCalculationVersion (string) minLength
+            if (this.CashFlowCalculationVersion != null && this.CashFlowCalculationVersion.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CashFlowCalculationVersion, length must be greater than 1.", new [] { "CashFlowCalculationVersion" });
+            }
+
             yield break;
         }
     }

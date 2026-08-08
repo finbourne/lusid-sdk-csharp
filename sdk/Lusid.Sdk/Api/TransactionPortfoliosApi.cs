@@ -1077,10 +1077,11 @@ namespace Lusid.Sdk.Api
         /// <param name="recipeIdScope">The scope of the given recipeId (optional)</param>
         /// <param name="recipeIdCode">The code of the given recipeID (optional)</param>
         /// <param name="excludeUnsettledTrades">If absent or set to false, cashflows will returned based on trade date - more specifically, cashflows from any unsettled trades will be included in the results. If set to true, unsettled trades will be excluded from the result set. (optional, default to false)</param>
+        /// <param name="cashFlowCalculationVersion">The version of the cash flow calculation logic to use. Defaults to &#39;1&#39; if not specified; valid values are &#39;1&#39; (the current production behaviour)               and &#39;2&#39; (cash flows resolved via a deterministic source waterfall, with factual cash flows classified by transaction trade date and corporate action date filtering applied). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfInstrumentCashFlow</returns>
-        ResourceListOfInstrumentCashFlow GetPortfolioCashFlows(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowStart = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowEnd = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), bool? excludeUnsettledTrades = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        ResourceListOfInstrumentCashFlow GetPortfolioCashFlows(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowStart = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowEnd = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), bool? excludeUnsettledTrades = default(bool?), string? cashFlowCalculationVersion = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetPortfolioCashFlows: Get portfolio cash flows
@@ -1099,10 +1100,11 @@ namespace Lusid.Sdk.Api
         /// <param name="recipeIdScope">The scope of the given recipeId (optional)</param>
         /// <param name="recipeIdCode">The code of the given recipeID (optional)</param>
         /// <param name="excludeUnsettledTrades">If absent or set to false, cashflows will returned based on trade date - more specifically, cashflows from any unsettled trades will be included in the results. If set to true, unsettled trades will be excluded from the result set. (optional, default to false)</param>
+        /// <param name="cashFlowCalculationVersion">The version of the cash flow calculation logic to use. Defaults to &#39;1&#39; if not specified; valid values are &#39;1&#39; (the current production behaviour)               and &#39;2&#39; (cash flows resolved via a deterministic source waterfall, with factual cash flows classified by transaction trade date and corporate action date filtering applied). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfInstrumentCashFlow</returns>
-        Lusid.Sdk.Client.ApiResponse<ResourceListOfInstrumentCashFlow> GetPortfolioCashFlowsWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowStart = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowEnd = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), bool? excludeUnsettledTrades = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<ResourceListOfInstrumentCashFlow> GetPortfolioCashFlowsWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowStart = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowEnd = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), bool? excludeUnsettledTrades = default(bool?), string? cashFlowCalculationVersion = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// GetPortfolioCashLadder: Get portfolio cash ladder
         /// </summary>
@@ -1120,10 +1122,11 @@ namespace Lusid.Sdk.Api
         /// <param name="recipeIdScope">The scope of the given recipeId (optional)</param>
         /// <param name="recipeIdCode">The code of the given recipeID (optional)</param>
         /// <param name="excludeUnsettledTrades">If absent or set to false, cashflows will returned based on trade date - more specifically, cashflows from any unsettled trades will be included in the results. If set to true, unsettled trades will be excluded from the result set. (optional, default to false)</param>
+        /// <param name="cashFlowCalculationVersion">The version of the cash flow calculation logic to use. Defaults to &#39;1&#39; if not specified; valid values are &#39;1&#39; (the current production behaviour)              and &#39;2&#39; (cash flows resolved via a deterministic source waterfall, with factual cash flows classified by transaction trade date and corporate action date filtering applied). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfPortfolioCashLadder</returns>
-        ResourceListOfPortfolioCashLadder GetPortfolioCashLadder(string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), bool? excludeUnsettledTrades = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        ResourceListOfPortfolioCashLadder GetPortfolioCashLadder(string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), bool? excludeUnsettledTrades = default(bool?), string? cashFlowCalculationVersion = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetPortfolioCashLadder: Get portfolio cash ladder
@@ -1142,10 +1145,11 @@ namespace Lusid.Sdk.Api
         /// <param name="recipeIdScope">The scope of the given recipeId (optional)</param>
         /// <param name="recipeIdCode">The code of the given recipeID (optional)</param>
         /// <param name="excludeUnsettledTrades">If absent or set to false, cashflows will returned based on trade date - more specifically, cashflows from any unsettled trades will be included in the results. If set to true, unsettled trades will be excluded from the result set. (optional, default to false)</param>
+        /// <param name="cashFlowCalculationVersion">The version of the cash flow calculation logic to use. Defaults to &#39;1&#39; if not specified; valid values are &#39;1&#39; (the current production behaviour)              and &#39;2&#39; (cash flows resolved via a deterministic source waterfall, with factual cash flows classified by transaction trade date and corporate action date filtering applied). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfPortfolioCashLadder</returns>
-        Lusid.Sdk.Client.ApiResponse<ResourceListOfPortfolioCashLadder> GetPortfolioCashLadderWithHttpInfo(string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), bool? excludeUnsettledTrades = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<ResourceListOfPortfolioCashLadder> GetPortfolioCashLadderWithHttpInfo(string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), bool? excludeUnsettledTrades = default(bool?), string? cashFlowCalculationVersion = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// GetPortfolioCashStatement: Get portfolio cash statement
         /// </summary>
@@ -1321,10 +1325,11 @@ namespace Lusid.Sdk.Api
         /// <param name="recipeIdScope">The scope of the given recipeId (optional)</param>
         /// <param name="recipeIdCode">The code of the given recipeID (optional)</param>
         /// <param name="excludeUnsettledTrades">If absent or set to true, unsettled trades will be excluded from the result set. If set to false, cashflows will returned based on trade date - more specifically, cashflows from any unsettled trades will be included in the results. (optional, default to true)</param>
+        /// <param name="cashFlowCalculationVersion">The version of the cash flow calculation logic to use. Defaults to &#39;1&#39; if not specified; valid values are &#39;1&#39; (the current production behaviour)               and &#39;2&#39; (cash flows resolved via a deterministic source waterfall, with factual cash flows classified by transaction trade date and corporate action date filtering applied). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfTransaction</returns>
-        ResourceListOfTransaction GetUpsertablePortfolioCashFlows(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowStart = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowEnd = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), bool? excludeUnsettledTrades = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        ResourceListOfTransaction GetUpsertablePortfolioCashFlows(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowStart = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowEnd = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), bool? excludeUnsettledTrades = default(bool?), string? cashFlowCalculationVersion = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetUpsertablePortfolioCashFlows: Get upsertable portfolio cash flows.
@@ -1343,10 +1348,11 @@ namespace Lusid.Sdk.Api
         /// <param name="recipeIdScope">The scope of the given recipeId (optional)</param>
         /// <param name="recipeIdCode">The code of the given recipeID (optional)</param>
         /// <param name="excludeUnsettledTrades">If absent or set to true, unsettled trades will be excluded from the result set. If set to false, cashflows will returned based on trade date - more specifically, cashflows from any unsettled trades will be included in the results. (optional, default to true)</param>
+        /// <param name="cashFlowCalculationVersion">The version of the cash flow calculation logic to use. Defaults to &#39;1&#39; if not specified; valid values are &#39;1&#39; (the current production behaviour)               and &#39;2&#39; (cash flows resolved via a deterministic source waterfall, with factual cash flows classified by transaction trade date and corporate action date filtering applied). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfTransaction</returns>
-        Lusid.Sdk.Client.ApiResponse<ResourceListOfTransaction> GetUpsertablePortfolioCashFlowsWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowStart = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowEnd = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), bool? excludeUnsettledTrades = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Lusid.Sdk.Client.ApiResponse<ResourceListOfTransaction> GetUpsertablePortfolioCashFlowsWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowStart = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowEnd = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), bool? excludeUnsettledTrades = default(bool?), string? cashFlowCalculationVersion = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// ListCustodianAccounts: List Custodian Accounts
         /// </summary>
@@ -2952,11 +2958,12 @@ namespace Lusid.Sdk.Api
         /// <param name="recipeIdScope">The scope of the given recipeId (optional)</param>
         /// <param name="recipeIdCode">The code of the given recipeID (optional)</param>
         /// <param name="excludeUnsettledTrades">If absent or set to false, cashflows will returned based on trade date - more specifically, cashflows from any unsettled trades will be included in the results. If set to true, unsettled trades will be excluded from the result set. (optional, default to false)</param>
+        /// <param name="cashFlowCalculationVersion">The version of the cash flow calculation logic to use. Defaults to &#39;1&#39; if not specified; valid values are &#39;1&#39; (the current production behaviour)               and &#39;2&#39; (cash flows resolved via a deterministic source waterfall, with factual cash flows classified by transaction trade date and corporate action date filtering applied). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfInstrumentCashFlow</returns>
-        System.Threading.Tasks.Task<ResourceListOfInstrumentCashFlow> GetPortfolioCashFlowsAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowStart = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowEnd = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), bool? excludeUnsettledTrades = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<ResourceListOfInstrumentCashFlow> GetPortfolioCashFlowsAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowStart = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowEnd = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), bool? excludeUnsettledTrades = default(bool?), string? cashFlowCalculationVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetPortfolioCashFlows: Get portfolio cash flows
@@ -2975,11 +2982,12 @@ namespace Lusid.Sdk.Api
         /// <param name="recipeIdScope">The scope of the given recipeId (optional)</param>
         /// <param name="recipeIdCode">The code of the given recipeID (optional)</param>
         /// <param name="excludeUnsettledTrades">If absent or set to false, cashflows will returned based on trade date - more specifically, cashflows from any unsettled trades will be included in the results. If set to true, unsettled trades will be excluded from the result set. (optional, default to false)</param>
+        /// <param name="cashFlowCalculationVersion">The version of the cash flow calculation logic to use. Defaults to &#39;1&#39; if not specified; valid values are &#39;1&#39; (the current production behaviour)               and &#39;2&#39; (cash flows resolved via a deterministic source waterfall, with factual cash flows classified by transaction trade date and corporate action date filtering applied). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfInstrumentCashFlow)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfInstrumentCashFlow>> GetPortfolioCashFlowsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowStart = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowEnd = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), bool? excludeUnsettledTrades = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfInstrumentCashFlow>> GetPortfolioCashFlowsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowStart = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowEnd = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), bool? excludeUnsettledTrades = default(bool?), string? cashFlowCalculationVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// GetPortfolioCashLadder: Get portfolio cash ladder
         /// </summary>
@@ -2997,11 +3005,12 @@ namespace Lusid.Sdk.Api
         /// <param name="recipeIdScope">The scope of the given recipeId (optional)</param>
         /// <param name="recipeIdCode">The code of the given recipeID (optional)</param>
         /// <param name="excludeUnsettledTrades">If absent or set to false, cashflows will returned based on trade date - more specifically, cashflows from any unsettled trades will be included in the results. If set to true, unsettled trades will be excluded from the result set. (optional, default to false)</param>
+        /// <param name="cashFlowCalculationVersion">The version of the cash flow calculation logic to use. Defaults to &#39;1&#39; if not specified; valid values are &#39;1&#39; (the current production behaviour)              and &#39;2&#39; (cash flows resolved via a deterministic source waterfall, with factual cash flows classified by transaction trade date and corporate action date filtering applied). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfPortfolioCashLadder</returns>
-        System.Threading.Tasks.Task<ResourceListOfPortfolioCashLadder> GetPortfolioCashLadderAsync(string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), bool? excludeUnsettledTrades = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<ResourceListOfPortfolioCashLadder> GetPortfolioCashLadderAsync(string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), bool? excludeUnsettledTrades = default(bool?), string? cashFlowCalculationVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetPortfolioCashLadder: Get portfolio cash ladder
@@ -3020,11 +3029,12 @@ namespace Lusid.Sdk.Api
         /// <param name="recipeIdScope">The scope of the given recipeId (optional)</param>
         /// <param name="recipeIdCode">The code of the given recipeID (optional)</param>
         /// <param name="excludeUnsettledTrades">If absent or set to false, cashflows will returned based on trade date - more specifically, cashflows from any unsettled trades will be included in the results. If set to true, unsettled trades will be excluded from the result set. (optional, default to false)</param>
+        /// <param name="cashFlowCalculationVersion">The version of the cash flow calculation logic to use. Defaults to &#39;1&#39; if not specified; valid values are &#39;1&#39; (the current production behaviour)              and &#39;2&#39; (cash flows resolved via a deterministic source waterfall, with factual cash flows classified by transaction trade date and corporate action date filtering applied). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfPortfolioCashLadder)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfPortfolioCashLadder>> GetPortfolioCashLadderWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), bool? excludeUnsettledTrades = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfPortfolioCashLadder>> GetPortfolioCashLadderWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), bool? excludeUnsettledTrades = default(bool?), string? cashFlowCalculationVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// GetPortfolioCashStatement: Get portfolio cash statement
         /// </summary>
@@ -3208,11 +3218,12 @@ namespace Lusid.Sdk.Api
         /// <param name="recipeIdScope">The scope of the given recipeId (optional)</param>
         /// <param name="recipeIdCode">The code of the given recipeID (optional)</param>
         /// <param name="excludeUnsettledTrades">If absent or set to true, unsettled trades will be excluded from the result set. If set to false, cashflows will returned based on trade date - more specifically, cashflows from any unsettled trades will be included in the results. (optional, default to true)</param>
+        /// <param name="cashFlowCalculationVersion">The version of the cash flow calculation logic to use. Defaults to &#39;1&#39; if not specified; valid values are &#39;1&#39; (the current production behaviour)               and &#39;2&#39; (cash flows resolved via a deterministic source waterfall, with factual cash flows classified by transaction trade date and corporate action date filtering applied). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfTransaction</returns>
-        System.Threading.Tasks.Task<ResourceListOfTransaction> GetUpsertablePortfolioCashFlowsAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowStart = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowEnd = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), bool? excludeUnsettledTrades = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<ResourceListOfTransaction> GetUpsertablePortfolioCashFlowsAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowStart = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowEnd = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), bool? excludeUnsettledTrades = default(bool?), string? cashFlowCalculationVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetUpsertablePortfolioCashFlows: Get upsertable portfolio cash flows.
@@ -3231,11 +3242,12 @@ namespace Lusid.Sdk.Api
         /// <param name="recipeIdScope">The scope of the given recipeId (optional)</param>
         /// <param name="recipeIdCode">The code of the given recipeID (optional)</param>
         /// <param name="excludeUnsettledTrades">If absent or set to true, unsettled trades will be excluded from the result set. If set to false, cashflows will returned based on trade date - more specifically, cashflows from any unsettled trades will be included in the results. (optional, default to true)</param>
+        /// <param name="cashFlowCalculationVersion">The version of the cash flow calculation logic to use. Defaults to &#39;1&#39; if not specified; valid values are &#39;1&#39; (the current production behaviour)               and &#39;2&#39; (cash flows resolved via a deterministic source waterfall, with factual cash flows classified by transaction trade date and corporate action date filtering applied). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfTransaction)</returns>
-        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfTransaction>> GetUpsertablePortfolioCashFlowsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowStart = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowEnd = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), bool? excludeUnsettledTrades = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfTransaction>> GetUpsertablePortfolioCashFlowsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowStart = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowEnd = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), bool? excludeUnsettledTrades = default(bool?), string? cashFlowCalculationVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// ListCustodianAccounts: List Custodian Accounts
         /// </summary>
@@ -12189,12 +12201,13 @@ namespace Lusid.Sdk.Api
         /// <param name="recipeIdScope">The scope of the given recipeId (optional)</param>
         /// <param name="recipeIdCode">The code of the given recipeID (optional)</param>
         /// <param name="excludeUnsettledTrades">If absent or set to false, cashflows will returned based on trade date - more specifically, cashflows from any unsettled trades will be included in the results. If set to true, unsettled trades will be excluded from the result set. (optional, default to false)</param>
+        /// <param name="cashFlowCalculationVersion">The version of the cash flow calculation logic to use. Defaults to &#39;1&#39; if not specified; valid values are &#39;1&#39; (the current production behaviour)               and &#39;2&#39; (cash flows resolved via a deterministic source waterfall, with factual cash flows classified by transaction trade date and corporate action date filtering applied). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfInstrumentCashFlow</returns>
-        public ResourceListOfInstrumentCashFlow GetPortfolioCashFlows(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowStart = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowEnd = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), bool? excludeUnsettledTrades = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public ResourceListOfInstrumentCashFlow GetPortfolioCashFlows(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowStart = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowEnd = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), bool? excludeUnsettledTrades = default(bool?), string? cashFlowCalculationVersion = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfInstrumentCashFlow> localVarResponse = GetPortfolioCashFlowsWithHttpInfo(scope, code, effectiveAt, windowStart, windowEnd, asAt, filter, recipeIdScope, recipeIdCode, excludeUnsettledTrades, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfInstrumentCashFlow> localVarResponse = GetPortfolioCashFlowsWithHttpInfo(scope, code, effectiveAt, windowStart, windowEnd, asAt, filter, recipeIdScope, recipeIdCode, excludeUnsettledTrades, cashFlowCalculationVersion, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -12212,10 +12225,11 @@ namespace Lusid.Sdk.Api
         /// <param name="recipeIdScope">The scope of the given recipeId (optional)</param>
         /// <param name="recipeIdCode">The code of the given recipeID (optional)</param>
         /// <param name="excludeUnsettledTrades">If absent or set to false, cashflows will returned based on trade date - more specifically, cashflows from any unsettled trades will be included in the results. If set to true, unsettled trades will be excluded from the result set. (optional, default to false)</param>
+        /// <param name="cashFlowCalculationVersion">The version of the cash flow calculation logic to use. Defaults to &#39;1&#39; if not specified; valid values are &#39;1&#39; (the current production behaviour)               and &#39;2&#39; (cash flows resolved via a deterministic source waterfall, with factual cash flows classified by transaction trade date and corporate action date filtering applied). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfInstrumentCashFlow</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfInstrumentCashFlow> GetPortfolioCashFlowsWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowStart = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowEnd = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), bool? excludeUnsettledTrades = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfInstrumentCashFlow> GetPortfolioCashFlowsWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowStart = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowEnd = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), bool? excludeUnsettledTrades = default(bool?), string? cashFlowCalculationVersion = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -12304,6 +12318,11 @@ namespace Lusid.Sdk.Api
             {
 
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "excludeUnsettledTrades", excludeUnsettledTrades));
+            }
+            if (cashFlowCalculationVersion != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "cashFlowCalculationVersion", cashFlowCalculationVersion));
             }
 
             localVarRequestOptions.Operation = "TransactionPortfoliosApi.GetPortfolioCashFlows";
@@ -12354,13 +12373,14 @@ namespace Lusid.Sdk.Api
         /// <param name="recipeIdScope">The scope of the given recipeId (optional)</param>
         /// <param name="recipeIdCode">The code of the given recipeID (optional)</param>
         /// <param name="excludeUnsettledTrades">If absent or set to false, cashflows will returned based on trade date - more specifically, cashflows from any unsettled trades will be included in the results. If set to true, unsettled trades will be excluded from the result set. (optional, default to false)</param>
+        /// <param name="cashFlowCalculationVersion">The version of the cash flow calculation logic to use. Defaults to &#39;1&#39; if not specified; valid values are &#39;1&#39; (the current production behaviour)               and &#39;2&#39; (cash flows resolved via a deterministic source waterfall, with factual cash flows classified by transaction trade date and corporate action date filtering applied). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfInstrumentCashFlow</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfInstrumentCashFlow> GetPortfolioCashFlowsAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowStart = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowEnd = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), bool? excludeUnsettledTrades = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<ResourceListOfInstrumentCashFlow> GetPortfolioCashFlowsAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowStart = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowEnd = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), bool? excludeUnsettledTrades = default(bool?), string? cashFlowCalculationVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfInstrumentCashFlow> localVarResponse = await GetPortfolioCashFlowsWithHttpInfoAsync(scope, code, effectiveAt, windowStart, windowEnd, asAt, filter, recipeIdScope, recipeIdCode, excludeUnsettledTrades, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfInstrumentCashFlow> localVarResponse = await GetPortfolioCashFlowsWithHttpInfoAsync(scope, code, effectiveAt, windowStart, windowEnd, asAt, filter, recipeIdScope, recipeIdCode, excludeUnsettledTrades, cashFlowCalculationVersion, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -12378,11 +12398,12 @@ namespace Lusid.Sdk.Api
         /// <param name="recipeIdScope">The scope of the given recipeId (optional)</param>
         /// <param name="recipeIdCode">The code of the given recipeID (optional)</param>
         /// <param name="excludeUnsettledTrades">If absent or set to false, cashflows will returned based on trade date - more specifically, cashflows from any unsettled trades will be included in the results. If set to true, unsettled trades will be excluded from the result set. (optional, default to false)</param>
+        /// <param name="cashFlowCalculationVersion">The version of the cash flow calculation logic to use. Defaults to &#39;1&#39; if not specified; valid values are &#39;1&#39; (the current production behaviour)               and &#39;2&#39; (cash flows resolved via a deterministic source waterfall, with factual cash flows classified by transaction trade date and corporate action date filtering applied). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfInstrumentCashFlow)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfInstrumentCashFlow>> GetPortfolioCashFlowsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowStart = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowEnd = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), bool? excludeUnsettledTrades = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfInstrumentCashFlow>> GetPortfolioCashFlowsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowStart = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowEnd = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), bool? excludeUnsettledTrades = default(bool?), string? cashFlowCalculationVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -12464,6 +12485,10 @@ namespace Lusid.Sdk.Api
             if (excludeUnsettledTrades != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "excludeUnsettledTrades", excludeUnsettledTrades));
+            }
+            if (cashFlowCalculationVersion != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "cashFlowCalculationVersion", cashFlowCalculationVersion));
             }
 
             localVarRequestOptions.Operation = "TransactionPortfoliosApi.GetPortfolioCashFlows";
@@ -12515,12 +12540,13 @@ namespace Lusid.Sdk.Api
         /// <param name="recipeIdScope">The scope of the given recipeId (optional)</param>
         /// <param name="recipeIdCode">The code of the given recipeID (optional)</param>
         /// <param name="excludeUnsettledTrades">If absent or set to false, cashflows will returned based on trade date - more specifically, cashflows from any unsettled trades will be included in the results. If set to true, unsettled trades will be excluded from the result set. (optional, default to false)</param>
+        /// <param name="cashFlowCalculationVersion">The version of the cash flow calculation logic to use. Defaults to &#39;1&#39; if not specified; valid values are &#39;1&#39; (the current production behaviour)              and &#39;2&#39; (cash flows resolved via a deterministic source waterfall, with factual cash flows classified by transaction trade date and corporate action date filtering applied). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfPortfolioCashLadder</returns>
-        public ResourceListOfPortfolioCashLadder GetPortfolioCashLadder(string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), bool? excludeUnsettledTrades = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public ResourceListOfPortfolioCashLadder GetPortfolioCashLadder(string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), bool? excludeUnsettledTrades = default(bool?), string? cashFlowCalculationVersion = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfPortfolioCashLadder> localVarResponse = GetPortfolioCashLadderWithHttpInfo(scope, code, fromEffectiveAt, toEffectiveAt, effectiveAt, asAt, filter, recipeIdScope, recipeIdCode, excludeUnsettledTrades, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfPortfolioCashLadder> localVarResponse = GetPortfolioCashLadderWithHttpInfo(scope, code, fromEffectiveAt, toEffectiveAt, effectiveAt, asAt, filter, recipeIdScope, recipeIdCode, excludeUnsettledTrades, cashFlowCalculationVersion, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -12538,10 +12564,11 @@ namespace Lusid.Sdk.Api
         /// <param name="recipeIdScope">The scope of the given recipeId (optional)</param>
         /// <param name="recipeIdCode">The code of the given recipeID (optional)</param>
         /// <param name="excludeUnsettledTrades">If absent or set to false, cashflows will returned based on trade date - more specifically, cashflows from any unsettled trades will be included in the results. If set to true, unsettled trades will be excluded from the result set. (optional, default to false)</param>
+        /// <param name="cashFlowCalculationVersion">The version of the cash flow calculation logic to use. Defaults to &#39;1&#39; if not specified; valid values are &#39;1&#39; (the current production behaviour)              and &#39;2&#39; (cash flows resolved via a deterministic source waterfall, with factual cash flows classified by transaction trade date and corporate action date filtering applied). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfPortfolioCashLadder</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfPortfolioCashLadder> GetPortfolioCashLadderWithHttpInfo(string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), bool? excludeUnsettledTrades = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfPortfolioCashLadder> GetPortfolioCashLadderWithHttpInfo(string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), bool? excludeUnsettledTrades = default(bool?), string? cashFlowCalculationVersion = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -12636,6 +12663,11 @@ namespace Lusid.Sdk.Api
             {
 
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "excludeUnsettledTrades", excludeUnsettledTrades));
+            }
+            if (cashFlowCalculationVersion != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "cashFlowCalculationVersion", cashFlowCalculationVersion));
             }
 
             localVarRequestOptions.Operation = "TransactionPortfoliosApi.GetPortfolioCashLadder";
@@ -12686,13 +12718,14 @@ namespace Lusid.Sdk.Api
         /// <param name="recipeIdScope">The scope of the given recipeId (optional)</param>
         /// <param name="recipeIdCode">The code of the given recipeID (optional)</param>
         /// <param name="excludeUnsettledTrades">If absent or set to false, cashflows will returned based on trade date - more specifically, cashflows from any unsettled trades will be included in the results. If set to true, unsettled trades will be excluded from the result set. (optional, default to false)</param>
+        /// <param name="cashFlowCalculationVersion">The version of the cash flow calculation logic to use. Defaults to &#39;1&#39; if not specified; valid values are &#39;1&#39; (the current production behaviour)              and &#39;2&#39; (cash flows resolved via a deterministic source waterfall, with factual cash flows classified by transaction trade date and corporate action date filtering applied). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfPortfolioCashLadder</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfPortfolioCashLadder> GetPortfolioCashLadderAsync(string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), bool? excludeUnsettledTrades = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<ResourceListOfPortfolioCashLadder> GetPortfolioCashLadderAsync(string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), bool? excludeUnsettledTrades = default(bool?), string? cashFlowCalculationVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfPortfolioCashLadder> localVarResponse = await GetPortfolioCashLadderWithHttpInfoAsync(scope, code, fromEffectiveAt, toEffectiveAt, effectiveAt, asAt, filter, recipeIdScope, recipeIdCode, excludeUnsettledTrades, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfPortfolioCashLadder> localVarResponse = await GetPortfolioCashLadderWithHttpInfoAsync(scope, code, fromEffectiveAt, toEffectiveAt, effectiveAt, asAt, filter, recipeIdScope, recipeIdCode, excludeUnsettledTrades, cashFlowCalculationVersion, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -12710,11 +12743,12 @@ namespace Lusid.Sdk.Api
         /// <param name="recipeIdScope">The scope of the given recipeId (optional)</param>
         /// <param name="recipeIdCode">The code of the given recipeID (optional)</param>
         /// <param name="excludeUnsettledTrades">If absent or set to false, cashflows will returned based on trade date - more specifically, cashflows from any unsettled trades will be included in the results. If set to true, unsettled trades will be excluded from the result set. (optional, default to false)</param>
+        /// <param name="cashFlowCalculationVersion">The version of the cash flow calculation logic to use. Defaults to &#39;1&#39; if not specified; valid values are &#39;1&#39; (the current production behaviour)              and &#39;2&#39; (cash flows resolved via a deterministic source waterfall, with factual cash flows classified by transaction trade date and corporate action date filtering applied). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfPortfolioCashLadder)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfPortfolioCashLadder>> GetPortfolioCashLadderWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), bool? excludeUnsettledTrades = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfPortfolioCashLadder>> GetPortfolioCashLadderWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), bool? excludeUnsettledTrades = default(bool?), string? cashFlowCalculationVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -12805,6 +12839,10 @@ namespace Lusid.Sdk.Api
             if (excludeUnsettledTrades != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "excludeUnsettledTrades", excludeUnsettledTrades));
+            }
+            if (cashFlowCalculationVersion != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "cashFlowCalculationVersion", cashFlowCalculationVersion));
             }
 
             localVarRequestOptions.Operation = "TransactionPortfoliosApi.GetPortfolioCashLadder";
@@ -14089,12 +14127,13 @@ namespace Lusid.Sdk.Api
         /// <param name="recipeIdScope">The scope of the given recipeId (optional)</param>
         /// <param name="recipeIdCode">The code of the given recipeID (optional)</param>
         /// <param name="excludeUnsettledTrades">If absent or set to true, unsettled trades will be excluded from the result set. If set to false, cashflows will returned based on trade date - more specifically, cashflows from any unsettled trades will be included in the results. (optional, default to true)</param>
+        /// <param name="cashFlowCalculationVersion">The version of the cash flow calculation logic to use. Defaults to &#39;1&#39; if not specified; valid values are &#39;1&#39; (the current production behaviour)               and &#39;2&#39; (cash flows resolved via a deterministic source waterfall, with factual cash flows classified by transaction trade date and corporate action date filtering applied). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfTransaction</returns>
-        public ResourceListOfTransaction GetUpsertablePortfolioCashFlows(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowStart = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowEnd = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), bool? excludeUnsettledTrades = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public ResourceListOfTransaction GetUpsertablePortfolioCashFlows(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowStart = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowEnd = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), bool? excludeUnsettledTrades = default(bool?), string? cashFlowCalculationVersion = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfTransaction> localVarResponse = GetUpsertablePortfolioCashFlowsWithHttpInfo(scope, code, effectiveAt, windowStart, windowEnd, asAt, filter, recipeIdScope, recipeIdCode, excludeUnsettledTrades, opts: opts);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfTransaction> localVarResponse = GetUpsertablePortfolioCashFlowsWithHttpInfo(scope, code, effectiveAt, windowStart, windowEnd, asAt, filter, recipeIdScope, recipeIdCode, excludeUnsettledTrades, cashFlowCalculationVersion, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -14112,10 +14151,11 @@ namespace Lusid.Sdk.Api
         /// <param name="recipeIdScope">The scope of the given recipeId (optional)</param>
         /// <param name="recipeIdCode">The code of the given recipeID (optional)</param>
         /// <param name="excludeUnsettledTrades">If absent or set to true, unsettled trades will be excluded from the result set. If set to false, cashflows will returned based on trade date - more specifically, cashflows from any unsettled trades will be included in the results. (optional, default to true)</param>
+        /// <param name="cashFlowCalculationVersion">The version of the cash flow calculation logic to use. Defaults to &#39;1&#39; if not specified; valid values are &#39;1&#39; (the current production behaviour)               and &#39;2&#39; (cash flows resolved via a deterministic source waterfall, with factual cash flows classified by transaction trade date and corporate action date filtering applied). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfTransaction</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfTransaction> GetUpsertablePortfolioCashFlowsWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowStart = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowEnd = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), bool? excludeUnsettledTrades = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfTransaction> GetUpsertablePortfolioCashFlowsWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowStart = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowEnd = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), bool? excludeUnsettledTrades = default(bool?), string? cashFlowCalculationVersion = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -14204,6 +14244,11 @@ namespace Lusid.Sdk.Api
             {
 
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "excludeUnsettledTrades", excludeUnsettledTrades));
+            }
+            if (cashFlowCalculationVersion != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "cashFlowCalculationVersion", cashFlowCalculationVersion));
             }
 
             localVarRequestOptions.Operation = "TransactionPortfoliosApi.GetUpsertablePortfolioCashFlows";
@@ -14254,13 +14299,14 @@ namespace Lusid.Sdk.Api
         /// <param name="recipeIdScope">The scope of the given recipeId (optional)</param>
         /// <param name="recipeIdCode">The code of the given recipeID (optional)</param>
         /// <param name="excludeUnsettledTrades">If absent or set to true, unsettled trades will be excluded from the result set. If set to false, cashflows will returned based on trade date - more specifically, cashflows from any unsettled trades will be included in the results. (optional, default to true)</param>
+        /// <param name="cashFlowCalculationVersion">The version of the cash flow calculation logic to use. Defaults to &#39;1&#39; if not specified; valid values are &#39;1&#39; (the current production behaviour)               and &#39;2&#39; (cash flows resolved via a deterministic source waterfall, with factual cash flows classified by transaction trade date and corporate action date filtering applied). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfTransaction</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfTransaction> GetUpsertablePortfolioCashFlowsAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowStart = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowEnd = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), bool? excludeUnsettledTrades = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<ResourceListOfTransaction> GetUpsertablePortfolioCashFlowsAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowStart = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowEnd = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), bool? excludeUnsettledTrades = default(bool?), string? cashFlowCalculationVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfTransaction> localVarResponse = await GetUpsertablePortfolioCashFlowsWithHttpInfoAsync(scope, code, effectiveAt, windowStart, windowEnd, asAt, filter, recipeIdScope, recipeIdCode, excludeUnsettledTrades, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfTransaction> localVarResponse = await GetUpsertablePortfolioCashFlowsWithHttpInfoAsync(scope, code, effectiveAt, windowStart, windowEnd, asAt, filter, recipeIdScope, recipeIdCode, excludeUnsettledTrades, cashFlowCalculationVersion, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -14278,11 +14324,12 @@ namespace Lusid.Sdk.Api
         /// <param name="recipeIdScope">The scope of the given recipeId (optional)</param>
         /// <param name="recipeIdCode">The code of the given recipeID (optional)</param>
         /// <param name="excludeUnsettledTrades">If absent or set to true, unsettled trades will be excluded from the result set. If set to false, cashflows will returned based on trade date - more specifically, cashflows from any unsettled trades will be included in the results. (optional, default to true)</param>
+        /// <param name="cashFlowCalculationVersion">The version of the cash flow calculation logic to use. Defaults to &#39;1&#39; if not specified; valid values are &#39;1&#39; (the current production behaviour)               and &#39;2&#39; (cash flows resolved via a deterministic source waterfall, with factual cash flows classified by transaction trade date and corporate action date filtering applied). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfTransaction)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfTransaction>> GetUpsertablePortfolioCashFlowsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowStart = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowEnd = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), bool? excludeUnsettledTrades = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfTransaction>> GetUpsertablePortfolioCashFlowsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowStart = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowEnd = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), bool? excludeUnsettledTrades = default(bool?), string? cashFlowCalculationVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -14364,6 +14411,10 @@ namespace Lusid.Sdk.Api
             if (excludeUnsettledTrades != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "excludeUnsettledTrades", excludeUnsettledTrades));
+            }
+            if (cashFlowCalculationVersion != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "cashFlowCalculationVersion", cashFlowCalculationVersion));
             }
 
             localVarRequestOptions.Operation = "TransactionPortfoliosApi.GetUpsertablePortfolioCashFlows";

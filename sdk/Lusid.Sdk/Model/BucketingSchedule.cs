@@ -32,9 +32,13 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="BucketingSchedule" /> class.
         /// </summary>
         /// <param name="tenor">Rolling tenor.</param>
-        public BucketingSchedule(string tenor = default(string))
+        /// <param name="rollDirection">Optional direction in which the bucketing dates are rolled out from the schedule tenor.  Supported string (enumeration) values are: [ForwardFromStart, BackwardFromEnd].  If absent (and StubType is also absent), the pre-existing date generation behaviour is used. Available values: ForwardFromStart, BackwardFromEnd..</param>
+        /// <param name="stubType">Optional treatment of the irregular (stub) period when the window length is not an exact multiple of the tenor.  Supported string (enumeration) values are: [ShortStub, LongStub].  If absent (and RollDirection is also absent), the pre-existing date generation behaviour is used. Available values: ShortStub, LongStub..</param>
+        public BucketingSchedule(string tenor = default(string), string rollDirection = default(string), string stubType = default(string))
         {
             this.Tenor = tenor;
+            this.RollDirection = rollDirection;
+            this.StubType = stubType;
         }
 
         /// <summary>
@@ -45,6 +49,20 @@ namespace Lusid.Sdk.Model
         public string Tenor { get; set; }
 
         /// <summary>
+        /// Optional direction in which the bucketing dates are rolled out from the schedule tenor.  Supported string (enumeration) values are: [ForwardFromStart, BackwardFromEnd].  If absent (and StubType is also absent), the pre-existing date generation behaviour is used. Available values: ForwardFromStart, BackwardFromEnd.
+        /// </summary>
+        /// <value>Optional direction in which the bucketing dates are rolled out from the schedule tenor.  Supported string (enumeration) values are: [ForwardFromStart, BackwardFromEnd].  If absent (and StubType is also absent), the pre-existing date generation behaviour is used. Available values: ForwardFromStart, BackwardFromEnd.</value>
+        [DataMember(Name = "rollDirection", EmitDefaultValue = true)]
+        public string RollDirection { get; set; }
+
+        /// <summary>
+        /// Optional treatment of the irregular (stub) period when the window length is not an exact multiple of the tenor.  Supported string (enumeration) values are: [ShortStub, LongStub].  If absent (and RollDirection is also absent), the pre-existing date generation behaviour is used. Available values: ShortStub, LongStub.
+        /// </summary>
+        /// <value>Optional treatment of the irregular (stub) period when the window length is not an exact multiple of the tenor.  Supported string (enumeration) values are: [ShortStub, LongStub].  If absent (and RollDirection is also absent), the pre-existing date generation behaviour is used. Available values: ShortStub, LongStub.</value>
+        [DataMember(Name = "stubType", EmitDefaultValue = true)]
+        public string StubType { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -53,6 +71,8 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class BucketingSchedule {\n");
             sb.Append("  Tenor: ").Append(Tenor).Append("\n");
+            sb.Append("  RollDirection: ").Append(RollDirection).Append("\n");
+            sb.Append("  StubType: ").Append(StubType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -92,6 +112,16 @@ namespace Lusid.Sdk.Model
                     this.Tenor == input.Tenor ||
                     (this.Tenor != null &&
                     this.Tenor.Equals(input.Tenor))
+                ) && 
+                (
+                    this.RollDirection == input.RollDirection ||
+                    (this.RollDirection != null &&
+                    this.RollDirection.Equals(input.RollDirection))
+                ) && 
+                (
+                    this.StubType == input.StubType ||
+                    (this.StubType != null &&
+                    this.StubType.Equals(input.StubType))
                 );
         }
 
@@ -107,6 +137,14 @@ namespace Lusid.Sdk.Model
                 if (this.Tenor != null)
                 {
                     hashCode = (hashCode * 59) + this.Tenor.GetHashCode();
+                }
+                if (this.RollDirection != null)
+                {
+                    hashCode = (hashCode * 59) + this.RollDirection.GetHashCode();
+                }
+                if (this.StubType != null)
+                {
+                    hashCode = (hashCode * 59) + this.StubType.GetHashCode();
                 }
                 return hashCode;
             }

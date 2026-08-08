@@ -53,7 +53,11 @@ namespace Lusid.Sdk.Model
         /// <param name="cashFlowType">Indicate the requested cash flow representation InstrumentCashFlows or PortfolioCashFlows (GetCashLadder uses this). Available values: InstrumentCashFlow, PortfolioCashFlow, TransactionCashFlow..</param>
         /// <param name="bucketingSchedule">bucketingSchedule.</param>
         /// <param name="filter">filter.</param>
-        public QueryBucketedCashFlowsRequest(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOffset windowStart = default(DateTimeOffset), DateTimeOffset windowEnd = default(DateTimeOffset), List<PortfolioEntityId> portfolioEntityIds = default(List<PortfolioEntityId>), DateTimeOffset effectiveAt = default(DateTimeOffset), ResourceId recipeId = default(ResourceId), string roundingMethod = default(string), List<DateTimeOffset> bucketingDates = default(List<DateTimeOffset>), List<string> bucketingTenors = default(List<string>), string reportCurrency = default(string), List<string> groupBy = default(List<string>), List<string> addresses = default(List<string>), bool equipWithSubtotals = default(bool), bool excludeUnsettledTrades = default(bool), string cashFlowType = default(string), BucketingSchedule bucketingSchedule = default(BucketingSchedule), string filter = default(string))
+        /// <param name="cashFlowCalculationVersion">The version of the cash flow calculation logic to use. Defaults to &#39;1&#39; if not specified. Valid values are &#39;1&#39; and &#39;2&#39;.  &#39;1&#39; is the current production behaviour: cash flows booked as transactions are de-duplicated against the  instrument cash flows by identifier, and movements are treated as factual when they settle on or before the effective date.  &#39;2&#39; resolves cash flows via a deterministic source waterfall (structured result store &gt; transaction &gt; instrument),  classifies cash flows as factual by the transaction trade date (so trades dealt on or before the effective date  that settle afterwards are factual), and applies corporate action date filtering..</param>
+        /// <param name="haircutRules">Optional ordered haircut rules applied to cashflow inflows; the first matching rule wins and a rule with no criteria acts as a catch-all. When supplied, the additional per-bucket columns &#39;Valuation/Bucket/HaircutAmount&#39; and &#39;Valuation/Bucket/NetOfHaircutAmount&#39; are produced; with no rules the results are unchanged. Only supported for the InstrumentCashFlow CashFlowType..</param>
+        /// <param name="borderConfiguration">borderConfiguration.</param>
+        /// <param name="startingBalance">The balance to use at the start of the bucketing window when computing open/close balances.  Supported string (enumeration) values are: [PortfolioCashBalance, Zero]. Defaults to &#39;PortfolioCashBalance&#39;. Available values: PortfolioCashBalance, Zero..</param>
+        public QueryBucketedCashFlowsRequest(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOffset windowStart = default(DateTimeOffset), DateTimeOffset windowEnd = default(DateTimeOffset), List<PortfolioEntityId> portfolioEntityIds = default(List<PortfolioEntityId>), DateTimeOffset effectiveAt = default(DateTimeOffset), ResourceId recipeId = default(ResourceId), string roundingMethod = default(string), List<DateTimeOffset> bucketingDates = default(List<DateTimeOffset>), List<string> bucketingTenors = default(List<string>), string reportCurrency = default(string), List<string> groupBy = default(List<string>), List<string> addresses = default(List<string>), bool equipWithSubtotals = default(bool), bool excludeUnsettledTrades = default(bool), string cashFlowType = default(string), BucketingSchedule bucketingSchedule = default(BucketingSchedule), string filter = default(string), string cashFlowCalculationVersion = default(string), List<CashFlowHaircutRule> haircutRules = default(List<CashFlowHaircutRule>), BucketBorderConfiguration borderConfiguration = default(BucketBorderConfiguration), string startingBalance = default(string))
         {
             this.WindowStart = windowStart;
             this.WindowEnd = windowEnd;
@@ -92,6 +96,10 @@ namespace Lusid.Sdk.Model
             this.CashFlowType = cashFlowType;
             this.BucketingSchedule = bucketingSchedule;
             this.Filter = filter;
+            this.CashFlowCalculationVersion = cashFlowCalculationVersion;
+            this.HaircutRules = haircutRules;
+            this.BorderConfiguration = borderConfiguration;
+            this.StartingBalance = startingBalance;
         }
 
         /// <summary>
@@ -211,6 +219,33 @@ namespace Lusid.Sdk.Model
         public string Filter { get; set; }
 
         /// <summary>
+        /// The version of the cash flow calculation logic to use. Defaults to &#39;1&#39; if not specified. Valid values are &#39;1&#39; and &#39;2&#39;.  &#39;1&#39; is the current production behaviour: cash flows booked as transactions are de-duplicated against the  instrument cash flows by identifier, and movements are treated as factual when they settle on or before the effective date.  &#39;2&#39; resolves cash flows via a deterministic source waterfall (structured result store &gt; transaction &gt; instrument),  classifies cash flows as factual by the transaction trade date (so trades dealt on or before the effective date  that settle afterwards are factual), and applies corporate action date filtering.
+        /// </summary>
+        /// <value>The version of the cash flow calculation logic to use. Defaults to &#39;1&#39; if not specified. Valid values are &#39;1&#39; and &#39;2&#39;.  &#39;1&#39; is the current production behaviour: cash flows booked as transactions are de-duplicated against the  instrument cash flows by identifier, and movements are treated as factual when they settle on or before the effective date.  &#39;2&#39; resolves cash flows via a deterministic source waterfall (structured result store &gt; transaction &gt; instrument),  classifies cash flows as factual by the transaction trade date (so trades dealt on or before the effective date  that settle afterwards are factual), and applies corporate action date filtering.</value>
+        [DataMember(Name = "cashFlowCalculationVersion", EmitDefaultValue = true)]
+        public string CashFlowCalculationVersion { get; set; }
+
+        /// <summary>
+        /// Optional ordered haircut rules applied to cashflow inflows; the first matching rule wins and a rule with no criteria acts as a catch-all. When supplied, the additional per-bucket columns &#39;Valuation/Bucket/HaircutAmount&#39; and &#39;Valuation/Bucket/NetOfHaircutAmount&#39; are produced; with no rules the results are unchanged. Only supported for the InstrumentCashFlow CashFlowType.
+        /// </summary>
+        /// <value>Optional ordered haircut rules applied to cashflow inflows; the first matching rule wins and a rule with no criteria acts as a catch-all. When supplied, the additional per-bucket columns &#39;Valuation/Bucket/HaircutAmount&#39; and &#39;Valuation/Bucket/NetOfHaircutAmount&#39; are produced; with no rules the results are unchanged. Only supported for the InstrumentCashFlow CashFlowType.</value>
+        [DataMember(Name = "haircutRules", EmitDefaultValue = true)]
+        public List<CashFlowHaircutRule> HaircutRules { get; set; }
+
+        /// <summary>
+        /// Gets or Sets BorderConfiguration
+        /// </summary>
+        [DataMember(Name = "borderConfiguration", EmitDefaultValue = false)]
+        public BucketBorderConfiguration BorderConfiguration { get; set; }
+
+        /// <summary>
+        /// The balance to use at the start of the bucketing window when computing open/close balances.  Supported string (enumeration) values are: [PortfolioCashBalance, Zero]. Defaults to &#39;PortfolioCashBalance&#39;. Available values: PortfolioCashBalance, Zero.
+        /// </summary>
+        /// <value>The balance to use at the start of the bucketing window when computing open/close balances.  Supported string (enumeration) values are: [PortfolioCashBalance, Zero]. Defaults to &#39;PortfolioCashBalance&#39;. Available values: PortfolioCashBalance, Zero.</value>
+        [DataMember(Name = "startingBalance", EmitDefaultValue = true)]
+        public string StartingBalance { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -235,6 +270,10 @@ namespace Lusid.Sdk.Model
             sb.Append("  CashFlowType: ").Append(CashFlowType).Append("\n");
             sb.Append("  BucketingSchedule: ").Append(BucketingSchedule).Append("\n");
             sb.Append("  Filter: ").Append(Filter).Append("\n");
+            sb.Append("  CashFlowCalculationVersion: ").Append(CashFlowCalculationVersion).Append("\n");
+            sb.Append("  HaircutRules: ").Append(HaircutRules).Append("\n");
+            sb.Append("  BorderConfiguration: ").Append(BorderConfiguration).Append("\n");
+            sb.Append("  StartingBalance: ").Append(StartingBalance).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -357,6 +396,27 @@ namespace Lusid.Sdk.Model
                     this.Filter == input.Filter ||
                     (this.Filter != null &&
                     this.Filter.Equals(input.Filter))
+                ) && 
+                (
+                    this.CashFlowCalculationVersion == input.CashFlowCalculationVersion ||
+                    (this.CashFlowCalculationVersion != null &&
+                    this.CashFlowCalculationVersion.Equals(input.CashFlowCalculationVersion))
+                ) && 
+                (
+                    this.HaircutRules == input.HaircutRules ||
+                    this.HaircutRules != null &&
+                    input.HaircutRules != null &&
+                    this.HaircutRules.SequenceEqual(input.HaircutRules)
+                ) && 
+                (
+                    this.BorderConfiguration == input.BorderConfiguration ||
+                    (this.BorderConfiguration != null &&
+                    this.BorderConfiguration.Equals(input.BorderConfiguration))
+                ) && 
+                (
+                    this.StartingBalance == input.StartingBalance ||
+                    (this.StartingBalance != null &&
+                    this.StartingBalance.Equals(input.StartingBalance))
                 );
         }
 
@@ -431,6 +491,22 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Filter.GetHashCode();
                 }
+                if (this.CashFlowCalculationVersion != null)
+                {
+                    hashCode = (hashCode * 59) + this.CashFlowCalculationVersion.GetHashCode();
+                }
+                if (this.HaircutRules != null)
+                {
+                    hashCode = (hashCode * 59) + this.HaircutRules.GetHashCode();
+                }
+                if (this.BorderConfiguration != null)
+                {
+                    hashCode = (hashCode * 59) + this.BorderConfiguration.GetHashCode();
+                }
+                if (this.StartingBalance != null)
+                {
+                    hashCode = (hashCode * 59) + this.StartingBalance.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -477,6 +553,18 @@ namespace Lusid.Sdk.Model
             if (false == regexFilter.Match(this.Filter).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Filter, must match a pattern of " + regexFilter, new [] { "Filter" });
+            }
+
+            // CashFlowCalculationVersion (string) maxLength
+            if (this.CashFlowCalculationVersion != null && this.CashFlowCalculationVersion.Length > 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CashFlowCalculationVersion, length must be less than 1.", new [] { "CashFlowCalculationVersion" });
+            }
+
+            // CashFlowCalculationVersion (string) minLength
+            if (this.CashFlowCalculationVersion != null && this.CashFlowCalculationVersion.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CashFlowCalculationVersion, length must be greater than 1.", new [] { "CashFlowCalculationVersion" });
             }
 
             yield break;
