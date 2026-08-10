@@ -2739,7 +2739,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The requested portfolio instruments&#39; bucketed cash flow data |  -  |
+| **200** | The requested portfolio instruments&#39; bucketed cash flow data |  * Deprecation - Only present when the request resolved to cashFlowCalculationVersion&#x3D;1 (explicitly or by default): an RFC 9745 structured-field date marking when version 1 was deprecated. Set cashFlowCalculationVersion&#x3D;2, its successor. <br>  * Link - Only present when the request resolved to cashFlowCalculationVersion&#x3D;1: an RFC 8288 link with rel&#x3D;\&quot;deprecation\&quot; pointing at the version 1 to version 2 migration documentation. <br>  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
@@ -3793,7 +3793,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The requested portfolio instruments&#39; cash flow data |  -  |
+| **200** | The requested portfolio instruments&#39; cash flow data |  * Deprecation - Only present when the request resolved to cashFlowCalculationVersion&#x3D;1 (explicitly or by default): an RFC 9745 structured-field date marking when version 1 was deprecated. Set cashFlowCalculationVersion&#x3D;2, its successor. <br>  * Link - Only present when the request resolved to cashFlowCalculationVersion&#x3D;1: an RFC 8288 link with rel&#x3D;\&quot;deprecation\&quot; pointing at the version 1 to version 2 migration documentation. <br>  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
@@ -3927,7 +3927,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The requested portfolio cash-ladder |  -  |
+| **200** | The requested portfolio cash-ladder |  * Deprecation - Only present when the request resolved to cashFlowCalculationVersion&#x3D;1 (explicitly or by default): an RFC 9745 structured-field date marking when version 1 was deprecated. Set cashFlowCalculationVersion&#x3D;2, its successor. <br>  * Link - Only present when the request resolved to cashFlowCalculationVersion&#x3D;1: an RFC 8288 link with rel&#x3D;\&quot;deprecation\&quot; pointing at the version 1 to version 2 migration documentation. <br>  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
@@ -4575,7 +4575,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The requested portfolio instruments&#39; cash flow data as a set of upsertable transactions |  -  |
+| **200** | The requested portfolio instruments&#39; cash flow data as a set of upsertable transactions |  * Deprecation - Only present when the request resolved to cashFlowCalculationVersion&#x3D;1 (explicitly or by default): an RFC 9745 structured-field date marking when version 1 was deprecated. Set cashFlowCalculationVersion&#x3D;2, its successor. <br>  * Link - Only present when the request resolved to cashFlowCalculationVersion&#x3D;1: an RFC 8288 link with rel&#x3D;\&quot;deprecation\&quot; pointing at the version 1 to version 2 migration documentation. <br>  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
